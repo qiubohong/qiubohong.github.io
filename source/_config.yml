@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 疯子知识库
 subtitle:
-description:
+description: 不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志
 keywords:
 author: qborfy
 language: zh-CN
@@ -27,6 +27,15 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+
+categories:
+  - 技术分享
+  - 学习总结
+  - 周二技术报
+  - 奇思妙想
+  - 翻译文章
+  - gitbook>前端基础巩固
 
 # Writing
 new_post_name: :title.md # File name of new posts

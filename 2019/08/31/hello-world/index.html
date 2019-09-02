@@ -2,15 +2,15 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Hello World | Hexo</title>
+  <title>Hello World | 疯子知识库</title>
   <meta name="keywords" content>
-  <meta name="description" content="Hello World | Hexo">
+  <meta name="description" content="Hello World | 疯子知识库">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
 <meta property="og:url" content="http://qiubohong.github.io/2019/08/31/hello-world/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="疯子知识库">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-31T09:42:57.006Z">
@@ -47,7 +47,7 @@
 </head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="false">
+  <input class="theme_preload_comment" value="true">
   <input class="theme_blog_path" value>
 </div>
 
@@ -121,7 +121,7 @@
     
     
     </div>
-    <div><a  class="friends">友链</a></div>
+    <div><a class="about  site_url"  href="/about">关于</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="1">
 
@@ -213,6 +213,17 @@
         </span>
         
         
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
     </div>
     
     <div class="toc-ref">
@@ -269,6 +280,27 @@
     </p>
 </div>
 
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: 'qiubohong.github.io',
+            owner: 'qiubohong',
+            admin: ['qiubohong'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
