@@ -49,9 +49,10 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
-  per_page: 10
-  order_by: -date
+  per_page: 10 # 每页显示文章数，设置0为不分页
+  order_by: -date # 文章排序，默认为按时间先后排序
+  exclude:
+    - tag hide # 过滤标签为'Hexo'的文章，可自行修改
   
 # Category & Tag
 default_category: uncategorized
