@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://qiubohong.github.io">
-  <title>Archives | 疯子知识库</title>
+  <title>iOS11.3 fastclick.js相关bug | 疯子知识库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="疯子知识库">
-<meta property="og:url" content="http://qiubohong.github.io/archives/index.html">
+  <meta name="description" content="最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。 bug复现条件：一、ios 11.3中app的webview为 UI WebView二、在项目中使用了FastClick.js，页面包括输入框 发现源头问题：在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是Fa">
+<meta name="keywords" content="技术分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS11.3 fastclick.js相关bug">
+<meta property="og:url" content="http://qiubohong.github.io/2018/08/04/share/iOS11-fastclick-js/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。 bug复现条件：一、ios 11.3中app的webview为 UI WebView二、在项目中使用了FastClick.js，页面包括输入框 发现源头问题：在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是Fa">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11733108-a045cb92752f7ae8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11733108-dc00511b626e3496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11733108-2e17af0f0c9a7474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11733108-829a9db17ea2e4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11733108-443f9d4c26e32cd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-03T13:29:27.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="疯子知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="iOS11.3 fastclick.js相关bug">
+<meta name="twitter:description" content="最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。 bug复现条件：一、ios 11.3中app的webview为 UI WebView二、在项目中使用了FastClick.js，页面包括输入框 发现源头问题：在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是Fa">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11733108-a045cb92752f7ae8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -207,122 +215,117 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-share/iOS11-fastclick-js" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/31/wx/20190731/" class="archive-article-date">
-  	<time datetime="2019-07-31T13:03:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/31/wx/20190731/">周二技术周刊 20190731期</a>
+    <h1 class="article-title" itemprop="name">
+      iOS11.3 fastclick.js相关bug
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">周二技术周刊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/19/share/ios12-array-reverse/" class="archive-article-date">
-  	<time datetime="2018-08-19T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/19/share/ios12-array-reverse/">ios12 array.reverse问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/04/share/iOS11-fastclick-js/" class="archive-article-date">
+        
+        <a href="/2018/08/04/share/iOS11-fastclick-js/" class="archive-article-date">
   	<time datetime="2018-08-04T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/04/share/iOS11-fastclick-js/">iOS11.3 fastclick.js相关bug</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。</p>
+<h2 id="bug复现条件："><a href="#bug复现条件：" class="headerlink" title="bug复现条件："></a>bug复现条件：</h2><p>一、ios 11.3中app的webview为 UI WebView<br>二、在项目中使用了FastClick.js，页面包括输入框</p>
+<h2 id="发现源头问题："><a href="#发现源头问题：" class="headerlink" title="发现源头问题："></a>发现源头问题：</h2><p>在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是FastClick.js导致，注释掉后发现bug现象消失了，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'zepto'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta"> 'use strict'</span>;</span><br><span class="line"> <span class="comment">// FastClick.attach(document.body);</span></span><br><span class="line"> ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>但是这是为什么呢？我们一起看看为什么要加上FastClick，这个库解决了什么问题？</p>
+<a id="more"></a>
+
+<ul>
+<li>click 300ms延迟：浏览器click会比touch延迟300ms触发</li>
+<li>click穿透现象：当两个div同处一个position，上层div绑定touch，下层div绑定click,当上层div触发touch消失后，可能会触发下层div的click事件<br>既然Fastclick是为了解决这两类问题，其实现原理如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/11733108-a045cb92752f7ae8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="fastclick原理"></li>
+</ul>
+<p>fastclick利用捕获顶层dom元素(如：body，html等)的click事件，拦截所有的click请求进行判断：是否有touch触发、是否需要阻碍click事件(stopImmediatePropagation)等。</p>
+<h2 id="分析问题解决方案："><a href="#分析问题解决方案：" class="headerlink" title="分析问题解决方案："></a>分析问题解决方案：</h2><p>步骤一：input无法聚焦弹出键盘，fastclick中有一块判断当前元素targetElement是否需要needsFocus，看看其方法的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">FastClick.prototype.needsFocus = <span class="function"><span class="keyword">function</span>(<span class="params">target</span>) </span>&#123; <span class="comment">//判断当前元素是否需要focus</span></span><br><span class="line">        <span class="keyword">switch</span> (target.nodeName.toLowerCase()) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'textarea'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'select'</span>:</span><br><span class="line">                <span class="keyword">return</span> !deviceIsAndroid;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'input'</span>:</span><br><span class="line">                <span class="keyword">switch</span> (target.type) &#123;</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'button'</span>:</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'checkbox'</span>:</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'file'</span>:</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'image'</span>:</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'radio'</span>:</span><br><span class="line">                    <span class="keyword">case</span> <span class="string">'submit'</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// No point in attempting to focus disabled inputs</span></span><br><span class="line">                <span class="keyword">return</span> !target.disabled &amp;&amp; !target.readOnly;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> (<span class="regexp">/\bneedsfocus\b/</span>).test(target.className);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>步骤二：看到needsFocus下执行了什么？在touchEnd方法中，代码块如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.needsFocus(targetElement)) &#123;<span class="keyword">if</span> ((event.timeStamp - trackingClickStart) &gt; <span class="number">100</span> || (deviceIsIOS &amp;&amp; <span class="built_in">window</span>.top !== <span class="built_in">window</span> &amp;&amp; targetTagName === <span class="string">'input'</span>)) &#123;</span><br><span class="line"> <span class="keyword">this</span>.targetElement = <span class="literal">null</span>;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">this</span>.focus(targetElement); <span class="comment">//调用focus进行聚焦</span></span><br><span class="line"> <span class="keyword">this</span>.sendClick(targetElement, event);</span><br><span class="line">  </span><br><span class="line"> <span class="keyword">if</span> (!deviceIsIOS || targetTagName !== <span class="string">'select'</span>) &#123;</span><br><span class="line"> <span class="keyword">this</span>.targetElement = <span class="literal">null</span>;</span><br><span class="line"> event.preventDefault();</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤三：focus方法分析（包含解决方案），如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FastClick.prototype.focus = <span class="function"><span class="keyword">function</span>(<span class="params">targetElement</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> length;</span><br><span class="line">        <span class="comment">//兼容处理:在iOS7中，有一些元素（如date、datetime、month等）在setSelectionRange会出现TypeError</span></span><br><span class="line">        <span class="comment">//这是因为这些元素并没有selectionStart和selectionEnd的整型数字属性，所以一旦引用就会报错，因此排除这些属性才使用setSelectionRange方法</span></span><br><span class="line">        <span class="keyword">if</span> (deviceIsIOS &amp;&amp; targetElement.setSelectionRange &amp;&amp; targetElement.type.indexOf(<span class="string">'date'</span>) !== <span class="number">0</span> &amp;&amp; targetElement.type !== <span class="string">'time'</span> &amp;&amp; targetElement.type !== <span class="string">'month'</span> &amp;&amp; targetElement.type !== <span class="string">'email'</span>) &#123;</span><br><span class="line">            length = targetElement.value.length;</span><br><span class="line">            targetElement.setSelectionRange(length, length);</span><br><span class="line">            <span class="comment">/*修复bug ios 11.3不弹出键盘，这里加上聚焦代码，让其强制聚焦弹出键盘*/</span></span><br><span class="line">            targetElement.focus();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            targetElement.focus();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><p>OK，上真机iphoneX验证bug已经消失了，但是我们并不知道为什么在ios 11.3会出现该问题，秉着探索真理的一颗心（ZZZZ），到github去查看FastClick的issues列表，果然发现早有人提出bug了，如下图：<br><img src="https://upload-images.jianshu.io/upload_images/11733108-dc00511b626e3496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="fastclick issues"></p>
+<p>下方有评论如下：<br>A：说framework7框架那边已经有解决方案啦，<a href="https://github.com/framework7io/framework7/issues/2314#issuecomment-377778034" target="_blank" rel="noopener">点击这里</a>。<br><img src="https://upload-images.jianshu.io/upload_images/11733108-2e17af0f0c9a7474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="frameword7问题解决"></p>
+<p>另外一位仁兄的解决方案和我类似，修改focus方法。<br><img src="https://upload-images.jianshu.io/upload_images/11733108-829a9db17ea2e4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="focus解决方案"></p>
+<p>因此跳到framework的issue中的解决方案，解决方案：<a href="https://stackoverflow.com/questions/49500339/cant-prevent-touchmove-from-scrolling-window-on-ios" target="_blank" rel="noopener">点击这里</a>，描述如下：<br><img src="https://upload-images.jianshu.io/upload_images/11733108-443f9d4c26e32cd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方案描述"></p>
+<p>跳过去stackoverflow后，其实根本源头已经查到了，ios 11.3更新 Safari 11.1，支持新web API :允许对事件支持 <code>{passive: false}</code>被动模式，减少滚动屏幕的性能损耗和奔溃。</p>
+<h2 id="passive-mode解析"><a href="#passive-mode解析" class="headerlink" title="passive mode解析"></a>passive mode解析</h2><p>那么新的问题来了，{passive: false}是什么玩意？来，我们先看看它的使用方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;, &#123; <span class="attr">passive</span>: <span class="literal">false</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>按照以往我们对添加事件监听的方法三个参数的认知，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(type , callback, capture); <span class="comment">//type是事件类型，callback是执行函数， capture是否进行捕获/冒泡，默认为false</span></span><br></pre></td></tr></table></figure>
+
+<p>Passive event listeners是2016年Google I/O 上同 PWA 概念一起被提出，但是同PWA不同，Passive event listeners 的作用很简单，如果用简单一句话来解释就是：提升页面滑动的流畅度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">target.addEventListener(type, listener[, options]);</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">options 可选</span></span><br><span class="line"><span class="comment">一个指定有关 listener 属性的可选参数对象。</span></span><br><span class="line"><span class="comment">可用的选项如下：</span></span><br><span class="line"><span class="comment">capture:  Boolean，表示 listener 会在该类型的事件捕获阶段传播到该 EventTarget 时触发。</span></span><br><span class="line"><span class="comment">once:  Boolean，表示 listener 在添加之后最多只调用一次。如果是 true， listener 会在其被调用之后自动移除。</span></span><br><span class="line"><span class="comment">passive: Boolean，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//示例代码</span></span><br><span class="line">target.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">   e.preventDefault() <span class="comment">// 无效，报错</span></span><br><span class="line">&#125;, &#123;<span class="attr">passive</span>: <span class="literal">true</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>为什么增加支持这个属性会导致添加fastclick后input输入框很难弹出键盘？</p>
+<p>在ios更新日志了，写到了“Updated root document touch event listeners to use passive mode improving scrolling performance and reducing crashes.”</p>
+<p>翻译过来就是：针对document的touch事件监听添加passive配置，即是：{passive: true}，会永远不调用event.preventDefault()，以此来提高滚动性能。</p>
+<p>源头推测：</p>
+<p>fastclick是采用拦截click和监听touch事件去实现的，里面包括对tagetElement的focus方法重写，因此在11.3之前可能event.preventDefault生效了，同时用setSelectionRange是可以聚焦input的。</p>
+<p>另外一个bug也是由这个导致的是：</p>
+<p>在iOS11.3的UI webview使用fastclick.js，页面有个按钮点击事件，当app或锁屏超过几分钟时间，回到页面会导致click事件失效。</p>
+<p>解决方案为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> passiveListener = (<span class="function"><span class="keyword">function</span> <span class="title">checkPassiveListener</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//判断浏览器是否支持 &#123;passive: true&#125;</span></span><br><span class="line">            <span class="keyword">var</span> supportsPassive = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> opts = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'passive'</span>, &#123;</span><br><span class="line">                    <span class="keyword">get</span>: function() &#123;</span><br><span class="line">                        supportsPassive = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="built_in">window</span>.addEventListener(<span class="string">'testPassiveListener'</span>, <span class="literal">null</span>, opts);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                supportsPassive = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> supportsPassive;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="keyword">var</span> activeListener = passiveListener ? &#123;<span class="attr">passive</span>:<span class="literal">false</span>&#125; : <span class="literal">false</span>;</span><br><span class="line">layer.addEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.onClick, <span class="literal">true</span>);</span><br><span class="line">layer.addEventListener(<span class="string">'touchstart'</span>, <span class="keyword">this</span>.onTouchStart, passiveListener);</span><br><span class="line">layer.addEventListener(<span class="string">'touchmove'</span>, <span class="keyword">this</span>.onTouchMove, passiveListener);</span><br><span class="line">layer.addEventListener(<span class="string">'touchend'</span>, <span class="keyword">this</span>.onTouchEnd, passiveListener);</span><br><span class="line">layer.addEventListener(<span class="string">'touchcancel'</span>, <span class="keyword">this</span>.onTouchCancel, passiveListener);</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener">《EventTarget.addEventListener()增加passive属性说明——web MDN API网站》</a></li>
+<li><a href="https://github.com/ftlabs/fastclick/issues/548" target="_blank" rel="noopener">《fastclick github issues#548》</a></li>
+<li><a href="https://stackoverflow.com/questions/49500339/cant-prevent-touchmove-from-scrolling-window-on-ios" target="_blank" rel="noopener">《stackoverflow ——touchmove e.preventDefault失效问题》</a></li>
+<li><a href="https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_11_1.html" target="_blank" rel="noopener">《Safari 11.1更新日志》</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -334,19 +337,123 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2018/08/04/share/iOS11-fastclick-js/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/08/19/share/ios12-array-reverse/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ios12 array.reverse问题
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#bug复现条件："><span class="toc-number">1.</span> <span class="toc-text">bug复现条件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发现源头问题："><span class="toc-number">2.</span> <span class="toc-text">发现源头问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析问题解决方案："><span class="toc-number">3.</span> <span class="toc-text">分析问题解决方案：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理分析"><span class="toc-number">4.</span> <span class="toc-text">原理分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#passive-mode解析"><span class="toc-number">5.</span> <span class="toc-text">passive mode解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -369,8 +476,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
