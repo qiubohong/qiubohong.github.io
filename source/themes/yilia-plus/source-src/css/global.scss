@@ -1,0 +1,5 @@
+@import "core";
+
+:not(a)>img {
+  cursor: pointer;
+}

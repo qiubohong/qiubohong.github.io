@@ -1,0 +1,36 @@
+{
+  "name": "fedstudy",
+  "version": "1.0.0",
+  "description": "本书旨在分享个人前端开发学习经历过各个基础知识点，主要以前端全栈知识作为范围进行描述。",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-plugin-anchor-navigation-ex": "^1.0.14",
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-code": "^0.1.0",
+    "gitbook-plugin-donate": "^1.0.2",
+    "gitbook-plugin-expandable-chapters-small": "^0.1.7",
+    "gitbook-plugin-favicon": "^0.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-lightbox": "^1.1.0",
+    "gitbook-plugin-sharing-plus": "^0.0.2",
+    "gitbook-plugin-splitter": "^0.0.8",
+    "gitbook-plugin-tbfed-pagefooter": "0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "gitbook serve",
+    "build": "gitbook build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiubohong/fedlearn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qiubohong/fedlearn/issues"
+  },
+  "homepage": "https://github.com/qiubohong/fedlearn#readme"
+}
