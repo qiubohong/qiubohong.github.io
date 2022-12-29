@@ -85,7 +85,7 @@ theme: yilia-plus
 deploy:
   type: git
   repo: https://github.com/qiubohong/qiubohong.github.io.git
-  branch: main
+  branch: master
   token: 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
 
 jsonContent:
