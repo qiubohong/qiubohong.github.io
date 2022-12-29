@@ -19,7 +19,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "gitbook serve",
+    "dev": "gitbook serve --port 4002",
     "build": "gitbook build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
