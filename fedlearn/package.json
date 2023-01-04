@@ -12,6 +12,8 @@
     "gitbook-plugin-favicon": "^0.0.2",
     "gitbook-plugin-github": "^2.0.0",
     "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-include-codeblock": "^3.2.3",
+    "gitbook-plugin-katex": "^1.1.4",
     "gitbook-plugin-lightbox": "^1.1.0",
     "gitbook-plugin-sharing-plus": "^0.0.2",
     "gitbook-plugin-splitter": "^0.0.8",
