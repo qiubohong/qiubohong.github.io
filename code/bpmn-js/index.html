@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>BPMNJS测试案例</title>
+
+    <!-- 引入BPMN-JS的CSS文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@11.1.0/dist/assets/diagram-js.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@11.1.0/dist/assets/bpmn-font/css/bpmn.css" />
+    <!-- xml文件 -->
+    <script src="./bpmn.js"></script>
+</head>
+
+<body>
+    <div id="canvas" style="height:80vh;"></div>
+    <!-- 引入BPMN-JS的JS文件 -->
+    <script src="./bpmn-modeler.js"></script>
+    <script>
+        var bpmnModeler = new BpmnJS({
+            container: '#canvas'
+        });
+        console.log('bpmxl:', bpmxl)
+        bpmnModeler.importXML(bpmxl).then((err) => {
+            if (err) {
+                console.log(err)
+                return;
+            }
+            var canvas = bpmnModeler.get('canvas');
+            canvas.zoom('fit-viewport');
+        });
+
+        bpmnModeler.on('commandStack.changed', function () {
+            bpmnModeler.saveXML({ format: true }, function(err, xml) {
+                // 这里获取到的就是最新的xml信息
+                console.log('update:', xml)
+            })
+        });
+    </script>
