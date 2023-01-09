@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qiubohong.github.io">
-  <title>CMDB对运维到底有什么作用 | 疯子知识库</title>
+  <title>对CMDB进行一个系统完整认知 | 疯子知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+  <meta name="description" content="背景最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：  是什么 能做什么和怎么做 优秀方案 未来方向">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CMDB对运维到底有什么作用">
-<meta property="og:url" content="http://qiubohong.github.io/2023/01/06/today/20220109/index.html">
+<meta property="og:title" content="对CMDB进行一个系统完整认知">
+<meta property="og:url" content="http://qiubohong.github.io/2023/01/09/today/20220109/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：  是什么 能做什么和怎么做 优秀方案 未来方向">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-07T11:38:55.091Z">
+<meta property="og:image" content="http://qiubohong.github.io/assets/img/cmdb1.svg">
+<meta property="og:updated_time" content="2023-01-09T13:47:00.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CMDB对运维到底有什么作用">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="对CMDB进行一个系统完整认知">
+<meta name="twitter:description" content="背景最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：  是什么 能做什么和怎么做 优秀方案 未来方向">
+<meta name="twitter:image" content="http://qiubohong.github.io/assets/img/cmdb1.svg">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -259,7 +261,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      CMDB对运维到底有什么作用
+      对CMDB进行一个系统完整认知
     </h1>
   
 
@@ -271,8 +273,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/06/today/20220109/" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+<a href="/2023/01/09/today/20220109/" class="archive-article-date">
+        <time datetime="2023-01-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-09</time>
 </a>
 
   
@@ -285,7 +287,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">2.2k字</span>
     </span>
   </span>
 
@@ -294,7 +296,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -305,7 +307,101 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：</p>
+<ul>
+<li>是什么</li>
+<li>能做什么和怎么做</li>
+<li>优秀方案</li>
+<li>未来方向</li>
+</ul>
+<a id="more"></a>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><blockquote>
+<p>CMDB(Configuration Management Database)，配置管理数据库，主要包含了配置项全生命周期的信息以及配置项之间的关系(包括物理关系、实时通信关系、非实时通信关系和依赖关系)。<br>CMDB存储与管理企业IT架构中设备的各种配置信息，它与所有服务支持和服务交付流程都紧密相联，支持这些流程的运转、发挥配置信息的价值，同时依赖于相关流程保证数据的准确性。<br>CMDB存储目标定义为：配置管理致力于通过维护IT基础设施和IT服务的逻辑模式来协助管理IT服务的经济价值(客户需求、质量和成本的结合)，并将与此相关的信息提供给其他业务流程。它通过识别、监测、控制和提供有关配置项及其版本方面的信息来实现目标。<br>以上描述来自百度百科<a href="https://baike.baidu.com/item/CMDB/5403317" target="_blank" rel="noopener">CMDB</a>。</p>
+</blockquote>
+<p>按照个人理解，CMDB按照比较容易理解的说法，CMDB主要存储公司内部IT基础架构数据存储和配置，能够数字化IT资产与业务的关联关系。</p>
+<p>更加明确的说，CMDB是运维的基础核心系统，包括运维所需要的元数据，同时共享数据管理源。 CMDB存储的数据包括但不限于：</p>
+<ul>
+<li>逻辑资源，指的是底层物理资源对应的逻辑资源，包括：xxx系统、xxx服务、xxxApp等</li>
+<li>物理资源，指的是可供运维人员实际操作的物理资源，包括：服务器(cvm、物理机、容器)，机房、机柜、网络设备、链路资源、配件等</li>
+</ul>
+<h1 id="能做什么"><a href="#能做什么" class="headerlink" title="能做什么"></a>能做什么</h1><p>上面描述CMDB是什么，CMDB到底能做什么呢？或者它对运维有什么作用呢？</p>
+<p>这里需要简单介绍几个概念：</p>
+<ul>
+<li>ITSM(IT service management), IT服务管理，主要是给用户提供标准流程完成IT资产交付，和管理这些IT流程的系统</li>
+<li>ITIL(Information Technology Infrastructure Library)，IT服务管理标准库， 是ITSM最常用的实现方案，侧重于使 IT服务与业务需求保持紧密关联</li>
+<li>DevOps由英文 Development（开发）和 Operations（运维）组合而成，是开发和运维紧密结合的思想理念，是开发和运维团队之间的流程能够自动化和持续集成、交付，从开发到交付部署形成一个循环的过程。后面我们会单独抽出一个文章做详细了解。</li>
+</ul>
+<p>上面的几个概念，只要是IT从业者或多或少都有接触到，那么CMDB在这些系统或者流程中，起到一个数据基石的作用，我们举几个例子：</p>
+<ol>
+<li>如果没有CMDB的配置数据，ITSM流程对用户(开发)就很难入手，比如要申请一台机器，流程里会有很多IT专用描述，开发无法快速申请流程</li>
+<li>如果没有CMDB，那么DevOps中要实现自动化持续集成和交付，开发要将服务部署到哪台机器，运维无法得知</li>
+</ol>
+<p>那么总结一下，CMDB能做的事情，主要有以下几点：</p>
+<ol>
+<li>能数字化IT资产，并且提供到IT资产管理一个可靠的参考数据</li>
+<li>能帮忙快速完成ISM流程，以及更加有效管理ITSM流程</li>
+<li>能将业务与IT资产做关联，实现业务与IT资产的有效管理</li>
+</ol>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>明白CMDB能做什么，那么我们应该如何设计一个合理CMDB呢？</p>
+<p>首先，市场上已经存在各色各样的CMDB平台，主要有以下几个：</p>
+<ul>
+<li><a href="https://bk.tencent.com/docs/document/6.0/142/8600" target="_blank" rel="noopener">腾讯蓝鲸平台CMDB配置系统</a>，基于腾讯蓝鲸平台的CMDB配置系统</li>
+<li><a href="https://github.com/Combodo/iTop" target="_blank" rel="noopener">ITOP</a>，一个完整的开源，ITIL，基于Web的服务管理工具，包括完全可定制的CMDB，帮助台系统和文档管理工具。</li>
+<li>怎么开发CMDB平台这里就不做描述，无非几点：</li>
+</ul>
+<ol>
+<li>可自由配置的CMDB模型的 管理web界面</li>
+<li>开发标准API接口（主要模型的CRUD），对第三方工具提供服务</li>
+</ol>
+<h2 id="模型设计"><a href="#模型设计" class="headerlink" title="模型设计"></a>模型设计</h2><p>一个可维护的CMDB平台，肯定脱离不了前期模型设计，所以一个良好且能够向前兼容的模型设计至关重要，因此我这边简单罗列了一下模型几大类，以及它们之间的关系：</p>
+<ul>
+<li>业务模型，这里业务模型可以拆分多级，最多三级，因为三级业务树基本上能够满足大部分业务等级拆分</li>
+<li>模块模型，模块即是从开发角度去理解的项目粒度，通俗的说，就是一个单独且完整的项目，</li>
+<li>设备模型，就是服务器，包括：虚拟机、物理机、容器等</li>
+<li>持续集成相关模型，主要包括：CI(持续集成)、CD(持续交付)等模型</li>
+<li>网络架构相关模型，主要包括：网络策略、域名、证书等</li>
+</ul>
+<p>再就是需要设计模型与模型之间的关系，这里会很绕，但是为了让大家更加清晰了解CMDB的设计，这里简单绘画了一下：</p>
+<p><img src="/assets/img/cmdb1.svg" alt></p>
+<h3 id="模型生命周期"><a href="#模型生命周期" class="headerlink" title="模型生命周期"></a>模型生命周期</h3><p>每个CMDB中模型，都有其生命周期流程，结合ITSM就可以完成实现模型的生命周期状态扭转。</p>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p>** 在CMDB实现阶段：一定要变成运维和运维研发的共同项目，并且具体的配置项管理人要全程参与，比如说需求讨论、测试、上线验收等等（运维研发项目都可以遵循该模式） **</p>
+<h3 id="导致CMDB失败的因素"><a href="#导致CMDB失败的因素" class="headerlink" title="导致CMDB失败的因素"></a>导致CMDB失败的因素</h3><ol>
+<li>在复杂流程上消耗太多的时间—我们是创建一个CMDB库，不是一个流程系统。</li>
+<li>没有指定配置项负责人—-确保配置项有人专职维护。</li>
+<li>目标过大，涵盖太多的功能—-比如说IT采购和预算管理等等。</li>
+<li>颗粒度不合适—-配置合理的CMDB的配置项层次和粒度非常重要。</li>
+<li>存在组织隔阂—-CMDB是一个集成体系，靠流程中的每一个人通力协作，而不是某个人。</li>
+</ol>
+<h3 id="导致CMDB成功的因素"><a href="#导致CMDB成功的因素" class="headerlink" title="导致CMDB成功的因素"></a>导致CMDB成功的因素</h3><ol>
+<li>业务导向。比如说我们在CMDB的新的系统中实时加入QR码技术，为了降低资产盘点的工作量。</li>
+<li>能自动发现就自动发现，降低配置管理的成本，但自动发现的信息不能用来做告警。</li>
+<li>配置项的管理员必须全程参与，需求定型、测试及验收等等。</li>
+<li>CMDB系统建设完成之后，其他系统必须和他联动。比如说监控、质量、容量等等，用场景驱动配置项的管理。</li>
+<li>流程一定要平台化，不要让流程脱离CMDB存在，比如说搞一个OA流程，这个是很致命的。</li>
+<li>CMDB要持续演进，特别是云端资源的管理。</li>
+<li>配置项和流程必须要文档化，后期要进行CMDB培训。</li>
+</ol>
+<h1 id="未来规划——自动化-智能化-更安全的运维"><a href="#未来规划——自动化-智能化-更安全的运维" class="headerlink" title="未来规划——自动化/智能化/更安全的运维"></a>未来规划——自动化/智能化/更安全的运维</h1><p>目前绝大部分的CMDB数据都是走运维人工手动录入，是否能够做到自动化，甚至智能化。</p>
+<p>让数据自动化主要靠以下几点：</p>
+<ol>
+<li>建立数据生命周期管理，自动化流程驱动数据更新</li>
+<li>与多个运维工具对接，促进数据消费，提高数据流动性</li>
+<li>通过规则校验以及人工审计确保及时发现和修复异常数据</li>
+</ol>
+<p>依托CMDB的数据基石，能让运维走向智能化，运维的价值在于交付能力，主要：</p>
+<ol>
+<li>开发能够随时交付，无需运维过多参与，自动化运维</li>
+<li>实时监控，智能化告警，提前告知开发进行预警</li>
+<li>服务异常自愈，依托CMDB数据，能够自动重启服务完成服务异常自愈</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>CMDB其实就是一个数据管理平台，开发技术上难度不大，最大难度在于数据，以下几点：</p>
+<ul>
+<li>第一要保证数据的准确性</li>
+<li>第二要能快速自动化获取数据</li>
+<li>第三数据模型以及其关联设计，主要完成这三点</li>
+</ul>
+<p>但是完成CMDB数据后，只是迈开自动化/智能化运维的第一步，后面还需要基于CMDB去完成整个DevOps流程自动化/智能化。</p>
+
     
 
     
@@ -351,7 +447,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://qiubohong.github.io/2023/01/06/today/20220109/" title="CMDB对运维到底有什么作用" target="_blank">http://qiubohong.github.io/2023/01/06/today/20220109/</a>
+          <a href="http://qiubohong.github.io/2023/01/09/today/20220109/" title="对CMDB进行一个系统完整认知" target="_blank">http://qiubohong.github.io/2023/01/09/today/20220109/</a>
         </li>
         
         <li>
@@ -433,7 +529,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/06/today/20220109/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/09/today/20220109/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -448,18 +544,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2023/01/06/today/20220106/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          从审批流到bpmn-js入门
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/06/today/20220110/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从egg.js转到nest.js</div>
+    <a href="/2023/01/08/today/20220108/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何在页面展示数学公式之Latex语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -478,6 +565,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">2.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#能做什么"><span class="toc-number">3.</span> <span class="toc-text">能做什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么做"><span class="toc-number">4.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模型设计"><span class="toc-number">4.1.</span> <span class="toc-text">模型设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型生命周期"><span class="toc-number">4.1.1.</span> <span class="toc-text">模型生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项："><span class="toc-number">4.2.</span> <span class="toc-text">注意事项：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导致CMDB失败的因素"><span class="toc-number">4.2.1.</span> <span class="toc-text">导致CMDB失败的因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导致CMDB成功的因素"><span class="toc-number">4.2.2.</span> <span class="toc-text">导致CMDB成功的因素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未来规划——自动化-智能化-更安全的运维"><span class="toc-number">5.</span> <span class="toc-text">未来规划——自动化/智能化/更安全的运维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
