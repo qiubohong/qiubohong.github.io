@@ -10,18 +10,27 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+  <meta name="description" content="背景进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。 但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：  对typescript支持度不够，这是由于egg.js本身就不是typescrip">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从egg.js转到nest.js">
-<meta property="og:url" content="http://qiubohong.github.io/2023/01/06/today/20220110/index.html">
+<meta property="og:url" content="http://qiubohong.github.io/2023/01/10/today/20220110/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。 但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：  对typescript支持度不够，这是由于egg.js本身就不是typescrip">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-08T13:37:25.400Z">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Modules_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Controllers_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Components_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Middlewares_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Filter_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Guards_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/Interceptors_1.png">
+<meta property="og:image" content="https://docs.nestjs.com/assets/lifecycle-events.png">
+<meta property="og:updated_time" content="2023-01-10T15:01:19.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从egg.js转到nest.js">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:description" content="背景进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。 但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：  对typescript支持度不够，这是由于egg.js本身就不是typescrip">
+<meta name="twitter:image" content="https://docs.nestjs.com/assets/Modules_1.png">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -271,8 +280,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/06/today/20220110/" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+<a href="/2023/01/10/today/20220110/" class="archive-article-date">
+        <time datetime="2023-01-10T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-10</time>
 </a>
 
   
@@ -285,7 +294,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -294,7 +303,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -305,7 +314,141 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。</p>
+<p>但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：</p>
+<ul>
+<li>对typescript支持度不够，这是由于egg.js本身就不是typescript开发</li>
+<li>egg.js封装web架构，约定大于编码，如：强制将web应用分级为： controller、service、middleware、extend等，自由度相对比较弱，当你需要定制化开发内容，你需要深入了解egg.js的整个运行原理才能实现</li>
+<li>虽然部门内部定制化开发 @Controller @Service等注解，减少路由配置，但是这一块插件还存在一些隐藏规则，需要开发注意</li>
+</ul>
+<p>当然egg.js运行的web应用还是比较稳定，而且相关插件生态也比较丰富，只是当egg.js迭代更新速度在2020年后就逐步放缓，更不上变化，我们就需要迎接一些新的框架来满足要求。</p>
+<h1 id="框架对比"><a href="#框架对比" class="headerlink" title="框架对比"></a>框架对比</h1><p>我从近两年听到或者网上收集的，基于Node.js的框架主要有以下几个：</p>
+<ul>
+<li>基础框架，基本上还是以express、koa、Fastify.js等为主</li>
+<li>egg.js，以MVC为架构的web框架</li>
+<li>nest.js，以Ioc 控制反转作为核心概念的web框架，对typescript支持友好</li>
+<li>nuxt.js，以Vue.js作为SSR服务端渲染核心的web框架，最新是Nuxt3（以Vue3为核心）</li>
+<li>next.js，以React.js作为SSR服务端渲染核心的</li>
+<li>Meteor.js，full-stack javascript平台，最大的特点是当数据发生改变的时候，所有依赖该数据的地方自动发生相应的改变。</li>
+<li>Fastify.js，号称最快的node.js web框架，特点是内置了基于 JSON schema 的 validation 和 serialization，比JSON.stringify还快的json序列化算法，虽然是借助借助第三方库 ajv。</li>
+<li>strapi.js，快速生成API接口的web框架，同时实现各种后端所需要的鉴权、权限、文件上传等轮子</li>
+</ul>
+<a id="more"></a>
+
+<p>对比一下，我们主要用来开发后端api接口，不需要SSR，不需要过于重或过于轻量的框架，因此最后挑选了nest.js。</p>
+<h1 id="nest-js"><a href="#nest-js" class="headerlink" title="nest.js"></a>nest.js</h1><blockquote>
+<p>Nest (NestJS) 是一个用于构建高效、可扩展的Node.js服务器端应用程序的框架。它使用渐进式 JavaScript，构建并完全支持TypeScript（但仍然允许开发人员使用纯 JavaScript 进行编码）并结合了 OOP（面向对象编程）、FP（函数式编程）和 FRP（函数式响应式编程）的元素。</p>
+</blockquote>
+<p>术语介绍：</p>
+<ul>
+<li>什么是渐进式？简单说，就一开始你不需要了解它的全部功能，能快速上手，有些功能特性不用也可以正常使用。</li>
+<li>OOP 面向对象编程，万物皆可用对象来描述，如： <code>class Dog{ say(return &#39;one one!&#39;)}</code></li>
+<li>FP 函数式编程，以函数作为入口，而不是去声明一个对象类，如： <code>say(&#39;one one!&#39;)</code></li>
+<li>RP 响应式编程，一种面向数据流和变化传播的编程范式，如：<code>a = 5; b=6; c=a+b;</code> 当<code>a</code>或<code>b</code>变化的时候，<code>c</code>会随之变化</li>
+<li>FRP 函数式响应式编程，依赖数据流的函数式编程，如：<code>str=&#39;one one~&#39;; say(str)</code>， 当<code>str</code>变化，会自动触发<code>say</code></li>
+</ul>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Nest.js的核心是基于IoC控制反转 + DI 依赖注入 去实现类的声明和实例化的。如果你了解过Spring Boot其实很容易上手nest.js。</p>
+<h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>Module 其实是nest.js用来将一个web应用拆分成各个子模块的分类规定，web应用根模块一般叫<code>app.module.ts</code>，官方设计图如下：</p>
+<p><img src="https://docs.nestjs.com/assets/Modules_1.png" alt></p>
+<p>Module应该由以下几个部分组成：</p>
+<ul>
+<li>providers： 允许交给模块实例化的类，包括不限于Service等</li>
+<li>controllers：必须实例的controller类</li>
+<li>imports： 模块依赖其他模块</li>
+<li>exports：模块对外提供的方法类</li>
+</ul>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><p>Controller就一个作用，分割路由，调用处理方法，返回http请求结果。</p>
+<p><img src="https://docs.nestjs.com/assets/Controllers_1.png" alt></p>
+<p>支持写法：</p>
+<ul>
+<li><code>@Controller(&#39;test&#39;)</code></li>
+<li><code>@Get()</code> <code>@Post()</code> <code>@Put()</code> <code>@Del()</code>代表各种请求方法(http Method)</li>
+<li>还支持一些特殊写法： <code>@Session()</code>  <code>@Body(key?: string)</code> <code>@Param(key?: string)</code></li>
+</ul>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider其实就是不仅仅是Service层，还包括：Sql的Dao层、工具方法等提供。它和其他层关系如下图：</p>
+<p><img src="https://docs.nestjs.com/assets/Components_1.png" alt></p>
+<p>写法：</p>
+<ul>
+<li><code>@Injectable()</code> 声明该类是一个Provider，允许其他类实现依赖注入</li>
+<li><code>@Optional()</code> 允许构造不传</li>
+<li><code>@Inject()</code> 自动依赖注入</li>
+</ul>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p>Middleware中间件，其实和egg.js的中间件概念一样，就是当http请求来了之后，被中间件处理一遍之后才会到对应的Controller层。</p>
+<p><img src="https://docs.nestjs.com/assets/Middlewares_1.png" alt></p>
+<p>写法：</p>
+<ul>
+<li><code>implements NestMiddleware</code>，必须实现<code>NestMiddleware</code>接口，以及内部方法<code>use(req: Request, res: Response, next: NextFunction)</code>，同时内部方法必须调用<code>next</code></li>
+<li>在<code>Module</code>层注册中间件，这里需要可以设置</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module, NestModule, MiddlewareConsumer &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LoggerMiddleware &#125; <span class="keyword">from</span> <span class="string">'./common/middleware/logger.middleware'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsModule &#125; <span class="keyword">from</span> <span class="string">'./cats/cats.module'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Module</span>(&#123;</span><br><span class="line">  imports: [CatsModule],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule <span class="keyword">implements</span> NestModule &#123;</span><br><span class="line">  configure(consumer: MiddlewareConsumer) &#123;</span><br><span class="line">    consumer</span><br><span class="line">      .apply(LoggerMiddleware)</span><br><span class="line">      .forRoutes(<span class="string">'cats'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>了解 <code>MiddlewareConsumer</code>，中间件消费者工具类，主要把中间件加上一些配置项功能，如：<code>forRoutes</code>支持路由匹配，<code>exclude</code>不包含路由</li>
+<li>函数式声明中间件，因为Middleware是基于expres，所以写法与express基本上一致</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Request, Response, NextFunction &#125; <span class="keyword">from</span> <span class="string">'express'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params">req: Request, res: Response, next: NextFunction</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Request...`</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ExceptionFilter"><a href="#ExceptionFilter" class="headerlink" title="ExceptionFilter"></a>ExceptionFilter</h2><p>Filter过滤器，这个应该是所有web框架都具备的功能，拦截用户请求和web返回数据。在Nest.js中，只实现ExeptionFilter，你也可以基于这个去自定义自己的异常过滤器，具体如下图：</p>
+<p><img src="https://docs.nestjs.com/assets/Filter_1.png" alt></p>
+<p>写法：</p>
+<ul>
+<li><code>@Catch(HttpException) class HttpExceptionFilter implements ExceptionFilter</code> 实现自定义异常过滤器</li>
+<li><code>@UseFilters(new HttpExceptionFilter())</code> 能给具体接口包裹上一层自定义的异常过滤器</li>
+</ul>
+<h2 id="Pipe"><a href="#Pipe" class="headerlink" title="Pipe"></a>Pipe</h2><p>Pipe 管道流，是指的Http请求里的内容数据流，它支持数据验证、数据转换等功能，有点类似Filter的功能。</p>
+<p>写法：</p>
+<ul>
+<li><code>@Param(&#39;id&#39;, ParseIntPipe) id: number</code>，将参数id转换为number类型</li>
+<li><code>class ValidationPipe implements PipeTransform</code>自定义 Pipe，同时必须实现方法<code>transform(value: any, metadata: ArgumentMetadata)</code></li>
+<li><code>@UsePipes(new Pipe())</code>，支持在controller配置自定义的Pipe</li>
+</ul>
+<h2 id="Guard"><a href="#Guard" class="headerlink" title="Guard"></a>Guard</h2><p>Guard 守卫，也是处Http请求中的一层特殊中间件，但是与中间件不同的时候，中间件不知道next()是去哪个执行代码，而Guard则可以获取<code>ExecutionContext</code>实例，可以获知整个请求的生命周期和内置内容，通常用来接口登录和权限控制。</p>
+<p><img src="https://docs.nestjs.com/assets/Guards_1.png" alt></p>
+<p>写法：</p>
+<ul>
+<li><code>class AuthGuard implements CanActivate</code></li>
+<li>必须实现方法<code>canActivate(context: ExecutionContext): boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt;</code></li>
+<li>注册使用：<code>@UseGuards</code> Controller层使用， <code>app.useGlobalGuards(new RolesGuard());</code> 全局注册</li>
+</ul>
+<h2 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h2><p>Interceptor是面向切面编程理念影响的概念，它允许你在方法执行前后扩展原有函数功能，如：改变返回结果，扩展基本功能等，常用的场景：添加常规日志。</p>
+<p><img src="https://docs.nestjs.com/assets/Interceptors_1.png" alt></p>
+<p>写法：</p>
+<ul>
+<li><code>class LoggingInterceptor implements NestInterceptor</code>,自定义实现</li>
+<li><code>intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt;</code>方法实现，同时需要返回对应结果<code>next()</code></li>
+<li>注册使用：<code>@UseInterceptors(LoggingInterceptor)</code>可以在类或方法前进行注册， <code>app.useGlobalInterceptors(new LoggingInterceptor());</code>全局注册</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>自定义参数装饰器<code>createParamDecorator</code>，可以从request对象中抽取固定的参数。</li>
+<li><code>applyDecorators</code> 可以将多个装饰器 方法合在一起验证，然后形成一个新的注装饰器</li>
+</ul>
+<p>PS: 装饰器是什么？</p>
+<ul>
+<li>装饰器在JavaScript中暂时是没有，只有TypeScript才可以实现一种语法糖</li>
+<li>装饰器使用 @expression 的形式，其中 expression 必须能够演算为在运行时调用的函数，其中包括装饰声明信息。</li>
+<li>自定义装饰器代码如下：</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个装饰器工厂——有助于将用户参数传给装饰器声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"f(): evaluated"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"f(): called"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"g(): evaluated"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"g(): called"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line">  <span class="meta">@f</span>()</span><br><span class="line">  <span class="meta">@g</span>()</span><br><span class="line">  method() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f(): evaluated</span></span><br><span class="line"><span class="comment">// g(): evaluated</span></span><br><span class="line"><span class="comment">// g(): called</span></span><br><span class="line"><span class="comment">// f(): called</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Nest.js的生命周期分为三个阶段：初始化、运行和终止，下图详细生命周期的各个子阶段：</p>
+<p><img src="https://docs.nestjs.com/assets/lifecycle-events.png" alt></p>
+<p>允许监听的生命周期函数：</p>
+<ul>
+<li><code>onModuleInit()</code>, 模块初始化时候调用</li>
+<li><code>onApplicationBootstrap()</code>，所有模块都准备好了，但是在web应用正式启用前会被调用</li>
+<li><code>onModuleDestroy()</code>，模块准备被停止</li>
+<li><code>beforeApplicationShutdown()</code>, web应用准备被停止之前</li>
+<li><code>onApplicationShutdown()</code>，web应用被停止之后，在进程退出之前</li>
+</ul>
+<h2 id="上手实战"><a href="#上手实战" class="headerlink" title="上手实战"></a>上手实战</h2><h3 id="第一步安装："><a href="#第一步安装：" class="headerlink" title="第一步安装："></a>第一步安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm i -g @nestjs/cli</span><br><span class="line"><span class="meta">$</span> nest new project-name --strict</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成项目结构"><a href="#生成项目结构" class="headerlink" title="生成项目结构"></a>生成项目结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">|-- app.controller.spec.ts // controller层的单元测试</span><br><span class="line">|-- app.controller.ts // controller层 控制路由接口层</span><br><span class="line">|-- app.module.ts // 应用根模块</span><br><span class="line">|-- app.service.ts // service层 给controller提供各种业务处理方法</span><br><span class="line">|-- main.ts // 入口文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn</span><br><span class="line"><span class="meta">$</span> yarn start:dev</span><br></pre></td></tr></table></figure>
+
+<p>打开 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 就可以访问了。</p>
+<p>后面有篇文章叫<a href="./20220116.html">《从nest.js中了解Ioc和DI》</a>，大家想了解可以去看看。</p>
+
     
 
     
@@ -351,7 +494,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://qiubohong.github.io/2023/01/06/today/20220110/" title="从egg.js转到nest.js" target="_blank">http://qiubohong.github.io/2023/01/06/today/20220110/</a>
+          <a href="http://qiubohong.github.io/2023/01/10/today/20220110/" title="从egg.js转到nest.js" target="_blank">http://qiubohong.github.io/2023/01/10/today/20220110/</a>
         </li>
         
         <li>
@@ -433,7 +576,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/06/today/20220110/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/10/today/20220110/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -448,18 +591,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2023/01/06/today/20220106/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          从审批流到bpmn-js入门
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/05/today/20220105/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从短视频到短视频思维</div>
+    <a href="/2023/01/09/today/20220109/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对CMDB进行一个系统完整认知</div>
       <i class="icon-circle-right"></i>
     </a>
   
