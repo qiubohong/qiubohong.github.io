@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+  <meta name="description" content="背景由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。 因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？ 问题移动端存在几类问题，如下所列：  1px显示过粗问题 手机屏幕出现刘海屏、滴水屏等，如何适配 如何在不同屏幕，显示正确高清图片 meta 的 viewport 值 能否用来">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端适配UI的全部解决方案对比">
 <meta property="og:url" content="http://qiubohong.github.io/2023/01/06/today/20220111/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。 因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？ 问题移动端存在几类问题，如下所列：  1px显示过粗问题 手机屏幕出现刘海屏、滴水屏等，如何适配 如何在不同屏幕，显示正确高清图片 meta 的 viewport 值 能否用来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-10T09:52:34.278Z">
+<meta property="og:updated_time" content="2023-01-13T04:09:04.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配UI的全部解决方案对比">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:description" content="背景由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。 因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？ 问题移动端存在几类问题，如下所列：  1px显示过粗问题 手机屏幕出现刘海屏、滴水屏等，如何适配 如何在不同屏幕，显示正确高清图片 meta 的 viewport 值 能否用来">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -285,7 +285,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">1.8k字</span>
     </span>
   </span>
 
@@ -294,7 +294,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -305,7 +305,93 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。</p>
+<p>因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>移动端存在几类问题，如下所列：</p>
+<ul>
+<li>1px显示过粗问题</li>
+<li>手机屏幕出现刘海屏、滴水屏等，如何适配</li>
+<li>如何在不同屏幕，显示正确高清图片</li>
+<li>meta 的 viewport 值 能否用来适配</li>
+<li>rem，vw，vh计算单位的区别</li>
+<li>…</li>
+</ul>
+<a id="more"></a>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h2><blockquote>
+<p>像素是计算机屏幕上所能显示的最小单位。用来表示图像的单位。</p>
+</blockquote>
+<p>按照我个人理解，把屏幕比做一张白纸，然后像素就是一个点，接着同一水平线上的点形成一条线，水平线和垂直线同时就形成一个画面。</p>
+<p>然后对于我们前端开发而言，像素又需要分成几类：</p>
+<ul>
+<li><code>设备独立像素</code>, 俗称<code>DIP</code>，你可以理解成我们平时用css像素 又等于 逻辑像素，简单说就是同一个尺寸的屏幕，设备独立像素是一样的，从而减少误解</li>
+<li><code>物理像素</code>，其实就是我们真实肉眼可见的像素，物理像素 = 分辨率</li>
+<li><code>设备像素比</code>， <code>DPR</code> <code>devicePixelRatio</code> = 设备像素 / 设备独立像素，当物理像素和设备独立像素不一样的时候，这个时候就需要一个标准来做适配，利用<code>DPR</code>我们能将同样的画面适应不同的屏幕</li>
+<li><code>每英寸像素</code> <code>ppi</code> （pixel per inch），表示每英寸所包含的像素点数目，更确切的说法应该是像素密度。数值越高，说明屏幕能以更高密度显示图像</li>
+</ul>
+<h2 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h2><blockquote>
+<p>分辨率指屏幕上像素的数目，一般用水平<em>垂直，比如：屏幕分辨率为 800</em> 600， 水平有800个像素点，垂直有600个像素</p>
+</blockquote>
+<p>所以平时我们将2k、4k屏幕，通常指的是水平方向的存放像素超过2000或4000个。</p>
+<h2 id="视口（viewport）"><a href="#视口（viewport）" class="headerlink" title="视口（viewport）"></a>视口（viewport）</h2><blockquote>
+<p>视口代表当前可见的计算机图形区域。在 Web 浏览器术语中，通常与浏览器窗口相同，但不包括浏览器的 UI，菜单栏等——即指你正在浏览的文档的那一部分。<br>视口一般是指用户访问页面时，当前的可视区域范围。通过滚动条滑动，视口可以显示页面的其他部分。<br>通过 document.documentElement.clientWidth 或 window.innerWidth 可以获取视口宽度。</p>
+</blockquote>
+<p>简单的说，视口就是浏览器肉眼可见的区域，是随时可变化，视口是一个概念，它又可以根据不同情况分为以下几种：</p>
+<ul>
+<li>布局视口，对于开发来说的一种视口概念，在移动端可以通过 <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=980, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>调整从而将打屏显示的内容完整缩小适配到移动端小屏</li>
+<li>视觉视口，是一种针对移动端屏幕提出来的概念，具体是指的屏幕的可见区域，当键盘弹起、浏览器工具栏隐藏等，视觉视口都会随之变化，而布局视口不会</li>
+</ul>
+<h2 id="布局视口（layout-viewport）"><a href="#布局视口（layout-viewport）" class="headerlink" title="布局视口（layout viewport）"></a>布局视口（layout viewport）</h2><blockquote>
+<p>innerHeight 和 innerWidth 所组成的区域通常被认为是布局视口（layout viewport）。浏览器的框架不被认为是视口的一部分。</p>
+</blockquote>
+<p>在PC端的时候， 视口=布局视口=视觉视口。</p>
+<p>在移动端的时候，布局视口 = 内容宽度，可以通过<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=980, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>调整，下面举几个例子(移动端为375*667)：</p>
+<ul>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=980, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>， 布局视口=window.innerWidth=980</li>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>, 布局视口=window.innerWidth=375</li>
+</ul>
+<h2 id="视觉视口（visual-viewport）"><a href="#视觉视口（visual-viewport）" class="headerlink" title="视觉视口（visual viewport）"></a>视觉视口（visual viewport）</h2><blockquote>
+<p>视觉视口指当前浏览器中可见的部分，并且可以变化。当使用双指缩放，或键盘在手机上弹出的时候，或者之前隐藏的地址栏变得可见的时候，视觉视口缩小了，但是布局视口却保持不变。</p>
+</blockquote>
+<p>相比较<code>布局视口</code>概念，视觉视口是由苹果 乔布斯提出，为了更好的在移动端展示web网页，视觉视口=屏幕的可见区域，下面通过几个例子去认知(移动端为375*667)：</p>
+<ul>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=980, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>，视觉视口=window.screen.width=375</li>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&lt;/meta&gt;</code>，视觉视口=window.screen.width=375</li>
+</ul>
+<h2 id="viewport设置项"><a href="#viewport设置项" class="headerlink" title="viewport设置项"></a>viewport设置项</h2><p><code>viewport</code>的设置主要是在移动端配置视口大小，从width宽度，initial-scale缩放等设置属性，具体如下：</p>
+<ul>
+<li>width：控制 viewport 的大小，可以给它指定一个值(正整数)，或者是一个特殊的值(如：device-width 设备独立像素宽度，单位缩放为 1 时)；</li>
+<li>initial-scale：初始缩放比例，即当页面第一次加载时的缩放比例，为一个数字(可以带小数)；</li>
+<li>maximum-scale：允许用户缩放到的最大比例，为一个数字(可以带小数)；</li>
+<li>minimum-scale：允许用户缩放到的最小比例，为一个数字(可以带小数)；</li>
+<li>user-scalable：是否允许用户手动缩放，值为 “no”(不允许) 或 “yes”(允许)；</li>
+<li>height：与 width 相对应(很少使用)。</li>
+</ul>
+<h2 id="注意项"><a href="#注意项" class="headerlink" title="注意项"></a>注意项</h2><ul>
+<li>iframe的视口等于是其内部高度和宽度的大小。</li>
+<li>SVG的视口即 SVG 图片的可视区域。</li>
+</ul>
+<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><p>目前市面主流的几种适配方案如下：</p>
+<ul>
+<li><code>rem</code> ，通过一个宽度尺寸作为统一的单位值，然后通过js计算出不同尺寸对比值，得到适配效果</li>
+<li><code>vw</code> ，一个浏览器支持的单位，利用 CSS 视窗的特性，总宽度为 100vw，每一份为一个单位 1vw，设置 1rem 单位为 10vw</li>
+<li><code>px + calc + clamp</code>，大漠在2021年提出，根据 CSS 的新特性：css变量、calc()函数、clamp()、@container函数实现</li>
+</ul>
+<h2 id="rem单元"><a href="#rem单元" class="headerlink" title="rem单元"></a>rem单元</h2><p><code>rem</code>是指的html元素的<code>font-size</code>的大小，如：<code>html{font-size:50px}; 1rem=50px</code>。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>通过一个具体的例子，更好理解它的原理。比如你拿到一张设计稿为750px宽度的，里面有个长方形为100*200，这个时候需要在不同屏幕去做适配。</p>
+<p>rem的解决方案为：</p>
+<ul>
+<li>将标准尺寸宽度 750/100= 75px，设置:<code>html{font-size:75px} 1rem=75px</code></li>
+<li>将长方形的 100*200，100/75 * 200/75，设置为：<code>.rectangle{width: 1.33rem;height:2.66rem}</code></li>
+<li>那么当屏幕的尺寸发生变话的时候， 变成从750减少为375，那么这个时候，设置: <code>html{font-size:37.5px} 1rem=37.5px</code></li>
+<li>长方形的css设置无需变化，从而达到适配的效果</li>
+</ul>
+<p>所以rem的解决方案就是在web应用在加载的时候，提前计算好rem单位，所以就可以完成适配。</p>
+<p>目前主流的方案有：</p>
+<ul>
+<li><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">flexible</a></li>
+<li><a href="https://github.com/songsiqi/px2rem" target="_blank" rel="noopener">px2rem</a></li>
+</ul>
+
     
 
     
@@ -448,18 +534,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2023/01/06/today/20220114/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/06/today/20220112/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          从React学习Fiber架构
+          从zlibrary到IPFS搭建去中心化个人网站
         
       </div>
     </a>
   
   
-    <a href="/2023/01/06/today/20220112/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端自动化UI测试的完整方案</div>
+    <a href="/2023/01/06/today/20220106/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从审批流到bpmn-js入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -679,6 +765,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术探鲜</a>
               </li>
             
             <div class="clearfix"></div>
