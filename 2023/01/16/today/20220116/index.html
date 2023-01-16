@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qiubohong.github.io">
-  <title>从nest.js中了解Ioc和DI | 疯子知识库</title>
+  <title>从Z-Library到了解IPFS去中心化技术 | 疯子知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta name="keywords" content="技术分享,每日更新">
+  <meta name="description" content="背景最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是Z-Library，因此觉得挺有趣，所以适合简单研究一下。 Z-Library Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，">
+<meta name="keywords" content="每日更新,技术探鲜">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从nest.js中了解Ioc和DI">
-<meta property="og:url" content="http://qiubohong.github.io/2023/01/06/today/20220116/index.html">
+<meta property="og:title" content="从Z-Library到了解IPFS去中心化技术">
+<meta property="og:url" content="http://qiubohong.github.io/2023/01/16/today/20220116/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是Z-Library，因此觉得挺有趣，所以适合简单研究一下。 Z-Library Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-10T14:41:46.904Z">
+<meta property="og:image" content="http://qiubohong.github.io/assets/img/20230116.png">
+<meta property="og:updated_time" content="2023-01-16T15:22:20.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从nest.js中了解Ioc和DI">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="从Z-Library到了解IPFS去中心化技术">
+<meta name="twitter:description" content="背景最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是Z-Library，因此觉得挺有趣，所以适合简单研究一下。 Z-Library Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，">
+<meta name="twitter:image" content="http://qiubohong.github.io/assets/img/20230116.png">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -259,7 +261,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从nest.js中了解Ioc和DI
+      从Z-Library到了解IPFS去中心化技术
     </h1>
   
 
@@ -271,8 +273,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2023/01/06/today/20220116/" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+<a href="/2023/01/16/today/20220116/" class="archive-article-date">
+        <time datetime="2023-01-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
 </a>
 
   
@@ -285,7 +287,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -294,7 +296,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -305,7 +307,55 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是<code>Z-Library</code>，因此觉得挺有趣，所以适合简单研究一下。</p>
+<h1 id="Z-Library"><a href="#Z-Library" class="headerlink" title="Z-Library"></a>Z-Library</h1><blockquote>
+<p>Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章[1]。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”[2]，并在文章搜索页面上称自身是“全球最大的科学文章存储库”[3]。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏[4]。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。</p>
+</blockquote>
+<p>ZLibrary虽然是一个俄国网站，但它拥有16种语言版本可供选择，下滑至网页末尾，即可切换语言。</p>
+<p>访问地址：<a href="https://zlib.cydiar.com/" target="_blank" rel="noopener">https://zlib.cydiar.com/</a><br>访问地址：<a href="https://bk.hallowlib.org/" target="_blank" rel="noopener">https://bk.hallowlib.org/</a> 国内备用网址</p>
+<a id="more"></a>
+<h2 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h2><p>除了上述提供的网址后，可以在里面访问直接跳转下载，但是同时也提供了IPFS节点下载地址。具体如下图：</p>
+<p><img src="/assets/img/20230116.png" alt></p>
+<h2 id="IPFS下载"><a href="#IPFS下载" class="headerlink" title="IPFS下载"></a>IPFS下载</h2><p>需要在本地搭建IPFS节点，才可以正常文件，但是国内经常会访问不了，所以不建议搭建，因此只是简单了解一下背后技术即可。</p>
+<p>接下来具体讲解一下什么是IPFS。</p>
+<h1 id="IPFS"><a href="#IPFS" class="headerlink" title="IPFS"></a>IPFS</h1><blockquote>
+<p>星际文件系统(InterPlanetary File System). IPFS 是一个分布式的web, 点到点超媒体协议. 可以让我们的互联网速度更快, 更加安全, 并且更加开放. IPFS协议的目标是取代传统的互联网协议HTTP。</p>
+</blockquote>
+<p>HTTP协议的缺陷：</p>
+<ul>
+<li>使用HTTP协议每次需要从中心化的服务器下载完整的文件</li>
+<li>Web文件经常被删除</li>
+<li>经常受各种限制，导致文件无法正常下载</li>
+</ul>
+<p>IPFS是一个协议，类似http协议，主要定义了：</p>
+<ul>
+<li>定义了基于内容的寻址文件系统</li>
+<li>内容分发</li>
+<li>使用的技术分布式哈希、p2p传输、版本管理系统</li>
+<li>可以像http那样查看互联网页面</li>
+<li>IPFS是一个文件系统，有文件夹和文件，可挂载文件系统</li>
+<li>未来浏览器可以直接支持 ipfs:/ 或者 fs:/ 协议</li>
+</ul>
+<p>底层架构介绍：</p>
+<ul>
+<li>IPFS是模块化的协议， 分为连接层、路由层、数据块交换</li>
+<li>连接层：通过其他任何网络协议连接</li>
+<li>路由层：寻找定位文件所在位置</li>
+<li>数据块交换：采用BitTorrent技术</li>
+<li>p2p系统：世界范围内的p2p文件传输网络</li>
+<li>是一个CDN，文件添加到IPFS网络，将会在全世界进行CDN加速</li>
+<li>IPNS：基于SFS（自认证系统）命名体系，可以和现有域名系统绑定</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>IPFS主要是使用go语言实现的，目前主流的IPFS实现有几个框架，具体如下：</p>
+<ul>
+<li><a href="https://github.com/ipfs/kubo" target="_blank" rel="noopener">go-ipfs</a></li>
+<li><a href="https://github.com/ipfs/js-ipfs" target="_blank" rel="noopener">js-ipfs</a></li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Z-Library是一个去中心化的图书馆，大家都有各自的节点维护自己的个人图书，也可以从其他节点去下载，降低现有web文件存储的缺陷。</p>
+<p>而IPFS的出现刚好可以满足这个理想目标，IPFS是一个协议，同时已经有现有框架go-ipfs去快速搭建个人的IPFS节点，所以能够很快体验一下去中心化体验，但是很多时候由于网络问题，并不能很快完成书籍的下载。</p>
+<p>虽然IPFS同时实现HTTP协议，但是访问其他节点的时候是有网络访问速度问题，因此体验不是特别好，但是新的技术概念还是需要时间去沉淀和学习，留此文章做个mark，继续保留学习的态度。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/ipfs/ipfs-desktop/releases" target="_blank" rel="noopener">IPFS下载桌面端</a><br><a href="https://cloud.tencent.com/developer/article/1815072" target="_blank" rel="noopener">IPFS搭建HTTPS去中心化网站，真实可用</a></p>
+
     
 
     
@@ -351,7 +401,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://qiubohong.github.io/2023/01/06/today/20220116/" title="从nest.js中了解Ioc和DI" target="_blank">http://qiubohong.github.io/2023/01/06/today/20220116/</a>
+          <a href="http://qiubohong.github.io/2023/01/16/today/20220116/" title="从Z-Library到了解IPFS去中心化技术" target="_blank">http://qiubohong.github.io/2023/01/16/today/20220116/</a>
         </li>
         
         <li>
@@ -373,11 +423,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术探鲜</a>
         		</li>
       		
 		</ul>
@@ -433,7 +483,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/06/today/20220116/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://qiubohong.github.io/2023/01/16/today/20220116/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -448,18 +498,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2023/01/06/today/20220117/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端自动化UI测试的完整方案
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/06/today/20220106/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从审批流到bpmn-js入门</div>
+    <a href="/2023/01/14/today/20220111/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端适配UI的全部解决方案对比</div>
       <i class="icon-circle-right"></i>
     </a>
   
