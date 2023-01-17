@@ -1,0 +1,760 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2 队列 · 前端基础知识巩固(面试必备)</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="qborfy">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-lightbox/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../base/readme.html" />
+    
+    
+    <link rel="prev" href="linked-list-leetcode.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"qiubohong","repo":"fedlearn","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://qiubohong.github.io" target="_blank" class="custom-link">疯子知识库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    简介&记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">基础篇</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../base/html/readme.html">
+            
+                <a href="../../base/html/readme.html">
+            
+                    
+                    第一篇 HTML相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../base/html/section1.html">
+            
+                <a href="../../base/html/section1.html">
+            
+                    
+                    1. html语义化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../base/html/section2.html">
+            
+                <a href="../../base/html/section2.html">
+            
+                    
+                    2. meta标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../base/html/section3.html">
+            
+                <a href="../../base/html/section3.html">
+            
+                    
+                    3. canvas相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    第二篇 CSS相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    第三篇 Javscript相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../readme.html">
+            
+                <a href="../readme.html">
+            
+                    
+                    第四篇 算法相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    1. 数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1.1" data-path="linked-list.html">
+            
+                <a href="linked-list.html">
+            
+                    
+                    1.1 链表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1.1.1" data-path="linked-list-leetcode.html">
+            
+                <a href="linked-list-leetcode.html">
+            
+                    
+                    1.1.1 链表算法题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4.1.2" data-path="queue.html">
+            
+                <a href="queue.html">
+            
+                    
+                    1.2 队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../base/readme.html">
+            
+                <a href="../base/readme.html">
+            
+                    
+                    2. 基础算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.2.1" data-path="../base/recursion.html">
+            
+                <a href="../base/recursion.html">
+            
+                    
+                    2.1 递归算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../math/readme.html">
+            
+                <a href="../math/readme.html">
+            
+                    
+                    3. 数学基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                    第五篇 Node.js相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <span>
+            
+                    
+                    第六篇 Vue相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" >
+            
+                <span>
+            
+                    
+                    第七篇 React相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" >
+            
+                <span>
+            
+                    
+                    第八篇 工程化相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >1.2 队列</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x961F;&#x5217;"><b></b>&#x961F;&#x5217;</a></li><ul><li><span class="title-icon "></span><a href="#&#x987A;&#x5E8F;&#x961F;&#x5217;"><b></b>&#x987A;&#x5E8F;&#x961F;&#x5217;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5FAA;&#x73AF;&#x961F;&#x5217;"><b></b>&#x5FAA;&#x73AF;&#x961F;&#x5217;</a></li></ul><li><span class="title-icon "></span><a href="#&#x94FE;&#x5F0F;&#x961F;&#x5217;"><b></b>&#x94FE;&#x5F0F;&#x961F;&#x5217;</a></li><li><span class="title-icon "></span><a href="#&#x4F18;&#x5148;&#x961F;&#x5217;"><b></b>&#x4F18;&#x5148;&#x961F;&#x5217;</a></li></ul><li><span class="title-icon "></span><a href="#&#x989D;&#x5916;&#x8BDD;&#x9898;"><b></b>&#x989D;&#x5916;&#x8BDD;&#x9898;</a></li><li><span class="title-icon "></span><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;"><b></b>&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li></ul></div><a href="#&#x961F;&#x5217;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x961F;&#x5217;"><a name="&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x961F;&#x5217;" class="plugin-anchor" href="#&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x961F;&#x5217;</h1>
+<blockquote>
+<p>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x4E2D;, &#x4E00;&#x4E2A; &#x961F;&#x5217;(queue) &#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x7684;&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x6216;&#x96C6;&#x5408;&#x3002;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5B9E;&#x4F53;&#x6309;&#x987A;&#x5E8F;&#x4FDD;&#x5B58;&#x3002;
+&#x961F;&#x5217;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x5165;&#x961F;&#x548C;&#x51FA;&#x961F;&#x3002;&#x4ECE;&#x961F;&#x5217;&#x7684;&#x540E;&#x7AEF;&#x4F4D;&#x7F6E;&#x6DFB;&#x52A0;&#x5B9E;&#x4F53;&#xFF0C;&#x79F0;&#x4E3A;&#x5165;&#x961F;&#xFF1B;&#x4ECE;&#x961F;&#x5217;&#x7684;&#x524D;&#x7AEF;&#x4F4D;&#x7F6E;&#x79FB;&#x9664;&#x5B9E;&#x4F53;&#xFF0C;&#x79F0;&#x4E3A;&#x51FA;&#x961F;&#x3002;
+&#x961F;&#x5217;&#x4E2D;&#x5143;&#x7D20;&#x5148;&#x8FDB;&#x5148;&#x51FA; FIFO (first in, first out)&#x7684;&#x793A;&#x610F;&#x3002;</p>
+</blockquote>
+<p>&#x961F;&#x5217;&#xFF0C;&#x5176;&#x5B9E;&#x5728;&#x6211;&#x4EEC;&#x751F;&#x6D3B;&#x4E2D;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#xFF0C;&#x5C31;&#x6BD4;&#x5982;&#x6392;&#x961F;&#xFF0C;&#x9075;&#x5FAA;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x89C4;&#x5219;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x961F;&#x5217;&#xFF0C;&#x53EA;&#x6709;&#x6392;&#x5728;&#x6700;&#x524D;&#x9762;&#x7684;&#x4EBA;&#x51FA;&#x53BB;&#x4E86;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x4EBA;&#x624D;&#x80FD;&#x8D77;&#x6765;&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x961F;&#x5217;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x4E00;&#x79CD;&#x9650;&#x5236;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x50CF;&#x94FE;&#x8868;&#x90A3;&#x6837;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x63D2;&#x5165;&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x961F;&#x5217;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5904;&#x7406;&#x5404;&#x79CD;&#x6392;&#x961F;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x6BD4;&#x5982;&#x6D88;&#x606F;&#x3001;&#x6D88;&#x8D39;&#x961F;&#x5217;&#x7B49;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x4E00;&#x5F20;&#x56FE;&#xFF0C;&#x5FEB;&#x901F;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x961F;&#x5217;&#x3002;
+<a href="assets/queue1.png" data-lightbox="ce929939-9e2a-4940-89f3-7518430604bf" data-title=""><img src="assets/queue1.png" alt=""></a></p>
+<p>&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x961F;&#x5217;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x961F;&#x5934;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x961F;&#x5217;&#x6700;&#x524D;&#x9762;&#x4E00;&#x4E2A;&#xFF0C;&#x51FA;&#x6570;&#x636E;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;</li>
+<li>&#x961F;&#x5C3E;&#xFF0C;&#x6307;&#x7684;&#x6392;&#x5728;&#x961F;&#x5217;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#xFF0C;&#x8FDB;&#x6570;&#x636E;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;</li>
+<li>&#x5165;&#x961F;&#xFF0C;&#x6307;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x8FDB;&#x5165;&#x961F;&#x5217;&#x7684;&#x8FC7;&#x7A0B;</li>
+<li>&#x51FA;&#x961F;&#xFF0C;&#x6307;&#x7684;&#x6570;&#x636E;&#x6C27;&#x5143;&#x7D20;&#x51FA;&#x961F;&#x5217;&#x7684;&#x8FC7;&#x7A0B;</li>
+</ul>
+<p>&#x6309;&#x7167;&#x5404;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x961F;&#x5217;&#x66F4;&#x52A0;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x3002;</p>
+<h2 id="&#x987A;&#x5E8F;&#x961F;&#x5217;"><a name="&#x987A;&#x5E8F;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x987A;&#x5E8F;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x987A;&#x5E8F;&#x961F;&#x5217;" class="plugin-anchor" href="#&#x987A;&#x5E8F;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x987A;&#x5E8F;&#x961F;&#x5217;</h2>
+<p>&#x987A;&#x5E8F;&#x961F;&#x5217;&#x662F;&#x4E00;&#x79CD;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x961F;&#x5217;&#x7C7B;&#x578B;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x91C7;&#x7528;&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x81EA;&#x5E26;<code>&#x6570;&#x7EC4;</code>&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53BB;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;<code>n</code>&#x7684;&#x6570;&#x7EC4;</li>
+<li>&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x6307;&#x9488;<code>front</code>&#x548C;<code>rear</code>&#xFF0C;&#x5176;&#x4E2D;<code>front</code>&#x7528;&#x6765;&#x6807;&#x8BC6;&#x961F;&#x5934;&#xFF0C;<code>rear</code>&#x7528;&#x6765;&#x6807;&#x8BC6;&#x961F;&#x5C3E;</li>
+<li>&#x79FB;&#x52A8;<code>front</code>&#x548C;<code>rear</code>&#xFF0C;&#x8FDB;&#x884C;&#x5165;&#x961F;&#x548C;&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#xFF0C;&#x5165;&#x961F;&#xFF0C;&#x5219;&#x5C06;<code>rear</code>+1&#x6307;&#x5411;&#x65B0;&#x5165;&#x961F;&#x5217;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x51FA;&#x961F;&#x5219;&#x5C06;<code>front</code>+1&#x5F80;&#x540E;&#x79FB;&#x52A8;</li>
+<li>&#x5982;&#x679C;<code>front</code>===<code>rear</code>&#x5219;&#x4EE3;&#x8868;&#x961F;&#x5217;&#x5DF2;&#x7A7A;&#xFF0C;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x51FA;&#x961F;&#x64CD;&#x4F5C;</li>
+<li>&#x5982;&#x679C;<code>rear</code>===<code>n</code>&#x5219;&#x4EE3;&#x8868;&#x961F;&#x5217;&#x5DF2;&#x6EE1;&#xFF0C;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x5165;&#x961F;&#x64CD;&#x4F5C;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Queue</span> </span>{
+    <span class="hljs-keyword">constructor</span>(n) {
+        <span class="hljs-keyword">this</span>.max = n;
+        <span class="hljs-keyword">this</span>.queue = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n);
+        <span class="hljs-keyword">this</span>.front = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.rear = <span class="hljs-number">0</span>;
+    }
+
+    enqueue(val) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.rear === (<span class="hljs-keyword">this</span>.max - <span class="hljs-number">1</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }   
+        <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.rear] = val;
+        <span class="hljs-keyword">this</span>.rear+=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    dequeue(){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.rear === <span class="hljs-keyword">this</span>.front){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        }
+        <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.front];
+        <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.front] = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>.front +=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    clear(){
+        <span class="hljs-keyword">this</span>.queue = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-keyword">this</span>.max);
+        <span class="hljs-keyword">this</span>.front=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.rear=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+}
+</code></pre>
+<h3 id="&#x5FAA;&#x73AF;&#x961F;&#x5217;"><a name="&#x5FAA;&#x73AF;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x5FAA;&#x73AF;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5FAA;&#x73AF;&#x961F;&#x5217;" class="plugin-anchor" href="#&#x5FAA;&#x73AF;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5FAA;&#x73AF;&#x961F;&#x5217;</h3>
+<p>&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x662F;&#x57FA;&#x4E8E;&#x987A;&#x5E8F;&#x961F;&#x5217;&#x505A;&#x7684;&#x8C03;&#x6574;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x66F4;&#x597D;&#x5229;&#x7528;&#x987A;&#x5E8F;&#x961F;&#x5217;&#x5DF2;&#x6E05;&#x7A7A;&#x7684;&#x5143;&#x7D20;&#x7A7A;&#x95F4;&#xFF0C;&#x6B64;&#x65F6;&#x961F;&#x5217;&#x7684;&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;&#x4E0D;&#x518D;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x5141;&#x8BB8;&#x5FAA;&#x73AF;&#x6307;&#x5411;&#x5F00;&#x5934;&#x4F4D;&#x7F6E;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x961F;&#x5217;&#x4F4D;&#x7F6E;&#x90FD;&#x586B;&#x6EE1;&#x3002;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8C03;&#x6574;&#x987A;&#x5E8F;&#x961F;&#x5217;&#x7684;&#x5165;&#x961F;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li>&#x5165;&#x961F;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;<code>rear</code>&#x4F4D;&#x7F6E;&#x8FBE;&#x5230;&#x961F;&#x5217;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x65F6;&#x5019;&#xFF0C;&#x5C06;<code>rear</code>&#x91CD;&#x65B0;&#x6307;&#x5411;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;0</li>
+<li>&#x5F53;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#x5DF2;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x961F;&#x5217;&#x5DF2;&#x6EE1;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * &#x57FA;&#x4E8E;&#x987A;&#x5E8F;&#x961F;&#x5217;&#x505A;&#x5FAA;&#x73AF;&#x961F;&#x5217;
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Queue</span> </span>{
+    <span class="hljs-keyword">constructor</span>(n) {
+        <span class="hljs-keyword">this</span>.max = n;
+        <span class="hljs-keyword">this</span>.queue = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n);
+        <span class="hljs-keyword">this</span>.front = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.rear = <span class="hljs-number">0</span>;
+    }
+
+    enqueue(val) {
+        <span class="hljs-comment">// &#x8C03;&#x6574;&#x8FD9;&#x91CC;&#xFF0C;&#x5F53;&#x79FB;&#x52A8;&#x5230;&#x6700;&#x540E;&#x7684;&#x65F6;&#x5019;&#x5C06;rear&#x6307;&#x9488;&#x91CD;&#x65B0;&#x6307;&#x5411;0&#xFF0C;&#x91CD;&#x5934;&#x5F00;&#x59CB;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.rear === (<span class="hljs-keyword">this</span>.max - <span class="hljs-number">1</span>)) {
+            <span class="hljs-keyword">this</span>.rear = <span class="hljs-number">0</span>;
+        }  
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x961F;&#x5217;&#x5DF2;&#x6EE1;&#xFF0C;&#x5426;&#x5219;&#x7EE7;&#x7EED;&#x5360;&#x7528;&#x7A7A;&#x95F4;</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.rear]!== <span class="hljs-literal">undefined</span>){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.rear] = val;
+        <span class="hljs-keyword">this</span>.rear+=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    dequeue(){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.rear === <span class="hljs-keyword">this</span>.front){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        }
+        <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.front];
+        <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.front] = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>.front +=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    clear(){
+        <span class="hljs-keyword">this</span>.queue = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-keyword">this</span>.max);
+        <span class="hljs-keyword">this</span>.front=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.rear=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+}
+</code></pre>
+<h2 id="&#x94FE;&#x5F0F;&#x961F;&#x5217;"><a name="&#x94FE;&#x5F0F;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x94FE;&#x5F0F;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x94FE;&#x5F0F;&#x961F;&#x5217;" class="plugin-anchor" href="#&#x94FE;&#x5F0F;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x94FE;&#x5F0F;&#x961F;&#x5217;</h2>
+<p>&#x94FE;&#x5F0F;&#x961F;&#x5217;&#x4E0E;&#x987A;&#x5E8F;&#x961F;&#x5217;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5E95;&#x5C42;&#x662F;&#x91C7;&#x7528;<code>&#x94FE;&#x8868;</code>&#x6570;&#x636E;&#x7ED3;&#x6784;&#x53BB;&#x5B9E;&#x73B0;&#xFF0C;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;<code>&#x94FE;&#x8868;</code>&#x8282;&#x70B9;&#x4F5C;&#x4E3A;<code>front</code>&#xFF0C;&#x540C;&#x65F6;<code>rear</code>&#x8282;&#x70B9;&#x7684;&#x6307;&#x5411;&#x7A7A;&#x7684;<code>&#x94FE;&#x8868;</code></li>
+<li>&#x5165;&#x961F;&#x64CD;&#x4F5C;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x8282;&#x70B9;<code>node</code>&#xFF0C;&#x5148;&#x5C06;<code>rear.next</code>&#x6307;&#x5411;&#x65B0;&#x7684;&#x94FE;&#x8868;&#x8282;&#x70B9;<code>node</code>&#xFF0C;&#x7136;&#x540E;&#x5C06;<code>rear</code>=<code>node</code></li>
+<li>&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#xFF0C;&#x5148;&#x5C06;<code>front.next</code>&#x53D6;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;<code>front.next</code>&#x6307;&#x5411;<code>front.next.next</code>&#x5373;&#x53EF;</li>
+<li>&#x5982;&#x679C;<code>front.next</code>&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#xFF0C;&#x8868;&#x793A;&#x961F;&#x5217;&#x4E3A;&#x7A7A;</li>
+<li>&#x56E0;&#x4E3A;&#x662F;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x53EF;&#x4EE5;&#x65E0;&#x9650;&#x6DFB;&#x52A0;&#x8282;&#x70B9;&#x4E14;&#x4E0D;&#x5360;&#x7528;&#x4EFB;&#x4F55;&#x7A7A;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x9650;&#x5236;&#x961F;&#x5217;&#x5927;&#x5C0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5165;&#x961F;&#x7684;&#x65F6;&#x5019;&#x589E;&#x52A0;&#x94FE;&#x8868;&#x957F;&#x5EA6;&#x9650;&#x5236;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> LinkNode <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./linklist1.js&apos;</span>;
+<span class="hljs-comment">/**
+ * &#x5047;&#x8BBE;&#x5DF2;&#x6709;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#x4E3A;LinkNode = ()=&gt;{
+ *     val = 
+ *     next =
+ * }
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Queue</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-keyword">this</span>.front = <span class="hljs-keyword">new</span> LinkNode();
+        <span class="hljs-keyword">this</span>.rear = <span class="hljs-keyword">this</span>.front;
+    }
+
+    enqueue(val) {
+        <span class="hljs-keyword">const</span> prev = <span class="hljs-keyword">this</span>.rear;
+        <span class="hljs-keyword">const</span> node = <span class="hljs-keyword">new</span> LinkNode(val);
+        prev.next = node;
+        <span class="hljs-keyword">this</span>.rear = node;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    dequeue(){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.front.next === <span class="hljs-literal">null</span>){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        }
+        <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">this</span>.front.next;
+        result.next = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">this</span>.front.next = <span class="hljs-keyword">this</span>.front.next.next;
+        <span class="hljs-keyword">return</span> result.val;
+    }
+
+    clear(){
+        <span class="hljs-keyword">this</span>.front = <span class="hljs-keyword">new</span> LinkNode();
+        <span class="hljs-keyword">this</span>.rear = <span class="hljs-keyword">this</span>.front;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+}
+</code></pre>
+<h2 id="&#x4F18;&#x5148;&#x961F;&#x5217;"><a name="&#x4F18;&#x5148;&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x4F18;&#x5148;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4F18;&#x5148;&#x961F;&#x5217;" class="plugin-anchor" href="#&#x4F18;&#x5148;&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F18;&#x5148;&#x961F;&#x5217;</h2>
+<p>&#x4F18;&#x5148;&#x961F;&#x5217;&#xFF08;priority Queue&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x4E0D;&#x9075;&#x5B88;<code>&#x5148;&#x8FDB;&#x5148;&#x51FA;</code>&#x7684;&#x539F;&#x5219;&#xFF0C;&#x5B83;&#x662F;&#x6309;&#x7167;<code>&#x4F18;&#x5148;&#x7EA7;</code>&#x51FA;&#x961F;&#x5217;&#x7684;&#x3002;&#x5206;&#x4E3A;<code>&#x6700;&#x5927;&#x4F18;&#x5148;&#x961F;&#x5217;</code>&#xFF08;&#x662F;&#x6307;&#x6700;&#x5927;&#x7684;&#x5143;&#x7D20;&#x4F18;&#x5148;&#x51FA;&#x961F;&#xFF09;&#x548C;<code>&#x6700;&#x5C0F;&#x4F18;&#x5148;&#x961F;&#x5217;</code>&#xFF08;&#x662F;&#x6307;&#x6700;&#x5C0F;&#x7684;&#x5143;&#x7D20;&#x4F18;&#x5148;&#x51FA;&#x961F;&#xFF09;&#x3002;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x4E00;&#x822C;&#x7528;<code>&#x5806;</code>&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x5B9E;&#x73B0;<code>&#x4F18;&#x5148;&#x961F;&#x5217;</code>&#xFF0C;&#x5728;&#x540E;&#x9762;&#x8BB2;<code>&#x5806;</code>&#x7684;&#x6587;&#x7AE0;&#x91CC;&#x6211;&#x4F1A;&#x8BE6;&#x7EC6;&#x518D;&#x8BB2;&#xFF0C;&#x8FD9;&#x91CC;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x3002;</p>
+<h1 id="&#x989D;&#x5916;&#x8BDD;&#x9898;"><a name="&#x989D;&#x5916;&#x8BDD;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x989D;&#x5916;&#x8BDD;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x989D;&#x5916;&#x8BDD;&#x9898;" class="plugin-anchor" href="#&#x989D;&#x5916;&#x8BDD;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x989D;&#x5916;&#x8BDD;&#x9898;</h1>
+<p>&#x95EE;&#x9898;&#xFF1A;JavaScript&#x4E2D; &#x6570;&#x7EC4; Array&#x5230;&#x5E95;&#x7B97;&#x4E0D;&#x7B97;&#x4E00;&#x79CD;&#x961F;&#x5217;&#xFF1F;</p>
+<p>&#x7B54;&#x6848;&#xFF1A;JavaScript&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x662F;&#x5C5E;&#x4E8E;&#x961F;&#x5217;&#x7684;&#x4E00;&#x79CD;&#xFF0C; &#x56E0;&#x4E3A;&#x6570;&#x7EC4;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x652F;&#x6301;&#x961F;&#x5217;&#x51E0;&#x79CD;&#x7279;&#x6027;&#xFF0C;&#x5BF9;&#x5934;&#xFF0C;&#x961F;&#x5C3E;&#xFF0C;&#x652F;&#x6301;&#x5165;&#x961F;push&#xFF0C;&#x51FA;&#x961F;unshift&#xFF0C;&#x6309;&#x7167;&#x961F;&#x5217;&#x5B9A;&#x4E49;&#x6570;&#x7EC4;&#x5E94;&#x8BE5;&#x662F;&#x5C5E;&#x4E8E;&#x961F;&#x5217;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x6570;&#x7EC4;&#x5728;&#x5E95;&#x5C42;&#x4E0A;&#x662F;&#x5C5E;&#x4E8E;&#x987A;&#x5E8F;&#x8868;&#xFF0C;&#x5185;&#x5B58;&#x5730;&#x5740;&#x5FC5;&#x987B;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5165;&#x961F;&#x548C;&#x51FA;&#x961F;&#x6240;&#x9700;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;&#x6210;&#x7EBF;&#x6027;&#xFF0C;&#x5927;&#x91CF;&#x9700;&#x8981;&#x5165;&#x961F;&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x961F;&#x5217;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B;&#xFF0C;&#x94FE;&#x8868;&#x4E5F;&#x662F;&#x5C5E;&#x4E8E;&#x7EBF;&#x6027;&#x8868;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x652F;&#x6301;&#x5185;&#x5B58;&#x5730;&#x5740;&#x4E0D;&#x9700;&#x8981;&#x8FDE;&#x7EED;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x4E2D;&#x5BF9;&#x5217;&#x7C7B;&#x578B;&#x53EB;&#x94FE;&#x8868;&#x961F;&#x5217;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x89E3;&#x51B3;&#x5927;&#x91CF;&#x5165;&#x961F;&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#x7684;&#x573A;&#x666F;&#x3002;</p>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a name="&#x53C2;&#x8003;&#x8D44;&#x6599;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#x8D44;&#x6599;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x53C2;&#x8003;&#x8D44;&#x6599;" class="plugin-anchor" href="#&#x53C2;&#x8003;&#x8D44;&#x6599;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/81018602" target="_blank">&#x7B97;&#x6CD5;&#x4E00;&#x770B;&#x5C31;&#x61C2;&#x4E4B;&#x300C; &#x961F;&#x5217; &#x300D;</a></p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/%E9%98%9F%E5%88%97" target="_blank">&#x7EF4;&#x57FA;&#x767E;&#x79D1;-&#x961F;&#x5217;</a> </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; qborfy 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2023-01-17 22:58:46
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="linked-list-leetcode.html" class="navigation navigation-prev " aria-label="Previous page: 1.1.1 链表算法题">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../base/readme.html" class="navigation navigation-next " aria-label="Next page: 2. 基础算法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.2 队列","level":"2.4.1.2","depth":3,"next":{"title":"2. 基础算法","level":"2.4.2","depth":2,"path":"source/algorithm/base/readme.md","ref":"./source/algorithm/base/readme.md","articles":[{"title":"2.1 递归算法","level":"2.4.2.1","depth":3,"path":"source/algorithm/base/recursion.md","ref":"./source/algorithm/base/recursion.md","articles":[]}]},"previous":{"title":"1.1.1 链表算法题","level":"2.4.1.1.1","depth":4,"path":"source/algorithm/datastructure/linked-list-leetcode.md","ref":"./source/algorithm/datastructure/linked-list-leetcode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github-buttons","donate","sharing-plus","anchor-navigation-ex","code","tbfed-pagefooter","lightbox","include-codeblock","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy qborfy 2019","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/qiubohong"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"donate":{"title":"","button":"赞赏","wechat":"/fedlearn/source/images/weixin.png","alipay":"/fedlearn/source/images/alipay.png","wechatText":"微信打赏","alipayText":"支付宝打赏"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"qiubohong","repo":"fedlearn","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"qborfy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"前端基础知识巩固(面试必备)","language":"zh-hans","links":{"sidebar":{"疯子知识库":"https://qiubohong.github.io"}},"gitbook":"3.2.3","description":"前端基础知识巩固(面试必备)"},"file":{"path":"source/algorithm/datastructure/queue.md","mtime":"2023-01-17T14:58:46.733Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-17T14:59:17.562Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lightbox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
