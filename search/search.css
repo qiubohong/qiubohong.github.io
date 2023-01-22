@@ -1,0 +1,124 @@
+.local-search {
+    margin:16px 30px;
+    position: relative;
+}
+.local-search-input-cls {
+    width: 80%;
+    /* margin: 10px 0; */
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 2px solid #4d4d4d;
+    color: #666;
+    font-size: 14px
+}
+.local-search-input-cls::-webkit-input-placeholder {
+    color: #2d2626;
+}
+.local-search-input-cls::-moz-input-placeholder {
+    color: #2d2626;
+}
+.local-search-input-cls::-ms-input-placeholder {
+    color: #2d2626;
+}
+#local-search-close {
+    content:'x';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #fff;
+    color: #888;
+    border-radius: 100%;
+    line-height: 16px;
+    text-align: center;
+    font-size: 16px;
+    font-family: consolas;
+    border: 1px solid #ccc;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    transform: rotateZ(0);
+    transition: all .3s
+}
+#local-search-close:hover {
+    border-color: #666;
+    color: #222;
+    transform: rotateZ(180deg);
+    transition: all .3s
+}
+.local-search-result-cls {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    /* top: 50px; */
+    right: -16px;
+}
+.local-search-result-cls .local-search-empty {
+    color: #888;
+    line-height: 44px;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    font-weight: 400
+}
+.local-search-result-cls ul {
+    width: 360px;
+    max-height: 450px;
+    min-height: 0;
+    height: auto;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 4px 10px #7dc3d8;
+    margin-top: 20px;
+}
+.local-search-result-cls ul li {
+    text-align: left;
+    border-bottom: 1px solid #bdb7b7;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-weight: 400
+}
+.local-search-result-cls ul li:last-child {
+    border-bottom: none;
+    margin-bottom: 0
+}
+.local-search-result-cls ul li a {
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration:none;
+    transition: all .3s
+}
+.local-search-result-cls ul li a:hover {
+    text-decoration:underline;
+}
+.local-search-result-cls ul li p {
+    margin-top: 10px;
+    font-size: 14px;
+    max-height: 124px;
+    overflow: hidden
+}
+.local-search-result-cls ul li em.search-keyword {
+    color: #e58c7c;
+    font-weight:bold;
+}
+.local-search-plugin .local-search-input-cls {
+    opacity: .6;
+    width: 80%;
+    transition: all .3s
+}
+.local-search-plugin .local-search-input-cls:hover {
+    opacity: 1;
+    width: 80%;
+    transition: all .3s
+}
+.local-search-plugin .icon {
+    position: relative;
+    left: -30px;
+    color: #999;
+    cursor: pointer
+}

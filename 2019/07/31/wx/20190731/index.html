@@ -34,6 +34,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
+<link rel="stylesheet" type="text/css" href="/./search/search.css">
+
   <style type="text/css">
     
     #container.show {
@@ -247,6 +249,27 @@
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
+      
+        <div class="page-header" style="">
+            
+            <script type="text/javascript" src="/js/search.js"></script>
+            <div id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </div>
+        
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/search/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+            
+        </div>
+        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -578,6 +601,10 @@
       		GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
       	</div>
     </div>
+  </div>
+
+  <div>
+	<a href="http://www.miitbeian.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   

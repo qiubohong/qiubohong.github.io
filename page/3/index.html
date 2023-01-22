@@ -34,6 +34,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
+<link rel="stylesheet" type="text/css" href="/./search/search.css">
+
   <style type="text/css">
     
     #container.show {
@@ -247,6 +249,27 @@
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
+      
+        <div class="page-header" style="">
+            
+            <script type="text/javascript" src="/js/search.js"></script>
+            <div id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </div>
+        
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/search/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+            
+        </div>
+        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -255,6 +278,190 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-share/page-notwork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/26/share/page-notwork/" target="_blank">浏览器页面卡住定位分析</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/26/share/page-notwork/" class="archive-article-date">
+        <time datetime="2022-12-26T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有童鞋在xxx系统页面反馈，遇到在弹出框后整个页面卡住无法使用的情况，属于必现问题。因此需要跟踪定位问题。</p>
+<h1 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h1><p>一般在浏览器遇到这种问题，基本上都某段逻辑进入死循环导致浏览器内核处理不过来导致的页面卡住动，这个时候需要使用Chrome开发调试工具进行跟踪定位的。</p>
+    
+    <a class="article-more-a" href="/2022/12/26/share/page-notwork/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/26/share/page-notwork/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-share/tomcat-nowork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/17/share/tomcat-nowork/" target="_blank">java tomcat服务无缘无故挂掉分析和解决方案</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/17/share/tomcat-nowork/" class="archive-article-date">
+        <time datetime="2022-12-17T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近有同事反应有时候xxx系统有时候会时不时出现服务异常提示，一上机器，发现xxx服务进程不在，重启服务后又恢复了，所以这边就需要去跟进问题。</p>
+<h1 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h1><p>java tomcat服务挂掉原因，主要怀疑方向有这几个：</p>
+<ol>
+<li>服务器被人重启，导致服务没有起来</li>
+<li>错误异常导致程序挂掉</li>
+<li>服务器占用内存过高，Linux强制退出程序</li>
+<li>其他原因<br>下面就开始逐一排查</li>
+</ol>
+    
+    <a class="article-more-a" href="/2022/12/17/share/tomcat-nowork/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/17/share/tomcat-nowork/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-study/react-test1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -826,6 +1033,10 @@
       		GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
       	</div>
     </div>
+  </div>
+
+  <div>
+	<a href="http://www.miitbeian.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   

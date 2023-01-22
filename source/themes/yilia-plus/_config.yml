@@ -279,3 +279,6 @@ friends:
     url: https://juejin.cn/user/3104676566022125
 # 关于我
 aboutme: <div style="margin:0 1em;">borfy<br><br>毕业于广大华软学院，软件工程师一枚！<br><br>Java出身，喜欢前端进行转岗，主攻全栈发展，技术有：Vue、React、Nodejs、Java等。</div>  
+
+local_search: 
+  enable: true

@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://docs.nestjs.com/assets/Guards_1.png">
 <meta property="og:image" content="https://docs.nestjs.com/assets/Interceptors_1.png">
 <meta property="og:image" content="https://docs.nestjs.com/assets/lifecycle-events.png">
-<meta property="og:updated_time" content="2023-01-10T15:05:46.896Z">
+<meta property="og:updated_time" content="2023-01-22T14:18:05.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从egg.js转到nest.js">
 <meta name="twitter:description" content="背景进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。 但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：  对typescript支持度不够，这是由于egg.js本身就不是typescrip">
@@ -41,6 +41,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
+<link rel="stylesheet" type="text/css" href="/./search/search.css">
+
   <style type="text/css">
     
     #container.show {
@@ -254,6 +256,27 @@
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
+      
+        <div class="page-header" style="">
+            
+            <script type="text/javascript" src="/js/search.js"></script>
+            <div id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </div>
+        
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/search/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+            
+        </div>
+        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -440,14 +463,14 @@
 <li><code>beforeApplicationShutdown()</code>, web应用准备被停止之前</li>
 <li><code>onApplicationShutdown()</code>，web应用被停止之后，在进程退出之前</li>
 </ul>
-<h2 id="上手实战"><a href="#上手实战" class="headerlink" title="上手实战"></a>上手实战</h2><h3 id="第一步安装："><a href="#第一步安装：" class="headerlink" title="第一步安装："></a>第一步安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm i -g @nestjs/cli</span><br><span class="line"><span class="meta">$</span> nest new project-name --strict</span><br></pre></td></tr></table></figure>
+<h2 id="上手实战"><a href="#上手实战" class="headerlink" title="上手实战"></a>上手实战</h2><h3 id="第一步安装："><a href="#第一步安装：" class="headerlink" title="第一步安装："></a>第一步安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i -g @nestjs/cli</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nest new project-name --strict</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="生成项目结构"><a href="#生成项目结构" class="headerlink" title="生成项目结构"></a>生成项目结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">|-- app.controller.spec.ts // controller层的单元测试</span><br><span class="line">|-- app.controller.ts // controller层 控制路由接口层</span><br><span class="line">|-- app.module.ts // 应用根模块</span><br><span class="line">|-- app.service.ts // service层 给controller提供各种业务处理方法</span><br><span class="line">|-- main.ts // 入口文件</span><br></pre></td></tr></table></figure>
 
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn</span><br><span class="line"><span class="meta">$</span> yarn start:dev</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn start:dev</span></span><br></pre></td></tr></table></figure>
 
 <p>打开 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 就可以访问了。</p>
-<p>后面有篇文章叫<a href="/2023/01/16/today/20220116/">《从nest.js中了解Ioc和DI》</a>，大家想了解可以去看看。</p>
+<p>后面有篇文章叫<a href="/2023/01/22/today/20220122/">《从nest.js中了解Ioc和DI》</a>，大家想了解可以去看看。</p>
 
     
 
@@ -653,6 +676,10 @@
       		GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
       	</div>
     </div>
+  </div>
+
+  <div>
+	<a href="http://www.miitbeian.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   

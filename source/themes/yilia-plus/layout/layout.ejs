@@ -17,6 +17,27 @@
           class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
       <% } %>
       <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+      <% if(theme.search) { %>
+        <div class="page-header" style="">
+            <%# 《集成本地搜索 %>
+            <script type="text/javascript" src="/js/search.js"></script>
+            <div id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </div>
+        
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/search/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+            <%# 集成本地搜索》 %>
+        </div>
+        <% } %>
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">

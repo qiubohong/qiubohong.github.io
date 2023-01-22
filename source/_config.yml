@@ -106,3 +106,7 @@ jsonContent:
     excerpt: true
     categories: false
     tags: true
+# search
+search:
+  path: search.xml
+  field: all
