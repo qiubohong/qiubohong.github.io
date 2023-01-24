@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局  F">
+  <meta name="description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flexbox布局到自适应布局">
 <meta property="og:url" content="http://qiubohong.github.io/2023/01/24/today/20220124/index.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局  F">
+<meta property="og:description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-24T16:07:55.752Z">
+<meta property="og:updated_time" content="2023-01-24T16:08:40.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flexbox布局到自适应布局">
-<meta name="twitter:description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局  F">
+<meta name="twitter:description" content="背景之前研究过一篇《移动端适配UI的全部解决方案对比》[/2023/01/14/today/20220111/]，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。 目前主流的解决方案以下几种：  通过@media媒体查询去设置不同尺寸的样式 通过Flexbox布局去做响应式布局">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -334,6 +334,8 @@
 <li>通过<code>@media</code>媒体查询去设置不同尺寸的样式</li>
 <li>通过<code>Flexbox</code>布局去做响应式布局</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="Flexbox"><a href="#Flexbox" class="headerlink" title="Flexbox"></a>Flexbox</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>Flexbox，弹性盒子布局模式，主要分为两部分：</p>
 <ul>
 <li>容器</li>

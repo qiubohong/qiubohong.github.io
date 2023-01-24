@@ -1947,6 +1947,8 @@
 <li>通过<code>@media</code>媒体查询去设置不同尺寸的样式</li>
 <li>通过<code>Flexbox</code>布局去做响应式布局</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="Flexbox"><a href="#Flexbox" class="headerlink" title="Flexbox"></a>Flexbox</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>Flexbox，弹性盒子布局模式，主要分为两部分：</p>
 <ul>
 <li>容器</li>
