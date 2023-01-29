@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox布局属性设置demo</title>
+    <style>
+        body {
+            font-family: Inter, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+            line-height: 1.75;
+            text-rendering: optimizeSpeed;
+        }
+
+        .flex {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        h2 {
+            border-bottom: 1px solid hsl(210deg, 30%, 12%);
+        }
+
+        .black {
+            background-color: hsl(210deg, 30%, 12%);
+            color: #fff;
+            border-radius: 20px;
+            padding: 16px;
+            width: 500px;
+            flex-shrink: 0;
+        }
+
+        .flex-demo {
+            display: flex;
+            gap: 16px;
+            height: 200px;
+            border: 1px solid hsl(210deg, 25%, 96%);
+        }
+
+        .flex-direction-col {
+            flex-direction: column;
+        }
+
+        .form {
+            width: 100%;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .flex-item {
+            background-color: hsl(210deg, 15%, 20%);
+            border-radius: 4px;
+            border: 2px solid hsl(210deg, 25%, 96%);
+            transition: all;
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+
+        .flex-item:hover {
+            border: 2px solid hsl(210deg, 25%, 96%);
+            background-color: rgb(86, 98, 111);
+        }
+
+        .flex-item:active {
+            border: 2px solid hsl(210deg, 25%, 96%);
+            background-color: rgb(144, 160, 176);
+        }
+
+        .flex-item span {
+            padding: 0 10px;
+        }
+
+        .flex-justify-start {
+            justify-content: flex-start;
+        }
+
+        .flex-justify-center {
+            justify-content: center;
+        }
+
+        .flex-justify-end {
+            justify-content: flex-end;
+        }
+
+        .flex-justify-around {
+            justify-content: space-around;
+        }
+
+        .flex-justify-between {
+            justify-content: space-between;
+        }
+
+        .flex-justify-evenly {
+            justify-content: space-evenly;
+        }
+
+        .flex-align-start {
+            align-items: flex-start;
+        }
+
+        .flex-align-center {
+            align-items: center;
+        }
+
+        .flex-align-end {
+            align-items: flex-end;
+        }
+
+        .flex-align-baseline {
+            align-items: baseline;
+        }
+
+        .flex-align-stretch {
+            align-items: stretch;
+        }
+
+        .flex-item-active {
+            background-color: rgb(254, 225, 64);
+            color: #000;
+        }
+
+        .flex-item-align-start {
+            align-self: flex-start;
+        }
+
+        .flex-item-align-end {
+            align-self: flex-end;
+        }
+
+        .flex-item-align-center {
+            align-self: center;
+        }
+
+        .flex-item-align-baseline {
+            align-self: baseline;
+        }
+
+        .flex-item-align-stretch {
+            align-self: stretch;
+        }
+
+        .flex-item-basic-100 {
+            flex-basis: 100px;
+        }
+
+        .flex-item-basic-200 {
+            flex-basis: 200px;
+        }
+
+        .flex-item-basic-500 {
+            flex-basis: 500px;
+        }
+
+        .flex-item-grow-1 {
+            flex-grow: 1;
+        }
+
+        .flex-item-grow-3 {
+            flex-grow: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Flex布局方向 flex-direction</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>flex-direction: column</h3>
+            <div class="flex-demo">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>flex-direction: column</h3>
+            <div class="flex-demo flex-direction-col">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+    </div>
+    <h2>Flex 主轴对齐 justify-content</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>justify-content: flex-start</h3>
+            <div class="flex-demo flex-justify-start">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>justify-content: center</h3>
+            <div class="flex-demo flex-justify-center">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>justify-content: end</h3>
+            <div class="flex-demo flex-justify-end">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3> justify-content: space-around</h3>
+            <div class="flex-demo flex-justify-around">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3> justify-content: space-between</h3>
+            <div class="flex-demo flex-justify-between">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3> justify-content: space-evenly</h3>
+            <div class="flex-demo flex-justify-evenly">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+    </div>
+    <h2>Flex 横轴对齐 align-items</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>align-items: flex-start</h3>
+            <div class="flex-demo  flex-align-start">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-items: center</h3>
+            <div class="flex-demo flex-align-center">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-items: flex-end</h3>
+            <div class="flex-demo flex-align-end">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-items: baseline</h3>
+            <div class="flex-demo flex-align-baseline">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true" style="font-size: 2em;"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-items: stretch</h3>
+            <div class="flex-demo flex-align-stretch">
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Flex 元素间隔控制 gap</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>gap:20px</h3>
+            <div class="flex-demo" style="gap:20px">
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>center下的 gap:20px</h3>
+            <div class="flex-demo flex-justify-center" style="gap:20px;">
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>end下的 gap:20px</h3>
+            <div class="flex-demo flex-justify-end" style="gap:20px;">
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+                <div class="flex-item"> <span>item</span> </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Flex 元素换行 flex-wrap</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>flex-wrap:nowrap</h3>
+            <div class="flex-demo" style="flex-wrap:nowrap">
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>flex-wrap:wrap</h3>
+            <div class="flex-demo" style="flex-wrap:wrap">
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+                <div class="flex-item" style="width: 200px;"> <span>item</span> </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Flex 子元素横轴对齐 align-self</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>align-self: flex-start</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-align-start" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-self: flex-end</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-align-end" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-self: center</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-align-center" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-self: baseline</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-align-baseline" draggable="true"><span> item</span>
+                </div>
+                <div class="flex-item" style="font-size:2em" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>align-self: stretch</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-align-stretch" draggable="true"><span> item</span>
+                </div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+                <div class="flex-item" draggable="true"><span> item</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <h2>Flex 子元素弹性宽度或高度基础设置 flex-basic</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>flex-basic:100px</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-basic-100"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>flex-basic:200px</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-basic-200"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>flex-basic:500px</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-basic-500"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+                <div class="flex-item"><span>item</span></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Flex 子元素占用容器剩余空间比例 flex-grow</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>flex-grow:1</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-grow-1"><span>item 1</span></div>
+                <div class="flex-item"><span>item 0</span></div>
+                <div class="flex-item"><span>item 0</span></div>
+                <div class="flex-item"><span>item 0</span></div>
+            </div>
+        </div>
+        <div class="black">
+            <h3>flex-grow:3; flex-grow:1;（3/4 + 1/4 = 1）分配剩余空间</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active flex-item-grow-3"><span>item 3</span></div>
+                <div class="flex-item"><span>item 0</span></div>
+                <div class="flex-item"><span>item 0</span></div>
+                <div class="flex-item flex-item-active flex-item-grow-1"><span>item 1</span></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Flex 子元素超过容器空间后被压缩比例 flex-shrink</h2>
+    <div class="flex">
+        <div class="black">
+            <h3>flex-grow:1</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active" style="width: 200px;"><span>item 200</span><br> (实际宽度112px)</div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+            </div>
+        </div><div class="black">
+            <h3>flex-grow:5</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active" style="width: 200px;flex-shrink: 5;"><span>item 200</span><br> (实际宽度50px)</div>
+                <div class="flex-item" style="width: 200px;"><span>item 200<br> (实际宽度134px)</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+            </div>
+        </div><div class="black">
+            <h3>flex-grow:0(禁止压缩)</h3>
+            <div class="flex-demo">
+                <div class="flex-item flex-item-active" style="width: 200px;flex-shrink: 0;"><span>item 200</span><br> (实际宽度200px)</div>
+                <div class="flex-item" style="width: 200px;"><span>item 200<br> (实际宽度82px)</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+                <div class="flex-item" style="width: 200px;"><span>item 200</span></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Flex 子元素排序设置 flex-order</h2>
+    <div class="flex">
+        <div class="black" style="width: 800px">
+            <h3>order随机设置</h3>
+            <div class="flex-demo">
+                <div class="flex-item" style="order: 4;"><span>item1(order:4)</span></div>
+                <div class="flex-item" style="order: 3;"><span>item2(order:3)</span></div>
+                <div class="flex-item" style="order: 1;"><span>item3(order:1)</span></div>
+                <div class="flex-item" style="order: 5;"><span>item4(order:5)</span></div>
+                <div class="flex-item" style="order: 2;"><span>item5(order:2)</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
