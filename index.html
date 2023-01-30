@@ -94,6 +94,8 @@
 			
 				<li><a href="/fedlearn/" target="_blank">前端基础巩固</a></li>
 			
+				<li><a href="https://week.qborfy.com" target="_blank">网站收集</a></li>
+			
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -189,6 +191,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -226,21 +230,23 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">主页</a></li>
+					<li style="width: 11.11111111111111%"><a href="/">主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/每日更新/">每日更新</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/技术分享/">技术分享</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/学习总结/">学习总结</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/翻译文章/">翻译文章</a></li>
 		        
-					<li style="width: 12.5%"><a href="/fedlearn/">前端基础巩固</a></li>
+					<li style="width: 11.11111111111111%"><a href="/fedlearn/">前端基础巩固</a></li>
+		        
+					<li style="width: 11.11111111111111%"><a href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -278,6 +284,104 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-today/20220129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/01/29/today/20220129/" target="_blank">从null、undefined、NaN的区别了解JS的原型链</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/01/29/today/20220129/" class="archive-article-date">
+        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
+<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
+<p>主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<ul>
+<li>数据类型</li>
+<li>原型链</li>
+</ul>
+    
+    <a class="article-more-a" href="/2023/01/29/today/20220129/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/01/29/today/20220129/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-today/20220124" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -1152,104 +1256,6 @@
 
 
   
-    <article id="post-today/20220109" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/01/09/today/20220109/" target="_blank">对CMDB进行一个系统完整认知</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/01/09/today/20220109/" class="archive-article-date">
-        <time datetime="2023-01-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：</p>
-<ul>
-<li>是什么</li>
-<li>能做什么和怎么做</li>
-<li>优秀方案</li>
-<li>未来方向</li>
-</ul>
-    
-    <a class="article-more-a" href="/2023/01/09/today/20220109/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/01/09/today/20220109/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1424,11 +1430,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习总结</a>
+                <a href="javascript:void(0)" class="js-tag color2">周二技术周刊</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">周二技术周刊</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1436,15 +1442,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">短视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动手实战</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分析</a>
+                <a href="javascript:void(0)" class="js-tag color4">短视频</a>
               </li>
              
               <li class="article-tag-list-item">

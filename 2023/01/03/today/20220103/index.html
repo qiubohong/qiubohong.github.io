@@ -92,6 +92,8 @@
 			
 				<li><a href="/fedlearn/" target="_blank">前端基础巩固</a></li>
 			
+				<li><a href="https://week.qborfy.com" target="_blank">网站收集</a></li>
+			
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -187,6 +189,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -224,21 +228,23 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 12.5%"><a href="/">主页</a></li>
+					<li style="width: 11.11111111111111%"><a href="/">主页</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/每日更新/">每日更新</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/技术分享/">技术分享</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/学习总结/">学习总结</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
 		        
-					<li style="width: 12.5%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 11.11111111111111%"><a href="/tags/翻译文章/">翻译文章</a></li>
 		        
-					<li style="width: 12.5%"><a href="/fedlearn/">前端基础巩固</a></li>
+					<li style="width: 11.11111111111111%"><a href="/fedlearn/">前端基础巩固</a></li>
+		        
+					<li style="width: 11.11111111111111%"><a href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -361,7 +367,7 @@
 </blockquote>
 <p>github地址: <a href="https://github.com/usablica/intro.js/" target="_blank" rel="noopener">intro.js</a></p>
 <p>使用demo教程：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> introJs <span class="keyword">from</span> <span class="string">'intro.js'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'intro.js/introjs.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用HTML属性</span></span><br><span class="line">&lt;a href=<span class="string">'http://google.com/'</span> data-intro=<span class="string">'Hello step one!'</span>&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用JSON配置</span></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav-menu"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li id=<span class="string">"step1"</span>&gt;步骤一&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li id="step2"&gt;步骤2&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line"><span class="comment">// 配置</span></span><br><span class="line">introJs().setOptions(&#123;</span><br><span class="line">  steps: [&#123;</span><br><span class="line">    title: <span class="string">'Welcome'</span>,</span><br><span class="line">    intro: <span class="string">'Hello World! 👋'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="built_in">document</span>.querySelector(<span class="string">'#step1'</span>),</span><br><span class="line">    intro: <span class="string">'This step focuses on an image'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'Farewell!'</span>,</span><br><span class="line">    element:<span class="built_in">document</span>.querySelector(<span class="string">'#step2'</span>),,</span><br><span class="line">    intro: <span class="string">'And this is our final step!'</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> introJs <span class="keyword">from</span> <span class="string">'intro.js'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'intro.js/introjs.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用HTML属性</span></span><br><span class="line">&lt;a href=<span class="string">'http://google.com/'</span> data-intro=<span class="string">'Hello step one!'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用JSON配置</span></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav-menu"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li id=<span class="string">"step1"</span>&gt;步骤一&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li id="step2"&gt;步骤2&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line"><span class="comment">// 配置</span></span><br><span class="line">introJs().setOptions(&#123;</span><br><span class="line">  steps: [&#123;</span><br><span class="line">    title: <span class="string">'Welcome'</span>,</span><br><span class="line">    intro: <span class="string">'Hello World! 👋'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="built_in">document</span>.querySelector(<span class="string">'#step1'</span>),</span><br><span class="line">    intro: <span class="string">'This step focuses on an image'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'Farewell!'</span>,</span><br><span class="line">    element:<span class="built_in">document</span>.querySelector(<span class="string">'#step2'</span>),,</span><br><span class="line">    intro: <span class="string">'And this is our final step!'</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
 
 <h4 id="shepherd-js"><a href="#shepherd-js" class="headerlink" title="shepherd.js"></a>shepherd.js</h4><blockquote>
 <p><strong><code>shepherd.js</code></strong> 包含的 API 众多，大多场景都可以通过其对应的配置得到，缺点就是整体的包体积较大，并且配置也比较复杂，配置复杂的内容一般都需要进行二次封装，将可变和不可变的配置项进行抽离</p>
@@ -737,11 +743,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习总结</a>
+                <a href="javascript:void(0)" class="js-tag color2">周二技术周刊</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">周二技术周刊</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,15 +755,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">短视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动手实战</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分析</a>
+                <a href="javascript:void(0)" class="js-tag color4">短视频</a>
               </li>
              
               <li class="article-tag-list-item">
