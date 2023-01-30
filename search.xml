@@ -2237,6 +2237,78 @@
       </tags>
   </entry>
   <entry>
+    <title>前端面试强攻之题目收集</title>
+    <url>/2023/01/30/study/face-test/</url>
+    <content><![CDATA[<h1 id="八股文"><a href="#八股文" class="headerlink" title="八股文"></a>八股文</h1><ul>
+<li>dom树是怎么生成的</li>
+<li>v8垃圾回收</li>
+<li>JS上下文执行栈和闭包</li>
+<li>浏览器缓存</li>
+<li>一个页面在浏览器加载经历哪些阶段</li>
+<li>CSS BFC</li>
+<li>CSS 居中</li>
+<li>CSS 层叠上下文和层叠顺序</li>
+<li>flex布局</li>
+<li>CSS 响应式布局</li>
+<li>为什么跨域？跨域实现方案</li>
+<li>如何理解js的模块化</li>
+</ul>
+<h1 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h1><h1 id="通用问题"><a href="#通用问题" class="headerlink" title="通用问题"></a>通用问题</h1><ul>
+<li>如何看React和Vue</li>
+<li>生命周期</li>
+<li>路由实现机制</li>
+<li>diff算法和key的作用</li>
+<li>数据绑定原理</li>
+<li>虚拟 DOM 实现原理</li>
+<li>组件通信</li>
+<li></li>
+</ul>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ul>
+<li>Fiber架构是什么</li>
+<li>Hook函数的作用是什么</li>
+<li>setState是异步还是同步，如果要获取更新后的state应该怎么做</li>
+</ul>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><ul>
+<li>Vue2和Vue3的区别</li>
+<li>Vue3的组合式 API是什么？有什么好处？</li>
+<li>Vue3中如何开发函数式组件？</li>
+<li>nextTick 的原理是什么？</li>
+</ul>
+<h1 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h1><ul>
+<li>TypeScript是什么？有什么特性或者好处？</li>
+<li>TypeScript 的缺点是什么？</li>
+<li>Typescript 中的装饰器是什么？</li>
+<li>TypeScript 如何设计 Class 的声明？</li>
+<li>TypeScript 中 type 和 interface 的区别?</li>
+<li>TypeScript 枚举是什么？</li>
+<li>简单介绍一下 TypeScript 模块的加载机制？</li>
+<li>TypeScript 的 tsconfig.json 中有哪些配置项信息？</li>
+<li>如何初始化一个Typescript项目？</li>
+</ul>
+<h1 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h1><ul>
+<li>目前市面上主流的构建工具有哪些？ webpack和 vite对比?</li>
+</ul>
+<h1 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h1><ul>
+<li>深浅拷贝</li>
+<li>Promise和Promise.all实现 </li>
+<li>throttle节流 和 debounce防抖</li>
+<li>如何通过原型实现继承</li>
+</ul>
+<h1 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h1><ul>
+<li>排序题</li>
+<li>去重题</li>
+<li>反转题</li>
+</ul>
+<p>具体可以参考这些:</p>
+<ul>
+<li><a href="https://juejin.cn/post/6987320619394138148" target="_blank" rel="noopener">算法面试】leetcode最常见的150道前端面试题 — 简单题上</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>//404.html</url>
     <content><![CDATA[<html>
