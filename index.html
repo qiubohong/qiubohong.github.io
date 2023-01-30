@@ -315,12 +315,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
 <p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
-<p>主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<p>我们先简单认识三者：</p>
 <ul>
-<li>数据类型</li>
-<li>原型链</li>
+<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
+<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
+<li><code>NaN</code> 是一个表示非数字的值</li>
+</ul>
+<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<ul>
+<li>数据类型 <code>typeof</code></li>
+<li><code>===</code> 判断</li>
+<li>原型 <code>prototype</code></li>
 </ul>
     
     <a class="article-more-a" href="/2023/01/29/today/20220129/#more">more >></a>
@@ -1258,7 +1265,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
