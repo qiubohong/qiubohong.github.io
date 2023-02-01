@@ -15,7 +15,8 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://qborfy.com/
 root: /
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: :title.html
 permalink_defaults:
 
 # Directory
@@ -83,10 +84,12 @@ theme: yilia-plus
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: https://github.com/qiubohong/qiubohong.github.io.git
   branch: master
   token: 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
+
+- type: baidu_url_submitter
 
 jsonContent:
   meta: false
@@ -116,3 +119,10 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+# 自动提交submit
+baidu_url_submit:
+  count: 3 ## 比如3，代表提交最新的三个链接
+  host: https://www.qborfy.com ## 在百度站长平台中注册的域名
+  token: kuOs5hlQSCQFsh00 ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
