@@ -288,6 +288,304 @@
             
 
   
+    <article id="post-today/20220208" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220208.html" target="_blank">css变量了解到项目落地</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220208.html" class="archive-article-date">
+        <time datetime="2023-02-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
+<p><img src="/assets/img/20230208-1.png" alt></p>
+<p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
+<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt></p>
+    
+    <a class="article-more-a" href="/today/20220208.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220208.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20220201" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220201.html" target="_blank">低代码系列——js沙箱设计</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220201.html" class="archive-article-date">
+        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
+<p>这里为什么会一开始介绍js沙箱设计呢？</p>
+<p>因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
+<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
+<ul>
+<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
+<li>插入，沙箱允许插入平台的内置对象</li>
+<li>容错，沙箱内代码及时有错误，也不影响整个平台执行，有超时机制等</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20220201.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220201.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20220131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220131.html" target="_blank">hexo网站提高SEO优化方法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220131.html" class="archive-article-date">
+        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
+<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
+<li>提交站点到搜索引擎(百度和谷歌)</li>
+<li>hexo针对搜索的优化</li>
+</ul>
+<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
+<li><p>添加hexo插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>_config.yml</code>配置</p>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/today/20220131.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220131.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-study/face-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -929,297 +1227,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20220119.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220117" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220117.html" target="_blank">理解React中Fiber架构(一)</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220117.html" class="archive-article-date">
-        <time datetime="2023-01-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标<code>快速响应</code>，原先Diff算法时间复杂度为<span>$$ O(n^3)$$</span> ，最后经过Fiber重构达到了$$ O(n) $$，这里面具体有什么门道，值得我们去深入研究一下。</p>
-    
-    <a class="article-more-a" href="/today/20220117.html#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220117.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220116" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220116.html" target="_blank">从Z-Library到了解IPFS去中心化技术</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220116.html" class="archive-article-date">
-        <time datetime="2023-01-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是<code>Z-Library</code>，因此觉得挺有趣，所以适合简单研究一下。</p>
-<h1 id="Z-Library"><a href="#Z-Library" class="headerlink" title="Z-Library"></a>Z-Library</h1><blockquote>
-<p>Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章[1]。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”[2]，并在文章搜索页面上称自身是“全球最大的科学文章存储库”[3]。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏[4]。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。</p>
-</blockquote>
-<p>ZLibrary虽然是一个俄国网站，但它拥有16种语言版本可供选择，下滑至网页末尾，即可切换语言。</p>
-<p>访问地址：<a href="https://zlib.cydiar.com/" target="_blank" rel="noopener">https://zlib.cydiar.com/</a><br>访问地址：<a href="https://bk.hallowlib.org/" target="_blank" rel="noopener">https://bk.hallowlib.org/</a> 国内备用网址</p>
-    
-    <a class="article-more-a" href="/today/20220116.html#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术探鲜</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220116.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220111" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220111.html" target="_blank">移动端适配UI的全部解决方案对比</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220111.html" class="archive-article-date">
-        <time datetime="2023-01-14T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。</p>
-<p>因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>移动端存在几类问题，如下所列：</p>
-<ul>
-<li>1px显示过粗问题</li>
-<li>手机屏幕出现刘海屏、滴水屏等，如何适配</li>
-<li>如何在不同屏幕，显示正确高清图片</li>
-<li>meta 的 viewport 值 能否用来适配</li>
-<li>rem，vw，vh计算单位的区别</li>
-<li>…</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20220111.html#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220111.html">展开全文 >></a>
     </p>
     
 

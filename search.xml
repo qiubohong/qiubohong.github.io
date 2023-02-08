@@ -947,9 +947,166 @@
       </tags>
   </entry>
   <entry>
-    <title>从微前端到模块联邦</title>
+    <title>低代码系列——js沙箱设计</title>
     <url>/today/20220201.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
+<p>这里为什么会一开始介绍js沙箱设计呢？</p>
+<p>因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
+<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
+<ul>
+<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
+<li>插入，沙箱允许插入平台的内置对象</li>
+<li>容错，沙箱内代码及时有错误，也不影响整个平台执行，有超时机制等</li>
+</ul>
+<a id="more"></a>
+<h1 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h1><p>在设计沙箱之前，我们先对沙箱有个了解：</p>
+<blockquote>
+<p>在计算机安全中，沙箱（Sandbox）是一种用于隔离正在运行程序的安全机制，通常用于执行未经测试或不受信任的程序或代码，它会为待执行的程序创建一个独立的执行环境，内部程序的执行不会影响到外部程序的运行。</p>
+</blockquote>
+<p>通俗的讲，就是由我们主程序自己设定一个区域，用来执行代码，且这段代码如何执行都不会影响到外部的主程序。</p>
+<p>举几个我们开发中经常会用的沙箱：</p>
+<ul>
+<li>Vue template里的表达式，如: <code>&lt;div&gt;2&lt;/div&gt;</code>，执行<code>1+1</code>就是Vue设计的一个沙箱机制</li>
+<li>开发Chrome插件，插件里的代码有很多限制条件，循序Chrome插件规则，那么插件的运行环境和规则也是一个沙箱</li>
+<li>在线代码编辑器， CodeSanbox在执行脚本也会单独成立一个沙箱去隔离执行代码，防止代码访问或影响主页面</li>
+<li>微前端<code>qiangun</code>或<code>single-spa</code>框架里主应用和子应用之间的完全隔离，也是一种沙箱机制，如: 应用之间CSS样式不能互相影响</li>
+</ul>
+<p>在了解完沙箱是什么后，那么在JavaScript语言里如何实现沙箱呢？主要有以下几种方式：</p>
+<ul>
+<li>使用 with 声明</li>
+<li>使用 new Function 声明</li>
+<li>基于 Proxy实现</li>
+<li>基于属性 diff实现</li>
+<li>基于 iframe实现</li>
+<li>基于 ES 提案 ShadowRealm API</li>
+</ul>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="with关键字"><a href="#with关键字" class="headerlink" title="with关键字"></a>with关键字</h2><blockquote>
+<p>with 扩展一个语句的作用域链。 —— <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/with" target="_blank" rel="noopener">MDN with</a><br>JavaScript 查找某个未使用命名空间的变量时，会通过作用域链来查找，作用域链是跟执行代码的 context 或者包含这个变量的函数有关。’with’语句将某个对象添加到作用域链的顶部，如果在 statement 中有某个未使用命名空间的变量，跟作用域链中的某个属性同名，则这个变量将指向这个属性值。如果沒有同名的属性，则将拋出ReferenceError异常。</p>
+</blockquote>
+<p>按照个人比较容易理解的意思，就是给一段代码加上指定对象为该作用的全局变量。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">1.1</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用with</span></span><br><span class="line"><span class="keyword">with</span>(<span class="built_in">Math</span>)&#123;</span><br><span class="line">    floor(<span class="number">1.1</span>) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="new-Function"><a href="#new-Function" class="headerlink" title="new Function"></a>new Function</h2><p><code>new Function(argStr, codeStr)</code>是能将字符串代码转换为可执行的函数。具体示例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'test'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> test = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'arg'</span>, <span class="string">'console.log(arg)'</span>);</span><br><span class="line"><span class="comment">// 这里等于 test = (arg)=&gt; &#123;console.log(arg)&#125;;</span></span><br><span class="line"></span><br><span class="line">test(name); <span class="comment">// test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><blockquote>
+<p>Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">Proxy MDN</a></p>
+</blockquote>
+<p>Proxy只能代理<code>object</code>类型的变量，针对基础类型的代理只能将其封装到对象里再进行代理监听。</p>
+<p>Proxy代理方法如下：</p>
+<ul>
+<li><code>getPrototypeOf(target)</code> 代理获取原型的方法</li>
+<li><code>setPrototypeOf(target, newProto)</code> 设置原型，如果不想设置原型，可以<code>return false</code></li>
+<li><code>isExtensible(target)</code>  拦截对对象的 <code>Object.isExtensible()</code>，必须返回一个 Boolean 值，判断一个对象是否是可扩展的</li>
+<li><code>preventExtensions(target)</code> 拦截<code>Object.preventExtensions()</code>，让一个对象变的不可扩展，也就是永远不能再添加新的属性</li>
+<li><code>getOwnPropertyDescriptor(target, prop)</code> 拦截<code>Object.getOwnPropertyDescriptor()</code>，拦截获取对象属性的描述符</li>
+<li><code>defineProperty(target, property, descriptor)</code> 拦截<code>Object.defineProperty()</code></li>
+<li><code>has(target, key)</code>，针对 in 操作符的代理方法</li>
+<li><code>get(target, property, receiver)</code>，用于拦截对象的读取属性操作</li>
+<li><code>set()</code>，设置属性值操作的捕获器。</li>
+<li><code>construct()</code>，用于拦截 new 操作符</li>
+</ul>
+<p>与<code>Object.defineProperty</code>主要区别(可拦截方法比<code>Object.defineProperty</code>多)：</p>
+<ul>
+<li>Proxy代理的是整个对象，Object.defineProperty只代理对象上的某个属性,如果是多层嵌套的数据需要循环递归绑定;</li>
+<li>对象上定义新属性时，Proxy可以监听到，Object.defineProperty监听不到，需要借助$set方法;</li>
+<li>数组的某些方法(push、unshift和splice)Object.defineProperty监听不到，Proxy可以监听到;</li>
+</ul>
+<h2 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h2><blockquote>
+<p>指用于指定对象值，其对象自身和继承的从关联对象的 with 环境绑定中排除的属性名称。</p>
+</blockquote>
+<p>可以这么理解，就是为了防止<code>with</code>添加作用域的时候，将某个属性从作用域中排除掉，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = &#123;</span><br><span class="line">    p: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 禁止将a.p放到with作用域中</span></span><br><span class="line">a[<span class="built_in">Symbol</span>.unscopables] = &#123;<span class="attr">p</span>: <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span>(a)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(p) <span class="comment">// 报错 p not defined</span></span><br><span class="line">    <span class="built_in">console</span>.log(b) <span class="comment">// 正常输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此很多内置对象都设置该值为true，从而降低with的侵入，具体如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.unscopables];</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">  copyWithin: true,</span></span><br><span class="line"><span class="comment">  entries: true,</span></span><br><span class="line"><span class="comment">  fill: true,</span></span><br><span class="line"><span class="comment">  find: true,</span></span><br><span class="line"><span class="comment">  findIndex: true,</span></span><br><span class="line"><span class="comment">  flat: true,</span></span><br><span class="line"><span class="comment">  flatMap: true,</span></span><br><span class="line"><span class="comment">  includes: true,</span></span><br><span class="line"><span class="comment">  keys: true,</span></span><br><span class="line"><span class="comment">  values: true,</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="沙箱实现"><a href="#沙箱实现" class="headerlink" title="沙箱实现"></a>沙箱实现</h1><p>沙箱实现步骤一般如下：</p>
+<ul>
+<li>解析代码，动态执行</li>
+<li>修改代码的作用域，避免进行向上全局查询</li>
+<li>创建全局对象的替代对象，避免污染全局对象</li>
+<li>执行代码</li>
+</ul>
+<h2 id="基于Proxy实现"><a href="#基于Proxy实现" class="headerlink" title="基于Proxy实现"></a>基于Proxy实现</h2><p>前面基础知识将到Proxy是一个可以代理对象的方法，那么其实可以按照将一些全局对象做代理后放入到沙箱里。主要有两个步骤：</p>
+<ul>
+<li>使用<code>new Function</code>将代码字符串转为可执行函数</li>
+<li>加<code>with</code>生成局部作用域</li>
+<li>使用<code>createFake</code>方法生成替代对象<code>fakeWindow</code></li>
+<li>使用<code>Proxy</code>代理拦截<code>set</code> <code>get</code>操作，更新到<code>fakeWindow</code>中</li>
+<li>当沙箱不用时，将<code>window</code>重置回</li>
+</ul>
+<p>简易沙箱示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; complieCode2Fn, createFakeWindow &#125; = <span class="built_in">require</span>(<span class="string">'./complieCode.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxySandbox</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(global) &#123;</span><br><span class="line">        <span class="keyword">const</span> rawGlobal = global;</span><br><span class="line">        <span class="keyword">const</span> fakeWindow = createFakeWindow(global);</span><br><span class="line">        <span class="keyword">this</span>.proxyBox = <span class="keyword">new</span> <span class="built_in">Proxy</span>(fakeWindow, &#123;</span><br><span class="line">            <span class="comment">// 拦截所有属性，防止到 Proxy 对象以外的作用域链查找。</span></span><br><span class="line">            has(target, key) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">get</span>(target, key, receiver) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'get'</span>, key, target[key])</span><br><span class="line">                <span class="comment">// 加固，防止逃逸</span></span><br><span class="line">                <span class="keyword">if</span> (key === <span class="built_in">Symbol</span>.unscopables) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 通过Reflect获取</span></span><br><span class="line">                <span class="keyword">let</span> temp = <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">                <span class="keyword">if</span>(!target.hasOwnProperty(key))&#123;</span><br><span class="line">                    temp = rawGlobal[key];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> temp;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>(target, key, newValue) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!target.hasOwnProperty(key) &amp;&amp; fakeWindow.hasOwnProperty(key)) &#123;</span><br><span class="line">                    <span class="keyword">const</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(sandbox, key);</span><br><span class="line">                    <span class="keyword">const</span> &#123; writable, configurable, enumerable &#125; = descriptor;</span><br><span class="line">                    <span class="keyword">if</span> (writable) &#123;</span><br><span class="line">                        <span class="comment">// 中独有的属性如果可以写，同样需要复制到fakeWindow中</span></span><br><span class="line">                        <span class="built_in">Object</span>.defineProperty(target, p, &#123;</span><br><span class="line">                            configurable,</span><br><span class="line">                            enumerable,</span><br><span class="line">                            writable,</span><br><span class="line">                            newValue,</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    target[key] = newValue;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    excute(code)&#123;</span><br><span class="line">        <span class="keyword">const</span> fn = complieCode2Fn(code);</span><br><span class="line">        <span class="keyword">return</span> fn(<span class="keyword">this</span>.proxyBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fakeBox = <span class="keyword">new</span> ProxySandbox(global);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> code = <span class="string">`a = 1;console.log('a:', a);return a;`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fakeBox.excute(code));  <span class="comment">// 输出a:1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'在沙箱外获取沙箱内设置的全局值a:'</span>, a); <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>问题1： 如何防止<code>Array.isArray</code>重写后不影响顶部window？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">const code = `</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">Array</span>.isArray = <span class="function"><span class="params">()</span>=&gt;</span> <span class="literal">true</span>;</span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">console.log(Array.isArray('a')); // 输出true 正常应该是false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成<code>fakeWindow</code>对象时候，遍历内置<code>Array</code>，通过<code>Object.freeze</code>冻结其修改的可能性</li>
+</ul>
+<p>问题2： 提前关闭 sandbox 的 with 语境，如 ‘} alert(this); {‘  或者使用 eval 和 new Function 直接逃逸，如何解决？</p>
+<ul>
+<li>解析code字符串，利用堆栈深度检测算法，将非法字符串 <code>{}</code>做简单计算 或者 <code>eval</code> 等关键字，然后报错处理</li>
+</ul>
+<p>问题3： 如何解决修改原型链方法实现逃逸，既可以获取沙箱外的对象？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    (&#123;&#125;).constructor.prototype.toString = () =&gt; &#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        console.log('Escape')</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="built_in">console</span>.log((&#123;&#125;).toString()) <span class="comment">// 输出Escape 正常应该输出[object Object]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种只能在原型链上下功夫，将所有的原型链做一次封装，从而</li>
+</ul>
+<h2 id="基于iframe实现"><a href="#基于iframe实现" class="headerlink" title="基于iframe实现"></a>基于iframe实现</h2><p>利用<code>iframe</code>天然隔离机制，加上<code>postMessage</code>通讯机制，可以快速实现一个简易沙箱，具体步骤如下：</p>
+<ul>
+<li>创建一个iframe，获取其window作为替代对象</li>
+<li>将function执行放到iframe里，不会影响其沙箱外程序使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IframeSandbox</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="comment">// 创建一个 iframe 对象，取出其中的原生浏览器全局对象作为沙箱的全局对象</span></span><br><span class="line">        <span class="keyword">const</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>, &#123;<span class="attr">url</span>: <span class="string">'about:blank'</span>&#125;)</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(iframe)</span><br><span class="line">        <span class="keyword">this</span>.sandboxGlobal = iframe.contentWindow <span class="comment">// 沙箱运行时的全局对象</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    excute(code)&#123;</span><br><span class="line">        <span class="keyword">const</span> fn = <span class="keyword">new</span> <span class="keyword">this</span>.sandboxGlobal.Function(<span class="string">'sandbox'</span>, <span class="string">`with(sandbox)&#123;<span class="subst">$&#123;code&#125;</span>&#125;`</span>)</span><br><span class="line">        <span class="keyword">return</span> fn(<span class="keyword">this</span>.sandboxGlobal);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fakeBox = <span class="keyword">new</span> IframeSandbox();</span><br><span class="line"><span class="keyword">const</span> code = <span class="string">`a = 1;console.log(a)`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fakeBox.excute(code));  <span class="comment">// 输出a:1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'在沙箱外获取沙箱内设置的全局值a:'</span>, a); <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>问题1： 需要解决其调用<code>parent</code>进行逃逸获取？</p>
+<ul>
+<li>最佳方案是通过<code>Proxy</code>对iframe的window对象进行拦截代理即可</li>
+</ul>
+<h2 id="基于ShadowRealm-提案的实现"><a href="#基于ShadowRealm-提案的实现" class="headerlink" title="基于ShadowRealm 提案的实现"></a>基于ShadowRealm 提案的实现</h2><blockquote>
+<p>ShadowRealm API 是一个新的 JavaScript 提案，它允许一个 JS 运行时创建多个高度隔离的 JS 运行环境（realm），每个 realm 具有独立的全局对象和内建对象。</p>
+</blockquote>
+<p>通俗的说，这是JavaScript自带的沙箱API，你可以利用它快速实现上面需要通过proxy或iframe才能实现的隔离机制。</p>
+<p>ShadowRealm声明：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">declare <span class="class"><span class="keyword">class</span> <span class="title">ShadowRealm</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>();</span><br><span class="line">  evaluate(sourceText: string): PrimitiveValueOrCallable;</span><br><span class="line">  importValue(specifier: string, bindingName: string): Promise&lt;PrimitiveValueOrCallable&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>evaluate(sourceText: string)</code> 同步执行代码字符串，类似 eval()</li>
+<li><code>importValue(specifier: string, bindingName: string)</code> 异步执行代码字符串</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sr = <span class="keyword">new</span> ShadowRealm();</span><br><span class="line">globalThis.test = <span class="string">'test'</span>;</span><br><span class="line">sr.evaluate(<span class="string">`globalThis.test = 'test ShadowRealm'; console.log(globalThis.test)`</span>) <span class="comment">// 输出 test ShadowRealm</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件  my-module.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> values.reduce(<span class="function">(<span class="params">prev, value</span>) =&gt;</span> prev + value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">const</span> sr = <span class="keyword">new</span> ShadowRealm();</span><br><span class="line"><span class="keyword">const</span> wrappedSum = <span class="keyword">await</span> sr.importValue(<span class="string">'./my-module.js'</span>, <span class="string">'sum'</span>); <span class="comment">// 加载js模块，然后获取里面函数</span></span><br><span class="line"><span class="built_in">console</span>.log(wrappedSum(<span class="string">'hi'</span>, <span class="string">' '</span>, <span class="string">'folks'</span>, <span class="string">'!'</span>)); <span class="comment">// 输出 hi folks !</span></span><br></pre></td></tr></table></figure>
+
+<p>其实再来实现一个沙箱就很简单了，因为ShadownRealm本身就是一个沙箱。</p>
+<h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h3 id="Web-Workers"><a href="#Web-Workers" class="headerlink" title="Web Workers"></a>Web Workers</h3><p><code>Web Workers</code>代码运行在独立的进程中，通信是异步的，无法获取当前程序一些属性或共享状态，且有一点无法不支持 DOM 操作，必须通过 postMessage 通知 UI 主线程来实现</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workerSandbox</span>(<span class="params">appCode</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([appCode]);</span><br><span class="line"> <span class="keyword">var</span> appWorker = <span class="keyword">new</span> Worker(<span class="built_in">window</span>.URL.createObjectURL(blob));</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">workerSandbox(<span class="string">'const a = 1;console.log(a);'</span>) <span class="comment">// 输出1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a not defined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="vm-模块"><a href="#vm-模块" class="headerlink" title="vm 模块"></a>vm 模块</h3><p>Node.js 上的 vm 模块，与 ShadowRealm API 类似，但具有更多功能：缓存 JavaScript 引擎、拦截 import() 等等。但它唯一的缺点就是不能跨平台，只能在 Node.js 环境下使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="built_in">require</span>(<span class="string">'vm'</span>);</span><br><span class="line"><span class="keyword">const</span> sandbox = &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line">vm.createContext(sandbox)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> whatIsThis = vm.runInContext(<span class="string">`</span></span><br><span class="line"><span class="string">    a = 2 ;</span></span><br><span class="line"><span class="string">`</span>, sandbox);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sandbox) <span class="comment">// 输出2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="沙箱错误捕获"><a href="#沙箱错误捕获" class="headerlink" title="沙箱错误捕获"></a>沙箱错误捕获</h1><p>在完成沙箱主体后，还需要对沙箱内部错误进行捕获再次处理，从而不影响主体程序的执行。</p>
+<p>这一块其实就在执行动态代码那里，做一层<code>try/catch</code>基本上可以完成的错误捕获。</p>
+<h1 id="沙箱逃逸"><a href="#沙箱逃逸" class="headerlink" title="沙箱逃逸"></a>沙箱逃逸</h1><p>沙箱逃逸（Sandbox Escape），沙箱于作者而言是一种安全策略，但于使用者而言可能是一种束缚。脑洞大开的开发者们尝试用各种方式摆脱这种束缚，也称之为沙箱逃逸。</p>
+<p>沙箱逃逸的几种方式：</p>
+<ul>
+<li>访问沙箱执行上下文中某个对象内部属性时，如：通过window.parent</li>
+<li>通过访问原型链实现逃逸</li>
+</ul>
+<p>如何解决沙箱逃逸：</p>
+<blockquote>
+<p>自定义解释器，分析源程序结构从而手动控制每一条语句的执行逻辑，如：<code>Babel</code>等</p>
+</blockquote>
+<p>简单的说，就是用JS去实现JS解释器，将每行代码进行解析，然后增加一些安全机制，从而避免非法代码入侵。</p>
+<p>后续会专门写个文章去实现一个简单的JS解释器，这里就不做多阐述。更新后会放在这里链接。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">MDN Proxy</a></li>
+<li><a href="https://github.com/careyke/frontend_knowledge_structure/blob/master/microFrontend/question02_03_js_sandbox.md" target="_blank" rel="noopener">qiankun中JS沙箱的实现</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1482264" target="_blank" rel="noopener">CodeSandbox 如何工作</a></li>
+<li><a href="https://juejin.cn/post/7089822133559230501" target="_blank" rel="noopener">Javascript 新特性前瞻 —— ShadowRealms</a></li>
+</ul>
 ]]></content>
       <tags>
         <tag>技术分享</tag>
@@ -1063,21 +1220,39 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo网站提高</title>
+    <title>hexo网站提高SEO优化方法</title>
     <url>/today/20220131.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
+    <content><![CDATA[<h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
+<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
+<li>提交站点到搜索引擎(百度和谷歌)</li>
+<li>hexo针对搜索的优化</li>
+</ul>
+<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
+<li><p>添加hexo插件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>_config.yml</code>配置</p>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="提交站点"><a href="#提交站点" class="headerlink" title="提交站点"></a>提交站点</h2><ul>
+<li><a href="https://search.google.com/search-console?utm_source=about-page&resource_id=https://qborfy.com/" target="_blank" rel="noopener">谷歌Search Console</a>  直接按照引导添加即可<code>sitemap.xml</code>文件</li>
+<li><a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">百度站长平台</a>  按照其引导提交站点即可，主要是<code>sitemap.xml</code>文件</li>
+</ul>
+<h2 id="hexo优化建议"><a href="#hexo优化建议" class="headerlink" title="hexo优化建议"></a>hexo优化建议</h2><ul>
+<li>出站链接添加<code>nofollow</code>标签</li>
+<li>添加关键字，主要在文章首部地方添加<code>keywords</code>和<code>description</code></li>
+<li>修改博文链接，将hexo默认<code>domain/year/month/day/postname</code>改为<code>title</code></li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html" target="_blank" rel="noopener">Hexo博客Next主题SEO优化方法</a></p>
 ]]></content>
       <tags>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css变量了解到项目落地</title>
-    <url>/today/20220202.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
-]]></content>
-      <tags>
-        <tag>技术分享</tag>
         <tag>每日更新</tag>
       </tags>
   </entry>
@@ -2339,6 +2514,113 @@
     <title>前端自动化UI测试的完整方案</title>
     <url>/today/20220204.html</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
+<p><a href="https://github.com/goldbergyoni/javascript-testing-best-practices?utm_source=gold_browser_extension" target="_blank" rel="noopener">JS最佳测试实践</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从微前端到模块联邦</title>
+    <url>/today/20220206.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从ChatGPT学到了什么</title>
+    <url>/today/20220207.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从Prometheus学会搭建监控系统</title>
+    <url>/today/20220209.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过 JS 构建我们自己的 JS 解释器</title>
+    <url>/today/20220210.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://segmentfault.com/a/1190000038252581re" target="_blank" rel="noopener">giao-js</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从Copilot学到了什么</title>
+    <url>/today/20220211.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css变量了解到项目落地</title>
+    <url>/today/20220208.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
+<p><img src="/assets/img/20230208-1.png" alt></p>
+<p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
+<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt></p>
+<a id="more"></a>
+
+<h1 id="CSS变量var"><a href="#CSS变量var" class="headerlink" title="CSS变量var()"></a>CSS变量var()</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
+<p>自定义属性（有时候也被称作CSS 变量或者级联变量）是由 CSS 作者定义的，它包含的值可以在整个文档中重复使用。由自定义属性标记设定值（比如： –main-color: black;），由 var() 函数来获取值（比如： color: var(–main-color);）</p>
+</blockquote>
+<p>通俗的说，就是CSS以后不需要用<code>less</code>或<code>css</code>也能正常使用变量去定义一些常用值。</p>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ol>
+<li><p>声明以及对应作用域</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 可以HTML 文档的任何地方访问到它 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 只能在element元素下面所对应使用 */</span></span><br><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用变量</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--main-bg-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>自带继承</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.one</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="comment">/** 无法使用 var(--test) */</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-class">.two</span> &#123;</span></span><br><span class="line">  --test: 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.three</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="comment">/** 重写 var(--test) = 2em */</span></span></span><br><span class="line">  --test: 2em;</span><br><span class="line">&#125;    </span><br><span class="line"><span class="css"><span class="selector-class">.four</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="comment">/** 继承.two的变量 var(--test) = 10px */</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"four"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>自定义属性备用值</li>
+</ol>
+<p><code>var(--my-var, xxx)</code>，当一个变量未定义或非法值的时候，可以<code>red</code>用来做正常显示值，备用值并不是用于实现浏览器兼容性的。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--my-var, red); <span class="comment">/* 入股my-var 没有定义，则用red显示 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>JS获取变量值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">/设置变量</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).style.setProperty(<span class="string">'--weight'</span>,<span class="string">'bold'</span>);</span><br><span class="line"><span class="comment">//读取变量</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).style.getPropertyValue(<span class="string">'--weight'</span>);</span><br><span class="line"><span class="comment">//删除变量</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'p'</span>).style.removeProperty(<span class="string">'--weight'</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS变量实战"><a href="#CSS变量实战" class="headerlink" title="CSS变量实战"></a>CSS变量实战</h1><p>在前端项目中如何使用CSS变量，一般是通过构建工具生成的兼容性代码。</p>
+<h2 id="浏览器是否支持"><a href="#浏览器是否支持" class="headerlink" title="浏览器是否支持"></a>浏览器是否支持</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isSupported = <span class="built_in">window</span>.CSS &amp;&amp; <span class="built_in">window</span>.CSS.supports &amp;&amp; <span class="built_in">window</span>.CSS.supports(<span class="string">'--a'</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(isSupported) &#123;</span><br><span class="line">    <span class="comment">/* 这里面是支持css变量的操作 */</span></span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">/* 这里面是不支持css变量的操作 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以通过CSS中<code>@supports</code>做判断：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">supports</span> ( (--a: <span class="number">0</span>)) &#123;</span><br><span class="line">  <span class="comment">/* supported */</span></span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">supports</span> ( not (--a: <span class="number">0</span>)) &#123;</span><br><span class="line">  <span class="comment">/* not supported */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>最常用的是网站换主题，在开发过程直接按照CSS变量去编写，而不需要去了解SASS或LESS的语法</li>
+<li>原本一些动画效果，需要多个css样式区分，现在可以通过css变量实现，从而减少代码</li>
+<li>结合JS操作事件+更改CSS变量，实现更多CSS效果</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">CSS自定义变量 MDN</a></p>
 ]]></content>
       <tags>
         <tag>技术分享</tag>

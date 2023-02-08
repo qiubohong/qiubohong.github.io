@@ -288,6 +288,297 @@
             
 
   
+    <article id="post-today/20220117" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220117.html" target="_blank">理解React中Fiber架构(一)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220117.html" class="archive-article-date">
+        <time datetime="2023-01-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标<code>快速响应</code>，原先Diff算法时间复杂度为<span>$$ O(n^3)$$</span> ，最后经过Fiber重构达到了$$ O(n) $$，这里面具体有什么门道，值得我们去深入研究一下。</p>
+    
+    <a class="article-more-a" href="/today/20220117.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220117.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20220116" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220116.html" target="_blank">从Z-Library到了解IPFS去中心化技术</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220116.html" class="archive-article-date">
+        <time datetime="2023-01-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近想下载一些免费的电子书，然后找到一个推荐的网站，说是去中心化图书馆，利用去中心化，可以永久有效的，就是<code>Z-Library</code>，因此觉得挺有趣，所以适合简单研究一下。</p>
+<h1 id="Z-Library"><a href="#Z-Library" class="headerlink" title="Z-Library"></a>Z-Library</h1><blockquote>
+<p>Z-Library（简称Z-Lib，前身为BookFinder）是一个影子图书馆和开放获取文件分享计划，用户可在此一网站上下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章[1]。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”[2]，并在文章搜索页面上称自身是“全球最大的科学文章存储库”[3]。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏[4]。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。</p>
+</blockquote>
+<p>ZLibrary虽然是一个俄国网站，但它拥有16种语言版本可供选择，下滑至网页末尾，即可切换语言。</p>
+<p>访问地址：<a href="https://zlib.cydiar.com/" target="_blank" rel="noopener">https://zlib.cydiar.com/</a><br>访问地址：<a href="https://bk.hallowlib.org/" target="_blank" rel="noopener">https://bk.hallowlib.org/</a> 国内备用网址</p>
+    
+    <a class="article-more-a" href="/today/20220116.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术探鲜</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220116.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20220111" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20220111.html" target="_blank">移动端适配UI的全部解决方案对比</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20220111.html" class="archive-article-date">
+        <time datetime="2023-01-14T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。</p>
+<p>因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>移动端存在几类问题，如下所列：</p>
+<ul>
+<li>1px显示过粗问题</li>
+<li>手机屏幕出现刘海屏、滴水屏等，如何适配</li>
+<li>如何在不同屏幕，显示正确高清图片</li>
+<li>meta 的 viewport 值 能否用来适配</li>
+<li>rem，vw，vh计算单位的区别</li>
+<li>…</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20220111.html#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20220111.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-today/20220110" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -691,7 +982,7 @@
 
 
   
-    <article id="post-today/20220205" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20220210" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -699,7 +990,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220205.html" target="_blank">Meteor.js尝鲜实战</a>
+	  <a class="article-title" href="/today/20220210.html" target="_blank">通过 JS 构建我们自己的 JS 解释器</a>
   
     </h1>
   
@@ -707,7 +998,7 @@
 
   
   
-<a href="/today/20220205.html" class="archive-article-date">
+<a href="/today/20220210.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -720,7 +1011,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://segmentfault.com/a/1190000038252581re" target="_blank" rel="noopener">giao-js</a></p>
 
     
 
@@ -751,7 +1042,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220205.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20220210.html">展开全文 >></a>
     </p>
     
 
@@ -781,7 +1072,7 @@
 
 
   
-    <article id="post-today/20220128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20220207" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -789,7 +1080,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220128.html" target="_blank">:has伪元素的应用到其他伪元素总结</a>
+	  <a class="article-title" href="/today/20220207.html" target="_blank">从ChatGPT学到了什么</a>
   
     </h1>
   
@@ -797,97 +1088,7 @@
 
   
   
-<a href="/today/20220128.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://iamkate.com/code/tree-views/" target="_blank" rel="noopener">:has()伪类的表单样式</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220128.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220201" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220201.html" target="_blank">从微前端到模块联邦</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220201.html" class="archive-article-date">
+<a href="/today/20220207.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -931,7 +1132,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220201.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20220207.html">展开全文 >></a>
     </p>
     
 
@@ -961,7 +1162,7 @@
 
 
   
-    <article id="post-today/20220204" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20220206" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -969,7 +1170,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220204.html" target="_blank">前端自动化UI测试的完整方案</a>
+	  <a class="article-title" href="/today/20220206.html" target="_blank">从微前端到模块联邦</a>
   
     </h1>
   
@@ -977,183 +1178,7 @@
 
   
   
-<a href="/today/20220204.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220204.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220131.html" target="_blank">hexo网站提高</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220131.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220131.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220202" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220202.html" target="_blank">css变量了解到项目落地</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220202.html" class="archive-article-date">
+<a href="/today/20220206.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -1197,7 +1222,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220202.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20220206.html">展开全文 >></a>
     </p>
     
 

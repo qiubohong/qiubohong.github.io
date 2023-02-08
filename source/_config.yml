@@ -126,3 +126,14 @@ baidu_url_submit:
   host: https://www.qborfy.com ## 在百度站长平台中注册的域名
   token: kuOs5hlQSCQFsh00 ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+
+# 增加水印
+watermark:
+    enable: false
+    textEnable: true
+    rotate: -45
+    gravity: centre
+    directory: 
+      - assets
+    text:
+      - text: qborfy

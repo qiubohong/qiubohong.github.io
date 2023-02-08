@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>从微前端到模块联邦 | 疯子知识库</title>
+  <title>低代码系列——js沙箱设计 | 疯子知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="参考资料模块联邦在微前端架构中的实践">
+  <meta name="description" content="简介由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。 这里为什么会一开始介绍js沙箱设计呢？ 因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从微前端到模块联邦">
+<meta property="og:title" content="低代码系列——js沙箱设计">
 <meta property="og:url" content="https://www.qborfy.com/today/20220201.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="参考资料模块联邦在微前端架构中的实践">
+<meta property="og:description" content="简介由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。 这里为什么会一开始介绍js沙箱设计呢？ 因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-28T17:56:53.450Z">
+<meta property="og:updated_time" content="2023-02-08T13:36:45.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从微前端到模块联邦">
-<meta name="twitter:description" content="参考资料模块联邦在微前端架构中的实践">
+<meta name="twitter:title" content="低代码系列——js沙箱设计">
+<meta name="twitter:description" content="简介由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。 这里为什么会一开始介绍js沙箱设计呢？ 因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -290,7 +290,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从微前端到模块联邦
+      低代码系列——js沙箱设计
     </h1>
   
 
@@ -303,7 +303,7 @@
         </span>
 
 <a href="/today/20220201.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
 </a>
 
   
@@ -316,7 +316,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">18字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -325,7 +325,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">12分</span>
     </span>
   </span>
 </div>
@@ -336,7 +336,164 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
+<p>这里为什么会一开始介绍js沙箱设计呢？</p>
+<p>因为低代码平台，会运行用户本身自己编写的少量业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
+<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
+<ul>
+<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
+<li>插入，沙箱允许插入平台的内置对象</li>
+<li>容错，沙箱内代码及时有错误，也不影响整个平台执行，有超时机制等</li>
+</ul>
+<a id="more"></a>
+<h1 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h1><p>在设计沙箱之前，我们先对沙箱有个了解：</p>
+<blockquote>
+<p>在计算机安全中，沙箱（Sandbox）是一种用于隔离正在运行程序的安全机制，通常用于执行未经测试或不受信任的程序或代码，它会为待执行的程序创建一个独立的执行环境，内部程序的执行不会影响到外部程序的运行。</p>
+</blockquote>
+<p>通俗的讲，就是由我们主程序自己设定一个区域，用来执行代码，且这段代码如何执行都不会影响到外部的主程序。</p>
+<p>举几个我们开发中经常会用的沙箱：</p>
+<ul>
+<li>Vue template里的表达式，如: <code>&lt;div&gt;2&lt;/div&gt;</code>，执行<code>1+1</code>就是Vue设计的一个沙箱机制</li>
+<li>开发Chrome插件，插件里的代码有很多限制条件，循序Chrome插件规则，那么插件的运行环境和规则也是一个沙箱</li>
+<li>在线代码编辑器， CodeSanbox在执行脚本也会单独成立一个沙箱去隔离执行代码，防止代码访问或影响主页面</li>
+<li>微前端<code>qiangun</code>或<code>single-spa</code>框架里主应用和子应用之间的完全隔离，也是一种沙箱机制，如: 应用之间CSS样式不能互相影响</li>
+</ul>
+<p>在了解完沙箱是什么后，那么在JavaScript语言里如何实现沙箱呢？主要有以下几种方式：</p>
+<ul>
+<li>使用 with 声明</li>
+<li>使用 new Function 声明</li>
+<li>基于 Proxy实现</li>
+<li>基于属性 diff实现</li>
+<li>基于 iframe实现</li>
+<li>基于 ES 提案 ShadowRealm API</li>
+</ul>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="with关键字"><a href="#with关键字" class="headerlink" title="with关键字"></a>with关键字</h2><blockquote>
+<p>with 扩展一个语句的作用域链。 —— <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/with" target="_blank" rel="noopener">MDN with</a><br>JavaScript 查找某个未使用命名空间的变量时，会通过作用域链来查找，作用域链是跟执行代码的 context 或者包含这个变量的函数有关。’with’语句将某个对象添加到作用域链的顶部，如果在 statement 中有某个未使用命名空间的变量，跟作用域链中的某个属性同名，则这个变量将指向这个属性值。如果沒有同名的属性，则将拋出ReferenceError异常。</p>
+</blockquote>
+<p>按照个人比较容易理解的意思，就是给一段代码加上指定对象为该作用的全局变量。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">1.1</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用with</span></span><br><span class="line"><span class="keyword">with</span>(<span class="built_in">Math</span>)&#123;</span><br><span class="line">    floor(<span class="number">1.1</span>) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="new-Function"><a href="#new-Function" class="headerlink" title="new Function"></a>new Function</h2><p><code>new Function(argStr, codeStr)</code>是能将字符串代码转换为可执行的函数。具体示例如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'test'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> test = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'arg'</span>, <span class="string">'console.log(arg)'</span>);</span><br><span class="line"><span class="comment">// 这里等于 test = (arg)=&gt; &#123;console.log(arg)&#125;;</span></span><br><span class="line"></span><br><span class="line">test(name); <span class="comment">// test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><blockquote>
+<p>Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">Proxy MDN</a></p>
+</blockquote>
+<p>Proxy只能代理<code>object</code>类型的变量，针对基础类型的代理只能将其封装到对象里再进行代理监听。</p>
+<p>Proxy代理方法如下：</p>
+<ul>
+<li><code>getPrototypeOf(target)</code> 代理获取原型的方法</li>
+<li><code>setPrototypeOf(target, newProto)</code> 设置原型，如果不想设置原型，可以<code>return false</code></li>
+<li><code>isExtensible(target)</code>  拦截对对象的 <code>Object.isExtensible()</code>，必须返回一个 Boolean 值，判断一个对象是否是可扩展的</li>
+<li><code>preventExtensions(target)</code> 拦截<code>Object.preventExtensions()</code>，让一个对象变的不可扩展，也就是永远不能再添加新的属性</li>
+<li><code>getOwnPropertyDescriptor(target, prop)</code> 拦截<code>Object.getOwnPropertyDescriptor()</code>，拦截获取对象属性的描述符</li>
+<li><code>defineProperty(target, property, descriptor)</code> 拦截<code>Object.defineProperty()</code></li>
+<li><code>has(target, key)</code>，针对 in 操作符的代理方法</li>
+<li><code>get(target, property, receiver)</code>，用于拦截对象的读取属性操作</li>
+<li><code>set()</code>，设置属性值操作的捕获器。</li>
+<li><code>construct()</code>，用于拦截 new 操作符</li>
+</ul>
+<p>与<code>Object.defineProperty</code>主要区别(可拦截方法比<code>Object.defineProperty</code>多)：</p>
+<ul>
+<li>Proxy代理的是整个对象，Object.defineProperty只代理对象上的某个属性,如果是多层嵌套的数据需要循环递归绑定;</li>
+<li>对象上定义新属性时，Proxy可以监听到，Object.defineProperty监听不到，需要借助$set方法;</li>
+<li>数组的某些方法(push、unshift和splice)Object.defineProperty监听不到，Proxy可以监听到;</li>
+</ul>
+<h2 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h2><blockquote>
+<p>指用于指定对象值，其对象自身和继承的从关联对象的 with 环境绑定中排除的属性名称。</p>
+</blockquote>
+<p>可以这么理解，就是为了防止<code>with</code>添加作用域的时候，将某个属性从作用域中排除掉，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;</span><br><span class="line">    p: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 禁止将a.p放到with作用域中</span></span><br><span class="line">a[<span class="built_in">Symbol</span>.unscopables] = &#123;<span class="attr">p</span>: <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span>(a)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(p) <span class="comment">// 报错 p not defined</span></span><br><span class="line">    <span class="built_in">console</span>.log(b) <span class="comment">// 正常输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此很多内置对象都设置该值为true，从而降低with的侵入，具体如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.unscopables];</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">  copyWithin: true,</span></span><br><span class="line"><span class="comment">  entries: true,</span></span><br><span class="line"><span class="comment">  fill: true,</span></span><br><span class="line"><span class="comment">  find: true,</span></span><br><span class="line"><span class="comment">  findIndex: true,</span></span><br><span class="line"><span class="comment">  flat: true,</span></span><br><span class="line"><span class="comment">  flatMap: true,</span></span><br><span class="line"><span class="comment">  includes: true,</span></span><br><span class="line"><span class="comment">  keys: true,</span></span><br><span class="line"><span class="comment">  values: true,</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="沙箱实现"><a href="#沙箱实现" class="headerlink" title="沙箱实现"></a>沙箱实现</h1><p>沙箱实现步骤一般如下：</p>
+<ul>
+<li>解析代码，动态执行</li>
+<li>修改代码的作用域，避免进行向上全局查询</li>
+<li>创建全局对象的替代对象，避免污染全局对象</li>
+<li>执行代码</li>
+</ul>
+<h2 id="基于Proxy实现"><a href="#基于Proxy实现" class="headerlink" title="基于Proxy实现"></a>基于Proxy实现</h2><p>前面基础知识将到Proxy是一个可以代理对象的方法，那么其实可以按照将一些全局对象做代理后放入到沙箱里。主要有两个步骤：</p>
+<ul>
+<li>使用<code>new Function</code>将代码字符串转为可执行函数</li>
+<li>加<code>with</code>生成局部作用域</li>
+<li>使用<code>createFake</code>方法生成替代对象<code>fakeWindow</code></li>
+<li>使用<code>Proxy</code>代理拦截<code>set</code> <code>get</code>操作，更新到<code>fakeWindow</code>中</li>
+<li>当沙箱不用时，将<code>window</code>重置回</li>
+</ul>
+<p>简易沙箱示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; complieCode2Fn, createFakeWindow &#125; = <span class="built_in">require</span>(<span class="string">'./complieCode.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxySandbox</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(global) &#123;</span><br><span class="line">        <span class="keyword">const</span> rawGlobal = global;</span><br><span class="line">        <span class="keyword">const</span> fakeWindow = createFakeWindow(global);</span><br><span class="line">        <span class="keyword">this</span>.proxyBox = <span class="keyword">new</span> <span class="built_in">Proxy</span>(fakeWindow, &#123;</span><br><span class="line">            <span class="comment">// 拦截所有属性，防止到 Proxy 对象以外的作用域链查找。</span></span><br><span class="line">            has(target, key) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">get</span>(target, key, receiver) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'get'</span>, key, target[key])</span><br><span class="line">                <span class="comment">// 加固，防止逃逸</span></span><br><span class="line">                <span class="keyword">if</span> (key === <span class="built_in">Symbol</span>.unscopables) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 通过Reflect获取</span></span><br><span class="line">                <span class="keyword">let</span> temp = <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">                <span class="keyword">if</span>(!target.hasOwnProperty(key))&#123;</span><br><span class="line">                    temp = rawGlobal[key];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> temp;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>(target, key, newValue) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!target.hasOwnProperty(key) &amp;&amp; fakeWindow.hasOwnProperty(key)) &#123;</span><br><span class="line">                    <span class="keyword">const</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(sandbox, key);</span><br><span class="line">                    <span class="keyword">const</span> &#123; writable, configurable, enumerable &#125; = descriptor;</span><br><span class="line">                    <span class="keyword">if</span> (writable) &#123;</span><br><span class="line">                        <span class="comment">// 中独有的属性如果可以写，同样需要复制到fakeWindow中</span></span><br><span class="line">                        <span class="built_in">Object</span>.defineProperty(target, p, &#123;</span><br><span class="line">                            configurable,</span><br><span class="line">                            enumerable,</span><br><span class="line">                            writable,</span><br><span class="line">                            newValue,</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    target[key] = newValue;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    excute(code)&#123;</span><br><span class="line">        <span class="keyword">const</span> fn = complieCode2Fn(code);</span><br><span class="line">        <span class="keyword">return</span> fn(<span class="keyword">this</span>.proxyBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fakeBox = <span class="keyword">new</span> ProxySandbox(global);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> code = <span class="string">`a = 1;console.log('a:', a);return a;`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fakeBox.excute(code));  <span class="comment">// 输出a:1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'在沙箱外获取沙箱内设置的全局值a:'</span>, a); <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>问题1： 如何防止<code>Array.isArray</code>重写后不影响顶部window？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">const code = `</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">Array</span>.isArray = <span class="function"><span class="params">()</span>=&gt;</span> <span class="literal">true</span>;</span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">console.log(Array.isArray('a')); // 输出true 正常应该是false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成<code>fakeWindow</code>对象时候，遍历内置<code>Array</code>，通过<code>Object.freeze</code>冻结其修改的可能性</li>
+</ul>
+<p>问题2： 提前关闭 sandbox 的 with 语境，如 ‘} alert(this); {‘  或者使用 eval 和 new Function 直接逃逸，如何解决？</p>
+<ul>
+<li>解析code字符串，利用堆栈深度检测算法，将非法字符串 <code>{}</code>做简单计算 或者 <code>eval</code> 等关键字，然后报错处理</li>
+</ul>
+<p>问题3： 如何解决修改原型链方法实现逃逸，既可以获取沙箱外的对象？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    (&#123;&#125;).constructor.prototype.toString = () =&gt; &#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        console.log('Escape')</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="built_in">console</span>.log((&#123;&#125;).toString()) <span class="comment">// 输出Escape 正常应该输出[object Object]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种只能在原型链上下功夫，将所有的原型链做一次封装，从而</li>
+</ul>
+<h2 id="基于iframe实现"><a href="#基于iframe实现" class="headerlink" title="基于iframe实现"></a>基于iframe实现</h2><p>利用<code>iframe</code>天然隔离机制，加上<code>postMessage</code>通讯机制，可以快速实现一个简易沙箱，具体步骤如下：</p>
+<ul>
+<li>创建一个iframe，获取其window作为替代对象</li>
+<li>将function执行放到iframe里，不会影响其沙箱外程序使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IframeSandbox</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="comment">// 创建一个 iframe 对象，取出其中的原生浏览器全局对象作为沙箱的全局对象</span></span><br><span class="line">        <span class="keyword">const</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>, &#123;<span class="attr">url</span>: <span class="string">'about:blank'</span>&#125;)</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(iframe)</span><br><span class="line">        <span class="keyword">this</span>.sandboxGlobal = iframe.contentWindow <span class="comment">// 沙箱运行时的全局对象</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    excute(code)&#123;</span><br><span class="line">        <span class="keyword">const</span> fn = <span class="keyword">new</span> <span class="keyword">this</span>.sandboxGlobal.Function(<span class="string">'sandbox'</span>, <span class="string">`with(sandbox)&#123;<span class="subst">$&#123;code&#125;</span>&#125;`</span>)</span><br><span class="line">        <span class="keyword">return</span> fn(<span class="keyword">this</span>.sandboxGlobal);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fakeBox = <span class="keyword">new</span> IframeSandbox();</span><br><span class="line"><span class="keyword">const</span> code = <span class="string">`a = 1;console.log(a)`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fakeBox.excute(code));  <span class="comment">// 输出a:1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'在沙箱外获取沙箱内设置的全局值a:'</span>, a); <span class="comment">// a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>问题1： 需要解决其调用<code>parent</code>进行逃逸获取？</p>
+<ul>
+<li>最佳方案是通过<code>Proxy</code>对iframe的window对象进行拦截代理即可</li>
+</ul>
+<h2 id="基于ShadowRealm-提案的实现"><a href="#基于ShadowRealm-提案的实现" class="headerlink" title="基于ShadowRealm 提案的实现"></a>基于ShadowRealm 提案的实现</h2><blockquote>
+<p>ShadowRealm API 是一个新的 JavaScript 提案，它允许一个 JS 运行时创建多个高度隔离的 JS 运行环境（realm），每个 realm 具有独立的全局对象和内建对象。</p>
+</blockquote>
+<p>通俗的说，这是JavaScript自带的沙箱API，你可以利用它快速实现上面需要通过proxy或iframe才能实现的隔离机制。</p>
+<p>ShadowRealm声明：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">declare <span class="class"><span class="keyword">class</span> <span class="title">ShadowRealm</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>();</span><br><span class="line">  evaluate(sourceText: string): PrimitiveValueOrCallable;</span><br><span class="line">  importValue(specifier: string, bindingName: string): Promise&lt;PrimitiveValueOrCallable&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>evaluate(sourceText: string)</code> 同步执行代码字符串，类似 eval()</li>
+<li><code>importValue(specifier: string, bindingName: string)</code> 异步执行代码字符串</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sr = <span class="keyword">new</span> ShadowRealm();</span><br><span class="line">globalThis.test = <span class="string">'test'</span>;</span><br><span class="line">sr.evaluate(<span class="string">`globalThis.test = 'test ShadowRealm'; console.log(globalThis.test)`</span>) <span class="comment">// 输出 test ShadowRealm</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件  my-module.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> values.reduce(<span class="function">(<span class="params">prev, value</span>) =&gt;</span> prev + value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">const</span> sr = <span class="keyword">new</span> ShadowRealm();</span><br><span class="line"><span class="keyword">const</span> wrappedSum = <span class="keyword">await</span> sr.importValue(<span class="string">'./my-module.js'</span>, <span class="string">'sum'</span>); <span class="comment">// 加载js模块，然后获取里面函数</span></span><br><span class="line"><span class="built_in">console</span>.log(wrappedSum(<span class="string">'hi'</span>, <span class="string">' '</span>, <span class="string">'folks'</span>, <span class="string">'!'</span>)); <span class="comment">// 输出 hi folks !</span></span><br></pre></td></tr></table></figure>
+
+<p>其实再来实现一个沙箱就很简单了，因为ShadownRealm本身就是一个沙箱。</p>
+<h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h3 id="Web-Workers"><a href="#Web-Workers" class="headerlink" title="Web Workers"></a>Web Workers</h3><p><code>Web Workers</code>代码运行在独立的进程中，通信是异步的，无法获取当前程序一些属性或共享状态，且有一点无法不支持 DOM 操作，必须通过 postMessage 通知 UI 主线程来实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workerSandbox</span>(<span class="params">appCode</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([appCode]);</span><br><span class="line"> <span class="keyword">var</span> appWorker = <span class="keyword">new</span> Worker(<span class="built_in">window</span>.URL.createObjectURL(blob));</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">workerSandbox(<span class="string">'const a = 1;console.log(a);'</span>) <span class="comment">// 输出1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a not defined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="vm-模块"><a href="#vm-模块" class="headerlink" title="vm 模块"></a>vm 模块</h3><p>Node.js 上的 vm 模块，与 ShadowRealm API 类似，但具有更多功能：缓存 JavaScript 引擎、拦截 import() 等等。但它唯一的缺点就是不能跨平台，只能在 Node.js 环境下使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="built_in">require</span>(<span class="string">'vm'</span>);</span><br><span class="line"><span class="keyword">const</span> sandbox = &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line">vm.createContext(sandbox)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> whatIsThis = vm.runInContext(<span class="string">`</span></span><br><span class="line"><span class="string">    a = 2 ;</span></span><br><span class="line"><span class="string">`</span>, sandbox);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sandbox) <span class="comment">// 输出2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="沙箱错误捕获"><a href="#沙箱错误捕获" class="headerlink" title="沙箱错误捕获"></a>沙箱错误捕获</h1><p>在完成沙箱主体后，还需要对沙箱内部错误进行捕获再次处理，从而不影响主体程序的执行。</p>
+<p>这一块其实就在执行动态代码那里，做一层<code>try/catch</code>基本上可以完成的错误捕获。</p>
+<h1 id="沙箱逃逸"><a href="#沙箱逃逸" class="headerlink" title="沙箱逃逸"></a>沙箱逃逸</h1><p>沙箱逃逸（Sandbox Escape），沙箱于作者而言是一种安全策略，但于使用者而言可能是一种束缚。脑洞大开的开发者们尝试用各种方式摆脱这种束缚，也称之为沙箱逃逸。</p>
+<p>沙箱逃逸的几种方式：</p>
+<ul>
+<li>访问沙箱执行上下文中某个对象内部属性时，如：通过window.parent</li>
+<li>通过访问原型链实现逃逸</li>
+</ul>
+<p>如何解决沙箱逃逸：</p>
+<blockquote>
+<p>自定义解释器，分析源程序结构从而手动控制每一条语句的执行逻辑，如：<code>Babel</code>等</p>
+</blockquote>
+<p>简单的说，就是用JS去实现JS解释器，将每行代码进行解析，然后增加一些安全机制，从而避免非法代码入侵。</p>
+<p>后续会专门写个文章去实现一个简单的JS解释器，这里就不做多阐述。更新后会放在这里链接。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">MDN Proxy</a></li>
+<li><a href="https://github.com/careyke/frontend_knowledge_structure/blob/master/microFrontend/question02_03_js_sandbox.md" target="_blank" rel="noopener">qiankun中JS沙箱的实现</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1482264" target="_blank" rel="noopener">CodeSandbox 如何工作</a></li>
+<li><a href="https://juejin.cn/post/7089822133559230501" target="_blank" rel="noopener">Javascript 新特性前瞻 —— ShadowRealms</a></li>
+</ul>
 
     
 
@@ -383,7 +540,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20220201.html" title="从微前端到模块联邦" target="_blank">https://www.qborfy.com/today/20220201.html</a>
+          <a href="https://www.qborfy.com/today/20220201.html" title="低代码系列——js沙箱设计" target="_blank">https://www.qborfy.com/today/20220201.html</a>
         </li>
         
         <li>
@@ -480,18 +637,18 @@
 
 <nav id="article-nav">
   
-    <a href="/today/20220128.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/today/20220208.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          :has伪元素的应用到其他伪元素总结
+          css变量了解到项目落地
         
       </div>
     </a>
   
   
-    <a href="/today/20220204.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端自动化UI测试的完整方案</div>
+    <a href="/today/20220131.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo网站提高SEO优化方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -518,7 +675,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">1.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#沙箱"><span class="toc-number">2.</span> <span class="toc-text">沙箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置知识"><span class="toc-number">3.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#with关键字"><span class="toc-number">3.1.</span> <span class="toc-text">with关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-Function"><span class="toc-number">3.2.</span> <span class="toc-text">new Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proxy"><span class="toc-number">3.3.</span> <span class="toc-text">Proxy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-unscopables"><span class="toc-number">3.4.</span> <span class="toc-text">Symbol.unscopables</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#沙箱实现"><span class="toc-number">4.</span> <span class="toc-text">沙箱实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于Proxy实现"><span class="toc-number">4.1.</span> <span class="toc-text">基于Proxy实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于iframe实现"><span class="toc-number">4.2.</span> <span class="toc-text">基于iframe实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于ShadowRealm-提案的实现"><span class="toc-number">4.3.</span> <span class="toc-text">基于ShadowRealm 提案的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他方案"><span class="toc-number">4.4.</span> <span class="toc-text">其他方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Workers"><span class="toc-number">4.4.1.</span> <span class="toc-text">Web Workers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vm-模块"><span class="toc-number">4.4.2.</span> <span class="toc-text">vm 模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#沙箱错误捕获"><span class="toc-number">5.</span> <span class="toc-text">沙箱错误捕获</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#沙箱逃逸"><span class="toc-number">6.</span> <span class="toc-text">沙箱逃逸</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
