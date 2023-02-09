@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="背景最近在打开一些网站的，查看其CSS样式的时候，发现如下图：  所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。 浏览器的兼容性：">
-<meta name="keywords" content="技术分享,每日更新">
+<meta name="keywords" content="每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css变量了解到项目落地">
 <meta property="og:url" content="https://www.qborfy.com/today/20220208.html">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230208-1.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230208-2.png">
-<meta property="og:updated_time" content="2023-02-08T14:22:46.956Z">
+<meta property="og:updated_time" content="2023-02-09T08:21:57.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css变量了解到项目落地">
 <meta name="twitter:description" content="背景最近在打开一些网站的，查看其CSS样式的时候，发现如下图：  所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。 浏览器的兼容性：">
@@ -319,7 +319,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">666字</span>
+      <span class="post-count">726字</span>
     </span>
   </span>
 
@@ -328,7 +328,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -351,7 +351,7 @@
 <p>通俗的说，就是CSS以后不需要用<code>less</code>或<code>css</code>也能正常使用变量去定义一些常用值。</p>
 <h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ol>
 <li><p>声明以及对应作用域</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 可以HTML 文档的任何地方访问到它 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 只能在element元素下面所对应使用 */</span></span><br><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 可以HTML 文档的任何地方访问到它 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-pseudo">:where(html)</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 只能在element元素下面所对应使用 */</span></span><br><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">--main-bg-color</span>: brown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>引用变量</p>
 </li>
@@ -385,6 +385,9 @@
 <li>原本一些动画效果，需要多个css样式区分，现在可以通过css变量实现，从而减少代码</li>
 <li>结合JS操作事件+更改CSS变量，实现更多CSS效果</li>
 </ul>
+<h2 id="变量库"><a href="#变量库" class="headerlink" title="变量库"></a>变量库</h2><p><a href="https://open-props.style/" target="_blank" rel="noopener">open-props CSS常用变量收集库</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"https://unpkg.com/open-props"</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="built_in">var</span>(--radius-2);</span><br><span class="line">  <span class="attribute">padding</span>: <span class="built_in">var</span>(--size-fluid-3);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="built_in">var</span>(--shadow-2);</span><br><span class="line"></span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    <span class="selector-tag">box-shadow</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--shadow-3</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">media</span> (--motionOK) &#123;</span><br><span class="line">    <span class="selector-tag">animation</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--animation-fade-in</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">CSS自定义变量 MDN</a></p>
 
     
@@ -453,10 +456,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
@@ -529,6 +528,15 @@
 
 <nav id="article-nav">
   
+    <a href="/today/20220203.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前端安全-JS原型链污染是怎么回事
+        
+      </div>
+    </a>
+  
   
     <a href="/today/20220201.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">低代码系列——js沙箱设计</div>
@@ -558,7 +566,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS变量var"><span class="toc-number">2.</span> <span class="toc-text">CSS变量var()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么用"><span class="toc-number">2.2.</span> <span class="toc-text">怎么用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS变量实战"><span class="toc-number">3.</span> <span class="toc-text">CSS变量实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器是否支持"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器是否支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-number">3.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS变量var"><span class="toc-number">2.</span> <span class="toc-text">CSS变量var()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么用"><span class="toc-number">2.2.</span> <span class="toc-text">怎么用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS变量实战"><span class="toc-number">3.</span> <span class="toc-text">CSS变量实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器是否支持"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器是否支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-number">3.2.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量库"><span class="toc-number">3.3.</span> <span class="toc-text">变量库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
