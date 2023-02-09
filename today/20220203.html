@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="疯子知识库">
 <meta property="og:description" content="介绍面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：  XSS脚本攻击，利用网站漏洞，注入非法脚本 CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求 运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持  但是在前端安全中，还有一个问题就是 ：JS原型链污染， 那么是原型链污染怎么回事，请">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-09T14:17:56.045Z">
+<meta property="og:updated_time" content="2023-02-09T14:28:49.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端安全-JS原型链污染是怎么回事">
 <meta name="twitter:description" content="介绍面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：  XSS脚本攻击，利用网站漏洞，注入非法脚本 CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求 运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持  但是在前端安全中，还有一个问题就是 ：JS原型链污染， 那么是原型链污染怎么回事，请">
@@ -388,7 +388,7 @@
 </ul>
 <p>整个案例其实比较重要的一点就是，提交参数的时候序列化提交参数是否有做防御，如何没有的话那么很容易就中招了。</p>
 <h2 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h2><p>分不同情况做防御：</p>
-<h2 id="引入npm包导致的"><a href="#引入npm包导致的" class="headerlink" title="引入npm包导致的"></a>引入npm包导致的</h2><ul>
+<h3 id="引入npm包导致的"><a href="#引入npm包导致的" class="headerlink" title="引入npm包导致的"></a>引入npm包导致的</h3><ul>
 <li>项目代码扫描，主要是针对构建好的代码进行扫描，是否<code>Evil.js</code>修改内置原型的情况进行告警提示</li>
 <li>禁止修改原型，如：使用<code>Object.freeze</code></li>
 </ul>
@@ -587,7 +587,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链污染"><span class="toc-number">2.</span> <span class="toc-text">原型链污染</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击场景"><span class="toc-number">2.2.</span> <span class="toc-text">攻击场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-demo案例"><span class="toc-number">2.2.1.</span> <span class="toc-text">merge demo案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际应用问题"><span class="toc-number">2.3.</span> <span class="toc-text">实际应用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何防御"><span class="toc-number">2.4.</span> <span class="toc-text">如何防御</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入npm包导致的"><span class="toc-number">2.5.</span> <span class="toc-text">引入npm包导致的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#针对node-js"><span class="toc-number">2.5.1.</span> <span class="toc-text">针对node.js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链污染"><span class="toc-number">2.</span> <span class="toc-text">原型链污染</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击场景"><span class="toc-number">2.2.</span> <span class="toc-text">攻击场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-demo案例"><span class="toc-number">2.2.1.</span> <span class="toc-text">merge demo案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际应用问题"><span class="toc-number">2.3.</span> <span class="toc-text">实际应用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何防御"><span class="toc-number">2.4.</span> <span class="toc-text">如何防御</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入npm包导致的"><span class="toc-number">2.4.1.</span> <span class="toc-text">引入npm包导致的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#针对node-js"><span class="toc-number">2.4.2.</span> <span class="toc-text">针对node.js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
