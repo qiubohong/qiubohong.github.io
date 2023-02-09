@@ -1,7 +1,6 @@
 ---
 title: 有了GPT-3，再也不用手写commit message(翻译)
 date: 2023-02-09 12:51:01
-desc
 tags:
     - 翻译文章
 ---

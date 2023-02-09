@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>前端安全-JS原型链污染是怎么回事 | 疯子知识库</title>
+  <title>有了GPT-3，再也不用手写commit message(翻译) | 疯子知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="介绍面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：  XSS脚本攻击，利用网站漏洞，注入非法脚本 CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求 运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持  但是在前端安全中，还有一个问题就是 ：JS原型链污染， 那么是原型链污染怎么回事，请">
-<meta name="keywords" content="技术分享,每日更新">
+  <meta name="description" content="有了gptcommit，你可能再也不用花费时间去写你的git commit 记录。下面开始安装gptcommit，通过GPT-3帮忙你写git commit。 GPT-3参考资料Never write a commit message again (with the help of GPT-3) 大公司裁员只是一个转折点">
+<meta name="keywords" content="翻译文章">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端安全-JS原型链污染是怎么回事">
-<meta property="og:url" content="https://www.qborfy.com/today/20220203.html">
+<meta property="og:title" content="有了GPT-3，再也不用手写commit message(翻译)">
+<meta property="og:url" content="https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="介绍面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：  XSS脚本攻击，利用网站漏洞，注入非法脚本 CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求 运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持  但是在前端安全中，还有一个问题就是 ：JS原型链污染， 那么是原型链污染怎么回事，请">
+<meta property="og:description" content="有了gptcommit，你可能再也不用花费时间去写你的git commit 记录。下面开始安装gptcommit，通过GPT-3帮忙你写git commit。 GPT-3参考资料Never write a commit message again (with the help of GPT-3) 大公司裁员只是一个转折点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-09T14:30:43.918Z">
+<meta property="og:updated_time" content="2023-02-09T14:29:30.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端安全-JS原型链污染是怎么回事">
-<meta name="twitter:description" content="介绍面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：  XSS脚本攻击，利用网站漏洞，注入非法脚本 CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求 运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持  但是在前端安全中，还有一个问题就是 ：JS原型链污染， 那么是原型链污染怎么回事，请">
+<meta name="twitter:title" content="有了GPT-3，再也不用手写commit message(翻译)">
+<meta name="twitter:description" content="有了gptcommit，你可能再也不用花费时间去写你的git commit 记录。下面开始安装gptcommit，通过GPT-3帮忙你写git commit。 GPT-3参考资料Never write a commit message again (with the help of GPT-3) 大公司裁员只是一个转折点">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -283,14 +283,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-today/20220203" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-translate/use-gpt3-auto-git-commit" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      前端安全-JS原型链污染是怎么回事
+      有了GPT-3，再也不用手写commit message(翻译)
     </h1>
   
 
@@ -302,8 +302,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/today/20220203.html" class="archive-article-date">
-        <time datetime="2023-02-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
+<a href="/translate/use-gpt3-auto-git-commit.html" class="archive-article-date">
+        <time datetime="2023-02-09T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
 </a>
 
   
@@ -316,7 +316,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">67字</span>
     </span>
   </span>
 
@@ -325,7 +325,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -336,75 +336,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：</p>
-<ul>
-<li>XSS脚本攻击，利用网站漏洞，注入非法脚本</li>
-<li>CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求</li>
-<li>运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持</li>
-</ul>
-<p>但是在前端安全中，还有一个问题就是 ：<code>JS原型链污染</code>， 那么是原型链污染怎么回事，请看下面详细介绍。</p>
-<blockquote>
-<p>这里插入一条新闻，新出一个很邪恶的js库叫<a href="https://github.com/wll8/lodash-utils" target="_blank" rel="noopener">Evil.js</a>，名字还取得很lodash，其中主要就是利用原型prototype进行重写项目中常用的方法，如：</p>
-<ul>
-<li>Array.map 有5%概率会丢失最后一个元素，</li>
-<li>当数组长度可以被7整除时，Array.includes 永远返回false。</li>
-</ul>
-</blockquote>
-<p>所以学会如何防御项目内被攻击，了解更多JS原型安全知识很重要，起码周末不用调试半天问题，才发现项目中代码被恶意写入。</p>
-<a id="more"></a>
-
-<p>在看这篇文章，请确保自己对JS原型和原型链有一定了解，如果忘记或缺乏了解的话，可以看我之前的文案<a href="today/20220129.html#原型">从null、undefined、NaN的区别了解JS的原型链</a>再次复习和学习一下。</p>
-<h1 id="原型链污染"><a href="#原型链污染" class="headerlink" title="原型链污染"></a>原型链污染</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>下面通过一段代码，我们能够快速了解原型链是如何污染的？</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = &#123;</span><br><span class="line">    bar: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果这里将foo.__proto__改掉</span></span><br><span class="line"></span><br><span class="line">foo.__proto__.bar = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.bar); <span class="comment">// 这里正常输出 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新声明一个</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> zoo = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(zoo.bar); <span class="comment">// 这里错误输出 2</span></span><br></pre></td></tr></table></figure>
-
-<p>从上述代码可以概括一下，原型链攻击是：</p>
-<blockquote>
-<p>在一个应用中，如果攻击者控制并修改了一个对象的原型，那么将可以影响所有和这个对象来自同一个类、父祖类的对象。这种攻击方式就是原型链污染。</p>
-</blockquote>
-<h2 id="攻击场景"><a href="#攻击场景" class="headerlink" title="攻击场景"></a>攻击场景</h2><p>其实我们主要看哪些场景会允许代码设置<code>__proto__</code>？主要有以下两种：</p>
-<ul>
-<li>对象merge</li>
-<li>对象clone</li>
-<li>Node.js的construtor</li>
-</ul>
-<h3 id="merge-demo案例"><a href="#merge-demo案例" class="headerlink" title="merge demo案例"></a>merge demo案例</h3><p>一般实现对象的merge代码实现如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">target, source</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key <span class="keyword">in</span> source &amp;&amp; key <span class="keyword">in</span> target) &#123;</span><br><span class="line">            merge(target[key], source[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            target[key] = source[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行代码</span></span><br><span class="line"><span class="keyword">let</span> o1 = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> o2 = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="string">"__proto__"</span>: &#123;<span class="attr">b</span>: <span class="number">2</span>&#125;&#125;</span><br><span class="line">merge(o1, o2)</span><br><span class="line"><span class="built_in">console</span>.log(o1.a, o1.b)</span><br><span class="line"></span><br><span class="line">o3 = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o3.b) <span class="comment">// 发现原型链没有被污染</span></span><br></pre></td></tr></table></figure>
-
-<p>这是为什么呢？因为声明变量的时候，”<strong>_proto</strong>“并不是一个key，即使修改也不会改变Object的原型。</p>
-<p>那么如何做到”<strong>_proto</strong>“成为一个key，可以将demo代码调整一下，如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o1 = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> o2 = <span class="built_in">JSON</span>.parse(<span class="string">'&#123;"a": 1, "__proto__": &#123;"b": 2&#125;&#125;'</span>)</span><br><span class="line">merge(o1, o2)</span><br><span class="line"><span class="built_in">console</span>.log(o1.a, o1.b)</span><br><span class="line"></span><br><span class="line">o3 = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o3.b) <span class="comment">// 输出2</span></span><br></pre></td></tr></table></figure>
-
-<p>merge操作是最常见可能控制键名的操作，也最能被原型链攻击，很多常见的库都存在这个问题。如： <code>lodash.merge</code>。</p>
-<h2 id="实际应用问题"><a href="#实际应用问题" class="headerlink" title="实际应用问题"></a>实际应用问题</h2><blockquote>
-<p>Code-Breaking 2018 Thejs 分析</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">const</span> lodash = <span class="built_in">require</span>(<span class="string">'lodash'</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">app.engine(<span class="string">'ejs'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">filePath, options, callback</span>) </span>&#123; </span><br><span class="line"><span class="comment">// define the template engine</span></span><br><span class="line">    fs.readFile(filePath, (err, content) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> callback(<span class="keyword">new</span> <span class="built_in">Error</span>(err))</span><br><span class="line">        <span class="keyword">let</span> compiled = lodash.template(content)</span><br><span class="line">        <span class="keyword">let</span> rendered = compiled(&#123;...options&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> callback(<span class="literal">null</span>, rendered)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line">app.all(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> data = req.session.data || &#123;<span class="attr">language</span>: [], <span class="attr">category</span>: []&#125;</span><br><span class="line">    <span class="keyword">if</span> (req.method == <span class="string">'POST'</span>) &#123;</span><br><span class="line">        data = lodash.merge(data, req.body)</span><br><span class="line">        req.session.data = data</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">        language: data.language, </span><br><span class="line">        category: data.category</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>题目是利用<code>lodash.template</code> + <code>lodash.merge</code>两个方法实现部分功能：</p>
-<ul>
-<li>用户提交的信息，用merge方法合并到session里，session里最终保存你提交的所有信息</li>
-<li>然后利用merge方法注入原型污染</li>
-<li>最后利用template中的方法，完成整个网站污染</li>
-</ul>
-<p>整个案例其实比较重要的一点就是，提交参数的时候序列化提交参数是否有做防御，如何没有的话那么很容易就中招了。</p>
-<h2 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h2><p>分不同情况做防御：</p>
-<h3 id="引入npm包导致的"><a href="#引入npm包导致的" class="headerlink" title="引入npm包导致的"></a>引入npm包导致的</h3><ul>
-<li>项目代码扫描，主要是针对构建好的代码进行扫描，是否<code>Evil.js</code>修改内置原型的情况进行告警提示</li>
-<li>禁止修改原型，如：使用<code>Object.freeze</code></li>
-</ul>
-<h3 id="针对node-js"><a href="#针对node-js" class="headerlink" title="针对node.js"></a>针对node.js</h3><ul>
-<li>针对node服务端接口参数进行序列化的时候，禁止非法<code>key</code>值传入</li>
-<li>禁止修改原型，如：使用<code>Object.freeze</code></li>
-<li>采用<code>Object.create(null)</code>创建对象，避免直接使用<code>{}</code></li>
-<li>使用<code>map</code>数据类型创建</li>
-<li>不对参数做<code>JSON.parse</code>转换，采用封装后的反序列化方法</li>
-<li>尽量采用安全的<code>merge</code>或<code>clone</code>库方法</li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html" target="_blank" rel="noopener">深入理解 JavaScript Prototype 污染攻击</a></li>
-<li><a href="https://xz.aliyun.com/t/7025" target="_blank" rel="noopener">再探 JavaScript 原型链污染到 RCE</a></li>
-<li><a href="https://www.freebuf.com/articles/web/216373.html" target="_blank" rel="noopener">Javascript原型链攻击与防御</a></li>
-</ul>
+    <p>有了<code>gptcommit</code>，你可能再也不用花费时间去写你的git commit 记录。下面开始安装<code>gptcommit</code>，通过<code>GPT-3</code>帮忙你写git commit。</p>
+<h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zura.wiki/post/never-write-a-commit-message-again-with-the-help-of-gpt-3/" target="_blank" rel="noopener">Never write a commit message again (with the help of GPT-3)</a></p>
+<p><a href="https://noahpinion.substack.com/p/the-big-tech-layoffs-are-a-turning" target="_blank" rel="noopener">大公司裁员只是一个转折点</a></p>
 
     
     
@@ -461,7 +395,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20220203.html" title="前端安全-JS原型链污染是怎么回事" target="_blank">https://www.qborfy.com/today/20220203.html</a>
+          <a href="https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html" title="有了GPT-3，再也不用手写commit message(翻译)" target="_blank">https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html</a>
         </li>
         
         <li>
@@ -483,11 +417,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
         		</li>
       		
 		</ul>
@@ -543,7 +473,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20220203.html" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -558,9 +488,18 @@
 
 <nav id="article-nav">
   
+    <a href="/today/20220203.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          前端安全-JS原型链污染是怎么回事
+        
+      </div>
+    </a>
   
-    <a href="/translate/use-gpt3-auto-git-commit.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">有了GPT-3，再也不用手写commit message(翻译)</div>
+  
+    <a href="/today/20220208.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css变量了解到项目落地</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -579,19 +518,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链污染"><span class="toc-number">2.</span> <span class="toc-text">原型链污染</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击场景"><span class="toc-number">2.2.</span> <span class="toc-text">攻击场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-demo案例"><span class="toc-number">2.2.1.</span> <span class="toc-text">merge demo案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际应用问题"><span class="toc-number">2.3.</span> <span class="toc-text">实际应用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何防御"><span class="toc-number">2.4.</span> <span class="toc-text">如何防御</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入npm包导致的"><span class="toc-number">2.4.1.</span> <span class="toc-text">引入npm包导致的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#针对node-js"><span class="toc-number">2.4.2.</span> <span class="toc-text">针对node.js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
