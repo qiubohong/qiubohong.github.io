@@ -88,6 +88,8 @@
 			
 				<li><a href="/tags/学习总结/" target="_blank">学习总结</a></li>
 			
+				<li><a href="/tags/低代码/" target="_blank">低代码</a></li>
+			
 				<li><a href="/tags/周二技术周刊/" target="_blank">周二技术周刊</a></li>
 			
 				<li><a href="/tags/奇思妙想/" target="_blank">奇思妙想</a></li>
@@ -195,6 +197,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -232,23 +236,25 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 11.11111111111111%"><a href="/">主页</a></li>
+					<li style="width: 10%"><a href="/">主页</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 10%"><a href="/tags/每日更新/">每日更新</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 10%"><a href="/tags/技术分享/">技术分享</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 10%"><a href="/tags/学习总结/">学习总结</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
+					<li style="width: 10%"><a href="/tags/低代码/">低代码</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 10%"><a href="/tags/周二技术周刊/">周二技术周刊</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 10%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="/fedlearn/">前端基础巩固</a></li>
+					<li style="width: 10%"><a href="/tags/翻译文章/">翻译文章</a></li>
 		        
-					<li style="width: 11.11111111111111%"><a href="https://week.qborfy.com">网站收集</a></li>
+					<li style="width: 10%"><a href="/fedlearn/">前端基础巩固</a></li>
+		        
+					<li style="width: 10%"><a href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -288,7 +294,7 @@
             
 
   
-    <article id="post-today/20220106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20230109" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -296,7 +302,10 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220106.html" target="_blank">从审批流到bpmn-js入门</a>
+	  <a class="article-title" href="/today/20230109.html" target="_blank">
+      对CMDB进行一个系统完整认知
+      
+    </a>
   
     </h1>
   
@@ -304,8 +313,8 @@
 
   
   
-<a href="/today/20220106.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+<a href="/today/20230109.html" class="archive-article-date">
+        <time datetime="2023-01-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-09</time>
 </a>
 
   
@@ -317,16 +326,214 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部由于需要很多审批地方，一开始采用邮件或者企业微信进行口头审批，一般会抄送相关人员，以达到初步审批的效果，但是随着审批越来越复杂，比如有时候需要驳回或者转接，甚至需要调用其他系统接口继续流程的时候，就很麻烦，因此迫切需要一个工作流去解决审批相关事情。</p>
-<h1 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h1><p>在选型前，我们需要知道工作流是什么？</p>
-<h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>工作流就是通过计算机技术对业务流程进行自动化管理。实现多个参与者按照预定的流程去自动执行业务流程。</p>
-<blockquote>
-<p>工作流定义: 通过计算机对业务流程自动化执行管理</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近半年，都在开发部门内部的CMDB平台和申请流程，因此对CMDB有了一定了解，但是又不够系统，所以希望写一篇文章能够系统完整的认知一下CMDB，包括以下几点：</p>
+<ul>
+<li>是什么</li>
+<li>能做什么和怎么做</li>
+<li>优秀方案</li>
+<li>未来方向</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230109.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230109.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20230108" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230108.html" target="_blank">
+      如何在页面展示数学公式之Latex语法
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230108.html" class="archive-article-date">
+        <time datetime="2023-01-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>最近在做markdown 算法文章分享，算法肯定会涉及到数学复杂度，比如: $$ O(log_nX) $$ 等数学公式的展示，但是如果写成这样子<code>lognX</code>，估计很难准确表达，因此上网搜索了一下数学表达式在前端页面如何展示的相关技术。</p>
+<h1 id="web-数学表达式展示解决方案"><a href="#web-数学表达式展示解决方案" class="headerlink" title="web 数学表达式展示解决方案"></a>web 数学表达式展示解决方案</h1><p>一般需要在web页面展示数学表达式相关技术，基本上都是在线编辑器，但是markdown也算是一种编辑器语法，所以上网收集了主要以下几种</p>
+<ul>
+<li>TeX，前期计算机无法生成数学公式排版或者排版很丑，因此<code>Donald E. Knuth</code>设计了一套排版技术，拥有很多计算机的命令或者技术语言</li>
+<li>LaTeX，是一种基于TeX的实现排版系统，准确的基于TeX的应用系统，已经封装很多公式模板，直接套用即可</li>
+<li>MathJaX，基于LaTeX实现的JavaScript渲染器， 渲染稍慢，支持更多复杂的表示</li>
+<li>KaTeX，也基于LaTeX实现的是一个JavaScript库，对比MathJaX，渲染更快，支持若干简写字符，但是本身支持的范围较小</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230108.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230108.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20230107" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230107.html" target="_blank">
+      从npm版本依赖到Monorepo大仓项目
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230107.html" class="archive-article-date">
+        <time datetime="2023-01-07T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前端的发展很快，自从node.js的出现，打开前端新的大门，npm让js有了自己的包管理能力，能够让前端项目工程化，从而能够处理更加复杂的前端项目。</p>
+<p>但是随之而来的是，同一个项目的npm依赖越来越多，有些是开源的，有些是自研的，尤其在同一个团队，当你开发一个新的npm包的时候，只是为了服务特定几个项目，但是这几个项目不在你管理范围内，当你需要更新的时候需要通知到他们，有时候会出现版本依赖问题，然后反复沟通和测试，最终达到协调。但是下次更新的时候又再次遇到这个问题，重复一次。</p>
+<h1 id="npm依赖"><a href="#npm依赖" class="headerlink" title="npm依赖"></a>npm依赖</h1><h2 id="npm是什么"><a href="#npm是什么" class="headerlink" title="npm是什么"></a>npm是什么</h2><blockquote>
+<p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
 </blockquote>
-<p>再通俗一点，工作流就是通过程序去自动实现平时需要人工操作的流程节点，所以工作流能解决的问题一定是可以被流程化的问题。</p>
-<p>然而这一过程被大家统称为业务流程建模，通常对已经存在复杂问题进行模型化的抽象，通过模型来推导解决问题的方案。</p>
     
-    <a class="article-more-a" href="/today/20220106.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230107.html#more">more >></a>
     
     
     
@@ -356,7 +563,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220106.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230107.html">展开全文 >></a>
     </p>
     
 
@@ -386,7 +593,7 @@
 
 
   
-    <article id="post-today/20220212" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20230213" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -394,7 +601,10 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220212.html" target="_blank">低代码系列——组件DSL语言</a>
+	  <a class="article-title" href="/today/20230213.html" target="_blank">
+      从Prometheus学会搭建监控系统
+      
+    </a>
   
     </h1>
   
@@ -402,96 +612,7 @@
 
   
   
-<a href="/today/20220212.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://json-schema.apifox.cn/" target="_blank" rel="noopener">JSON Schema 规范</a><br><a href="https://jsoncrack.com/" target="_blank" rel="noopener">JSON 可视化</a></p>
-
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220212.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220209" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220209.html" target="_blank">从Prometheus学会搭建监控系统</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220209.html" class="archive-article-date">
+<a href="/today/20230213.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -534,7 +655,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220209.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230213.html">展开全文 >></a>
     </p>
     
 
@@ -564,7 +685,7 @@
 
 
   
-    <article id="post-today/20220205" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20230212" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -572,7 +693,10 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220205.html" target="_blank">Meteor.js尝鲜实战</a>
+	  <a class="article-title" href="/today/20230212.html" target="_blank">
+      低代码系列——组件DSL语言
+      
+    </a>
   
     </h1>
   
@@ -580,7 +704,292 @@
 
   
   
-<a href="/today/20220205.html" class="archive-article-date">
+<a href="/today/20230212.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://json-schema.apifox.cn/" target="_blank" rel="noopener">JSON Schema 规范</a><br><a href="https://jsoncrack.com/" target="_blank" rel="noopener">JSON 可视化</a></p>
+
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230212.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20230106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230106.html" target="_blank">
+      从审批流到bpmn-js入门
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230106.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部由于需要很多审批地方，一开始采用邮件或者企业微信进行口头审批，一般会抄送相关人员，以达到初步审批的效果，但是随着审批越来越复杂，比如有时候需要驳回或者转接，甚至需要调用其他系统接口继续流程的时候，就很麻烦，因此迫切需要一个工作流去解决审批相关事情。</p>
+<h1 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h1><p>在选型前，我们需要知道工作流是什么？</p>
+<h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>工作流就是通过计算机技术对业务流程进行自动化管理。实现多个参与者按照预定的流程去自动执行业务流程。</p>
+<blockquote>
+<p>工作流定义: 通过计算机对业务流程自动化执行管理</p>
+</blockquote>
+<p>再通俗一点，工作流就是通过程序去自动实现平时需要人工操作的流程节点，所以工作流能解决的问题一定是可以被流程化的问题。</p>
+<p>然而这一过程被大家统称为业务流程建模，通常对已经存在复杂问题进行模型化的抽象，通过模型来推导解决问题的方案。</p>
+    
+    <a class="article-more-a" href="/today/20230106.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230106.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20230216" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230216.html" target="_blank">
+      从ChatGPT学到了什么
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230216.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></p>
+
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230216.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-today/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230215.html" target="_blank">
+      Meteor.js尝鲜实战
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230215.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -623,7 +1032,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220205.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230215.html">展开全文 >></a>
     </p>
     
 
@@ -653,7 +1062,7 @@
 
 
   
-    <article id="post-today/20220128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20230214" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -661,7 +1070,10 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220128.html" target="_blank">:has伪元素的应用到其他伪元素总结</a>
+	  <a class="article-title" href="/today/20230214.html" target="_blank">
+      前端自动化UI测试的完整方案
+      
+    </a>
   
     </h1>
   
@@ -669,96 +1081,7 @@
 
   
   
-<a href="/today/20220128.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://iamkate.com/code/tree-views/" target="_blank" rel="noopener">:has()伪类的表单样式</a></p>
-
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220128.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220204" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220204.html" target="_blank">前端自动化UI测试的完整方案</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220204.html" class="archive-article-date">
+<a href="/today/20230214.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -802,7 +1125,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220204.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230214.html">展开全文 >></a>
     </p>
     
 
@@ -832,7 +1155,7 @@
 
 
   
-    <article id="post-today/20220207" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -840,7 +1163,10 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20220207.html" target="_blank">从ChatGPT学到了什么</a>
+	  <a class="article-title" href="/today/20230218.html" target="_blank">
+      通过 JS 构建我们自己的 JS 解释器
+      
+    </a>
   
     </h1>
   
@@ -848,96 +1174,7 @@
 
   
   
-<a href="/today/20220207.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></p>
-
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220207.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220210" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220210.html" target="_blank">通过 JS 构建我们自己的 JS 解释器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220210.html" class="archive-article-date">
+<a href="/today/20230218.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -980,192 +1217,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220210.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220211" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220211.html" target="_blank">从Copilot学到了什么</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220211.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
-
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220211.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20220105" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20220105.html" target="_blank">从短视频到短视频思维</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20220105.html" class="archive-article-date">
-        <time datetime="2023-01-05T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="短视频的背景"><a href="#短视频的背景" class="headerlink" title="短视频的背景"></a>短视频的背景</h1><h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><p>人类的需求——记录、表达、分享</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>智能手机普及</li>
-<li>法律法规允许</li>
-<li>大数据、AI算法成熟</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20220105.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">短视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20220105.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230218.html">展开全文 >></a>
     </p>
     
 
@@ -1197,7 +1249,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1390,6 +1442,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术探鲜</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">低代码系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">低代码系列目录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
             
             <div class="clearfix"></div>
