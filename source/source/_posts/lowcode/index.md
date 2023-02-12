@@ -7,7 +7,7 @@ tags:
 top: 10
 ---
 
-# 目录
+# 系列文章
 
 - [《低代码系列——js沙箱设计》](/lowcode/sandbox.html)
 - [《低代码系列——组件描述DSL》(编写中)](/lowcode/component.html)
@@ -23,6 +23,8 @@ top: 10
 - 支持页面或系统级别的导出或部署发布
 
 简单的说，就是快速、稳定的输出开发所需要的页面，减少重复性劳动，提高开发效率。
+
+<!-- more -->
 
 ## 实现方式
 
@@ -46,7 +48,6 @@ top: 10
 [github/awesome-lowcode 国内低代码平台从业者交流](https://github.com/taowen/awesome-lowcode)
 
 # 思维导图
-<!-- more -->
 
 ## 模块设计
 {% pullquote mindmap mindmap-md %}

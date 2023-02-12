@@ -3,7 +3,7 @@
   <entry>
     <title>低代码设计系列</title>
     <url>/lowcode/index.html</url>
-    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+    <content><![CDATA[<h1 id="系列文章"><a href="#系列文章" class="headerlink" title="系列文章"></a>系列文章</h1><ul>
 <li><a href="/lowcode/sandbox.html">《低代码系列——js沙箱设计》</a></li>
 <li><a href="/lowcode/component.html">《低代码系列——组件描述DSL》(编写中)</a></li>
 </ul>
@@ -14,6 +14,8 @@
 <li>支持页面或系统级别的导出或部署发布</li>
 </ul>
 <p>简单的说，就是快速、稳定的输出开发所需要的页面，减少重复性劳动，提高开发效率。</p>
+<a id="more"></a>
+
 <h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>目前市面的低代码的实现方式主要有几种：</p>
 <p>国内开源目前还在维护更新的：</p>
 <ul>
@@ -30,9 +32,7 @@
 <li><a href="https://github.com/i5ting/imove" target="_blank" rel="noopener">imove 逻辑编排器</a> </li>
 </ul>
 <p>以上数据来源：<br><a href="https://github.com/taowen/awesome-lowcode" target="_blank" rel="noopener">github/awesome-lowcode 国内低代码平台从业者交流</a></p>
-<h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><a id="more"></a>
-
-<h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul>
+<h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>低代码平台<ul>
 <li>核心模块<ul>
 <li>编辑器</li>
