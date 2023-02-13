@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么">
+  <meta name="description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么参考资料JSON Schema 规范JSON 可视化">
 <meta name="keywords" content="技术分享,低代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="低代码系列——组件描述DSL">
 <meta property="og:url" content="https://www.qborfy.com/lowcode/component.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么">
+<meta property="og:description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么参考资料JSON Schema 规范JSON 可视化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-12T12:58:38.638Z">
+<meta property="og:updated_time" content="2023-02-13T13:28:37.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="低代码系列——组件描述DSL">
-<meta name="twitter:description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么">
+<meta name="twitter:description" content="背景之前写了一篇《低代码系列——js沙箱设计》，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。 低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。 下面我们就针对这种组件抽象描述做一次深入的设计。 组件是什么参考资料JSON Schema 规范JSON 可视化">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -323,7 +323,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">142字</span>
+      <span class="post-count">154字</span>
     </span>
   </span>
 
@@ -346,7 +346,8 @@
     <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写了一篇<a href="/lowcode/sandbox.html">《低代码系列——js沙箱设计》</a>，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。</p>
 <p>低代码平台核心部分是编辑器，编辑器里最重要一块如何将组件抽象化，存储到一个可描述的对象中。</p>
 <p>下面我们就针对这种组件抽象描述做一次深入的设计。</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://json-schema.apifox.cn/" target="_blank" rel="noopener">JSON Schema 规范</a><br><a href="https://jsoncrack.com/" target="_blank" rel="noopener">JSON 可视化</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -499,8 +500,17 @@
 
 <nav id="article-nav">
   
+    <a href="/today/20230213.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux如何快速删除大量文件
+        
+      </div>
+    </a>
   
-    <a href="/today/20230211.html" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/today/20230221.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">从Copilot学到了什么</div>
       <i class="icon-circle-right"></i>
     </a>

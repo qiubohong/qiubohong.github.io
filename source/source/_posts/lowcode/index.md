@@ -43,6 +43,9 @@ top: 10
 虽然有些项目不维护了，但是值得借鉴：
 - [imove 逻辑编排器](https://github.com/i5ting/imove) 
 
+值得阅读一些文章
+
+- [AI驱动的无代码平台--如何使用chat GPT抽象域语言](https://medium.com/@andreasmuelder/ai-powered-low-code-platform-by-example-how-to-use-chatgpt-to-abstract-from-domain-languages-625c3abf0e49)
 
 以上数据来源：
 [github/awesome-lowcode 国内低代码平台从业者交流](https://github.com/taowen/awesome-lowcode)

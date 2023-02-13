@@ -16,3 +16,10 @@ tags:
 # 组件
 
 ## 是什么
+
+
+
+# 参考资料
+
+[JSON Schema 规范](https://json-schema.apifox.cn/)
+[JSON 可视化](https://jsoncrack.com/)

@@ -294,6 +294,113 @@
             
 
   
+    <article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230129.html" target="_blank">
+      从null、undefined、NaN的区别了解JS的原型链
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230129.html" class="archive-article-date">
+        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
+<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
+<p>我们先简单认识三者：</p>
+<ul>
+<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
+<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
+<li><code>NaN</code> 是一个表示非数字的值</li>
+</ul>
+<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<ul>
+<li>数据类型 <code>typeof</code></li>
+<li><code>===</code> 判断</li>
+<li>原型 <code>prototype</code></li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-today/20230128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1176,118 +1283,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230111.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-today/20230110" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230110.html" target="_blank">
-      从egg.js转到nest.js
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230110.html" class="archive-article-date">
-        <time datetime="2023-01-10T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>进入部门工作后，接触到的node.js服务端框架，是egg.js，后面基于扩展增加了很多插件，比如：@Controller @Service等注解，还有针对egg-framework 定制化部门使用的底层framework。</p>
-<p>但是，随着时间的迁移，egg已经不太能满足我们的开发效率和开发模式，主要有以下几点：</p>
-<ul>
-<li>对typescript支持度不够，这是由于egg.js本身就不是typescript开发</li>
-<li>egg.js封装web架构，约定大于编码，如：强制将web应用分级为： controller、service、middleware、extend等，自由度相对比较弱，当你需要定制化开发内容，你需要深入了解egg.js的整个运行原理才能实现</li>
-<li>虽然部门内部定制化开发 @Controller @Service等注解，减少路由配置，但是这一块插件还存在一些隐藏规则，需要开发注意</li>
-</ul>
-<p>当然egg.js运行的web应用还是比较稳定，而且相关插件生态也比较丰富，只是当egg.js迭代更新速度在2020年后就逐步放缓，更不上变化，我们就需要迎接一些新的框架来满足要求。</p>
-<h1 id="框架对比"><a href="#框架对比" class="headerlink" title="框架对比"></a>框架对比</h1><p>我从近两年听到或者网上收集的，基于Node.js的框架主要有以下几个：</p>
-<ul>
-<li>基础框架，基本上还是以express、koa、Fastify.js等为主</li>
-<li>egg.js，以MVC为架构的web框架</li>
-<li>nest.js，以Ioc 控制反转作为核心概念的web框架，对typescript支持友好</li>
-<li>nuxt.js，以Vue.js作为SSR服务端渲染核心的web框架，最新是Nuxt3（以Vue3为核心）</li>
-<li>next.js，以React.js作为SSR服务端渲染核心的</li>
-<li>Meteor.js，full-stack javascript平台，最大的特点是当数据发生改变的时候，所有依赖该数据的地方自动发生相应的改变。</li>
-<li>Fastify.js，号称最快的node.js web框架，特点是内置了基于 JSON schema 的 validation 和 serialization，比JSON.stringify还快的json序列化算法，虽然是借助借助第三方库 ajv。</li>
-<li>strapi.js，快速生成API接口的web框架，同时实现各种后端所需要的鉴权、权限、文件上传等轮子</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230110.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230110.html">展开全文 >></a>
     </p>
     
 

@@ -2,9 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.qborfy.com/lowcode/index.html</loc>
+    <loc>https://www.qborfy.com/today/20230221.html</loc>
     
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.qborfy.com/today/20230213.html</loc>
+    
+    <lastmod>2023-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.qborfy.com/today/20230220.html</loc>
+    
+    <lastmod>2023-02-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +30,15 @@
   
   <url>
     <loc>https://www.qborfy.com/lowcode/component.html</loc>
+    
+    <lastmod>2023-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.qborfy.com/lowcode/index.html</loc>
     
     <lastmod>2023-02-12</lastmod>
     
@@ -38,25 +65,7 @@
   </url>
   
   <url>
-    <loc>https://www.qborfy.com/today/20230211.html</loc>
-    
-    <lastmod>2023-02-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.qborfy.com/today/20230214.html</loc>
-    
-    <lastmod>2023-02-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.qborfy.com/today/20230213.html</loc>
     
     <lastmod>2023-02-11</lastmod>
     
@@ -102,15 +111,6 @@
   
   <url>
     <loc>https://www.qborfy.com/today/20230216.html</loc>
-    
-    <lastmod>2023-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.qborfy.com/today/20230212.html</loc>
     
     <lastmod>2023-02-09</lastmod>
     
@@ -409,7 +409,7 @@
 
   <url>
     <loc>https://www.qborfy.com/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -417,91 +417,91 @@
   
   <url>
     <loc>https://www.qborfy.com/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/hide/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E5%91%A8%E4%BA%8C%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E5%8A%A8%E6%89%8B%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E6%8E%A2%E9%B2%9C/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97%E7%9B%AE%E5%BD%95/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.qborfy.com/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/</loc>
-    <lastmod>2023-02-12</lastmod>
+    <lastmod>2023-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
