@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="疯子知识库">
 <meta property="og:description" content="背景最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：  airflow降低日志文件输出大小，将原来info级别日志跳高到warning 定时清理日志文件  问题问题就出现在清理日志文件，打算先清除一遍，主要清除一个月以前的日志文件，命令为find /data/airflow/ -na">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-13T14:03:02.313Z">
+<meta property="og:updated_time" content="2023-02-14T02:07:25.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux如何快速删除大量文件">
 <meta name="twitter:description" content="背景最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：  airflow降低日志文件输出大小，将原来info级别日志跳高到warning 定时清理日志文件  问题问题就出现在清理日志文件，打算先清除一遍，主要清除一个月以前的日志文件，命令为find /data/airflow/ -na">
@@ -323,7 +323,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">858字</span>
+      <span class="post-count">859字</span>
     </span>
   </span>
 
@@ -379,7 +379,7 @@
 <h2 id="rm原理"><a href="#rm原理" class="headerlink" title="rm原理"></a>rm原理</h2><p>rm的原理：减少磁盘引用计数<code>i_nlink</code>，就是减少其他文件对这个文件链接，实际并没有删除文件内容。</p>
 <p>因此，如果日志文件正在其他进程使用，<code>rm</code>并不是真正删除，<code>i_count</code>并不会减少，因此也不会释放磁盘空间。</p>
 <p>如果想要真正删除一个文件，还需要同时将<code>i_count</code>降至0。</p>
-<p>了解完rm的原理，也就真正明白为什么<code>find /data/airflow/ -name &#39;*.log&#39; -and -mtime +30 -type f |xargs rm</code>命令会这么慢，因为它要去找日志文件的所有link链接，然后一一删除掉。</p>
+<p>了解完rm的原理，也就真正明白为什么<code>find /opt/airflow/logs -name &#39;*.*&#39; -and -mtime +30 -type f | xargs rm -rvf</code>命令会这么慢，因为它要去找日志文件的所有link链接，然后一一删除掉。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最终在网上找了最佳解决方案，就是使用<code>rsync</code>。</p>
 <p><code>rsync</code>本身的就是将两个文件夹作同步使用，如何使用<code>rsync</code>删除文件，步骤是这样子:</p>
 <ul>
@@ -549,6 +549,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/translate/use-gpt3-auto-git-commit.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          有了GPT-3，再也不用手写commit message(翻译)
+        
+      </div>
+    </a>
   
   
     <a href="/lowcode/component.html" id="article-nav-older" class="article-nav-link-wrap">

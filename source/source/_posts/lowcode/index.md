@@ -65,13 +65,13 @@ top: 10
     - 版本控制
       - 页面版本控制
       - 页面发布流程
-      - 
     - 权限登录
       - 登录
       - 权限
 {% endpullquote %}
 
 ## 编辑器设计
+
 {% pullquote mindmap mindmap-md %}
 - 编辑器
   - 组件描述
