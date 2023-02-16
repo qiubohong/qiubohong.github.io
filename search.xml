@@ -23,11 +23,49 @@
     
     
     <entry>
+      <title>创业idea——AI种植与花店</title>
+      <link href="/ideas/20230214.html"/>
+      <url>/ideas/20230214.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>此想法源于一个抖音视频，里面有个商业模式，通过摄像头+气味嗅觉捕捉器+液体分析器，可以识别当前植物的状态，且占地面积不大，可以直接树立到家里墙上。大概如下图所示：</p><p><img src="/assets/img/idea-20230214-3.png" alt></p><a id="more"></a><p><img src="/assets/img/idea-20230214-1.png" alt><br><img src="/assets/img/idea-20230214-2.png" alt></p><h1 id="创业想法"><a href="#创业想法" class="headerlink" title="创业想法"></a>创业想法</h1><p>因此萌生出一种想法，目前还没有关注这一块，家里大部分的时候也有盆栽或者绿植，都是从花店里直接购买的，那么如果利用这种技术去实现互利网AI种植，是不是一种创新的创业思维呢？</p><p>目前花店主要有以下几种痛点：</p><ul><li>购买盆栽后，没有完整的种植经验，很快就死了</li><li>无法知道自己需要什么的盆栽</li></ul><p>商业模式：</p><ul><li>分尺寸，如：小盆栽适合办公位，中大型的适合放在家庭做墙壁或者隔墙板，超大型就是AI农业大棚型</li><li>商场里租一个大店铺，除了宣传，还可以将一些位置租给某些用户，给他们去做亲子活动</li></ul><p>后续可以尝试继续研究，留此文做一个念想。</p><h1 id="已经实施的项目"><a href="#已经实施的项目" class="headerlink" title="已经实施的项目"></a>已经实施的项目</h1><ul><li><a href="https://www.squarerootsgrow.com/about" target="_blank" rel="noopener">马斯克弟弟 火星种菜项目 SquareRoot</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 奇思妙想 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据可视化收集</title>
+      <link href="/ideas/20230215.html"/>
+      <url>/ideas/20230215.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据可视化收集"><a href="#数据可视化收集" class="headerlink" title="数据可视化收集"></a>数据可视化收集</h1><p>收集数据可视化或报表开源系统，为了能够根据不同数据源展示可视化界面。</p><h2 id="DataEase"><a href="#DataEase" class="headerlink" title="DataEase"></a>DataEase</h2><p>人人可用的开源数据可视化分析工具</p><ul><li>官网地址：<a href="https://dataease.io/" target="_blank" rel="noopener">https://dataease.io/</a><br>Github： <a href="https://github.com/dataease/dataease/" target="_blank" rel="noopener">https://github.com/dataease/dataease/</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 奇思妙想 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>有了GPT-3，再也不用手写commit message(翻译)</title>
       <link href="/translate/use-gpt3-auto-git-commit.html"/>
       <url>/translate/use-gpt3-auto-git-commit.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p></blockquote><h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p><blockquote><p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a href="https://zh.wikipedia.org/zh/GPT-3" target="_blank" rel="noopener">维基百科 GPT-3</a></p></blockquote><p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p><a id="more"></a><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>首先，我们先了解一下 git commit， git commit提交信息，是程序员与程序员之间交流他们开发代码的重要信息，特别在code review中。<br>尤其当代码发生重大变化或者写的代码极为复杂，我们需要一一详细描述代码块功能，非常的耗时而且无聊。<br>平时开发代码后，由于一不小心容易写<code>fix: bug</code>之类的提交记录，很想修改后，但是又没有什么好的办法。<br>同时复杂的这些随意的话术对code review也很难理解这段代码的真正含义是什么。<br>更糟糕的是，如果提交记录是<code>fix: 修复文案错误</code>等，会让code review更加毫无意义，甚至忽略掉需要code review的地方。<br>所以问题是写 git commit很费时，而且描述不准确又容易造成不必要误会，那么使用<code>gptcommit</code>会让你摆脱这些烦恼。</p><h1 id="安装教程-几分钟"><a href="#安装教程-几分钟" class="headerlink" title="安装教程(几分钟)"></a>安装教程(几分钟)</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>在安装<code>gptcommit</code>之前，你需要先准备以下几个环境：</p><ul><li><a href="https://rustup.rs/" target="_blank" rel="noopener">Cargo</a>, <code>Rust</code>语言的包管理器</li><li><a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">OpenAI API Keys</a>, OpenAI的密钥</li></ul><p><strong>安装Rust</strong></p><p>Linux或Mac安装命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl --proto <span class="string">'=https'</span> --tlsv1.2 https://sh.rustup.rs -sSf | sh</span></span><br></pre></td></tr></table></figure><p><strong>OpenAI API Keys获取方式</strong></p><p>国内没法正常访问，以下两种方式：</p><ul><li>这里去淘宝买一个API key</li><li>或者翻墙出去购买一个</li></ul><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>使用<code>cargo</code>安装<code>gptcommit</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install --locked gptcommit</span><br></pre></td></tr></table></figure></li><li><p>在本地某个仓库里安装执行一下命令，主要是初始化<code>gptcommit</code> git hook。这里需要你对这些仓库有git push的权限。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gptcommit install</span><br></pre></td></tr></table></figure></li><li><p>设置全局变量<code>OPENAI_API_KEY</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export OPENAI_API_KEY="sk-..."</span><br></pre></td></tr></table></figure></li></ol><p>也可以直接将变量设置到全局文件中，如<code>~/.bashrc</code>, <code>~/.zshrc</code></p><h2 id="demo实战"><a href="#demo实战" class="headerlink" title="demo实战"></a>demo实战</h2><p>如果使用了后，会生成如下git commit:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Demo #1: the full installation and commit workflow, editing multiple rust files</span><br><span class="line">Demo #2: a one-line change to a string inside a rust file.</span><br><span class="line">Demo #3: Modifying non-code files, in this case a README.</span><br></pre></td></tr></table></figure><h2 id="参考对象"><a href="#参考对象" class="headerlink" title="参考对象"></a>参考对象</h2><p><code>gptcommit</code>参考之前的很受欢迎的commit 工具：</p><ul><li><a href="https://github.com/RomanHotsiy/commitgpt" target="_blank" rel="noopener">https://github.com/RomanHotsiy/commitgpt</a></li></ul><p><code>commitgpt</code>目前已无法使用，因为它使用第三方的OpenAI API Key，由于官方OpenAI访问次数受限，必须要求每个用户都用自己的API key。</p><p><code>gptcommit</code>集成了 git hook，可以直接用来git flow工作流的最后一步，同时，由于使用Rust，它执行速度会更快。</p><p>同时还参考<a href="https://github.com/KanHarI/gpt-commit-summarizer" target="_blank" rel="noopener">gpt-commit-summarizer</a>工具，它是直接作用在github Action持续集成中，而不是git 工作流。<br>总结commit记录是发生在PR阶段，而不是每次 commit。<br>该操作会直接将PR操作的commit进行汇总，然后直接提交，不需要再code review。</p><p><code>gptcommit</code>参考<code>gpt-commit-summarizer</code>的设计点，但是主要针对是git commit的提交信息进行总结。</p><h2 id="背后原理"><a href="#背后原理" class="headerlink" title="背后原理"></a>背后原理</h2><p>git commit提交劫持主要分为两个部分：</p><p>首先，会将每个文件单独汇总，然后到OpenAI去生成commit 信息记录。</p><p>其次，汇总所有文件修改内容，也有两个要点，分别是：</p><ul><li>告诉AI生成一个修改的标题</li><li>同时要生成修改的一些要点内容</li></ul><p>最终输出的提交记录如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[title]</span><br><span class="line"></span><br><span class="line">- [summary point 1]</span><br><span class="line">- [summary point 2...]</span><br><span class="line"></span><br><span class="line">[/changed/file A]</span><br><span class="line">- [file summary point 1]</span><br><span class="line">- [file summary point 2...]</span><br><span class="line">[/changed/file B...]</span><br><span class="line">- [file summary point 1...]</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h2 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h2><p>接下来就在项目中实战吧。<br>执行命令<code>cargo install --locked gptcommit</code>安装或到<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">github 仓库</a>中去查看更多信息。<br>当然，你需要先在OpenAI里注册一个账号，同时拥有一个API key才能正在使用起来。</p><p>Github地址： <a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">https://github.com/zurawiki/gptcommit</a></p><h1 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h1><p>后面也打算做一下更加有趣的功能：</p><ul><li>如何利用GPT-3去实现更加自动化 git flow工作流？</li><li>如何跳过哪些大的总结?</li><li>如何收集用户反馈，将commit信息更加有效？</li></ul><p>最后，如果在使用过程有任何问题或者建议，请到Github开源地址写一个issue给我，我会很快处理。</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li>原文地址：<a href="https://zura.wiki/post/never-write-a-commit-message-again-with-the-help-of-gpt-3/" target="_blank" rel="noopener">Never write a commit message again (with the help of GPT-3)</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<blockquote><p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p></blockquote><h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p><blockquote><p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a href="https://zh.wikipedia.org/zh/GPT-3" target="_blank" rel="noopener">维基百科 GPT-3</a></p></blockquote><p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p><a id="more"></a><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>首先，我们先了解一下 git commit， git commit提交信息，是程序员与程序员之间交流他们开发代码的重要信息，特别在code review中。<br>尤其当代码发生重大变化或者写的代码极为复杂，我们需要一一详细描述代码块功能，非常的耗时而且无聊。<br>平时开发代码后，由于一不小心容易写<code>fix: bug</code>之类的提交记录，很想修改后，但是又没有什么好的办法。<br>同时复杂的这些随意的话术对code review也很难理解这段代码的真正含义是什么。<br>更糟糕的是，如果提交记录是<code>fix: 修复文案错误</code>等，会让code review更加毫无意义，甚至忽略掉需要code review的地方。<br>所以问题是写 git commit很费时，而且描述不准确又容易造成不必要误会，那么使用<code>gptcommit</code>会让你摆脱这些烦恼。</p><h1 id="安装教程-几分钟"><a href="#安装教程-几分钟" class="headerlink" title="安装教程(几分钟)"></a>安装教程(几分钟)</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>在安装<code>gptcommit</code>之前，你需要先准备以下几个环境：</p><ul><li><a href="https://rustup.rs/" target="_blank" rel="noopener">Cargo</a>, <code>Rust</code>语言的包管理器</li><li><a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">OpenAI API Keys</a>, OpenAI的密钥</li></ul><p><strong>安装Rust</strong></p><p>Linux或Mac安装命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure><p><strong>OpenAI API Keys获取方式</strong></p><p>国内没法正常访问，以下两种方式：</p><ul><li>这里去淘宝买一个API key</li><li>或者翻墙出去购买一个</li></ul><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>使用<code>cargo</code>安装<code>gptcommit</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install --locked gptcommit</span><br></pre></td></tr></table></figure></li><li><p>在本地某个仓库里安装执行一下命令，主要是初始化<code>gptcommit</code> git hook。这里需要你对这些仓库有git push的权限。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gptcommit install</span><br></pre></td></tr></table></figure></li><li><p>设置全局变量<code>OPENAI_API_KEY</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export OPENAI_API_KEY="sk-..."</span><br></pre></td></tr></table></figure></li></ol><p>也可以直接将变量设置到全局文件中，如<code>~/.bashrc</code>, <code>~/.zshrc</code></p><h2 id="demo实战"><a href="#demo实战" class="headerlink" title="demo实战"></a>demo实战</h2><p>如果使用了后，会生成如下git commit:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Demo #1: the full installation and commit workflow, editing multiple rust files</span><br><span class="line">Demo #2: a one-line change to a string inside a rust file.</span><br><span class="line">Demo #3: Modifying non-code files, in this case a README.</span><br></pre></td></tr></table></figure><h2 id="参考对象"><a href="#参考对象" class="headerlink" title="参考对象"></a>参考对象</h2><p><code>gptcommit</code>参考之前的很受欢迎的commit 工具：</p><ul><li><a href="https://github.com/RomanHotsiy/commitgpt" target="_blank" rel="noopener">https://github.com/RomanHotsiy/commitgpt</a></li></ul><p><code>commitgpt</code>目前已无法使用，因为它使用第三方的OpenAI API Key，由于官方OpenAI访问次数受限，必须要求每个用户都用自己的API key。</p><p><code>gptcommit</code>集成了 git hook，可以直接用来git flow工作流的最后一步，同时，由于使用Rust，它执行速度会更快。</p><p>同时还参考<a href="https://github.com/KanHarI/gpt-commit-summarizer" target="_blank" rel="noopener">gpt-commit-summarizer</a>工具，它是直接作用在github Action持续集成中，而不是git 工作流。<br>总结commit记录是发生在PR阶段，而不是每次 commit。<br>该操作会直接将PR操作的commit进行汇总，然后直接提交，不需要再code review。</p><p><code>gptcommit</code>参考<code>gpt-commit-summarizer</code>的设计点，但是主要针对是git commit的提交信息进行总结。</p><h2 id="背后原理"><a href="#背后原理" class="headerlink" title="背后原理"></a>背后原理</h2><p>git commit提交劫持主要分为两个部分：</p><p>首先，会将每个文件单独汇总，然后到OpenAI去生成commit 信息记录。</p><p>其次，汇总所有文件修改内容，也有两个要点，分别是：</p><ul><li>告诉AI生成一个修改的标题</li><li>同时要生成修改的一些要点内容</li></ul><p>最终输出的提交记录如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[title]</span><br><span class="line"></span><br><span class="line">- [summary point 1]</span><br><span class="line">- [summary point 2...]</span><br><span class="line"></span><br><span class="line">[/changed/file A]</span><br><span class="line">- [file summary point 1]</span><br><span class="line">- [file summary point 2...]</span><br><span class="line">[/changed/file B...]</span><br><span class="line">- [file summary point 1...]</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h2 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h2><p>接下来就在项目中实战吧。<br>执行命令<code>cargo install --locked gptcommit</code>安装或到<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">github 仓库</a>中去查看更多信息。<br>当然，你需要先在OpenAI里注册一个账号，同时拥有一个API key才能正在使用起来。</p><p>Github地址： <a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">https://github.com/zurawiki/gptcommit</a></p><h1 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h1><p>后面也打算做一下更加有趣的功能：</p><ul><li>如何利用GPT-3去实现更加自动化 git flow工作流？</li><li>如何跳过哪些大的总结?</li><li>如何收集用户反馈，将commit信息更加有效？</li></ul><p>最后，如果在使用过程有任何问题或者建议，请到Github开源地址写一个issue给我，我会很快处理。</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li>原文地址：<a href="https://zura.wiki/post/never-write-a-commit-message-again-with-the-help-of-gpt-3/" target="_blank" rel="noopener">Never write a commit message again (with the help of GPT-3)</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -46,7 +84,7 @@
       <link href="/today/20230213.html"/>
       <url>/today/20230213.html</url>
       
-        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：</p><ul><li>airflow降低日志文件输出大小，将原来<code>info</code>级别日志跳高到<code>warning</code></li><li>定时清理日志文件</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>问题就出现在清理日志文件，打算先清除一遍，主要清除一个月以前的日志文件，命令为<code>find /data/airflow/ -name &#39;*.log&#39; -and -mtime +30 -type f |xargs rm</code>。</p><p>但是等了半天发现日志文件一直无法清除掉，不知道为什么？</p><a id="more"></a><p>后面直接上机器删除文件，采用<code>rm -rf ./*.log</code>，发现报错如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rm: argument list too long</span><br></pre></td></tr></table></figure><blockquote><p>原因：  删除文件中包含的小文件数量过多，通常是由于受到 shell 参数个数限制所致</p></blockquote><p>虽然网上有其他方案可以快速解决，比如：<code>find</code>减少文件数量。</p><p>这下子就搞的很郁闷了，后面上网找了方案，发现可以通过<code>rsync</code>去快速删除大量文件，因此想记录总结一下。</p><h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="Linux文件存储原理"><a href="#Linux文件存储原理" class="headerlink" title="Linux文件存储原理"></a>Linux文件存储原理</h2><p>我们需要对Linux文件存储原理做一个基本的了解，Linux文件存储数据是放在一张<code>inode 表</code>，里面每一个文件的节点，每个节点包括以下内容：</p><ul><li>文件类型</li><li>权限</li><li>UID，GID</li><li><code>i_nlink</code> 链接数（指向这个文件名路径名称个数）</li><li><code>i_count</code> 使用数（指使用这个文件的进程数）</li><li>该文件的大小和不同的时间戳</li><li>指向磁盘上文件的数据块指针</li><li>有关文件的其他数据</li></ul><p>Linux文件真正删除的过程：</p><ul><li><code>i_nlink=0</code> 没有人进行链接使用，包括任何硬链接</li><li><code>i_count=0</code> 没有任何进程使用</li></ul><h2 id="rm原理"><a href="#rm原理" class="headerlink" title="rm原理"></a>rm原理</h2><p>rm的原理：减少磁盘引用计数<code>i_nlink</code>，就是减少其他文件对这个文件链接，实际并没有删除文件内容。</p><p>因此，如果日志文件正在其他进程使用，<code>rm</code>并不是真正删除，<code>i_count</code>并不会减少，因此也不会释放磁盘空间。</p><p>如果想要真正删除一个文件，还需要同时将<code>i_count</code>降至0。</p><p>了解完rm的原理，也就真正明白为什么<code>find /opt/airflow/logs -name &#39;*.*&#39; -and -mtime +30 -type f | xargs rm -rvf</code>命令会这么慢，因为它要去找日志文件的所有link链接，然后一一删除掉。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最终在网上找了最佳解决方案，就是使用<code>rsync</code>。</p><p><code>rsync</code>本身的就是将两个文件夹作同步使用，如何使用<code>rsync</code>删除文件，步骤是这样子:</p><ul><li>如果将一个空文件夹，同步到要删除的文件夹里，是不是等于将文件夹清空了呢？</li></ul><p>很取巧的方式，但是也很有效果，具体命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">制造一个空文件夹</span></span><br><span class="line">mkdir -p /opt/airflow/empty;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行rsync同步空文件夹</span></span><br><span class="line">rsync --delete-before -aO  /opt/airflow/empty/ /opt/airflow/logs/;</span><br></pre></td></tr></table></figure><p>命令详解：</p><ul><li><code>--delete-before</code> 接收者在传输之前进行删除操作</li><li><code>-a</code> 归档模式，表示以递归方式传输文件，并保持所有文件属性</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://cloud.tencent.com/developer/article/1647290" target="_blank" rel="noopener">Linux 下删除大量文件效率对比，看谁删的快！</a></li><li><a href="https://www.cnblogs.com/cherishry/p/5886069.html" target="_blank" rel="noopener">Linux下文件删除的原理</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：</p><ul><li>airflow降低日志文件输出大小，将原来<code>info</code>级别日志跳高到<code>warning</code></li><li>定时清理日志文件</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>问题就出现在清理日志文件，打算先清除一遍，主要清除一个月以前的日志文件，命令为<code>find /data/airflow/ -name &#39;*.log&#39; -and -mtime +30 -type f |xargs rm</code>。</p><p>但是等了半天发现日志文件一直无法清除掉，不知道为什么？</p><a id="more"></a><p>后面直接上机器删除文件，采用<code>rm -rf ./*.log</code>，发现报错如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rm: argument list too long</span><br></pre></td></tr></table></figure><blockquote><p>原因：  删除文件中包含的小文件数量过多，通常是由于受到 shell 参数个数限制所致</p></blockquote><p>虽然网上有其他方案可以快速解决，比如：<code>find</code>减少文件数量。</p><p>这下子就搞的很郁闷了，后面上网找了方案，发现可以通过<code>rsync</code>去快速删除大量文件，因此想记录总结一下。</p><h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="Linux文件存储原理"><a href="#Linux文件存储原理" class="headerlink" title="Linux文件存储原理"></a>Linux文件存储原理</h2><p>我们需要对Linux文件存储原理做一个基本的了解，Linux文件存储数据是放在一张<code>inode 表</code>，里面每一个文件的节点，每个节点包括以下内容：</p><ul><li>文件类型</li><li>权限</li><li>UID，GID</li><li><code>i_nlink</code> 链接数（指向这个文件名路径名称个数）</li><li><code>i_count</code> 使用数（指使用这个文件的进程数）</li><li>该文件的大小和不同的时间戳</li><li>指向磁盘上文件的数据块指针</li><li>有关文件的其他数据</li></ul><p>Linux文件真正删除的过程：</p><ul><li><code>i_nlink=0</code> 没有人进行链接使用，包括任何硬链接</li><li><code>i_count=0</code> 没有任何进程使用</li></ul><h2 id="rm原理"><a href="#rm原理" class="headerlink" title="rm原理"></a>rm原理</h2><p>rm的原理：减少磁盘引用计数<code>i_nlink</code>，就是减少其他文件对这个文件链接，实际并没有删除文件内容。</p><p>因此，如果日志文件正在其他进程使用，<code>rm</code>并不是真正删除，<code>i_count</code>并不会减少，因此也不会释放磁盘空间。</p><p>如果想要真正删除一个文件，还需要同时将<code>i_count</code>降至0。</p><p>了解完rm的原理，也就真正明白为什么<code>find /opt/airflow/logs -name &#39;*.*&#39; -and -mtime +30 -type f | xargs rm -rvf</code>命令会这么慢，因为它要去找日志文件的所有link链接，然后一一删除掉。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最终在网上找了最佳解决方案，就是使用<code>rsync</code>。</p><p><code>rsync</code>本身的就是将两个文件夹作同步使用，如何使用<code>rsync</code>删除文件，步骤是这样子:</p><ul><li>如果将一个空文件夹，同步到要删除的文件夹里，是不是等于将文件夹清空了呢？</li></ul><p>很取巧的方式，但是也很有效果，具体命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>制造一个空文件夹</span><br><span class="line">mkdir -p /opt/airflow/empty;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>执行rsync同步空文件夹</span><br><span class="line">rsync --delete-before -aO  /opt/airflow/empty/ /opt/airflow/logs/;</span><br></pre></td></tr></table></figure><p>命令详解：</p><ul><li><code>--delete-before</code> 接收者在传输之前进行删除操作</li><li><code>-a</code> 归档模式，表示以递归方式传输文件，并保持所有文件属性</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://cloud.tencent.com/developer/article/1647290" target="_blank" rel="noopener">Linux 下删除大量文件效率对比，看谁删的快！</a></li><li><a href="https://www.cnblogs.com/cherishry/p/5886069.html" target="_blank" rel="noopener">Linux下文件删除的原理</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -84,11 +122,74 @@
     
     
     <entry>
+      <title>不要再使用轮询了，请用SSE服务端推送完成页面实时查询</title>
+      <link href="/today/20230223.html"/>
+      <url>/today/20230223.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/K8g2PNO4Ixc1LrUafXunPQ" target="_blank" rel="noopener">数据不够实时：试试长连接？</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何实现HTTP2.0</title>
+      <link href="/today/20230222.html"/>
+      <url>/today/20230222.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从Copilot学到了什么</title>
       <link href="/today/20230221.html"/>
       <url>/today/20230221.html</url>
       
         <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>性能优化我们到底能做些什么东西</title>
+      <link href="/today/20230224.html"/>
+      <url>/today/20230224.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/ZfIWKRbF3Yq7sNFG2TsQFw" target="_blank" rel="noopener">性能优化经验分享</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -292,7 +393,7 @@
       <link href="/lowcode/index.html"/>
       <url>/lowcode/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="系列文章"><a href="#系列文章" class="headerlink" title="系列文章"></a>系列文章</h1><ul><li><a href="/lowcode/sandbox.html">《低代码系列——js沙箱设计》</a></li><li><a href="/lowcode/component.html">《低代码系列——组件描述DSL》(编写中)</a></li></ul><h1 id="低代码"><a href="#低代码" class="headerlink" title="低代码"></a>低代码</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>低代码，可以理解成开发人员为了快速完成页面开发而搭建一个快速构建页面平台，里面一般包括几个功能点：</p><ul><li>无需写代码即可完成页面UI布局</li><li>支持页面进行二次代码开发</li><li>支持页面或系统级别的导出或部署发布</li></ul><p>简单的说，就是快速、稳定的输出开发所需要的页面，减少重复性劳动，提高开发效率。</p><a id="more"></a><h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>目前市面的低代码的实现方式主要有几种：</p><p>国内开源目前还在维护更新的：</p><ul><li><a href="https://github.com/baidu/amis" target="_blank" rel="noopener">百度 amis</a>  前端低代码框架，通过 JSON 配置就能生成各种页面。</li><li><a href="https://github.com/alibaba/lowcode-engine" target="_blank" rel="noopener">阿里 lowcode engine</a> 低代码引擎</li><li><a href="https://formilyjs.org/" target="_blank" rel="noopener">阿里 formilyjs</a> 表单编辑器</li><li><a href="https://github.com/steedos/steedos-platform/" target="_blank" rel="noopener">华炎魔方</a> 数据驱动低代码平台</li><li><a href="https://github.com/AnsGoo/openDataV" target="_blank" rel="noopener">OpenDataV </a>  纯前端的拖拽式、可视化、低代码数据可视化</li><li><a href="https://github.com/wangyuan389/mall-cook" target="_blank" rel="noopener">mall-cook</a> 商城低代码平台，可视化搭建H5、小程序多端商城</li><li><a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener">nocobase</a> 一个可伸缩性优先的开源无代码/低代码平台，用于构建内部工具</li></ul><p>虽然有些项目不维护了，但是值得借鉴：</p><ul><li><a href="https://github.com/i5ting/imove" target="_blank" rel="noopener">imove 逻辑编排器</a> </li></ul><p>值得阅读一些文章</p><ul><li><a href="https://medium.com/@andreasmuelder/ai-powered-low-code-platform-by-example-how-to-use-chatgpt-to-abstract-from-domain-languages-625c3abf0e49" target="_blank" rel="noopener">AI驱动的无代码平台–如何使用chat GPT抽象域语言</a></li></ul><p>以上数据来源：<br><a href="https://github.com/taowen/awesome-lowcode" target="_blank" rel="noopener">github/awesome-lowcode 国内低代码平台从业者交流</a></p><h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul><li>低代码平台<ul><li>核心模块<ul><li>编辑器</li><li>编译引擎</li></ul></li><li>平台能力<ul><li>管理能力<ul><li>系统</li><li>页面</li></ul></li><li>版本控制<ul><li>页面版本控制</li><li>页面发布流程</li></ul></li><li>权限登录<ul><li>登录</li><li>权限</li></ul></li></ul></li></ul></li></ul></blockquote><h2 id="编辑器设计"><a href="#编辑器设计" class="headerlink" title="编辑器设计"></a>编辑器设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul><li>编辑器<ul><li>组件描述<ul><li>DSL</li></ul></li><li>画布布局</li><li>拖拽</li><li>组件快速引入<ul><li>组件引入插件</li></ul></li></ul></li></ul></blockquote><h2 id="编译引擎"><a href="#编译引擎" class="headerlink" title="编译引擎"></a>编译引擎</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h1 id="系列文章"><a href="#系列文章" class="headerlink" title="系列文章"></a>系列文章</h1><ul><li><a href="/lowcode/sandbox.html">《低代码系列——js沙箱设计》</a></li><li><a href="/lowcode/component.html">《低代码系列——组件描述DSL》(编写中)</a></li></ul><h1 id="低代码"><a href="#低代码" class="headerlink" title="低代码"></a>低代码</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>低代码，可以理解成开发人员为了快速完成页面开发而搭建一个快速构建页面平台，里面一般包括几个功能点：</p><ul><li>无需写代码即可完成页面UI布局</li><li>支持页面进行二次代码开发</li><li>支持页面或系统级别的导出或部署发布</li></ul><p>简单的说，就是快速、稳定的输出开发所需要的页面，减少重复性劳动，提高开发效率。</p><a id="more"></a><h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>目前市面的低代码的实现方式主要有几种：</p><p>国内开源目前还在维护更新的：</p><ul><li><a href="https://github.com/baidu/amis" target="_blank" rel="noopener">百度 amis</a>  前端低代码框架，通过 JSON 配置就能生成各种页面。</li><li><a href="https://github.com/alibaba/lowcode-engine" target="_blank" rel="noopener">阿里 lowcode engine</a> 低代码引擎</li><li><a href="https://formilyjs.org/" target="_blank" rel="noopener">阿里 formilyjs</a> 表单编辑器</li><li><a href="https://github.com/steedos/steedos-platform/" target="_blank" rel="noopener">华炎魔方</a> 数据驱动低代码平台</li><li><a href="https://github.com/AnsGoo/openDataV" target="_blank" rel="noopener">OpenDataV </a>  纯前端的拖拽式、可视化、低代码数据可视化</li><li><a href="https://github.com/wangyuan389/mall-cook" target="_blank" rel="noopener">mall-cook</a> 商城低代码平台，可视化搭建H5、小程序多端商城</li><li><a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener">nocobase</a> 一个可伸缩性优先的开源无代码/低代码平台，用于构建内部工具</li></ul><p>虽然有些项目不维护了，但是值得借鉴：</p><ul><li><a href="https://github.com/i5ting/imove" target="_blank" rel="noopener">imove 逻辑编排器</a> </li></ul><p>值得阅读一些文章</p><ul><li><a href="https://medium.com/@andreasmuelder/ai-powered-low-code-platform-by-example-how-to-use-chatgpt-to-abstract-from-domain-languages-625c3abf0e49" target="_blank" rel="noopener">AI驱动的无代码平台–如何使用chat GPT抽象域语言</a></li></ul><p>以上数据来源：<br><a href="https://github.com/taowen/awesome-lowcode" target="_blank" rel="noopener">github/awesome-lowcode 国内低代码平台从业者交流</a></p><h1 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h1><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><div class="mxgraph-container">    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/lowcode.drawio&quot;}"></div></div><h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul><li>低代码平台<ul><li>核心模块<ul><li>编辑器</li><li>编译引擎</li></ul></li><li>平台能力<ul><li>管理能力<ul><li>系统</li><li>页面</li></ul></li><li>版本控制<ul><li>页面版本控制</li><li>页面发布流程</li></ul></li><li>权限登录<ul><li>登录</li><li>权限</li></ul></li></ul></li></ul></li></ul></blockquote><h2 id="编辑器设计"><a href="#编辑器设计" class="headerlink" title="编辑器设计"></a>编辑器设计</h2><blockquote class="pullquote mindmap mindmap-md"><ul><li>编辑器<ul><li>组件描述<ul><li>DSL</li></ul></li><li>画布布局</li><li>拖拽</li><li>组件快速引入<ul><li>组件引入插件</li></ul></li></ul></li></ul></blockquote><h2 id="编译引擎"><a href="#编译引擎" class="headerlink" title="编译引擎"></a>编译引擎</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -517,95 +618,11 @@
     
     
     <entry>
-      <title>从微前端到模块联邦</title>
-      <link href="/today/20230217.html"/>
-      <url>/today/20230217.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 技术分享 </tag>
-            
-            <tag> 每日更新 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>从ChatGPT学到了什么</title>
-      <link href="/today/20230216.html"/>
-      <url>/today/20230216.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 技术分享 </tag>
-            
-            <tag> 每日更新 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>从Prometheus学会搭建监控系统</title>
-      <link href="/today/20230220.html"/>
-      <url>/today/20230220.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 技术分享 </tag>
-            
-            <tag> 每日更新 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>通过 JS 构建我们自己的 JS 解释器</title>
-      <link href="/today/20230218.html"/>
-      <url>/today/20230218.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://segmentfault.com/a/1190000038252581re" target="_blank" rel="noopener">giao-js</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 技术分享 </tag>
-            
-            <tag> 每日更新 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Meteor.js尝鲜实战</title>
+      <title>前端自动化UI测试的完整方案</title>
       <link href="/today/20230215.html"/>
       <url>/today/20230215.html</url>
       
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>开发公共平台项目，测试资源相对比较少，因此对开发者自身而言，为了维护项目的稳定性，需要对平台做各类测试，即使有测试环境，但是也很容易缺乏测试场景导致带着bug上线的情况。</p><p>因此我们需要做完整自动化测试方案，来避免这类常规错误，提高平台的可用性和稳定性。</p><p>这里先简单描述自动化测试的分类：</p><ul><li>单元测试，验证独立的单元模块代码或函数是否正常工作</li><li>集成测试，验证多个单元模块间的协同工作</li><li>UI 测试，只针对前端UI部分测试，后端数据采用mock方式</li><li>端到端测试，从用户的角度，通过机器来模仿用户在真实浏览器中验证应用交互</li><li>快照测试，验证程序的UI变化</li></ul><p>接下来我们将根据这些测试类如何在项目中落地完整方案。</p><a id="more"></a><h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><p>前端项目主要用的单元测试框架为<code>Jest</code>和<code>Mocha</code>，下面就<code>Jest</code>框架如何实现一个单元测试。</p><h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><ol><li><p>安装依赖</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i jest --save-dev</span><br><span class="line"><span class="meta">#</span> 如果是typescript还需要安装 ts</span><br><span class="line">npm i ts-jest babel-jest --save-dev</span><br><span class="line"><span class="meta">#</span> 安装类型</span><br><span class="line">npm i @types/jest --save-dev</span><br></pre></td></tr></table></figure></li><li><p>新增测试命令，在<code>package.json</code>中<code>scripts</code>新增代码</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">"scripts"</span>: &#123;</span><br><span class="line">        <span class="string">"test"</span>: <span class="string">"node --experimental-vm-modules node_modules/jest/bin/jest.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>新增配置文件<code>jest.config.js</code>，参考配置如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="string">"testEnvironment"</span>: <span class="string">"node"</span>,</span><br><span class="line">    testMatch: [ <span class="comment">//匹配测试用例的文件</span></span><br><span class="line">        <span class="string">'&lt;rootDir&gt;/test/**/*.test.ts'</span></span><br><span class="line">    ],</span><br><span class="line">    transform: &#123;</span><br><span class="line">        <span class="string">'^.+\\.js$'</span>: <span class="string">'&lt;rootDir&gt;/node_modules/babel-jest'</span>, <span class="comment">// babel编译</span></span><br><span class="line">        <span class="string">'^.+\\.ts$'</span>: <span class="string">'&lt;rootDir&gt;/node_modules/ts-jest'</span>, <span class="comment">// typescript编译</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"collectCoverage"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>编写单元测试代码，在根目录下新建测试文件<code>test/sum.test.js</code>，标识对<code>a.ts</code>文件做测试，代码如下：</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sum.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//sum.test.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">'../src/sum'</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">"test two num sum"</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = sum(<span class="number">5</span>, <span class="number">6</span>);</span><br><span class="line">    expect(<span class="keyword">typeof</span> res).toBe(<span class="string">"number"</span>)</span><br><span class="line">    expect(res).toBe(<span class="number">11</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><ol start="5"><li>开始自动化测试<code>yarn test</code>或者<code>npm run test</code>，然后会出现如下：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PASS  ./sum.test.ts</span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br><span class="line">File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s </span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br><span class="line">All files |     100 |      100 |     100 |     100 |                   </span><br><span class="line"> sum.ts   |     100 |      100 |     100 |     100 |                   </span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br><span class="line">Test Suites: 1 passed, 1 total</span><br><span class="line">Tests:       1 passed, 1 total</span><br><span class="line">Snapshots:   0 total</span><br><span class="line">Time:        1.394 s, estimated 3 s</span><br></pre></td></tr></table></figure><p>简单说明一下上面的表格几个字段作用：</p><ul><li>File，标识当前测试的文件</li><li>Stmts，语句覆盖率（statement coverage）：是不是每个语句都执行了</li><li>Branch，分支覆盖率（branch coverage）：是不是每个if代码块都执行了</li><li>Funcs，函数覆盖率（function coverage）：是不是每个函数都调用了</li><li>Lines，行覆盖率（line coverage）：是不是每一行都执行了</li></ul><h2 id="怎么提高单元测试覆盖率"><a href="#怎么提高单元测试覆盖率" class="headerlink" title="怎么提高单元测试覆盖率"></a>怎么提高单元测试覆盖率</h2><p>分为两个部分：</p><ul><li>提高代码质量，减少代码块的大小，减少各类复杂逻辑判断，不去测试有依赖性函数，如：需接口、数据库等</li><li>提高开发意愿，一自动化生成单元测试，二采用设置覆盖率指标，三是确定单元测试规范（哪些模块需要写，哪些不需要写）</li></ul><h1 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h1><h1 id="UI-测试"><a href="#UI-测试" class="headerlink" title="UI 测试"></a>UI 测试</h1><h1 id="快照测试"><a href="#快照测试" class="headerlink" title="快照测试"></a>快照测试</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p><p><a href="https://github.com/goldbergyoni/javascript-testing-best-practices?utm_source=gold_browser_extension" target="_blank" rel="noopener">JS最佳测试实践</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -643,11 +660,74 @@
     
     
     <entry>
-      <title>前端自动化UI测试的完整方案</title>
-      <link href="/today/20230214.html"/>
-      <url>/today/20230214.html</url>
+      <title>Meteor.js尝鲜实战</title>
+      <link href="/today/20230225.html"/>
+      <url>/today/20230225.html</url>
       
-        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p><p><a href="https://github.com/goldbergyoni/javascript-testing-best-practices?utm_source=gold_browser_extension" target="_blank" rel="noopener">JS最佳测试实践</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从微前端到模块联邦</title>
+      <link href="/today/20230217.html"/>
+      <url>/today/20230217.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>通过 JS 构建我们自己的 JS 解释器</title>
+      <link href="/today/20230218.html"/>
+      <url>/today/20230218.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://segmentfault.com/a/1190000038252581re" target="_blank" rel="noopener">giao-js</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从Prometheus学会搭建监控系统</title>
+      <link href="/today/20230220.html"/>
+      <url>/today/20230220.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       
@@ -669,6 +749,27 @@
       <url>/today/20230219.html</url>
       
         <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术分享 </tag>
+            
+            <tag> 每日更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从ChatGPT学到了什么</title>
+      <link href="/today/20230216.html"/>
+      <url>/today/20230216.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></p>]]></content>
       
       
       

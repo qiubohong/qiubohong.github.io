@@ -8,6 +8,7 @@ tags:
 
 # 技术栈
 主要总结个人技术栈，会不停更新，直到部分被淘汰。
+
 <!-- more -->
 {% pullquote mindmap mindmap-md %}
 - 个人

@@ -1,0 +1,127 @@
+<mxfile host="65bd71144e">
+    <diagram id="JgBYPB90txmBOC6XWlv6" name="第 1 页">
+        <mxGraphModel dx="1130" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" value="功能模块" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="80" width="80" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="编辑器&lt;br&gt;引擎" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="290" width="80" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="编辑" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="290" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="编译" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="290" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="组件规范" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="490" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="权限管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="130" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="用户管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="80" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="版本控制" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="130" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="发布管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="80" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="出码引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="340" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="组件市场" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="230" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="规范标准" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="490" width="80" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="编排引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="340" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="渲染引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="440" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="快速工具" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="440" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="组件描述" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="540" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="开发规范" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="540" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="低代码平台" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;strokeColor=#314354;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="40" width="680" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="模板管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="230" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="生态" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="230" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="插件管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="230" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="工具链" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="230" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="资源管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="80" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="发布规范" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="490" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="插件规范" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="490" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="插件" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="290" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="数据源引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="390" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="逻辑引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="340" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="系统/应用管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="130" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="页面管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="180" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="目录/路由管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="130" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="版本规范" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="540" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="开发规范" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="540" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="沙箱引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="340" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="组件配置" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="390" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="插件基础" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="340" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="代码编辑器" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="390" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="编辑器管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="180" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="登录体系" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="130" width="90" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

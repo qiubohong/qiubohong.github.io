@@ -50,7 +50,11 @@ top: 10
 以上数据来源：
 [github/awesome-lowcode 国内低代码平台从业者交流](https://github.com/taowen/awesome-lowcode)
 
-# 思维导图
+# 架构设计
+
+## 架构图
+
+{% diagramsnet "/assets/drawio/lowcode.drawio" %}
 
 ## 模块设计
 {% pullquote mindmap mindmap-md %}

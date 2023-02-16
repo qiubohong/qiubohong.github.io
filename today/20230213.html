@@ -289,7 +289,12 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-today/20230213" class="article article-type-post " itemscope itemprop="blogPost">
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230213" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -386,7 +391,7 @@
 <li>如果将一个空文件夹，同步到要删除的文件夹里，是不是等于将文件夹清空了呢？</li>
 </ul>
 <p>很取巧的方式，但是也很有效果，具体命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">制造一个空文件夹</span></span><br><span class="line">mkdir -p /opt/airflow/empty;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行rsync同步空文件夹</span></span><br><span class="line">rsync --delete-before -aO  /opt/airflow/empty/ /opt/airflow/logs/;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>制造一个空文件夹</span><br><span class="line">mkdir -p /opt/airflow/empty;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>执行rsync同步空文件夹</span><br><span class="line">rsync --delete-before -aO  /opt/airflow/empty/ /opt/airflow/logs/;</span><br></pre></td></tr></table></figure>
 
 <p>命令详解：</p>
 <ul>
@@ -988,6 +993,12 @@
   
   
   
+
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+<style>
+.geDiagramContainer { width: 100% !important; }
+</style>
 </body>
+
 
 </html>
