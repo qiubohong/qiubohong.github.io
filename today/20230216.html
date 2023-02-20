@@ -18,10 +18,14 @@
 <meta property="og:site_name" content="疯子知识库">
 <meta property="og:description" content="背景最近chatgpt智能对答火的一塌涂地，就是你找chatgpt咨询，它不仅能理解你的意思，还能给出准确的答案，而且能够从上下文理解你的意思。 简单的说，就不再是之前的智能对答，如果遇到不理解的问题回复【我好像不太理解你的问题】。 更有甚者，利用chatgpt完成论文编写，同时还有帮小孩子写作业、程序员利用它整理某个业务的实现思路，作者利用其帮忙写小说细节等等。 我尝试问了一些常规问题，如下图所">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-20T12:35:17.841Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230216-1.jpeg">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230216-2.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230216-3.png">
+<meta property="og:updated_time" content="2023-02-20T15:54:27.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="可以从ChatGPT学到什么(一)">
 <meta name="twitter:description" content="背景最近chatgpt智能对答火的一塌涂地，就是你找chatgpt咨询，它不仅能理解你的意思，还能给出准确的答案，而且能够从上下文理解你的意思。 简单的说，就不再是之前的智能对答，如果遇到不理解的问题回复【我好像不太理解你的问题】。 更有甚者，利用chatgpt完成论文编写，同时还有帮小孩子写作业、程序员利用它整理某个业务的实现思路，作者利用其帮忙写小说细节等等。 我尝试问了一些常规问题，如下图所">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230216-1.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -315,7 +319,7 @@
         </span>
 
 <a href="/today/20230216.html" class="archive-article-date">
-        <time datetime="2023-01-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
+        <time datetime="2023-02-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
 </a>
 
   
@@ -328,7 +332,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">298字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -337,7 +341,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -353,15 +357,137 @@
 <p>更有甚者，利用chatgpt完成论文编写，同时还有帮小孩子写作业、程序员利用它整理某个业务的实现思路，作者利用其帮忙写小说细节等等。</p>
 <p>我尝试问了一些常规问题，如下图所示，可以更好的理解<code>chatgpt</code>的能力。</p>
 <ol>
-<li>如何以<code>Nest.js</code>框架实现用户登录功能</li>
-<li>直接将高考作文题要求放入，如下：<blockquote>
-<p>请以“像一道闪电”为题目，写一段抒情文字或一首小诗。要求：感情真挚，语言生动，有感染力。—— 2022年北京卷</p>
+<li><p>如何以<code>Nest.js</code>框架实现用户登录功能<br><img src="/assets/img/20230216-1.jpeg" alt></p>
+</li>
+<li><p>直接将高考作文题要求放入，如下：</p>
+<blockquote>
+<p>请以“像一道闪电”为题目，写一段抒情文字或一首小诗。要求：感情真挚，语言生动，有感染力。要求800字。 —— 2022年北京卷</p>
 </blockquote>
 </li>
-<li></li>
 </ol>
-<p>因此，作为开发者，没有理由不去深入且完整的了解它，故而有这篇文章。</p>
-<h1 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><h2 id="背后实现"><a href="#背后实现" class="headerlink" title="背后实现"></a>背后实现</h2><h2 id="影响什么"><a href="#影响什么" class="headerlink" title="影响什么"></a>影响什么</h2><h1 id="自己搭建"><a href="#自己搭建" class="headerlink" title="自己搭建"></a>自己搭建</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></p>
+<p><img src="/assets/img/20230216-2.png" alt></p>
+<p>因此，作为程序员，没有理由不去深入且完整的了解它，故而有这篇小白科普文。</p>
+<a id="more"></a>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>为了更好的了解后面的内容，我们需要提前对一些知识概念了解一下。</p>
+<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2><blockquote>
+<p>人工智能 (AI) 是计算机模拟人类智能行为的功能。 通过 AI，计算机可以分析图像、理解语音、以自然方式交互，以及使用数据进行预测。</p>
+</blockquote>
+<p>目前AI开发流程分为：</p>
+<ol>
+<li>确定目的模型，AI最终是用来做什么，如：图像识别、语言识别等</li>
+<li>准备训练数据，收集和预处理数据，如：要识别一只猫，可能需要几十万张不同猫的图片</li>
+<li>训练模型，也叫建模，通过各种算法、方法和技巧去创建，最终输出模型，如：从不同图片中去识别猫的，需要写算法、然后标注结果是否准确，这里的模型你可以理解成“只会识别猫的眼睛”</li>
+<li>评估模型，反复的调整算法参数、数据，不断评估训练生成的模型，最终得到满意的模型，如：告诉【眼睛模型】哪些图片是猫，哪些图片不是猫，猫的特征有什么，直到【眼睛模型】可以识别出所有的猫的图片和不是猫的图片</li>
+<li>部署模型，将模型应用到正式的实际数据或新产生数据中，进行预测、评价，如：把【眼睛模型】去接触真实世界，看到一些真实猫图片或视频</li>
+</ol>
+<p>总结来说，AI就是可以模拟人的部分行为，如上文举例所说的【眼睛模型】，就是实现人类眼睛可以识别猫的功能，扩展开来就是可以充当人的眼睛去识别万物。</p>
+<p>当然有些更加智能的模型可以重复2/3/4三个步骤让自己变得更加完善（这也叫【无监督模型或自监督模型】）。</p>
+<h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>从前面了解到【模型】的概念，从通俗的理解模型是一个模仿人类某个功能，从技术上讲模型是一段算法代码。</p>
+<p>因此语言模型从这两个方面来说：</p>
+<ul>
+<li>许多自然语言处理方面的应用，如：语音识别[1]，机器翻译[2]，词性标注，句法分析[3]，手写体识别[4]和资讯检索</li>
+<li>从技术上来讲，是一个概率分布的算法</li>
+</ul>
+<p>我们对语言模型可以理解成，一个能够识别自然语言（包括语音，语义识别等）的算法模型即可。</p>
+<p>常用的语言模型算法有以下几种：</p>
+<ul>
+<li>ELMo 华盛顿大学提出的算法 </li>
+<li>GPT OpenAI提出的算法</li>
+<li>BERT Google提出的算法</li>
+</ul>
+<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><blockquote>
+<p>Generative Pre-trained Transformer (GPT)，是一种基于互联网可用数据训练的文本生成深度学习模型。</p>
+</blockquote>
+<p>GPT的整个发展过程分为：</p>
+<ul>
+<li>GPT-1，有一定的泛化能力，能够用于和监督任务无关的 NLP 任务，如：自然语言推理：判断两个句子的关系；问答与常识推理：输入文章及若干答案，输出答案的准确率等</li>
+<li>GPT-2，使用无监督预训练模型做有监督任务，比GTP-1拥有更加强大能力，能阅读摘要、聊天、续写、编故事，甚至生成假新闻等，甚至可以假扮网络角色进行会话聊天，如：微软的小冰。</li>
+<li>GPT-3，作为一个无监督模型，几乎可以完成自然语言处理的绝大部分任务，如面向问题的搜索、阅读理解、语义推断、机器翻译、文章生成和自动问答等等。</li>
+<li>GPT3.5，是一系列模型，使用<code>人类反馈强化学习(RLHF)</code>，与<code>GPT-3</code>最大的区别在使用互联网的资料直接训练。</li>
+<li>GPT-4，针对GPT-3不分青红皂白和质量好坏地对网络上的所有文本进行学习，进而生产出错误的、恶意冒犯的、甚至是攻击性的语言输出的缺陷，而准备提出新的升级模型。</li>
+</ul>
+<p><strong>一个无监督模型功能多效果好，似乎让人们看到了通用人工智能的希望，可能这就是 GPT-3 影响如此之大的主要原因。</strong></p>
+<p>有了这些概念性的知识后，我们就可以开始认识<code>ChatGPT</code>。</p>
+<h1 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>在官网上定义如下：</p>
+<blockquote>
+<p>ChatGPT: 专门针对对话而优化的语言模型。同时已经训练了一个名为ChatGPT的模型，它以对话的方式进行交互。对话形式使ChatGPT能够回答后续问题，承认错误，挑战不正确的前提，拒绝不适当的请求。ChatGPT是InstructGPT的兄弟模型，InstructGPT被训练为遵循提示中的说明并提供详细的响应。 —— <a href="https://openai.com/blog/chatgpt/" target="_blank" rel="noopener">ChatGPT官网</a></p>
+</blockquote>
+<p>按照我所理解来说，ChatGPT是：</p>
+<ul>
+<li>一个基于<code>GPT-3.5系列模型</code> + <code>人类反馈强化学习(RLHF)</code>实现的语言模型</li>
+<li>一个可以正常对话聊天、自动纠正错误的智能对话机器人(快速，而不需要等待太长时间)</li>
+<li>一个链接互联网所有公开信息，能检索到所有信息和总结的智能搜索引擎</li>
+<li>一个可以辅助你实现相关工作（如：作业，代码，论文等）的智能工具</li>
+</ul>
+<p><strong><a href="https://openai.com/blog/instruction-following/" target="_blank" rel="noopener">InstructGPT</a> VS ChatGPT</strong></p>
+<ul>
+<li>两者都是基于<code>GPT-3.5系列模型</code>做调整的语言模型</li>
+<li><code>InstructGPT</code>是一个问题就一个回答，如果回答不正确就调整， <code>ChatGPT</code>则是一个问题就多个回答，然后学习将这些回答进行排序</li>
+</ul>
+<p>如何使用：</p>
+<p>其实如果可以直接访问<a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT官网</a>就可以直接用，国内也有很多插件可以使用。</p>
+<h2 id="影响什么"><a href="#影响什么" class="headerlink" title="影响什么"></a>影响什么</h2><p>ChatGPT的火爆是AI多年沉淀的一次技术爆发，距离上一次AI技术的热点新闻还是在谷歌的阿尔法狗战胜世界围棋冠军李世石（2016年）。</p>
+<p>我们可以先收集一下目前使用AI技术的一些场景：</p>
+<ul>
+<li>各种识别，人脸、指纹等</li>
+<li>智能辅助驾驶</li>
+<li>各种转义，如：语音转文字，文字转语音， 翻译等</li>
+<li>各种语音助手，如：Siri，小爱同学等</li>
+</ul>
+<p>其实，AI在我们生活中已经随处可见，只是有时候我们觉得这些功能还是比较属于机器范围内的，如有时候小爱同学会说“我没听清楚你的问题”这种明显非智能回答，给我们造成一种认知觉得AI很傻。</p>
+<p>因此，ChatGPT的火爆之处在于：它真的可以像一个人类给予你想要的回答，更加准确的说，它是一个负责任的智能AI，能竭尽所能的给你想要的答案。</p>
+<p>接下来，我从网上搜索了一些资料，从几个行业讲一下它可能会带来的影响。</p>
+<h3 id="教育行业"><a href="#教育行业" class="headerlink" title="教育行业"></a>教育行业</h3><p>其实最大的担心就是，大家利用chatgpt去写作业或论文，尤其是学龄前儿童和中小学阶段，正是属于知识探索期，chatgpt是否会影响学生的学习吗？</p>
+<p>这里引用一段话，针对国内的，吴永和教授的一个观点：</p>
+<blockquote>
+<p>面向未来，作为承担2021年度国家社会科学基金重大项目“面向未成年人的人工智能技术规范研究”的首席专家，吴永和从五个方面给出了教育人工智能发展的建议：</p>
+<ul>
+<li>一、是进行理论的奠基，确定价值观、战略方向，做好顶层设计；</li>
+<li>二、是提升人类的人工智能核心素养，从而使师生能正确驾驭智能工具；</li>
+<li>三、是完善技术应用的监管，保持人工智能的向善性，使技术能够更好地为人服务；</li>
+<li>四、是考虑技术和教育深度融合的伦理问题，更好地做到人机共融；</li>
+<li>五、是落实相关标准，比如教育人工智能的算法描述信息、安全描述框架、伦理审查规范。</li>
+</ul>
+</blockquote>
+<h3 id="IT行业"><a href="#IT行业" class="headerlink" title="IT行业"></a>IT行业</h3><p>网络已经有很多人利用chatgpt去生成代码甚至正式上线，那么是否会代替程序员，或者以后程序员已经如何学习发展？</p>
+<p>这里引用知乎上的一个问答<a href="https://www.zhihu.com/question/570403406" target="_blank" rel="noopener">OpenAI 的超级对话模型 ChatGPT 会导致程序员大规模失业吗？</a>，总结一下精彩回答：</p>
+<blockquote>
+<ul>
+<li>chatgpt作为一个管家型查找，把喂到你嘴里这个功能发挥到了极致。</li>
+<li>chatgpt给出的代码实现和”背题家”也出奇的相似</li>
+<li>chatGPT最多能看作一个助手, 对于广大程序员来说是一个不错的辅助工具</li>
+<li>AI的发展已经明确告诉你了，不要卷细节上的东西，提升核心竞争力，就是你的解决问题的思路</li>
+<li>没有思想的人才是最快被取代的</li>
+<li>ChatGPT 又来了，这次我是什么感觉呢？感觉真的 Google 和 StackOverflow 已经不好用了</li>
+<li>借助 Copilot 和 ChatGPT，程序员的自我感觉更棒了！可以更加肆无忌惮地在未知领域里自由探索了！</li>
+</ul>
+</blockquote>
+<h3 id="其他行业"><a href="#其他行业" class="headerlink" title="其他行业"></a>其他行业</h3><p>引用知乎上的问答<a href="https://www.zhihu.com/question/582809884/answer/2883146417" target="_blank" rel="noopener">ChatGPT 会取代人的哪些工作？哪些人群的职业规划需要转变？</a>，总结一下精彩回答：</p>
+<blockquote>
+<ul>
+<li>内容行业：文字+图像处理效率的提升，更加庞大的内容生态也有了存在的基础，推动芯片和硬件的提升，从而实现更宏大的数字世界</li>
+<li>游戏行业：npc会和你流畅的对话，黄油里面可以根据你的xp来叫主人或者变态，新的需求会生成，也催生新的经济形态</li>
+<li>这将是人工智能诞生以来，人类的工作第一次真正接近被大规模替代的时点——不是部分工作被替代，而是大规模被替代的开始。</li>
+<li>ChatGPT的商业模式，可能不会像搜索那样依赖广告，难以出现大规模的2C级应用，而更可能是2B，主要运用于工作场景</li>
+<li>会提问题的人将是最后的赢家，可以让你的工作不但不会被AI取代，反而创造了全新的工作方式</li>
+</ul>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>第一篇关于ChatGPT的了解就先写到这里，作为AI小白，我们可以学习到：</p>
+<ul>
+<li>AI模型是的训练过程：确定模型&gt;准备数据&gt;训练模型&gt;调整模型&gt;部署模型</li>
+<li>ChatGPT的实质定义，利用互联网的资料训练<code>GPT-3.5模型</code>而成的一个对话式的语言模型</li>
+<li>ChatGPT的出现可能带来的改变，可以将某些行业岗位的价值重新定义，但是却能提高更多岗位的工作效率和价值，从而提升整个社会运转速度</li>
+</ul>
+<p>最后，问ChatGPT我能从你这里学到什么？如下图：</p>
+<p><img src="/assets/img/20230216-3.png" alt></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://support.huaweicloud.com/productdesc-modelarts/modelarts_01_0010.html" target="_blank" rel="noopener">华为 AI开发基本流程介绍</a></li>
+<li><a href="https://learn.microsoft.com/zh-cn/azure/architecture/data-guide/big-data/ai-overview" target="_blank" rel="noopener">谷歌 人工智能 (AI) 体系结构设计</a></li>
+<li><a href="https://www.8btc.com/article/6791988" target="_blank" rel="noopener">ChatGPT的崛起：从GPT-1到GPT-3，AIGC时代即将到来</a></li>
+<li><a href="https://github.com/BlinkDL/ChatRWKV" target="_blank" rel="noopener">自己搭建chatpt</a></li>
+<li><a href="https://gpt3demo.com/" target="_blank" rel="noopener">GPT-3 demo应用收集</a></li>
+<li><a href="http://edu.china.com.cn/2023-02/15/content_85106877.htm" target="_blank" rel="noopener">用ChatGPT写作业会毁了孩子的学业吗？</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -515,18 +641,18 @@
 
 <nav id="article-nav">
   
-    <a href="/today/20230117.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ideas/20230217.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          理解React中Fiber架构(一)
+          创业idea —— 一个小程序利用一句话画一幅画
         
       </div>
     </a>
   
   
-    <a href="/today/20230116.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从Z-Library到了解IPFS去中心化技术</div>
+    <a href="/today/20230215.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端自动化UI测试的完整方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -553,7 +679,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ChatGPT"><span class="toc-number">2.</span> <span class="toc-text">ChatGPT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背后实现"><span class="toc-number">2.2.</span> <span class="toc-text">背后实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#影响什么"><span class="toc-number">2.3.</span> <span class="toc-text">影响什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自己搭建"><span class="toc-number">3.</span> <span class="toc-text">自己搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#人工智能"><span class="toc-number">2.1.</span> <span class="toc-text">人工智能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语言模型"><span class="toc-number">2.2.</span> <span class="toc-text">语言模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPT"><span class="toc-number">2.3.</span> <span class="toc-text">GPT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ChatGPT"><span class="toc-number">3.</span> <span class="toc-text">ChatGPT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">3.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#影响什么"><span class="toc-number">3.2.</span> <span class="toc-text">影响什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#教育行业"><span class="toc-number">3.2.1.</span> <span class="toc-text">教育行业</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IT行业"><span class="toc-number">3.2.2.</span> <span class="toc-text">IT行业</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他行业"><span class="toc-number">3.2.3.</span> <span class="toc-text">其他行业</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
