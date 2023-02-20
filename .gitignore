@@ -1,2 +1,4 @@
 **/node_modules
 **/.deply_git
+**/dist
+**/__snapshots__
