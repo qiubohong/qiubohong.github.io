@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.qborfy.com/today/20230217.html</loc>
+    <lastmod>2023-02-22</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/today/20230216.html</loc>
     <lastmod>2023-02-20</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/today/20230219.html</loc>
+    <lastmod>2023-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/ideas/20230217.html</loc>
     <lastmod>2023-02-20</lastmod>
   </url>
   <url>
@@ -27,10 +35,6 @@
   <url>
     <loc>https://www.qborfy.com/translate/nuxt-next-nest-diff.html</loc>
     <lastmod>2023-02-18</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230217.html</loc>
-    <lastmod>2023-02-17</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/ideas/20230215.html</loc>
@@ -98,10 +102,6 @@
   </url>
   <url>
     <loc>https://www.qborfy.com/today/20230131.html</loc>
-    <lastmod>2023-02-02</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230217.html</loc>
     <lastmod>2023-02-02</lastmod>
   </url>
   <url>
