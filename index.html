@@ -560,7 +560,23 @@
 <li><code>事件触发线程</code>，用来控制事件轮询，JS引擎自己忙不过来，需要浏览器另开线程协助</li>
 <li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
 </ul>
+<p>针对JS引擎，官方的定义是：</p>
+<blockquote>
+<p>JavaScript引擎是一个专门处理JavaScript脚本的虚拟机，一般会附带在网页浏览器之中。 —— <a href="https://zh.wikipedia.org/zh-hans/JavaScript%E5%BC%95%E6%93%8E" target="_blank" rel="noopener">JS引擎 维基百科</a></p>
+</blockquote>
 <p>因此，我们了解JS引擎在浏览器中的主要作用就，解析JS代码，并运行代码，那么它是怎么做到的呢？</p>
+<p>如同我们人一样去认识一门语言，电脑也一样，当我们写了一行代码，JS引擎要识别出来，它同样去分析代码，然后确定执行，主要有以下几个步骤：</p>
+<ul>
+<li>词法分析，主要是<code>分词（tokenize）</code>，将JS代码比较关键词（如：function、const、let等），拆出来放到解析器里</li>
+<li>语法分析，主要解析（parse），主要用了预解析器和解析器<ul>
+<li><code>预解析</code>会判断哪些代码需要立即执行，哪些代码不需要立即执行，需要立即执行的代码才会放到解析器里去解析</li>
+<li><code>解析器</code>，从词法分析获取关键词做标记，将代码生成一个抽象语法树，也叫AST语法树</li>
+</ul>
+</li>
+<li>生成AST语法树，AST语法树由<code>解析器</code>生成后，将会传递给到<code>解释器</code></li>
+<li>生成字节码，主要由<code>解释器</code>将AST语法树编译成字节码</li>
+<li>执行代码，将字节码转成机器代码，以更快的速度在电脑中执行</li>
+</ul>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://github.com/webfansplz/giao-js/blob/main/Article.md" target="_blank" rel="noopener">giao-js github源码</a></li>
 <li><a href="https://cloud.tencent.com/developer/article/1886888" target="_blank" rel="noopener">分享一篇可视化的JS引擎执行流程</a></li>
@@ -1436,10 +1452,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "" + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "" + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);

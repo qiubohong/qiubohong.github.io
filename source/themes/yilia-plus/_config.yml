@@ -200,8 +200,8 @@ apple_touch_icon: '/apple-touch-icon-180x180.png'
 # Tab Title Change | 标签页标题切换
 tab_title_change:
   enable: true
-  left_tab_title: '(つェ⊂) 我藏好了哦~ '
-  return_tab_title: '(*´∇｀*) 被你发现啦~ '
+  left_tab_title: ''
+  return_tab_title: ''
 
 # https://github.com/willin/hexo-wordcount
 # 是否开启字数统计(关闭请设置enable为false)
