@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>从微前端到模块联邦 | 疯子知识库</title>
+  <title>前端架构——微前端系列(一) | 疯子知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景最近项目开发 参考资料模块联邦在微前端架构中的实践">
+  <meta name="description" content="背景最近项目开发中使用了qiankun框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。 所以希望通过几篇文章去重新认识微前端这一架构，主要会从几个方面：  是什么，以及为什么会出现 实现原理，以及主流框架 项目实战">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从微前端到模块联邦">
+<meta property="og:title" content="前端架构——微前端系列(一)">
 <meta property="og:url" content="https://www.qborfy.com/today/20230217.html">
 <meta property="og:site_name" content="疯子知识库">
-<meta property="og:description" content="背景最近项目开发 参考资料模块联邦在微前端架构中的实践">
+<meta property="og:description" content="背景最近项目开发中使用了qiankun框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。 所以希望通过几篇文章去重新认识微前端这一架构，主要会从几个方面：  是什么，以及为什么会出现 实现原理，以及主流框架 项目实战">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-22T12:01:30.028Z">
+<meta property="og:updated_time" content="2023-02-26T10:52:08.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从微前端到模块联邦">
-<meta name="twitter:description" content="背景最近项目开发 参考资料模块联邦在微前端架构中的实践">
+<meta name="twitter:title" content="前端架构——微前端系列(一)">
+<meta name="twitter:description" content="背景最近项目开发中使用了qiankun框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。 所以希望通过几篇文章去重新认识微前端这一架构，主要会从几个方面：  是什么，以及为什么会出现 实现原理，以及主流框架 项目实战">
   
     <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
   
@@ -302,7 +302,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从微前端到模块联邦
+      前端架构——微前端系列(一)
       
     </h1>
   
@@ -329,7 +329,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">26字</span>
+      <span class="post-count">3.9k字</span>
     </span>
   </span>
 
@@ -338,7 +338,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -349,8 +349,156 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近项目开发</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近项目开发中使用了<code>qiankun</code>框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。</p>
+<p>所以希望通过几篇文章去重新认识<code>微前端</code>这一架构，主要会从几个方面：</p>
+<ul>
+<li>是什么，以及为什么会出现</li>
+<li>实现原理，以及主流框架</li>
+<li>项目实战</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h1><h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>在说微前端之前，我们需要先了解一下后端的微服务，因为微前端本身就是吸取微服务理念而产生的，所以我们先对微服务做一个简单的认识：</p>
+<blockquote>
+<p>2014年，Martin Fowler 与 James Lewis 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的进程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用HTTP API通信。同时服务会使用最小的规模的集中管理 (例如 Docker) 能力，服务可以用不同的编程语言与数据库等组件实现 —— <a href="https://zh.wikipedia.org/zh-sg/%E5%BE%AE%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">维基百科 微服务</a>。</p>
+</blockquote>
+<p><code>微服务</code>架构，通常拿来对比的架构是<code>单体软件</code>架构，<code>单体软件</code>存在以下几个问题：</p>
+<ul>
+<li>所有功能耦合在一起，互相影响，最终难以管理</li>
+<li>哪怕只修改一行代码，整个软件就要重新构建和部署，成本非常高</li>
+<li>不可能每个功能单独开发和测试，只能整体开发和测试，导致必须采用瀑布式开发模型</li>
+</ul>
+<p>因此开始出现将单体软件拆成一个个<code>功能单元服务</code>+<code>通讯协议</code>组成，这种叫<code>面向服务</code>(service-oriented architecture，简称 SOA)架构，也是微服务的雏形。</p>
+<p>因此<code>微服务</code>架构的等于<code>面向服务</code>架构，它有多种实现方案，其中最佳实践是基于Docker容器实现的。</p>
+<p>微服务的几大特性：</p>
+<ul>
+<li>敏捷性， 可快速迭代自己的微服务</li>
+<li>弹性部署，快速持续集成与部署，服务独立性增加了应用程序应对故障的弹性</li>
+<li>技术自由，可以自由选择最佳工具来解决他们的具体问题</li>
+<li>可重复使用的代码，可以将专为某项功能编写的服务可以用作另一项功能的构建块</li>
+</ul>
+<p>Ok，微服务了解到这里基本上就有大概的认知，微服务当然不只是这些，还有一些其他技术点，如：服务发现、事件传播等。</p>
+<h2 id="微前端"><a href="#微前端" class="headerlink" title="微前端"></a>微前端</h2><p>了解完微服务，那么微前端概念是什么开始提出的呢？</p>
+<blockquote>
+<p>微前端 这个名词，第一次被提出还是在2016年底，那是在 ThoughtWorks Technology Radar。这个概念将微服务这个被广泛应用于服务端的技术范式扩展到前端领域。<br>微前端是一种多个团队通过独立发布功能的方式来共同构建现代化 web 应用的技术手段及方法策略。 —— <a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端的完整介绍</a></p>
+</blockquote>
+<p>简单的说，微前端架构是从微服务理念扩展而来的，一个适用于前端的微服务架构。</p>
+<h1 id="微前端-1"><a href="#微前端-1" class="headerlink" title="微前端"></a>微前端</h1><h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>从上面发展历程我们对<code>微前端</code>架构有个简单认知和它的定义，接下来我们通过不同类型的做比较去对微前端做更深的认知。</p>
+<h2 id="单体巨石-VS-微前端"><a href="#单体巨石-VS-微前端" class="headerlink" title="单体巨石 VS 微前端"></a>单体巨石 VS 微前端</h2><p>用单体巨石架构和微前端架构做一个比较，能更好的理解微前端架构，具体如下图所示：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/micro.drawio&quot;}"></div>
+</div>
+
+
+<p>简单的讲，就是将原本耦合在一起的单体巨石应用按照一定原则拆分成各种微前端小应用，最简单的拆分方案就是和微服务做一一映射。</p>
+<h2 id="组件-VS-微前端"><a href="#组件-VS-微前端" class="headerlink" title="组件 VS 微前端"></a>组件 VS 微前端</h2><p>我们再从另外一个角度的去看待微前端，假设将微前端看做组件，是不是就好理解多了，只不过这个组件有点大，功能比较齐全，没有对外提供参数配置。</p>
+<p>但是从两者的实际应用场景来说，还是有很多不同的地方，具体如下：</p>
+<ul>
+<li>从应用场景来看，组件是不可运行，被调用的，是应用中一部分，而微前端是完整可运行的一个应用</li>
+<li>从技术上来看，组件是基于某个框架实现的，而微前端应用不依赖任何框架，但是微前端架构会依赖某个框架实现</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>微前端</code>架构，就是把复杂问题简单化，每个<code>微前端</code>项目都只需要关心自己的事情。因此<code>微前端</code>架构的核心思维如下：</p>
+<ul>
+<li><code>技术不可知</code>，每个<code>微前端</code>都应该选择自己的技术栈和技术进化路线，而不是和其他团队保持一致，同时架构师应该考虑的是<strong>如何高效的提供可复用的WebComponent会成为核心问题</strong></li>
+<li><code>环境隔离</code>，<code>微前端</code>架构中每个子项目不共享运行时环境，即是：不依赖共享状态或全局变量，同时也可以通过命名规范（如：前缀）或命名空间，去隔离每个微前端应用</li>
+<li><code>原生API优先</code>，使用 用于通信的原生浏览器事件机制 ，而不是自己构建一个PubSub系统</li>
+<li><code>独立性</code>，<code>微前端</code>架构中每个子项目是完整的，可以独立运行、独立开发、独立部署</li>
+<li><code>高可用</code>，<code>微前端</code>架构是高可用的，即使某个子应用异常也不会影响其他子应用的访问</li>
+</ul>
+<p>以上就是要实现<code>微前端</code>架构所需要考虑的点，同时也是架构中的核心思维。</p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>微前端架构在上面描述了很多优势，但是如果没做好架构设计，它也可能会带来一些问题，因此我们需要提前了解<code>微前端架构</code>可能会带来的缺陷：</p>
+<ul>
+<li>增加运维成本，因为由原本只需要发布一个应用，变成需要发布N个应用</li>
+<li>拆分粒度越小，架构越复杂，开发维护成本越高</li>
+<li>微前端支持不同技术栈，那么也带来了不同技术栈带来技术栈混乱的风险，同时也提高了开发维护成本</li>
+<li>微前端架构本身就是将项目完全独立，可能导致部分公共代码无法通用</li>
+<li>还有一些其他问题，如：当采用某类微前端框架增加开发成本等</li>
+</ul>
+<p>上面这些问题，在项目是否要用微前端架构都需要考虑的事情，但是也有一句话可以提供给大家参考。</p>
+<blockquote>
+<p>工程就是权衡的艺术，而微服务（microframeworks）架构给你提供了一个可以权衡的维度。</p>
+</blockquote>
+<p>了解完是什么，接下来就当项目中要实施<code>微前端</code>架构的时候要怎么做了。</p>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>在项目要实施<code>微前端</code>架构，主要有几个工作项：</p>
+<ul>
+<li>首先，就是需要搞清楚如何将项目拆分一个个微前端子项目</li>
+<li>其次，选型，采用哪种微前端框架去实施</li>
+<li>最后，使用渐进式方案去实施，而不是一口气全切换，如果是新项目直接采用微前端架构，那么这里推荐采用<strong>Monorepo大仓+微前端</strong>，这里会让极大降低项目的管理成本。</li>
+</ul>
+<h2 id="如何拆分"><a href="#如何拆分" class="headerlink" title="如何拆分"></a>如何拆分</h2><p>微前端架构主要工作就是拆分，那么问题来了，我们应该依据什么样的标准去拆分呢？我们大体可以从下几点去考虑：</p>
+<ul>
+<li>第一，拆分条件，项目是否适合微前端架构</li>
+<li>第二，拆分原则，项目拆分时候需要遵循的设计原则</li>
+<li>第三，拆分方法，项目拆分可以依据哪些因素进行拆分</li>
+</ul>
+<h3 id="拆分条件"><a href="#拆分条件" class="headerlink" title="拆分条件"></a>拆分条件</h3><p>我们要对项目进行微前端架构设计的时候，我们应该从下面几方面去考虑是否适合：</p>
+<ul>
+<li>是否有快速迭代的需求，如果有快速迭代需求，则表示业务需要快速响应，那么采用微前端架构去拆分，不仅支持快速迭代，还支持业务快速试错</li>
+<li>是否有代码提交出现大量冲突，如果有，则表示代码管理成本较高，微前端架构可以降低项目的管理成本</li>
+<li>是否小功能需要等待大版本的场景，如果有，则表示小功能会影响到大版本的功能，这个时候微前端架构的<code>独立发布</code>特性，可随时回滚，风险变小，时间变短，影响面小，从而降低大版本发布延期风险</li>
+</ul>
+<p>从上面几个方面，我们可以很清晰的判断当前项目是否需要做微前端架构调整，只有这个时候，微前端的拆分才是有确定收益的，增加的运维成本才是值得的。</p>
+<h3 id="拆分原则"><a href="#拆分原则" class="headerlink" title="拆分原则"></a>拆分原则</h3><p>当我们面对需要拆分微前端的时候，以下几个原则可以作为参考：</p>
+<ul>
+<li>单一职责原则，每个微前端只需关心自己的业务规则，确保职责单一，避免职责交叉</li>
+<li>服务自治原则，每个微前端的开发，必须拥有开发、测试、运维、部署等整个过程，表示该应用可以独立运行而不需要依赖其他应用</li>
+<li>持续演进原则，单体架构向微服务架构拆分过程中，无法做到一蹴而就，应逐步拆分细化，持续演进，避免微服务数量的瞬间爆炸性增长</li>
+<li>服务粒度适中，先粗后细的原则，再按照拆分条件判断粗粒度的微前端是否需要拆分</li>
+<li>避免循环依赖，循环依赖的情况会导致微前端在迭代发布的时候不知道优先发布哪个，在拆分的时候需要考虑，针对依赖部分进行下沉，拆分成公共模块</li>
+<li>横向拆分原则，拆分微前端应该按照依赖层次的横向去拆，而不是纵向拆分，因为拆分越深，维护成本越高</li>
+</ul>
+<h3 id="拆分方法"><a href="#拆分方法" class="headerlink" title="拆分方法"></a>拆分方法</h3><p>以上两个主要针对拆分的假设条件，当真正去拆分操作的时候，我们应当从这些方面去入手：</p>
+<ul>
+<li>按照业务领域，参考<a href="https://zh.wikipedia.org/zh-hans/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener">领域模型</a>，将同类业务归为同一个微前端，按照单一职责原则、功能完整性进行拆分</li>
+<li>按照组织架构，应尽量避免对组织架构和团队的调整，避免由于功能的重新划分，而增加大量且不必要的团队之间的沟通成本</li>
+<li>按照技术栈，简单点说React的技术栈放一个微前端，Vue的技术栈放另外一个微前端</li>
+<li>按需求迭代频率，将迭代频率高的放在一个微前端，频率低放在另外一个微前端</li>
+</ul>
+<p>学会了拆分方法，里面的优先级应该有大概排序，业务领域 &gt; 组织架构 &gt; 技术栈 &gt; 需求迭代频率，我推荐的做法如下：</p>
+<ul>
+<li>先按照业务领域去拆分</li>
+<li>拆分的粒度不够，还要再拆分就按照组织结构再拆分</li>
+<li>再往下，就是按照技术栈拆分</li>
+<li>再往下，就是需求迭代频率</li>
+</ul>
+<h2 id="微前端框架"><a href="#微前端框架" class="headerlink" title="微前端框架"></a>微前端框架</h2><p>了解完如何拆分，那么接下来就是对微前端架构实现的框架进行选型，下面是我从网上收集目前市场主流的几大微前端框架：</p>
+<ul>
+<li><a href="https://github.com/single-spa/single-spa" target="_blank" rel="noopener">single-spa</a>，将多个单页面应用聚合为一个整体应用的 JavaScript 微前端框架</li>
+<li><a href="https://qiankun.umijs.org/zh/guide" target="_blank" rel="noopener">qiankun</a>，基于single-spa，能更简单、无痛构建可用微前端架构的框架</li>
+<li><a href="https://wujie-micro.github.io/doc/guide/" target="_blank" rel="noopener">无界</a>，基于iframe，实现路由同步机制的微前端架构框架</li>
+<li><a href="https://zeroing.jd.com/docs.html#/" target="_blank" rel="noopener">micro-app</a>，借鉴WebComponent思想，结合自定义的ShadowDom，将微前端封装成一个类WebComponent组件的微前端框架</li>
+<li><a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank" rel="noopener">webpack 模块联邦</a>，在webpack构建时候加载远程应用而实现的微前端架构方案</li>
+</ul>
+<p>以上，就是目前实现微前端架构的主流框架，当然每个框架都自己的优缺点，我们在选型的时候主要还是通过以下几点去判断是否适合：</p>
+<ul>
+<li>对现有项目是否需要改造，改造成本多少</li>
+<li>是否有学习成本，学习成本有多复杂</li>
+<li>未来是否足够的扩展性</li>
+<li>团队内是否有熟悉、精通该选型的人，否则遇到问题，容易入坑</li>
+<li>项目维护的情况，issue 是否有响应，迭代是否在正常进行</li>
+</ul>
+<p>到了这里，本篇介绍微前端架构基本上就结束了，虽然很多理论知识，但是我们可以再次回顾一下，总结一下要点：</p>
+<ul>
+<li>微前端架构源自微服务架构，两者主要都是为了解决巨石应用的痛点，迭代慢、开发复杂</li>
+<li>微前端架构拆分需要注意几个点：拆分条件、拆分原则和拆分方法</li>
+<li>微前端架构主流框架：<a href="https://github.com/single-spa/single-spa" target="_blank" rel="noopener">single-spa</a>、<a href="https://qiankun.umijs.org/zh/guide" target="_blank" rel="noopener">qiankun</a>、<a href="https://wujie-micro.github.io/doc/guide/" target="_blank" rel="noopener">无界</a>、<a href="https://zeroing.jd.com/docs.html#/" target="_blank" rel="noopener">micro-app</a>、<a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank" rel="noopener">webpack 模块联邦</a>等</li>
+</ul>
+<p>当然，我不会只写理论知识点，后面我会针对每个框架的写一篇深入实战文章，从背后原理，适用场景去一一描述，前端架构之路不好走，希望大家一起努力加油。</p>
+<h1 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h1><h2 id="领域驱动设计"><a href="#领域驱动设计" class="headerlink" title="领域驱动设计"></a>领域驱动设计</h2><p>要了解一个新的东西，首先弄明白它解决了什么问题？领域驱动设计主要是为了解决：</p>
+<ul>
+<li>帮助团队更好理解业务世界</li>
+<li>能协助开发构建良好的设计</li>
+<li>降低业务逻辑与开发逻辑的耦合，降低复杂性</li>
+</ul>
+<p>那么现在，我们就明白领域驱动设计是什么了？它是强调业务概念、专业术语的开发设计理念。以下是一些官方解释，后面在前端架构系列文里，会写专门文章做深入介绍：</p>
+<blockquote>
+<p>领域驱动设计（英语：domain-driven design，缩写 DDD）是软体程式码的结构及语言（类别名称、类别方法、类别变数）需符合业务领域中的习惯用法。例如处理租赁业务的软体，其型别可以命名为LoanApplication及Customer，其方法可以用AcceptOffer及Withdraw。<a href="https://zh.wikipedia.org/zh-hans/%E9%A0%98%E5%9F%9F%E9%A9%85%E5%8B%95%E8%A8%AD%E8%A8%88" target="_blank" rel="noopener">领域驱动设计 维基百科</a></p>
+</blockquote>
+<h3 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h3><blockquote>
+<p><code>领域模型</code>，来自领域驱动架构(DDD)中的一个概念，与<code>开发模型</code>(解决实际问题所抽象出来的概念模型) <code>设计模型</code>(描述了所要构建的系统)不同的是， <code>领域模型</code>是表达与业务相关的事实，它更加关注业务知识，能否显性化、清晰的表达业务语义。</p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a><br><a href="https://www.ruanyifeng.com/blog/2022/04/microservice.html" target="_blank" rel="noopener">微服务是什么？ —— 阮一峰</a><br><a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端的完整介绍</a><br><a href="https://www.zhihu.com/question/25089273" target="_blank" rel="noopener">领域驱动架构（DDD）建模中的模型到底是什么？</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -407,7 +555,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230217.html" title="从微前端到模块联邦" target="_blank">https://www.qborfy.com/today/20230217.html</a>
+          <a href="https://www.qborfy.com/today/20230217.html" title="前端架构——微前端系列(一)" target="_blank">https://www.qborfy.com/today/20230217.html</a>
         </li>
         
         <li>
@@ -542,7 +690,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发展历程"><span class="toc-number">2.</span> <span class="toc-text">发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#微服务"><span class="toc-number">2.1.</span> <span class="toc-text">微服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微前端"><span class="toc-number">2.2.</span> <span class="toc-text">微前端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微前端-1"><span class="toc-number">3.</span> <span class="toc-text">微前端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">4.</span> <span class="toc-text">是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单体巨石-VS-微前端"><span class="toc-number">4.1.</span> <span class="toc-text">单体巨石 VS 微前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件-VS-微前端"><span class="toc-number">4.2.</span> <span class="toc-text">组件 VS 微前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺点"><span class="toc-number">4.4.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么做"><span class="toc-number">5.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何拆分"><span class="toc-number">5.1.</span> <span class="toc-text">如何拆分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拆分条件"><span class="toc-number">5.1.1.</span> <span class="toc-text">拆分条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拆分原则"><span class="toc-number">5.1.2.</span> <span class="toc-text">拆分原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拆分方法"><span class="toc-number">5.1.3.</span> <span class="toc-text">拆分方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微前端框架"><span class="toc-number">5.2.</span> <span class="toc-text">微前端框架</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他概念"><span class="toc-number">6.</span> <span class="toc-text">其他概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#领域驱动设计"><span class="toc-number">6.1.</span> <span class="toc-text">领域驱动设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#领域模型"><span class="toc-number">6.1.1.</span> <span class="toc-text">领域模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
