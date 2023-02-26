@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>疯子知识库</title>
+  <title>qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -16,16 +16,16 @@
   
   <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:type" content="website">
-<meta property="og:title" content="疯子知识库">
+<meta property="og:title" content="qborfy知识库">
 <meta property="og:url" content="https://www.qborfy.com/index.html">
-<meta property="og:site_name" content="疯子知识库">
+<meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="疯子知识库">
+<meta name="twitter:title" content="qborfy知识库">
 <meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
   
-    <link rel="alternative" href="/atom.xml" title="疯子知识库" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -484,6 +484,117 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/lowcode/index.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230218.html" target="_blank">
+      通过 JS 构建我们自己的 JS 解释器
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230218.html" class="archive-article-date">
+        <time datetime="2023-02-18T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。<br>于是从上网找了一个<a href="https://github.com/webfansplz/giao-js" target="_blank" rel="noopener">giao-js</a>，感觉还不错，因此想学习一下。</p>
+<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h1><p>之前有篇文章<a href="https://qborfy.com/today/20230117.html" target="_blank" rel="noopener">理解React中Fiber架构(一)</a>中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。</p>
+<p>一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：</p>
+<ul>
+<li><code>GUI 渲染线程</code>，负责渲染浏览器界面HTML元素,当界面需要重绘(Repaint)或由于某种操作引发回流(reflow)时,该线程就会执行。</li>
+<li><code>JavaScript引擎线程</code>，JS内核，负责处理Javascript脚本程序。 一直等待着任务队列中任务的到来，然后解析Javascript脚本，运行代码。</li>
+<li><code>定时触发器线程</code>，定时器setInterval与setTimeout所在线程，为什么要单独弄个线程处理定时器？是因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确</li>
+<li><code>事件触发线程</code>，用来控制事件轮询，JS引擎自己忙不过来，需要浏览器另开线程协助</li>
+<li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
+</ul>
+<p>因此，我们了解JS引擎在浏览器中的主要作用就，解析JS代码，并运行代码，那么它是怎么做到的呢？</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://github.com/webfansplz/giao-js/blob/main/Article.md" target="_blank" rel="noopener">giao-js github源码</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1886888" target="_blank" rel="noopener">分享一篇可视化的JS引擎执行流程</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230218.html">展开全文 >></a>
     </p>
     
 
@@ -1043,102 +1154,6 @@
     height:800px
   }
   </style>
-<article id="post-ideas/20230214" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230214.html" target="_blank">
-      创业idea——AI种植与花店
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230214.html" class="archive-article-date">
-        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>此想法源于一个抖音视频，里面有个商业模式，通过摄像头+气味嗅觉捕捉器+液体分析器，可以识别当前植物的状态，且占地面积不大，可以直接树立到家里墙上。大概如下图所示：</p>
-<p><img src="/assets/img/idea-20230214-3.png" alt></p>
-    
-    <a class="article-more-a" href="/ideas/20230214.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230214.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
 <article id="post-ideas/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1236,7 +1251,7 @@
     height:800px
   }
   </style>
-<article id="post-translate/nuxt-next-nest-diff" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ideas/20230214" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1244,8 +1259,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/translate/nuxt-next-nest-diff.html" target="_blank">
-      Next、Nuxt、Nest的区别(翻译)
+	  <a class="article-title" href="/ideas/20230214.html" target="_blank">
+      创业idea——AI种植与花店
       
     </a>
   
@@ -1255,8 +1270,8 @@
 
   
   
-<a href="/translate/nuxt-next-nest-diff.html" class="archive-article-date">
-        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+<a href="/ideas/20230214.html" class="archive-article-date">
+        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
 </a>
 
   
@@ -1268,7 +1283,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>此想法源于一个抖音视频，里面有个商业模式，通过摄像头+气味嗅觉捕捉器+液体分析器，可以识别当前植物的状态，且占地面积不大，可以直接树立到家里墙上。大概如下图所示：</p>
+<p><img src="/assets/img/idea-20230214-3.png" alt></p>
+    
+    <a class="article-more-a" href="/ideas/20230214.html#more">more >></a>
+    
     
     
 
@@ -1283,7 +1302,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
         		</li>
       		
 		</ul>
@@ -1293,7 +1312,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/translate/nuxt-next-nest-diff.html">展开全文 >></a>
+      <a class="article-more-a" href="/ideas/20230214.html">展开全文 >></a>
     </p>
     
 
