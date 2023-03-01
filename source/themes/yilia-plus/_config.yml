@@ -91,7 +91,7 @@ top: true
 # Miscellaneous
 # 百度统计
 baidu_analytics: ''
-google_analytics: ''
+google_analytics: 'true'
 
 # 网站图标
 favicon: /favicon.ico

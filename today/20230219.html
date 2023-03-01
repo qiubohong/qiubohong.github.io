@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>从pnpm到对比各种js包管理工具 | qborfy知识库</title>
+  <title>从pnpm工具了解整个npm包核心管理原理 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景参考资料">
+  <meta name="description" content="背景今年在github前端领域star上升速度比较主要有以下几个：  Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能 Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明 pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从pnpm到对比各种js包管理工具">
+<meta property="og:title" content="从pnpm工具了解整个npm包核心管理原理">
 <meta property="og:url" content="https://www.qborfy.com/today/20230219.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景参考资料">
+<meta property="og:description" content="背景今年在github前端领域star上升速度比较主要有以下几个：  Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能 Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明 pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-26T06:43:37.663Z">
+<meta property="og:updated_time" content="2023-03-01T13:11:53.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从pnpm到对比各种js包管理工具">
-<meta name="twitter:description" content="背景参考资料">
+<meta name="twitter:title" content="从pnpm工具了解整个npm包核心管理原理">
+<meta name="twitter:description" content="背景今年在github前端领域star上升速度比较主要有以下几个：  Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能 Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明 pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -41,6 +41,18 @@
     }
   </style>
   
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XBNKFYXCN5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XBNKFYXCN5');
+</script>
+
+
 
   
 
@@ -302,7 +314,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从pnpm到对比各种js包管理工具
+      从pnpm工具了解整个npm包核心管理原理
       
     </h1>
   
@@ -316,7 +328,7 @@
         </span>
 
 <a href="/today/20230219.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+        <time datetime="2023-03-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
 </a>
 
   
@@ -329,7 +341,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">6字</span>
+      <span class="post-count">391字</span>
     </span>
   </span>
 
@@ -349,7 +361,26 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今年在github前端领域star上升速度比较主要有以下几个：</p>
+<ul>
+<li>Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能</li>
+<li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
+<li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
+</ul>
+<p>其实从事前端这么多年，自从npm包出现以后，前端工程化就一路顺畅，但是随之也带来很多问题，包括但不限于：</p>
+<ul>
+<li>版本管理难</li>
+<li>安装速度慢</li>
+<li>多个项目安装依赖占用空间大</li>
+<li>…</li>
+</ul>
+<p>那么其实我们应该了解完整的npm包管理生态，然后才可以得知为什么pnpm打击了哪些痛点，以及如何应用到我们的实际项目中。</p>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><p>之前已经在<a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">《从npm版本依赖到Monorepo大仓项目》</a>已经介绍过npm是什么，定义如下：</p>
+<blockquote>
+<p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
+</blockquote>
+<p>也了解它的版本是如何管理的，但是我们还缺乏对它的核心功能需要了解，就是npm如何将远程的npm包下载到我们的本地<code>node_modules</code>，以及后续是如何维护他们之前的关系的？</p>
+<h2 id="node-modules管理"><a href="#node-modules管理" class="headerlink" title="node_modules管理"></a>node_modules管理</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -405,7 +436,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230219.html" title="从pnpm到对比各种js包管理工具" target="_blank">https://www.qborfy.com/today/20230219.html</a>
+          <a href="https://www.qborfy.com/today/20230219.html" title="从pnpm工具了解整个npm包核心管理原理" target="_blank">https://www.qborfy.com/today/20230219.html</a>
         </li>
         
         <li>
@@ -502,18 +533,9 @@
 
 <nav id="article-nav">
   
-    <a href="/today/20230228.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GraphQL尝鲜体验
-        
-      </div>
-    </a>
   
-  
-    <a href="/today/20230106.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从审批流到bpmn-js入门</div>
+    <a href="/today/20230218.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现一个JS引擎竟如此简单</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -540,7 +562,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">2.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#node-modules管理"><span class="toc-number">2.1.</span> <span class="toc-text">node_modules管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>

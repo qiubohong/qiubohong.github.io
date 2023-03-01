@@ -1897,7 +1897,7 @@
     <title>从lerna到初步了解和使用Nx(一)</title>
     <url>/today/20230119.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了<code>lerna</code>框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发<code>Nx</code>项目，尝试一下它的应用。</p>
-<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a href="/2023/01/07/today/20220107/">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
+<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
 <a id="more"></a>
 <h1 id="lerna"><a href="#lerna" class="headerlink" title="lerna"></a>lerna</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
 <p>Lerna是用于TypeScrip/JavaScript的原始monorepo工具。它已经存在多年，被数以万计的项目使用，包括Reaction和Jest。</p>
@@ -1974,7 +1974,7 @@
 </ol>
 <p>我们有很多问题，但是基本上都是引入Monrepo大仓项目导致的问题，我们希望Nx能有相关的解决方案提供参考或者应用，减少我们实际开发的阻塞。</p>
 <p>所以，Nx项目还是持续跟进研究学习，找个实际项目去落地实践，或者将现有一些项目去整合试试看。</p>
-]]></content>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
@@ -3387,9 +3387,28 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>从pnpm到对比各种js包管理工具</title>
+    <title>从pnpm工具了解整个npm包核心管理原理</title>
     <url>/today/20230219.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今年在github前端领域star上升速度比较主要有以下几个：</p>
+<ul>
+<li>Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能</li>
+<li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
+<li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
+</ul>
+<p>其实从事前端这么多年，自从npm包出现以后，前端工程化就一路顺畅，但是随之也带来很多问题，包括但不限于：</p>
+<ul>
+<li>版本管理难</li>
+<li>安装速度慢</li>
+<li>多个项目安装依赖占用空间大</li>
+<li>…</li>
+</ul>
+<p>那么其实我们应该了解完整的npm包管理生态，然后才可以得知为什么pnpm打击了哪些痛点，以及如何应用到我们的实际项目中。</p>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><p>之前已经在<a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">《从npm版本依赖到Monorepo大仓项目》</a>已经介绍过npm是什么，定义如下：</p>
+<blockquote>
+<p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
+</blockquote>
+<p>也了解它的版本是如何管理的，但是我们还缺乏对它的核心功能需要了解，就是npm如何将远程的npm包下载到我们的本地<code>node_modules</code>，以及后续是如何维护他们之前的关系的？</p>
+<h2 id="node-modules管理"><a href="#node-modules管理" class="headerlink" title="node_modules管理"></a>node_modules管理</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
