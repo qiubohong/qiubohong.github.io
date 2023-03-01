@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>通过 JS 构建我们自己的 JS 解释器 | qborfy知识库</title>
+  <title>实现一个JS引擎竟如此简单 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过 JS 构建我们自己的 JS 解释器">
+<meta property="og:title" content="实现一个JS引擎竟如此简单">
 <meta property="og:url" content="https://www.qborfy.com/today/20230218.html">
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-26T11:47:42.317Z">
+<meta property="og:updated_time" content="2023-03-01T12:31:54.962Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过 JS 构建我们自己的 JS 解释器">
+<meta name="twitter:title" content="实现一个JS引擎竟如此简单">
 <meta name="twitter:description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
@@ -302,7 +302,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      通过 JS 构建我们自己的 JS 解释器
+      实现一个JS引擎竟如此简单
       
     </h1>
   
@@ -316,7 +316,7 @@
         </span>
 
 <a href="/today/20230218.html" class="archive-article-date">
-        <time datetime="2023-02-18T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
+        <time datetime="2023-02-27T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
 </a>
 
   
@@ -329,7 +329,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">839字</span>
+      <span class="post-count">3.9k字</span>
     </span>
   </span>
 
@@ -338,7 +338,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -360,6 +360,8 @@
 <li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
 </ul>
 <p>针对JS引擎，官方的定义是：</p>
+<a id="more"></a>
+
 <blockquote>
 <p>JavaScript引擎是一个专门处理JavaScript脚本的虚拟机，一般会附带在网页浏览器之中。 —— <a href="https://zh.wikipedia.org/zh-hans/JavaScript%E5%BC%95%E6%93%8E" target="_blank" rel="noopener">JS引擎 维基百科</a></p>
 </blockquote>
@@ -367,8 +369,8 @@
 <p>如同我们人一样去认识一门语言，电脑也一样，当我们写了一行代码，JS引擎要识别出来，它同样去分析代码，然后确定执行，主要有以下几个步骤：</p>
 <ul>
 <li>词法分析，主要是<code>分词（tokenize）</code>，将JS代码比较关键词（如：function、const、let等），拆出来放到解析器里</li>
-<li>语法分析，主要解析（parse），主要用了预解析器和解析器<ul>
-<li><code>预解析</code>会判断哪些代码需要立即执行，哪些代码不需要立即执行，需要立即执行的代码才会放到解析器里去解析</li>
+<li>语法分析，主要解析（parse），主要用了<code>预解析器</code>和<code>解析器</code>:<ul>
+<li><code>预解析器</code>会判断哪些代码需要立即执行，哪些代码不需要立即执行，需要立即执行的代码才会放到解析器里去解析</li>
 <li><code>解析器</code>，从词法分析获取关键词做标记，将代码生成一个抽象语法树，也叫AST语法树</li>
 </ul>
 </li>
@@ -376,9 +378,189 @@
 <li>生成字节码，主要由<code>解释器</code>将AST语法树编译成字节码</li>
 <li>执行代码，将字节码转成机器代码，以更快的速度在电脑中执行</li>
 </ul>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/jsengine.drawio&quot;}"></div>
+</div>
+
+
+<p>所以我们要模拟JS引擎要实现功能主要以下几块：</p>
+<ul>
+<li><code>分词器</code>，将JS关键词进行标记</li>
+<li><code>解析器</code>，生成AST语法树</li>
+<li><code>解释器</code>，执行AST语法树</li>
+</ul>
+<h1 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h1><blockquote>
+<p>将源代码分解并组织成一组有意义的单词,这一过程即为词法分析(Token)。</p>
+</blockquote>
+<p>词法分析的工作就是 将一个长长的字符串识别出一个个的单词，这一个个单词就是 Token，具体实现效果如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  经过词法分析会将上面拆分如下对象</span></span><br><span class="line">[</span><br><span class="line">  (<span class="string">"var"</span>: <span class="string">"keyword"</span>),</span><br><span class="line">  (<span class="string">"a"</span>: <span class="string">"identifier"</span>),</span><br><span class="line">  (<span class="string">"="</span>: <span class="string">"assignment"</span>),</span><br><span class="line">  (<span class="string">"1"</span>: <span class="string">"literal"</span>),</span><br><span class="line">  (<span class="string">";"</span>: <span class="string">"separator"</span>),</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>如果用图来显示的话，它应该是这样子的：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/jsengine-token.drawio&quot;}"></div>
+</div>
+
+
+
+<p>根据上面的结果，那么词法分析的实践步骤应该如下：</p>
+<ul>
+<li>先分词，分词的逻辑使用正则表达式<ul>
+<li>先判断是否为关键词，如：运算符(+-*/=)、声明符(var、const、function)等</li>
+<li>如果是则执行拆词</li>
+<li>接着遇到空格也拆词</li>
+<li>遇到换行符或;也拆词</li>
+<li>…还有符合条件判断也拆词</li>
+<li>最终会获取到一个数组，[“var”, “a”, “=”, “1”, “;”]</li>
+</ul>
+</li>
+<li>再判断该词属于哪个类型，如： var属于keyword关键字。</li>
+</ul>
+<p>利用<code>Acron</code>做词法分析， 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> acron = <span class="built_in">require</span>(<span class="string">'acorn'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 利用acorn库进行词法分析</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; code 代码</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; ecmaVersion ECMAScript的标准版本 </span></span><br><span class="line"><span class="comment"> * @returns </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> getToken = <span class="function">(<span class="params">code, ecmaVersion = <span class="string">'11'</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> tokenObj = acron.tokenizer(code, &#123;</span><br><span class="line">        ecmaVersion,</span><br><span class="line">        locations: <span class="literal">true</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> tokens = [];</span><br><span class="line">    <span class="keyword">let</span> token = tokenObj.getToken();</span><br><span class="line">    <span class="built_in">console</span>.log(token)</span><br><span class="line">    <span class="keyword">while</span> (token.end !== token.start) &#123;</span><br><span class="line">        tokens.push(token);</span><br><span class="line">        token = tokenObj.getToken();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tokens;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getToken(<span class="string">`const a= 1+1;`</span>); <span class="comment">// 最终输出Token数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出如下对象</span></span><br><span class="line">[ &#123;</span><br><span class="line">  <span class="string">"type"</span>: &#123; <span class="comment">// 关键词Token所属类型</span></span><br><span class="line">    <span class="string">"label"</span>: <span class="string">"const"</span>,  <span class="comment">// 解析到的关键词所属的类型 为const</span></span><br><span class="line">    <span class="string">"keyword"</span>: <span class="string">"const"</span>, <span class="comment">//  关键字</span></span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"value"</span>: <span class="string">"const"</span>, <span class="comment">// 解析到的 关键词Token</span></span><br><span class="line">  <span class="string">"start"</span>: <span class="number">0</span>, <span class="comment">// 关键词的开始位置</span></span><br><span class="line">  <span class="string">"end"</span>: <span class="number">5</span> <span class="comment">// 关键词的结束位置 下一个位置是空白符</span></span><br><span class="line">&#125;, ...]</span><br></pre></td></tr></table></figure>
+
+<h1 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h1><blockquote>
+<p>将词法分析阶段生成的 Token 转换为抽象语法树(Abstract Syntax Tree),这一过程称之为语法解析(Parsing)。</p>
+</blockquote>
+<p>简单的说，就是利用Token标识符去生成AST语法树。</p>
+<h2 id="AST语法树"><a href="#AST语法树" class="headerlink" title="AST语法树"></a>AST语法树</h2><p>在语法解析前，我们需要对AST语法树有一个认知，即是：什么是AST语法树？</p>
+<blockquote>
+<p>抽象语法树 (Abstract Syntax Tree)，简称 AST，它是源代码语法结构的一种抽象表示。它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。</p>
+</blockquote>
+<p>用比较容易理解的话，用一个树形数据结构去描述我们源代码，从而能让机器能更好识别我们所想要实现的功能。</p>
+<p>目前市面上Javascript语言的AST语法树的结构基本上都遵循<a href="https://github.com/estree/estree" target="_blank" rel="noopener">ESTree语法树规范</a>。</p>
+<p>这里说明一下<a href="https://github.com/estree/estree" target="_blank" rel="noopener">ESTree语法树规范</a>的起源，能让我们更容易理解语法解析的过程：</p>
+<blockquote>
+<p>使用不同工具构建的抽象语法树可能会有不同的结构，如果大家都遵从同样的规范，那么相关联的生态链工具的开发会更为轻松、明晰。很早之前，FireFox 浏览器所使用的 JavaScript 引擎 SpiderMonkey 曾经提供了一个 JavaScript API，使得开发者可以直接调用 SpiderMonkey 的 JavaScript 分析器。这个 API 所描述的 JavaScript 抽象语法树格式渐渐流行起来，如今成为 JavaScript AST 的通用描述。<a href="https://github.com/estree/estree" target="_blank" rel="noopener">ESTree语法树规范</a> 正是在此基础上建立起来的，它现在是社区对 JavaScript 抽象语法树构建时采用最广泛的规则，可以认为是社区推动的事实标准。众多基础设施开发者一起维护着这个规范，包括 Dave Herman（Mozilla 研究中心的首席研究员和策略总监）、 Nicholas C. Zakas（ESLint 的作者）、Ingvar Stepanyan（Acorn 的作者）、Mike Sherov 与 Ariya Hidayat（Esprima 的作者）以及 Babel.js 团队等。</p>
+<p><a href="https://github.com/estree/estree" target="_blank" rel="noopener">ESTree语法树规范</a> 的初始版本是基于 ES5 的[2]，后续的 ES6/ES7/ES8 等版本的规范，都只针对新增语言特性提出。</p>
+</blockquote>
+<p><a href="https://github.com/estree/estree" target="_blank" rel="noopener">ESTree语法树规范</a>基于ECMAScript标准去描述不同标准的AST树结构，具体如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节点对象  下面这个版本属于ES2015的规范</span></span><br><span class="line">interface Node &#123;</span><br><span class="line">    type: string;</span><br><span class="line">    loc: SourceLocation | <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extend interface Program &#123;</span><br><span class="line">    sourceType: <span class="string">"script"</span> | <span class="string">"module"</span>;</span><br><span class="line">    body: [ Statement | ImportOrExportDeclaration ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface IfStatement &lt;: Statement &#123; <span class="comment">// &lt;: 标识前者是后者的子集 即是继承的关系</span></span><br><span class="line">    type: <span class="string">"IfStatement"</span>;</span><br><span class="line">    test: Expression;</span><br><span class="line">    consequent: Statement;</span><br><span class="line">    alternate: Statement | <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此了解JS的AST语法树结构，需要对ESTree规范有了解，它分别定义不同类型节点的数据结构，拿几种常见的做一下介绍，具体如下所示：</p>
+<ul>
+<li><code>Program</code>，一个完整的程序源码树，就是树的跟节点，因此也属于<code>Node</code>类型</li>
+<li><code>Node</code>，语法树的基础节点<ul>
+<li><code>Function</code>，函数声明或表达式，继承节点<code>Node</code></li>
+<li><code>Statement</code>，代码内容，标识任何声明，继承节点<code>Node</code><ul>
+<li><code>Declaration</code> 声明节点</li>
+</ul>
+</li>
+<li><code>Expression</code>， 表达式，标识任何声明，继承节点<code>Node</code></li>
+<li><code>Pattern</code>，解构绑定和赋值节点，继承节点<code>Node</code></li>
+</ul>
+</li>
+<li><code>Identifier</code>，标识符，如：变量名、函数名</li>
+<li><code>Literal</code>， 字面量，对应 JavaScript，就是基本值，例如布尔值 true、数字 200、字符串 “this is a string”</li>
+</ul>
+<p>一个AST语法的组成结构大概如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Program</span><br><span class="line">|-- body: Node[] // 代码主体</span><br><span class="line">|     |-- Function // 函数声明</span><br><span class="line">|     |-- Statement // 代码内容</span><br><span class="line">|     |-- Declaration // 变量声明</span><br><span class="line">|     |-- Expression // 表达式</span><br><span class="line">|          |-- Literal</span><br><span class="line">|          |-- Identifier</span><br></pre></td></tr></table></figure>
+
+<p>还需要解答一个问题，就是在AST语法树中，如何判断一个节点的完整性呢? </p>
+<p>按照ESTree的规范：遇到一个空节点（比如：换行/分号/结构体结束符<code>}]</code>等），则拆成一个完整的节点。</p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>弄明白AST语法树的数据结构，接下来就是如何将之前<code>词法分析</code>的Token数组解析成语法树结构，解析流程图(Acron.js实现)如下：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/jsengine-parse.drawio&quot;}"></div>
+</div>
+
+
+<p>利用<code>Acron</code>做语法解析， 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="string">`function sum(a, b)&#123;return a+b;&#125;; const a = sum(1, 2);`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> acron = <span class="built_in">require</span>(<span class="string">'acorn'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(acron.parse(code))</span><br></pre></td></tr></table></figure>
+
+<p>最终得到结构如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Node &#123;</span><br><span class="line">  type: <span class="string">'Program'</span>,</span><br><span class="line">  start: <span class="number">0</span>,</span><br><span class="line">  end: <span class="number">53</span>,</span><br><span class="line">  body:</span><br><span class="line">   [ Node &#123;</span><br><span class="line">       type: <span class="string">'FunctionDeclaration'</span>,</span><br><span class="line">       start: <span class="number">0</span>,</span><br><span class="line">       end: <span class="number">31</span>,</span><br><span class="line">       id: [Node],</span><br><span class="line">       expression: <span class="literal">false</span>,</span><br><span class="line">       generator: <span class="literal">false</span>,</span><br><span class="line">       <span class="keyword">async</span>: <span class="literal">false</span>,</span><br><span class="line">       params: [<span class="built_in">Array</span>],</span><br><span class="line">       body: [Node] &#125;,</span><br><span class="line">     Node &#123; <span class="attr">type</span>: <span class="string">'EmptyStatement'</span>, <span class="attr">start</span>: <span class="number">31</span>, <span class="attr">end</span>: <span class="number">32</span> &#125;,</span><br><span class="line">     Node &#123;</span><br><span class="line">       type: <span class="string">'VariableDeclaration'</span>,</span><br><span class="line">       start: <span class="number">33</span>,</span><br><span class="line">       end: <span class="number">53</span>,</span><br><span class="line">       declarations: [<span class="built_in">Array</span>],</span><br><span class="line">       kind: <span class="string">'const'</span> &#125; ],</span><br><span class="line">  sourceType: <span class="string">'script'</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h1><blockquote>
+<p>解释器，就是遍历AST语法树，然后根据Node节点类型，去执行或计算每个节点。</p>
+</blockquote>
+<p>这里实现一个JS解释器，需要对AST语法树Node节点每个类型做区分判断，主要有以下几种：</p>
+<ul>
+<li>变量</li>
+<li>作用域以及作用域链</li>
+<li>上下文This指向</li>
+<li>条件判断</li>
+<li>For循环，其中的 break和continue</li>
+<li>函数部分 Function</li>
+<li>生成器 Generator</li>
+<li>异步 Async</li>
+</ul>
+<p>因此我们需要几个类去保存相关的值：</p>
+<ul>
+<li>Scope，作用域类，保存作用域内的值以及作用域链（当前作用域可以找到父级作用域链）</li>
+<li>Visitor，AST树Node节点处理类，里面有函数<code>visitNode(node, scope)</code>，用来处理对应node类型，其中VISITOR是所有类型函数的Map对象，用来快速查询</li>
+<li>Variable，变量存储类，用来存储变量类型和值</li>
+</ul>
+<p>参考代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 遍历AST语法树，并执行对应的处理函数</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; node </span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; scope </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">visitNode(node, scope) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; type &#125; = node;</span><br><span class="line">    <span class="keyword">if</span> (VISITOR[type]) &#123;</span><br><span class="line">        <span class="keyword">return</span> VISITOR[type](&#123; node, scope, <span class="attr">context</span>: <span class="keyword">this</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量和作用域"><a href="#变量和作用域" class="headerlink" title="变量和作用域"></a>变量和作用域</h2><p>在JavaScript中，对变量的声明通常是绑定在作用域中的，而作用域分为以下几种：</p>
+<ul>
+<li>全局作用域，全局作用域中仅存在一处，即为最上级的环境。</li>
+<li>函数作用域，函数存在并执行时，内部存储函数作用域</li>
+<li>块级作用域，每隔block块{}都可产生作用域，如if for while等</li>
+</ul>
+<p>我们举个例子，以<code>var a = 1;</code>为例，我们需要需要哪些代码，才能实现从AST树解析，将变量<code>a</code>被声明在全局变量作用域中，具体步骤如下图：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/jsengine-interpreter.drawio&quot;}"></div>
+</div>
+
+
+<p>这里实现一个作用域Scope类，参考代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Scope</span> </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; type </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; parent </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constructor</span>(type, parent) &#123;</span><br><span class="line">        <span class="keyword">this</span>.parent = parent || <span class="literal">null</span>; <span class="comment">// 父级作用域</span></span><br><span class="line">        <span class="keyword">this</span>.type = type; <span class="comment">// 作用域类型 Global, Function, Block</span></span><br><span class="line">        <span class="keyword">this</span>.targetScope = <span class="keyword">new</span> <span class="built_in">Map</span>();  <span class="comment">// 当前作用域</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 变量声明方法,变量已定义则抛出语法错误异常</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; kind 变量类型</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; rawName  变量名</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; value 变量值</span></span><br><span class="line"><span class="comment">     * @returns </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    declare(kind, rawName, value) &#123;</span><br><span class="line">        <span class="keyword">this</span>.targetScope.set(rawName, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="上下文This"><a href="#上下文This" class="headerlink" title="上下文This"></a>上下文This</h3><p>上下文的this对象其实指的就是当前作用域，然而我们了解过JS中的this是可以改变的，如：</p>
+<ul>
+<li><code>call()</code> <code>bind()</code> <code>apply()</code>等函数，当执行到相关函数的时候，需要将传递进来scope的替换成当前的scope</li>
+<li>ES6中的箭头函数等，this指向上一级</li>
+</ul>
+<p>这些都需要在解析代码的时候注意的逻辑问题。</p>
+<h2 id="其他类型解释"><a href="#其他类型解释" class="headerlink" title="其他类型解释"></a>其他类型解释</h2><h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><p><code>IfStatement</code>，里面有属性: <code>test</code>为判断条件，<code>consequent</code>为条件成立时执行的语句，<code>alternate</code>为条件不成立时执行的语句，参考代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// visitNode会执行AST语法树节点函数</span></span><br><span class="line"><span class="keyword">const</span> &#123; test, consequent, alternate &#125; = node;</span><br><span class="line"><span class="keyword">const</span> testValue = visitNode(test, scope);</span><br><span class="line"><span class="keyword">if</span> (testValue) &#123;</span><br><span class="line">    <span class="keyword">if</span>(consequent)&#123;</span><br><span class="line">       visitNode(consequent, scope);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(alternate)&#123;</span><br><span class="line">       visitNode(alternate, scope);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他部分逻辑就不会在这里一一描述，具体Node类型都有自己的判断逻辑，因此想要了解完整逻辑，可以到完整源码里查看，注解都十分清晰。</p>
+<p>完整源码地址在：<a href="https://github.com/qiubohong/qiubohong.github.io/tree/master/code/jsengine/src/interpreter/index.js" target="_blank" rel="noopener">https://github.com/qiubohong/qiubohong.github.io/tree/master/code/jsengine</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文涉及的东西有点多，花了好几天时间才弄明白，因此有些知识点在这里做一下小总结：</p>
+<ul>
+<li>JS引擎是有三部分组成的，分别是：<code>词法分析</code>,<code>语法解析</code>和<code>解释器</code></li>
+<li>词法解析和语法解析，最终的目标是生成符合ESTree规范的<code>AST语法树</code></li>
+<li>解释器的作用就是依据<code>AST语法树</code>去执行相关逻辑，输出所需要的最终结果<ul>
+<li>比较重要的部分在于变量、作用域和作用域链的实现</li>
+<li>其他部分则是依据对应<code>ECMAScript 规范</code>实现对应逻辑皆可</li>
+</ul>
+</li>
+</ul>
+<h2 id="ECMAScript-规范"><a href="#ECMAScript-规范" class="headerlink" title="ECMAScript 规范"></a>ECMAScript 规范</h2><p>其实，JS解释器实现起来不难，就是需要对JS执行逻辑有完整的认识，不仅仅只是上面几个部分，但是基本上AST语法树都已经包括在里面了，所以这个时候需要你对ECMAScript 规范有一定了解才能完整实现解释器。</p>
+<p>所以这里贴一个ECMAScript 规范链接，作为后续完整解释器的扩展。</p>
+<blockquote>
+<p>使用 ECMAScript 指代由 Ecma International Technical Committee 39 负责编撰的 ECMAScript Language Specification，而使用 JavaScript 来指代我们日常使用的那个常见编程语言。</p>
+<p>我们可以在 <a href="https://tc39.es/ecma262" target="_blank" rel="noopener">https://tc39.es/ecma262</a> 获取到最新的 ECMAScript 规范</p>
+</blockquote>
+<p>如何阅读规范呢？</p>
+<ul>
+<li>惯例与基础：如在 ECMAScript 中 Number 的定义是什么，亦或者 throw a TypeError exception 语句代表什么含义；</li>
+<li>语言语法产生式：如如何写一个符合规范的 for-in 循环；</li>
+<li>语言静态语义：如一个 VariableDeclaration 如何确定一个变量声明；</li>
+<li>语言运行时语义：如一个 for-in 循环的执行例程的定义；</li>
+<li>APIs：如 String.prototype.substring 等内置对象的方法例程定义。</li>
+</ul>
+<h2 id="能做什么"><a href="#能做什么" class="headerlink" title="能做什么"></a>能做什么</h2><p>有了我们自己的JS引擎后我们能做些什么，其实目前市面上已经有很多应用场景，比如:</p>
+<ul>
+<li><a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>，最常见JavaScript编译器，能够将js代码编译成我们想要的任一版本的ECMAscript标准，基于 acorn.js优化</li>
+<li><a href="https://eslint.org/" target="_blank" rel="noopener">ESlint</a>，最常用的代码质量扫描工具，能找到代码不符合规范的地方，基于Espree.js进行分析</li>
+<li><a href="https://prettier.io/" target="_blank" rel="noopener">pretiier</a>,最常用的代码格式工具，能帮忙把代码格式优化</li>
+<li>js沙箱安全机制，之前写过一篇文件<a href="https://qborfy.com/lowcode/sandbox.html" target="_blank" rel="noopener">低代码系列——js沙箱设计</a>里提到过，想要完整动态执行js代码，最好的方式是拥有自己的js解释器</li>
+</ul>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://juejin.cn/post/6943550570515038245" target="_blank" rel="noopener">编译原理实战一：如何用JS实现一个词法分析器？</a></li>
 <li><a href="https://github.com/webfansplz/giao-js/blob/main/Article.md" target="_blank" rel="noopener">giao-js github源码</a></li>
 <li><a href="https://cloud.tencent.com/developer/article/1886888" target="_blank" rel="noopener">分享一篇可视化的JS引擎执行流程</a></li>
+<li><a href="https://github.com/acornjs/acorn" target="_blank" rel="noopener">Acron 一个小巧又快速的js解析器</a></li>
+<li><a href="https://github.com/estree/estree" target="_blank" rel="noopener">The ESTree Spec(ES语法树规范)</a></li>
+<li><a href="https://astexplorer.net/" target="_blank" rel="noopener">astexplorer 在线语法解析器</a></li>
+<li><a href="https://fed.taobao.org/blog/taofed/do71ct/mlgtox/" target="_blank" rel="noopener">ECMAScript 规范阅读导引 Part 1</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -436,7 +618,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230218.html" title="通过 JS 构建我们自己的 JS 解释器" target="_blank">https://www.qborfy.com/today/20230218.html</a>
+          <a href="https://www.qborfy.com/today/20230218.html" title="实现一个JS引擎竟如此简单" target="_blank">https://www.qborfy.com/today/20230218.html</a>
         </li>
         
         <li>
@@ -534,8 +716,8 @@
 <nav id="article-nav">
   
   
-    <a href="/ideas/20230218.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">好玩有趣收集系列（二）</div>
+    <a href="/framework/frontend-microapp-1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端架构成长之路——微前端架构理论篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -562,7 +744,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS引擎"><span class="toc-number">2.</span> <span class="toc-text">JS引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS引擎"><span class="toc-number">2.</span> <span class="toc-text">JS引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#词法分析"><span class="toc-number">3.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法解析"><span class="toc-number">4.</span> <span class="toc-text">语法解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AST语法树"><span class="toc-number">4.1.</span> <span class="toc-text">AST语法树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">4.2.</span> <span class="toc-text">实现原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解释器"><span class="toc-number">5.</span> <span class="toc-text">解释器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量和作用域"><span class="toc-number">5.1.</span> <span class="toc-text">变量和作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#上下文This"><span class="toc-number">5.1.1.</span> <span class="toc-text">上下文This</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他类型解释"><span class="toc-number">5.2.</span> <span class="toc-text">其他类型解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#条件判断"><span class="toc-number">5.2.1.</span> <span class="toc-text">条件判断</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript-规范"><span class="toc-number">6.1.</span> <span class="toc-text">ECMAScript 规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#能做什么"><span class="toc-number">6.2.</span> <span class="toc-text">能做什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>

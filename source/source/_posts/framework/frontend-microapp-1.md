@@ -1,6 +1,6 @@
 ---
-title: 前端架构——微前端系列(一)
-date: 2023-02-17 18:00:01
+title: 前端架构成长之路——微前端架构理论篇
+date: 2023-02-26 18:00:01
 toc: true
 tags:
     - 每日更新
@@ -200,7 +200,7 @@ Ok，微服务了解到这里基本上就有大概的认知，微服务当然不
 
 # 参考资料
 
-[模块联邦在微前端架构中的实践](https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w)
-[微服务是什么？ —— 阮一峰](https://www.ruanyifeng.com/blog/2022/04/microservice.html)
-[微前端的完整介绍](https://micro-frontends.org/)
-[领域驱动架构（DDD）建模中的模型到底是什么？](https://www.zhihu.com/question/25089273)
+- [模块联邦在微前端架构中的实践](https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w)
+- [微服务是什么？ —— 阮一峰](https://www.ruanyifeng.com/blog/2022/04/microservice.html)
+- [微前端的完整介绍](https://micro-frontends.org/)
+- [领域驱动架构（DDD）建模中的模型到底是什么？](https://www.zhihu.com/question/25089273)
