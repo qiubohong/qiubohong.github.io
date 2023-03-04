@@ -18,10 +18,12 @@
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="背景今年在github前端领域star上升速度比较主要有以下几个：  Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能 Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明 pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-03-01T13:11:53.440Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/pnmp-node-modules-structure.jpg">
+<meta property="og:updated_time" content="2023-03-04T14:23:10.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从pnpm工具了解整个npm包核心管理原理">
 <meta name="twitter:description" content="背景今年在github前端领域star上升速度比较主要有以下几个：  Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能 Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明 pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/pnmp-node-modules-structure.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -341,7 +343,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">391字</span>
+      <span class="post-count">3.5k字</span>
     </span>
   </span>
 
@@ -350,7 +352,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -367,6 +369,8 @@
 <li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
 <li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
 </ul>
+<p>因此，选一个和我们项目中开发相关的作为一个知识扩展点，应该就是pnpm了。</p>
+<a id="more"></a>
 <p>其实从事前端这么多年，自从npm包出现以后，前端工程化就一路顺畅，但是随之也带来很多问题，包括但不限于：</p>
 <ul>
 <li>版本管理难</li>
@@ -379,8 +383,199 @@
 <blockquote>
 <p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
 </blockquote>
-<p>也了解它的版本是如何管理的，但是我们还缺乏对它的核心功能需要了解，就是npm如何将远程的npm包下载到我们的本地<code>node_modules</code>，以及后续是如何维护他们之前的关系的？</p>
-<h2 id="node-modules管理"><a href="#node-modules管理" class="headerlink" title="node_modules管理"></a>node_modules管理</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<p>也了解它的版本是如何管理的，但是我们还缺乏对它的核心功能需要了解，具体了解以下几个方面：</p>
+<ul>
+<li><code>npm install xxx</code>， npm如何将远程的npm包下载到我们的本地<code>node_modules</code></li>
+<li><code>npm ls</code>， npm如何如何维护npm包在本地的关系的</li>
+<li><code>npm run xxx</code>，npm如何执行我们的脚本命令</li>
+</ul>
+<p>首先，我们需要知道npm由三部分组成：</p>
+<ul>
+<li>npm包管理网站</li>
+<li>npm-cli，命令行工具</li>
+<li>npm包注册中心，npm registry</li>
+</ul>
+<p>接下来就是注册账号，以及包的发布，其中版本管理这块，是遵循APR版本规范(<code>major.minor.patch</code>版本模型规范)，具体可看这里<a href="https://qborfy.com/today/20230107.html#npm版本" target="_blank" rel="noopener">npm版本管理</a>。</p>
+<h2 id="npm包管理"><a href="#npm包管理" class="headerlink" title="npm包管理"></a>npm包管理</h2><p>目前npm包下载方式分为两种，一种是全局，一种是当前项目，其都会放在<code>node_modules</code>目录下。下面通过以下几方面去讲述npm是如何管理npm包的：</p>
+<ul>
+<li>循环依赖</li>
+<li>版本冲突</li>
+<li>同个版本包收敛</li>
+</ul>
+<p>我们以这个下面这个包管理树为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">foo</span><br><span class="line">+-- blerg@1.2.5</span><br><span class="line">+-- bar@1.2.3</span><br><span class="line">|   +-- blerg@1.x (latest=1.3.7)</span><br><span class="line">|   +-- baz@2.x</span><br><span class="line">|   |   `-- quux@3.x</span><br><span class="line">|   |       `-- bar@1.2.3 (cycle)</span><br><span class="line">|   `-- asdf@*</span><br><span class="line">`-- baz@1.2.3</span><br><span class="line">    `-- quux@3.x</span><br><span class="line">        `-- bar</span><br></pre></td></tr></table></figure>
+
+<p>我们从上面可以看出:</p>
+<ul>
+<li><code>blerg</code> 有两个版本分别是 <code>1.2.5</code> 和 <code>1.x</code>，这是同个次版本的包放在不同地方</li>
+<li><code>bar</code> 版本是<code>1.2.3</code>，但是依赖 <code>blerg</code> 和 <code>baz</code>，但是依赖<code>baz</code>包的版本是<code>2.x</code>，这是版本冲突</li>
+<li><code>baz</code> 版本是<code>1.2.3</code>，，但是所依赖的包中有个依赖<code>bar</code> 这就是循环依赖</li>
+</ul>
+<p>那么npm是如何解决这类问题的呢？npm会将上述包管理树优化成如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">foo</span><br><span class="line">+-- node_modules</span><br><span class="line">    +-- blerg (1.2.5) &lt;---[A]</span><br><span class="line">    +-- bar (1.2.3) &lt;---[B]</span><br><span class="line">    |   +-- node_modules</span><br><span class="line">    |       +-- baz (2.0.2) &lt;---[C]</span><br><span class="line">    +-- asdf (2.3.4)</span><br><span class="line">    +-- baz (1.2.3) &lt;---[D]</span><br><span class="line">    +-- quux (3.2.0) &lt;---[E]</span><br></pre></td></tr></table></figure>
+
+<p>那么npm的遵循策略是什么呢？其实还是APR版本规范(<code>major.minor.patch</code>版本模型规范)。</p>
+<ul>
+<li>第一，会将依赖树打平，从树结构变成一级结构，解决了循环依赖问题</li>
+<li>第二，会将主项目依赖的npm包提到一级，然后对于相同次版本<code>minor</code>中的包统一版本，这就是同个版本包收敛，节省空间</li>
+<li>第三，接着将同一个包，但是不同版本的包一次放到对应依赖包内，形成二级依赖(node_modules)，这就解决了版本冲突</li>
+</ul>
+<p><strong>require加载顺序</strong></p>
+<ul>
+<li>加载核心模块，如：fs、path等</li>
+<li>加上对应文件后缀，优先级为：test.js &gt; test.json &gt; test.node</li>
+<li>搜索路径，如果有指定路径则按照路径去找，如：require(‘./test’) 则在当前目录寻找</li>
+<li>如果没有指定路径，则从当前目录下往上去找 node_modules文件夹，然后从文件夹里去遍历寻找对应模块名，如果找不到则到上一层node_modules去找，直到最顶层目录</li>
+<li>首次会加载比较慢，后面node.js 会将缓存相关信息到内存避免二次查询</li>
+</ul>
+<h2 id="npm-install执行过程"><a href="#npm-install执行过程" class="headerlink" title="npm install执行过程"></a>npm install执行过程</h2>
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/npm-install.drawio&quot;}"></div>
+</div>
+
+
+<h2 id="npm-run执行过程"><a href="#npm-run执行过程" class="headerlink" title="npm run执行过程"></a>npm run执行过程</h2><p>以<code>npm run serve</code>为例，执行过程如下：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/npm-run.drawio&quot;}"></div>
+</div>
+
+
+<h2 id="痛点问题"><a href="#痛点问题" class="headerlink" title="痛点问题"></a>痛点问题</h2><p>npm的管理包已经能解决大部分开发问题了，那么为什么还会有出现<code>yarn</code>和<code>pnpm</code>等新型管理工具，主要npm包存在目前难以解决的痛点问题：</p>
+<ul>
+<li>yarn新增yarn.lock，可以解决npm包版本变动问题，目前已被npm引入特性，生成package-lock.json</li>
+<li>npm包多个项目依赖包一致，但每个项目都需要重新安装，不仅耗时，且占用磁盘空间，这是pnpm解决了的问题</li>
+<li>包经常创建太深的依赖树，这导致 Windows 上的目录路径过长，这是pnpm解决的问题</li>
+<li><a href="https://pnpm.io/zh/blog/2020/05/27/flat-node-modules-is-not-the-only-way" target="_blank" rel="noopener">平铺的结构不是 node_modules 的唯一实现方式</a>，pnpm作者描述：目前node_modules大部分为了解决重复依赖包的问题，把npm依赖树进行打平，这样子会产生一些问题：<ul>
+<li>项目可以访问一些不依赖的npm包</li>
+<li>打平依赖树的算法非常复杂，导致安装时更加慢</li>
+<li>node_modules目录结构十分复杂</li>
+</ul>
+</li>
+</ul>
+<p>这些痛点问题都不是npm和yarn能解决的，因此才会pnpm的出现，接下来我们再了解一下pnpm。</p>
+<h1 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h1><p>官网是这么定义的：</p>
+<blockquote>
+<p>快速的，节省磁盘空间的npm包管理工具</p>
+</blockquote>
+<p>同时还支持以下这些特性：</p>
+<ul>
+<li>快速： 比其他包管理器快 2 倍</li>
+<li>高效：<code>node_modules</code> 中的文件为复制或链接自特定的内容寻址存储库</li>
+<li>支持 <code>monorepos</code>：  内置支持单仓多包</li>
+<li>严格：默认创建了一个非平铺的 node_modules，因此代码无法访问任意包</li>
+</ul>
+<p>这里安装教程就忽略了，推荐的用法是直接使用npm安装全局命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pnpm</span><br></pre></td></tr></table></figure>
+
+<p>其他安装方式可以参考官网教程:<a href="https://pnpm.io/zh/installation" target="_blank" rel="noopener">pnpm 安装</a></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>从作者博客或者github源码，我们可以尝试去推测实现pnpm几个特性所需要关键原理。</p>
+<h3 id="更快速的install"><a href="#更快速的install" class="headerlink" title="更快速的install"></a>更快速的install</h3><p>pnpm为了加快<code>npm install</code>，从以下两个方面进行优化：</p>
+<ul>
+<li>创建一个<code>.pnpm store</code>，除了第一次安装需要按照npm包，后续再次安装，将会创建一个符号链接到npm包</li>
+<li>不打平<code>npm 依赖树</code>，节省复杂依赖树打平时间</li>
+</ul>
+<p>可以参考官网的架构图，去更好了解pnpm针对node_moduels的管理，如下：</p>
+<p><img src="/assets/img/pnmp-node-modules-structure.jpg" alt></p>
+<p>这里有几个设计点需要弄清楚：</p>
+<ol>
+<li>pnpm将所有依赖树的目录，软链接到<code>.pnpm store</code>中对应的npm包</li>
+<li><code>node_moduels</code>将不会有<code>package.json</code>依赖(<code>devDependencies</code>和<code>dependencies</code>)外的npm包</li>
+<li><code>node_moduels</code>的目录结构，和npm依赖树保持一致</li>
+</ol>
+<p>通过上述几个点，pnpm将拥有比<code>yarn</code>和<code>npm</code>更快的install速度。</p>
+<p><strong>额外知识点</strong>：</p>
+<ol>
+<li>Linux文件链接分为软链接和硬链接，两者有什么区别？</li>
+</ol>
+<ul>
+<li>Linux中的符号链接，就是我们平时说的软连接，可以针对文件、目录创建，但是源文件删除后链接不可用，命令:<code>ln -s xxx xxx</code></li>
+<li>Linux中的硬链接，只能针对文件，但是文件删除仍可使用，命令:<code>ln xxx xxx</code></li>
+</ul>
+<ol start="2">
+<li>Windows如何解决符号链接问题？</li>
+</ol>
+<p>pnpm采用<a href="https://learn.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions" target="_blank" rel="noopener">junctions</a>，具体如下：</p>
+<ul>
+<li>Windows的文件系统是基于NTFS架构，本身就支持hard link 、junctions和symbolic links</li>
+<li>Hard Link和Linux中硬链接没什么区别，同样只支持文件类型创建链接，采用函数:<code>CreateHardLinkA</code> <code>DeleteFileA</code></li>
+<li>Junctions是符号链接，也叫软链接，支持文件、目录创建链接，实现：<code>junction 命令行</code></li>
+</ul>
+<h3 id="更安全的install"><a href="#更安全的install" class="headerlink" title="更安全的install"></a>更安全的install</h3><p>我们从上文可以得在Node.js中，<code>require()</code>是如何查询对应npm包，是从<code>node_modules</code>一层层向上查找获取的。</p>
+<p>由于pnpm使用非扁平化的<code>node_modules</code>管理依赖树，因此对于非package.json依赖的npm包，是不会放在项目的<code>node_modules</code>中，从而使得开发者无法获取无依赖的npm包。具体可以参考下图：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/pnpm-safe-npm.drawio&quot;}"></div>
+</div>
+
+
+
+<h2 id="使用可能会遇到的问题"><a href="#使用可能会遇到的问题" class="headerlink" title="使用可能会遇到的问题"></a>使用可能会遇到的问题</h2><p>pnpm官网罗列了一些在使用过程可能会遇到的问题，具体有以下几个方面：</p>
+<h3 id="peer-dependencies-如何解决"><a href="#peer-dependencies-如何解决" class="headerlink" title="peer dependencies 如何解决"></a>peer dependencies 如何解决</h3><h4 id="npm-workplace"><a href="#npm-workplace" class="headerlink" title="npm workplace"></a>npm workplace</h4><p>首先我们需要先了解一下<code>npm workplace</code> 或者 <code>yarn workplace</code>，工作空间的概念。</p>
+<blockquote>
+<p><code>Workspaces</code> 是一个通用术语，指的是 npm cli 中的一组功能，这些功能支持从单个顶级根包中管理本地文件系统中的多个包。<br>这组功能弥补了从本地文件系统处理链接包的更加简化的工作流程。自动链接过程作为 npm install 的一部分，避免手动使用 npm link 来添加对应该符号链接到当前 node_modules 文件夹中的包的引用。</p>
+</blockquote>
+<p>简单的说，<code>npm workplace</code>主要用来解决以下几个问题：</p>
+<ul>
+<li>在同一个git仓库中管理多个npm包</li>
+<li>同时npm包之间可以存在互相依赖</li>
+<li>多个子项目会依赖一些公共的npm包</li>
+<li>减少之前因为<code>npm link</code>管理的混乱</li>
+</ul>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>通过上面<code>npm workplace</code>概念了解，当工作区里有多个子项目需要依赖一些公共的npm包，但是这些公共npm包版本可能大家所需要的都不一样，这个时候就需要<code>peerDependencies</code>去描述依赖和版本。它是这么定义的：</p>
+<blockquote>
+<p>在开发插件时，你的插件需要某些依赖的支持，但是你又没必要去安装，因为插件的宿主回去安装这些依赖。此时就可以用 <code>peerDependencies</code> 去声明一下需要依赖的插件和版本。如果出问题的话，npm 会有警告来提示使用者去解决版本中的冲突。</p>
+</blockquote>
+<p>因此，<code>peerDependencies</code>的目的很清晰，就为了解决workplace下不同子项目中公共依赖包版本问题。</p>
+<p>所以回到<code>pnpm</code>中，由于<code>pnpm</code>是认定项目中只有一组<code>npm</code>依赖树，那么针对workplace中的 <code>peerDependencies</code>，它是如何解决的呢？</p>
+<p><code>pnpm</code>的解决方案是：<strong>为不同的<code>peerDependencies</code> 依赖项创建不同的解析</strong>。</p>
+<p>如何理解这句话呢？参考官网的解释：</p>
+<p>当有两个子项目，他们的依赖分别如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- foo-parent-1</span><br><span class="line">  - bar@1.0.0</span><br><span class="line">  - baz@1.0.0</span><br><span class="line">  - foo@1.0.0</span><br><span class="line">- foo-parent-2</span><br><span class="line">  - bar@1.0.0</span><br><span class="line">  - baz@1.1.0</span><br><span class="line">  - foo@1.0.0</span><br></pre></td></tr></table></figure>
+
+<p><code>foo-parent-2</code>或<code>foo-parent-1</code>公共依赖了<code>baz</code>，但是要求版本不一样，如果这个时候项目中没有声明<code>peerDependencies</code>，<code>.pnpm store</code>中保存的依赖树如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">└── .pnpm</span><br><span class="line">    ├── foo@1.0.0</span><br><span class="line">    ├── bar@1.0.0</span><br><span class="line">    ├── baz@1.0.0</span><br><span class="line">    ├── baz@1.1.0</span><br></pre></td></tr></table></figure>
+
+<p>如果有声明<code>peerDependencies</code>，<code>pnpm</code>会根据不同的<code>peerDependencies</code>创建对应的链接，<code>.pnpm store</code>中保存的依赖树如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">└── .pnpm</span><br><span class="line">    ├── foo@1.0.0_bar@1.0.0+baz@1.0.0 #不同声明peerDependencies所创建的链接目录</span><br><span class="line">    │   └── node_modules</span><br><span class="line">    │       ├── foo</span><br><span class="line">    │       ├── bar   -&gt; ../../bar@1.0.0/node_modules/bar</span><br><span class="line">    │       ├── baz   -&gt; ../../baz@1.0.0/node_modules/baz</span><br><span class="line">    ├── foo@1.0.0_bar@1.0.0+baz@1.1.0   #不同声明peerDependencies所创建的链接目录</span><br><span class="line">    │   └── node_modules</span><br><span class="line">    │       ├── foo</span><br><span class="line">    │       ├── bar   -&gt; ../../bar@1.0.0/node_modules/bar</span><br><span class="line">    │       ├── baz   -&gt; ../../baz@1.1.0/node_modules/baz</span><br><span class="line">    ├── baz@1.0.0</span><br><span class="line">    ├── baz@1.1.0</span><br></pre></td></tr></table></figure>
+
+<p>通过创建不同的<code>peerDependencies</code>的链接，去解决不同子项目中的依赖包版本问题。</p>
+<h3 id="hosited配置"><a href="#hosited配置" class="headerlink" title="hosited配置"></a>hosited配置</h3><p>pnpm从2022年初支持<code>hoisted</code>配置，可以在 <code>.npmrc</code> 文件中使用 <code>node-linker=hoisted</code> 设置。</p>
+<p>新增该设定，是为了基本上使 pnpm 可以兼容所有与 npm CLI 兼容的 Node.js 技术栈。</p>
+<h3 id="删除npm包"><a href="#删除npm包" class="headerlink" title="删除npm包"></a>删除npm包</h3><p>这个是个人的疑问，既然将所有的依赖包统一归置到<code>.pnpm store</code>管理，那么针对一些过期或者无用的npm包什么时候进行删除呢？</p>
+<p>pnpm的给出的方案如下：</p>
+<ul>
+<li>设置npm包的有效期，可以在<code>.npmrc</code>配置中设置<a href="https://pnpm.io/zh/npmrc#modules-cache-max-age" target="_blank" rel="noopener">modules-cache-max-age</a>配置项，单位为：分钟，默认值：10080，7天</li>
+<li><code>pnpm prune</code>， 从存储中删除未引用的包</li>
+</ul>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>官网同时也提出未解决的问题：</p>
+<ul>
+<li>针对<code>package-lock.json</code>等锁文件更新，npm允许每次安装同样版本的npm包可能会更新lock文件，从而更新<code>node_modules</code>文件内容，但是pnpm由于创建隔离布局，无法实时按照<code>package-lock.json</code>的更新而更新，因此pnpm推荐将使用<code>pnpm import</code>命令将<code>package-lock.json</code>等文件转为<code>pnpm-lock.yaml</code></li>
+</ul>
+<p>这个问题就是pnpm没法按照项目现有的<code>package-lock.json</code>去做自动更新，只能通过<code>pnpm import</code>去做转换。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>pnpm</code>确实给前端开发带来一些提醒，让我们关注到平时可能已经习惯的问题，比如<code>npm</code>包管理混乱导致的问题，虽然存在但是我们已经忽略或者已经习惯了。</p>
+<p>总结一下学习<code>pnpm</code>后，在实际项目中引用会给我们带来什么：</p>
+<ul>
+<li>提高我们本地开发效率，毕竟多个前端项目同时在电脑，每次安装或更新都需要等待一段时间</li>
+<li>提高项目的编译速度，利用<code>.pnpm store</code>在编译机上，不用每次都重新安装</li>
+<li>提高项目npm依赖的安全性，清晰明白项目中npm依赖结构，不用担心非法npm包在项目中被开发使用</li>
+</ul>
+<p>这里联想扩展几个问题点：</p>
+<ul>
+<li><p>什么时候node.js才能支持es6的import和export</p>
+</li>
+<li><p>node.js或者浏览器，什么时候才能直接加载远程js包，而不是需要安装到本地才能使用</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1></li>
+<li><p><a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noopener">npm官网</a></p>
+</li>
+<li><p><a href="https://pnpm.io/" target="_blank" rel="noopener">pnpm官网</a></p>
+</li>
+<li><p><a href="https://www.kochan.io/nodejs/why-should-we-use-pnpm.html" target="_blank" rel="noopener">我们为什么要使用 pnpm？</a></p>
+</li>
+<li><p><a href="https://www.imaegoo.com/2021/node-modules-speed-up/" target="_blank" rel="noopener">浅析各家包管理工具是如何解决 npm 安装慢的痛点的</a></p>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -562,7 +757,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">2.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#node-modules管理"><span class="toc-number">2.1.</span> <span class="toc-text">node_modules管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">2.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm包管理"><span class="toc-number">2.1.</span> <span class="toc-text">npm包管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install执行过程"><span class="toc-number">2.2.</span> <span class="toc-text">npm install执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-run执行过程"><span class="toc-number">2.3.</span> <span class="toc-text">npm run执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#痛点问题"><span class="toc-number">2.4.</span> <span class="toc-text">痛点问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pnpm"><span class="toc-number">3.</span> <span class="toc-text">pnpm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">3.1.</span> <span class="toc-text">实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更快速的install"><span class="toc-number">3.1.1.</span> <span class="toc-text">更快速的install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更安全的install"><span class="toc-number">3.1.2.</span> <span class="toc-text">更安全的install</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用可能会遇到的问题"><span class="toc-number">3.2.</span> <span class="toc-text">使用可能会遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#peer-dependencies-如何解决"><span class="toc-number">3.2.1.</span> <span class="toc-text">peer dependencies 如何解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-workplace"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">npm workplace</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#peerDependencies"><span class="toc-number">3.2.2.</span> <span class="toc-text">peerDependencies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hosited配置"><span class="toc-number">3.2.3.</span> <span class="toc-text">hosited配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除npm包"><span class="toc-number">3.2.4.</span> <span class="toc-text">删除npm包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他问题"><span class="toc-number">3.2.5.</span> <span class="toc-text">其他问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
