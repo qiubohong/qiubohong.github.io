@@ -79,7 +79,8 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #f0f0f0;background: url('/img/dribbble-gif-1.gif') no-repeat ; background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -175,7 +176,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #f0f0f0"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -728,6 +729,15 @@
 
 <nav id="article-nav">
   
+    <a href="/study/book-million.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          《百万富翁快车道》，我们应该如何快速转到一百万呢？
+        
+      </div>
+    </a>
+  
   
     <a href="/today/20230218.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">实现一个JS引擎竟如此简单</div>
@@ -771,6 +781,30 @@
 
 
 
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "从pnpm工具了解整个npm包核心管理原理" -->
+  var giteement = new Giteement({
+    id: '20230301180001',
+    owner: 'qborfy',
+    repo: 'qborfy.com',
+    backcall_uri: 'https://qborfy.com',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc',
+      client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
 

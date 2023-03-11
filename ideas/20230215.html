@@ -77,7 +77,8 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #f0f0f0;background: url('/img/dribbble-gif-1.gif') no-repeat ; background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -173,7 +174,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #f0f0f0"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -525,8 +526,8 @@
     </a>
   
   
-    <a href="/translate/nuxt-next-nest-diff.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Next、Nuxt、Nest的区别(翻译)</div>
+    <a href="/translate/use-gpt3-auto-git-commit.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有了GPT-3，再也不用手写commit message(翻译)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -554,6 +555,30 @@
 
 
 
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "数据可视化收集" -->
+  var giteement = new Giteement({
+    id: '20230214215101',
+    owner: 'qborfy',
+    repo: 'qborfy.com',
+    backcall_uri: 'https://qborfy.com',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc',
+      client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
 

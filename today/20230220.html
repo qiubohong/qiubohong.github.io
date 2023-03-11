@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>从Prometheus学会搭建监控系统 | qborfy知识库</title>
+  <title>前端快速入门搭建Prometheus监控系统 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="参考资料Prometheus中文教程">
+  <meta name="description" content="背景最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。 目前市面上主流的监控开源方案选择：  Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统 Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案 LightHouse，专用于前端页面性能监控，">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Prometheus学会搭建监控系统">
+<meta property="og:title" content="前端快速入门搭建Prometheus监控系统">
 <meta property="og:url" content="https://www.qborfy.com/today/20230220.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="参考资料Prometheus中文教程">
+<meta property="og:description" content="背景最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。 目前市面上主流的监控开源方案选择：  Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统 Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案 LightHouse，专用于前端页面性能监控，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-13T14:02:34.662Z">
+<meta property="og:updated_time" content="2023-03-08T08:07:27.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Prometheus学会搭建监控系统">
-<meta name="twitter:description" content="参考资料Prometheus中文教程">
+<meta name="twitter:title" content="前端快速入门搭建Prometheus监控系统">
+<meta name="twitter:description" content="背景最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。 目前市面上主流的监控开源方案选择：  Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统 Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案 LightHouse，专用于前端页面性能监控，">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -77,7 +77,8 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #f0f0f0;background: url('/img/dribbble-gif-1.gif') no-repeat ; background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -173,7 +174,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #f0f0f0"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -314,7 +315,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从Prometheus学会搭建监控系统
+      前端快速入门搭建Prometheus监控系统
       
     </h1>
   
@@ -341,7 +342,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">9字</span>
+      <span class="post-count">347字</span>
     </span>
   </span>
 
@@ -361,7 +362,24 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。</p>
+<p>目前市面上主流的监控开源方案选择：</p>
+<ul>
+<li>Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统</li>
+<li>Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案</li>
+<li>LightHouse，专用于前端页面性能监控，并可以生成对应报告的</li>
+<li>Sentry，提供了检测和解决影响用户体验的错误和其他问题的工具</li>
+</ul>
+<p>其中 Promethues 对比其他方案来说功能更加全面，因为它的生态更加完整，支持各类数据进行上报，对后续整个监控平台有更好的可扩展性。</p>
+<a id="more"></a>
+
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><blockquote>
+<p><a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus</a> 是由 <a href="https://soundcloud.com/" target="_blank" rel="noopener">SoundCloud</a>(一家公司) 开源监控告警解决方案，从 2012 年开始编写代码，再到 2015 年 github 上开源以来，已经吸引了 9k+ 关注，以及很多大公司的使用；2016 年 Prometheus 成为继 k8s 后，第二名 CNCF(Cloud Native Computing Foundation) 成员。</p>
+</blockquote>
+<blockquote>
+<p>作为新一代监控开源解决方案，很多理念与 Google SRE 运维之道不谋而合。—— <a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus官网</a></p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -418,7 +436,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230220.html" title="从Prometheus学会搭建监控系统" target="_blank">https://www.qborfy.com/today/20230220.html</a>
+          <a href="https://www.qborfy.com/today/20230220.html" title="前端快速入门搭建Prometheus监控系统" target="_blank">https://www.qborfy.com/today/20230220.html</a>
         </li>
         
         <li>
@@ -525,7 +543,7 @@
     </a>
   
   
-    <a href="/today/20230229.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/today/20230302.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Jamstack尝鲜体验</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -553,7 +571,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">1.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是什么"><span class="toc-number">2.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -567,6 +585,30 @@
 
 
 
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "前端快速入门搭建Prometheus监控系统" -->
+  var giteement = new Giteement({
+    id: '20230106180001',
+    owner: 'qborfy',
+    repo: 'qborfy.com',
+    backcall_uri: 'https://qborfy.com',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc',
+      client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
 

@@ -1,7 +1,8 @@
 <% var defaultBg = '#4d4d4d'; %>
 <% var defaultBgImg = '/img/biubiubiu.gif'; %>
 <% var overlayBgImg= theme.style.gif && theme.style.gif.enable && theme.style.gif.path ? theme.style.gif.path : defaultBgImg; %>
-<div class="overlay" style="background: <%= theme.style && theme.style.header ? theme.style.header : defaultBg %>;<% if (theme.style.gif && theme.style.gif.enable){ %>background: url('<%- url_for(overlayBgImg) %>') no-repeat ;<%}%>"></div>
+<div class="overlay" style="background: <%= theme.style && theme.style.header ? theme.style.header : defaultBg %>;<% if (theme.style.gif && theme.style.gif.enable){ %>background: url('<%- url_for(overlayBgImg) %>') no-repeat ;<%}%> background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="<%- url_for('/') %>" class="profilepic">

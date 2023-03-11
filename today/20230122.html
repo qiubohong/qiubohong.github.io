@@ -77,7 +77,8 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #f0f0f0;background: url('/img/dribbble-gif-1.gif') no-repeat ; background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -173,7 +174,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #f0f0f0"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -604,11 +605,11 @@
 
 <nav id="article-nav">
   
-    <a href="/share/hexo-search.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/lowcode/index.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo Yilia主题支持搜索功能
+          低代码系列——介绍
         
       </div>
     </a>
@@ -656,6 +657,30 @@
 
 
 
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "从nest.js中了解IoC和DI的实现" -->
+  var giteement = new Giteement({
+    id: '20230122180001',
+    owner: 'qborfy',
+    repo: 'qborfy.com',
+    backcall_uri: 'https://qborfy.com',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc',
+      client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
 

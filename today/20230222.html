@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>如何实现HTTP2.0 | qborfy知识库</title>
+  <title>30分钟搞懂Rollup+Typescript构建工程 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+  <meta name="description" content="背景最近在研究一个ngptcommit命令行工具，然后想通过Rollup+Typescript去编译的时候，发现对Rollup和Typescript的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。 本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。 参考项目地址为:node-gptcommit。">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何实现HTTP2.0">
+<meta property="og:title" content="30分钟搞懂Rollup+Typescript构建工程">
 <meta property="og:url" content="https://www.qborfy.com/today/20230222.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+<meta property="og:description" content="背景最近在研究一个ngptcommit命令行工具，然后想通过Rollup+Typescript去编译的时候，发现对Rollup和Typescript的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。 本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。 参考项目地址为:node-gptcommit。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-14T13:37:49.613Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/rollup-plugin-flow.png">
+<meta property="og:updated_time" content="2023-03-11T17:00:09.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何实现HTTP2.0">
-<meta name="twitter:description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+<meta name="twitter:title" content="30分钟搞懂Rollup+Typescript构建工程">
+<meta name="twitter:description" content="背景最近在研究一个ngptcommit命令行工具，然后想通过Rollup+Typescript去编译的时候，发现对Rollup和Typescript的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。 本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。 参考项目地址为:node-gptcommit。">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/rollup-plugin-flow.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -77,7 +79,8 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #f0f0f0;background: url('/img/dribbble-gif-1.gif') no-repeat ; background-size: 100% auto;background-position: top;">
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -173,7 +176,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #f0f0f0"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -314,7 +317,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      如何实现HTTP2.0
+      30分钟搞懂Rollup+Typescript构建工程
       
     </h1>
   
@@ -328,7 +331,7 @@
         </span>
 
 <a href="/today/20230222.html" class="archive-article-date">
-        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
 </a>
 
   
@@ -341,7 +344,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">22字</span>
+      <span class="post-count">3.5k字</span>
     </span>
   </span>
 
@@ -350,7 +353,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -361,7 +364,231 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
+<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
+<p>参考项目地址为:<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>。</p>
+<a id="more"></a>
+
+<p>为什么不用<code>Webpack</code>和<code>Vite</code>呢？因为这两个对于一个命令行工具来说有点过于重了，有点啥像杀鸡焉用宰牛刀的感觉。</p>
+<h1 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h1><blockquote>
+<p>Rollup是JavaScript模块打包工具，可以将现代化代码编译成更加复杂的代码，如：库或应用。默认使用 JavaScript ES6 修订版中包含的代码模块的新标准化格式，而不是以前的特殊解决方案，如 CommonJS 和 AMD等。 —— <a href="https://rollupjs.org/introduction/" target="_blank" rel="noopener">Rollup 官网</a></p>
+</blockquote>
+<p>了解Rollup的打包核心思想：主要是将代码编译成符合ES模块规范的代码包，当然也可以用其相关的插件实现CommonJS规范。</p>
+<p>接下来我们将通过下面几个步骤去完整了解Rollup：</p>
+<ul>
+<li><p>Rollup组成部分</p>
+</li>
+<li><p>Rollup执行构建原理流程</p>
+</li>
+<li><p>结合Typescript实战</p>
+<h2 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h2><p>一般我们实际使用场景是不会通过命令行去编译某个文件，而是针对整个项目去编译构建，因此一个完整<code>Rollup</code>构建项目主要有以下几个部分组成：</p>
+</li>
+<li><p><code>rollup</code> npm包，用于执行构建命令源头，可以安装本地项目，也可以安装全局命令，但是一般是跟着项目走</p>
+</li>
+<li><p><code>rollup.config.js</code> roll的配置文件，是所有命令的入口，也是学习Rollup的核心基础之一</p>
+</li>
+<li><p>插件部分，rollup有丰富的插件生态，如：Babel 编译代码，运行 JSON 文件等，可以让rollup完成更多复杂构建功能</p>
+</li>
+<li><p>输出插件，在rollup代码分析完成之后，才可以修改代码相关事项</p>
+</li>
+</ul>
+<p>这基本上就是<code>Rollup</code>项目构建所组成的部分了，接下来我们进行一一学习。</p>
+<h3 id="Rollup命令"><a href="#Rollup命令" class="headerlink" title="Rollup命令"></a>Rollup命令</h3><p>在项目中，我们常用的命令有以下几种：</p>
+<ul>
+<li><code>rollup -c</code> 使用配置文件（如果使用参数但是值没有 指定, 默认就是 rollup.config.js）执行构建</li>
+<li><code>rollup -c -w</code> 监听入口文件并在文件改变时重新构建</li>
+<li><code>rollup -c --environment BUILD:production</code> 可以设置环境变量，会设置<code>process.env.BUILD = &#39;production&#39;</code></li>
+</ul>
+<p>通过我们会在<code>package.json</code>中的<code>scripts</code>设置如下命令：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"dev"</span>: <span class="string">"rollup -c -w"</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"rollup -c --environment BUILD:production"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>基本上就已经满足绝大部分项目需求了，如果有些项目需要更多命令配置，可以到官网查看命令行参数:<a href="https://rollupjs.org/command-line-interface/" target="_blank" rel="noopener">Rollup命令行参数说明</a>。</p>
+<h4 id="非命令行使用Rollup"><a href="#非命令行使用Rollup" class="headerlink" title="非命令行使用Rollup"></a>非命令行使用Rollup</h4><p>还有一种<code>Rollup</code>的使用，就是通过代码引用<code>Rollup</code>实现，比如在<code>scripts/build.js</code>，去引用<code>rollup</code>，然后深度参与Rollup构建前后的一些事项，满足项目构建的自定义功能。</p>
+<p>一般代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rollup = <span class="built_in">require</span>(<span class="string">'rollup'</span>);</span><br><span class="line"><span class="comment">// 有关选项的详细信息，请参见下文</span></span><br><span class="line"><span class="keyword">const</span> inputOptions = &#123;...&#125;;</span><br><span class="line"><span class="keyword">const</span> outputOptions = &#123;...&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">build</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建一个 bundle</span></span><br><span class="line">  <span class="keyword">const</span> bundle = <span class="keyword">await</span> rollup.rollup(inputOptions);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(bundle.watchFiles); <span class="comment">// 该 bundle 依赖的文件名数组</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在内存中生成输出特定的代码</span></span><br><span class="line">  <span class="comment">// 您可以在同一个 bundle 对象上多次调用此函数</span></span><br><span class="line">  <span class="keyword">const</span> &#123; output &#125; = <span class="keyword">await</span> bundle.generate(outputOptions);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> chunkOrAsset <span class="keyword">of</span> output) &#123;</span><br><span class="line">    <span class="keyword">if</span> (chunkOrAsset.type === <span class="string">'asset'</span>) &#123;</span><br><span class="line">      <span class="comment">// 对于assets，包含</span></span><br><span class="line">      <span class="comment">// &#123;</span></span><br><span class="line">      <span class="comment">//   fileName: string,              // asset 文件名</span></span><br><span class="line">      <span class="comment">//   source: string | Uint8Array    // asset 资源</span></span><br><span class="line">      <span class="comment">//   type: 'asset'                  // 表示这是一个 asset</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Asset'</span>, chunkOrAsset);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 对于chunks, 包含</span></span><br><span class="line">      <span class="comment">// &#123;</span></span><br><span class="line">      <span class="comment">//   code: string,                  // 生成的JS代码</span></span><br><span class="line">      <span class="comment">//   dynamicImports: string[],      // chunk 动态导入的外部模块</span></span><br><span class="line">      <span class="comment">//   exports: string[],             // 导出的变量名</span></span><br><span class="line">      <span class="comment">//   facadeModuleId: string | null, // 该chunk对应的模块的ID</span></span><br><span class="line">      <span class="comment">//   fileName: string,              // chunk的文件名</span></span><br><span class="line">      <span class="comment">//   imports: string[],             // chunk 静态导入的外部模块</span></span><br><span class="line">      <span class="comment">//   isDynamicEntry: boolean,       // 该 chunk 是否是动态入口点</span></span><br><span class="line">      <span class="comment">//   isEntry: boolean,              // 该 chunk 是否是静态入口点</span></span><br><span class="line">      <span class="comment">//   map: string | null,            // sourcemaps(如果存在)</span></span><br><span class="line">      <span class="comment">//   modules: &#123;                     // 此 chunk 中模块的信息</span></span><br><span class="line">      <span class="comment">//     [id: string]: &#123;</span></span><br><span class="line">      <span class="comment">//       renderedExports: string[]; // 导出的已包含变量名</span></span><br><span class="line">      <span class="comment">//       removedExports: string[];  // 导出的已删除变量名</span></span><br><span class="line">      <span class="comment">//       renderedLength: number;    // 模块中剩余代码的长度</span></span><br><span class="line">      <span class="comment">//       originalLength: number;    // 模块中代码的原始长度</span></span><br><span class="line">      <span class="comment">//     &#125;;</span></span><br><span class="line">      <span class="comment">//   &#125;,</span></span><br><span class="line">      <span class="comment">//   name: string                   // 命名模式中使用的 chunk 的名称</span></span><br><span class="line">      <span class="comment">//   type: 'chunk',                 // 表示这是一个chunk</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Chunk'</span>, chunkOrAsset.modules);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 或者将bundle写入磁盘</span></span><br><span class="line">  <span class="keyword">await</span> bundle.write(outputOptions);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">build();</span><br></pre></td></tr></table></figure>
+
+<p>然后<code>package.json</code>中的<code>scripts</code>设置如下命令：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"node scripts/build.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p><code>rollup.config.js</code>一般会放在项目根目录下，如果放在其他目录下，需要在命令行上指定对应路径，如：<code>rollup -c xxx/rollup.config.js</code>。</p>
+<p>Rollup配置文件中，我们需要关心的配置项主要有以下几个：</p>
+<ul>
+<li><code>input</code> 入口文件，Rollup将从这里去扫描解析代码，生成代码依赖树，支持多个</li>
+<li><code>output</code> 输出配置项，主要是指的Rollup编译输出什么格式的代码，这里涉及多个配置项</li>
+<li><code>plugins</code> 依赖的插件列表，需要哪些插件去扩展Rollup构建能力，不同插件配置内容也不同，后面会讲述常用的几个插件</li>
+<li><code>external</code> 忽略打包模块列表，如：有些公共库，我们不需要构建进来</li>
+<li><code>cache</code> 构建缓存，是否开启构建缓存，提高构建速度，依据配置内容可以才去不同缓存策略</li>
+</ul>
+<p>需要注意的一个点，<code>Rollup</code>是支持多套配置，比如：用来生成<code>umd</code>规范的代码文件用来支持浏览器，再就生成<code>cjs</code>给node使用的js文件。</p>
+<p>针对上面几个常用的配置项，我们来一一分析它们的用法，其他的配置项可以到官网查看:<a href="https://rollupjs.org/configuration-options/" target="_blank" rel="noopener">Rollup完整配置项</a>。</p>
+<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>input最常见的问题就是多个入口文件，毕竟单一入口文件就很简单解决了，那么遇到有多个入口文件的时候，<code>input</code>该如何配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  ...,</span><br><span class="line">  input: &#123;</span><br><span class="line">    a: <span class="string">'src/main-a.js'</span>,</span><br><span class="line">    <span class="string">'b/index'</span>: <span class="string">'src/main-b.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    ...,</span><br><span class="line">    entryFileNames: <span class="string">'entry-[name].js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<ul>
+<li><code>input</code>配置的key值会作为<code>output</code>中配置<code>entryFileNames</code>中<code>name</code>的值</li>
+<li>最终会输出两个文件<code>entry-a.js</code>和<code>entry-b/index.js</code></li>
+</ul>
+<h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><p><code>output</code>相比较<code>input</code>会复杂很多，但是我们所关心的主要配置项如下：</p>
+<ul>
+<li><p><code>output.dir</code>， 构建好的代码文件放d到哪个文件夹中</p>
+</li>
+<li><p><code>output.file</code>，针对单一入口，指定生成的文件名，如：<code>index.esm.js</code> <code>index.cjs.js</code>等</p>
+</li>
+<li><p><code>output.format</code>，按照哪个代码规范去生成，目前主要有：</p>
+<ul>
+<li><code>cjs</code> 为CommonJS规范，适用于 Node 环境和其他打包工具</li>
+<li><code>es</code> 为ES规范，适用于其他打包工具以及支持 <code>&lt;script type=module&gt;</code> 标签的浏览器</li>
+<li><code>umd</code> 通用模块定义，生成的包同时支持 <code>amd</code>、<code>cjs</code> 和 <code>iife</code> 三种格式</li>
+<li>其他有<code>amd</code> <code>iife</code>等</li>
+</ul>
+</li>
+<li><p><code>output.globals</code>，用来忽略打包（umd 或 iife 规范）后的代码的代码依赖，比如：代码中依赖<code>jquery</code>，且<code>jquery</code>在代码使用<code>$</code>标识，则可以配置:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">output:&#123;</span><br><span class="line">    globals: &#123;</span><br><span class="line">        jquery: <span class="string">'$'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>output.name</code>， 以umd 或 iife 规范打包后的代码，需要注册在全局对象中的名字</p>
+</li>
+<li><p><code>output.plugins</code>，针对输出后的代码需要进行插件扩展，如：压缩代码</p>
+</li>
+<li><p><code>output.chunkFileNames</code>，对代码分割中产生的 chunk 文件自定义命名，默认值是：<code>[name]-[hash].js</code></p>
+</li>
+<li><p><code>output.exports</code>，指定导出模式，有几个值：</p>
+<ul>
+<li><code>default</code>，等于最终导出等于<code>export default xxx</code>，这里适用于单个文件入口</li>
+<li><code>named</code>，等于<code>export default {xxx1, xxx2}</code>，适用于多个入口文件</li>
+<li><code>none</code>，没有<code>export</code>，适用于打包web应用，不需要对外抛出对象</li>
+</ul>
+</li>
+<li><p><code>output.externalLiveBindings</code>， 是否给外部依赖生成动态绑定代码，简单的说就是是否需要将外部依赖的npm包通过转义来引入</p>
+</li>
+<li><p><code>output.freeze</code> 指定是否使用 Object.freeze() 冻结动态访问的引入对象的命名空间，禁止修改外部的依赖对象属性</p>
+</li>
+<li><p><code>output.sourcemap</code> 是否生成sourcemap文件</p>
+</li>
+</ul>
+<p>Typescript主要知识点：</p>
+<h3 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h3><p>Rollup plugin有很多，这里我们分成两块去学习，一个是如何配置plugin，另外一个是如何开发一个plugin。</p>
+<h4 id="配置plugin"><a href="#配置plugin" class="headerlink" title="配置plugin"></a>配置plugin</h4><p>这块内容就相对比较简单了，主要在于如何找到适合的plugin，以及它们的配置项是怎么样的。</p>
+<p>第一个问题，到哪里找插件，Rollup官网提供一个地方去找对应plugin，<a href="https://github.com/rollup/awesome" target="_blank" rel="noopener">awesome Rollup插件</a></p>
+<p>第二个文件，如何配置plugin，具体如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> typescript <span class="keyword">from</span> <span class="string">'rollup-plugin-typescript2'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [&#123;</span><br><span class="line">    plugins:[</span><br><span class="line">        typescript()</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="开发plugin"><a href="#开发plugin" class="headerlink" title="开发plugin"></a>开发plugin</h4><p>在官网有详细的教程，这里我们简单学会如何快速完成一个插件。</p>
+<p>首先，我们需要对Rollup执行流程有一个完整的理解，如下图生命周期钩子函数所示：</p>
+<p><img src="/assets/img/rollup-plugin-flow.png" alt></p>
+<p>Rollup对外提供的生命周期钩子函数：</p>
+<ul>
+<li>读取配置项 options</li>
+<li>开始构建 buildStart</li>
+<li>解析代码 resolveId，这里可以自定义一个解析代码器</li>
+<li>加载代码 load</li>
+<li>加载缓存模块 shouldTransformCacheModule</li>
+<li>转义代码中 transform</li>
+<li>将代码解析ES模块化后 modulePared</li>
+<li>解析异步加载，如：import(()=&gt; xxx) resolveDynamicImport</li>
+<li>构建结束 buildEnd</li>
+<li>监听改变中 watchChange</li>
+<li>关闭监听后 closeWatcher</li>
+</ul>
+<p>接下来我们来完成一个插件，就是在代码构建前，将<code>__helloworld__</code>换成<code>&quot;hello qborfy!&quot;</code>，避免代码解析出错，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// replaceHelloWorld.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">replaceHelloWorld</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name: <span class="string">'replace-helloworld'</span>, <span class="comment">// 插件名称</span></span><br><span class="line">        transform ( code, id ) &#123; <span class="comment">// 当进入转换的时候</span></span><br><span class="line">            <span class="keyword">if</span> (id === <span class="string">'replace-helloworld'</span>) &#123;</span><br><span class="line">                <span class="comment">// </span></span><br><span class="line">                code = code.replace(<span class="regexp">/__helloworld__/g</span>, <span class="string">`"hello qborfy!"`</span>)</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    code, </span><br><span class="line">                    map: <span class="literal">null</span>, <span class="comment">// 这里不影响sourcemap生成 具体可以看https://rollupjs.org/plugin-development/#source-code-transformations</span></span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接下来在rollup.config.js中引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> replaceHelloWorld <span class="keyword">from</span> <span class="string">'./replaceHelloWorld.js'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (&#123;</span><br><span class="line">  input: <span class="string">'virtual-module'</span>, <span class="comment">// resolved by our plugin</span></span><br><span class="line">  plugins: [replaceHelloWorld()],</span><br><span class="line">  output: [&#123;</span><br><span class="line">    file: <span class="string">'bundle.js'</span>,</span><br><span class="line">    format: <span class="string">'es'</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>有两种方式去管理插件，一个是在项目直接管理维护，另外一种是通过发布npm包管理，这个取决插件是否有公用性即可。</p>
+<h1 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h1><p>在本文中不讨论Typescript的具体用法，我们将学习如何将Typescript代码转为JavaScript。</p>
+<p>如何将一个Typescript代码转义为JavaScript呢？Typescript本身提供了一个工具<code>typescript</code>，因此我们针对其来学习一番。</p>
+<p>如何使用typescript呢？ 可以到官网<a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank" rel="noopener">TypeScript使用说明文档</a>。</p>
+<p>我们这里简单总结一下，在项目中使用Typescript，构建工具一般有以下几个步骤：</p>
+<ul>
+<li><code>npm install typescript -D</code> 安装Typescript工具</li>
+<li><code>npm install @babel/core -D</code> 结合babel对Typescript进行转义</li>
+<li>配置文件<code>tsconfig.json</code>，配置一些Typescript编译功能</li>
+<li><code>npm install eslint -D</code>，结合<code>eslint</code>对代码语法做检测</li>
+<li>配置文件<code>eslint.json</code>，配置代码检测标准</li>
+</ul>
+<h2 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a>tsconfig.json</h2><p>tsconfig.json一般是放到项目根目录，如果放到其他目录，需要修改对应地址， 配置文件主要几个部分：</p>
+<ul>
+<li><code>compilerOptions</code> 编译时的一些配置内容</li>
+<li><code>watchOptions</code> 当监听文件变化时候需要配置一些内容</li>
+<li><code>include</code> 哪些文件需要编译，如：<code>&quot;include&quot;: [&quot;src/**/*&quot;, &quot;tests/**/*&quot;]</code></li>
+<li><code>exclude</code> 对某些文件进行忽略，不做编译，如：<code>&quot;exclude&quot;: [&quot;src/js/*&quot;]</code></li>
+<li><code>extends</code> 继承其他配置文件，如：<code>&quot;extends&quot;: [&quot;./base.json&quot;]</code></li>
+</ul>
+<p>目前我们主要使用的还是<code>compilerOptions</code>，里面主要的配置项有：</p>
+<ul>
+<li><code>paths</code> 将部分路径进行缩写，比如：<code>&quot;@App/*&quot;: [&quot;src/*&quot;]</code>，后续使用<code>@App</code>，就会解析成<code>src</code></li>
+<li><code>target</code> 代码转义哪个ES标准下，如：ES2017,ES2018,ES2019等</li>
+<li><code>module</code> 代码模块化遵循哪个标准，如：ESNext，CommonJS等</li>
+<li><code>strict</code> 是否使用严格模式检测代码质量</li>
+<li><code>lib</code> 编译的有时候需要依赖一些全局变量，比如：Document对象，这个时候需要设置为<code>DOM</code>，或者使用<code>Map</code>对象，这个时候需要<code>ESNext</code></li>
+<li><code>declaration</code> 是否给每个文件都生成 声明文件<code>.d.ts</code></li>
+<li><code>noImplicitOverride</code> 设置后可以提醒继承类<code>override</code>同名方法时候，需要标注<code>override</code>关键字</li>
+<li><code>noUnusedLocals</code> 不允许有未使用的变量</li>
+<li><code>esModuleInterop</code> 可以修复由于ES规范和其他规范混合使用导致的引用错误</li>
+<li><code>useUnknownInCatchVariables</code> 支持catch中error设置为Unknown类型</li>
+<li><code>resolveJsonModule</code> 支持json文件引入为一个模块</li>
+</ul>
+<p>对<code>Rollup</code>和<code>Typescript</code>都有一定了解后，接下来我们就来实战<code>Rollup</code>+<code>Typescript</code>工程化项目。</p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><ol>
+<li>初始化项目<br>新建一个文件夹<code>demo-rollup</code>，后续命令如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo-rollup</span><br><span class="line"></span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装依赖</li>
+</ol>
+<ul>
+<li>安装rollup相关依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add rollup -D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装Typescript相关依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add typescript tslib -D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装babel</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add @babel/core @babel/preset-env @babel/plugin-proposal-class-properties -D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装rollup相关插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pnpm add @rollup/plugin-babel -D #babel插件</span><br><span class="line">pnpm add @rollup/plugin-commonjs -D #转成commonjs的插件</span><br><span class="line">pnpm add rollup-plugin-typescript2 -D #typescript插件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装其他依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add rimraf -D</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>配置rollup.config.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> typescript <span class="keyword">from</span> <span class="string">'rollup-plugin-typescript2'</span>; <span class="comment">// 处理typescript</span></span><br><span class="line"><span class="keyword">import</span> babel <span class="keyword">from</span> <span class="string">'@rollup/plugin-babel'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">    &#123;</span><br><span class="line">        input: <span class="string">'src/index.ts'</span>,</span><br><span class="line">        plugins: [</span><br><span class="line">            typescript(), <span class="comment">// typescript 转义</span></span><br><span class="line">            babel(&#123;</span><br><span class="line">                babelrc: <span class="literal">false</span>,</span><br><span class="line">                presets: [[<span class="string">'@babel/preset-env'</span>, &#123; <span class="attr">modules</span>: <span class="literal">false</span>, <span class="attr">loose</span>: <span class="literal">true</span> &#125;]],</span><br><span class="line">                plugins: [[<span class="string">'@babel/plugin-proposal-class-properties'</span>, &#123; <span class="attr">loose</span>: <span class="literal">true</span> &#125;]],</span><br><span class="line">                exclude: <span class="string">'node_modules/**'</span>,</span><br><span class="line">            &#125;)</span><br><span class="line">        ],</span><br><span class="line">        output: [</span><br><span class="line">            &#123; <span class="attr">file</span>: <span class="string">'dist/index.js'</span>, <span class="attr">format</span>: <span class="string">'cjs'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">file</span>: <span class="string">'dist/index.esm.js'</span>, <span class="attr">format</span>: <span class="string">'es'</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>配置tsconfig.json</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"include"</span>: [<span class="string">"./src/*"</span>],</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"target"</span>: <span class="string">"ES2019"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"ESNext"</span>,</span><br><span class="line">    <span class="attr">"moduleResolution"</span>: <span class="string">"node"</span>,</span><br><span class="line">    <span class="attr">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"esModuleInterop"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"noImplicitOverride"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"noUnusedLocals"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"resolveJsonModule"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"useUnknownInCatchVariables"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"typeRoots"</span>: [<span class="string">"./types"</span>, <span class="string">"./node_modules/@types"</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"types"</span>: [<span class="string">"jest"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>配置package.json</li>
+</ol>
+<p>添加dev和build命令脚本，如下所示：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  "main": "dist/index.js",</span><br><span class="line">  "type": "module", // rollup新增的配置项</span><br><span class="line">  "scripts": &#123;</span><br><span class="line">    "dev": "rimraf dist &amp;&amp; rollup -c rollup.config.ts -w",</span><br><span class="line">    "build": "rimraf dist &amp;&amp; rollup -c rollup.config.ts"</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>编写demo代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// sum.ts</span><br><span class="line">export default function sum(a: number, b:number)&#123;</span><br><span class="line">  return a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// index.ts</span><br><span class="line">import sum from &apos;./sum&apos;;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>测试运行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pnpm run dev</span><br><span class="line"></span><br><span class="line">pnpm run build</span><br></pre></td></tr></table></figure>
+
+<p>查看生成<code>dist/index.js</code> 和 <code>dist/index.esm.js</code>。</p>
+<p>完整项目源码地址:<a href="https://github.com/qiubohong/qiubohong.github.io/code/demo-rollup" target="_blank" rel="noopener">demo-rollup</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -418,7 +645,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230222.html" title="如何实现HTTP2.0" target="_blank">https://www.qborfy.com/today/20230222.html</a>
+          <a href="https://www.qborfy.com/today/20230222.html" title="30分钟搞懂Rollup+Typescript构建工程" target="_blank">https://www.qborfy.com/today/20230222.html</a>
         </li>
         
         <li>
@@ -515,18 +742,9 @@
 
 <nav id="article-nav">
   
-    <a href="/lowcode/component.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          低代码系列——组件描述DSL
-        
-      </div>
-    </a>
   
-  
-    <a href="/today/20230221.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从Copilot学到了什么</div>
+    <a href="/share/node-modules.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node冷门知识点——require(&#39;node:path&#39;)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -553,7 +771,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rollup"><span class="toc-number">2.</span> <span class="toc-text">Rollup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组成部分"><span class="toc-number">2.1.</span> <span class="toc-text">组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rollup命令"><span class="toc-number">2.1.1.</span> <span class="toc-text">Rollup命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#非命令行使用Rollup"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">非命令行使用Rollup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">2.1.2.</span> <span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">input</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#output"><span class="toc-number">2.1.3.</span> <span class="toc-text">output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plugins"><span class="toc-number">2.1.4.</span> <span class="toc-text">plugins</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置plugin"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">配置plugin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开发plugin"><span class="toc-number">2.1.4.2.</span> <span class="toc-text">开发plugin</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typescript"><span class="toc-number">3.</span> <span class="toc-text">Typescript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tsconfig-json"><span class="toc-number">3.1.</span> <span class="toc-text">tsconfig.json</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战"><span class="toc-number">4.</span> <span class="toc-text">实战</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -567,6 +785,30 @@
 
 
 
+
+
+
+
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "30分钟搞懂Rollup+Typescript构建工程" -->
+  var giteement = new Giteement({
+    id: '20230311180001',
+    owner: 'qborfy',
+    repo: 'qborfy.com',
+    backcall_uri: 'https://qborfy.com',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc',
+      client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
 

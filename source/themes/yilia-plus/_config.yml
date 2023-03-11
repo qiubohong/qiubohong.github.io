@@ -127,18 +127,18 @@ gitment_oauth:
 # 关于如何集成:https://www.jianshu.com/p/f5c4633524c7
 # 基于码云的评论系统(https://gitee.com/zhousiwei/giteement)
 giteement:
-  enable: false  # 是否启用码云评论系统
+  enable: true  # 是否启用码云评论系统
   # 是否使用官方js(false可以提升访问速度)
   remote: false
-  redirect_uri: ''   # 应用回调地址(请和配置的第三方应用保持一致)
+  redirect_uri: 'https://qborfy.com'   # 应用回调地址(请和配置的第三方应用保持一致)
   # 不能更改(网上开源项目`https://github.com/Rob--W/cors-anywhere`作者提供的专门用来跨域服务器的配置)
   oauth_uri: https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token
-  giteeID: ''  # 你的码云账号英文名
+  giteeID: 'qborfy'  # 你的码云账号英文名
   # 存储评论的 repo name(需要在码云仓库创建公开仓库)
-  repo: ''
+  repo: 'qborfy.com'
   gitment_oauth:
-    client_id: ''           #client ID
-    client_secret: ''       #client secret
+    client_id: '33763b96f0efa3bfb193d04ac8fe1724060e346d6d6233b5e9b3dfce2baaadbc'           #client ID
+    client_secret: '0d017aa65325279a125bf171259bccb92fbde972aa465fe105c524bc786677e1'       #client secret
 
 # 访问量统计功能(不蒜子)
 busuanzi:
@@ -247,12 +247,12 @@ live2d:
 style:
   # 头像上面的背景颜色
   # header: '#D3D1DC'
-  header: '#4d4d4d'
+  header: '#f0f0f0'
   gif:
     # 是否启用左侧边栏动态图效果
-    enable: false
+    enable: true
     # 自定义背景图路径(默认可以不设置，提供默认背景图)
-    # path: /img/biubiubiu.gif
+    path: /img/dribbble-gif-1.gif
   # 右滑板块背景
   slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
 
