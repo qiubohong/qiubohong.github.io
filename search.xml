@@ -3646,7 +3646,7 @@ label:has(+input:required)::before{
 </ul>
 <a id="more"></a>
 <p>接下来我们开始动手吧！这里基本前提是你得拥有OpenAI API keys，可以到[OpenAI]。</p>
-<p>首先我们先看看<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>。</p>
+<p>首先我们先来看看<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是做什么的。</p>
 <h1 id="node-gptcommit"><a href="#node-gptcommit" class="headerlink" title="node-gptcommit"></a>node-gptcommit</h1><p><a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是基于<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>实现思路去开发的node版本工具命令，可以根据项目中git的diff文件列表去生成git commit信息。</p>
 <p>具体效果可以参考以下步骤：</p>
 <ol>
@@ -3706,7 +3706,7 @@ label:has(+input:required)::before{
 
 <p>生成猫的图片：</p>
 <div>
-<img src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-E9SU8euUNLTLfVPVcYNnhlpU/user-xtzN20TQfkY6Gse1DTfwzi2p/img-tTzJhNj3pPgtGjZv6I7nAbt2.png?st=2023-03-14T11%3A00%3A52Z&se=2023-03-14T13%3A00%3A52Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-14T10%3A38%3A32Z&ske=2023-03-15T10%3A38%3A32Z&sks=b&skv=2021-08-06&sig=I6BYas7XJLAsQ5uXioj6kbmfDgeJMzY4maoyufJo8Lo%3D" width="200px">
+<img src="/assets/img/20230314.png" width="200px">
 </div>
 
 <p>了解到OpenAI提供了如此多的API，是否可以利用他们来开发一些辅助工具来提升我们开发幸福感呢？</p>
@@ -3722,11 +3722,12 @@ label:has(+input:required)::before{
 
 <h2 id="Node命令行工具"><a href="#Node命令行工具" class="headerlink" title="Node命令行工具"></a>Node命令行工具</h2><p>既然知道了gptcommit实现原理，那么要开发一个node的命令行工具，具体有哪些步骤呢？</p>
 <ol>
-<li><p>在<code>package.json</code>里配置命令行名称<code>bin:xxx</code>:</p>
+<li>在<code>package.json</code>里配置命令行名称<code>bin:xxx</code>:</li>
+</ol>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    "bin": &#123;</span><br><span class="line">        "ngptcommit": "bin/ngptcommit.js"</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>针对命令行工具，node.js要求在文件开头必须表明<code>#!/usr/bin/env node</code>：</p>
-</li>
+
+<ol start="2">
+<li>针对命令行工具，node.js要求在文件开头必须表明<code>#!/usr/bin/env node</code>：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br><span class="line"></span><br><span class="line">import run from &apos;../dist/cli.js&apos;;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
 
