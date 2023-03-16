@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Tag: 技术分享 | qborfy知识库</title>
+  <title>Node冷门知识点—— node.js支持import语法 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/tags/技术分享/index.html">
+  <meta name="description" content="js模块化前端主流模块化规范，目前有以下几种：  CommonJS， Node.js提出的规范 ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范 已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）  因此，主流有两种规范CommonJS和ESM两种规范，但是由于Node.js不支持ESM规范，导致很多时候我们的项目里面并存">
+<meta name="keywords" content="技术分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node冷门知识点—— node.js支持import语法">
+<meta property="og:url" content="https://www.qborfy.com/share/nodejs-module.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="js模块化前端主流模块化规范，目前有以下几种：  CommonJS， Node.js提出的规范 ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范 已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）  因此，主流有两种规范CommonJS和ESM两种规范，但是由于Node.js不支持ESM规范，导致很多时候我们的项目里面并存">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-03-16T13:16:55.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="Node冷门知识点—— node.js支持import语法">
+<meta name="twitter:description" content="js模块化前端主流模块化规范，目前有以下几种：  CommonJS， Node.js提出的规范 ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范 已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）  因此，主流有两种规范CommonJS和ESM两种规范，但是由于Node.js不支持ESM规范，导致很多时候我们的项目里面并存">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -301,44 +303,215 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-share/nodejs-module" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
+    <h1 class="article-title" itemprop="name">
+      Node冷门知识点—— node.js支持import语法
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/share/nodejs-module.html" class="archive-article-date">
         <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
+<ul>
+<li>CommonJS， Node.js提出的规范</li>
+<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
+<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
+</ul>
+<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'loadsh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'loadsh'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
+<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+<a id="more"></a>
+<p>PS: 其实早在Node.js V8.5版本就已经加入该特性了，只不过一直需要通过全局变量<code>–experimental-modules</code>去开启这一特性，由于不稳定性大多数项目都没有开启，不过自从16+后，我们就可以大胆放心在项目中使用了，不过一些古老的项目建议暂时不用开启。</p>
+<h1 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h1><p>我们先从官网上去看相关使用说明：</p>
+<blockquote>
+<p> Node.js 有两个模块规范：<code>CommonJS</code>模块规范 和 <code>ECMAScript</code>模块规范<br>开发者可以通过 <code>.mjs</code> 文件扩展名、<code>package.json</code>中设置<code>type=module</code>或<code>node xxx.js --input-type</code> 标志告诉 Node.js 使用 <code>ECMAScript</code>规范去执行代码。 如果没这些设置，Node.js 将使用 <code>CommonJS</code> 去执行。<a href="https://nodejs.org/docs/latest-v16.x/api/esm.html" target="_blank" rel="noopener">Node.js Modules: ECMAScript modules</a></p>
+</blockquote>
+<p>通过上述我们就可以知道几个使用方式：</p>
+<ol>
+<li>将文件后缀改为<code>.mjs</code>，node.js加载的时候自动会用<code>ESM</code>规范</li>
+<li>在项目中<code>package.json</code>新增配置项<code>&quot;type&quot;:&quot;module&quot;</code>，那么整个项目中的.js文件都会按照<code>ESM</code>规范去执行</li>
+<li>增加执行参数<code>--input-type</code>也可以实现相同效果</li>
+</ol>
+<h2 id="各种使用方式"><a href="#各种使用方式" class="headerlink" title="各种使用方式"></a>各种使用方式</h2><ol>
+<li>常规方式：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">'./Demo.mjs'</span>; <span class="comment">// 绝对路径或相对路径都可以</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> readFile;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> readFile;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>带参数的使用：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于参数不同， 这个会让`foo.mjs`被加载两次，而不会利用缓存中的`foo.mjs`</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./foo.mjs?query=1'</span>; <span class="comment">// loads ./foo.mjs with query of "?query=1"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./foo.mjs?query=2'</span>; <span class="comment">// loads ./foo.mjs with query of "?query=2"</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>支持<code>data:</code>格式URL的形式</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'data:text/javascript,console.log("hello!");'</span>; <span class="comment">// text/javascript 会将后面的内容当成js模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; test &#125; <span class="keyword">from</span> <span class="string">'data:text/javascript,function test()&#123;console.log("test")&#125;;export &#123;test&#125;;'</span>; <span class="comment">// 这里我们是不是扩宽思路，直接加载在线js呢？</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'data:application/json,"world!"'</span> assert &#123; <span class="attr">type</span>: <span class="string">'json'</span> &#125;; <span class="comment">// application/json 则是json</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// application/wasm for Wasm</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>assert断言(实验特性)<br>将文件强制加载为某种格式内容，如：<code>json</code> <code>javascript</code> <code>webassembly</code>等</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fooData <span class="keyword">from</span> <span class="string">'./foo.json'</span> assert &#123; <span class="attr">type</span>: <span class="string">'json'</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>加载commonjs规范模块</li>
+</ol>
+<p>当然肯定也支持加载commonjs规范的模块，用法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> cjs &#125; <span class="keyword">from</span> <span class="string">'cjs'</span>; <span class="comment">// module.exports 导出</span></span><br><span class="line"><span class="keyword">import</span> cjsSugar <span class="keyword">from</span> <span class="string">'cjs'</span>; <span class="comment">// module.exports</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> m <span class="keyword">from</span> <span class="string">'cjs'</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>import() 异步导入<br>这种用法就很正常，不需要实时加载，等到需要用的时候再加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">default</span>: barData &#125; =</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'./bar.json'</span>, &#123; <span class="attr">assert</span>: &#123; <span class="attr">type</span>: <span class="string">'json'</span> &#125; &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持从http/https引入(实验特性)</p>
+</li>
+</ol>
+<p>目前属于实验特性，有限制，比如：</p>
+<ul>
+<li>不支持http2/3协议</li>
+<li>http协议只能用于127.0.0.1等本地ip地址</li>
+<li>Cookie、Authorization等信息不会携带发送</li>
+<li>只会加载执行远端的js文件，而不会加载远端中依赖其他文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> worker_threads <span class="keyword">from</span> <span class="string">'node:worker_threads'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; configure, resize &#125; <span class="keyword">from</span> <span class="string">'https://example.com/imagelib.mjs'</span>;</span><br><span class="line">configure(&#123; worker_threads &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>唯一的限制：当开启ESM规范后，你只允许填写<code>import</code>或<code>export</code>，不允许使用<code>require</code>或<code>module.exports</code>，会报一下错误:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const a  = require('a')</span><br><span class="line">           ^</span><br><span class="line">ReferenceError: require is not defined in ES module scope, you can use import instead</span><br><span class="line">    at file:///Users/borfyqiu/Desktop/study/github/qiubohong.github.io/code/demo-rollup/test.mjs:4:12</span><br><span class="line">    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)</span><br><span class="line">    at async Promise.all (index 0)</span><br><span class="line">    at async ESMLoader.import (node:internal/modules/esm/loader:530:24)</span><br><span class="line">    at async loadESM (node:internal/process/esm_loader:91:5)</span><br><span class="line">    at async handleMainPromise (node:internal/modules/run_main:65:12)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>其实这个也不算是冷门知识，只要稍微对Node.js有做持续关注，基本上都可以了解到该特性。</p>
+<p>但是作为不关注的人，很容易就陷入自己的知识误区，会一直认为Node.js不支持ESM规范，甚至会吐槽Node.js为什么不支持呢？</p>
+<p>所以这里有一句话需要提醒自己—— 【书山无路勤为径，学海无涯苦作舟】。</p>
+<blockquote>
+<p>做一个有温度的技术分享作家 —— qborfy</p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://nodejs.org/docs/latest-v16.x/api/esm.html" target="_blank" rel="noopener">Node ESM官方说明文档</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/share/nodejs-module.html" target="_blank">
-      Node冷门知识点—— node.js支持import语法
-      
-    </a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/share/nodejs-module.html" title="Node冷门知识点—— node.js支持import语法" target="_blank">https://www.qborfy.com/share/nodejs-module.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -350,373 +523,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/share/nodejs-module.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230221.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230221.html" target="_blank">
-      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
-      
+  
+    <a href="/study/book-million.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《百万富翁快车道》，我们应该如何快速转到一百万呢？</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230222.html" class="archive-article-date">
-        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230222.html" target="_blank">
-      30分钟搞懂Rollup+Typescript构建工程
-      
-    </a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/share/node-modules.html" class="archive-article-date">
-        <time datetime="2023-03-09T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/share/node-modules.html" target="_blank">
-      Node冷门知识点——require(&#39;node:path&#39;)
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230219.html" class="archive-article-date">
-        <time datetime="2023-03-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230219.html" target="_blank">
-      从pnpm工具了解整个npm包核心管理原理
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230218.html" class="archive-article-date">
-        <time datetime="2023-02-27T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230218.html" target="_blank">
-      实现一个JS引擎竟如此简单
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/frontend-microapp-1.html" class="archive-article-date">
-        <time datetime="2023-02-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/frontend-microapp-1.html" target="_blank">
-      前端架构成长之路——微前端架构理论篇
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230216.html" class="archive-article-date">
-        <time datetime="2023-02-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230216.html" target="_blank">
-      可以从ChatGPT学到什么(一)
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/技术分享/page/2/">2</a><a class="page-number" href="/tags/技术分享/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/tags/技术分享/page/6/">6</a><a class="extend next" rel="next" href="/tags/技术分享/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -761,9 +668,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
