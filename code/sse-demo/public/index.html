@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Demo测试</title>
+</head>
+<body>
+    <h3>SSE返回内容</h3>
+    <div id="app"></div>
+    <script>
+        const eventSource = new EventSource('http://localhost:3000/sse');
+        eventSource.onmessage = (event) => {
+            document.getElementById('app').innerHTML = document.getElementById('app').innerHTML + `<p>${event.data}</p>`;
+        }
+        eventSource2 = new EventSource('http://localhost:3000/sse');
+        eventSource3 = new EventSource('http://localhost:3000/sse');
+        eventSource4 = new EventSource('http://localhost:3000/sse');
+        eventSource5 = new EventSource('http://localhost:3000/sse');
+        eventSource6 = new EventSource('http://localhost:3000/sse');
+        eventSource7 = new EventSource('http://localhost:3000/sse');
+        eventSource8 = new EventSource('http://localhost:3000/sse');
+        eventSource9 = new EventSource('http://localhost:3000/sse');
+        eventSource10 = new EventSource('http://localhost:3000/sse');
+    </script>
+</body>
+</html>
