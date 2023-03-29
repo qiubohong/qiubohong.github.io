@@ -531,6 +531,116 @@
     height:800px
   }
   </style>
+<article id="post-today/20230225" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230225.html" target="_blank">
+      MonoRepo实战：pnpm+nx搭建MonoRepo项目
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230225.html" class="archive-article-date">
+        <time datetime="2023-03-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="MonoRepo实战：pnpm-nx搭建MonoRepo项目"><a href="#MonoRepo实战：pnpm-nx搭建MonoRepo项目" class="headerlink" title="MonoRepo实战：pnpm+nx搭建MonoRepo项目"></a>MonoRepo实战：pnpm+nx搭建MonoRepo项目</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前有写过几篇关于monorepo的文章，具体如下：</p>
+<ul>
+<li><a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">从npm版本依赖到Monorepo大仓项目</a></li>
+<li><a href="https://qborfy.com/today/20230119.html" target="_blank" rel="noopener">从lerna到初步了解和使用Nx(一)</a></li>
+<li><a href="https://qborfy.com/today/20230219.html" target="_blank" rel="noopener">从pnpm工具了解整个npm包核心管理原理</a></li>
+</ul>
+<p>再次复习一下<code>MonoRepo</code>的概念：</p>
+<blockquote>
+<p>Monorepo是包含多个不同项目的单一存储库，且不同项目之间具有明确定义的关系。</p>
+</blockquote>
+<p>之前大多数是理论知识，能让我们知道<code>pnpm</code> 和<code>nx</code> 是什么，但是具体要到项目实战就有点懵，不知道从而下手，下面我们就一步步开始搭建<code>pnpm</code>+<code>nx</code>的Monorepo仓库。</p>
+<p>PS：这里将会从已有项目中去开始踩坑，这里用的是之前做一个<a href="https://github.com/qiubohong/node-gptcommit.git" target="_blank" rel="noopener">node-gptcommit</a>命令行工具+一个chrome插件，将两个项目放到一个Monorepo仓库去管理。 </p>
+    
+    <a class="article-more-a" href="/today/20230225.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230225.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1228,105 +1338,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/node-modules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/node-modules.html" target="_blank">
-      Node冷门知识点——require(&#39;node:path&#39;)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/node-modules.html" class="archive-article-date">
-        <time datetime="2023-03-09T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天在看Vite的源码时候，发现有个用法很神奇，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">'node:path'</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">'node:url'</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">'node:fs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="built_in">JSON</span>.parse(</span><br><span class="line">  readFileSync(<span class="keyword">new</span> URL(<span class="string">'../../package.json'</span>, <span class="keyword">import</span>.meta.url)).toString(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>源码地址在:<a href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts" target="_blank" rel="noopener">vite/src/node/cli.ts</a></p>
-<p>因此想要研究一下为什么要用<code>node:path</code>，而不是直接应用 <code>import path from &#39;path&#39;</code>呢？下面就来好好分析一下。</p>
-    
-    <a class="article-more-a" href="/share/node-modules.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/node-modules.html">展开全文 >></a>
     </p>
     
 
