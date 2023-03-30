@@ -4452,9 +4452,72 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>微前端系列——结合Monorepo大仓架构实战</title>
+    <title>Typescript基础：如何更好的生成Typescript声明文件.d.ts</title>
     <url>/today/20230226.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Typescript已经被前端广泛使用，如果你的项目还没有使用，建议赶紧使用起来，真的会对你的项目有足够的提升：</p>
+<ul>
+<li>让你的每个变量都有变量声明</li>
+<li>让你的每个方法找到其源头</li>
+<li>让你能提前使用一些超前的JavaScript语法，如：注解(装饰器)<code>@controller</code> 等语法糖</li>
+</ul>
+<p>但是使用的过程也会带来一些痛苦，比如你要做一个js lib库，如果用<code>Typescript</code> 开发确实可以帮助其他者快速使用，但是如果你没有注意Typescript的声明文件规范，很容易出现以下使用情况：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 会直接从src目录去寻找</span></span><br><span class="line"><span class="keyword">import</span> &#123; IClient &#125; <span class="keyword">from</span> <span class="string">'xxx-lib/src/client.d.ts'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 而我们所期待的使用是</span></span><br><span class="line"><span class="keyword">import</span> &#123; IClient&#125; <span class="keyword">from</span> <span class="string">'xxx-lib'</span></span><br></pre></td></tr></table></figure>
+
+<p>所以我们需要学习一下，如何更好的生成我们的Typescript声明文件。</p>
+<a id="more"></a>
+
+<h1 id="Typescript声明文件"><a href="#Typescript声明文件" class="headerlink" title="Typescript声明文件"></a>Typescript声明文件</h1><blockquote>
+<p>声明文件：当使用第三方库时，我们需要引用它的声明文件，才能获得对应的代码补全、接口提示等功能。</p>
+</blockquote>
+<p>从官网定义而言，<code>声明文件.d.ts</code>就是用来给IDE编辑器解析<code>Typescript</code>代码声明的地方。</p>
+<h2 id="学习声明"><a href="#学习声明" class="headerlink" title="学习声明"></a>学习声明</h2><p>目前Typescript提供各种类型，我们常用的有以下几种：</p>
+<ul>
+<li><code>declare var</code> 声明全局变量，如：<code>declare var jQuery: (selector: string) =&gt; any;</code> ，我们就可以在全局中使用<code>jQuery</code> 变量而不会报错</li>
+<li><code>declare function</code> 声明全局方法</li>
+<li><code>declare class</code> 声明全局类</li>
+<li><code>declare enum</code> 声明全局枚举类型</li>
+<li><code>declare namespace</code> 声明（含有子属性的）全局对象</li>
+<li><code>interface</code> 和 <code>type</code> 声明全局类型</li>
+</ul>
+<p>其中，<code>declare</code>基本上都根据<code>Typescript</code> 中会自动生成，而<code>interface</code>和<code>type</code>则需要我们自己声明，自己使用。</p>
+<h2 id="生成声明文件"><a href="#生成声明文件" class="headerlink" title="生成声明文件"></a>生成声明文件</h2><p>当你完成一个lib库开发，这个时候需要对外提供你声明文件，如：<code>import foo from &#39;foo&#39;</code></p>
+<p>如果你需要对自己的<code>npm包</code>制作声明文件，具体有以下几个步骤：</p>
+<ol>
+<li>在<code>package.json</code>中的<code>types</code>和<code>typings</code> ，如：<code>&quot;types&quot;:&quot;dist/typings/index.d.ts&quot;</code></li>
+<li>在项目根目录创建<code>typings</code> ，新建一个<code>index.d.ts</code> 用来暴露你lib库相关的声明</li>
+<li>在<code>typescript.json</code>配置文件中，添加入口，如：<code>&quot;includes&quot;:[&quot;./typings/index.d.ts&quot;]</code></li>
+</ol>
+<p><strong>PS:</strong> <code>types</code>和<code>typings</code> 两者在package.json具有相同意义</p>
+<p><code>package.json</code>示例如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/git-utils"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"关于git的一些工具函数"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"dist/index.js"</span>,</span><br><span class="line">  <span class="attr">"types"</span>: <span class="string">"./dist/typings/index.d.ts"</span>,</span><br><span class="line">  <span class="attr">"typings"</span>: <span class="string">"./dist/typings/index.d.ts"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"tsc -p tsconfig.release.json --outDir dist &amp;&amp; cp -r typings dist"</span></span><br><span class="line">  &#125;,</span><br><span class="line">	<span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">		<span class="attr">"@types/node"</span>: <span class="string">"^16"</span>,</span><br><span class="line">		<span class="attr">"tslib"</span>: <span class="string">"^2.2.0"</span>,</span><br><span class="line">		<span class="attr">"typescript"</span>: <span class="string">"^4.7.2"</span></span><br><span class="line">	&#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"simple-git"</span>: <span class="string">"^3.17.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"qborfy"</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"MIT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>typescript.json</code> 示例如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"include"</span>: [</span><br><span class="line">    <span class="string">"src/*"</span>,</span><br><span class="line">    <span class="string">"typings/index.d.ts"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"baseUrl"</span>: <span class="string">"."</span>,</span><br><span class="line">    <span class="attr">"rootDir"</span>: <span class="string">"."</span>,</span><br><span class="line">    <span class="attr">"target"</span>: <span class="string">"ES2019"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"ESNext"</span>,</span><br><span class="line">    <span class="attr">"moduleResolution"</span>: <span class="string">"node"</span>,</span><br><span class="line">    <span class="attr">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"esModuleInterop"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"noImplicitOverride"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"noUnusedLocals"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"useUnknownInCatchVariables"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"declaration"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"declarationDir"</span>: <span class="string">"dist"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"exclude"</span>: [<span class="string">"node_modules"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="index-d-ts实现"><a href="#index-d-ts实现" class="headerlink" title="index.d.ts实现"></a>index.d.ts实现</h2><p>前面基本知道Typescript声明和如何在package.json标注好当前npm包会使用哪个声明文件，那么接下来，我们应该如何一个index.d.ts，主要靠以下几个：</p>
+<ul>
+<li><code>export</code> 导出变量</li>
+<li><code>export namespace</code> 导出（含有子属性的）对象</li>
+<li><code>export default</code> ES6 默认导出</li>
+<li><code>export =</code> commonjs 导出模块</li>
+</ul>
+<p><strong>PS:</strong> 只有只有 <code>function</code>、<code>class</code>和 <code>interface</code> 支持<code>export default</code> </p>
+<p><code>index.d.ts</code>示范：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// index.d.ts</span><br><span class="line">// 将src中的声明文件引入过来</span><br><span class="line">export * from &apos;../src/index&apos;;</span><br><span class="line"></span><br><span class="line">// 导出声明的函数</span><br><span class="line">export declare function bar(): string;</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>demo.js</code>示范：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//demo.js</span><br><span class="line">// 使用就如下 bar就是一个函数</span><br><span class="line">import &#123; bar &#125; from &apos;libs&apos;</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发布声明文件一般有两种做法：</p>
+<ul>
+<li>一种是发布到<code>@types/xxx</code> ，在<code>types</code>目录下新建一个<code>package.json</code>去维护，不推荐</li>
+<li>另外一种是和<code>npm包</code>一起发布，目前基本上大多数都采用这种，本文也使用采用这种</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html" target="_blank" rel="noopener">《Typescript官网：声明文件》</a></li>
+<li><a href="https://ts.xcatliu.com/basics/declaration-files.html" target="_blank" rel="noopener">《Typescript中文教程》</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
@@ -5451,7 +5514,7 @@ label:has(+input:required)::before{
 </ul>
 </li>
 <li>影响力规律：为了赚百万美元，你必须影响百万人</li>
-<li>快车道的5条戒律，你需要经常用这几条戒律检查自身：<ul>
+<li>快车道创业的5条戒律，你需要经常用这几条戒律检查自身：<ul>
 <li>需求戒律</li>
 <li>进入戒律</li>
 <li>控制戒律</li>
@@ -5511,7 +5574,13 @@ label:has(+input:required)::before{
 <li>表达的是，如果我们的人生没有任何目标，或者做某件事没有任何目标，那么无论你怎么做，都是会走向失败的。</li>
 </ul>
 </li>
+<li>进入戒律，第一条，记住进入任何领域都有壁垒，当领域竞争激烈那么致富效果就会减弱，同时如果壁垒够高，那么该领域可以走得更远更强大</li>
+<li>低壁垒的行业，往往赚不到钱，如果想要赚到钱，就必须成为第一名</li>
+<li>如何判断是否符合进入戒律：<ul>
+<li>你所做的生意是不是一个过程，而不是一个结果，如：你购买一套电商平台，这是结果，以为可以开启电商但是却不是，真正电商是需要你去确定货源、用户群、购买意愿、售后等一系列过程</li>
 <li></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -6030,6 +6099,15 @@ label:has(+input:required)::before{
       <tags>
         <tag>技术分享</tag>
         <tag>低代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微前端系列——结合Monorepo大仓架构实战</title>
+    <url>/today/20230306.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
       </tags>
   </entry>
   <entry>

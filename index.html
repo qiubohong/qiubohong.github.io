@@ -531,6 +531,114 @@
     height:800px
   }
   </style>
+<article id="post-today/20230226" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230226.html" target="_blank">
+      Typescript基础：如何更好的生成Typescript声明文件.d.ts
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230226.html" class="archive-article-date">
+        <time datetime="2023-03-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Typescript已经被前端广泛使用，如果你的项目还没有使用，建议赶紧使用起来，真的会对你的项目有足够的提升：</p>
+<ul>
+<li>让你的每个变量都有变量声明</li>
+<li>让你的每个方法找到其源头</li>
+<li>让你能提前使用一些超前的JavaScript语法，如：注解(装饰器)<code>@controller</code> 等语法糖</li>
+</ul>
+<p>但是使用的过程也会带来一些痛苦，比如你要做一个js lib库，如果用<code>Typescript</code> 开发确实可以帮助其他者快速使用，但是如果你没有注意Typescript的声明文件规范，很容易出现以下使用情况：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会直接从src目录去寻找</span></span><br><span class="line"><span class="keyword">import</span> &#123; IClient &#125; <span class="keyword">from</span> <span class="string">'xxx-lib/src/client.d.ts'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 而我们所期待的使用是</span></span><br><span class="line"><span class="keyword">import</span> &#123; IClient&#125; <span class="keyword">from</span> <span class="string">'xxx-lib'</span></span><br></pre></td></tr></table></figure>
+
+<p>所以我们需要学习一下，如何更好的生成我们的Typescript声明文件。</p>
+    
+    <a class="article-more-a" href="/today/20230226.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230226.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230225" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1055,111 +1163,6 @@
     height:800px
   }
   </style>
-<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230221.html" target="_blank">
-      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230221.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
-<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
-<ul>
-<li>OpenAI提供了哪些模型算法</li>
-<li>不同模型算法分别可以应用到哪些场景</li>
-<li>真正调用OpenAI需要注意哪些事项</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
 <article id="post-ideas/20230312" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1271,7 +1274,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1279,8 +1282,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230222.html" target="_blank">
-      30分钟搞懂Rollup+Typescript构建工程
+	  <a class="article-title" href="/today/20230221.html" target="_blank">
+      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
       
     </a>
   
@@ -1290,8 +1293,8 @@
 
   
   
-<a href="/today/20230222.html" class="archive-article-date">
-        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
+<a href="/today/20230221.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
 </a>
 
   
@@ -1303,11 +1306,15 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
-<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
-<p>参考项目地址为:<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+<ul>
+<li>OpenAI提供了哪些模型算法</li>
+<li>不同模型算法分别可以应用到哪些场景</li>
+<li>真正调用OpenAI需要注意哪些事项</li>
+</ul>
     
-    <a class="article-more-a" href="/today/20230222.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
     
     
     
@@ -1337,7 +1344,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
     </p>
     
 
@@ -1392,7 +1399,7 @@
   </div>
 
   <div>
-	<a href="http://www.miitbeian.gov.cn/">粤ICP备2023003460号</a> 
+	<a href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   
