@@ -6596,7 +6596,9 @@ label:has(+input:required)::before{
 <li>解答一些人生疑惑</li>
 <li>提高自己的做事效率</li>
 <li>提高自己的表达能力或演讲能力</li>
-<li>搭建自己的股市交易系统</li>
+<li>搭建自己的股市交易系统<a id="more"></a>
+
+</li>
 </ul>
 <h2 id="个人发展"><a href="#个人发展" class="headerlink" title="个人发展"></a>个人发展</h2><ul>
 <li>已读<ul>
