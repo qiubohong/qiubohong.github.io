@@ -10,19 +10,19 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
+  <meta name="description" content="背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + background.js ，只需要在开发的时候调整一下构建脚本基">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何用vite+vue-next快速开发chrome插件">
 <meta property="og:url" content="https://www.qborfy.com/today/20230227.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
+<meta property="og:description" content="背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + background.js ，只需要在开发的时候调整一下构建脚本基">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230227.png">
-<meta property="og:updated_time" content="2023-04-06T15:03:01.629Z">
+<meta property="og:updated_time" content="2023-04-06T15:14:06.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用vite+vue-next快速开发chrome插件">
-<meta name="twitter:description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
+<meta name="twitter:description" content="背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + background.js ，只需要在开发的时候调整一下构建脚本基">
 <meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230227.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
@@ -364,7 +364,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="如何用vite-vue-next快速开发chrome插件"><a href="#如何用vite-vue-next快速开发chrome插件" class="headerlink" title="如何用vite+vue-next快速开发chrome插件"></a>如何用vite+vue-next快速开发chrome插件</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
 <p>目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分<code>popup.html</code> + <code>contentscript</code> + <code>background.js</code> ，只需要在开发的时候调整一下构建脚本基本上就可以利用Vue、React等现代框架去开发了。</p>
 <p>接下来，我们就一步步开始实战。</p>
 <a id="more"></a>
@@ -419,7 +419,7 @@
 </ol>
 <p><img src="/assets/img/20230227.png" alt="20230227"></p>
 <p>解决方案很简单，就是利用rollupOptions设置输出文件不带hash值即可。</p>
-<ol>
+<ol start="2">
 <li>没法实时调试插件，每次都需要<code>build</code>后才能去调试，这里需要更改构建方式，因为我们build出来的页面才是我们需要的，所以我们需要在<code>build</code>时候增加<code>--watch</code>，然后真正发布构建的时候关闭<code>watch</code>，调整后，<code>package.json</code>内容如下：</li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"vue-tsc &amp;&amp; vite build --watch"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"rimraf dist &amp;&amp; vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -613,7 +613,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何用vite-vue-next快速开发chrome插件"><span class="toc-number">1.</span> <span class="toc-text">如何用vite+vue-next快速开发chrome插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建"><span class="toc-number">3.</span> <span class="toc-text">项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">3.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调整编译"><span class="toc-number">3.2.</span> <span class="toc-text">调整编译</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目开发"><span class="toc-number">4.</span> <span class="toc-text">项目开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UI开发"><span class="toc-number">4.1.</span> <span class="toc-text">UI开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写background-ts"><span class="toc-number">4.2.</span> <span class="toc-text">编写background.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">4.3.</span> <span class="toc-text">调试</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建"><span class="toc-number">2.</span> <span class="toc-text">项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调整编译"><span class="toc-number">2.2.</span> <span class="toc-text">调整编译</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目开发"><span class="toc-number">3.</span> <span class="toc-text">项目开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UI开发"><span class="toc-number">3.1.</span> <span class="toc-text">UI开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写background-ts"><span class="toc-number">3.2.</span> <span class="toc-text">编写background.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">3.3.</span> <span class="toc-text">调试</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

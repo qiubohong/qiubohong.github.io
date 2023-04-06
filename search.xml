@@ -4526,7 +4526,7 @@ label:has(+input:required)::before{
   <entry>
     <title>如何用vite+vue-next快速开发chrome插件</title>
     <url>/today/20230227.html</url>
-    <content><![CDATA[<h1 id="如何用vite-vue-next快速开发chrome插件"><a href="#如何用vite-vue-next快速开发chrome插件" class="headerlink" title="如何用vite+vue-next快速开发chrome插件"></a>如何用vite+vue-next快速开发chrome插件</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
 <p>目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分<code>popup.html</code> + <code>contentscript</code> + <code>background.js</code> ，只需要在开发的时候调整一下构建脚本基本上就可以利用Vue、React等现代框架去开发了。</p>
 <p>接下来，我们就一步步开始实战。</p>
 <a id="more"></a>
@@ -4581,7 +4581,7 @@ label:has(+input:required)::before{
 </ol>
 <p><img src="/assets/img/20230227.png" alt="20230227"></p>
 <p>解决方案很简单，就是利用rollupOptions设置输出文件不带hash值即可。</p>
-<ol>
+<ol start="2">
 <li>没法实时调试插件，每次都需要<code>build</code>后才能去调试，这里需要更改构建方式，因为我们build出来的页面才是我们需要的，所以我们需要在<code>build</code>时候增加<code>--watch</code>，然后真正发布构建的时候关闭<code>watch</code>，调整后，<code>package.json</code>内容如下：</li>
 </ol>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"vue-tsc &amp;&amp; vite build --watch"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"rimraf dist &amp;&amp; vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
