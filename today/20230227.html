@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Svelte尝鲜体验 | qborfy知识库</title>
+  <title>如何用vite+vue-next快速开发chrome插件 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="参考资料">
+  <meta name="description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Svelte尝鲜体验">
+<meta property="og:title" content="如何用vite+vue-next快速开发chrome插件">
 <meta property="og:url" content="https://www.qborfy.com/today/20230227.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="参考资料">
+<meta property="og:description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-26T13:45:26.324Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230227.png">
+<meta property="og:updated_time" content="2023-04-06T15:03:01.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Svelte尝鲜体验">
-<meta name="twitter:description" content="参考资料">
+<meta name="twitter:title" content="如何用vite+vue-next快速开发chrome插件">
+<meta name="twitter:description" content="如何用vite+vue-next快速开发chrome插件背景之前写过一篇文章《从开发chrome插件到插件系统设计》，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。 目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分popup.html + contentscript + backg">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230227.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -315,7 +317,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Svelte尝鲜体验
+      如何用vite+vue-next快速开发chrome插件
       
     </h1>
   
@@ -329,7 +331,7 @@
         </span>
 
 <a href="/today/20230227.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+        <time datetime="2023-04-06T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
 </a>
 
   
@@ -342,7 +344,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -351,7 +353,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -362,7 +364,74 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="如何用vite-vue-next快速开发chrome插件"><a href="#如何用vite-vue-next快速开发chrome插件" class="headerlink" title="如何用vite+vue-next快速开发chrome插件"></a>如何用vite+vue-next快速开发chrome插件</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
+<p>目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分<code>popup.html</code> + <code>contentscript</code> + <code>background.js</code> ，只需要在开发的时候调整一下构建脚本基本上就可以利用Vue、React等现代框架去开发了。</p>
+<p>接下来，我们就一步步开始实战。</p>
+<a id="more"></a>
+
+<h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>利用<code>vite</code>初始化项目命令快速搭建，具体如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pnpm create vite</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在public目录下新建manifest.json</li>
+</ol>
+<p>内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"ngptcommit"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"ngptcommit自动生成git commit信息"</span>,</span><br><span class="line">    <span class="attr">"manifest_version"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"browser_action"</span>: &#123;</span><br><span class="line">        <span class="attr">"default_popup"</span>: <span class="string">"index.html"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"icons"</span>: &#123;</span><br><span class="line">        <span class="attr">"16"</span>: <span class="string">"images/favicon-16x16.png"</span>,</span><br><span class="line">        <span class="attr">"48"</span>: <span class="string">"images/favicon-32x32.png"</span>,</span><br><span class="line">        <span class="attr">"64"</span>: <span class="string">"images/android-chrome-192x192.png"</span>,</span><br><span class="line">        <span class="attr">"128"</span>: <span class="string">"images/android-chrome-192x192.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"background"</span>: &#123;</span><br><span class="line">        <span class="attr">"scripts"</span>: [</span><br><span class="line">            <span class="string">"background/background.js"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"permissions"</span>: [</span><br><span class="line">        <span class="string">"tabs"</span>,</span><br><span class="line">        <span class="string">"storage"</span>,</span><br><span class="line">        <span class="string">"http://*/*"</span>,</span><br><span class="line">        <span class="string">"https://*/*"</span>,</span><br><span class="line">        <span class="string">"activeTab"</span>,</span><br><span class="line">        <span class="string">"contextMenus"</span>,</span><br><span class="line">        <span class="string">"notifications"</span>,</span><br><span class="line">        <span class="string">"webRequest"</span>,</span><br><span class="line">        <span class="string">"webRequestBlocking"</span>,</span><br><span class="line">        <span class="string">"cookies"</span>,</span><br><span class="line">        <span class="string">"unlimitedStorage"</span>,</span><br><span class="line">        <span class="string">"webNavigation"</span>,</span><br><span class="line">        <span class="string">"identity"</span>,</span><br><span class="line">        <span class="string">"identity.email"</span>,</span><br><span class="line">        <span class="string">"identity.read"</span>,</span><br><span class="line">        <span class="string">"identity.write"</span>,</span><br><span class="line">        <span class="string">"identity.launch.webauthn"</span>,</span><br><span class="line">        <span class="string">"identity.launch.webauthn"</span>,</span><br><span class="line">        <span class="string">"identity.manage.accounts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新增插件必须的文件，如：<code>manifest.json</code>和 <code>background.ts</code> ，完整目录结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chrome-extension</span><br><span class="line">├── README.md</span><br><span class="line">├── index.html</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">|  ├── images</span><br><span class="line">|  └── manifest.json</span><br><span class="line">├── src</span><br><span class="line">|  ├── App.vue</span><br><span class="line">|  ├── background.ts</span><br><span class="line">|  ├── components</span><br><span class="line">|  ├── main.ts</span><br><span class="line">|  ├── style.css</span><br><span class="line">|  └── vite-env.d.ts</span><br><span class="line">├── tsconfig.json</span><br><span class="line">├── tsconfig.node.json</span><br><span class="line">└── vite.config.ts</span><br></pre></td></tr></table></figure>
+
+<h2 id="调整编译"><a href="#调整编译" class="headerlink" title="调整编译"></a>调整编译</h2><p>由于vite初始化项目只针对web应用设计，但是我们开发chrome插件还需要针对<code>background.ts</code> 去做编译，就是要做多入口编译，而且vite本身就是基于rollup为基础去实现的少量配置即可完成一个web应用打包。</p>
+<blockquote>
+<p>一套构建指令，它使用<strong><a href="https://rollupjs.org/" target="_blank" rel="noopener"><code>Rollup</code></a></strong> 打包你的代码，并且它是预配置的，可输出用于生产环境的高度优化过的静态资源。—— Vite官网介绍</p>
+</blockquote>
+<p>所以我们其实可以使用<code>Rollup</code>去打包我们的<code>background.ts</code> ，就是增加多一个入口文件，具体如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123; defineConfig &#125; from &apos;vite&apos;</span><br><span class="line">import vue from &apos;@vitejs/plugin-vue&apos;</span><br><span class="line">import path from &apos;path&apos;</span><br><span class="line"></span><br><span class="line">// https://vitejs.dev/config/</span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">  plugins: [vue()],</span><br><span class="line">  build: &#123;</span><br><span class="line">    rollupOptions: &#123;</span><br><span class="line">      input: &#123;</span><br><span class="line">        index: path.resolve(__dirname, &apos;index.html&apos;),</span><br><span class="line">        background: &apos;src/background.ts&apos;,</span><br><span class="line">      &#125;,</span><br><span class="line">      output: &#123;</span><br><span class="line">        entryFileNames: `[name].js`,</span><br><span class="line">        assetFileNames: `[name].[ext]`,</span><br><span class="line">        chunkFileNames: `[name].js`,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>其中有几个地方需要说明一下：</p>
+<ul>
+<li><code>output</code>： 设置不加<code>hash</code>值，后续调试的时候插件不会出现加载不到文件的错误</li>
+<li><code>rollupOptions</code>：基本上和<code>Rollup</code>的配置项一模一样，所以有<code>Rollup</code>基础的基本上可以直接上手配置，而且也完全兼容<code>Rollup</code>的插件生态</li>
+</ul>
+<p>接下来就是调整<code>package.json</code>中<code>scripts</code>命令，需要针对background新增两个命令，具体如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"rimraf dist &amp;&amp; vite"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>dev:background</code> 代表开发模式</li>
+<li><code>build:background</code> 代表生产模式</li>
+</ul>
+<p>到了这里基本上就完成了项目的搭建，接下来就进入开发阶段。</p>
+<h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="UI开发"><a href="#UI开发" class="headerlink" title="UI开发"></a>UI开发</h2><ol>
+<li>引入ui库 <code>tdesign-vue-next</code> ，tdesign是腾讯出品的全端组件库，从桌面到移动，再到小程序，应有尽有，大家可以去尝尝鲜<a href="https://tdesign.tencent.com/" target="_blank" rel="noopener">https://tdesign.tencent.com/</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add tdesign-vue-next</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>开发UI，这里就直接撸代码就行，就不展开来讲，主要需要注意的是，需要和background.js通讯的部分，比如需要和chatgpt发送信息，获取返回内容，具体如下:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const getSummary = () =&gt; &#123;</span><br><span class="line">    // 发送通讯，获取总结</span><br><span class="line">    chrome.runtime.sendMessage(</span><br><span class="line">        &#123;</span><br><span class="line">            type: &apos;summary&apos;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                diffs: []</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        (response) =&gt; &#123;</span><br><span class="line">            console.log(response)</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写background-ts"><a href="#编写background-ts" class="headerlink" title="编写background.ts"></a>编写background.ts</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123; getSummary &#125; from &apos;@node-gptcommit/summarize&apos;</span><br><span class="line">// 监听收到通讯，发起总结请求</span><br><span class="line">chrome.runtime.onMessage.addListener(async (request: any, sender: any, sendResponse: any) =&gt; &#123;</span><br><span class="line">    const &#123; type = &apos;fetch&apos;, data &#125; = request;</span><br><span class="line">    if (type === &apos;summary&apos;) &#123;</span><br><span class="line">        getSummary(data).then(res=&gt;&#123;</span><br><span class="line">						sendResponse(res);</span><br><span class="line">				&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>在开发中遇到一个问题，就是如何快速调试chrome插件：</p>
+<ol>
+<li><code>build</code>后会，构建完的文件会有带<code>hash</code>值，如：<code>index.33addf.js</code>，导致chrome重新加载插件的时候出错，如：</li>
+</ol>
+<p><img src="/assets/img/20230227.png" alt="20230227"></p>
+<p>解决方案很简单，就是利用rollupOptions设置输出文件不带hash值即可。</p>
+<ol>
+<li>没法实时调试插件，每次都需要<code>build</code>后才能去调试，这里需要更改构建方式，因为我们build出来的页面才是我们需要的，所以我们需要在<code>build</code>时候增加<code>--watch</code>，然后真正发布构建的时候关闭<code>watch</code>，调整后，<code>package.json</code>内容如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"vue-tsc &amp;&amp; vite build --watch"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"rimraf dist &amp;&amp; vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>项目源码Github地址：<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-ngptcommit</a>，觉得有帮助的同学帮忙给个star给鼓励一下~❤️</p>
+<p>后面基本上就是按照正常项目去开发即可，本文总结几个要点：</p>
+<ul>
+<li>chrome插件开发和正常web应用不太应用，既包括了html页面，也包括background.js的js库开发模式</li>
+<li>Vite的核心点其实是Rollup，如果掌握Rollup基本上对vite做二次配置也很容易入手</li>
+<li>为什么使用Vue，因为有大量的UI库和相关生态可以使用，能提高开发效率</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -418,7 +487,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230227.html" title="Svelte尝鲜体验" target="_blank">https://www.qborfy.com/today/20230227.html</a>
+          <a href="https://www.qborfy.com/today/20230227.html" title="如何用vite+vue-next快速开发chrome插件" target="_blank">https://www.qborfy.com/today/20230227.html</a>
         </li>
         
         <li>
@@ -515,18 +584,9 @@
 
 <nav id="article-nav">
   
-    <a href="/today/20230106.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          从审批流到bpmn-js入门
-        
-      </div>
-    </a>
   
-  
-    <a href="/today/20230228.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GraphQL尝鲜体验</div>
+    <a href="/study/2023-read-plan.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2023年读书计划</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -553,7 +613,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">1.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何用vite-vue-next快速开发chrome插件"><span class="toc-number">1.</span> <span class="toc-text">如何用vite+vue-next快速开发chrome插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目搭建"><span class="toc-number">3.</span> <span class="toc-text">项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">3.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调整编译"><span class="toc-number">3.2.</span> <span class="toc-text">调整编译</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目开发"><span class="toc-number">4.</span> <span class="toc-text">项目开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UI开发"><span class="toc-number">4.1.</span> <span class="toc-text">UI开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写background-ts"><span class="toc-number">4.2.</span> <span class="toc-text">编写background.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">4.3.</span> <span class="toc-text">调试</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

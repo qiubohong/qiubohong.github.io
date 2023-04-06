@@ -4524,9 +4524,76 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>Svelte尝鲜体验</title>
+    <title>如何用vite+vue-next快速开发chrome插件</title>
     <url>/today/20230227.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    <content><![CDATA[<h1 id="如何用vite-vue-next快速开发chrome插件"><a href="#如何用vite-vue-next快速开发chrome插件" class="headerlink" title="如何用vite+vue-next快速开发chrome插件"></a>如何用vite+vue-next快速开发chrome插件</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a href="https://qborfy.com/today/20230224.html" target="_blank" rel="noopener">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
+<p>目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分<code>popup.html</code> + <code>contentscript</code> + <code>background.js</code> ，只需要在开发的时候调整一下构建脚本基本上就可以利用Vue、React等现代框架去开发了。</p>
+<p>接下来，我们就一步步开始实战。</p>
+<a id="more"></a>
+
+<h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>利用<code>vite</code>初始化项目命令快速搭建，具体如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pnpm create vite</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在public目录下新建manifest.json</li>
+</ol>
+<p>内容如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"ngptcommit"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"ngptcommit自动生成git commit信息"</span>,</span><br><span class="line">    <span class="attr">"manifest_version"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"browser_action"</span>: &#123;</span><br><span class="line">        <span class="attr">"default_popup"</span>: <span class="string">"index.html"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"icons"</span>: &#123;</span><br><span class="line">        <span class="attr">"16"</span>: <span class="string">"images/favicon-16x16.png"</span>,</span><br><span class="line">        <span class="attr">"48"</span>: <span class="string">"images/favicon-32x32.png"</span>,</span><br><span class="line">        <span class="attr">"64"</span>: <span class="string">"images/android-chrome-192x192.png"</span>,</span><br><span class="line">        <span class="attr">"128"</span>: <span class="string">"images/android-chrome-192x192.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"background"</span>: &#123;</span><br><span class="line">        <span class="attr">"scripts"</span>: [</span><br><span class="line">            <span class="string">"background/background.js"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"permissions"</span>: [</span><br><span class="line">        <span class="string">"tabs"</span>,</span><br><span class="line">        <span class="string">"storage"</span>,</span><br><span class="line">        <span class="string">"http://*/*"</span>,</span><br><span class="line">        <span class="string">"https://*/*"</span>,</span><br><span class="line">        <span class="string">"activeTab"</span>,</span><br><span class="line">        <span class="string">"contextMenus"</span>,</span><br><span class="line">        <span class="string">"notifications"</span>,</span><br><span class="line">        <span class="string">"webRequest"</span>,</span><br><span class="line">        <span class="string">"webRequestBlocking"</span>,</span><br><span class="line">        <span class="string">"cookies"</span>,</span><br><span class="line">        <span class="string">"unlimitedStorage"</span>,</span><br><span class="line">        <span class="string">"webNavigation"</span>,</span><br><span class="line">        <span class="string">"identity"</span>,</span><br><span class="line">        <span class="string">"identity.email"</span>,</span><br><span class="line">        <span class="string">"identity.read"</span>,</span><br><span class="line">        <span class="string">"identity.write"</span>,</span><br><span class="line">        <span class="string">"identity.launch.webauthn"</span>,</span><br><span class="line">        <span class="string">"identity.launch.webauthn"</span>,</span><br><span class="line">        <span class="string">"identity.manage.accounts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新增插件必须的文件，如：<code>manifest.json</code>和 <code>background.ts</code> ，完整目录结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chrome-extension</span><br><span class="line">├── README.md</span><br><span class="line">├── index.html</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">|  ├── images</span><br><span class="line">|  └── manifest.json</span><br><span class="line">├── src</span><br><span class="line">|  ├── App.vue</span><br><span class="line">|  ├── background.ts</span><br><span class="line">|  ├── components</span><br><span class="line">|  ├── main.ts</span><br><span class="line">|  ├── style.css</span><br><span class="line">|  └── vite-env.d.ts</span><br><span class="line">├── tsconfig.json</span><br><span class="line">├── tsconfig.node.json</span><br><span class="line">└── vite.config.ts</span><br></pre></td></tr></table></figure>
+
+<h2 id="调整编译"><a href="#调整编译" class="headerlink" title="调整编译"></a>调整编译</h2><p>由于vite初始化项目只针对web应用设计，但是我们开发chrome插件还需要针对<code>background.ts</code> 去做编译，就是要做多入口编译，而且vite本身就是基于rollup为基础去实现的少量配置即可完成一个web应用打包。</p>
+<blockquote>
+<p>一套构建指令，它使用<strong><a href="https://rollupjs.org/" target="_blank" rel="noopener"><code>Rollup</code></a></strong> 打包你的代码，并且它是预配置的，可输出用于生产环境的高度优化过的静态资源。—— Vite官网介绍</p>
+</blockquote>
+<p>所以我们其实可以使用<code>Rollup</code>去打包我们的<code>background.ts</code> ，就是增加多一个入口文件，具体如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; defineConfig &#125; from &apos;vite&apos;</span><br><span class="line">import vue from &apos;@vitejs/plugin-vue&apos;</span><br><span class="line">import path from &apos;path&apos;</span><br><span class="line"></span><br><span class="line">// https://vitejs.dev/config/</span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">  plugins: [vue()],</span><br><span class="line">  build: &#123;</span><br><span class="line">    rollupOptions: &#123;</span><br><span class="line">      input: &#123;</span><br><span class="line">        index: path.resolve(__dirname, &apos;index.html&apos;),</span><br><span class="line">        background: &apos;src/background.ts&apos;,</span><br><span class="line">      &#125;,</span><br><span class="line">      output: &#123;</span><br><span class="line">        entryFileNames: `[name].js`,</span><br><span class="line">        assetFileNames: `[name].[ext]`,</span><br><span class="line">        chunkFileNames: `[name].js`,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>其中有几个地方需要说明一下：</p>
+<ul>
+<li><code>output</code>： 设置不加<code>hash</code>值，后续调试的时候插件不会出现加载不到文件的错误</li>
+<li><code>rollupOptions</code>：基本上和<code>Rollup</code>的配置项一模一样，所以有<code>Rollup</code>基础的基本上可以直接上手配置，而且也完全兼容<code>Rollup</code>的插件生态</li>
+</ul>
+<p>接下来就是调整<code>package.json</code>中<code>scripts</code>命令，需要针对background新增两个命令，具体如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"rimraf dist &amp;&amp; vite"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>dev:background</code> 代表开发模式</li>
+<li><code>build:background</code> 代表生产模式</li>
+</ul>
+<p>到了这里基本上就完成了项目的搭建，接下来就进入开发阶段。</p>
+<h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="UI开发"><a href="#UI开发" class="headerlink" title="UI开发"></a>UI开发</h2><ol>
+<li>引入ui库 <code>tdesign-vue-next</code> ，tdesign是腾讯出品的全端组件库，从桌面到移动，再到小程序，应有尽有，大家可以去尝尝鲜<a href="https://tdesign.tencent.com/" target="_blank" rel="noopener">https://tdesign.tencent.com/</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pnpm add tdesign-vue-next</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>开发UI，这里就直接撸代码就行，就不展开来讲，主要需要注意的是，需要和background.js通讯的部分，比如需要和chatgpt发送信息，获取返回内容，具体如下:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const getSummary = () =&gt; &#123;</span><br><span class="line">    // 发送通讯，获取总结</span><br><span class="line">    chrome.runtime.sendMessage(</span><br><span class="line">        &#123;</span><br><span class="line">            type: &apos;summary&apos;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                diffs: []</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        (response) =&gt; &#123;</span><br><span class="line">            console.log(response)</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写background-ts"><a href="#编写background-ts" class="headerlink" title="编写background.ts"></a>编写background.ts</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; getSummary &#125; from &apos;@node-gptcommit/summarize&apos;</span><br><span class="line">// 监听收到通讯，发起总结请求</span><br><span class="line">chrome.runtime.onMessage.addListener(async (request: any, sender: any, sendResponse: any) =&gt; &#123;</span><br><span class="line">    const &#123; type = &apos;fetch&apos;, data &#125; = request;</span><br><span class="line">    if (type === &apos;summary&apos;) &#123;</span><br><span class="line">        getSummary(data).then(res=&gt;&#123;</span><br><span class="line">						sendResponse(res);</span><br><span class="line">				&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>在开发中遇到一个问题，就是如何快速调试chrome插件：</p>
+<ol>
+<li><code>build</code>后会，构建完的文件会有带<code>hash</code>值，如：<code>index.33addf.js</code>，导致chrome重新加载插件的时候出错，如：</li>
+</ol>
+<p><img src="/assets/img/20230227.png" alt="20230227"></p>
+<p>解决方案很简单，就是利用rollupOptions设置输出文件不带hash值即可。</p>
+<ol>
+<li>没法实时调试插件，每次都需要<code>build</code>后才能去调试，这里需要更改构建方式，因为我们build出来的页面才是我们需要的，所以我们需要在<code>build</code>时候增加<code>--watch</code>，然后真正发布构建的时候关闭<code>watch</code>，调整后，<code>package.json</code>内容如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@node-gptcommit/chrome-extension"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"vue-tsc &amp;&amp; vite build --watch"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"rimraf dist &amp;&amp; vue-tsc &amp;&amp; vite build"</span>,</span><br><span class="line">    <span class="attr">"preview"</span>: <span class="string">"vite preview"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>项目源码Github地址：<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-ngptcommit</a>，觉得有帮助的同学帮忙给个star给鼓励一下~❤️</p>
+<p>后面基本上就是按照正常项目去开发即可，本文总结几个要点：</p>
+<ul>
+<li>chrome插件开发和正常web应用不太应用，既包括了html页面，也包括background.js的js库开发模式</li>
+<li>Vite的核心点其实是Rollup，如果掌握Rollup基本上对vite做二次配置也很容易入手</li>
+<li>为什么使用Vue，因为有大量的UI库和相关生态可以使用，能提高开发效率</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
@@ -4724,7 +4791,7 @@ label:has(+input:required)::before{
 
 <h1 id="阅读摘要"><a href="#阅读摘要" class="headerlink" title="阅读摘要"></a>阅读摘要</h1><ul>
 <li>百万富翁快车道<ul>
-<li>第一篇 轮椅上的财富<ul>
+<li>第1篇 轮椅上的财富<ul>
 <li>主流思想<ul>
 <li>是通过定投基金去获取年收益或者打工赚钱升工资，存钱获得一百万</li>
 <li>缺点：等到你老了，你才会富有</li>
@@ -4756,7 +4823,7 @@ label:has(+input:required)::before{
 </li>
 </ul>
 </li>
-<li>第二篇  财富不只是一条路，而是一场旅行<ul>
+<li>第2篇 财富不只是一条路，而是一场旅行<ul>
 <li>第三章 旅行在财富之路上<ul>
 <li>千里之行，始于足下 —— 老子</li>
 <li>追足财富如同旅行，如果只专注于目的地，而忘记整个旅行过程所需要的东西和所看到的东西，你可能因为各种原因而而无法到达目的地，或者到了目的地却怀疑自己为什么要来这里？</li>
@@ -5578,7 +5645,408 @@ label:has(+input:required)::before{
 <li>低壁垒的行业，往往赚不到钱，如果想要赚到钱，就必须成为第一名</li>
 <li>如何判断是否符合进入戒律：<ul>
 <li>你所做的生意是不是一个过程，而不是一个结果，如：你购买一套电商平台，这是结果，以为可以开启电商但是却不是，真正电商是需要你去确定货源、用户群、购买意愿、售后等一系列过程</li>
-<li></li>
+<li>任何短时间可以完成的生意，都是不符合进入戒律的</li>
+<li>大家都在做的事情的，或者这门生意很多人都在进入，就不应该进入，这也是进入戒律之一</li>
+<li>容易做的生意，也不要去做，因为门槛低，容易失去控制</li>
+</ul>
+</li>
+<li>如果你想快速致富，就不能像大家那样子去做</li>
+</ul>
+</li>
+<li>第三十二章 控制戒律<ul>
+<li>靠人不如靠自己 —— 约翰·盖伊<ul>
+<li>表达的是，很多事情只有掌握在自己手里，事情才不会失控。</li>
+</ul>
+</li>
+<li>要坐在驾驶位，而不是副驾驶位搭乘便车。</li>
+<li>如何做到控制呢？举几个例子：<ul>
+<li>创立公司，而不是去公司打工</li>
+<li>创建出售连锁品牌，而不是加盟</li>
+<li>管理对冲基金，而不是投资</li>
+<li>出售股票，而不是购买股票</li>
+<li>为别人提供直销，而不是做这个</li>
+<li>出售使用权，而不是购买使用权</li>
+</ul>
+</li>
+<li>乘客只能赚零头，而驾驶者却能赚大钱，大钱和零头的区别在于，一个赚2万，一个赚20万</li>
+<li>乘客容易失去控制，如果驾驶者赶你下车，你将毫无办法，如：你是一个电商，在淘宝开店，万一哪天淘宝封你的店铺，那么你就会失去所有</li>
+<li>训练鲨鱼思维，而不是孔雀鱼，就是吃别人，而不是被别人吃<ul>
+<li>要的是更大的图景，而不是眼前的利润</li>
+<li>深入思考自己的信念体系，改变思维模式</li>
+<li>考虑全部，而不是局部</li>
+<li>去引导，而不是跟随</li>
+<li>思考如何创新，而不是复制</li>
+<li>网络营销，是需要有自己的品牌后才需要的事情，而不是为了别人的品牌去参与网络营销</li>
+<li>多层次的网络营销，包括：销售、激励、团队精神，和社交</li>
+<li>你需要创建自己的品牌，控制它，创建属于自己的金字塔</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三十三章 规模戒律<ul>
+<li>要想在商业上获得成功，你只需要做对一次。 —— 马克·库班<ul>
+<li>表达的是你创业能够成功，在于你把握住了某一次机会，但是需要为了这次机会做好所有的准备，而这一次机会恰恰足够让你翻盘。</li>
+</ul>
+</li>
+<li>思考，你希望在限速15的公路前进，还是限速150的公路上前进。</li>
+<li>创业就要去做大规模的生意，就好比打棒球，要努力完成全垒打，而不是做一个次安打</li>
+<li>规模是什么？<ul>
+<li>规模是销售数量，如：你每个月固定销售量是多少，</li>
+<li>规模是服务范围，如：你服务的范围是你的小区，还是你的街道，还是城市，全国甚至全球</li>
+<li>规模是品牌影响力，如：兰博基尼和现代车的价格，你是做低端，还是高端</li>
+</ul>
+</li>
+<li>规模就是杠杆，用你现在拥有的东西去撬动更大的范围的事业</li>
+<li>判断是否违反规模戒律：<ul>
+<li>净收入是否有上限，如：每月2000元~20万</li>
+<li>这门生意的资产价值是多少？</li>
+<li>生意可以影响多少人？客户群是谁？</li>
+<li>生意模式是否可以复制，或者开连锁扩大销售范围？</li>
+<li>最好的情况下可以销售多少件？</li>
+<li>最好的情况下单件的最大利润是多少？是否有量级？</li>
+</ul>
+</li>
+<li>规模戒律是影响力定律的一个因子，影响力定律则是快速致富的方法</li>
+<li>影响力定律三大障碍：规模、量级和渠道<ul>
+<li>最大的障碍是规模，如果你的行业规模不是给百万人提供服务，那么你无法影响到百万人</li>
+<li>量级，指的是你能给多少人提供服务，通常如果规模够大，那么你就有足够大的量级</li>
+<li>渠道，等于你的资源或者货源，如果你没有好的资源，你自然就无法做到影响到其他人</li>
+</ul>
+</li>
+<li>如何运用影响力定律：<ul>
+<li>选择一条可以打破规模或量级的道路，并掌握来源</li>
+<li>如果无法掌控源头，那么就为源头服务</li>
+<li>要从大处着眼，考虑规模和量级，分析财富公式并检查变量情况，如：最大销售量和最大利润是多少</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三十四章 时间戒律<ul>
+<li>我有很多想法，却缺少时间。我希望我能活到百岁左右，我也就满足了。 —— 托马斯·爱迪生<ul>
+<li>表达的是，想做的事情很多，唯一缺少的是时间，而时间则是许多事情能够做成功的重要因素。</li>
+</ul>
+</li>
+<li>时间戒律，指的是快车道的生意是能让你从工作时间脱离出来，能够自主运行且开花结果，自主赚钱。</li>
+<li>满足时间戒律的要点：<ul>
+<li>当我不在场的时候，生意是否可以有序自动地运转</li>
+<li>我的边际收益是否足够多，可以让我雇人去做<ul>
+<li>边际收益：增加一单位产品所产生的利润</li>
+</ul>
+</li>
+<li>我的经营是否得益于这是一颗摇钱树业务</li>
+<li>如何让生意经营不占用自己的时间</li>
+</ul>
+</li>
+<li>打工是用时间换钱，有些生意也是如此，比如：开水果店、餐饮等</li>
+<li>时间戒律就是提高效率，让工作的时间尽可能的短，同时产生更多的效益</li>
+</ul>
+</li>
+<li>第三十五章 快速致富的3条大道<ul>
+<li>如果你为别人干活而得不到回报，你就无法过上好生活。 —— 约翰·伍登<ul>
+<li>表达的是，如果你依赖别人而活，你就无法稳定的生活</li>
+</ul>
+</li>
+<li>在快速致富的选择，使用WADM（权重分数判断）去考虑各个方面得分数，做出最适合的选择</li>
+<li>快车道精髓：5条戒律<ul>
+<li>不应该投资没有需求的生意</li>
+<li>不应该用时间去交换金钱</li>
+<li>不应该在一个有限的规模的行业做生意</li>
+<li>不应该放弃控制权</li>
+<li>不应该将一个初创的生意当成结果，而是运营它的过程才是结果</li>
+</ul>
+</li>
+<li>3条高速路快车道<ul>
+<li>互联网生意</li>
+<li>创新产品或服务</li>
+<li>创造规模效应</li>
+</ul>
+</li>
+<li>互联网生意，规模天生就是全球且防止别人进入的门槛，有以下几种：<ul>
+<li>提供订阅服务，提供服务、信息等付费订阅</li>
+<li>提供内容服务，免费提供，增加广告收入</li>
+<li>引导性销售，提供引导销售服务，如：携程、美团等</li>
+<li>社交网络，利用搭建社交，形成网络依赖服务</li>
+<li>中介系统，提供中间商服务收费，如：PayPal</li>
+<li>广告联盟，提供广告渠道给广告商</li>
+<li>电子商务，通过搭建平台，吸引商铺和消费者进行消费，如亚马逊和淘宝</li>
+</ul>
+</li>
+<li>创新产品或服务，创新包括：制造或销售<ul>
+<li>创新不是发明一个工具，而是对一个已有的产品进行改进和提高，并推进市场，如：净水器，可以思考做一些改进，与其他人不同，插座做的更好看和好用</li>
+<li>创新双重挑战：制造和销售，如：写一本书是制造，而将它卖给人则是销售，需要市场营销、推广、演讲等扩大它的知名度</li>
+</ul>
+</li>
+<li>创造规模效应，利用创造大规模实现快速致富的效果，比如：买一栋房子出租是有限的，但是买50栋就能快速致富<ul>
+<li>连锁经营，可以开小便利店，但是利用规模效应，可以重复开很多所，就可以实现快速致富</li>
+<li>因为一个小规模的生意并不能产生大的利润，如果不断叠加，就可以产生量级利润，这就是量变导致质变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三十六章 找到你的金光大道<ul>
+<li>开始时，人们拒绝相信一个新奇的事情，之后人们开始希望能够做到，然后他们看到那件事情确实可以做到，最终那件事做成了。所有人开始问，为何这件事几个世纪了都没人去做。—— 弗朗西斯·霍奇森·伯内特<ul>
+<li>表达的是，人们一般不会愿意相信自己认知外的事情，直到开始动手去实现后，才发现确实是可以做到的。</li>
+</ul>
+</li>
+<li>机遇是什么<ul>
+<li>机遇，就像一个待满足的需求，正在那里等着别人去发现，如: 路边有人正在抱怨、论坛上正在争吵的事情</li>
+<li>机遇，就是对一个”不方便“提出的解决方案，让人感觉到舒适</li>
+<li>机遇，就是简化流程，提供更好的服务</li>
+</ul>
+</li>
+<li>怎么做<ul>
+<li>有人正在做这件事，那么你只需要比他做得更好</li>
+<li>成功的生意往往不是因为新奇的创意，关键是要比别人做的更好</li>
+<li>成功的生意可以采用已有的点子、服务和产品，只需要做得更好，或者采用新的做法</li>
+</ul>
+</li>
+<li>找到大道的办法<ul>
+<li>利用一些词汇，如：讨厌、不喜欢、烦恼、为什么、不得不、希望、试过、槽糕透了等，去收集需求和机遇</li>
+<li>发现这些问题需求，向大家提出解决方案并确保赚钱，因为解决问题就等于解决了自己赚钱的问题</li>
+</ul>
+</li>
+<li>在失败中开辟一条新路，失败并不可怕，重要的是要失败中吸取经验，或许你就能从中找到你真正走上财富的路</li>
+<li>失败是经常的事情，但是不要忘记你自己的梦想</li>
+</ul>
+</li>
+<li>第三十七章 为你的路设定终点<ul>
+<li>悲剧不是你未能达到目标，而是你根本没有设定目标。 —— 本杰明·梅斯<ul>
+<li>表达的是如果你没有设定目标，而一直努力的话，你的努力终究会白费掉。</li>
+</ul>
+</li>
+<li>需要想清楚你的终点是什么，快车道致富是一种手段，如：你想要自由自在的生活在不缺钱的日子里，没有领导压迫，当老婆跟你要钱的时候你可以随时提供</li>
+<li>再次确定金钱的重要性，你所想要的一切梦想，都需要付出代价，而这个代价就是金钱</li>
+<li>实现自由享受符合你期望的生活方式的两个策略：<ul>
+<li>一是一大笔钱，利息足够你日常开销</li>
+<li>二是你的商业系统产生的被动收入能够支持你的生活，同时也能继续维持系统的运转</li>
+</ul>
+</li>
+<li>设定终点的4个步骤：<ul>
+<li>定义生活方式，就是你最理想的生活<ul>
+<li>住多大的房子</li>
+<li>想要多少辆汽车</li>
+<li>一年多少次旅游</li>
+<li>孩子的上什么学校等等</li>
+</ul>
+</li>
+<li>评估这种生活的成本，大概需要多少钱<ul>
+<li>一个一线城市的大平层，全款1000万，水电物业费费等一个月3000</li>
+<li>3辆汽车，大概40万一辆 120万，每个月开销8千，</li>
+<li>旅游，每个月1000</li>
+<li>私立学校：每个月2000</li>
+<li>生活成本：每个月3万</li>
+<li>总计：每个月5万左右</li>
+</ul>
+</li>
+<li>设定目标，建立金钱系统和生意收入目标<ul>
+<li>创立一个商业系统，按照40%收入、40%返回给到商业系统维持，20%维持生活，那么商业系统至少每个月需要产生利润25万</li>
+</ul>
+</li>
+<li>实现，找到方法并去做<ul>
+<li>先定一个小目标，然后再换中目标，最后才换成大目标，一步步走才不会因为困难而无法前进</li>
+<li>找指数基金做智能定投，实现每年5%的收益</li>
+<li>创建自己的金钱系统，</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>快车道规则，必须拥有丰富的财务知识，从而避免不必要财富损失风险</li>
+<li>为了财富稳定，必须学会金钱的规则，基本的财务和经济学知识</li>
+<li>节流是慢车道，而是快车道是开源节流</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第8篇 加速累积财富<ul>
+<li>第三十八章 成功的速度<ul>
+<li>创意只是神经速度，此处无他。 —— MJ·德马科<ul>
+<li>表达的是，很多想法只是在大脑里经过，你没有去实现，那么它就只是大脑的一个神经细胞动了一下而已。</li>
+</ul>
+</li>
+<li>速度的策略，是象棋，而不是跳棋<ul>
+<li>速度是实现，是推进，是去操作，而不是想象</li>
+<li>象棋的玩法是多维度的，而跳棋则是单维度的思考</li>
+<li>如一款电商产品，大多数人认为价格低就可吸引消费者，但是从来没有想过其他方面，如：营销、质量、服务、售后、物流速度等</li>
+<li>速度，就是快速将你的商业系统快速搭建起来，而不是单方面的去实现</li>
+</ul>
+</li>
+<li>如果想真正获得成功，你需要加快速度将脑子里想法落地，而不是去看电视剧，同时需要坚持不懈，要控制进度</li>
+<li>创意是结果，而执行是过程，过程是要牺牲、努力、纪律和坚持。</li>
+<li>快车道的速度可以让生意按照指数倍增，使净收入和资产价值实现爆发式增长。</li>
+</ul>
+</li>
+<li>第三十九章 烧掉商业计划，立即开始行动<ul>
+<li>除非你立即采取行动，否则即便有全世界最棒的创意也没有用。想喝牛奶的人不能只是坐在养牛场的一把椅子上，等着奶牛过来喂奶。—— 柯蒂斯·格兰特<ul>
+<li>表达的是，光有想法不行动，即使你是天才也没法成功</li>
+</ul>
+</li>
+<li>只有将创意落地，你才知道创意是否行得通</li>
+<li>世界会告诉你怎么走，哪条路是对的，但是前提需要你去行动起来</li>
+<li>风险投资看重的是执行，而不是你的商业计划书写的多牛逼</li>
+<li>当你的执行结果非常好，那么投资自然而然就会拥抱过来，从而获得更多资金</li>
+</ul>
+</li>
+<li>第四十章 步行者会让你发财<ul>
+<li>如果你做的不错，客户会口口相传。口碑很重要。 —— 杰夫·贝佐斯<ul>
+<li>表达的是，当你的生意服务很好，形成了口碑，那么接下来你就继续保持原样，生意范围会越来越广。</li>
+</ul>
+</li>
+<li>所有的生意客户服务目标只有一个，就是提供帮助、支持和解决方案。</li>
+<li>积极面对客户投诉，及时处理投诉，是快速形成口碑的重要方式</li>
+<li>如何识别投诉：<ul>
+<li>变化，就是当你的产品发生变化，引起老用户不适应，这需要你去平衡，因为改变总会影起不适应</li>
+<li>期望，当你的产品无法满足用户的期望，就会引起投诉，这个时候你需要紧急去处理</li>
+<li>无效投诉，当你产品没有这类功能，用户不断提出来，你需要计算他们的次数，然后去增加该类功能</li>
+<li>欺诈投诉，针对这类投诉，就是优雅回应，解释立场，然后继续处理自己的事情</li>
+</ul>
+</li>
+<li>制作超越客户期望的服务，如何制作：<ul>
+<li>收集客户的期望</li>
+<li>告诉雇佣的员工，告诉他们给他们发工资是客户，而不是老板</li>
+</ul>
+</li>
+<li>客户服务战略将影响公司的成长，必须满足客户期望，从而获得忠诚的客户</li>
+<li>制作一个强大的公司品牌，让竞争对手不敢进来，打出气势，吓跑潜在对手</li>
+</ul>
+</li>
+<li>第四十一章 把搭便车者扔出去<ul>
+<li>人才是一家公司的最大资产，不管这家公司是造车的还是做化妆品的。一家公司的人有多好，这家公司就有多棒。 —— 玫琳凯·艾施<ul>
+<li>表达的是，人才对公司来说是最重要的，拥有多少人才，就表示这家公司能走多远。</li>
+</ul>
+</li>
+<li>管理公司，不仅仅有人才，还会有骗子，需要谨慎骗子，同时将其扔出去</li>
+<li>找到一个互补的合伙人至关重要，然后要互相信任，相互理解，相互尊重</li>
+<li>律师和会计师是第二重要的合作伙伴，需要谨慎再谨慎去选择，即使信任也要小心，这叫防人之心不可无</li>
+<li>做法之一，就是先信任，再验证，需要花点心思去做筛选</li>
+<li>必须雇佣能够遵循你商业模式定律的员工：<ul>
+<li>员工必须落实你的客户服务理念</li>
+<li>不管产品多好，如伟大的技术，都弥补不了糟糕的客服体验</li>
+<li>不管服务多好，也无法遮盖产品的缺点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第四十二章 成为别人的救星<ul>
+<li>市场不会因为一个好产品而被拯救，但是一个坏产品足以很快摧毁它。 —— 亨利·福特<ul>
+<li>表达的是，一锅汤很容易被一颗老鼠屎弄坏，但是要做一个锅好汤不仅仅需要一个好食材就可以做到。</li>
+</ul>
+</li>
+<li>平庸的产品无法创造足够利润，因为大家都在做同样的事情</li>
+<li>做生意要有合适的理由，不能是因为不知道做啥才做这个，也不是因为喜欢才去做<ul>
+<li>合适的理由是：解决一个问题或者满足某个需求</li>
+</ul>
+</li>
+<li>做生意应该选择有差异化的产品或者某个行业问题的解决方案</li>
+<li>有时候要忽略选择竞争对手的，不能把竞争对手在做什么当做自己的优先事项</li>
+<li>什么时候需要留意竞争对手，需要留意的是竞争对手的弱点，然后将其作为自己产品的差异点</li>
+<li>95%的注意力应该放在你的产品创新上</li>
+</ul>
+</li>
+<li>第四十三章 打造品牌而不是生意<ul>
+<li>每个人脖子上都挂着一个看不见的标牌，上面写着”让我觉得自己很重要“。在和人们打交道时候，千万不可忘记这件事。 —— 玫琳凯·艾施<ul>
+<li>表达的是，每个人都有自己的品牌，希望别人看得见，所以品牌对于人或者商品而言都是很重要的。</li>
+</ul>
+</li>
+<li>品牌是商品不会平庸化最佳策略，品牌是汇聚忠诚粉丝最有效的力量</li>
+<li>品牌代表产品的形象，如：沃尔沃是安全，法拉利是速度等</li>
+<li>品牌是需要独特的，在销售上需要一个独一无二的主张</li>
+<li>如何开发独特的品牌<ul>
+<li>发掘优点，比别人不一样的地方，解决或者更好解决别人的问题</li>
+<li>独一无二，销售策略要足够独特，给消费者足够吸引力或者说服自己的能力，给消费者足够的选择</li>
+<li>要具体，给出证据，你的产品有足够的优点，但是你需要给出证据证实这些优点</li>
+<li>简短、清晰、明智，就是能被人快速记住</li>
+<li>把你的销售主张放进所有的营销资料中</li>
+<li>说到做到，商业的承诺要说到做到，否则没有人会给你第二次机会</li>
+</ul>
+</li>
+<li>品牌首先要做到的引起注意，如何引起注意：<ul>
+<li>极化，观点或者信息极端化，就是要表明你的态度，如：你坚持用Vue的原因是因为Vue的开源作者是中国人</li>
+<li>冒风险，冒风险的策略之一是性吸引</li>
+<li>调动情绪，能够与用户共鸣，触发他们的喜怒哀乐</li>
+<li>鼓励互动，让用户投票或者选择，或者增加他们的评论</li>
+<li>不落俗套，就是不大众化，新颖吸引人的注意力</li>
+</ul>
+</li>
+<li>给消费者带来的，是这里有什么是我需要的，怎么做</li>
+<li>就是把产品的特点翻译为好处<ul>
+<li>调换角色，你把自己当成客户，是什么样的人群（CEO、学生、大妈等），确定他们真正的需求是什么</li>
+<li>确定特点，确定需求后就是从产品分离出自己的特点</li>
+<li>明确优势，然后确定这些特点有什么优势</li>
+<li>将特点翻译成好处，最后将这些特点翻译成对用户有好处的东西</li>
+</ul>
+</li>
+<li>用价格做品牌的武器，这也是目前大家都知道一个事情，就是原价999，现价499</li>
+<li>价格代表不仅仅是成本，还是价值和用途的表现<ul>
+<li>同时注意不要让价格毁掉你的品牌，低价格的东西会让你品牌变得廉价和大众化</li>
+</ul>
+</li>
+<li>手提包的成本不到100元，却可以卖到1000元，因为它的品牌和营销做得好</li>
+<li>控制消费者的大脑，同时也就获得客户</li>
+</ul>
+</li>
+<li>第四十四章 选择”一夫一妻制“<ul>
+<li>没有配马鞍，马儿就跑不远。没有加压力，蒸汽就无法推动任何东西。没有管道，尼亚加拉大瀑布的水就无法发电。专注、投入和自律，才能让生命更加伟大。 —— 哈里·艾默生·福斯迪克<ul>
+<li>表达的是，成功的必需条件是，专注、投入和自律，如果这都做不到，那么你的成功就只是一次偶然，而不是必然，终究还是会失去。</li>
+</ul>
+</li>
+<li>创业就和结婚一样，需要一夫一妻，而不是多撒网就可以多捕鱼，需要你的时间和精力都花在一个地方上</li>
+<li>只有专注才有多样化，因为只有专注做一件事，才能把它做好</li>
+<li>只有专注做一件事，成功之后，才会逐步衍生到其他方面，最后做成多样化</li>
+</ul>
+</li>
+<li>第四十五章 为你的致富计划充满电<ul>
+<li>选择可以马上做出，后果则伴随一生。 —— MJ·德马科<ul>
+<li>表达的是我们每时每刻都在做出选择，而这些选择的结果则会形成我们的生活。</li>
+</ul>
+</li>
+<li>如何给我们致富计划添加一个超级充电器：<ul>
+<li>公式，财富是一个过程，而不是结果，是一个公式，结合了信仰、选择、行动、生活方式构成的系统性过程</li>
+<li>认同，认同缓慢致富是完全错误的，认同快速致富是存在的，承认无计划不是一个好计划，认同运气是全心投入的结果</li>
+<li>弃旧迎新，放弃原有的思维，停止我们一直在做的事情，重点是从消费者变成生产者</li>
+<li>时间，时间是快车道宝贵的资产，尤其是自由可支配的时间，投资可产生自由可支配的时间的活动，把时间作为关键因素去搭建自己的商业系统</li>
+<li>杠杆，可控制的杠杆=可控制的财务计划，能让你快速致富</li>
+<li>资产和收入，财富是可以通过生意让收入和资产价值成指数型增长，同时不奢侈浪费消费，就可以打造出百万富翁</li>
+<li>数字，赚钱的目标是什么，想要一个什么样的生活将其量化成数字，然后将相关目标放在自己随处可见的地方</li>
+<li>影响力，记住影响力定律，你在能够控制的环境里，你影响几百万人，你就可以赚几百万元</li>
+<li>导向，选择哪条路，选择快车道你就可以快速致富，拥有年轻的身体和更多的自由时间，现在做出改变，同时要对每个选择有责任心，要能承担责任</li>
+<li>脱钩，你创业的东西必须具备自我成长性，能够与你的工作时间脱钩</li>
+<li>激情和目的，激情能让你为了目的打满鸡血，同时也让你对一些不满的行为愤怒不已，不仅仅是因为喜欢而已</li>
+<li>教育，不要停止学习，你现在所了解远远满不足了未来的目标，你需要不停的学习去加强你的业务系统的建设和运作。同时，学习信息也是你的财务之旅的燃油，抽出时间来学习。</li>
+<li>道路，不要迷惑到底应该选择哪个行业，而是应该训练发现需求和问题的大脑，当你尝试去解决某个问题或者需求的时候，你就已经在走进一个行业里</li>
+<li>控制，你需要有足够的掌控权，有完整的财务计划，才能做一条吃鱼的鲨鱼，而不是一条被吃的孔雀鱼</li>
+<li>满足，要选需求，而不是选喜爱，要去解决问题，金钱才不断向你涌过来</li>
+<li>自动化，让你的生意自动化成长，与你的时间脱钩</li>
+<li>复制，你的商业模式应该是可以复制的，从而形成规模效应，能够快速影响数百万人</li>
+<li>成长，你的业务可要从各方面去成长，而不是只有单一个特点，要做成品牌，同时需要聚焦某个业务，而不是多点开花</li>
+<li>退出，制定一个退出策略，快车道的终点是实现被动收益系统，而释放这个系统最好的方式通过清算兑现巨大的财富</li>
+<li>退休、回报或东山再起，好好放松一下，然后再选择去做什么</li>
+</ul>
+</li>
+<li>不要让过去影响现在的选择，快车道上的人总是充满坎坷，如：背着贷款、每天都要上班没时间、我家人不太赞同我做这个等等</li>
+<li>最后的答复是，不要因为这些借口影响到你，我们已经浪费太多时间了，我们需要行动，现在就行动。</li>
+</ul>
+</li>
+<li>总结 回答一些直接的问题<ul>
+<li>如何降低创业失败的风险<ul>
+<li>找到市场的需求或者问题的空白区，再去做，即使有人已经做了，我们只要做的更好，花更多时间在上面，我们一样可以成功</li>
+</ul>
+</li>
+<li>快车道指南，我着重采取几条我认为重要的<ul>
+<li>不要为了节省钱而浪费时间</li>
+<li>不要为了周末而工作五天</li>
+<li>不要以为时间很充裕</li>
+<li>不要停止学习</li>
+<li>不要让生活被寄生性债务缠身，如：信用卡、花呗、分期贷款等</li>
+<li>不要做消费者，而是生产者</li>
+<li>不要追逐金钱，而不是追逐需求</li>
+<li>不要相信每个人，要给他们证明自己的机会</li>
+<li>不要轻易踏足低门槛或容易做的生意</li>
+<li>不要做业务，而是做品牌</li>
+<li>不要关注产品的营销信息，而是关注它能够用户带来的好处</li>
+<li>不要做多头主义，要聚焦</li>
+<li>不要做单一产品（如跳棋规则），要做从多方面思考产品（如象棋）</li>
+<li>不要超前消费，而是寻找机会扩展自己能力范围</li>
+<li>要具备基本的金融知识</li>
 </ul>
 </li>
 </ul>
@@ -5587,6 +6055,13 @@ label:has(+input:required)::before{
 </li>
 </ul>
 </li>
+</ul>
+<h1 id="阅读总结"><a href="#阅读总结" class="headerlink" title="阅读总结"></a>阅读总结</h1><p>读完《百万富翁快车道》，这是我第一本按照思维导图的方式去完整读完的书籍，收获颇丰，主要是从思维模式发生了改变，这一点是在学校里永远都不会有老师教给的思维模式。老师只会告诉你知识是什么，但是却不会告诉你知识是怎么用的，为什么要有知识，这个很难去讲，因为他们也不懂，他们所教的知识也是从上一代老师传下来，从师范学校里学的应该这么去教。</p>
+<p>《快车道》这本书，给我们明确的指出了人生赚钱的三条路：</p>
+<ul>
+<li>人行道，有多少钱花多少钱，甚至超前预支消费，如：用贷款买车、买房、买奢侈品等等，然后你花完后发现根本就存不下任何钱，因为你已经掉入了社会给你设置好的消费陷阱，你需要不断消耗你的时间去赚钱填补超前消费这个坑，如果你不断挖坑（提前消费），那么你将无法抵抗任何风险，即使你是大明星（年入几百万）或者底层的农民（年入几百元），一旦失去收入，你就直接破产，面对人生的失败。</li>
+<li>慢车道，尽量少花钱，然后相信定投基金这种谎言，依赖别人，靠打工赚钱和定期存储金钱，这是大部分普通人相信的道理，就是靠存钱或定投基金可以到老年退休后可以好好享受生活，但是这种思维是一种极大幸运概率的思维，因为你的收入控制权不在你手上，而是在很多人手上，比如领导每年都能给你加薪，公司不裁员，爸妈不要生大病花钱，孩子不需要额外的开销等等，这种选择你无法抵抗任何大一点的风险，因为一旦风险来临，你之前所做的一切（存钱计划）将灰飞烟灭，而且你的生活质量一直处于低水平，因为你不敢花钱。</li>
+<li>快车道，尽量快的赚钱和尽可能的少花钱，这种选择可以在短时间快速赚钱，然后可以持续不断的赚钱思维，开始很难，但是后面就会越来越容易，因为你已经搭建完自己能控制的商业系统，它将同一个摇钱树一样不断给你提供越来越多的金钱，你只需要控制好它（财务计划）就好，当然这个选择需要遵循很多戒律，如：需求、进入、规模、控制、时间等，同时需要你去制造影响力，还要从消费者转化为生产者的思维。</li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -6104,6 +6579,95 @@ label:has(+input:required)::before{
   <entry>
     <title>微前端系列——结合Monorepo大仓架构实战</title>
     <url>/today/20230306.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023年读书计划</title>
+    <url>/study/2023-read-plan.html</url>
+    <content><![CDATA[<h1 id="2023年读书计划"><a href="#2023年读书计划" class="headerlink" title="2023年读书计划"></a>2023年读书计划</h1><p>今年给自己的制定的计划，主要读书目标有以下几类：</p>
+<ul>
+<li>给自己的创业带来理论帮助</li>
+<li>给自己的职业带来成长</li>
+<li>给自己的更加开阔的视野</li>
+<li>解答一些人生疑惑</li>
+<li>提高自己的做事效率</li>
+<li>提高自己的表达能力或演讲能力</li>
+<li>搭建自己的股市交易系统</li>
+</ul>
+<h2 id="个人发展"><a href="#个人发展" class="headerlink" title="个人发展"></a>个人发展</h2><ul>
+<li>已读<ul>
+<li>百万富翁快车道，待写阅读后总结</li>
+</ul>
+</li>
+<li>在读<ul>
+<li>每周工作4小时，需要再次阅读后写总结</li>
+<li>致所有疯狂的家伙：维珍创始人自传，需要再次阅读后写总结</li>
+<li>高效人士的7个习惯，需快速阅读一遍后，再精读一遍</li>
+</ul>
+</li>
+<li>待读<ul>
+<li>金字塔表达力：用麦肯锡方法提升写作力和演讲力（实战图解版）</li>
+<li>人性的弱点</li>
+<li>乌合之众</li>
+<li>王阳明心学——知行合一</li>
+</ul>
+</li>
+</ul>
+<h2 id="经济学"><a href="#经济学" class="headerlink" title="经济学"></a>经济学</h2><ul>
+<li>已读</li>
+<li>在读</li>
+<li>待读<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="股市交易"><a href="#股市交易" class="headerlink" title="股市交易"></a>股市交易</h2><ul>
+<li>已读</li>
+<li>在读</li>
+<li>待读<ul>
+<li>思考的框架</li>
+<li>海龟交易法则</li>
+<li>投资的原则</li>
+<li>我如何从股市赚了200万</li>
+<li>股市投资的24堂必修课</li>
+<li>我来教你变富</li>
+</ul>
+</li>
+</ul>
+<h2 id="技能类"><a href="#技能类" class="headerlink" title="技能类"></a>技能类</h2><ul>
+<li>已读</li>
+<li>在读<ul>
+<li>Vue源码</li>
+</ul>
+</li>
+<li>待读<ul>
+<li>领域驱动设计</li>
+</ul>
+</li>
+</ul>
+<h2 id="人文类"><a href="#人文类" class="headerlink" title="人文类"></a>人文类</h2><ul>
+<li>在读<ul>
+<li>天道</li>
+</ul>
+</li>
+<li>待读<ul>
+<li>三体</li>
+<li>人类简史</li>
+</ul>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Svelte尝鲜体验</title>
+    <url>/today/20230307.html</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>

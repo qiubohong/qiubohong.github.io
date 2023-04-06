@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.qborfy.com/today/20230227.html</loc>
+    <lastmod>2023-04-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230307.html</loc>
+    <lastmod>2023-04-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/study/book-million.html</loc>
-    <lastmod>2023-03-30</lastmod>
+    <lastmod>2023-04-06</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/2023-read-plan.html</loc>
+    <lastmod>2023-04-03</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/today/20230226.html</loc>
@@ -102,10 +114,6 @@
   </url>
   <url>
     <loc>https://www.qborfy.com/lowcode/index.html</loc>
-    <lastmod>2023-02-26</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230227.html</loc>
     <lastmod>2023-02-26</lastmod>
   </url>
   <url>
