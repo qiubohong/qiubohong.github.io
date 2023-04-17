@@ -6677,6 +6677,158 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
+    <title>ChatGPT工具收集</title>
+    <url>/ideas/20230408.html</url>
+    <content><![CDATA[<h1 id="chatGPT工具收集"><a href="#chatGPT工具收集" class="headerlink" title="chatGPT工具收集"></a>chatGPT工具收集</h1><ol>
+<li>chatgpt-i18n: AI自动翻译i18n.json</li>
+</ol>
+<p>Github地址： <a href="https://github.com/ObservedObserver/chatgpt-i18n" target="_blank" rel="noopener">https://github.com/ObservedObserver/chatgpt-i18n</a></p>
+<a id="more"></a>
+
+<ol start="2">
+<li>cli-gpt: 用 ChatGPT 开发一个能听懂人话的命令行工具</li>
+</ol>
+<p>Github地址： <a href="https://github.com/MagicCube/cli-gpt" target="_blank" rel="noopener">https://github.com/MagicCube/cli-gpt</a></p>
+<ol start="3">
+<li>通过可组合性⚡使用LLMS构建应用程序</li>
+</ol>
+<p>Github地址： <a href="https://github.com/hwchase17/langchain?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://github.com/hwchase17/langchain?utm_source=gold_browser_extension</a></p>
+<ol start="4">
+<li>自己创建中文GPT</li>
+</ol>
+<p>Github地址： <a href="https://github.com/ymcui/Chinese-LLaMA-Alpaca?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://github.com/ymcui/Chinese-LLaMA-Alpaca?utm_source=gold_browser_extension</a></p>
+<h1 id="创业箴言"><a href="#创业箴言" class="headerlink" title="创业箴言"></a>创业箴言</h1><ol>
+<li>5年独立开发者总结</li>
+</ol>
+<ul>
+<li>激情是把双刃剑，能让你更加干活充满精力，但是却无法带来更多资产，反而更像一种赚钱的障碍</li>
+<li>无法远离人情世故，创业或独立都需要自己去面对更多的人群，如：客户、供应商等</li>
+<li>社区真正的价值<ul>
+<li><strong>”你不知道你不知道什么“</strong>，这句话需要经常记住</li>
+<li>社区带来的是知识，是一种宝贵的学习资源，还有一起创业时候的人脉</li>
+<li>听听某人的故事或关于他们项目的一般性玩笑，可能会让我接触到新的营销策略、更好的入职策略或有助于加快我的开发工作流程的工具。当我遇到新问题时，它也给了我更广泛的经验来借鉴。</li>
+</ul>
+</li>
+<li>创业选择值得吗？没有可观的收入和花费很多时间，后续怎么走等等</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>奇思妙想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端面试100道手写题（1）—— 手写Promise实现</title>
+    <url>/study/promise-face.html</url>
+    <content><![CDATA[<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>今年的金三银四面试，遇到了很多新的面试八股文，其实心里对手写题或者算法题有一定抵触，因为实际工作中基本上就不会用到这些东西，但是正因为这些基础八股文，才能真正验证一个人对技术有多热爱的程度。<br>也有可能近几年没有对这些基础知识进行巩固，所以干脆一狠心，先立个flag, 准备完成100道手写题。</p>
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><a id="more"></a>
+
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>Promise 对象用于表示一个异步操作的最终完成（或失败）及其结果值。  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN Promise</a></p>
+</blockquote>
+<p>下面有一张图用来显示Promise的基本流程图（源自MDN）：</p>
+<p><img src="/assets/img/promises.png" alt></p>
+<p>如何快速理解Promise呢？就是必须给出一个最终结果的状态处理机制函数。</p>
+<p>可以想象Promise是一个排队买奶茶的操作，当你进入排队中处于pending，轮到你的时候成功买到奶茶则是fulfilled，如果中途你走开了或者轮到你的时候没买奶茶，则是买奶茶失败rejected，最后则是无论如何你都离开奶茶店，这就是finally。</p>
+<p>因此Promise的有三种状态：</p>
+<ul>
+<li>待定（pending）:  初始状态</li>
+<li>已兑现（fulfilled）: 操作成功完成</li>
+<li>已拒绝（rejected）：操作失败</li>
+</ul>
+<p>同时Promise在成功执行后完成执行注册在自身的Promise.prototype.then函数，如果失败后会调用Promise.prototype.catch。</p>
+<p><strong>重要知识点：Promise其实是通过微任务队列(Microtasks)<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/queueMicrotask" target="_blank" rel="noopener">queueMicrotask()</a>的去实现的，所以会比setTimeout等定时器任务要优先，这一点在网上很多手写Promise都忘记去实现了。</strong></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li>内置函数，需要实例化对象后才能调用</li>
+</ol>
+<ul>
+<li>构建函数 <code>Promise(resolve, reject)</code> 创建一个Promise对象</li>
+<li><code>Promise.prototype.then()</code> 为 promise 添加被兑现状态的回调函数，其以回调函数的返回值兑现 promise。若回调函数被调用，则兑现其返回值，否则兑现原来的 promise 兑现的值。  </li>
+<li><code>Promise.prototype.catch()</code> 为 promise 添加一个被拒绝状态的回调函数，并返回一个新的 promise，若回调函数被调用，则兑现其返回值，否则兑现原来的 promise 兑现的值。  </li>
+<li><code>Promise.prototype.finally()</code> 为 promise 添加一个回调函数，并返回一个新的 promise，这个promise的值将为原来promise的值。而传入的回调函数将在原 promise 被敲定（无论被兑现还是被拒绝）时被调用，同时需要等待then或catch执行完后才会被执行。</li>
+</ul>
+<ol start="2">
+<li>静态函数，可以直接调用的</li>
+</ol>
+<ul>
+<li><code>Promise.all(iterable)</code> 返回一个新的 <code>Promise</code> 对象，等到传入所有的 <code>Promise</code> 对象都成功，则表示成功，返回值的顺序与传入顺序一致，如果有任意一个 <code>Promise</code>则表示失败</li>
+<li><code>Promise.allSettled(iterable)</code> 等到所有 <code>Promise</code> 都已敲定（每个 <code>Promise</code> 都已兑现或已拒绝），与all不同在于传入每个<code>Promise</code>都会被执行一次</li>
+<li><code>Promise.any(iterable)</code> 当其中的任意一个 <code>Promise</code> 成功，就返回那个成功的 <code>Promise</code> 的值，与all相反</li>
+<li><code>Promise.race(iterable)</code> 无论传入的 <code>Promise</code> 是执行成功或失败，都直接返回其结果</li>
+<li><code>Promise.resolve(value)</code> 返回一个状态有value决定的Promise，如果value(带有then(resolve, reject)的对象)，则会执行then方法去判断状态，如果没有则将value直接返回成功调用的值</li>
+<li><code>Promise.reject(reason)</code> 返回一个状态为已拒绝的 Promise 对象，其错误信息为reason</li>
+</ul>
+<p>以上就是Promise的全部基础知识点，接下来我们就来实现，同时业界内也有一个<a href="https://promisesaplus.com/" target="_blank" rel="noopener">Promise/A+规范</a>，大家也可以按照其规范去实现自己的Promise。</p>
+<h1 id="手写代码"><a href="#手写代码" class="headerlink" title="手写代码"></a>手写代码</h1><p>在手写代码之前，我们需要明白<code>Promise</code>实现的基本原理：</p>
+<ul>
+<li>发布订阅模式，解决<code>Promise</code>的state发生变化后需要触发的事件，如：then 或 catch</li>
+<li>链式调用，<code>Promise</code>所有的方法调后都会返回一个新的<code>Promise</code>对象</li>
+</ul>
+<p>其中关键代码在<code>then</code>函数的实现，主要是返回一个新的<code>Promise</code>对象，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Promise的三种状态</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> StatusType = &#123;</span><br><span class="line">    PENDING: <span class="string">'pending'</span>,</span><br><span class="line">    FULFILLED: <span class="string">'fulfilled'</span>,</span><br><span class="line">    REJECTED: <span class="string">'rejected'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手写Promise</span></span><br><span class="line"><span class="comment"> * @author: Qborfy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPromise</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; executor 为一个函数，该函数接受两个参数，分别是resolve和reject</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constructor</span>(executor) &#123;</span><br><span class="line">        <span class="comment">// 初始化状态为pending</span></span><br><span class="line">        <span class="keyword">this</span>.status = StatusType.PENDING;</span><br><span class="line">        <span class="comment">// 初始化成功的值</span></span><br><span class="line">        <span class="keyword">this</span>.value = <span class="literal">undefined</span>;</span><br><span class="line">        <span class="comment">// 初始化失败的原因</span></span><br><span class="line">        <span class="keyword">this</span>.reason = <span class="literal">undefined</span>;</span><br><span class="line">        <span class="comment">// 成功的回调函数</span></span><br><span class="line">        <span class="keyword">this</span>.onFulfilledCallbacks = [];</span><br><span class="line">        <span class="comment">// 失败的回调函数</span></span><br><span class="line">        <span class="keyword">this</span>.onRejectedCallbacks = [];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 成功的回调函数</span></span><br><span class="line">        <span class="keyword">const</span> resolve = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 状态只能从pending到fulfilled或者rejected</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.status === StatusType.PENDING) &#123;</span><br><span class="line">                <span class="keyword">this</span>.status = StatusType.FULFILLED;</span><br><span class="line">                <span class="keyword">this</span>.value = value;</span><br><span class="line">                <span class="comment">// 依次执行成功的回调函数 使用queueMicrotask()去执行</span></span><br><span class="line">                <span class="keyword">this</span>.onFulfilledCallbacks.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">                    queueMicrotask(fn(<span class="keyword">this</span>.value));</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 失败的回调函数</span></span><br><span class="line">        <span class="keyword">const</span> reject = <span class="function">(<span class="params">reason</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 状态只能从pending到fulfilled或者rejected</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.status === StatusType.PENDING) &#123;</span><br><span class="line">                <span class="keyword">this</span>.status = StatusType.REJECTED;</span><br><span class="line">                <span class="keyword">this</span>.reason = reason;</span><br><span class="line">                <span class="comment">// 依次执行失败的回调函数 使用queueMicrotask()去执行</span></span><br><span class="line">                <span class="keyword">this</span>.onRejectedCallbacks.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">                    queueMicrotask(fn(<span class="keyword">this</span>.reason));</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 立即执行executor函数</span></span><br><span class="line">            executor(resolve, reject);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="comment">// 如果执行executor函数出错，直接执行reject</span></span><br><span class="line">            reject(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将then方法返回的promise的resolve和reject传入</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; onFulfilled </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; onRejected </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    then(onFulfilled, onRejected) &#123;</span><br><span class="line">        <span class="comment">// onFulfilled和onRejected都是可选参数</span></span><br><span class="line">        onFulfilled = <span class="keyword">typeof</span> onFulfilled === <span class="string">'function'</span> ? onFulfilled : <span class="function"><span class="params">value</span> =&gt;</span> value;</span><br><span class="line">        onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">'function'</span> ? onRejected : <span class="function"><span class="params">err</span> =&gt;</span> &#123; <span class="keyword">throw</span> err &#125;;</span><br><span class="line">        <span class="comment">// 判断结果是否为promise，如果是promise，直接返回该promise，如果不是则返回一个新的promise</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">resolvePromise</span>(<span class="params">result, resolve, reject</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (result <span class="keyword">instanceof</span> MyPromise) &#123;</span><br><span class="line">                result.then(resolve, reject);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                resolve(result);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> newPromise = <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 如果状态完成，直接执行onFulfilled</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.status === StatusType.FULFILLED) &#123;</span><br><span class="line">                <span class="keyword">const</span> result = onFulfilled(<span class="keyword">this</span>.value);</span><br><span class="line">                resolvePromise(result, resolve, reject);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果状态失败，直接执行onRejected</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.status === StatusType.REJECTED) &#123;</span><br><span class="line">                <span class="keyword">const</span> result = onRejected(<span class="keyword">this</span>.reason);</span><br><span class="line">                resolvePromise(result, resolve, reject);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果状态为pending，将onFulfilled和onRejected存入对应的回调函数数组中</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.status === StatusType.PENDING) &#123;</span><br><span class="line">                <span class="comment">// 同时将resolve和reject传入对应函数中</span></span><br><span class="line">                <span class="keyword">this</span>.onFulfilledCallbacks.push(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">const</span> result = onFulfilled(value)</span><br><span class="line">                    resolvePromise(result, resolve, reject)</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">this</span>.onRejectedCallbacks.push(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">const</span> result = onRejected(reason)</span><br><span class="line">                    resolvePromise(result, resolve, reject)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> newPromise;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 执行catch方法，返回一个新的promise</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; onRejected </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">catch</span>(onRejected) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="literal">null</span>, onRejected);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 不管是成功还是失败，最终会执行finally方法，返回一个原来promise的结果</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; onFinally </span></span><br><span class="line"><span class="comment">     * @returns </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">finally</span>(onFinally) &#123;</span><br><span class="line">        <span class="comment">// 这里要将原来的value或reason返回</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">            onFinally()</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;, (reason)=&gt;&#123;</span><br><span class="line">            onFinally()</span><br><span class="line">            <span class="keyword">return</span> reason;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> resolve() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> reject() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> all() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> allSettled() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> any() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> race() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">; (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> p = <span class="keyword">new</span> MyPromise(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            resolve(<span class="number">1</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'then:'</span>, res)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;).finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'finally'</span>)</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'then2:'</span>, res)</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'then3:'</span>, res)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(p)</span><br><span class="line">    <span class="comment">// const p2 = new MyPromise((resolve, reject) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     JSON.parse('&#123;a&#125;')</span></span><br><span class="line">    <span class="comment">// &#125;).catch((res) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     console.log('catch:', res)</span></span><br><span class="line">    <span class="comment">// &#125;).finally(() =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     console.log('finally2')</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p>这里就不粘贴完整源码了，完整源码请到github中查看，想看更多八股文手写题可以给个star收藏一下，Github会给你推送更新信息，地址如下：</p>
+<p><a href="https://github.com/qiubohong/hundred-interview-questions/blob/main/1-promise/mypromise.js" target="_blank" rel="noopener">https://github.com/qiubohong/hundred-interview-questions/blob/main/1-promise/mypromise.js</a></p>
+<h1 id="Promise在开发中遇到的问题"><a href="#Promise在开发中遇到的问题" class="headerlink" title="Promise在开发中遇到的问题"></a>Promise在开发中遇到的问题</h1><ul>
+<li>并发Promise，用Promise.all，那么如何实现限制并发数呢?</li>
+<li>await去等待Promise的结果，如果是reject结果，如何catch，或者用其他方式避免await的错误？</li>
+<li>Promise的调用时机，即是一个非异步的Promise函数什么时候会被执行，为什么会比setTimeout等定时器优先更高？</li>
+</ul>
+<h1 id="额外知识点"><a href="#额外知识点" class="headerlink" title="额外知识点"></a>额外知识点</h1><h2 id="微任务（Microtasks）和任务（tasks）的区别"><a href="#微任务（Microtasks）和任务（tasks）的区别" class="headerlink" title="微任务（Microtasks）和任务（tasks）的区别"></a>微任务（Microtasks）和任务（tasks）的区别</h2><p>JavaScript中的<code>任务</code>指的是将代码按照下面的标准机制去形成一个个任务，加入到<strong>任务队列</strong>中，去等待被<strong>事件循环</strong>驱动调度。</p>
+<ul>
+<li>一段代码被直接执行时</li>
+<li>触发了一个事件，将其回调函数添加到任务队列时</li>
+<li>执行到一个由 setTimeout() 或 setInterval() 创建的 timeout 或 interval，以致相应的回调函数被添加到任务队列时</li>
+</ul>
+<p>而<code>微任务</code>则是通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/queueMicrotask" target="_blank" rel="noopener">queueMicrotask()</a>加入微任务队列中，在事件循环之前的安全时间执行的（当前事件循环无任何需要执行任务），同时事件循环会持续调用微任务直至队列中没有留存的，即使是在有更多微任务持续被加入的情况下。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>前端面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用现有语言模型去做智能搜索问答机器人</title>
+    <url>/today/20230310.html</url>
+    <content><![CDATA[<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>用 ChatGPT 开发一个能听懂人话的命令行工具<br><a href="https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Svelte尝鲜体验</title>
+    <url>/today/20230308.html</url>
+    <content><![CDATA[<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>低代码的另一种实现思路，不再是页面开发，而是应用开发。<br><a href="https://mp.weixin.qq.com/s/dwi40gJjGBHW9MVpag5Oxg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/dwi40gJjGBHW9MVpag5Oxg</a></p>
+<p>可视化搭建 - keepAlive 模式<br><a href="https://mp.weixin.qq.com/s/1fYO__dfUy2MIjHi3IJrmg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/1fYO__dfUy2MIjHi3IJrmg</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何基于chatgpt去开发工具</title>
+    <url>/today/20230309.html</url>
+    <content><![CDATA[<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>用 ChatGPT 开发一个能听懂人话的命令行工具<br><a href="https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自己尝试运行大语言模型</title>
+    <url>/today/20230311.html</url>
+    <content><![CDATA[<p>自己尝试运行大语言模型</p>
+<p><a href="https://hub.baai.ac.cn/view/25299" target="_blank" rel="noopener"></a><br><a href="https://github.com/THUDM/ChatGLM-6B" target="_blank" rel="noopener">https://github.com/THUDM/ChatGLM-6B</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>前端面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>//404.html</url>
     <content><![CDATA[<html>
