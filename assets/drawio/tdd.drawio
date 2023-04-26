@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="0peNQ9G_ARldI4oO2qrB" name="第 1 页">
+        <mxGraphModel dx="887" dy="431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="思考如何写&lt;br&gt;单元测" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="130" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="如何才能&lt;br&gt;测试失败" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="210" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="测试不通过&lt;br&gt;改善代码" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="360" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="所有测试&lt;br&gt;通过" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="360" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="重构优化&lt;br&gt;代码" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="220" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.59;dx=22.33;notch=8.91;rotation=45;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+                    <mxGeometry x="508.90000000000003" y="164.48" width="41.1" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.59;dx=22.33;notch=8.91;rotation=-225;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+                    <mxGeometry x="565" y="315.99" width="50" height="38.03" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.55;dx=19;notch=8.91;rotation=-180;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="390" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.59;dx=22.33;notch=8.91;rotation=-105;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="282.41" y="327.2" width="40" height="29.66" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.59;dx=22.33;notch=8.91;rotation=-30;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="1">
+                    <mxGeometry x="335.76" y="160.3" width="46.25" height="29.48" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
