@@ -1,0 +1,71 @@
+<mxfile host="65bd71144e">
+    <diagram id="z0wdobR56AvE1x87tDZQ" name="Page-1">
+        <mxGraphModel dx="887" dy="434" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="触发某个事件" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5">
+                    <mxGeometry x="-0.41" y="-2" relative="1" as="geometry">
+                        <mxPoint x="11" y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="发布者" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="170" width="210" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;shadow=0;rounded=0;" edge="1" parent="1" source="7" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="800" y="120"/>
+                            <mxPoint x="525" y="120"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="注册" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="12">
+                    <mxGeometry x="-0.0761" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="订阅者1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="消息1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="280" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="消息2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="280" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font color=&quot;#ffffff&quot;&gt;消息中心&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="495" y="180" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;shadow=0;" edge="1" parent="1" source="11" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="800" y="360"/>
+                            <mxPoint x="525" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="注册" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="13">
+                    <mxGeometry x="-0.0523" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="订阅者1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="执行" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.56;dx=28;direction=south;notch=0;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="220" width="25" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="执行" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.4;dx=23;direction=south;notch=0;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="575" y="220" width="25" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

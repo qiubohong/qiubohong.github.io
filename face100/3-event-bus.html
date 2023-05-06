@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️">
+  <meta name="description" content="前言EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️⭐️">
 <meta name="keywords" content="学习总结,前端面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试100道手写题（3）—— EventBus">
 <meta property="og:url" content="https://www.qborfy.com/face100/3-event-bus.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️">
+<meta property="og:description" content="前言EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️⭐️">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-05-06T02:38:00.471Z">
+<meta property="og:updated_time" content="2023-05-06T08:48:34.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试100道手写题（3）—— EventBus">
-<meta name="twitter:description" content="背景EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️">
+<meta name="twitter:description" content="前言EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。 手写难度：⭐️⭐️">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -329,7 +329,7 @@
         </span>
 
 <a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
+        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
 </a>
 
   
@@ -342,7 +342,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">40字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -351,7 +351,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -362,12 +362,66 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。</p>
-<p>手写难度：⭐️</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>EventBus作为发布订阅设计模式的经典应用场景，很值得我们去学习研究它的实现原理。</p>
+<p>手写难度：⭐️⭐️</p>
 <a id="more"></a>
 
+<p>可以直接去看完整源码地址（记得给个star），地址如下：</p>
+<p><a href="https://github.com/qiubohong/hundred-interview-questions/tree/main/3-event-bus" target="_blank" rel="noopener">https://github.com/qiubohong/hundred-interview-questions/tree/main/3-event-bus</a></p>
+<h1 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>EventBus其实是一个技术概念，主要是通过事件订阅方式解决不同情况下消息通讯问题，不仅仅在前端，还在Native（Android）等各个地方都有在使用。</p>
+<p>EventBus 可以分成下面四个部分：</p>
+<ul>
+<li>订阅者 Subscriber： 监听某类事件，当发布者触发该类事件后执行所需要的事件。</li>
+<li>发布者 Publisher：当满足某些条件，发布触发订阅者的事件。</li>
+<li>消息 Event：其实就需要传递的消息或事件本身。</li>
+<li>消息中心 EventStore: 负责存储消息与订阅者的对应关系，有消息触发时，负责通知订阅者。</li>
+</ul>
+<p>几者的关系如下图所示：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/event-bus.drawio&quot;}"></div>
+</div>
 
 
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>上面是讲了一些概念性，但是在实际开发中，EventBus其实已经很多地方在使用了，如：</p>
+<ul>
+<li>Vue2中的<code>$emit</code> <code>$on</code>其实就是利用EventBus实现的，同时还可以使用去实现跨组件实现通讯</li>
+<li>Node.js中的的<code>EventEmitter</code>，支持<code>on</code> <code>emit</code>，可以利用其解决<code>回调地狱</code>问题</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>EventBus主要有几个方法：</p>
+<ul>
+<li><code>on(event, func)</code> 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。</li>
+<li><code>emit(event, ...args)</code> 按监听器的顺序执行执行每个监听器，如果事件有注册监听返回 true，否则返回 false。</li>
+<li><code>once(event, func)</code> 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。</li>
+<li><code>off(event, func)</code> 移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。</li>
+<li><code>offAll(event)</code> 移除所有事件的所有监听器</li>
+</ul>
+<p>下面是实现代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="comment">// 消息队列 存储事件和回调</span></span><br><span class="line">        <span class="keyword">this</span>.listeners = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 订阅事件</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; event </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; callback </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    on(event, callback) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[event]) &#123;</span><br><span class="line">            <span class="keyword">this</span>.listeners[event] = [];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.listeners[event].push(callback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注销事件</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; event </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; callback </span></span><br><span class="line"><span class="comment">     * @returns </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    off(event, callback) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[event]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.listeners[event] = <span class="keyword">this</span>.listeners[event].filter(<span class="function"><span class="params">listener</span> =&gt;</span> listener !== callback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发布触发事件</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; event </span></span><br><span class="line"><span class="comment">     * @param  &#123;...any&#125; args </span></span><br><span class="line"><span class="comment">     * @returns </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    emit(event, ...args) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[event]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.listeners[event].forEach(<span class="function"><span class="params">listener</span> =&gt;</span> listener(...args));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 只触发一次的事件</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; event </span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; callback </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    once(event, callback) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.listeners[event]) &#123;</span><br><span class="line">            <span class="keyword">this</span>.listeners[event] = [];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> onceCallback = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">            callback(...args);</span><br><span class="line">            <span class="keyword">this</span>.off(event, onceCallback);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.listeners[event].push(onceCallback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注销某个事件的所有回调</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; event </span></span><br><span class="line"><span class="comment">     * @returns </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    offAll(event) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.listeners[event]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.listeners[event] = [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> eventBus = <span class="keyword">new</span> EventBus();</span><br><span class="line">    eventBus.on(<span class="string">'test'</span>, (a, b) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a, b);</span><br><span class="line">    &#125;);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        eventBus.emit(<span class="string">'test'</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p>EventBus模式使用上需要注意的问题：</p>
+<ul>
+<li>如果<code>on</code>注册多次，可能会导致一次<code>emit</code>就会执行多次函数，导致无法定位到哪里注册多，因此使用的时候，需要考虑什么时候把事件<code>off</code></li>
+<li><code>off</code>需要明确指出函数对象，所以我们的注册函数建议都通过声明函数去实现，而不是匿名函数，减少注销事件的麻烦</li>
+<li><code>on</code>注册事件，事件名建议使用静态常量，而不是字符串，更加容易管理事件中心</li>
+</ul>
+<h1 id="额外知识"><a href="#额外知识" class="headerlink" title="额外知识"></a>额外知识</h1><h2 id="为什么Vue3实例不再支持-emit-on"><a href="#为什么Vue3实例不再支持-emit-on" class="headerlink" title="为什么Vue3实例不再支持 emit on"></a>为什么Vue3实例不再支持 <code>emit</code> <code>on</code></h2><p>官方解释如下：</p>
+<ul>
+<li>Vue 1.x的时候是实现类似Angular的组件事件系统，利用<code>$dispatch</code>与<code>$broadcast</code>实现向上和向下发送事件来进行通信</li>
+<li>在Vue 2中，取消了<code>$dispatch</code>与<code>$broadcast</code>，从而能更多状态驱动的数据流，其实就是单向数据流的状态扭转，</li>
+<li>Vue2中， <code>$emit</code>用于触发由父组件的声明事件，<code>$on</code> <code>$off</code> <code>$once</code>都是这类事件的扩展，但是这仅仅是一个过程，且很少被使用</li>
+<li>因此，没有充分的理由去让它们暴露在组件实例上，所以最终决定将删除<code>$on</code> <code>$off</code> <code>$once</code>等实例方法</li>
+</ul>
+<p>解决方案：</p>
+<ol>
+<li>使用<code>vue3-bus</code>，基于Vue插件机制</li>
+<li>不借助Vue插件实现的，官方推荐的<a href="https://github.com/developit/mitt" target="_blank" rel="noopener">mitt</a></li>
+</ol>
+<p>原文地址：<a href="https://github.com/vuejs/rfcs/blob/master/active-rfcs/0020-events-api-change.md" target="_blank" rel="noopener">active-rfcs/0020-events-api-change.md</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://juejin.cn/post/6844904101331877895" target="_blank" rel="noopener">从发布订阅模式入手读懂Node.js的EventEmitter源码</a></li>
+<li><a href="https://www.runoob.com/nodejs/nodejs-event.html" target="_blank" rel="noopener">Node.js EventEmitter</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
