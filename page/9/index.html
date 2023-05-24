@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives: 2023 | qborfy知识库</title>
+  <title>qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    
+    <!-- <meta name="keywords" content="">
+    <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志"> -->
   
   <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:type" content="website">
 <meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/2023/page/6/index.html">
+<meta property="og:url" content="https://www.qborfy.com/page/9/index.html">
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:locale" content="zh-CN">
@@ -302,34 +306,23 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230131.html" class="archive-article-date">
-        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
-</a>
 
-        </div>
-    	 
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-share/iOS11-fastclick-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
   
     <h1 itemprop="name">
 	
-	  <a class="archive-article-title" href="/today/20230131.html" target="_blank">
-      hexo网站提高SEO优化方法
+	  <a class="article-title" href="/share/iOS11-fastclick-js.html" target="_blank">
+      iOS11.3 fastclick.js相关bug
       
     </a>
   
@@ -337,378 +330,184 @@
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+  
+<a href="/share/iOS11-fastclick-js.html" class="archive-article-date">
+        <time datetime="2018-08-04T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-04</time>
+</a>
 
-          
+  
+  
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。</p>
+<h2 id="bug复现条件："><a href="#bug复现条件：" class="headerlink" title="bug复现条件："></a>bug复现条件：</h2><p>一、ios 11.3中app的webview为 UI WebView<br>二、在项目中使用了FastClick.js，页面包括输入框.</p>
+<h2 id="发现源头问题："><a href="#发现源头问题：" class="headerlink" title="发现源头问题："></a>发现源头问题：</h2><p>在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是FastClick.js导致，注释掉后发现bug现象消失了，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'zepto'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta"> 'use strict'</span>;</span><br><span class="line"> <span class="comment">// FastClick.attach(document.body);</span></span><br><span class="line"> ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>但是这是为什么呢？我们一起看看为什么要加上FastClick，这个库解决了什么问题？</p>
+    
+    <a class="article-more-a" href="/share/iOS11-fastclick-js.html#more">more >></a>
+    
+    
+    
+
+    
+
   </div>
-</article>
-  
+  <div class="article-info article-info-index">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/face-test.html" class="archive-article-date">
-        <time datetime="2023-01-30T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/face-test.html" target="_blank">
-      前端面试题目收集(持续更新)
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230129.html" class="archive-article-date">
-        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230129.html" target="_blank">
-      从null、undefined、NaN的区别了解JS的原型链
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/iOS11-fastclick-js.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-translate/wait" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/translate/wait.html" target="_blank">
+      如何用自定义钩子重构 React 组件
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/translate/wait.html" class="archive-article-date">
+        <time datetime="2017-09-03T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://codescene.com/engineering-blog/refactoring-components-in-react-with-custom-hooks" target="_blank" rel="noopener">如何用自定义钩子重构 React 组件</a></p>
+
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hide</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/translate/wait.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230128.html" class="archive-article-date">
-        <time datetime="2023-01-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-28</time>
-</a>
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230128.html" target="_blank">
-      :has伪类的到来延伸到其他伪元素和伪类的区别
-      
-    </a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230124.html" class="archive-article-date">
-        <time datetime="2023-01-24T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230124.html" target="_blank">
-      从0开始学习FlexBox布局
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/share/hexo-search.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/share/hexo-search.html" target="_blank">
-      hexo Yilia主题支持搜索功能
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/lowcode/index.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/lowcode/index.html" target="_blank">
-      低代码系列——介绍
-      
-        <text style="font-size:.5em;vertical-align:text-bottom;padding:.4em .5em .5em;font-weight:bold;color:#fff;background-color:#ff6701;">顶</text>
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230122.html" class="archive-article-date">
-        <time datetime="2023-01-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230122.html" target="_blank">
-      从nest.js中了解IoC和DI的实现
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2023/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/2023/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2023/page/4/">4</a><a class="page-number" href="/archives/2023/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/2023/page/7/">7</a><a class="page-number" href="/archives/2023/page/8/">8</a><a class="page-number" href="/archives/2023/page/9/">9</a><a class="extend next" rel="next" href="/archives/2023/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
     </nav>
   
 
@@ -754,9 +553,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

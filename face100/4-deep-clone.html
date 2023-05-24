@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives: 2023 | qborfy知识库</title>
+  <title>前端面试100道手写题（4）—— 深浅拷贝 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/2023/page/6/index.html">
+  <meta name="description" content="前言深浅拷贝经典前端面试题，不仅仅只是实现逻辑，更加是对整个Javascript语言的实现背后一套理论，从基础数据类型到原型链一整套知识体系的熟悉程度，下面我们就从简单到困难一一实现。 手写难度：⭐️⭐️⭐️ 涉及知识点：  数据类型在内存空间的存储 原型以及原型链（这是实现拷贝一个重要知识点，如何拷贝自定义的类实例对象） 如何拷贝一个原型对象 如： a = {}; clone(a.__proto">
+<meta name="keywords" content="学习总结,前端面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试100道手写题（4）—— 深浅拷贝">
+<meta property="og:url" content="https://www.qborfy.com/face100/4-deep-clone.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="前言深浅拷贝经典前端面试题，不仅仅只是实现逻辑，更加是对整个Javascript语言的实现背后一套理论，从基础数据类型到原型链一整套知识体系的熟悉程度，下面我们就从简单到困难一一实现。 手写难度：⭐️⭐️⭐️ 涉及知识点：  数据类型在内存空间的存储 原型以及原型链（这是实现拷贝一个重要知识点，如何拷贝自定义的类实例对象） 如何拷贝一个原型对象 如： a = {}; clone(a.__proto">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-05-24T03:22:02.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="前端面试100道手写题（4）—— 深浅拷贝">
+<meta name="twitter:description" content="前言深浅拷贝经典前端面试题，不仅仅只是实现逻辑，更加是对整个Javascript语言的实现背后一套理论，从基础数据类型到原型链一整套知识体系的熟悉程度，下面我们就从简单到困难一一实现。 手写难度：⭐️⭐️⭐️ 涉及知识点：  数据类型在内存空间的存储 原型以及原型链（这是实现拷贝一个重要知识点，如何拷贝自定义的类实例对象） 如何拷贝一个原型对象 如： a = {}; clone(a.__proto">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -301,90 +303,219 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-face100/4-deep-clone" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230131.html" class="archive-article-date">
-        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230131.html" target="_blank">
-      hexo网站提高SEO优化方法
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      前端面试100道手写题（4）—— 深浅拷贝
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-          
+<a href="/face100/4-deep-clone.html" class="archive-article-date">
+        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
+</a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>深浅拷贝经典前端面试题，不仅仅只是实现逻辑，更加是对整个Javascript语言的实现背后一套理论，从基础数据类型到原型链一整套知识体系的熟悉程度，下面我们就从简单到困难一一实现。</p>
+<p>手写难度：⭐️⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>数据类型在内存空间的存储</li>
+<li>原型以及原型链（这是实现拷贝一个重要知识点，如何拷贝自定义的类实例对象）<ul>
+<li>如何拷贝一个原型对象 如： <code>a = {}; clone(a.__proto__)</code></li>
+</ul>
+</li>
+<li>数组的判断</li>
+<li>日期/正则等其他内置对象的拷贝</li>
+<li>函数的拷贝</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h1><h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>凡是遇到问题，多问一次自己为什么？—— 为什么在Javascript中会有【深拷贝】｜ 【浅拷贝】 区分的操作呢？</p>
+<p>首先，我们回想一下，一开始我们学习语言的第一件事是什么（Hello World除外），是数据类型，Javascript中数据类型有以下几种：</p>
+<ul>
+<li>基础数据类型：number, string, boolean等</li>
+<li>引用数据类型：object, array, date等</li>
+</ul>
+<p>然后，就是变量赋值，如： a = 1，b = new Date()，在 JavaScript 中分为两种：</p>
+<ol>
+<li>基础数据类型，值都有固定的大小，保存在栈内存中，由系统自动分配存储空间在栈内存空间的值，我们可以直接进行操作，因此基础数据类型都是按照值访问</li>
+<li>复杂数据类型，值都保存在堆内存中的对象，引用类型的值都是按引用访问的，所以在操作对象时，实际上是操作对象的引用而不是实际的对象。引用可以理解为保存在栈内存中的一个地址，该地址指向堆内存中的一个实际对象</li>
+</ol>
+<p>因此，在复制值的时候，两种类型操作不一样，如下：</p>
+<ol>
+<li>基础类型复制，会在栈空间新建一个空间去进行复制</li>
+<li>引用类型复制，系统会为新的变量自动分配一个新的栈内存空间这个栈内存空间保存着与被复制变量相同的指针，尽管他们在栈内存中的内存空间的位置互相独立但是在堆内存中访问到的对象实际上是同一个，因此，当我们改变其中一个对象的值时，实际上就是改变原来的对象</li>
+</ol>
+<p>简单的总结一下：</p>
+<ol>
+<li>基础类型的值长度是固定的，所以可以在栈空间分配存储空间，当进行复制的时候，可以直接在栈空间内新建一个存储空间进行赋值</li>
+<li>引用类型的值长度是不固定的，所以需要在栈空间分配一个指针，然后在堆内存空间分配一个对象，将指针指向改对象，当进行复制的时候，需要在栈空间新建一个指针，然后指向之前在堆内存建的对象</li>
+</ol>
+<p>了解完为什么后，再去实现浅拷贝和深拷贝就会理所当然了。</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>浅拷贝和深拷贝，在了解完【为什么】后，就很容易理解两者的区别：</p>
+<ul>
+<li>浅拷贝只会对引用类型的值做第一层堆内存进行拷贝</li>
+<li>深拷贝除了会复制新建栈空间的值，同时还在将指向堆内存中对象进行新建</li>
+</ul>
+<p>那么为什么不都用深拷贝去实现就好了，那是因为在浅拷贝机制可以有效利用存储空间，同时浅拷贝的也存在一定应用场景：</p>
+<ul>
+<li>当需要统一管理引用值的变化时候，如：当 fetch 一个请求返回 json 数据后，当我们对其做修改调整后，其实不需要做深拷贝的</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>实现原理：只对引用类型数据做第一层值进行拷贝</p>
+<p>步骤：</p>
+<ol>
+<li>判断数据类型，需要将所有引用类型数据判断一次</li>
+<li>根据不同引用类型，将引用类型数据值进行复制新建一次，利用<code>Object.assign</code>或 <code>new +     return new obj.constructor(obj);</code> 进行复制进行</li>
+<li>其中针对自定义类，如：<code>new A()</code>，需要通过继承其原型链，利用 <code>Object.getPrototypeOf</code></li>
+<li>基础类型直接返回</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型判断 主要基于 Object.prototype.toString.call</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Object]'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为原型对象 如 a = new A();  a.__proto__ === A.prototype</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrototype</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> Ctor = obj &amp;&amp; obj.constructor;</span><br><span class="line">    <span class="keyword">const</span> proto = (<span class="keyword">typeof</span> Ctor === <span class="string">'function'</span> &amp;&amp; Ctor.prototype) || <span class="built_in">Object</span>.prototype;</span><br><span class="line">    <span class="keyword">return</span> obj === proto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浅拷贝</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果不是对象类型 直接返回</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(obj === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isArray(obj) || isArrayBuffer(obj)) &#123;</span><br><span class="line">        <span class="keyword">return</span>  obj.slice();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isObject(obj)) &#123;</span><br><span class="line">        <span class="comment">// 区分是内置 Object  还是自定义的类</span></span><br><span class="line">        <span class="keyword">if</span>(obj.constructor === <span class="built_in">Object</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(isPrototype(obj)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Object</span>.getPrototypeOf(<span class="keyword">new</span> obj.constructor());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 自定义类新建实例化对象 保留原型链 从而保留原型方法或属性</span></span><br><span class="line">            <span class="keyword">const</span> newObj = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">            <span class="comment">// 获取对象的所有属性</span></span><br><span class="line">            <span class="keyword">const</span> keys = <span class="built_in">Object</span>.getOwnPropertyNames(obj);</span><br><span class="line">            keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">                newObj[key] = obj[key];</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> newObj;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他类型可以通过 new + constructor 来实现浅拷贝</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> obj.constructor(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>实现原理： 需要对整个对象的进行深度遍历赋复制新建，从而实现修改新建值不会影响到原有的值</p>
+<p>步骤：</p>
+<ol>
+<li>数据类型判断和浅拷贝一致</li>
+<li>针对不同引用类型需要遍历+递归实现值的拷贝新建</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj, map = new WeakMap(</span>)) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果不是对象类型 直接返回</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(obj === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果是 WeakMap 直接抛出异常 因为 WeakMap 无法遍历</span></span><br><span class="line">    <span class="keyword">if</span>(isWeakMap(obj)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'WeakMap can not be cloned'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isPrototype(obj)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.getPrototypeOf(<span class="keyword">new</span> obj.constructor());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相互引用的对象会导致死循环</span></span><br><span class="line">    <span class="keyword">if</span>(map.has(obj)) &#123;</span><br><span class="line">        <span class="keyword">return</span> map.get(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isArrayBuffer(obj)) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj.slice();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isArray(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newArr = [];</span><br><span class="line">        map.set(obj, newArr);</span><br><span class="line">        obj.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            newArr.push(deepClone(item, map));</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> newArr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isSet(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        map.set(obj, newSet);</span><br><span class="line">        obj.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            newSet.add(deepClone(item, map));</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> newSet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isMap(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newMap = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">        map.set(obj, newMap);</span><br><span class="line">        obj.forEach(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;</span><br><span class="line">            newMap.set(key, deepClone(value, map));</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> newMap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isRegx(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newRegx = <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj.source, obj.flags);</span><br><span class="line">        map.set(obj, newRegx);</span><br><span class="line">        <span class="keyword">return</span> newRegx;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isDate(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(obj.getTime());</span><br><span class="line">        map.set(obj, newDate);</span><br><span class="line">        <span class="keyword">return</span> newDate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isError(obj)) &#123;</span><br><span class="line">        <span class="keyword">const</span> newError = <span class="keyword">new</span> <span class="built_in">Error</span>(obj.message);</span><br><span class="line">        map.set(obj, newError);</span><br><span class="line">        <span class="keyword">return</span> newError;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isObject(obj)) &#123;</span><br><span class="line">        <span class="comment">// 区分是内置 Object  还是自定义的类</span></span><br><span class="line">        <span class="keyword">if</span>(obj.constructor === <span class="built_in">Object</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> newObj = &#123;&#125;;</span><br><span class="line">            map.set(obj, newObj);</span><br><span class="line">            <span class="comment">// 获取对象的所有属性 包括不可枚举属性</span></span><br><span class="line">            <span class="built_in">Reflect</span>.ownKeys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">                newObj[key] = deepClone(obj[key], map);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> newObj;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(isPrototype(obj)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Object</span>.getPrototypeOf(<span class="keyword">new</span> obj.constructor());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 自定义类新建实例化对象 保留原型链 从而保留原型方法或属性</span></span><br><span class="line">            <span class="keyword">const</span> newObj = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">            map.set(obj, newObj);</span><br><span class="line">            <span class="comment">// 获取对象的所有属性</span></span><br><span class="line">            <span class="keyword">const</span> keys = <span class="built_in">Object</span>.getOwnPropertyNames(obj);</span><br><span class="line">            keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">                newObj[key] = deepClone(obj[key], map);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> newObj;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他类型可以通过 new + constructor 来实现拷贝返回</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> obj.constructor(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>浅拷贝和深拷贝作为前端面试经常会出现的题目，在做这篇题目之前，我对浅拷贝和深拷贝的其实是缺失的，即使网上的答案也只是做了一部分，当我深入阅读<code>lodash.Clone</code>和<code>lodash.deepClone</code>的源码才发现这里面隐藏的一些知识点，这里做一个阅读前和阅读后：</p>
+<p>阅读源码前：</p>
+<ul>
+<li>浅拷贝只需要通过 Object.assigin就可以实现拷贝，但是从来没想过数据类型判断的重要性，包括自定义类对应实例的拷贝</li>
+<li>深拷贝只需要解决数组遍历，以及解决循环依赖问题即可，忘记了还有Map/Set等新一代数据类型的遍历</li>
+</ul>
+<p>阅读源码后：</p>
+<ul>
+<li>数据类型判断才是拷贝的重要依据，根据不同类型需要做不同逻辑拷贝，而且 JavaScript 中的数据类型真的有很多，不仅只有 array object，还有常见Date，Regexp，或者冷门的 ArrayBuffer等</li>
+<li>自定义类的拷贝也很复杂，同时也引出了原型对象(<strong>proto</strong> prototype)的拷贝，这里也加深我对JavaScript 原型的理解</li>
+</ul>
+<p>JavaScript 数据实例拷贝背后的原理，其实是 JavaScript 中不同数据类型存储值的方式需要去做不一样的处理，而引用类型最终在 JavaScript 中的实现就是依赖于原型和原型链去实现的。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://github.com/lodash/lodash/blob/master/.internal/baseClone.js#L236" target="_blank" rel="noopener">lodash baseClone 浅拷贝和深拷贝的基础实现方法</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/face100/4-deep-clone.html" title="前端面试100道手写题（4）—— 深浅拷贝" target="_blank">https://www.qborfy.com/face100/4-deep-clone.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
   </div>
-</article>
-  
+  <div class="article-info article-info-index">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/face-test.html" class="archive-article-date">
-        <time datetime="2023-01-30T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/face-test.html" target="_blank">
-      前端面试题目收集(持续更新)
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -392,325 +523,115 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230129.html" class="archive-article-date">
-        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230129.html" target="_blank">
-      从null、undefined、NaN的区别了解JS的原型链
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/face100/4-deep-clone.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230128.html" class="archive-article-date">
-        <time datetime="2023-01-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-28</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230128.html" target="_blank">
-      :has伪类的到来延伸到其他伪元素和伪类的区别
-      
+  
+    <a href="/face100/3-event-bus.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端面试100道手写题（3）—— EventBus</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230124.html" class="archive-article-date">
-        <time datetime="2023-01-24T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230124.html" target="_blank">
-      从0开始学习FlexBox布局
-      
-    </a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/share/hexo-search.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/share/hexo-search.html" target="_blank">
-      hexo Yilia主题支持搜索功能
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/lowcode/index.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/lowcode/index.html" target="_blank">
-      低代码系列——介绍
-      
-        <text style="font-size:.5em;vertical-align:text-bottom;padding:.4em .5em .5em;font-weight:bold;color:#fff;background-color:#ff6701;">顶</text>
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/today/20230122.html" class="archive-article-date">
-        <time datetime="2023-01-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/today/20230122.html" target="_blank">
-      从nest.js中了解IoC和DI的实现
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2023/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/2023/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2023/page/4/">4</a><a class="page-number" href="/archives/2023/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/2023/page/7/">7</a><a class="page-number" href="/archives/2023/page/8/">8</a><a class="page-number" href="/archives/2023/page/9/">9</a><a class="extend next" rel="next" href="/archives/2023/page/7/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -755,8 +676,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

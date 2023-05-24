@@ -1,5 +1,5 @@
 cd source
-hexo g
+npm run deploy
 cd ../
 git add . *
 git commit -m "update"
