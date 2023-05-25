@@ -1,4 +1,5 @@
 cd source
+nvm use v10.15.3
 npm run deploy
 cd ../
 git add . *

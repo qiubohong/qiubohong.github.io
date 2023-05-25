@@ -284,12 +284,3 @@ aboutme: <div style="margin:0 1em;">borfy<br><br>毕业于广大华软学院，�
 
 local_search: 
   enable: true
-
-# Extensions
-plugins:
-  hexo-generator-feed
-#Feed Atom
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
