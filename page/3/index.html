@@ -317,6 +317,323 @@
     height:800px
   }
   </style>
+<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230221.html" target="_blank">
+      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230221.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+<ul>
+<li>OpenAI提供了哪些模型算法</li>
+<li>不同模型算法分别可以应用到哪些场景</li>
+<li>真正调用OpenAI需要注意哪些事项</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ideas/20230312" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ideas/20230312.html" target="_blank">
+      GPT-4都来了，我们还需要刷算法题和背八股文吗？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ideas/20230312.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="2023年的面试寒冬"><a href="#2023年的面试寒冬" class="headerlink" title="2023年的面试寒冬"></a>2023年的面试寒冬</h1><p>从去年到今年各个大厂都在不断裁员，导致今年IT互联网行情很差，很多朋友都缺乏面试机会或者面试不通过。</p>
+<p>程序员一旦要开始面试，很多朋友都开始循环以下几个步骤：</p>
+<ul>
+<li>刷算法题，如：LeetCode各种困难程度的题目</li>
+<li>背诵各种八股文，如：浏览器请求一个URL的完整过程</li>
+<li>复习各种冷门知识，如：Promise.race(谁先返回就获取谁的结果，后面直接不处理)或Promise.allSettled(结果为Iterator对象，实现next())</li>
+</ul>
+<p>也许以往这种复习模式还算不错，因为目前大多数面试流程基本上都是会问上述问题，而面试官问这些问题的最终目的是什么：</p>
+<ul>
+<li>算法题，主要考的是逻辑思维能力</li>
+<li>八股文，主要考的是基础知识是否足够扎实，知识深度是否足够</li>
+<li>冷门知识，主要考的是知识广度，你除了目前使用知识点外还能拥有其他知识面</li>
+</ul>
+<p>后续一些项目经验讲述，主要目的在于测试你是否真的参与到项目中，但是这个往往都是容易被忽略的点，这个放到后面再讲。</p>
+<p>当下最火的IT技术，ChatGPT智能机器人出来后，它不像普通搜索引擎一样，需要去大量的结果去找到自己的答案。而是直接将答案提供给到你，让你可以更加快速实现功能。</p>
+<p>如果ChatGPT普及开来，那么面试是否还需要考算法题和八股文吗？</p>
+<p>或者换个问题，<strong>当AI技术可以代替绝大部分基础开发工作的时候，面对这种技术变更，作为普通开发者，我们应该如何做技术成长规划呢？</strong></p>
+    
+    <a class="article-more-a" href="/ideas/20230312.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ideas/20230312.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230222.html" target="_blank">
+      30分钟搞懂Rollup+Typescript构建工程
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230222.html" class="archive-article-date">
+        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
+<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
+<p>参考项目地址为:<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>。</p>
+    
+    <a class="article-more-a" href="/today/20230222.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-share/node-modules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1008,316 +1325,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ideas/20230217.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230216" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230216.html" target="_blank">
-      可以从ChatGPT学到什么(一)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230216.html" class="archive-article-date">
-        <time datetime="2023-02-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近<code>chatgpt</code>智能对答火的一塌涂地，就是你找<code>chatgpt</code>咨询，它不仅能理解你的意思，还能给出准确的答案，而且能够从上下文理解你的意思。</p>
-<p>简单的说，就不再是之前的智能对答，如果遇到不理解的问题回复【我好像不太理解你的问题】。</p>
-<p>更有甚者，利用chatgpt完成论文编写，同时还有帮小孩子写作业、程序员利用它整理某个业务的实现思路，作者利用其帮忙写小说细节等等。</p>
-<p>我尝试问了一些常规问题，如下图所示，可以更好的理解<code>chatgpt</code>的能力。</p>
-<ol>
-<li><p>如何以<code>Nest.js</code>框架实现用户登录功能</p>
-    
-    <a class="article-more-a" href="/today/20230216.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230216.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230215.html" target="_blank">
-      前端自动化UI测试的完整方案
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230215.html" class="archive-article-date">
-        <time datetime="2023-02-15T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>开发公共平台项目，测试资源相对比较少，因此对开发者自身而言，为了维护项目的稳定性，需要对平台做各类测试，即使有测试环境，但是也很容易缺乏测试场景导致带着bug上线的情况。</p>
-<p>因此我们需要做完整自动化测试方案，来避免这类常规错误，提高平台的可用性和稳定性。</p>
-<p>这里先简单描述自动化测试的分类：</p>
-<ul>
-<li>单元测试，验证独立的单元模块代码或函数是否正常工作</li>
-<li>集成测试，验证多个单元模块间的协同工作</li>
-<li>UI 测试，只针对前端UI部分测试，后端数据采用mock方式</li>
-<li>端到端测试，从用户的角度，通过机器来模仿用户在真实浏览器中验证应用交互</li>
-<li>快照测试，验证程序的UI变化</li>
-</ul>
-<p>接下来我们将根据这些测试类如何在项目中落地完整方案。</p>
-    
-    <a class="article-more-a" href="/today/20230215.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230215.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230215.html" target="_blank">
-      数据可视化收集
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230215.html" class="archive-article-date">
-        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="数据可视化收集"><a href="#数据可视化收集" class="headerlink" title="数据可视化收集"></a>数据可视化收集</h1><p>收集数据可视化或报表开源系统，为了能够根据不同数据源展示可视化界面。</p>
-<h2 id="DataEase"><a href="#DataEase" class="headerlink" title="DataEase"></a>DataEase</h2><p>人人可用的开源数据可视化分析工具</p>
-<ul>
-<li>官网地址：<a href="https://dataease.io/" target="_blank" rel="noopener">https://dataease.io/</a><br>Github： <a href="https://github.com/dataease/dataease/" target="_blank" rel="noopener">https://github.com/dataease/dataease/</a></li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230215.html">展开全文 >></a>
     </p>
     
 
