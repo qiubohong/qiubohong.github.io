@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>从lerna到初步了解和使用Nx(一) | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="背景自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了lerna框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发Nx项目，尝试一下它的应用。 想了解Monorepo大仓项目如何设计的可以翻到前往阅读 《从npm版本依赖到Monorepo大仓项目》。">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从lerna到初步了解和使用Nx(一)">
+<meta property="og:url" content="https://www.qborfy.com/today/20230119.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了lerna框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发Nx项目，尝试一下它的应用。 想了解Monorepo大仓项目如何设计的可以翻到前往阅读 《从npm版本依赖到Monorepo大仓项目》。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-03-01T13:01:23.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="从lerna到初步了解和使用Nx(一)">
+<meta name="twitter:description" content="背景自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了lerna框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发Nx项目，尝试一下它的应用。 想了解Monorepo大仓项目如何设计的可以翻到前往阅读 《从npm版本依赖到Monorepo大仓项目》。">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +307,216 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230119" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      从lerna到初步了解和使用Nx(一)
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230119.html" class="archive-article-date">
+        <time datetime="2023-01-19T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-19</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了<code>lerna</code>框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发<code>Nx</code>项目，尝试一下它的应用。</p>
+<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
+<a id="more"></a>
+<h1 id="lerna"><a href="#lerna" class="headerlink" title="lerna"></a>lerna</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
+<p>Lerna是用于TypeScrip/JavaScript的原始monorepo工具。它已经存在多年，被数以万计的项目使用，包括Reaction和Jest。</p>
+</blockquote>
+<p>了解Lerna，必须想要了解一下<code>monorepo</code>架构， 简单点说，<code>monorepo</code>架构就是将许多不同业务项目的归纳一个仓库中，抽取公共部分，降低版本依赖的复杂度，达到所有项目统一化的架构。</p>
+<p>Lerna解决了<code>monorepo</code>架构以下问题：</p>
+<ul>
+<li>将不同子项目链接在一起，不用发布npm就可以互相引用</li>
+<li>可以将命令顺序执行，从而实现将不同项目分发到不同机器</li>
+<li>参与CI/CD工作流中，拥有自由的定制脚本功能，从而满足不同的工作流</li>
+</ul>
+<h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>主要有以下几个步骤：</p>
+<ul>
+<li>初始化项目： <code>npx lerna init</code></li>
+<li>修改<code>package.json</code>，去添加一个npm/yarn/pnpm workspace</li>
+<li>运行命令<code>lerna run xxx</code>： 统一执行所有子项目的scripts命令，如：lerna run build</li>
+</ul>
+<p>更加具体的操作，可以到官方文档去查看<a href="https://lerna.js.org/docs/features/run-tasks" target="_blank" rel="noopener">https://lerna.js.org/docs/features/run-tasks</a></p>
+<h1 id="Nx"><a href="#Nx" class="headerlink" title="Nx"></a>Nx</h1><p>先说明一下Nx与Lerna的关系：</p>
+<blockquote>
+<p>Nrwl(开源构建系统NX背后的公司)已经接管了Lerna。NX是一个由前谷歌员工开发的构建系统，它利用了谷歌内部工具使用的许多技术。Lerna v5是这种新管理方式下的第一个版本，它更新了过时的包，并开始对存储库本身进行一些清理。从V5.1+开始，Lerna提供了集成NX的新可能性，并将许多任务调度工作推迟到NX。</p>
+</blockquote>
+<h2 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h2><p>官方介绍：</p>
+<blockquote>
+<p>Nx是一个智能、快速和可扩展的构建系统，具有一流的Monorepo支持和强大的集成。</p>
+</blockquote>
+<p>Nx的目标是：</p>
+<ul>
+<li>加快你的前端项目工程化</li>
+<li>提供一流的开发体验</li>
+</ul>
+<h2 id="实践-第一个nx项目"><a href="#实践-第一个nx项目" class="headerlink" title="实践-第一个nx项目"></a>实践-第一个nx项目</h2><ul>
+<li><p>初始化项目， <code>npx create-nx-workspace@latest package-based --preset=npm</code></p>
+</li>
+<li><p>添加子项目， 目录下新建标准npm项目<code>packages/is-even</code></p>
+</li>
+<li><p>安装依赖，在根目录下执行<code>npm i typescript -D -W</code></p>
+</li>
+<li><p>第一次编译，根目录下执行<code>npx nx build is-even</code></p>
+</li>
+<li><p>新建第二个子项目，<code>packages/is-odd</code>，在项目中引用<code>is-even</code></p>
+</li>
+<li><p>关联依赖，在根目录下执行<code>npm install</code>，即可自动实现关联依赖</p>
+</li>
+<li><p>项目编译依赖，在根目录<code>nx.json</code>新增build依赖，如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  "targetDefaults": &#123;</span><br><span class="line">    "build": &#123;</span><br><span class="line">      "dependsOn": ["^build"]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译打包，单独打包子项目<code>is-odd</code>，命令<code>npx nx build is-even</code>，同时会编译打包<code>is-even</code>，因为引用了</p>
+</li>
+<li><p>再次打包，nx会自动引入上一次build的cache缓存，从而加快编译速度</p>
+</li>
+<li><p>将所有的子项目统一打包编译，命令:<code>npx nx run-many --target=build</code></p>
+</li>
+<li><p>如果不需要使用cache缓存，可以使用命令:<code>npx nx run-many --target=build --skip-nx-cache</code></p>
+</li>
+<li><p>如果需要查看当前子项目依赖的项目是否被修改，可以使用命令：<code>npx nx affected --target=build</code></p>
+</li>
+</ul>
+<p>到此，一个Nx的Monrepo项目就完成了。</p>
+<p>当然实际应用中，没有那么简单，后续我们将通过Vue(vite) 、 React去完成一个Nx项目，已经如何和现有的CI工作流结合运行。</p>
+<p>同时我们还需要解决这些问题：</p>
+<ol>
+<li>如何解决非Monrepo项目依赖Monrepo项目的公共代码</li>
+<li>如何解决子项目需要发布，但是所依赖的其他子项目不发布问题</li>
+<li>如何解决不同项目将采用不同的框架，如Vue、React，项目之间依赖问题？</li>
+<li>如何解决不同子项目中依赖同一个npm包，但是版本不一致的问题？是通过前置检查？还是各自完全安装好？</li>
+<li>实际应用中，如果遇到子项目需要单独剥离开成立单独项目，应该如何操作？</li>
+<li>后续如果子项目越来越多，导致本地开发中项目运行开销过大，无法运行，如何解决？</li>
+<li>子项目越来越多，是否有规范可以定义是否需要单独成立子项目？</li>
+<li>如何定制公共代码剥离规则？如何检查规则应用？</li>
+<li>前后端分离项目和SSR项目能否一起囊括？</li>
+<li>项目权限问题如何解决？如：外包人员无法查看其它子项目代码？</li>
+<li>……</li>
+</ol>
+<p>我们有很多问题，但是基本上都是引入Monrepo大仓项目导致的问题，我们希望Nx能有相关的解决方案提供参考或者应用，减少我们实际开发的阻塞。</p>
+<p>所以，Nx项目还是持续跟进研究学习，找个实际项目去落地实践，或者将现有一些项目去整合试试看。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230119.html" title="从lerna到初步了解和使用Nx(一)" target="_blank">https://www.qborfy.com/today/20230119.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +528,133 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230119.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/ideas/20230120.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          有趣的工具收集
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/today/20230117.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">理解React中Fiber架构(一)</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lerna"><span class="toc-number">2.</span> <span class="toc-text">lerna</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么做"><span class="toc-number">2.2.</span> <span class="toc-text">怎么做</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nx"><span class="toc-number">3.</span> <span class="toc-text">Nx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么-1"><span class="toc-number">3.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践-第一个nx项目"><span class="toc-number">3.2.</span> <span class="toc-text">实践-第一个nx项目</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +699,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="背景自从上一次写完可以从ChatGPT学到什么(一)，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。 再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章有了GPT-3，再也不用手写commit message，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息">
+<meta property="og:url" content="https://www.qborfy.com/today/20230221.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景自从上一次写完可以从ChatGPT学到什么(一)，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。 再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章有了GPT-3，再也不用手写commit message，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230314.png">
+<meta property="og:updated_time" content="2023-03-14T12:50:41.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息">
+<meta name="twitter:description" content="背景自从上一次写完可以从ChatGPT学到什么(一)，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。 再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章有了GPT-3，再也不用手写commit message，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230314.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +309,260 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230221" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230221.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+<ul>
+<li>OpenAI提供了哪些模型算法</li>
+<li>不同模型算法分别可以应用到哪些场景</li>
+<li>真正调用OpenAI需要注意哪些事项</li>
+</ul>
+<a id="more"></a>
+<p>接下来我们开始动手吧！这里基本前提是你得拥有OpenAI API keys，可以到[OpenAI]。</p>
+<p>首先我们先来看看<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是做什么的。</p>
+<h1 id="node-gptcommit"><a href="#node-gptcommit" class="headerlink" title="node-gptcommit"></a>node-gptcommit</h1><p><a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是基于<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>实现思路去开发的node版本工具命令，可以根据项目中git的diff文件列表去生成git commit信息。</p>
+<p>具体效果可以参考以下步骤：</p>
+<ol>
+<li>安装</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-gptcommit -g</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>设置openai的apikey</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngptcommit config --set openai.apiKey=sk-xxxxx</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>开始使用</li>
+</ol>
+<p>请到某个git仓库的根目录使用，具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd xxx</span><br><span class="line"></span><br><span class="line">ngptcommit preview</span><br></pre></td></tr></table></figure>
+
+<p>就可以看到具体返回的信息，具体下文所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;🤖 GPT-3 返回的总结内容如下:&quot;</span><br><span class="line"></span><br><span class="line">feat: </span><br><span class="line"></span><br><span class="line">- 更新项目配置，加强 TypeScript 的选项。</span><br><span class="line">- 添加了包含了推荐和 Prettier 的扩展，设置特定规则和排除的 `tslint.json` 文件。</span><br><span class="line">- 包含了文档配置的 `typedoc.js` 文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 在新的 `tsconfig.json` 中添加严格的 TypeScript 选项。</span><br><span class="line">- 在新的 `tslint.json` 文件中添加了推荐和 Prettier 的扩展。</span><br><span class="line">- 配置了特定规则的排除和 false 选项。</span><br><span class="line">- 添加了文档配置的 `typedoc.js` 文件。</span><br></pre></td></tr></table></figure>
+
+<h1 id="OpenAI使用说明"><a href="#OpenAI使用说明" class="headerlink" title="OpenAI使用说明"></a>OpenAI使用说明</h1><p>OpenAI API说明文档，地址：<a href="https://platform.openai.com/docs/" target="_blank" rel="noopener">openai docs</a>。</p>
+<p>首先，我们需要了解几个概念：</p>
+<ul>
+<li><code>Model</code> 模型，是AI算法模型，根据不同模型可以推算出不同的结果</li>
+<li><code>Completion</code> 任务结果，指的调用模型后返回的结果</li>
+<li><code>apiKey</code> api秘钥，openai对调用api方的鉴权token</li>
+</ul>
+<h2 id="Model模型"><a href="#Model模型" class="headerlink" title="Model模型"></a>Model模型</h2><p>OpenAI提供了几个模型，主要分别以下几种：</p>
+<p>基于<code>GPT-3</code>模型开发的模型：</p>
+<ul>
+<li><code>GPT-3.5-turbo</code>，最新的GPT-3.5模型，主要针对对话聊天的自然语言和代码处理，也能处理传统的任务，成本只有<code>text-davinci-003</code>十分之一</li>
+<li><code>text-davinci-003</code>，对各类型语言都友好支持，比其他模型更加擅长输出更多更长更高质量的文案，而且还会在文案补全相关逻辑</li>
+</ul>
+<p>除了<code>GPT-3</code>模型，openAI还提供了几个其他模型（包括：beta版本），如下：</p>
+<ul>
+<li><a href="https://platform.openai.com/docs/guides/images" target="_blank" rel="noopener"><code>DALL·E</code></a>，根据自然语言生成图片。</li>
+<li><a href="https://github.com/openai/whisper" target="_blank" rel="noopener"><code>Whisper</code></a>，语音识别模型，已经开源的模型</li>
+<li><a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener"><code>Embeddings</code></a>，检测词语的关联关系，能实现搜索、分类、推荐、异常检测、多样性测试、标签等</li>
+<li><a href="https://platform.openai.com/docs/guides/code" target="_blank" rel="noopener"><code>Codex</code></a>，基于GPT-3生成专门针对代码优化的模型，最擅长的是Python语言，精通十几种语言，包括JavaScript、Go、Perl、PHP、Ruby、SWIFT、TypeScrip、SQL，甚至是Shell等。</li>
+<li><a href="https://platform.openai.com/docs/guides/moderation/overview" target="_blank" rel="noopener"><code>Moderation</code></a>，按照OpenAI内容安全使用策略，识别内容是否非法，如:涉黄、暴力、自残等。<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
+</ul>
+<ol>
+<li>安装依赖</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install openai</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>初始化</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Configuration, OpenAIApi &#125; <span class="keyword">from</span> <span class="string">'openai'</span>;</span><br><span class="line"><span class="keyword">const</span> config = <span class="keyword">new</span> Configuration(&#123;</span><br><span class="line">    apiKey,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">this</span>.openai = <span class="keyword">new</span> OpenAIApi(config);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>根据不同模型调用</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gpt-3.5-turbo</span></span><br><span class="line"><span class="keyword">const</span> prompt = <span class="string">'请问你是谁？'</span>;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="keyword">this</span>.openai.createChatCompletion(&#123;</span><br><span class="line">    model: <span class="string">"gpt-3.5-turbo"</span>,</span><br><span class="line">    messages: [&#123;</span><br><span class="line">        role: <span class="string">"user"</span>, <span class="comment">// system: 机器人, user: 用户, assistant: 助手</span></span><br><span class="line">        content: prompt</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// debug('调用openai接口返回内容：', response.data)</span></span><br><span class="line"><span class="keyword">return</span> response.data.choices[<span class="number">0</span>]?.message?.content ?? <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成一张黑色暹罗猫的图片</span></span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> openai.createImage(&#123;</span><br><span class="line">  prompt: <span class="string">"a black  cat"</span>,</span><br><span class="line">  n: <span class="number">1</span>,</span><br><span class="line">  size: <span class="string">"1024x1024"</span>,</span><br><span class="line">&#125;);</span><br><span class="line">image_url = response.data.data[<span class="number">0</span>].url;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>生成猫的图片：</p>
+<div>
+<img src="/assets/img/20230314.png" width="200px">
+</div>
+
+<p>了解到OpenAI提供了如此多的API，是否可以利用他们来开发一些辅助工具来提升我们开发幸福感呢？</p>
+<p>目前已经有很多这种开源小工具了，比如：<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>， <a href="https://github.com/JimmyLv/BibiGPT" target="_blank" rel="noopener">BibiGPT</a>，<a href="https://github.com/Nutlope/roomGPT?utm_source=gold_browser_extension" target="_blank" rel="noopener">roomGPT</a>等。</p>
+<p>接下来我们以<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>为参考，尝试自己去实现。</p>
+<h1 id="开发ngptcommit的背后"><a href="#开发ngptcommit的背后" class="headerlink" title="开发ngptcommit的背后"></a>开发ngptcommit的背后</h1><h2 id="gptcommit实现原理"><a href="#gptcommit实现原理" class="headerlink" title="gptcommit实现原理"></a>gptcommit实现原理</h2><p>gptcommit是基于Rust开发，但是从看代码的过程中发现Rust其实和Typescript差不多类似的语法，所以很容易上手。</p>
+<p>下面有张图，大概就是gptcommit实现的过程：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/gptcommit.drawio&quot;}"></div>
+</div>
+
+
+<h2 id="Node命令行工具"><a href="#Node命令行工具" class="headerlink" title="Node命令行工具"></a>Node命令行工具</h2><p>既然知道了gptcommit实现原理，那么要开发一个node的命令行工具，具体有哪些步骤呢？</p>
+<ol>
+<li>在<code>package.json</code>里配置命令行名称<code>bin:xxx</code>:</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    "bin": &#123;</span><br><span class="line">        "ngptcommit": "bin/ngptcommit.js"</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>针对命令行工具，node.js要求在文件开头必须表明<code>#!/usr/bin/env node</code>：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br><span class="line"></span><br><span class="line">import run from &apos;../dist/cli.js&apos;;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+
+<p>到了这里，我们基本就开始动手撸代码了，这里我还推荐一些npm包，能帮你快速开发命令行工具，有以下这些：</p>
+<ul>
+<li>rollup，比webpack更加适合开发js库的构建工具</li>
+<li>debug，更好打印debug日志，而不是所有都console.log</li>
+<li>cac，非常轻量的库，能帮你更快开发一个命令行工具</li>
+<li>picocolors，可以将在命令行输出的带颜色文字</li>
+<li>progress，可以在命令行显示进度条</li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li>国内openAI无法连接上？<br>需要在代码预先判断连接，设置一个10秒超时，避免已经失败了，还要再继续去请求。</li>
+</ol>
+<ol start="2">
+<li><p>openAI访问频率有限制，如何解决？<br>需要加上每次请求后等待缓冲时间，避免因为多次请求导致失败。利用<code>p_limit</code>库，加上每次请求利用setTimeout设置缓冲等待时间，避免多次高并发请求，后续可以优化模板内容，避免多次重复请求。</p>
+</li>
+<li><p>失败重试如何实现？<br>通过失败次数，加上递归自己，实现通过失败次数实现失败重试。</p>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过开发这个工具，对OpenAI的有了更深入的了解，也明白为什么会有人说以后会出现一个岗位，叫<strong>AI驯服师</strong>或者<strong>AI提问者</strong>。</p>
+<p>目前我个人对OpenAI类似的AI，可以认知到点如下：</p>
+<ul>
+<li>要学习如何向AI提问，更高效的向AI提问，可能会成为未来的一种趋势</li>
+<li>AI更多是一种辅助工具，而不是会替换现有的岗位上的人，能帮忙人更高效的完成当前的工作</li>
+<li>会有越来越多AI平台出现，甚至可能会出现一种大语言模型，或者面向AI编程语言，只需要写少量代码实现功能</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://platform.openai.com/docs/" target="_blank" rel="noopener">OpenAI相关文档</a></li>
+<li><a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230221.html" title="可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息" target="_blank">https://www.qborfy.com/today/20230221.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +574,133 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230221.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/ideas/20230312.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GPT-4都来了，我们还需要刷算法题和背八股文吗？
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/today/20230222.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">30分钟搞懂Rollup+Typescript构建工程</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node-gptcommit"><span class="toc-number">2.</span> <span class="toc-text">node-gptcommit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenAI使用说明"><span class="toc-number">3.</span> <span class="toc-text">OpenAI使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model模型"><span class="toc-number">3.1.</span> <span class="toc-text">Model模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发ngptcommit的背后"><span class="toc-number">4.</span> <span class="toc-text">开发ngptcommit的背后</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gptcommit实现原理"><span class="toc-number">4.1.</span> <span class="toc-text">gptcommit实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node命令行工具"><span class="toc-number">4.2.</span> <span class="toc-text">Node命令行工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">4.3.</span> <span class="toc-text">遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +745,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

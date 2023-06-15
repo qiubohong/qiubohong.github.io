@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>【引导页】功能实现原理分析 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="什么是引导页，就是引导用户对一些新功能使用说明UI展示。 遇到这种需求，一般的想法是：  有没有办法可以快速实现 有时间对其背后原理研究一番  快速接入按照常用框架Vue React 原生js进行分类，罗列一些开源比较好的框架使用。">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【引导页】功能实现原理分析">
+<meta property="og:url" content="https://www.qborfy.com/today/20230103.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="什么是引导页，就是引导用户对一些新功能使用说明UI展示。 遇到这种需求，一般的想法是：  有没有办法可以快速实现 有时间对其背后原理研究一番  快速接入按照常用框架Vue React 原生js进行分类，罗列一些开源比较好的框架使用。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-01-06T11:39:25.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="【引导页】功能实现原理分析">
+<meta name="twitter:description" content="什么是引导页，就是引导用户对一些新功能使用说明UI展示。 遇到这种需求，一般的想法是：  有没有办法可以快速实现 有时间对其背后原理研究一番  快速接入按照常用框架Vue React 原生js进行分类，罗列一些开源比较好的框架使用。">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +307,190 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230103" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      【引导页】功能实现原理分析
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230103.html" class="archive-article-date">
+        <time datetime="2023-01-03T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>什么是引导页，就是引导用户对一些新功能使用说明UI展示。</p>
+<p>遇到这种需求，一般的想法是：</p>
+<ul>
+<li>有没有办法可以快速实现</li>
+<li>有时间对其背后原理研究一番</li>
+</ul>
+<h2 id="快速接入"><a href="#快速接入" class="headerlink" title="快速接入"></a>快速接入</h2><p>按照常用框架<code>Vue</code> <code>React</code> <code>原生js</code>进行分类，罗列一些开源比较好的框架使用。</p>
+<a id="more"></a>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><h4 id="vue-tour"><a href="#vue-tour" class="headerlink" title="vue-tour"></a>vue-tour</h4><p><a href="https://github.com/pulsardev/vue-tour" target="_blank" rel="noopener">vue-tour</a> 适用于Vue2,</p>
+<blockquote>
+<p>Vue Tour是一个轻量级、简单且可定制的导游插件，可与Vue.js一起使用。它提供了一种快速而简单的方法来指导用户完成您的应用程序。</p>
+</blockquote>
+<p>使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> VueTour <span class="keyword">from</span> <span class="string">'vue-tour'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'vue-tour/dist/vue-tour.css'</span>)</span><br><span class="line"></span><br><span class="line">Vue.use(VueTour)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里使用vue组件</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div id=<span class="string">"v-step-0"</span>&gt;A DOM element on your page. The first step will pop on <span class="keyword">this</span> element because its ID is <span class="string">'v-step-0'</span>.&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class="v-step-1"&gt;A DOM element on your page. The second step will pop on this element because its ID is 'v-step-1'.&lt;/</span>div&gt;</span><br><span class="line">    &lt;div data-v-step=<span class="string">"2"</span>&gt;A DOM element on your page. The third and final step will pop on <span class="keyword">this</span> element because its ID is <span class="string">'v-step-2'</span>.&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;v-tour name="myTour" :steps="steps"&gt;&lt;/</span>v-tour&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'my-tour'</span>,</span><br><span class="line">    data () &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        steps: [</span><br><span class="line">          &#123;</span><br><span class="line">            target: <span class="string">'#v-step-0'</span>,  <span class="comment">// 使用 document.querySelector() 查询DOM节点</span></span><br><span class="line">            header: &#123;</span><br><span class="line">              title: <span class="string">'Get Started'</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            content: <span class="string">`Discover &lt;strong&gt;Vue Tour&lt;/strong&gt;!`</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            target: <span class="string">'.v-step-1'</span>,</span><br><span class="line">            content: <span class="string">'An awesome plugin made with Vue.js!'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            target: <span class="string">'[data-v-step="2"]'</span>,</span><br><span class="line">            content: <span class="string">'Try it, you\'ll love it!&lt;br&gt;You can put HTML in the steps and completely customize the DOM to suit your needs.'</span>,</span><br><span class="line">            params: &#123;</span><br><span class="line">              placement: <span class="string">'top'</span> <span class="comment">// 展示方位 包括: top/bottom/left/right等</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.$tours[<span class="string">'myTour'</span>].start()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><p>React的生态比较丰富，插件也比较多，google React Tour就可以找到很多，下面罗列一下github上star较多的几个</p>
+<ul>
+<li><a href="https://github.com/gilbarbara/react-joyride" target="_blank" rel="noopener">react-joyride</a>：使用方便快捷的引导页插件</li>
+<li><a href="https://github.com/elrumordelaluz/reactour" target="_blank" rel="noopener">reactour</a>： 功能更加丰富的React引导组件，分成好几种组件：<code>@reactour/tour</code> <code>@reactour/mask</code> <code>@reactour/popover</code> <code>@reactour/utils</code>等</li>
+</ul>
+<h3 id="原生js"><a href="#原生js" class="headerlink" title="原生js"></a>原生js</h3><p>原生js实现的引导页插件，比较有名有driver.js、intro.js和shepherd.js</p>
+<h4 id="driver-js"><a href="#driver-js" class="headerlink" title="driver.js"></a>driver.js</h4><blockquote>
+<p><strong><code>driver.js</code></strong> 是一个强大而轻量级的普通 JavaScript 引擎，可在整个页面上驱动用户的注意力，只有 4kb 左右的体积，并且没有外部依赖，不仅高度可定制，还可以支持所有主流浏览器。</p>
+</blockquote>
+<p>github地址: <a href="https://github.com/kamranahmedse/driver.js" target="_blank" rel="noopener">driver.js</a></p>
+<p>使用demo教程：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Driver <span class="keyword">from</span> <span class="string">'driver.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'driver.js/dist/driver.min.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高亮某个dom节点</span></span><br><span class="line"><span class="keyword">const</span> driver = <span class="keyword">new</span> Driver();</span><br><span class="line">driver.highlight(&#123;</span><br><span class="line">  element: <span class="string">'#some-element'</span>,</span><br><span class="line">  popover: &#123;</span><br><span class="line">    title: <span class="string">'Title for the Popover'</span>,</span><br><span class="line">    description: <span class="string">'Description for it'</span>,</span><br><span class="line">    position: <span class="string">'left'</span>,</span><br><span class="line">    offset: <span class="number">20</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 步骤</span></span><br><span class="line"><span class="keyword">const</span> driver = <span class="keyword">new</span> Driver();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define the steps for introduction</span></span><br><span class="line">driver.defineSteps([</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="string">'#first-element-introduction'</span>,</span><br><span class="line">    popover: &#123;</span><br><span class="line">      className: <span class="string">'first-step-popover-class'</span>,</span><br><span class="line">      title: <span class="string">'Title on Popover'</span>,</span><br><span class="line">      description: <span class="string">'Body of the popover'</span>,</span><br><span class="line">      position: <span class="string">'left'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="string">'#second-element-introduction'</span>,</span><br><span class="line">    popover: &#123;</span><br><span class="line">      title: <span class="string">'Title on Popover'</span>,</span><br><span class="line">      description: <span class="string">'Body of the popover'</span>,</span><br><span class="line">      position: <span class="string">'top'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="string">'#third-element-introduction'</span>,</span><br><span class="line">    popover: &#123;</span><br><span class="line">      title: <span class="string">'Title on Popover'</span>,</span><br><span class="line">      description: <span class="string">'Body of the popover'</span>,</span><br><span class="line">      position: <span class="string">'right'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Start the introduction</span></span><br><span class="line">driver.start();</span><br></pre></td></tr></table></figure>
+
+<h4 id="intro-js"><a href="#intro-js" class="headerlink" title="intro.js"></a>intro.js</h4><blockquote>
+<p><strong><code>intro.js</code></strong> 是是一个开源的 vanilla Javascript/CSS 库，用于添加分步介绍或提示，大小在 10kB左右，属于轻量级的且无外部依赖。</p>
+</blockquote>
+<p>github地址: <a href="https://github.com/usablica/intro.js/" target="_blank" rel="noopener">intro.js</a></p>
+<p>使用demo教程：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> introJs <span class="keyword">from</span> <span class="string">'intro.js'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'intro.js/introjs.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用HTML属性</span></span><br><span class="line">&lt;a href=<span class="string">'http://google.com/'</span> data-intro=<span class="string">'Hello step one!'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用JSON配置</span></span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav-menu"</span>&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li id=<span class="string">"step1"</span>&gt;步骤一&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li id="step2"&gt;步骤2&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line"><span class="comment">// 配置</span></span><br><span class="line">introJs().setOptions(&#123;</span><br><span class="line">  steps: [&#123;</span><br><span class="line">    title: <span class="string">'Welcome'</span>,</span><br><span class="line">    intro: <span class="string">'Hello World! 👋'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    element: <span class="built_in">document</span>.querySelector(<span class="string">'#step1'</span>),</span><br><span class="line">    intro: <span class="string">'This step focuses on an image'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'Farewell!'</span>,</span><br><span class="line">    element:<span class="built_in">document</span>.querySelector(<span class="string">'#step2'</span>),,</span><br><span class="line">    intro: <span class="string">'And this is our final step!'</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<h4 id="shepherd-js"><a href="#shepherd-js" class="headerlink" title="shepherd.js"></a>shepherd.js</h4><blockquote>
+<p><strong><code>shepherd.js</code></strong> 包含的 API 众多，大多场景都可以通过其对应的配置得到，缺点就是整体的包体积较大，并且配置也比较复杂，配置复杂的内容一般都需要进行二次封装，将可变和不可变的配置项进行抽离</p>
+</blockquote>
+<p>github地址: <a href="https://github.com/shipshapecode/shepherd" target="_blank" rel="noopener">shepherd.js</a><br>使用demo教程：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Shepherd <span class="keyword">from</span> <span class="string">'shepherd.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化配置</span></span><br><span class="line"><span class="keyword">const</span> tour = <span class="keyword">new</span> Shepherd.Tour(&#123;</span><br><span class="line">  defaultStepOptions: &#123;</span><br><span class="line">    cancelIcon: &#123;</span><br><span class="line">      enabled: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    classes: <span class="string">'class-1 class-2'</span>,</span><br><span class="line">    scrollTo: &#123; <span class="attr">behavior</span>: <span class="string">'smooth'</span>, <span class="attr">block</span>: <span class="string">'center'</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加步骤指引</span></span><br><span class="line">tour.addStep(&#123;</span><br><span class="line">  title: <span class="string">'Creating a Shepherd Tour'</span>,</span><br><span class="line">  text: <span class="string">`Creating a Shepherd tour is easy. too!\</span></span><br><span class="line"><span class="string">  Just create a \`Tour\` instance, and add as many steps as you want.`</span>,</span><br><span class="line">  attachTo: &#123;</span><br><span class="line">    element: <span class="string">'.hero-example'</span>,</span><br><span class="line">    on: <span class="string">'bottom'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  buttons: [</span><br><span class="line">    &#123;</span><br><span class="line">      action() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.back();</span><br><span class="line">      &#125;,</span><br><span class="line">      classes: <span class="string">'shepherd-button-secondary'</span>,</span><br><span class="line">      text: <span class="string">'Back'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      action() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.next();</span><br><span class="line">      &#125;,</span><br><span class="line">      text: <span class="string">'Next'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  id: <span class="string">'creating'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 展示指引</span></span><br><span class="line">tour.start();</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>引导页从它展示方式说起，要实现可以分为以下几个步骤：</p>
+<ol>
+<li><strong>高亮部分</strong>，通过<code>el.cloneNode(true)</code>复制元素节点，将节点复制到蒙层</li>
+<li><strong>引导部分</strong>，展示引导框，并将引导框与高亮部分进行定位</li>
+<li><strong>过度动画</strong>，通过设置<code>transition</code>实现</li>
+<li><strong>页面监听</strong>，当页面发生变化的时候，引导页需要重新渲染计算</li>
+</ol>
+<p>具体实现可以点击查看源码<a href="/code/tour.js">tour.js</a>。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://mp.weixin.qq.com/s/-O_AnG2pc5H5hLcwu9PTCA" target="_blank" rel="noopener">不使用第三方库怎么实现【前端引导页】功能？</a></li>
+</ul>
+
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230103.html" title="【引导页】功能实现原理分析" target="_blank">https://www.qborfy.com/today/20230103.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +502,120 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230103.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/today/20230104.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          从尝试搭建NAS了解各类云硬盘协议（一）
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/share/page-notwork.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器页面卡住定位分析</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +660,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

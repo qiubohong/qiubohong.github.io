@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>从开发chrome插件到插件系统设计 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="背景最近ChatGPT的技术概念很火热，我开发了一个node-gptcommit开源项目，主要利用GPT用来自动生成git commit的信息。 但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：  在合mr的时候，以及代码review，很多git commit 文件，需要一一个看  在这个时刻，自动生成commit信息就显得很有">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从开发chrome插件到插件系统设计">
+<meta property="og:url" content="https://www.qborfy.com/today/20230224.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景最近ChatGPT的技术概念很火热，我开发了一个node-gptcommit开源项目，主要利用GPT用来自动生成git commit的信息。 但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：  在合mr的时候，以及代码review，很多git commit 文件，需要一一个看  在这个时刻，自动生成commit信息就显得很有">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-03-22T14:59:05.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="从开发chrome插件到插件系统设计">
+<meta name="twitter:description" content="背景最近ChatGPT的技术概念很火热，我开发了一个node-gptcommit开源项目，主要利用GPT用来自动生成git commit的信息。 但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：  在合mr的时候，以及代码review，很多git commit 文件，需要一一个看  在这个时刻，自动生成commit信息就显得很有">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +307,302 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230224" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      从开发chrome插件到插件系统设计
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230224.html" class="archive-article-date">
+        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">3.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
+<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
+<ul>
+<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
+</ul>
+<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
+<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
+<ul>
+<li>Chrome插件开发，如何快速开发一个插件</li>
+<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
+</ul>
+<a id="more"></a>
+<h1 id="Chrome插件开发"><a href="#Chrome插件开发" class="headerlink" title="Chrome插件开发"></a>Chrome插件开发</h1><p>Chrome插件是一种浏览器扩展程序，可以增强浏览器的功能和用户体验。Chrome插件可以添加新的工具栏、菜单、快捷键、热键等，还可以修改网页的行为和外观，以及与网页交互，实现各种功能。常见的Chrome插件包括广告拦截器、翻译插件、下载管理器、音乐播放器等。</p>
+<p>开发Chrome插件其实很简单，因为Chrome的插件主要描述文件<code>mainfest.json</code>，还有包含在里面的一些其他文件，具体如下：</p>
+<ul>
+<li>manifest.json文件，用于指定插件的名称、版本号、描述等信息，以及指定插件的各种权限和资源</li>
+<li>popup.html文件，主要用于显示插件的弹出窗口，提供用户界面和交互功能</li>
+<li>content scripts文件，用于向网页注入JavaScript代码，从而实现与网页的交互。这些脚本可以访问网页的DOM和JavaScript对象，并且可以向网页发送消息和接收来自网页的消息。</li>
+<li>background scripts文件，用于在Chrome插件的后台运行JavaScript代码，可以与popup、contentscript等通讯，可以实现发起网络请求、拦截用户访问请求等操作</li>
+</ul>
+<p>一个标准的Chrome插件目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">my-extension/</span><br><span class="line">├── _locales/</span><br><span class="line">│   ├── en/</span><br><span class="line">│   │   └── messages.json</span><br><span class="line">│   └── zh/</span><br><span class="line">│       └── messages.json</span><br><span class="line">├── css/</span><br><span class="line">│   └── popup.css</span><br><span class="line">├── img/</span><br><span class="line">│   ├── icon128.png</span><br><span class="line">│   ├── icon48.png</span><br><span class="line">│   └── icon16.png</span><br><span class="line">├── js/</span><br><span class="line">│   ├── background.js</span><br><span class="line">│   ├── content.js</span><br><span class="line">│   └── popup.js</span><br><span class="line">├── popup.html</span><br><span class="line">├── manifest.json</span><br><span class="line">└── README.md</span><br></pre></td></tr></table></figure>
+
+<p>其中，各个文件夹和文件的作用如下：</p>
+<ul>
+<li><code>_locales/</code>：存放插件的本地化文件，用于支持不同语言版本的插件。</li>
+<li><code>css/</code>：存放插件的CSS样式文件。</li>
+<li><code>img/</code>：存放插件的图标文件。</li>
+<li><code>js/</code>：存放插件的JavaScript文件，包括background scripts、content scripts和popup scripts等。</li>
+<li><code>popup.html</code>：插件的popup页面。</li>
+<li><code>manifest.json</code>：插件的配置文件，用于指定插件的名称、版本号、描述等信息，以及指定插件的各种权限和资源。</li>
+<li><code>README.md</code>：插件的说明文档，用于介绍插件的功能和使用方法等。</li>
+</ul>
+<h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p>manifest.json是Chrome插件的配置文件，用于指定插件的名称、版本号、描述等信息，以及指定插件的各种权限和资源。</p>
+<p>下面是一个完整的<code>manifest.json</code>文件的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;manifest_version&quot;: 2,</span><br><span class="line">  &quot;name&quot;: &quot;My Chrome Extension&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;This is a description of my Chrome extension.&quot;,</span><br><span class="line">  &quot;icons&quot;: &#123;</span><br><span class="line">    &quot;16&quot;: &quot;icon16.png&quot;,</span><br><span class="line">    &quot;48&quot;: &quot;icon48.png&quot;,</span><br><span class="line">    &quot;128&quot;: &quot;icon128.png&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;background&quot;: &#123;</span><br><span class="line">    &quot;scripts&quot;: [&quot;background.js&quot;]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;content_scripts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;matches&quot;: [&quot;*://*.example.com/*&quot;],</span><br><span class="line">      &quot;js&quot;: [&quot;content.js&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;permissions&quot;: [</span><br><span class="line">    &quot;tabs&quot;,</span><br><span class="line">    &quot;*://*.example.com/*&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>manifest_version：指定manifest.json文件的版本号，一般为2</li>
+<li>name：指定插件的名称</li>
+<li>version：指定插件的版本号</li>
+<li>description：指定插件的描述</li>
+<li>icons：指定插件的图标，这里16、 48、128指的是需要展示在不同场景插件的图标</li>
+<li>browser_action：可以配置的popup页面和图标</li>
+<li>permissions：插件需要的权限，例如访问浏览器标签页，以及只允许在<code>*://.example.com/</code>域名才有效</li>
+</ul>
+<p>还有两个相对复杂配置项：</p>
+<ul>
+<li>content_scripts: content_scripts指定插件需要向<code>*://.example.com/</code>注入JavaScript代码，代码位于<code>content.js</code>文件中</li>
+<li>background：指定插件的<code>background.js</code>文件为background scripts</li>
+</ul>
+<h2 id="popup-html"><a href="#popup-html" class="headerlink" title="popup.html"></a>popup.html</h2><p>就是一个简单html文件，里面需要插件的UI展示，demo如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>My Chrome Extension<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"popup.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"popup.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is my first Chrome extension.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"myButton"</span>&gt;</span>Click me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>popup.html文件可以包含任何HTML、CSS和JavaScript代码，用于构建插件的用户界面和交互功能。在上面的例子中，popup.html文件包含一个标题、一段文本和一个按钮，按钮的点击事件可以在popup.js文件中进行处理。需要注意的是，popup.html文件的UI通常比较简单，因为其主要作用是提供与用户的交互和反馈。</p>
+<p>除了HTML、CSS和JavaScript代码外，popup.html文件还可以包含其他类型的资源文件，例如图片、音频或视频文件等。这些资源文件可以放置在相应的目录下，并在HTML代码中使用相应的路径引用。在实际开发中，可以根据需要对popup.html文件进行扩展和修改，以实现更复杂的用户界面和交互功能。</p>
+<h2 id="content-scripts"><a href="#content-scripts" class="headerlink" title="content_scripts"></a>content_scripts</h2><p><code>content_scripts</code>你可以当成用户页面内的js，Content scripts常用于修改网页的行为和外观，以及与网页交互，实现各种功能。例如，可以通过content scripts实现自动填充表单、隐藏广告、添加自定义菜单等功能。下面是一个简单的content_scripts的例子，使得当用户进入Google搜索页面时，输入框默认输入“Hello World!”：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// manifest.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"My Content Script"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">  <span class="string">"manifest_version"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">"content_scripts"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"matches"</span>: [<span class="string">"&lt;https://www.google.com/*&gt;"</span>],</span><br><span class="line">      <span class="string">"js"</span>: [<span class="string">"content.js"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// content.js</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'input[name="q"]'</span>).value = <span class="string">'Hello World!'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们在manifest.json文件中指定了一个content_scripts，用于在用户进入<code>https://www.google.com/*</code>网页时自动向Google搜索框中输入<code>“Hello World!”</code>。具体实现的代码在content.js文件中，使用document.querySelector()函数获取到输入框，并将其value属性设置为“Hello World!”。</p>
+<p>需要注意的是，<code>content_scripts</code>只能访问网页的DOM和JavaScript对象，并不能直接访问插件的资源和API。如果插件需要向网页发送消息或从网页接收消息，可以使用<code>chrome.runtime.sendMessage()</code>和<code>chrome.runtime.onMessage()</code>等API实现。</p>
+<h2 id="backgroundjs"><a href="#backgroundjs" class="headerlink" title="backgroundjs"></a>backgroundjs</h2><p><code>backgroundjs</code>是运行在后台的一个js文件，里面可以实现各种监听，如：tab监听、插件初始化、sendmessage、onmessage等事件，下面我们来实现一个简单的发送网络请求：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chrome.runtime.onMessage.addListener(<span class="function"><span class="keyword">function</span>(<span class="params">request, sender, sendResponse</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (request.type === <span class="string">'fetch'</span>) &#123;</span><br><span class="line">    fetch(request.url)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> response.text())</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> sendResponse(&#123; <span class="attr">success</span>: <span class="literal">true</span>, data &#125;))</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> sendResponse(&#123; <span class="attr">success</span>: <span class="literal">false</span>, error &#125;));</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>常用的监听事件有：</p>
+<ul>
+<li><code>chrome.runtime.onMessage.addListener()</code>, 监听插件传递过来的的消息事件</li>
+<li><code>chrome.runtime.onInstalled.addListener()</code>, 监听插件的安装事件</li>
+<li><code>chrome.runtime.onStartup.addListener()</code>, 监听插件的启动事件</li>
+<li><code>chrome.tabs.onUpdated.addListener()</code>, 监听浏览器标签页更新事件</li>
+</ul>
+<p>当然对应的事件都需要在<code>manifest.json</code>中<code>permissions</code>去配置才能开启。</p>
+<h1 id="Chrome插件设计架构"><a href="#Chrome插件设计架构" class="headerlink" title="Chrome插件设计架构"></a>Chrome插件设计架构</h1><p>既然弄明白了如何开发一个Chrome插件，那么作为一个合格的程序员，我们不仅要知道是什么，还要知道为什么，这才能让你不断地进步。</p>
+<p>我们回头再来思考一下，插件有什么用，以及为什么要有插件？</p>
+<blockquote>
+<p>插件最大的作用就是扩展主应用App的功能，同时支持可插拔特性，就是有没有插件，都不会影响现有主应用功能正常使用。</p>
+</blockquote>
+<p>接下来我们来思考，如何我来开发一个chrome插件系统，我应该如何设计呢？下面是简易Chrome插件系统的架构图：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/chrome-extends.drawio&quot;}"></div>
+</div>
+
+
+<p>有了上面的架构，我们可以大概知道实现一个插件系统需要几个功能点：</p>
+<ul>
+<li>插件管理，需要有插件上传、加载、版本机制等功能</li>
+<li>暴露能力，需要确定暴露哪些API能力，同时还需要展示插件的UI</li>
+<li>隔离环境，需要确保插件的隔离性，不影响主应用的运行，这里就需要我们去用iframe的模式去执行</li>
+</ul>
+<h2 id="插件系统设计"><a href="#插件系统设计" class="headerlink" title="插件系统设计"></a>插件系统设计</h2><p>有了对chrome的插件架构有一定了解后，如果这个时候需要我们需要对某个平台去实现一个插件系统，我们应当如何入手以及设计？</p>
+<p>在做插件系统之前，我们需要再明确一下插件的定义：</p>
+<blockquote>
+<p>插件是平台核心功能的一种扩展，是在平台生命周期流程中的不同节点去扩展或调整功能</p>
+</blockquote>
+<p>接下来，我们按照几个步骤去实现插件：</p>
+<h3 id="插件系统的定位"><a href="#插件系统的定位" class="headerlink" title="插件系统的定位"></a>插件系统的定位</h3><p>我们的插件肯定依附于某个平台或应用上的，因此我们需要先对平台能力做一个定位，就以Chrome为例子，chrome浏览器作为展示网页为核心功能。</p>
+<p>那么如果去设计一个插件系统，肯定是围绕着网页展示的扩展功能去做插件系统设计。</p>
+<h3 id="插件系统的基础能力"><a href="#插件系统的基础能力" class="headerlink" title="插件系统的基础能力"></a>插件系统的基础能力</h3><p>插件系统的基础能力包括以下几点：</p>
+<ul>
+<li>插件管理，需要插件管理界面，面对开发者：，提供上传、版本管理等功能，面对使用者：需要提供安装、查询、删除等功能</li>
+<li>插件开发，需要给开发者提供工具、文档、规范、发布流程等方便的信息</li>
+</ul>
+<h3 id="插件系统架构设计"><a href="#插件系统架构设计" class="headerlink" title="插件系统架构设计"></a>插件系统架构设计</h3><p>针对不同平台，可能需要插件架构是不一样的，如：Chrome，采用的并行机制，不同插件可以在同一时间加载、输出。</p>
+<p>前端领域很多有插件实现架构，按照执行顺序可以大概分为如下几种：</p>
+<table>
+<thead>
+<tr>
+<th align="left">插件架构</th>
+<th align="left">描述</th>
+<th align="left">适⽤场景</th>
+<th align="left">框架或应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">顺序执行</td>
+<td align="left">显然就是从头执行到尾，不断对内容做修改</td>
+<td align="left">⼤多数场景</td>
+<td align="left">babel plugin</td>
+</tr>
+<tr>
+<td align="left">瀑布流</td>
+<td align="left">上一层输出就是下一层输入，这里就是管道概念</td>
+<td align="left">管道</td>
+<td align="left">Gulp</td>
+</tr>
+<tr>
+<td align="left">洋葱</td>
+<td align="left">不仅关注输入，而且关心输出，还可以随时直接输出</td>
+<td align="left">进出</td>
+<td align="left">Koa</td>
+</tr>
+<tr>
+<td align="left">并发执⾏</td>
+<td align="left">多个输入，对多个插件输出做一个总结输出</td>
+<td align="left">⽆序任务</td>
+<td align="left">webpack complier</td>
+</tr>
+</tbody></table>
+<p><strong><em>(这里参考自<a href="https://www.zaozao.run/video/c61/c61-4" target="_blank" rel="noopener">前端早早聊 2023年前端插件设计专场 【洋葱：插件化设计在前端领域的应用】</a>)</em></strong></p>
+<p>同时，从架构上还需要考虑以下几点：</p>
+<ul>
+<li>插件接口，指的是哪些平台哪些接口Hook，允许插件访问或改变</li>
+<li>插件管理器，指的平台如何管理插件，包括更新、审核、插件的文件模式等。</li>
+<li>插件加载器，指的平台如何加载插件，是在加载过程需要如何塞入暴露能力等。</li>
+<li>插件生命周期，指的是一个插件有哪些生命周期节点，如：安装、加载、运行、卸载、禁用等</li>
+</ul>
+<h3 id="插件系统的安全和稳定性"><a href="#插件系统的安全和稳定性" class="headerlink" title="插件系统的安全和稳定性"></a>插件系统的安全和稳定性</h3><p>我们不仅要考虑插件功能实现，还需要考虑插件的安全和稳定性，主要从以下几方面入手：</p>
+<ul>
+<li>插件的安全验证，指的是如何限制非法插件的使用</li>
+<li>插件的权限控制，指的是如何限制插件的权限</li>
+<li>插件的资源隔离，指的是如何确保插件其运行环境不可以访问平台其他非暴露资源</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过本文，我们不仅学会了Chrome插件的开发，还对插件系统的设计有一定的认知，我们回顾一下：</p>
+<ul>
+<li>Chrome插件开发，主要组成部分为：manifest.json，popup.html，content_scripts和background.js</li>
+<li>插件系统设计，主要考虑的点：管理、开发工具和文档、暴露能力、安全与稳定</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://chrome.google.com/webstore/category/extensions?hl=zh-CN" target="_blank" rel="noopener">Chrome应用商店</a></li>
+<li><a href="https://developer.chrome.com/docs/extensions/mv3/getstarted/" target="_blank" rel="noopener">Chrome插件开发文档</a></li>
+<li><a href="https://www.zaozao.run/video/c61" target="_blank" rel="noopener">前端早早聊 2023年前端插件专场</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230224.html" title="从开发chrome插件到插件系统设计" target="_blank">https://www.qborfy.com/today/20230224.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +614,133 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230224.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/today/20230225.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MonoRepo实战：pnpm+nx搭建MonoRepo项目
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/today/20230223.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">不要再使用轮询了，请用SSE服务端推送完成页面实时更新</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chrome插件开发"><span class="toc-number">2.</span> <span class="toc-text">Chrome插件开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#manifest-json"><span class="toc-number">2.1.</span> <span class="toc-text">manifest.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#popup-html"><span class="toc-number">2.2.</span> <span class="toc-text">popup.html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#content-scripts"><span class="toc-number">2.3.</span> <span class="toc-text">content_scripts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backgroundjs"><span class="toc-number">2.4.</span> <span class="toc-text">backgroundjs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chrome插件设计架构"><span class="toc-number">3.</span> <span class="toc-text">Chrome插件设计架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插件系统设计"><span class="toc-number">3.1.</span> <span class="toc-text">插件系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插件系统的定位"><span class="toc-number">3.1.1.</span> <span class="toc-text">插件系统的定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件系统的基础能力"><span class="toc-number">3.1.2.</span> <span class="toc-text">插件系统的基础能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件系统架构设计"><span class="toc-number">3.1.3.</span> <span class="toc-text">插件系统架构设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件系统的安全和稳定性"><span class="toc-number">3.1.4.</span> <span class="toc-text">插件系统的安全和稳定性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +785,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>理解React中Fiber架构(一) | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解React中Fiber架构(一)">
+<meta property="og:url" content="https://www.qborfy.com/today/20230117.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-1.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-3.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-4.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-5.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-2.png">
+<meta property="og:updated_time" content="2023-01-18T16:13:25.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="理解React中Fiber架构(一)">
+<meta name="twitter:description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230117-1.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +313,312 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230117" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      理解React中Fiber架构(一)
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230117.html" class="archive-article-date">
+        <time datetime="2023-01-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">4.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">15分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标<code>快速响应</code>，原先Diff算法时间复杂度为<span>$$ O(n^3)$$</span> ，最后经过Fiber重构达到了$$ O(n) $$，这里面具体有什么门道，值得我们去深入研究一下。</p>
+<a id="more"></a>
+
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在了解Fiber架构之前，我们需要对原有React16之前版本是有什么问题，才需要引入Fiber架构去解决该问题？</p>
+<p>React15及以前的版本采用的是Stack Reconciler（栈协调器）架构，使用同步递归方式去创建虚拟DOM，一旦进入创建过程，就无法中断，如果创建过程超过16ms，用户就会出现页面卡顿感觉。具体可以参考下图：</p>
+<p><img src="/assets/img/20230117-1.png" alt></p>
+<p>因此，从网上搜索了一下React15及以前的版本反馈，的主要问题有如下几个：</p>
+<ul>
+<li>React的动画效果表现不佳</li>
+<li>React在有大量DOM节点渲染卡顿</li>
+</ul>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>为什么会出现卡顿的情况，主要原因如下：</p>
+<ol>
+<li>JavaScript是单线程，与渲染线程互斥，当其中一个线程执行时，另一个线程只能挂起等待。</li>
+<li>Stack Reconciler 栈协调器某个任务是长期占用JavaScript主线程</li>
+</ol>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>为了更好了解Fiber架构设计，需要提前了解一些前置知识，每个知识点其实都需要深入了解，这里只是简单描述，主要有以下几点：</p>
+<ul>
+<li>单线程的 JavaScript 与多线程的浏览器</li>
+<li>React生命周期</li>
+<li>React虚拟DOM<h2 id="单线程的-JavaScript-与多线程的浏览器"><a href="#单线程的-JavaScript-与多线程的浏览器" class="headerlink" title="单线程的 JavaScript 与多线程的浏览器"></a>单线程的 JavaScript 与多线程的浏览器</h2></li>
+</ul>
+<p>在我们学习前端知识的时候，有个结论是： <code>单线程的 JavaScript 与多线程的浏览器</code>。</p>
+<p>一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：</p>
+<ul>
+<li><code>GUI 渲染线程</code>，负责渲染浏览器界面HTML元素,当界面需要重绘(Repaint)或由于某种操作引发回流(reflow)时,该线程就会执行。</li>
+<li><code>JavaScript引擎线程</code>，JS内核，负责处理Javascript脚本程序。 一直等待着任务队列中任务的到来，然后解析Javascript脚本，运行代码。</li>
+<li><code>定时触发器线程</code>，定时器setInterval与setTimeout所在线程，为什么要单独弄个线程处理定时器？是因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确</li>
+<li><code>事件触发线程</code>，用来控制事件轮询，JS引擎自己忙不过来，需要浏览器另开线程协助</li>
+<li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
+</ul>
+<p>上述就是浏览器的多线程，然后单线程的JavaScript通常指的是<code>JavaScript引擎线程</code>，为什么需要单线程？因为多线程可能会出现各种UI交互冲突问题。因此了解单线程JS需要注意几点：</p>
+<ul>
+<li>GUI线程和JS引擎是互斥的，当JS引擎执行时GUI线程会被挂起，GUI更新则会被保存在一个队列中等到JS引擎线程空闲时立即被执行。</li>
+<li>JS 引擎只是任意的 JS 代码按需执行的环境，是其他线程调用触发JS引擎执行JS代码，比如：一个按钮点击触发事件，接着调用js引擎执行等</li>
+</ul>
+<p>JS 引擎工作流程图如下：</p>
+<p><img src="/assets/img/20230117-3.png" alt></p>
+<h2 id="React-生命周期"><a href="#React-生命周期" class="headerlink" title="React 生命周期"></a>React 生命周期</h2><p>为了更好了解React Fiber架构，我们需要对比React15和React16的生命周期，具体如下：</p>
+<h3 id="React15的生命周期"><a href="#React15的生命周期" class="headerlink" title="React15的生命周期"></a>React15的生命周期</h3><p>在15版本的时候，一个完整的组件生命周期如下（按照执行顺序）：</p>
+<ul>
+<li>constructor()，组件的构造函数，用来初始化state</li>
+<li>componentWillMount()，初始化渲染前时调用</li>
+<li>componentDidMount()，初始化渲染后调用</li>
+<li>componentWillReceiveProps()，父组件修改组件的props时会调用</li>
+<li>render()，每次渲染时候会调用</li>
+<li>componentWillUpdate()，组件更新前调用</li>
+<li>shouldComponentUpdate()，组件更新时调用，主要判断组件要不要更新</li>
+<li>componentDidUpdate()，组件更新后调用</li>
+<li>componentWillUnmount()，组件卸载时调用</li>
+</ul>
+<p><img src="/assets/img/20230117-4.png" alt></p>
+<p>按照不同时期，执行过程是不一样，具体可以见React的生命周期更改相关文章。</p>
+<h3 id="React16生命周期"><a href="#React16生命周期" class="headerlink" title="React16生命周期"></a>React16生命周期</h3><p>相比较React15，16版本基于Fiber架构主要对更新周期的函数做了调整，整个生命周期如下：</p>
+<ul>
+<li>constructor()，组件的构造函数，用来初始化state</li>
+<li>getDerivedStateFromProps()，初始化/更新时调用，使用 props 来派生/更新 state。</li>
+<li>componentDidMount()，初始化渲染后调用</li>
+<li>shouldComponentUpdate()，</li>
+<li>render()，每次渲染时候会调用</li>
+<li>shouldComponentUpdate()，组件更新时调用，主要判断组件要不要更新</li>
+<li>getSnapshotBeforeUpdate()，返回值会作为第三个参数给到 componentDidUpdate。它的执行时机是在 render 方法之后，真实 DOM 更新之前。可以同时获取到更新前的真实 DOM 和更新前后的 state&amp;props 信息。</li>
+<li>componentDidUpdate()，组件更新后调用，从 getSnapshotBeforeUpdate 获取到的值</li>
+<li>componentWillUnmount()，组件卸载时调用</li>
+</ul>
+<p>对比一下，React 16 废弃的是哪些生命周期：</p>
+<ul>
+<li>componentWillMount；</li>
+<li>componentWillUpdate；</li>
+<li>componentWillReceiveProps</li>
+</ul>
+<p>这些生命周期的共性，就是它们都处于 render 阶段，都可能重复被执行，而且由于这些 API 常年被滥用，它们在重复执行的过程中都存在着不可小觑的风险。</p>
+<p>为什么废弃这些生命周期，因为引用了Fiber架构，render 阶段是允许暂停、终止和重启的。这就导致 render 阶段的生命周期都是有可能被重复执行的。</p>
+<p>React16生命周期图如下：</p>
+<p><img src="/assets/img/20230117-5.png" alt></p>
+<h2 id="React-虚拟DOM"><a href="#React-虚拟DOM" class="headerlink" title="React 虚拟DOM"></a>React 虚拟DOM</h2><blockquote>
+<p>虚拟 DOM（Virtual DOM）本质上是JS 和 DOM 之间的一个映射缓存，它在形态上表现为一个能够描述 DOM 结构及其属性信息的 JS 对象。</p>
+</blockquote>
+<p>记住两个点：</p>
+<ul>
+<li>虚拟 DOM 是 JS 对象</li>
+<li>虚拟 DOM 是对真实 DOM 的描述</li>
+</ul>
+<p>虚拟DOM出现react生命周期的两个节点：</p>
+<ol>
+<li>挂载阶段，React 将结合 JSX 的描述，构建出虚拟 DOM 树，然后通过 ReactDOM.render 实现虚拟 DOM 到真实 DOM 的映射</li>
+<li>更新阶段，页面的变化在作用于真实 DOM 之前，会先作用于虚拟 DOM，虚拟 DOM 将在 JS 层借助算法先对比出具体有哪些真实 DOM 需要被改变，然后再将这些改变作用于真实 DOM，这里就需要DOM Diff算法。</li>
+</ol>
+<p>为什么需要虚拟DOM？并不是因为虚拟DOM有更高的性能，而是因为虚拟 DOM 的优越之处在于，它能够在提供更爽、更高效的研发模式（也就是函数式的 UI 编程方式）的同时，仍然保持一个还不错的性能。解决了以下问题：</p>
+<ol>
+<li>研发体验/研发效率的问题，解决以往模板和数据，需要重复调整的问题</li>
+<li>跨平台的问题，从web、小程序、app等，一套虚拟DOM，结合不同渲染逻辑，满足各类跨端场景</li>
+</ol>
+<p>而在虚拟DOM这一块，Fiber架构的引入，最大的调整就是虚拟DOM更新中的diff算法，由于分片渲染，不需要一次将diff执行，可以分批计算从而减少diff算法的复杂度。</p>
+<h2 id="Stack-Reconciler-栈协调器"><a href="#Stack-Reconciler-栈协调器" class="headerlink" title="Stack Reconciler(栈协调器)"></a>Stack Reconciler(栈协调器)</h2><p>在了解Fiber架构之前，需要对React15的Stack Reconciler(栈协调器)做一次完整了解。先了解一下什么Reconciler协调器，在React中是这么定义的：</p>
+<blockquote>
+<p>Virtual DOM 是一种编程概念。在这个概念里，UI 以一种理想化的，或者说“虚拟的”表现形式被保存于内存中，并通过如 ReactDOM 等类库使之与“真实的” DOM 同步。这一过程叫作Reconciler 协调（调和）。</p>
+</blockquote>
+<p>所以实现Reconciler，其实就是实现虚拟DOM到真实DOM渲染的整个逻辑过程，因此调和 !== Diff，但是Diff 确实是调和过程中最具代表性的一环。</p>
+<p>那么要了解React15是如何实现Stack Reconciler，最重要的两块：</p>
+<ul>
+<li>Diff算法策略</li>
+<li>找到diff节点并<code>同步</code>更新渲染</li>
+</ul>
+<p>Diff算法策略要点：(主要是树递归)</p>
+<ol>
+<li>Diff 算法性能突破的关键点在于“分层对比”；</li>
+<li>类型一致的节点才有继续 Diff 的必要性；</li>
+<li>key 属性的设置，可以帮我们尽可能重用同一层级内的节点。</li>
+</ol>
+<h1 id="Fiber架构"><a href="#Fiber架构" class="headerlink" title="Fiber架构"></a>Fiber架构</h1><p>我们先来看看 React  团队在“React 哲学”中对 React 的定位：</p>
+<blockquote>
+<p>我们认为，React 是用 JavaScript 构建快速响应的大型 Web 应用程序的首选方式。它在 Facebook 和 Instagram 上表现优秀。</p>
+</blockquote>
+<p><code>快速响应</code>是React哲学理念，因此Fiber架构的出现是为了让React框架能更加快速响应用户的操作。</p>
+<h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>什么是 Fiber？从字面上来理解，Fiber 这个单词翻译过来是“丝、纤维”的意思，是比线还要细的东西。在计算机科学里，我们有进程、线程之分，而 Fiber 就是比线程还要纤细的一个过程，也就是所谓的“纤程”。纤程的出现，意在对渲染过程实现更加精细的控制。</p>
+<p>Fiber的概念理解：</p>
+<ul>
+<li>从架构角度来看，Fiber 是对 React 核心算法（即调和过程）的重写</li>
+<li>从编码角度来看，Fiber 是 React 内部所定义的一种数据结构，它是 Fiber 树结构的节点单位，也就是 React 16 新架构下的“虚拟 DOM”；</li>
+<li>从工作流的角度来看，Fiber 节点保存了组件需要更新的状态和副作用，一个 Fiber 同时也对应着一个工作单元。</li>
+</ul>
+<p>从架构角度理解Fiber:</p>
+<ul>
+<li>架构核心：“可中断”“可恢复”与“优先级”</li>
+<li>可中断，指的是在Fiber架构下，任何工作任务都可以被更高优先级的任务中断</li>
+<li>可恢复，指的是被中断的任务可以被恢复继续执行</li>
+<li>优先级，指的是每个任务都有自己的优先级定义</li>
+<li>因此需要增加“Scheduler（调度器）”，作用是调度更新的优先级的任务</li>
+</ul>
+<h2 id="怎么解决问题"><a href="#怎么解决问题" class="headerlink" title="怎么解决问题"></a>怎么解决问题</h2><p>有了Fiber架构，怎么解决React15所面临的问题，虚拟DOM同步渲染真实DOM导致页面卡顿？</p>
+<ul>
+<li>将虚拟DOM，从原有的树结构，改为链表结构，拆分成一个个Fiber树节点</li>
+<li>利用Fiber架构，将渲染过程拆分成一个个工作单元任务，设置优先级，支持可中断、可恢复</li>
+<li>这样子当需要渲染复杂DOM时候，同时不影响其他优先级较高工作任务执行</li>
+</ul>
+<p>可以参考下图，了解一下Fiber架构工作图：</p>
+<p><img src="/assets/img/20230117-2.png" alt></p>
+<p>当然这样子讲只是简单的原理，还需要弄明白异步后可能产生更多问题？比如如何定制优先级，当两个同样优先级的任务相遇的时候如何解决，这些放在第二章讲解。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过第一篇Fiber文章学习，大概了解到Fiber架构出现的背景和原因，以及它是什么，是如何工作的解决之前所遇到问题。简单总结一下：</p>
+<ul>
+<li>React中定义Reconciler协调，指的是将虚拟DOM渲染到真实DOM的过程，React15之前采用是stack Reconciler栈协调，同步渲染机制导致页面卡顿</li>
+<li>React16之后采用Fiber Reconciler，实现异步渲染DOM</li>
+<li>采用新的Fiber架构，同时影响到React的整个生命周期，主要是在更新阶段的生命周期</li>
+</ul>
+<p>后续深入了解请看第二篇章《从React中学习Fiber架构(二)》。</p>
+<h1 id="额外话题（Vue-js对比）"><a href="#额外话题（Vue-js对比）" class="headerlink" title="额外话题（Vue.js对比）"></a>额外话题（Vue.js对比）</h1><p>相比较React做Fiber架构优化，主要是针对事件做了时间分片，那么为什么Vue3(Vue@next)版本并不需要做呢？Vue.js作者尤雨溪是这样子回答的：</p>
+<blockquote>
+<p>尤雨溪：在 Web 应用中，「可中断式更新」主要是由大量 CPU 计算加上复杂 DOM 操作引起的。时间分片旨在让应用在 CPU 进行大量计算时也能与用户交互，但时间分片只能对大量 CPU 计算进行优化，无法优化复杂 DOM 操作，因为要确保用户正在操作的界面是最新的状态才行。因此，我们可以考虑两种不同的可中断式更新的场景：</p>
+<ol>
+<li>CPU 计算量不大，但 DOM 操作非常复杂（比如说你向页面中插入了十万个节点）。这种场景下不管你做不做时间分片，页面都会很卡。</li>
+<li>CPU 计算量非常大。理论上时间分片在这种场景里会有较大收益，但是人机交互研究表明，除了动画之外，大部分用户不会觉得 10 毫秒和 100 毫秒有很大区别。<br>也就是说，时间分片只在 CPU 需要连续计算 100 毫秒以上的情况下才有较大收益。有意思的地方就出现了，在 React 经常会出现 100 毫秒以上的计算量，因为</li>
+<li>Fiber 架构的复杂性导致 React 的虚拟 DOM 协调效率较低，这是系统性的问题。</li>
+<li>React 使用 JSX 导致它的渲染效率比 template 低，因为 template 很容易做静态分析和优化。</li>
+<li>React Hooks 将大部分组件树的优化 API 暴露给开发者，开发者很多时候需要手动调用 useMemo 来优化渲染效率。这意味着 React 应用默认就有 render 过多的问题。更严重的是，这些优化在 React 里很难自动化。</li>
+<li>这些优化要求开发者正确设置依赖数组</li>
+<li>盲目添加 useMemo 会导致应该 render 的没 render。<br>很不幸，大部分开发者都很懒，不会在每个地方都加上优化，因此大部分 React 应用都会有大量的没必要的 CPU 计算工作。<br>对比较而言，Vue 解决了上述问题：</li>
+<li>Vue 的架构里没有时间分片，也就没有 Fiber，因此简单了很多，这使得渲染可以更快。</li>
+<li>Vue 通过分析 template、简化协调过程，做了大量的 AOT 优化，性能测试结果表明大部分的 DOM 内容有 80% 属于静态内容，因此 Vue 3 的协调速度比 Svelte 快，花费的时间比 React 的 1/10 还少。</li>
+<li>通过数据响应式追踪，Vue 可以做到组件树级别的优化，比如把插槽编译为函数以避免 children 的变化引发 re-render，比如自动缓存内联事件处理函数以避免 re-render。Vue 3 可以做到在不借助开发者的任何手动优化的情况下，防止子组件在非必要的情况下 re-render。这意味着同样一次更新，React 应用可能要 re-render 多个组件，而 Vue 应用很可能只 re-render 一个组件。<br>因此，在默认情况下，Vue 3 应用会比 React 应用少花费很多 CPU 时间，因而遇到 CPU 连续计算时间超过 100 毫秒的机会相当少，除非是极端情况。但大部分极端情况是 DOM 操作过于复杂，而不是 CPU 计算量太大。</li>
+</ol>
+</blockquote>
+<p>进行汇总一下描述，Vue3之所以没有使用Fiber架构，主要有以下几个原因：</p>
+<ol>
+<li>Vue.js针对template渲染机制做了多重优化，包括AOT优化(在构建的时候提前进行编译，提前将template转义成render函数)等，使得DOM元素渲染更快</li>
+<li>复杂DOM渲染出现超过100ms以上的计算，是因为React本身机制导致，并不是所有复杂的DOM渲染都会需要100ms</li>
+<li>React Hook的暴露增加渲染效率的复杂度，从而导致React渲染更慢，从而需要Fiber架构去协调</li>
+<li>Vue数据响应式追踪机制，避免了多次重复render组件树，提高渲染效率</li>
+<li>Vue使用Fiber架构去实现，确实可以有好处，但是会增加整体代码体积和复杂度，投入产出比太低</li>
+</ol>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="AOT-vs-JIT"><a href="#AOT-vs-JIT" class="headerlink" title="AOT vs JIT"></a>AOT vs JIT</h3><ul>
+<li>AOT，Ahead Of Time，提前编译或预编译，宿主环境获得的是编译后的代码，在浏览器中我们可以直接下载并运行编译后的代码，比如：Vue的template是通过Vue-loader编译后才能使用。</li>
+<li>JIT，Just In Time，即时编译 ，代码在宿主环境编译并执行，每个文件都是单独编译的，当我们更改代码时不需要再次构建整个项目，比如：React中JSX只有在浏览器运行的时候才知道具体代码。</li>
+</ul>
+
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230117.html" title="理解React中Fiber架构(一)" target="_blank">https://www.qborfy.com/today/20230117.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +630,133 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230117.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/today/20230119.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          从lerna到初步了解和使用Nx(一)
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/today/20230116.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从Z-Library到了解IPFS去中心化技术</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么"><span class="toc-number">2.1.</span> <span class="toc-text">为什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置知识"><span class="toc-number">3.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单线程的-JavaScript-与多线程的浏览器"><span class="toc-number">3.1.</span> <span class="toc-text">单线程的 JavaScript 与多线程的浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-生命周期"><span class="toc-number">3.2.</span> <span class="toc-text">React 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React15的生命周期"><span class="toc-number">3.2.1.</span> <span class="toc-text">React15的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React16生命周期"><span class="toc-number">3.2.2.</span> <span class="toc-text">React16生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-虚拟DOM"><span class="toc-number">3.3.</span> <span class="toc-text">React 虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stack-Reconciler-栈协调器"><span class="toc-number">3.4.</span> <span class="toc-text">Stack Reconciler(栈协调器)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fiber架构"><span class="toc-number">4.</span> <span class="toc-text">Fiber架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">4.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么解决问题"><span class="toc-number">4.2.</span> <span class="toc-text">怎么解决问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#额外话题（Vue-js对比）"><span class="toc-number">6.</span> <span class="toc-text">额外话题（Vue.js对比）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础概念"><span class="toc-number">6.1.</span> <span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AOT-vs-JIT"><span class="toc-number">6.1.1.</span> <span class="toc-text">AOT vs JIT</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +801,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

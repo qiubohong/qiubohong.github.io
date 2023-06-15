@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives | qborfy知识库</title>
+  <title>从nest.js中了解IoC和DI的实现 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/index.html">
+  <meta name="description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
+<meta name="keywords" content="技术分享,每日更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从nest.js中了解IoC和DI的实现">
+<meta property="og:url" content="https://www.qborfy.com/today/20230122.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-01-28T17:56:30.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qborfy知识库">
-<meta name="twitter:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta name="twitter:title" content="从nest.js中了解IoC和DI的实现">
+<meta name="twitter:description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -305,44 +307,228 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230122" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/framework/framework-with-chatgpt-1.html" class="archive-article-date">
-        <time datetime="2023-05-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/framework/framework-with-chatgpt-1.html" target="_blank">
-      前端架构——利用chatgpt成为架构师（1）
-      
-    </a>
   
+    <h1 class="article-title" itemprop="name">
+      从nest.js中了解IoC和DI的实现
+      
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/today/20230122.html" class="archive-article-date">
+        <time datetime="2023-01-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从上一篇<a href="/2023/01/10/today/20220110/">《从egg.js转到nest.js》</a>，想对其再深入了解一下，尤其比较好奇Typescript是如何实现<code>IoC</code>和<code>DI</code>，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>在了解实现原理之前有几个知识概念，需要了解一下：</p>
+<ul>
+<li>IoC和DI</li>
+<li>JavaScript的Reflect</li>
+<li>TypeScript的装饰器</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="IoC和DI"><a href="#IoC和DI" class="headerlink" title="IoC和DI"></a>IoC和DI</h2><p>IoC和DI其实同属于一个技术理念，下面维基百科的介绍：</p>
+<blockquote>
+<p>IoC，控制反转（英语：Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。</p>
+</blockquote>
+<p>简单的说IoC是一个开发代码的设计原则，DI则是实现这个设计原则的方案。</p>
+<h3 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h3><p>从代码层上来讲解IoC，简单的说就是：</p>
+<ul>
+<li>Class A中用到了Class B的对象b，一般情况下，需要在A的代码中显式地用 new 创建 B 的对象。</li>
+<li>使用IoC设计原则后，A 的代码只需要定义一个 private 的B对象，不需要直接 new 来获得这个对象，而是通过相关的容器控制程序来将B对象在外部new出来并注入到A类里的引用中。</li>
+<li>IoC将采用依赖注入或依赖查找两种方案去实现</li>
+</ul>
+<p>再通俗一点，就是有一个IoC容器管家，负责你开发的代码类的归置，你只管使用代码类，不用管它放在哪里，只需要调用即可。</p>
+<h3 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h3><p>DI，Dependency Injection，依赖注入</p>
+<blockquote>
+<p>依赖注入是被动的接收对象，在类A的实例创建过程中即创建了依赖的B对象，通过类型或名称来判断将不同的对象注入到不同的属性中<br>依赖查找是主动索取相应类型的对象，获得依赖对象的时间也可以在代码中自由控制</p>
+</blockquote>
+<p>简单的说，就是依赖注入是将需要注入的对象完全交给框架去实现，而依赖查找则是开发者通过框架提供的方法，由自己控制需要注入的时间点。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>采用IoC和DI，需要注意的问题是：</p>
+<ul>
+<li>循环依赖，就是A依赖B，B依赖A，如何避免这种情况发生，或者框架提供什么样的方案去避免？</li>
+<li>如果依赖的类越来越多，会不会导致项目启动速度变慢，因为需要初始化类很多，尤其当遇到一些类初始化可能会错误，但其实是可以忽略的？</li>
+<li>初始化类的顺序如何控制，如：A依赖B，需要B实例化后才能实例？</li>
+</ul>
+<h2 id="JavaScript的Reflect"><a href="#JavaScript的Reflect" class="headerlink" title="JavaScript的Reflect"></a>JavaScript的Reflect</h2><p>Reflect在MDN网站是这么解释的：</p>
+<blockquote>
+<p>Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与proxy handlers (en-US)的方法相同。Reflect不是一个函数对象，因此它是不可构造的。<br>其中的一些方法与 Object 相同，尽管二者之间存在某些细微上的差别。</p>
+</blockquote>
+<p>按照前端开发者理解来说，Reflect能解决开发中遇到很多this的代理问题，虽然大部分方案都可以通过其他方式解决，但是Reflect的定义能帮助我们快速实现这些功能。</p>
+<p>Reflect符合ES6标准的提供的API有如下几个：</p>
+<ul>
+<li><code>Reflect.apply(target, thisArgument, argumentsList)</code>,和 <code>Function.prototype.apply(thisArgument, argumentsList)</code> 功能类似，也是调用函数，且允许将函数的this指向<code>thisArgument</code></li>
+<li><code>Reflect.construct(target, argumentsList[, newTarget])</code>，new一个target，且可以将target的this的指向新的newTarget对象</li>
+<li><code>Reflect.defineProperty(target, propertyKey, attributes)</code>，拦截target对象的操作，和 <code>Object.defineProperty()</code> 类似</li>
+<li><code>Reflect.deleteProperty(target, propertyKey)</code>，作为函数的delete操作符，相当于执行 delete target[name]。</li>
+<li><code>Reflect.get(target, propertyKey[, receiver])</code>，获取target的属性值，和<code>target[name]</code>的区别在于可以<code>receiver</code>，可以指定调用属性值的时候<code>this</code></li>
+<li><code>Reflect.getOwnPropertyDescriptor(target, propertyKey)</code>，类似于 Object.getOwnPropertyDescriptor()。如果对象中存在该属性，则返回对应的属性描述符，否则返回 undefined。</li>
+<li><code>Reflect.getPrototypeOf(target)</code>，返回指定对象的原型（即内部的 [[Prototype]] 属性的值）</li>
+<li><code>Reflect.has(target, propertyKey)</code>，判断一个对象是否存在某个属性，和 <code>in 运算符</code> 的功能完全相同</li>
+<li><code>Reflect.ownKeys(target)</code>，返回一个包含所有自身属性（不包含继承属性）的数组。(类似于 Object.keys(), 但不会受enumerable 影响).</li>
+<li><code>Reflect.isExtensible(target)</code>， 判断一个对象是否可扩展（即是否能够添加新的属性）</li>
+<li><code>Reflect.preventExtensions(target)</code>，阻止新属性添加到对象</li>
+<li><code>Reflect.set(target, propertyKey, value[, receiver])</code>，将值分配给属性的函数。返回一个Boolean，如果更新成功，则返回true。</li>
+<li><code>Reflect.setPrototypeOf(target, prototype)</code>，可设置对象的原型，即内部的 [[Prototype]] 属性）为另一个对象或 null，利用原型链用来强制给某个对象增加额外方法</li>
+</ul>
+<p>当然还有一些没有进入标准，但是在ES7提案的方法<code>Reflect Metadata</code>（Typescript已实现），后面Nest.js已采用的方法，主要有以下几个：</p>
+<ul>
+<li><code>Reflect.getMetadata(metadataKey, target, propertyKey)</code>, 用于获取某个类的元数据</li>
+<li><code>Reflect.defineMetadata(metadataKey, metadataValue, target, propertyKey);</code>, 用于设置某个类的元数据</li>
+</ul>
+<p>简单理解这个api方法，你可以通过<code>Reflect.defineMetadata</code>获取到类或者函数的参数类型，也可以给类或者函数设置元数据再获取，具体代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Prop</span>(<span class="params"></span>): <span class="title">PropertyDecorator</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">target, key: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">type</span> = Reflect.getMetadata(<span class="string">'design:type'</span>, target, key);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span> type: <span class="subst">$&#123;<span class="keyword">type</span>.name&#125;</span>`</span>);</span><br><span class="line">    <span class="comment">// other...</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> SomeClass &#123;</span><br><span class="line">  <span class="meta">@Prop</span>()</span><br><span class="line">  <span class="keyword">public</span> Aprop!: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TypeScript 的优势了，TypeScript 支持编译时自动添加一些 metadata 数据，如下所示：</p>
+<ul>
+<li><code>Reflect.getMetadata(&quot;design:type&quot;, target, key)</code>， 获取target函数类型</li>
+<li><code>Reflect.getMetadata(&quot;design:paramtypes&quot;, target, key)</code>， 获取target函数参数类型</li>
+<li><code>Reflect.getMetadata(&quot;design:returntype&quot;, target, key)</code>， 获取target函数返回值类型</li>
+</ul>
+<p>这个<code>Reflect.getMetadata(&quot;design:paramtypes&quot;, target, key)</code>基本上就是Nest.js实现Ioc和DI的核心代码。</p>
+<h2 id="TypeScript的装饰器"><a href="#TypeScript的装饰器" class="headerlink" title="TypeScript的装饰器"></a>TypeScript的装饰器</h2><blockquote>
+<p>装饰器（Decorators）为我们在类的声明及成员上通过元编程语法添加标注提供了一种方式。<br>装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上。</p>
+</blockquote>
+<p>如何实现一个装饰器呢？</p>
+<p>如果我们要定制一个修饰器如何应用到一个声明上，我们得写一个装饰器工厂函数。 装饰器工厂就是一个简单的函数，它返回一个表达式，以供装饰器在运行时调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">color</span>(<span class="params">value: string</span>) </span>&#123; <span class="comment">// 这是一个装饰器工厂</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123; <span class="comment">//  这是装饰器</span></span><br><span class="line">        <span class="comment">// do something with "target" and "value"...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@color(<span class="string">'blue'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="IoC和DI实现原理"><a href="#IoC和DI实现原理" class="headerlink" title="IoC和DI实现原理"></a>IoC和DI实现原理</h1><p>其实在了解完<code>Reflect.getMetadata</code>，我们就大概知道IoC和DI的实现原理，我们以一个<code>@Controller</code>为例, 具体步骤如下：</p>
+<ul>
+<li>实现<code>@Controller</code>装饰器工厂，标识待注入的类</li>
+<li>实现IoC容器，注册要被依赖注入的类</li>
+<li>获取待注入的类其构造函数所需要的参数类型，并实例化，返回待注入的类</li>
+</ul>
+<p>具体代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现Controller装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Controller</span>(<span class="params">path: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">        Reflect.defineMetadata(<span class="string">'Controller'</span>, path, target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要依赖注入的类</span></span><br><span class="line"><span class="keyword">class</span> A()&#123;</span><br><span class="line">    say()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'aaaaaa'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用</span></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">class</span> Demo()&#123;</span><br><span class="line">    construtor(a: A )&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    say()&#123;</span><br><span class="line">        <span class="keyword">this</span>.a.say();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现Ioc容器和DI依赖注入</span></span><br><span class="line"><span class="keyword">class</span> Container &#123;</span><br><span class="line">  provides = <span class="keyword">new</span> Map()</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 注册要被依赖注入类，形成IoC容器 后续可以做</span></span><br><span class="line">  addProvide(provider) &#123;</span><br><span class="line">    <span class="keyword">this</span>.provides.set(provider.name, provider)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 注入依赖类</span></span><br><span class="line">  inject(target) &#123;</span><br><span class="line">      <span class="comment">// 获取参数类型</span></span><br><span class="line">      <span class="keyword">const</span> paramTypes = Reflect.getMetadata(<span class="string">'design:paramtypes'</span>, target) || []</span><br><span class="line">      <span class="keyword">const</span> args = paramTypes.map(<span class="function">(<span class="params"><span class="keyword">type</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">type</span>() <span class="comment">// 简单做一下实例化</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">return</span> Reflect.construct(target, args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> container = <span class="keyword">new</span> Container()</span><br><span class="line"><span class="keyword">const</span> project = container.inject(Project)</span><br><span class="line"></span><br><span class="line"><span class="comment">// project就是最终生成返回使用的类</span></span><br><span class="line"></span><br><span class="line">project.say(); <span class="comment">// 输出 aaaaaa</span></span><br></pre></td></tr></table></figure>
+
+<p>所以Nest.js实现IoC和DI的核心实现原理：</p>
+<ul>
+<li>通过装饰器给 class 或者对象添加 metadata</li>
+<li>运行的时候通过这些元数据来实现依赖的扫描，对象的创建等等功能</li>
+</ul>
+<p>当然，还有很多问题没解决，目前只是简单实现了依赖注入，上述IoC的问题还没有解决，由于篇幅较长，所以拆成几篇，放到后续继续研究。</p>
+
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/today/20230122.html" title="从nest.js中了解IoC和DI的实现" target="_blank">https://www.qborfy.com/today/20230122.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,377 +540,133 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/today/20230122.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（5）—— 循环滚动图片
-      
+    <a href="/lowcode/index.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          低代码系列——介绍
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
+    <a href="/ideas/20230120.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有趣的工具收集</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/4-deep-clone.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置知识"><span class="toc-number">2.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC和DI"><span class="toc-number">2.1.</span> <span class="toc-text">IoC和DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IoC"><span class="toc-number">2.1.1.</span> <span class="toc-text">IoC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI"><span class="toc-number">2.1.2.</span> <span class="toc-text">DI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">2.1.3.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript的Reflect"><span class="toc-number">2.2.</span> <span class="toc-text">JavaScript的Reflect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript的装饰器"><span class="toc-number">2.3.</span> <span class="toc-text">TypeScript的装饰器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IoC和DI实现原理"><span class="toc-number">3.</span> <span class="toc-text">IoC和DI实现原理</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/4-deep-clone.html" target="_blank">
-      前端面试100道手写题（4）—— 深浅拷贝
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（5）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/3-event-bus.html" class="archive-article-date">
-        <time datetime="2023-05-06T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/3-event-bus.html" target="_blank">
-      前端面试100道手写题（3）—— EventBus
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
-        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/face100/2-throttle-debouce.html" target="_blank">
-      前端面试100道手写题（2）—— throttle与debounce
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/study/seven-habbit.html" class="archive-article-date">
-        <time datetime="2023-04-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/study/seven-habbit.html" target="_blank">
-      《高效能人士的7个习惯》，怎么做才能提高做事效率？
-      
-    </a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -769,8 +711,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
