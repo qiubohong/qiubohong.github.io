@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
+  <meta name="description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端应用还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
 <meta name="keywords" content="技术分享,架构系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端架构成长之路——微前端系列(二)之qiankun框架实战">
 <meta property="og:url" content="https://www.qborfy.com/framework/frontend-microapp-2.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
+<meta property="og:description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端应用还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-06-08T10:50:14.255Z">
+<meta property="og:updated_time" content="2023-06-16T09:13:18.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端架构成长之路——微前端系列(二)之qiankun框架实战">
-<meta name="twitter:description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
+<meta name="twitter:description" content="背景之前有写过专门一篇关于微前端架构的基础知识——《前端架构成长之路——微前端架构理论篇》，但是里面主要讲几个点：  微前端是什么，具体能做些什么 微前端的一些主流框架 微前端拆分项目的一些原则  那么其实对于微前端应用还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -333,7 +333,7 @@
         </span>
 
 <a href="/framework/frontend-microapp-2.html" class="archive-article-date">
-        <time datetime="2022-02-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-26</time>
+        <time datetime="2023-06-18T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-18</time>
 </a>
 
   
@@ -346,7 +346,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">286字</span>
+      <span class="post-count">1.4k字</span>
     </span>
   </span>
 
@@ -355,7 +355,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -372,7 +372,7 @@
 <li>微前端的一些主流框架</li>
 <li>微前端拆分项目的一些原则</li>
 </ul>
-<p>那么其实对于微前端还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。</p>
+<p>那么其实对于微前端应用还是有些不太清楚，下面就用微前端架构去对某个古老项目进行框架升级，这其实也是微前端架构主要特性之一，对项目升级的方案之一。</p>
 <a id="more"></a>
 
 <p>在使用 <code>qiankun</code>  框架之前，脑子里有几个疑问：</p>
@@ -384,8 +384,45 @@
 </ul>
 </li>
 </ul>
-<p>搞明白后，我们就可以开始进行实战训练。</p>
-<h1 id="qiankun-的缺陷"><a href="#qiankun-的缺陷" class="headerlink" title="qiankun 的缺陷"></a>qiankun 的缺陷</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<p>搞明白后，我们就可以开始进行项目实战，</p>
+<h1 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h1><p>由于本次是将老项目升级到新版本框架中，因此将采用 Monorepo 架构对新老项目进行统一管理。项目结构大概 如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">qiankun-demo</span><br><span class="line">├── apps # 应用层</span><br><span class="line">|  ├── main #  基座项目</span><br><span class="line">|  |  ├── ...</span><br><span class="line">|  ├── old #  老版项目</span><br><span class="line">|  |  ├── ...</span><br><span class="line">|  └── new #  新版项目</span><br><span class="line">|     ├── ...</span><br><span class="line">├── README.md</span><br><span class="line">├── nx.json #  nx.js 管理Monorepo</span><br><span class="line">├── package.json</span><br><span class="line">├── pnpm-lock.yaml</span><br><span class="line">├── pnpm-workspace.yaml</span><br></pre></td></tr></table></figure>
+
+<h2 id="main-基座项目"><a href="#main-基座项目" class="headerlink" title="main-基座项目"></a>main-基座项目</h2><p> <code>qiankun</code> 的基座项目和普通 web 项目初始化没有什么区别，你可以基于 <code>React</code>  或  <code>Vue</code> 作为基座项目框架都可以，但是需要入口文件需要做一下调整，下面我以 <code>Vue+Vite</code> 项目为例:</p>
+<p>步骤一： 初始化项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm create vite@latest main-vue -- --template vue</span><br><span class="line"><span class="meta">#</span> 添加 qiankun</span><br><span class="line">npm i qiankun -S</span><br></pre></td></tr></table></figure>
+
+<p>步骤二：在<code>main.ts</code>准备好基座项目以及注册微应用</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> &#123; registerMicroApps, start , runAfterFirstMounted, setDefaultMountApp&#125; <span class="keyword">from</span> <span class="string">'qiankun'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./style.css'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Step1 初始化应用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">createApp(App).mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Step2 注册子应用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">registerMicroApps(</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'old-web'</span>, <span class="comment">// 注册后子应用的名字 老项目启动端口为8080</span></span><br><span class="line">            entry: <span class="string">'//localhost:8080'</span>, <span class="comment">// 这里可以根据环境变量配置</span></span><br><span class="line">            container: <span class="string">'#subapp-viewport'</span>,</span><br><span class="line">            activeRule: <span class="string">'/old'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'new-web'</span>, <span class="comment">// 注册后子应用的名字 新项目启动端口为8090</span></span><br><span class="line">            entry: <span class="string">'//localhost:8090'</span>,</span><br><span class="line">            container: <span class="string">'#subapp-viewport'</span>,</span><br><span class="line">            activeRule: <span class="string">'/new'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// qiankun 生命周期钩子 - 加载前</span></span><br><span class="line">        beforeLoad: [</span><br><span class="line">            (app) =&gt; &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'[LifeCycle] before load %c%s'</span>, <span class="string">'color: green;'</span>, app.name);</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">        beforeMount: [</span><br><span class="line">            (app) =&gt; &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'[LifeCycle] before mount %c%s'</span>, <span class="string">'color: green;'</span>, app.name);</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">        afterMount: [</span><br><span class="line">            (app) =&gt; &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'[LifeCycle] after mount %c%s'</span>, <span class="string">'color: green;'</span>, app.name);</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">        beforeUnmount: <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'[LifeCycle] before Unmount %c%s'</span>, <span class="string">'color: green;'</span>, app.name);</span><br><span class="line">        &#125;,</span><br><span class="line">        afterUnmount: [</span><br><span class="line">            (app) =&gt; &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'[LifeCycle] after unmount %c%s'</span>, <span class="string">'color: green;'</span>, app.name);</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">    &#125;,);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Step3 设置默认进入的子应用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// setDefaultMountApp('/old');</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Step4 启动应用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">start();</span><br><span class="line"></span><br><span class="line">runAfterFirstMounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'[MainApp] first app mounted'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="microapp-微应用"><a href="#microapp-微应用" class="headerlink" title="microapp-微应用"></a>microapp-微应用</h2><p>微应用其实改动代码不多，只是需要将qiankun 所需要的接口(<code>bootstrap</code>, <code>mount</code> <code>unmount</code>) 暴露出来即可</p>
+<p>步骤一： 新建 <code>public-path.js</code> 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主要用来区分 qiankun 加载资源路径</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.__POWERED_BY_QIANKUN__) &#123;</span><br><span class="line">  __webpack_public_path__ = <span class="built_in">window</span>.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤二： 在 <code>app.js</code> 加入<code>qiankun</code>的接口，将 render 函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>)</span><br><span class="line"><span class="keyword">var</span> ReactDom = <span class="built_in">require</span>(<span class="string">'react-dom'</span>)</span><br><span class="line"><span class="keyword">var</span> ReactRouter2 = <span class="built_in">require</span>(<span class="string">'react-router'</span>)</span><br><span class="line"><span class="keyword">var</span> RouteConfig = <span class="built_in">require</span>(<span class="string">'./config/RouteConfig'</span>)</span><br><span class="line"><span class="keyword">var</span> Utils = <span class="built_in">require</span>(<span class="string">'radmin'</span>).Utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createHistory &#125; <span class="keyword">from</span> <span class="string">'history'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./public-path.js'</span></span><br><span class="line"><span class="keyword">import</span> ReactRouter, &#123; Router, Route, useRouterHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></span><br><span class="line"><span class="keyword">var</span> appHistory = useRouterHistory(createHistory)(&#123; <span class="attr">queryKey</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'../less/index.less'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。</span></span><br><span class="line"><span class="comment"> * 通常我们可以在这里做一些全局变量的初始化，比如不会在 unmount 阶段被销毁的应用级别的缓存等。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'[react15] react app bootstraped'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">mount</span>(<span class="params">props = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'[react15] props from main framework'</span>, props);</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = props;</span><br><span class="line">  <span class="comment">// 这里判断 container 是否qiankun 携带进来的</span></span><br><span class="line">  ReactDom.render(&lt;ReactRouter2.Router routes=&#123;Utils.combineConfig(RouteConfig)&#125; history=&#123;appHistory&#125; /&gt;, container ? container.querySelector('#react15Root') : document.getElementById('react15Root'))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export async function unmount(props) &#123;</span><br><span class="line">  const &#123; container &#125; = props;</span><br><span class="line">  ReactDOM.unmountComponentAtNode(</span><br><span class="line">    container ? container.querySelector('#react15Root') : document.getElementById('react15Root'),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">// 独立的时候可自主运行</span><br><span class="line">if (!window.__POWERED_BY_QIANKUN__) &#123;</span><br><span class="line">  bootstrap().then(mount);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  window.bootstrap = bootstrap;</span><br><span class="line">  window.mount = mount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤三： 在<code>webpack.config.js</code>调整打包配置，将 <code>app.js</code>暴露到<code>window</code>中:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: [</span><br><span class="line">        path.resolve(__dirname, <span class="string">'./src/js/app'</span>)</span><br><span class="line">    ],</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'hot'</span>),</span><br><span class="line">        filename: <span class="string">'app.js'</span>,</span><br><span class="line">        library: <span class="string">`<span class="subst">$&#123;packageName&#125;</span>-[name]`</span>,</span><br><span class="line">        libraryTarget: <span class="string">'umd'</span>,</span><br><span class="line">        globalObject: <span class="string">'window'</span>,</span><br><span class="line">        jsonpFunction: <span class="string">`webpackJsonp_<span class="subst">$&#123;packageName&#125;</span>`</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到了这里，基本上就可以完成项目改造工作了，但是后续还需要其他一些改动点，如：</p>
+<ol>
+<li>基座项目需要切换为真实域名，可以按照构建环境变量去切换</li>
+<li>微应用需要注意资源使用相对路径</li>
+<li>针对不同打包工具，都需要将<code>bootstrap</code> <code>mount</code> 函数进行暴露到 <code>window</code> 对象中，因为 <code>qiankun</code> 会拦截代理 <code>window</code>去运行微应用</li>
+<li>需要解决不同应用之间的登录态等问题</li>
+</ol>
+<h1 id="qiankun-的缺陷"><a href="#qiankun-的缺陷" class="headerlink" title="qiankun 的缺陷"></a>qiankun 的缺陷</h1><p>虽然 qiankun 使用起来很简单，但是在实际应用还是存在一些缺陷，但是在将其引入到项目中的时候，需要考虑这些点：</p>
+<ul>
+<li>对于 jQuery 老项目支持度不够，即使有解决方案，但是需要对 qiankun 整个框架原理深入了解才能明白如何解决</li>
+<li>沙箱隔离机制并不完美，如：写 css 代码挂载到 document.body，会导致样式污染</li>
+<li>通讯机制较简单，基于一个全局的 globalState 对象，去提供给到各个微应用去使用</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://qiankun.umijs.org/zh" target="_blank" rel="noopener">qiankun官网</a></li>
+<li></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -538,18 +575,18 @@
 
 <nav id="article-nav">
   
-    <a href="/share/tomcat-nowork.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/face100/5-router-component.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java tomcat服务无缘无故挂掉分析和解决方案
+          前端面试100道手写题（5）—— Router路由
         
       </div>
     </a>
   
   
-    <a href="/study/react-test1.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React与Jest的单元测试(1)</div>
+    <a href="/framework/framework-with-chatgpt-1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端架构——利用chatgpt成为架构师（1）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -576,7 +613,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#qiankun-的缺陷"><span class="toc-number">2.</span> <span class="toc-text">qiankun 的缺陷</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实战"><span class="toc-number">2.</span> <span class="toc-text">项目实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#main-基座项目"><span class="toc-number">2.1.</span> <span class="toc-text">main-基座项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#microapp-微应用"><span class="toc-number">2.2.</span> <span class="toc-text">microapp-微应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#qiankun-的缺陷"><span class="toc-number">3.</span> <span class="toc-text">qiankun 的缺陷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>

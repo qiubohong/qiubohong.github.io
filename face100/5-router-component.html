@@ -10,15 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="学习总结,前端面试">
+  <meta name="description" content="前言前端路由，大家都使用过，那么有没有想过它是怎么实现的吗？如：Vue-Router 或者 React-Router。或许有个大概印象，但是真正要自己去实现还是没有什么思路，那么这篇文章将完整的实现思路去实现一次。 手写难度：⭐️⭐️⭐️ 涉及知识点：  history api 和监听事件 onhashchange 监听事件">
+<meta name="keywords" content="学习总结,前端面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试100道手写题（5）—— Router路由">
 <meta property="og:url" content="https://www.qborfy.com/face100/5-router-component.html">
 <meta property="og:site_name" content="qborfy知识库">
+<meta property="og:description" content="前言前端路由，大家都使用过，那么有没有想过它是怎么实现的吗？如：Vue-Router 或者 React-Router。或许有个大概印象，但是真正要自己去实现还是没有什么思路，那么这篇文章将完整的实现思路去实现一次。 手写难度：⭐️⭐️⭐️ 涉及知识点：  history api 和监听事件 onhashchange 监听事件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-05-26T15:03:02.462Z">
+<meta property="og:updated_time" content="2023-06-21T14:54:45.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试100道手写题（5）—— Router路由">
+<meta name="twitter:description" content="前言前端路由，大家都使用过，那么有没有想过它是怎么实现的吗？如：Vue-Router 或者 React-Router。或许有个大概印象，但是真正要自己去实现还是没有什么思路，那么这篇文章将完整的实现思路去实现一次。 手写难度：⭐️⭐️⭐️ 涉及知识点：  history api 和监听事件 onhashchange 监听事件">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -330,7 +333,7 @@
         </span>
 
 <a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
+        <time datetime="2023-06-20T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-20</time>
 </a>
 
   
@@ -343,7 +346,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">878字</span>
     </span>
   </span>
 
@@ -352,7 +355,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -363,7 +366,70 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前端路由，大家都使用过，那么有没有想过它是怎么实现的吗？如：Vue-Router 或者 React-Router。或许有个大概印象，但是真正要自己去实现还是没有什么思路，那么这篇文章将完整的实现思路去实现一次。</p>
+<p>手写难度：⭐️⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>history api 和监听事件</li>
+<li>onhashchange 监听事件</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="路由管理"><a href="#路由管理" class="headerlink" title="路由管理"></a>路由管理</h1><p>路由管理，是指的 web 应用在浏览器下根据不同的url地址展示不同的内容或者页面。</p>
+<p>不管是 Vue-Router 或者  React-Router，基本上都是基于浏览器两种路由控制有一定了解，如下：</p>
+<ul>
+<li>hash，代表网页中的一个位置，通常用来做锚点使用，后面被用于单页web 应用的路由控制</li>
+<li>history，代表网页的历史记录，同时提供接口操作浏览器的曾经在标签页或者框架里访问的会话历史记录</li>
+</ul>
+<p>下面我们对两个进行简单了解。</p>
+<h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><blockquote>
+<p>Hash，通常是指的浏览器 URL 地址中带#的值，如：<code>URL = https://baidu.com/#/page1</code>，那么 <code>URL.hash=&#39;#/page1&#39;</code></p>
+</blockquote>
+<p>Hash 常用的 的几个方法：</p>
+<p><strong><code>hashchange</code></strong></p>
+<blockquote>
+<p>当 URL 的片段标识符更改时，将触发hashchange事件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'The hash has changed!'</span>)</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>调整 hash</code></strong></p>
+<p>除了监听改变之外，我们还需要对Hash 自由调整，如：添加或者修改，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.hash = <span class="string">'#/page2'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><blockquote>
+<p><code>History</code> 接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录。</p>
+</blockquote>
+<p><code>History</code> 提供的 API 接口：</p>
+<ul>
+<li><code>pushState(state, unused, url)</code>  按指定的名称和 URL（如果提供该参数）将数据 push 进会话历史栈  如：<code>history.pushState({page: 1}, &quot;title 1&quot;, &quot;?page=1&quot;)</code></li>
+<li><code>replaceState(state, unused, url)</code>  按指定的数据、名称和 URL（如果提供该参数），更新 history 栈上最新的条目 如：<code>history.replaceState({page: 3}, &quot;title 3&quot;, &quot;?page=3&quot;);</code></li>
+<li><code>back()</code> 转到浏览器会话历史的上一页 等价于 <code>history.go(-1)</code></li>
+<li><code>forward()</code> 转到浏览器会话历史的下一页 等价于 <code>history.go(1)</code></li>
+</ul>
+<p>还有一个比较重要的事件就是 <code>onpopstate</code>，用来监听浏览器的历史记录发生变化的。</p>
+<h1 id="Router-实现"><a href="#Router-实现" class="headerlink" title="Router 实现"></a>Router 实现</h1><p>在了解完路由管理机制，接下来我们对  <code>Vue-Router</code>  和  <code>React-Router</code> 的功能实现做一个总结，一个基础的 <code>Router</code> 应该具备以下功能：</p>
+<ul>
+<li>路由中心，负责注册、匹配、存储等功能</li>
+<li><code>router-view</code> 和 <code>router-link</code>组件实现</li>
+<li>跳转api</li>
+</ul>
+<p>Router基本功能流程要点如下：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/router-flow.drawio&quot;}"></div>
+</div>
+
+
+
+<p>接下来我们就按照每个功能模块进行简单实现。</p>
+<h2 id="路由中心"><a href="#路由中心" class="headerlink" title="路由中心"></a>路由中心</h2><p>路由中心功能分为两块，一是注册管理，二是监听匹配。</p>
+<h3 id="注册管理"><a href="#注册管理" class="headerlink" title="注册管理"></a>注册管理</h3><p>注册管理，顾名思义就是将所有路由对应页面组件配置统一管理，当路由改变的时候，可以直接从配置找到对应页面组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 注册路由</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; routes </span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; mode </span></span><br><span class="line"><span class="comment"> * @returns </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createRouter</span>(<span class="params">routes, mode=<span class="string">'history'</span></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 保存路由</span></span><br><span class="line">    <span class="keyword">const</span> matcherMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> route <span class="keyword">of</span> routes) &#123;</span><br><span class="line">        matcherMap.set(route.name, route)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加路由</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">addRoutes</span>(<span class="params">routes</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> route <span class="keyword">of</span> routes) &#123;</span><br><span class="line">            matcherMap.set(route.name, route)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除路由</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">removeRoutes</span>(<span class="params">routes</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> route <span class="keyword">of</span> routes) &#123;</span><br><span class="line">            matcherMap.delete(route.name)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取路由</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getRoutes</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> matcherMap</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取路由</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getRoute</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> matcherMap.get(name)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> router = &#123;</span><br><span class="line">        addRoutes,</span><br><span class="line">        removeRoutes,</span><br><span class="line">        getRoutes,</span><br><span class="line">        getRoute</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> router</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由匹配"><a href="#路由匹配" class="headerlink" title="路由匹配"></a>路由匹配</h3><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/History" target="_blank" rel="noopener">MDN History资料</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -516,18 +582,18 @@
 
 <nav id="article-nav">
   
-    <a href="/face100/7-loop-pic.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/face100/6-visual-scroll.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          前端面试100道手写题（5）—— 循环滚动图片
+          前端面试100道手写题（6）—— 虚拟滚动
         
       </div>
     </a>
   
   
-    <a href="/face100/4-deep-clone.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端面试100道手写题（4）—— 深浅拷贝</div>
+    <a href="/framework/frontend-microapp-2.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端架构成长之路——微前端系列(二)之qiankun框架实战</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>前端面试100道手写题（5）—— 虚拟滚动 | qborfy知识库</title>
+  <title>前端面试100道手写题（6）—— 虚拟滚动 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="学习总结,前端面试">
+  <meta name="description" content="前言虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。 手写难度：⭐️⭐️⭐️ 涉及知识点：  滚动监听事件 wheel/move 事件节流 滚动偏移量 offse">
+<meta name="keywords" content="学习总结,前端面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试100道手写题（5）—— 虚拟滚动">
+<meta property="og:title" content="前端面试100道手写题（6）—— 虚拟滚动">
 <meta property="og:url" content="https://www.qborfy.com/face100/6-visual-scroll.html">
 <meta property="og:site_name" content="qborfy知识库">
+<meta property="og:description" content="前言虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。 手写难度：⭐️⭐️⭐️ 涉及知识点：  滚动监听事件 wheel/move 事件节流 滚动偏移量 offse">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-06-02T02:41:07.421Z">
+<meta property="og:updated_time" content="2023-07-10T13:41:24.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端面试100道手写题（5）—— 虚拟滚动">
+<meta name="twitter:title" content="前端面试100道手写题（6）—— 虚拟滚动">
+<meta name="twitter:description" content="前言虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。 手写难度：⭐️⭐️⭐️ 涉及知识点：  滚动监听事件 wheel/move 事件节流 滚动偏移量 offse">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -316,7 +319,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      前端面试100道手写题（5）—— 虚拟滚动
+      前端面试100道手写题（6）—— 虚拟滚动
       
     </h1>
   
@@ -330,7 +333,7 @@
         </span>
 
 <a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
+        <time datetime="2023-07-05T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-05</time>
 </a>
 
   
@@ -343,7 +346,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">878字</span>
     </span>
   </span>
 
@@ -352,7 +355,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -363,7 +366,58 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。</p>
+<p>手写难度：⭐️⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>滚动监听事件 wheel/move</li>
+<li>事件节流</li>
+<li>滚动偏移量 offset</li>
+<li>按需渲染计算方案</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="虚拟滚动"><a href="#虚拟滚动" class="headerlink" title="虚拟滚动"></a>虚拟滚动</h1><h2 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h2><ul>
+<li>步骤 1： 监听虚拟滚动容器的 <code>wheel</code>或<code>touchmove</code> 事件</li>
+<li>步骤 2： 创造子容器用于填充父容器，使得父容器可以滚动</li>
+<li>步骤 3： 提供一个渲染子元素 item函数，返回 dom 节点</li>
+<li>步骤 4： 计算每个元素的高度，然后计算出总共应该渲染多少个子元素 item</li>
+<li>步骤 5： 当发生滚动事件的时候，更新子容器的偏移高度，然后触发 步骤 4</li>
+</ul>
+<h2 id="抽象方案"><a href="#抽象方案" class="headerlink" title="抽象方案"></a>抽象方案</h2><p>定义一个类<code>Scroll</code>，接收参数为：</p>
+<ul>
+<li><code>el</code> 列表容器 DOM 节点</li>
+<li><code>list</code> 列表数据</li>
+<li><code>itemRender</code> 子元素渲染函数</li>
+<li><code>itemHeight</code> 子元素高度</li>
+</ul>
+<p>使用例子为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scroll = <span class="keyword">new</span> Scroll(&#123;</span><br><span class="line">    el: <span class="built_in">document</span>.getElementById(<span class="string">'scroll'</span>),</span><br><span class="line">    list: [],</span><br><span class="line">    itemRender: <span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> child = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">        child.innerText = <span class="string">`第<span class="subst">$&#123;item&#125;</span>个div`</span>;</span><br><span class="line">        <span class="keyword">return</span> child;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>同时需要支持以下函数:</p>
+<ul>
+<li><code>update</code> 列表数组更新， 触发重新渲染</li>
+</ul>
+<p>虚拟滚动列表执行步骤：</p>
+<ol>
+<li>构造函数初始化，如：<code>start</code> <code>end</code> 代表位置</li>
+<li><code>bindEvents</code> 监听滚动事件，触发后续渲染<code>render</code></li>
+<li><code>init</code> 初始化一个内置容器，用来放置子元素，从而不影响父容器的高度，使得父容器可以滚动</li>
+<li><code>render</code>计算容器滚动高度和元素 item 渲染高度，判断应该渲染哪部分元素 item</li>
+</ol>
+<p>简易版源码实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Scroll</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(&#123; el, list, itemRender, itemHeight = <span class="number">30</span> &#125;) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$list = el; <span class="comment">// 列表容器</span></span><br><span class="line">        <span class="keyword">this</span>.list = list;</span><br><span class="line">        <span class="keyword">this</span>.itemRender = itemRender;</span><br><span class="line">        <span class="keyword">this</span>.itemHeight = itemHeight;</span><br><span class="line">        <span class="keyword">this</span>.start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.end = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.bindEvents();</span><br><span class="line">        <span class="keyword">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    init() &#123;</span><br><span class="line">        <span class="comment">// 创建一个子容器，用于渲染列表项</span></span><br><span class="line">        <span class="keyword">const</span> childContainer = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">        childContainer.style.position = <span class="string">'relative'</span>;</span><br><span class="line">        childContainer.style.width = <span class="string">'100%'</span>;</span><br><span class="line">        childContainer.style.boxSizing = <span class="string">'border-box'</span>;</span><br><span class="line">        childContainer.style.paddingTop = <span class="string">'0px'</span>;</span><br><span class="line">        childContainer.style.overflow = <span class="string">'hidden'</span>;</span><br><span class="line">        childContainer.style.height = <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.list.length * <span class="keyword">this</span>.itemHeight&#125;</span>px`</span>;</span><br><span class="line">        <span class="keyword">this</span>.$list.appendChild(childContainer);</span><br><span class="line">        <span class="keyword">this</span>.$child = childContainer;</span><br><span class="line">        <span class="keyword">this</span>.render();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bindEvents() &#123;</span><br><span class="line">        <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">const</span> updateOffset = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.render();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.$list.addEventListener(<span class="string">'scroll'</span>, updateOffset);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    update() &#123;</span><br><span class="line">        <span class="keyword">this</span>.render();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; list, itemRender, itemHeight &#125; = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> &#123; scrollTop, clientHeight &#125; = <span class="keyword">this</span>.$list;</span><br><span class="line">        <span class="keyword">const</span> start = <span class="built_in">Math</span>.floor(scrollTop / itemHeight);</span><br><span class="line">        <span class="keyword">const</span> gap = <span class="built_in">Math</span>.ceil(clientHeight / itemHeight);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'start'</span>, start)</span><br><span class="line">        <span class="keyword">if</span> (start &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> end = start + gap * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (start === <span class="keyword">this</span>.start &amp;&amp; end === <span class="keyword">this</span>.end) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (end &gt; list.length) &#123;</span><br><span class="line">            end = list.length;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新子容器的高度和偏移量</span></span><br><span class="line">        <span class="keyword">this</span>.$child.style.height = <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.list.length * <span class="keyword">this</span>.itemHeight&#125;</span>px`</span>;</span><br><span class="line">        <span class="keyword">this</span>.$child.style.paddingTop = <span class="string">`<span class="subst">$&#123;start * itemHeight&#125;</span>px`</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.start = start;</span><br><span class="line">        <span class="keyword">this</span>.end = end;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> fragment = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt; end; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> item = list[i];</span><br><span class="line">            <span class="keyword">const</span> $item = itemRender(item);</span><br><span class="line">            $item.style.height = <span class="string">`<span class="subst">$&#123;itemHeight&#125;</span>px`</span>;</span><br><span class="line">            fragment.appendChild($item);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.$child.innerHTML = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">this</span>.$child.appendChild(fragment);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样子看起来虚拟滚动是不是十分简单，但是其实有些功能还需要优化，具体如下：</p>
+<ul>
+<li>节流触发滚动函数，避免每次滚动都进行更新</li>
+<li>列表缓存，减少列表渲染样式更新</li>
+<li>提前进行更新渲染，减少因为滚动导致的更新等等</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://juejin.cn/post/6844904183582162957" target="_blank" rel="noopener">《新手也能看懂的虚拟滚动实现方法》</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -419,7 +473,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/face100/6-visual-scroll.html" title="前端面试100道手写题（5）—— 虚拟滚动" target="_blank">https://www.qborfy.com/face100/6-visual-scroll.html</a>
+          <a href="https://www.qborfy.com/face100/6-visual-scroll.html" title="前端面试100道手写题（6）—— 虚拟滚动" target="_blank">https://www.qborfy.com/face100/6-visual-scroll.html</a>
         </li>
         
         <li>
@@ -516,18 +570,9 @@
 
 <nav id="article-nav">
   
-    <a href="/face100/4-deep-clone.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端面试100道手写题（4）—— 深浅拷贝
-        
-      </div>
-    </a>
   
-  
-    <a href="/face100/3-event-bus.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端面试100道手写题（3）—— EventBus</div>
+    <a href="/face100/5-router-component.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端面试100道手写题（5）—— Router路由</div>
       <i class="icon-circle-right"></i>
     </a>
   
