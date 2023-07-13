@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>前端面试100道手写题（5）—— 循环滚动图片 | qborfy知识库</title>
+  <title>前端面试100道手写题（7）—— 循环轮播图 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="学习总结,前端面试">
+  <meta name="description" content="前言循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画 手写难度：⭐️⭐️ 涉及知识点：  循环算法，最低复杂度 CSS 动画">
+<meta name="keywords" content="学习总结,前端面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试100道手写题（5）—— 循环滚动图片">
+<meta property="og:title" content="前端面试100道手写题（7）—— 循环轮播图">
 <meta property="og:url" content="https://www.qborfy.com/face100/7-loop-pic.html">
 <meta property="og:site_name" content="qborfy知识库">
+<meta property="og:description" content="前言循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画 手写难度：⭐️⭐️ 涉及知识点：  循环算法，最低复杂度 CSS 动画">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-06-01T12:18:16.408Z">
+<meta property="og:updated_time" content="2023-07-13T09:33:12.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端面试100道手写题（5）—— 循环滚动图片">
+<meta name="twitter:title" content="前端面试100道手写题（7）—— 循环轮播图">
+<meta name="twitter:description" content="前言循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画 手写难度：⭐️⭐️ 涉及知识点：  循环算法，最低复杂度 CSS 动画">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -316,7 +319,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      前端面试100道手写题（5）—— 循环滚动图片
+      前端面试100道手写题（7）—— 循环轮播图
       
     </h1>
   
@@ -330,7 +333,7 @@
         </span>
 
 <a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-05-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-15</time>
+        <time datetime="2023-07-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-15</time>
 </a>
 
   
@@ -343,7 +346,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">72字</span>
     </span>
   </span>
 
@@ -363,7 +366,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
+<p>手写难度：⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>循环算法，最低复杂度</li>
+<li>CSS 动画</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -419,7 +429,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/face100/7-loop-pic.html" title="前端面试100道手写题（5）—— 循环滚动图片" target="_blank">https://www.qborfy.com/face100/7-loop-pic.html</a>
+          <a href="https://www.qborfy.com/face100/7-loop-pic.html" title="前端面试100道手写题（7）—— 循环轮播图" target="_blank">https://www.qborfy.com/face100/7-loop-pic.html</a>
         </li>
         
         <li>
@@ -516,18 +526,9 @@
 
 <nav id="article-nav">
   
-    <a href="/face100/4-deep-clone.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端面试100道手写题（4）—— 深浅拷贝
-        
-      </div>
-    </a>
   
-  
-    <a href="/face100/3-event-bus.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端面试100道手写题（3）—— EventBus</div>
+    <a href="/face100/6-visual-scroll.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端面试100道手写题（6）—— 虚拟滚动</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -558,6 +559,27 @@
 
 
 
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '15b82138a9cb538eb8a0',
+  	clientSecret: 'a7530e94b32aa2e17a9ee10d830f688f49fb8afe',
+  	repo: 'qiubohong.github.io',
+  	owner: 'qiubohong',
+  	admin: ['qiubohong'],
+  	id: 'Sat Jul 15 2023 22:00:00 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+  
 
 
 

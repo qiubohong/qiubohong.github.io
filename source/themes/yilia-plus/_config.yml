@@ -284,3 +284,13 @@ aboutme: <div style="margin:0 1em;">borfy<br><br>毕业于广大华软学院，�
 
 local_search: 
   enable: true
+
+#6、gitalk评论
+gitalk:
+  enable:  true
+  githubID:  qiubohong
+  repo:  'qiubohong.github.io'
+  ClientID:  '15b82138a9cb538eb8a0'
+  ClientSecret:  'a7530e94b32aa2e17a9ee10d830f688f49fb8afe'
+  adminUser:  qiubohong
+  distractionFreeMode: true

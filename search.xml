@@ -247,6 +247,22 @@
       </tags>
   </entry>
   <entry>
+    <title>前端面试100道手写题（7）—— 循环轮播图</title>
+    <url>/face100/7-loop-pic.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
+<p>手写难度：⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>循环算法，最低复杂度</li>
+<li>CSS 动画</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>前端面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端面试100道手写题（6）—— 虚拟滚动</title>
     <url>/face100/6-visual-scroll.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。</p>
@@ -586,15 +602,6 @@
 <li><a href="https://github.com/lodash/lodash/blob/master/.internal/baseClone.js#L236" target="_blank" rel="noopener">lodash baseClone 浅拷贝和深拷贝的基础实现方法</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>学习总结</tag>
-        <tag>前端面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端面试100道手写题（5）—— 循环滚动图片</title>
-    <url>/face100/7-loop-pic.html</url>
-    <content><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>学习总结</tag>
         <tag>前端面试</tag>
