@@ -12,7 +12,8 @@ if(<%=theme.gitalk.enable%>){
   	owner: '<%=theme.gitalk.githubID%>',
   	admin: ['<%=theme.gitalk.adminUser%>'],
   	id: '<%= page.date %>',
-  	distractionFreeMode: '<%=theme.gitalk.distractionFreeMode%>'
+  	distractionFreeMode: '<%=theme.gitalk.distractionFreeMode%>',
+    proxy: 'https://github.com/login/oauth/access_token',
 })
 gitalk.render('gitalk-container') 
 }
