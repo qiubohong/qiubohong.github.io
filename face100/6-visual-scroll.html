@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="前言虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。 手写难度：⭐️⭐️⭐️ 涉及知识点：  滚动监听事件 wheel/move 事件节流 滚动偏移量 offse">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-07-10T13:41:24.793Z">
+<meta property="og:updated_time" content="2023-07-13T08:51:47.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试100道手写题（6）—— 虚拟滚动">
 <meta name="twitter:description" content="前言虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。 手写难度：⭐️⭐️⭐️ 涉及知识点：  滚动监听事件 wheel/move 事件节流 滚动偏移量 offse">
@@ -346,7 +346,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">878字</span>
+      <span class="post-count">911字</span>
     </span>
   </span>
 
@@ -414,6 +414,8 @@
 <li>列表缓存，减少列表渲染样式更新</li>
 <li>提前进行更新渲染，减少因为滚动导致的更新等等</li>
 </ul>
+<p>完整代码我放到 github 上，大家感兴趣可以去看看<a href="https://github.com/qiubohong/hundred-interview-questions/blob/main/6-visual-scroll" target="_blank" rel="noopener">Github Router完整实现</a></p>
+<p><a href="https://qborfy.com/code/face/visualscroll/index.html" target="_blank" rel="noopener">Demo体验可以看这里</a></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://juejin.cn/post/6844904183582162957" target="_blank" rel="noopener">《新手也能看懂的虚拟滚动实现方法》</a></li>
 </ul>

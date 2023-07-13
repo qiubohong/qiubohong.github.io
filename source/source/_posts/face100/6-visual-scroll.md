@@ -151,6 +151,9 @@ class Scroll {
 - 列表缓存，减少列表渲染样式更新
 - 提前进行更新渲染，减少因为滚动导致的更新等等
 
+完整代码我放到 github 上，大家感兴趣可以去看看[Github Router完整实现](https://github.com/qiubohong/hundred-interview-questions/blob/main/6-visual-scroll)
+
+[Demo体验可以看这里](https://qborfy.com/code/face/visualscroll/index.html)
 
 # 参考资料
 

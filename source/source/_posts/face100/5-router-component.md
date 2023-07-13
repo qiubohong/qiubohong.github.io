@@ -16,6 +16,7 @@ tags:
 
 - history api 和监听事件
 - onhashchange 监听事件
+- Web Component 自定义组件
 
 <!-- more -->
 
@@ -139,12 +140,159 @@ function createRouter(routes, mode='history'){
 ```
 
 ### 路由匹配
+这里我们就简单实现一下，将 `path`作为 map 的 key 去存储，忽略一下比较复杂的情况，如： query 中 params和  `/path/:id`等情况
 
+因此我们只需要通过获取 `matcherMap` 对象中对应的组件即可。
 
 ## 组件
+组件渲染，其实在 Vue 或者 React 中都有对应渲染组件的方法，这里为了更简单实现例子，我们使用了`Web Component`规范去实现自定义组件`<router-view>`展示和渲染组件。
 
-## api
+分为两个功能点：
+
+1. 自定义组件`<router-view>`
+2. 匹配到路由组件后渲染对应组件
+
+### `<router-view>`组件实现
+这里使用 WebCompoent 去实现，代码如下：
+```js
+// 自定义路由组件
+customElements.define('router-view', class extends HTMLElement {
+    constructor() {
+        super();
+        const template = document.createElement('template');
+        template.id = 'router-view';
+        template.innerHTML = '<div><slot name="content"></slot></div>';
+        const templateContent = template.content;
+
+        const shadowRoot = this.attachShadow({ mode: "open" });
+        shadowRoot.appendChild(templateContent.cloneNode(true));
+    }
+});
+```
+
+### 渲染对应组件
+当监听到
+```js
+// 路由回调
+function callback() {
+    const route = match(window.location)
+    if (currentRoute && currentRoute.path === route.path) {
+        return
+    }
+    if (!route) {
+        // 路由不存在，跳转到首页
+        push('/')
+        return
+    }
+    if (route) {
+        currentRoute = route
+        const component = route.component
+        // 渲染组件
+        document.querySelector('router-view').innerHTML = `<${component} slot="content"></${component}>`
+    }
+}
+```
+
+完整代码我放到 github 上，大家感兴趣可以去看看[Github Router完整实现](https://github.com/qiubohong/hundred-interview-questions/blob/main/5-router-component)
+
+[Demo体验可以看这里](https://qborfy.com/code/face/router/index.html#/)
+
+# 额外知识点
+
+## WebComponent
+
+> Web Component 是一套不同的技术，允许你创建可重用的定制元素（它们的功能封装在你的代码之外）并且在你的 web 应用中使用它们。 —— [Web Component](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components)
+
+简单的理解，就是浏览器可以允许你自定义HTML 标签，且包含自定义的 CSS 样式和 JS 脚本逻辑。里面有三个点学习：
+
+- Custom element（自定义元素），通过 JS 可以自定义 HTML 标签
+- Shadow DOM（影子 DOM），可以将HTML DOM 树以附加 Shadow DOM到自定义 HTMl 标签中，从而不影响原本 HTML DOM 树结构
+- HTML template（HTML 模板），支持<template> 和 <slot> 元素，使您可以编写不在呈现页面中显示的标记模板。然后它们可以作为自定义元素结构的基础被多次重用
+
+### 实践例子
+
+1. 自定义HTML 标签代码如下：
+
+```js
+class CustomHTMl extends HTMLElement{
+    constructor(){
+        // 必须首先调用 super 方法
+        super();
+
+        // 创建一个 shadow root
+        const shadow = this.attachShadow({mode: 'open'});
+
+        // 创建一个 spans
+        const wrapper = document.createElement('h1');
+        wrapper.innerHTML = '测试自定义元素';
+
+        shadow.appendChild(wrapper);
+    }
+
+    // 首次被插入到文档 DOM 节点上时被调用
+    connectedCallback() {
+        console.log('首次被插入到文档 DOM 节点上时被调用');
+    }
+    // 当 custom element 从文档 DOM 中删除时，被调用
+    disconnectedCallback() {
+        console.log('当 custom element 从文档 DOM 中删除时，被调用');
+    }
+    // 当 custom element 被移动到新的文档时，被调用
+    adoptedCallback() {
+        console.log('当 custom element 被移动到新的文档时，被调用');
+    }
+    // 增加、删除或者修改某个属性时被调用
+    attributeChangedCallback(name, oldValue, newValue) {
+        console.log('增加、删除或者修改某个属性时被调用');
+    }
+
+}
+// 注册组件标签，这里比较重要
+customElements.define('custom-html', PopUpInfo);
+```
+
+实际应用如下：
+```html
+<body>
+    <!-- 这里就会展示h1 -->
+    <custom-html></custom-html>
+</body>
+```
+
+2. 使用 `template`模板 + `slot`插槽
+```html
+<body>
+    <!-- 使用模板 -->    
+    <template id="template">
+        <!-- slot 通过 name 确定放在哪里 -->
+        <h1><slot name="title"></slot></h1>
+        <p>
+            <slot name="content"></slot>
+        </p>
+    </template>
+    <!-- 自定义标签使用示范 -->
+    <article-page>
+        <!-- slot 标识使用哪个插槽 -->
+        <span slot="title">这是标题</span>
+        <span slot="content">这是内容</span>
+    </article-page>
+
+    <script>
+        class Article extends HTMLElement{
+            constructor(){
+                super();
+                const template = document.getElementById('template');
+                const templateContent = template.content;
+                const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(templateContent.cloneNode(true));
+            }
+        }
+        customElements.define('article-page', Article);
+    </script>
+</body>
+
+```
 
 # 参考资料
 
 - [MDN History资料](https://developer.mozilla.org/zh-CN/docs/Web/API/History)
+- [Web Component 自定义组件](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components)
