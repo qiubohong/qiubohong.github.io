@@ -317,6 +317,118 @@
     height:800px
   }
   </style>
+<article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230129.html" target="_blank">
+      从null、undefined、NaN的区别了解JS的原型链
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230129.html" class="archive-article-date">
+        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
+<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
+<p>我们先简单认识三者：</p>
+<ul>
+<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
+<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
+<li><code>NaN</code> 是一个表示非数字的值</li>
+</ul>
+<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<ul>
+<li>数据类型 <code>typeof</code></li>
+<li><code>===</code> 判断</li>
+<li>原型 <code>prototype</code></li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1228,115 +1340,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230311.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230111" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230111.html" target="_blank">
-      移动端适配方案总结
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230111.html" class="archive-article-date">
-        <time datetime="2023-01-14T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。</p>
-<p>因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>移动端存在几类问题，如下所列：</p>
-<ul>
-<li>1px显示过粗问题</li>
-<li>手机屏幕出现刘海屏、滴水屏等，如何适配</li>
-<li>如何在不同屏幕，显示正确高清图片</li>
-<li>meta 的 viewport 值 能否用来适配</li>
-<li>rem，vw，vh计算单位的区别</li>
-<li>…</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230111.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230111.html">展开全文 >></a>
     </p>
     
 

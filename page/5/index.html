@@ -417,6 +417,102 @@
     height:800px
   }
   </style>
+<article id="post-lowcode/plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/lowcode/plugin.html" target="_blank">
+      低代码系列——插件系统设计
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/lowcode/plugin.html" class="archive-article-date">
+        <time datetime="2023-02-12T00:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/lowcode/plugin.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230304" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1207,118 +1303,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/study/face-test.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230129.html" target="_blank">
-      从null、undefined、NaN的区别了解JS的原型链
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230129.html" class="archive-article-date">
-        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
-<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
-<p>我们先简单认识三者：</p>
-<ul>
-<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
-<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
-<li><code>NaN</code> 是一个表示非数字的值</li>
-</ul>
-<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
-<ul>
-<li>数据类型 <code>typeof</code></li>
-<li><code>===</code> 判断</li>
-<li>原型 <code>prototype</code></li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
     </p>
     
 

@@ -247,6 +247,53 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客添加GitHub评论功能</title>
+    <url>/today/20230228.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>其实从今年开始运营这个博客，我一直想增加一些新的交互功能，如：评论，之前一直有些问题没搞定，现在终于通过 Google 搜索解决问题了， 其实也算是每天学习一些新东西。</p>
+<p>解决问题：给 Hexo 博客新增 Github评论功能</p>
+<p>为什么选择 Github 呢？是因为 Github 对于偏向开发人员基本上属于一个必注册网站，而我博客的内容又偏向于技术，所以才会采取这个。</p>
+<a id="more"></a>
+
+<h1 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a>Gitalk</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>引入 Github评论功能，网上有很多现成的方案，这里就一一列举了，我采用了最主流的库——<a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">Gitalk.js</a>，教程详细，不仅仅只能用于 Hexo，还可以适用于任何网站。</p>
+<blockquote>
+<p>Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。 —— <a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">Gitalk.js</a></p>
+</blockquote>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用起来也非常简单，其实就是页面找个放置评论的位置，将对应资源引入，然后直接初始化使用即可。代码如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"gitalk-container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">var gitalk = new Gitalk(&#123;</span><br><span class="line">  clientID: 'GitHub Application Client ID', //  申请的GitHub Application Client ID.</span><br><span class="line">  clientSecret: 'GitHub Application Client Secret',  //  申请的GitHub Application Client Secret.</span><br><span class="line">  repo: 'GitHub repo', //  这里填写 Github的仓库名</span><br><span class="line">  owner: 'GitHub repo owner',  //  这里填写 Github的账户名</span><br><span class="line">  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'], //  这里填写 Github的账户名</span><br><span class="line">  id: location.pathname,      // Ensure uniqueness and length less than 50</span><br><span class="line">  distractionFreeMode: false  // 类似 Facebook 的无干扰模式</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gitalk.render('gitalk-container')</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如何申请Github Application授权登录，只需要在<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">这里申请即可</a>，只需要注意信任域名为自己的域名即可，如下图：</p>
+<img src="/assets/img/2023-07-17.png" style="width:50%">
+
+
+<h2 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h2><p>以<code>yilia-plus</code>主题为例子，其他主题只需要放到对应位置即可，具体步骤如下所示：</p>
+<ol>
+<li>在文件夹<code>layout/_partial/post</code>新增文件 <code>gitalk.ejs</code>，内容如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"gitalk-container"</span> <span class="attr">style</span>=<span class="string">"padding: 0px 30px 0px 30px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">if(<span class="tag">&lt;<span class="name">%=theme.gitalk.enable%</span>&gt;</span>)&#123;</span></span><br><span class="line">	var gitalk = new Gitalk(&#123;</span><br><span class="line"><span class="xml">  	clientID: '<span class="tag">&lt;<span class="name">%=theme.gitalk.ClientID%</span>&gt;</span>',</span></span><br><span class="line"><span class="xml">  	clientSecret: '<span class="tag">&lt;<span class="name">%=theme.gitalk.ClientSecret%</span>&gt;</span>',</span></span><br><span class="line"><span class="xml">  	repo: '<span class="tag">&lt;<span class="name">%=theme.gitalk.repo%</span>&gt;</span>',</span></span><br><span class="line"><span class="xml">  	owner: '<span class="tag">&lt;<span class="name">%=theme.gitalk.githubID%</span>&gt;</span>',</span></span><br><span class="line"><span class="xml">  	admin: ['<span class="tag">&lt;<span class="name">%=theme.gitalk.adminUser%</span>&gt;</span>'],</span></span><br><span class="line"><span class="xml">  	id: '<span class="tag">&lt;<span class="name">%=</span> <span class="attr">page.date</span> %&gt;</span>',</span></span><br><span class="line"><span class="xml">  	distractionFreeMode: '<span class="tag">&lt;<span class="name">%=theme.gitalk.distractionFreeMode%</span>&gt;</span>',</span></span><br><span class="line">    proxy: 'https://test.com/proxy', // 这个是坑（Gitalk 本身提供了代理服务，但是国内经常无法访问），由于Github 采用的 OAuth 协议，所以需要我们自己写一套服务去支撑</span><br><span class="line">&#125;)</span><br><span class="line">gitalk.render('gitalk-container') </span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在主题中找到<code>layout/_partial/post/article.ejs</code>中想放置评论位置，加入判断是否启用 <code>gitalk</code>，代码如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span>(<span class="attr">theme.gitalk.enable</span>)&#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">gitalk</span>', &#123;</span></span><br><span class="line"><span class="tag">      <span class="attr">key:</span> <span class="attr">post.slug</span>,</span></span><br><span class="line"><span class="tag">      <span class="attr">title:</span> <span class="attr">post.title</span>,</span></span><br><span class="line"><span class="tag">      <span class="attr">url:</span> <span class="attr">config.url</span>+<span class="attr">url_for</span>(<span class="attr">post.path</span>)</span></span><br><span class="line"><span class="tag">    &#125;) %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在主题根目录配置文件<code>_config.yml</code> 打开<code>gitalk</code>配置，如下：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#6、gitalk评论</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line"><span class="attr">  enable:</span>  <span class="literal">true</span></span><br><span class="line"><span class="attr">  githubID:</span>  <span class="string">xxxxxx</span>  <span class="comment"># 配置项基本于 GitTalk保持一致</span></span><br><span class="line"><span class="attr">  repo:</span>  <span class="string">'xxxxx'</span></span><br><span class="line"><span class="attr">  ClientID:</span>  <span class="string">'xxxxxx'</span></span><br><span class="line"><span class="attr">  ClientSecret:</span>  <span class="string">'xxxxx'</span></span><br><span class="line"><span class="attr">  adminUser:</span>  <span class="string">qiubohong</span></span><br><span class="line"><span class="attr">  distractionFreeMode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="Gitalk-提示-“NetError”"><a href="#Gitalk-提示-“NetError”" class="headerlink" title="Gitalk 提示 “NetError”"></a>Gitalk 提示 “NetError”</h2><p>其实是 Gitalk 内置了 proxy 代理服务去请求完成 Github OAuth 鉴权服务，但是由于国内会经常无法正常请求该代理服务，所以需要我们自己去完成 Github OAuth 鉴权，这里我简单写了一下代码，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'koa-bodyparser'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"><span class="comment">// github application的配置</span></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    client_id: <span class="string">'xxxxx'</span>,</span><br><span class="line">    client_secret: <span class="string">'xxxxxxxxx'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa()</span><br><span class="line">app.use(bodyParser())</span><br><span class="line"></span><br><span class="line">router.post(<span class="string">'/proxy'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 获取Github OAuth鉴权回调的 code 值</span></span><br><span class="line">    <span class="keyword">const</span> &#123; code &#125; = ctx.request.body</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'code'</span>, code)</span><br><span class="line">    <span class="keyword">const</span> params = &#123;</span><br><span class="line">        client_id: config.client_id,</span><br><span class="line">        client_secret: config.client_secret,</span><br><span class="line">        code: code</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> res = <span class="keyword">await</span> axios.post(<span class="string">'https://github.com/login/oauth/access_token'</span>, params)</span><br><span class="line">        <span class="keyword">const</span> access_token = res.data.split(<span class="string">'&amp;'</span>)[<span class="number">0</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'res.data'</span>, res.data)</span><br><span class="line">        <span class="comment">// 请求成功后返回access_token 去获取 Github 相关信息</span></span><br><span class="line">        ctx.body = &#123;</span><br><span class="line">            access_token</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">        ctx.body = &#123; <span class="attr">err</span>: err &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(router.routes())</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3003</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server is running at http://localhost:3003'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://github.com/gitalk/gitalk/issues/359" target="_blank" rel="noopener">Error: Network Error怎么解决</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端面试100道手写题（7）—— 循环轮播图</title>
     <url>/face100/7-loop-pic.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
@@ -1567,6 +1614,21 @@
       </tags>
   </entry>
   <entry>
+    <title>工具收集</title>
+    <url>/ideas/20230621.html</url>
+    <content><![CDATA[<h1 id="Bark语音生成引擎"><a href="#Bark语音生成引擎" class="headerlink" title="Bark语音生成引擎"></a><a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">Bark语音生成引擎</a></h1><p>一个语音生成引擎，效果不错，可以在朗读的同时，发出大笑、叹息和哭泣，还可以生成音乐。</p>
+<p>地址： <a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">https://github.com/suno-ai/bark</a></p>
+<h1 id="STDF-移动端组件库"><a href="#STDF-移动端组件库" class="headerlink" title="STDF 移动端组件库"></a><a href="https://stdf.design/#/" target="_blank" rel="noopener">STDF 移动端组件库</a></h1><p>基于 Svelte 与 Tailwind 的移动页面组件库。</p>
+<p>地址： <a href="https://github.com/dufu1991/stdf" target="_blank" rel="noopener">https://github.com/dufu1991/stdf</a></p>
+<h1 id="MockingBird-AI合成语音"><a href="#MockingBird-AI合成语音" class="headerlink" title="MockingBird AI合成语音"></a><a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">MockingBird AI合成语音</a></h1><p>给出语音，合成属于自己的语音包</p>
+<p>地址： <a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">https://github.com/babysor/MockingBird</a></p>
+<p>适用教程： <a href="https://www.youtube.com/watch?v=eHRHfYeoZ3g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=eHRHfYeoZ3g</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>奇思妙想</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ChatGPT工具收集</title>
     <url>/ideas/20230408.html</url>
     <content><![CDATA[<h1 id="chatGPT工具收集"><a href="#chatGPT工具收集" class="headerlink" title="chatGPT工具收集"></a>chatGPT工具收集</h1><ol>
@@ -1601,21 +1663,6 @@
 </li>
 <li>创业选择值得吗？没有可观的收入和花费很多时间，后续怎么走等等</li>
 </ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>奇思妙想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工具收集</title>
-    <url>/ideas/20230621.html</url>
-    <content><![CDATA[<h1 id="Bark语音生成引擎"><a href="#Bark语音生成引擎" class="headerlink" title="Bark语音生成引擎"></a><a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">Bark语音生成引擎</a></h1><p>一个语音生成引擎，效果不错，可以在朗读的同时，发出大笑、叹息和哭泣，还可以生成音乐。</p>
-<p>地址： <a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">https://github.com/suno-ai/bark</a></p>
-<h1 id="STDF-移动端组件库"><a href="#STDF-移动端组件库" class="headerlink" title="STDF 移动端组件库"></a><a href="https://stdf.design/#/" target="_blank" rel="noopener">STDF 移动端组件库</a></h1><p>基于 Svelte 与 Tailwind 的移动页面组件库。</p>
-<p>地址： <a href="https://github.com/dufu1991/stdf" target="_blank" rel="noopener">https://github.com/dufu1991/stdf</a></p>
-<h1 id="MockingBird-AI合成语音"><a href="#MockingBird-AI合成语音" class="headerlink" title="MockingBird AI合成语音"></a><a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">MockingBird AI合成语音</a></h1><p>给出语音，合成属于自己的语音包</p>
-<p>地址： <a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">https://github.com/babysor/MockingBird</a></p>
-<p>适用教程： <a href="https://www.youtube.com/watch?v=eHRHfYeoZ3g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=eHRHfYeoZ3g</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>奇思妙想</tag>
@@ -5091,14 +5138,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Next、Nuxt、Nest的区别(翻译)</title>
-    <url>/translate/nuxt-next-nest-diff.html</url>
-    <content><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>翻译文章</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>有了GPT-3，再也不用手写commit message(翻译)</title>
     <url>/translate/use-gpt3-auto-git-commit.html</url>
     <content><![CDATA[<blockquote>
@@ -5179,6 +5218,14 @@
       </tags>
   </entry>
   <entry>
+    <title>Next、Nuxt、Nest的区别(翻译)</title>
+    <url>/translate/nuxt-next-nest-diff.html</url>
+    <content><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>翻译文章</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux如何快速删除大量文件</title>
     <url>/today/20230213.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：</p>
@@ -5242,15 +5289,6 @@
       </tags>
   </entry>
   <entry>
-    <title>低代码系列——插件系统设计</title>
-    <url>/lowcode/plugin.html</url>
-    <content><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>低代码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>低代码系列——组件描述DSL</title>
     <url>/lowcode/component.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写了一篇<a href="/lowcode/sandbox.html">《低代码系列——js沙箱设计》</a>，于是萌生了干脆将完整的低代码平台设计的整个过程都整理一遍，然后输出文章，同时准备搞个人开源项目用来实现低代码平台。</p>
@@ -5258,6 +5296,15 @@
 <p>下面我们就针对这种组件抽象描述做一次深入的设计。</p>
 <h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://json-schema.apifox.cn/" target="_blank" rel="noopener">JSON Schema 规范</a><br><a href="https://jsoncrack.com/" target="_blank" rel="noopener">JSON 可视化</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>低代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>低代码系列——插件系统设计</title>
+    <url>/lowcode/plugin.html</url>
+    <content><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>低代码</tag>
@@ -7285,16 +7332,6 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>利用 ChatGPT 等大语言模型重新搭建智能开发体系</title>
-    <url>/today/20230228.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 今年 ChatGPT的火爆，引发国内外一大众公司扑入人工智能领域去开发属于自己的大语言模型，那么在这次 AI 浪潮中，作为个人开发者而言，是无法独立去开发一个大语言模型，因为机器很贵，而且所需要数据资源很缺乏，因此我曾经写过一篇文章<a href></a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Meteor.js尝鲜实战</title>
     <url>/today/20230305.html</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
@@ -7341,9 +7378,9 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>appium 自动化测试框架</title>
-    <url>/today/20230515.html</url>
-    <content><![CDATA[<p>appium 自动化测试框架，尤其是移动端</p>
+    <title>利用 ChatGPT 等大语言模型重新搭建智能开发体系</title>
+    <url>/today/20230316.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 今年 ChatGPT的火爆，引发国内外一大众公司扑入人工智能领域去开发属于自己的大语言模型，那么在这次 AI 浪潮中，作为个人开发者而言，是无法独立去开发一个大语言模型，因为机器很贵，而且所需要数据资源很缺乏，因此我曾经写过一篇文章<a href></a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
@@ -7468,6 +7505,16 @@ label:has(+input:required)::before{
     <title>Jamstack尝鲜体验</title>
     <url>/today/20230302.html</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>appium 自动化测试框架</title>
+    <url>/today/20230515.html</url>
+    <content><![CDATA[<p>appium 自动化测试框架，尤其是移动端</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
