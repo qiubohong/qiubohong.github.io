@@ -13,7 +13,7 @@ if(<%=theme.gitalk.enable%>){
   	admin: ['<%=theme.gitalk.adminUser%>'],
   	id: '<%= page.date %>',
   	distractionFreeMode: '<%=theme.gitalk.distractionFreeMode%>',
-    proxy: 'https://github.com/login/oauth/access_token',
+    proxy: 'http://qborfy.com/proxy',
 })
 gitalk.render('gitalk-container') 
 }
