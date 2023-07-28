@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>从Copilot学到了什么 | qborfy知识库</title>
+  <title>一次性完整学完搭建PWA项目 | qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  背景最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。 本文涉及知识点如下：  PWA 的概念 Service Worker使用 用构建工具搭建 PWA 应用">
 <meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Copilot学到了什么">
+<meta property="og:title" content="一次性完整学完搭建PWA项目">
 <meta property="og:url" content="https://www.qborfy.com/today/20230301.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  背景最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。 本文涉及知识点如下：  PWA 的概念 Service Worker使用 用构建工具搭建 PWA 应用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-03-08T02:42:36.158Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/sw-lifecycle.svg">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/20230301.png">
+<meta property="og:updated_time" content="2023-07-28T15:48:29.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Copilot学到了什么">
-<meta name="twitter:description" content="背景参考资料盘点开源“Copilot”，do it yourself如何搭建免费的GitHub Copilot？">
+<meta name="twitter:title" content="一次性完整学完搭建PWA项目">
+<meta name="twitter:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  背景最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。 本文涉及知识点如下：  PWA 的概念 Service Worker使用 用构建工具搭建 PWA 应用">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/sw-lifecycle.svg">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -319,7 +322,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      从Copilot学到了什么
+      一次性完整学完搭建PWA项目
       
     </h1>
   
@@ -333,7 +336,7 @@
         </span>
 
 <a href="/today/20230301.html" class="archive-article-date">
-        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+        <time datetime="2023-07-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-28</time>
 </a>
 
   
@@ -346,7 +349,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">22字</span>
+      <span class="post-count">3.5k字</span>
     </span>
   </span>
 
@@ -355,7 +358,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -366,7 +369,161 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com" target="_blank" rel="noopener">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。</p>
+<p>本文涉及知识点如下：</p>
+<ul>
+<li>PWA 的概念</li>
+<li>Service Worker使用</li>
+<li>用构建工具搭建 PWA 应用</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h1><blockquote>
+<p>渐进式 Web 应用（Progressive Web App，PWA）是一个使用 web 平台技术构建的应用程序，但它提供的用户体验就像一个特定平台的应用程序。 ——<a href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">MDN 渐进式 Web 应用（PWA）</a></p>
+</blockquote>
+<p>正如上文所描述一样 PWA 最终目的让你的 web 网站可以像 app 应用一样可以给到用户去离线体验，简单点说，就是没有网络，你也可以正常访问该网站的一些资源。</p>
+<p>PWA从技术上分为三个部分：</p>
+<ul>
+<li>主应用，就是平时我们开发网站所包含的内容，有：html，js，css等</li>
+<li>Web app manifests，主要为<code>manifest.json</code>，提供浏览器安装 PWA 所需的信息，例如应用程序名称和图标等</li>
+<li>Service Worker，主要为js文件，提供基本的离线缓存资源能力</li>
+</ul>
+<h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p><code>manifest.json</code>描述web网站的信息（如名称，作者，图标和描述）的JSON文件，具体例子如下所示。</p>
+<p><code>manifest.json</code>是需要在网站中html文件中 head中引用，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>完整的<code>manifest.json</code>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"网站完整名称"</span>, </span><br><span class="line">  "short_name": "网站简称", // 在没有足够空间显示 Web 应用程序的全名时使用</span><br><span class="line">  "start_url": ".", // 从启动应用程序时加载的 URL。如果以相对 URL 的形式给出，则基本 URL 将是 manifest 的 URL</span><br><span class="line">  "display": "standalone", // 访问网站窗口展示模式，如：fullscreen/standalone</span><br><span class="line">  "background_color": "#fff", // 背景颜色</span><br><span class="line">  "description": "网站描述",</span><br><span class="line">  "icons": [ // 网站图标</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen48.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"48x48"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen72.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"72x72"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen96.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"96x96"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen144.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen168.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"168x168"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen192.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"192x192"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>了解基本的描述文件，下面我们将进入<code>Service Worker</code>作为其中整个控制中心，我们将在下面进行着重了解。</p>
+<h1 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>我们先来看看官方定义：</p>
+<blockquote>
+<p>Service worker 是一个注册在指定源和路径下的事件驱动 worker。它采用 JavaScript 文件的形式，控制关联的页面或者网站，拦截并修改访问和资源请求，细粒度地缓存资源。你可以完全控制应用在特定情形（最常见的情形是网络不可用）下的表现。 —— <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">MDN Service Worker</a></p>
+</blockquote>
+<p>进行简单总结一下  Service Woker是什么：</p>
+<ul>
+<li>是一个区别于主 JavaScript 线程，运行在其他单独线程，但是必须要注册到主 JavaScript 线程中</li>
+<li>是用JavaScript编写的</li>
+<li>可以拦截并修改访问和资源请求，从而实现资源缓存</li>
+</ul>
+<p><strong>出于安全考量，Service worker 只能由 HTTPS 承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险，如果允许访问这些强大的 API，此类攻击将会变得很严重。</strong></p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Service Woker的生命周期如下：</p>
+<ol>
+<li>注册，使用 ServiceWorkerContainer.register() 方法首次注册 service worker</li>
+<li>下载，页面首次加载后会下载ServiceWorker或者过去 24 小时没有被下载会再次下载</li>
+<li>安装，首次启用 service worker，页面会首先尝试安装，如果现有 service worker 已启用，新版本会在后台安装，但仍不会被激活——这个时序称为 worker in waiting。</li>
+<li>激活，首次启用 service worker，安装结束后会直接激活，新版本的service worker会直到所有已加载的页面不再使用旧的 service worker 才会激活新的 service worker，但是可以通过ServiceWorkerGlobalScope.skipWaiting() 可以更快地进行激活。</li>
+</ol>
+<p><img src="/assets/img/sw-lifecycle.svg" alt></p>
+<p>Service Worker提供几个事件用来监听生命周期的变化，如下：</p>
+<ul>
+<li><code>self.addEventListener(&quot;install&quot;)</code> 该事件触发时的标准行为是准备 service worker 用于使用，例如使用内建的 storage API 来创建缓存，并且放置应用离线时所需资源。</li>
+<li><code>self.addEventListener(&quot;activate&quot;)</code> 事件触发的时间点通常是清理旧缓存以及其他与你的 service worker 的先前版本相关的东西。</li>
+<li><code>self.addEventListener(&quot;fetch&quot;)</code>  事件触发的时间点是每次获取 service worker 控制的资源时，都会触发 fetch 事件 </li>
+</ul>
+<p><strong>这里的<code>this</code>代表的是 Service Worker 本身对象。</strong></p>
+<h2 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h2><p>了解完后，我们需要知道 Service Worker 有哪些常用的 API接口，或者当我们需要去实现一个 PWA 会用到哪些 API 接口，具体如下：</p>
+<ul>
+<li><code>navigator.serviceWorker.register()</code> 主 JavaScript 线程注册  Service Worker 方法</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Cache" target="_blank" rel="noopener"><code>Cache</code></a> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage" target="_blank" rel="noopener"><code>CacheStorage</code></a> 用来控制缓存</li>
+</ul>
+<h2 id="尝鲜使用"><a href="#尝鲜使用" class="headerlink" title="尝鲜使用"></a>尝鲜使用</h2><h3 id="第一步-写个-demo站点"><a href="#第一步-写个-demo站点" class="headerlink" title="第一步 写个 demo站点"></a>第一步 写个 demo站点</h3><p>我们肯定需要有一个站点，里面有 html/css/js文件，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"./manifest.json"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Service Worker测试页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./test.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试 Service Worker<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./test.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        // 这里开始注册 Service Worker</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第二步-注册-Service-Worker"><a href="#第二步-注册-Service-Worker" class="headerlink" title="第二步 注册 Service Worker"></a>第二步 注册 Service Worker</h3><p>这一步有两个 事情：</p>
+<ul>
+<li>写Service Worker的相关逻辑的js文件 (且叫<code>sw.js</code>)</li>
+<li>将<code>sw.js</code>注册到html文件中<br>具体代码如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册 Service worker</span></span><br><span class="line"><span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> <span class="built_in">window</span>.navigator) &#123;</span><br><span class="line">    <span class="keyword">const</span> registerServiceWorker = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"serviceWorker"</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> registration = <span class="keyword">await</span> navigator.serviceWorker.register(<span class="string">"./sw.js"</span>, &#123;</span><br><span class="line">                    scope: <span class="string">"/"</span>,</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">if</span> (registration.installing) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"正在安装 Service worker"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (registration.waiting) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"已安装 Service worker installed"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (registration.active) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"激活 Service worker"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">                <span class="built_in">console</span>.error(<span class="string">`注册失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    registerServiceWorker();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// self等同于 this</span></span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'install'</span>);</span><br><span class="line">    <span class="comment">// ... 安装完成 可以开始拦截请求加入缓存 cache 中</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">'activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'activate'</span>);</span><br><span class="line">    <span class="comment">// ... 激活完成 可以开始拦截请求加入缓存 cache 中</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步-缓存管理"><a href="#第三步-缓存管理" class="headerlink" title="第三步 缓存管理"></a>第三步 缓存管理</h3><p>缓存管理包括两部分，一个是缓存资源，另外一个同步更新资源，在 ServiceWorker 代码中是通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Cache" target="_blank" rel="noopener"><code>Cache</code></a> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage" target="_blank" rel="noopener"><code>CacheStorage</code></a>去控制，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 确保 Service Worker 不会在 waitUntil() 里面的代码执行完毕之前安装完成</span></span><br><span class="line">    event.waitUntil(</span><br><span class="line">        <span class="comment">// 创建了叫做 v1 的新缓存</span></span><br><span class="line">        caches.open(<span class="string">'v1'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</span><br><span class="line">            cache.addAll([</span><br><span class="line">                <span class="string">'./index.html'</span>, <span class="comment">// 相对于 sw.js 的路径 缓存 index.html</span></span><br><span class="line">            ]);</span><br><span class="line">        &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存优先</span></span><br><span class="line"><span class="keyword">const</span> cacheFirst = <span class="keyword">async</span> (request) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 从缓存中读取 respondWith表示拦截请求并返回自定义的响应</span></span><br><span class="line">    <span class="keyword">const</span> responseFromCache = <span class="keyword">await</span> caches.match(request);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'responseFromCache'</span>, responseFromCache);</span><br><span class="line">    <span class="keyword">if</span> (responseFromCache) &#123;</span><br><span class="line">        <span class="keyword">return</span> responseFromCache</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fetch(request);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"fetch"</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 拦截请求</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caches match'</span>,);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetch'</span>, event.request.url);</span><br><span class="line">    event.respondWith(cacheFirst(event.request));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="动态缓存"><a href="#动态缓存" class="headerlink" title="动态缓存"></a>动态缓存</h4><p>当然，上面是将固定的资源进行缓存，如果是需要对整个页面请求资源进行缓存管理，那么可以通过<code>fetch</code>事件拦截请求实现动态缓存，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 缓存优先</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; request </span></span><br><span class="line"><span class="comment"> * @returns </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> cacheFirst = <span class="keyword">async</span> (request) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 从缓存中读取 respondWith表示拦截请求并返回自定义的响应</span></span><br><span class="line">    <span class="keyword">const</span> responseFromCache = <span class="keyword">await</span> caches.match(request);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'responseFromCache'</span>, responseFromCache);</span><br><span class="line">    <span class="keyword">if</span> (responseFromCache) &#123;</span><br><span class="line">        <span class="keyword">return</span> responseFromCache</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果缓存中没有，就从网络中请求</span></span><br><span class="line">    <span class="keyword">const</span> responseFromServer = <span class="keyword">await</span> fetch(request);</span><br><span class="line">    <span class="keyword">const</span> cache = <span class="keyword">await</span> caches.open(cacheName);</span><br><span class="line">    <span class="comment">// 将请求到的资源添加到缓存中</span></span><br><span class="line">    cache.put(request, responseFromServer.clone());</span><br><span class="line">    <span class="keyword">return</span> responseFromServer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"fetch"</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 拦截请求</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caches match'</span>,);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetch'</span>, event.request.url);</span><br><span class="line">    event.respondWith(cacheFirst(event.request));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>缓存成功后，可以在 DevTools找到 网络请求状态，会标识是从 Service Worker 获取资源，具体如下图：</p>
+<p><img src="/assets/img/20230301.png" alt="Alt text"></p>
+<h3 id="第四步-更新缓存池"><a href="#第四步-更新缓存池" class="headerlink" title="第四步 更新缓存池"></a>第四步 更新缓存池</h3><p>当你的Service Worker  js文件有更新，需要删除旧的缓存，同时启动新的 Service Worker cache，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deleteCache = <span class="keyword">async</span> (key) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> caches.delete(key);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> deleteOldCaches = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> cacheKeepList = [<span class="string">"v2"</span>];</span><br><span class="line">  <span class="keyword">const</span> keyList = <span class="keyword">await</span> caches.keys();</span><br><span class="line">  <span class="keyword">const</span> cachesToDelete = keyList.filter(<span class="function">(<span class="params">key</span>) =&gt;</span> !cacheKeepList.includes(key));</span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(cachesToDelete.map(deleteCache));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"activate"</span>, (event) =&gt; &#123;</span><br><span class="line">  event.waitUntil(deleteOldCaches());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>讲完了这些，可能还需要实际体验一把，可以访问<a href="https://qborfy.com/code/serviceworker/index.html" target="_blank" rel="noopener">在线Service Worker Demo</a>，源码在这里<a href="https://github.com/qiubohong/qiubohong.github.io/tree/master/code/serviceworker/index.html" target="_blank" rel="noopener">Github qborfy/service worker</a>。</p>
+<h1 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h1><p>上面讲述了 Service Worker 的概念和使用，但是在实际项目中，如果要按照这一套去实现，会遇到很多问题，如：经过打包后我们的 js , css等文件是动态生成的，从而导致每次都需要更新 Service Worker的 Cache 版本池。</p>
+<p>所以需要结合构建工具去让项目更快支持 PWA应用开发，具体有以下几个。</p>
+<h2 id="Vite构建"><a href="#Vite构建" class="headerlink" title="Vite构建"></a>Vite构建</h2><p>Vite官方推荐使用插件<a href="https://github.com/vite-pwa/vite-plugin-pwa" target="_blank" rel="noopener">vite-plugin-pwa</a>，使用如下：</p>
+<p><strong>注意： <code>vite</code>版本需要 3+</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vite-plugin-pwa -D</span><br></pre></td></tr></table></figure>
+
+<p>调整<code>vite</code>的配置文件<code>vite.config.js</code>，最小配置如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; VitePWA &#125; <span class="keyword">from</span> <span class="string">'vite-plugin-pwa'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    VitePWA(&#123;</span><br><span class="line">      registerType: <span class="string">'autoUpdate'</span>, <span class="comment">// 注册更新模式方式  默认是autoUpdate，将会自动更新，其他还有prompt和skipWaiting</span></span><br><span class="line">      injectRegister: <span class="string">'auto'</span>, <span class="comment">// 控制如何在应用程序中注册ServiceWorker 默认值是 'auto' ，其他如：'inline' 则是注入一个简单的注册脚本，内联在应用程序入口点中</span></span><br><span class="line">      manifest: &#123; <span class="comment">// manifest.json 文件配置</span></span><br><span class="line">        name: <span class="string">'qborfy study website'</span>,</span><br><span class="line">        short_name: <span class="string">'qborfyStudy'</span>,</span><br><span class="line">        description: <span class="string">'qborfy study website'</span>,</span><br><span class="line">        theme_color: <span class="string">'#ffffff'</span>,</span><br><span class="line">        icons: [</span><br><span class="line">          &#123;</span><br><span class="line">            src: <span class="string">'favicon.png'</span>,</span><br><span class="line">            sizes: <span class="string">'192x192'</span>,</span><br><span class="line">            type: <span class="string">'image/png'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            src: <span class="string">'favicon.png'</span>,</span><br><span class="line">            sizes: <span class="string">'512x512'</span>,</span><br><span class="line">            type: <span class="string">'image/png'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最终会在 <code>npm run build</code>后，完成以下几个事情：</p>
+<ul>
+<li>生成<code>registerSW.js</code>，用来注册<code>Service Worker</code>的<code>sw.js</code>文件</li>
+<li>生成<code>sw.js</code>文件，在 <code>index.html</code>引入</li>
+<li>生成<code>manifest.webmanifest</code>，在 <code>index.html</code>引入，声明网站的信息，可以在<code>manifest</code>配置项调整</li>
+<li>生成<code>workbox.xxx.js</code>，用来管理缓存使用策略的代码，可以通过<code>strategies</code>去配置</li>
+</ul>
+<p>其他更多帮助文档可以到官方文档查看, <a href="https://vite-pwa-org.netlify.app/guide/" target="_blank" rel="noopener">vite-plugin-pwa官方文档</a></p>
+<h2 id="Webpack构建"><a href="#Webpack构建" class="headerlink" title="Webpack构建"></a>Webpack构建</h2><p>Webpack作为前端最主流的构建工具，当然也有对应插件去实现，那就是<a href="https://github.com/GoogleChrome/workbox/tree/v7/packages/workbox-webpack-plugin" target="_blank" rel="noopener">workbox-webpack-plugin插件</a>，其实是Chrome自己开源的<a href="https://github.com/GoogleChrome/workbox/" target="_blank" rel="noopener">workbox工具库</a>中支持的插件之一。</p>
+<p>具体用法如下：</p>
+<ol>
+<li><p>安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install workbox-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.config.js增加插件配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WorkboxPlugin = <span class="built_in">require</span>(<span class="string">'workbox-webpack-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    ...,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> WorkboxPlugin.GenerateSW(&#123;</span><br><span class="line">            clientsClaim: <span class="literal">true</span>, <span class="comment">// 快速启用服务</span></span><br><span class="line">            skipWaiting: <span class="literal">true</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在index.html注册 service worker</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if (&apos;serviceWorker&apos; in navigator) &#123;</span><br><span class="line">    window.addEventListener(&apos;load&apos;, async () =&gt; &#123;</span><br><span class="line">        console.log(&apos;page load...&apos;);</span><br><span class="line">        let res = await navigator.serviceWorker.register(&apos;/service-worker.js&apos;);</span><br><span class="line">        console.log(res, &apos;serviceWorker res&apos;);</span><br><span class="line">        if (res) &#123;</span><br><span class="line">            console.log(&apos;register success!&apos;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            console.log(&apos;register fail!&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>更多帮助可以到<a href="https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/" target="_blank" rel="noopener">workbox 官方文档</a>中查看</p>
+<h2 id="workbox工具库"><a href="#workbox工具库" class="headerlink" title="workbox工具库"></a>workbox工具库</h2><p>其实上面两个插件都是基于 Chrome 开源的 <a href="https://github.com/GoogleChrome/workbox/" target="_blank" rel="noopener">workbox工具库</a>去做二次封装实现的，接下来我们对<code>workbox.js</code>做一个简单的了解，方便后续如果我们需要自己去开发符合项目的 service worker控制。</p>
+<blockquote>
+<p>Service Worker有很多抽象的概念和 API，如：网络请求！缓存策略！缓存管理！预缓存！等等， Workbox的作用就是将复杂的 API 进行抽象，使更易于使用。</p>
+<p>Workbox 是一组简化常见服务工作线程路由和缓存的模块。每个可用模块都解决 Service Worker 开发的特定方面。 Workbox 旨在使 Service Worker 的使用尽可能简单，同时允许在需要时灵活地满足复杂的应用程序要求。</p>
+</blockquote>
+<p>如何使用<code>Workbox</code>，官方提供两种方式：</p>
+<ul>
+<li>结合构建工具使用，如上面的 Vite 或者  Webpack</li>
+<li>没有构建工具，官方提供了<a href="https://developer.chrome.com/docs/workbox/modules/workbox-sw/" target="_blank" rel="noopener">workbox-sw</a>，让你可以利用 workbox api去实现自己的 service worker策略</li>
+</ul>
+<p>这里简单使用一下，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line"><span class="comment">// 引入 workbox importScripts是 Service Worker  中的全局方法，用于引入外部脚本</span></span><br><span class="line">importScripts(<span class="string">'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面就可以直接使用workbox对象的方法，如：workbox.precaching.*， workbox.routing.*等</span></span><br><span class="line"><span class="comment">// 这里表示当请求的资源是图片时，使用 CacheFirst 策略，也就是优先从缓存中读取，如果缓存中没有，就从网络中请求</span></span><br><span class="line">workbox.routing.registerRoute(</span><br><span class="line">    (&#123; request &#125;) =&gt; request.destination === <span class="string">'image'</span>,</span><br><span class="line">    <span class="keyword">new</span> workbox.strategies.CacheFirst()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>其他使用说明文档可以到<a href="https://developer.chrome.com/docs/workbox" target="_blank" rel="noopener">workbox 官方文档</a>中查看。</p>
+<h1 id="其他相关"><a href="#其他相关" class="headerlink" title="其他相关"></a>其他相关</h1><p>这里我还收集了一些开发 PWA 后续可能会用到的点，大家可以看看。</p>
+<h2 id="Service-Worker其他"><a href="#Service-Worker其他" class="headerlink" title="Service Worker其他"></a>Service Worker其他</h2><p>本文主要是想通过 PWA 去优化个人网站的访问速度，PWA 不仅仅只能做缓存优化，还包括一下几点：</p>
+<ul>
+<li>通知 Notification，可以在后台接受服务器通知，然后告知用户</li>
+<li>通讯 Message，可以和主 JS 线程通讯</li>
+<li>后台更新，可以在用户没有访问页面的时候进行后台定时更新</li>
+</ul>
+<h2 id="如何发布一个-PWA-应用"><a href="#如何发布一个-PWA-应用" class="headerlink" title="如何发布一个 PWA 应用"></a>如何发布一个 PWA 应用</h2><ul>
+<li><a href="https://chromeos.dev/en/publish/pwa-in-play" target="_blank" rel="noopener">如何发布一个PWA应用到Google Play Store</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/microsoft-store" target="_blank" rel="noopener">如何发布一个PWA应用到Microsoft Store</a></li>
+<li><a href="https://developer.oculus.com/documentation/web/pwa-submit-app/" target="_blank" rel="noopener">如何发布一个PWA应用到Meta Quest Store</a></li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>Service Worker 缓存空间限制，Chrome 没有限制大小， Safari 限制50MB</li>
+<li>当第一次访问页面，资源的请求是早于 Service Worker 的，所以静态资源是无法缓存的；只有当 Service Worker 安装完毕，用户第二次访问页面的时候，这些资源才会被缓存起来；所以 Service Worker 真正生效是在第三次访问</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://blog.csdn.net/huangpb123/article/details/89498418" target="_blank" rel="noopener">Service Worker ——这应该是一个挺全面的整理</a></li>
+<li><a href="https://juejin.cn/post/7039258299086143524" target="_blank" rel="noopener">vite pwa项目使用</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">MDN 渐进式 Web 应用（PWA）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers" target="_blank" rel="noopener">如何使用一个 Service Worker</a></li>
+<li><a href="https://developer.chrome.com/docs/workbox" target="_blank" rel="noopener">workbox 官方文档</a></li>
+<li><a href="https://vite-pwa-org.netlify.app/" target="_blank" rel="noopener">Vite-plugin-pwa官方文档</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -423,7 +580,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/today/20230301.html" title="从Copilot学到了什么" target="_blank">https://www.qborfy.com/today/20230301.html</a>
+          <a href="https://www.qborfy.com/today/20230301.html" title="一次性完整学完搭建PWA项目" target="_blank">https://www.qborfy.com/today/20230301.html</a>
         </li>
         
         <li>
@@ -520,18 +677,9 @@
 
 <nav id="article-nav">
   
-    <a href="/lowcode/plugin.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          低代码系列——插件系统设计
-        
-      </div>
-    </a>
   
-  
-    <a href="/today/20230304.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">性能优化我们到底能做些什么东西</div>
+    <a href="/today/20230228.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo博客添加GitHub评论功能</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -558,7 +706,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PWA"><span class="toc-number">2.</span> <span class="toc-text">PWA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#manifest-json"><span class="toc-number">2.1.</span> <span class="toc-text">manifest.json</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Service-Worker"><span class="toc-number">3.</span> <span class="toc-text">Service Worker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">3.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">3.2.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用API"><span class="toc-number">3.3.</span> <span class="toc-text">常用API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尝鲜使用"><span class="toc-number">3.4.</span> <span class="toc-text">尝鲜使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步-写个-demo站点"><span class="toc-number">3.4.1.</span> <span class="toc-text">第一步 写个 demo站点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步-注册-Service-Worker"><span class="toc-number">3.4.2.</span> <span class="toc-text">第二步 注册 Service Worker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步-缓存管理"><span class="toc-number">3.4.3.</span> <span class="toc-text">第三步 缓存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#动态缓存"><span class="toc-number">3.4.3.1.</span> <span class="toc-text">动态缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-更新缓存池"><span class="toc-number">3.4.4.</span> <span class="toc-text">第四步 更新缓存池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实战"><span class="toc-number">4.</span> <span class="toc-text">项目实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vite构建"><span class="toc-number">4.1.</span> <span class="toc-text">Vite构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack构建"><span class="toc-number">4.2.</span> <span class="toc-text">Webpack构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#workbox工具库"><span class="toc-number">4.3.</span> <span class="toc-text">workbox工具库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他相关"><span class="toc-number">5.</span> <span class="toc-text">其他相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-Worker其他"><span class="toc-number">5.1.</span> <span class="toc-text">Service Worker其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何发布一个-PWA-应用"><span class="toc-number">5.2.</span> <span class="toc-text">如何发布一个 PWA 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">5.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -589,7 +737,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Sat Feb 11 2023 18:00:01 GMT+0800',
+  	id: 'Fri Jul 28 2023 18:00:01 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })

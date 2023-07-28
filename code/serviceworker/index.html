@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.json" />
+    <title>Service Worker测试页面</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+
+<body>
+    <h1>测试 Service Worker</h1>
+    <script src="./test.js"></script>
+    <script>
+        // 这里开始注册 Service Worker
+        if ('serviceWorker' in window.navigator) {
+            const registerServiceWorker = async () => {
+                if ("serviceWorker" in navigator) {
+                    try {
+                        const registration = await navigator.serviceWorker.register("./sw.js", {
+                            scope: "./",
+                        });
+                        if (registration.installing) {
+                            console.log("正在安装 Service worker");
+                        } else if (registration.waiting) {
+                            console.log("已安装 Service worker installed");
+                        } else if (registration.active) {
+                            console.log("激活 Service worker");
+                        }
+                    } catch (error) {
+                        console.error(`注册失败：${error}`);
+                    }
+                }
+            };
+
+            registerServiceWorker();
+        }
+    </script>
+</body>
+
+</html>

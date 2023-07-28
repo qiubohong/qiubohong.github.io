@@ -247,6 +247,170 @@
       </tags>
   </entry>
   <entry>
+    <title>一次性完整学完搭建PWA项目</title>
+    <url>/today/20230301.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com" target="_blank" rel="noopener">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。</p>
+<p>本文涉及知识点如下：</p>
+<ul>
+<li>PWA 的概念</li>
+<li>Service Worker使用</li>
+<li>用构建工具搭建 PWA 应用</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h1><blockquote>
+<p>渐进式 Web 应用（Progressive Web App，PWA）是一个使用 web 平台技术构建的应用程序，但它提供的用户体验就像一个特定平台的应用程序。 ——<a href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">MDN 渐进式 Web 应用（PWA）</a></p>
+</blockquote>
+<p>正如上文所描述一样 PWA 最终目的让你的 web 网站可以像 app 应用一样可以给到用户去离线体验，简单点说，就是没有网络，你也可以正常访问该网站的一些资源。</p>
+<p>PWA从技术上分为三个部分：</p>
+<ul>
+<li>主应用，就是平时我们开发网站所包含的内容，有：html，js，css等</li>
+<li>Web app manifests，主要为<code>manifest.json</code>，提供浏览器安装 PWA 所需的信息，例如应用程序名称和图标等</li>
+<li>Service Worker，主要为js文件，提供基本的离线缓存资源能力</li>
+</ul>
+<h2 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h2><p><code>manifest.json</code>描述web网站的信息（如名称，作者，图标和描述）的JSON文件，具体例子如下所示。</p>
+<p><code>manifest.json</code>是需要在网站中html文件中 head中引用，如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>完整的<code>manifest.json</code>示例：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"网站完整名称"</span>, </span><br><span class="line">  "short_name": "网站简称", // 在没有足够空间显示 Web 应用程序的全名时使用</span><br><span class="line">  "start_url": ".", // 从启动应用程序时加载的 URL。如果以相对 URL 的形式给出，则基本 URL 将是 manifest 的 URL</span><br><span class="line">  "display": "standalone", // 访问网站窗口展示模式，如：fullscreen/standalone</span><br><span class="line">  "background_color": "#fff", // 背景颜色</span><br><span class="line">  "description": "网站描述",</span><br><span class="line">  "icons": [ // 网站图标</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen48.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"48x48"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen72.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"72x72"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen96.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"96x96"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen144.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen168.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"168x168"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen192.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"192x192"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>了解基本的描述文件，下面我们将进入<code>Service Worker</code>作为其中整个控制中心，我们将在下面进行着重了解。</p>
+<h1 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>我们先来看看官方定义：</p>
+<blockquote>
+<p>Service worker 是一个注册在指定源和路径下的事件驱动 worker。它采用 JavaScript 文件的形式，控制关联的页面或者网站，拦截并修改访问和资源请求，细粒度地缓存资源。你可以完全控制应用在特定情形（最常见的情形是网络不可用）下的表现。 —— <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">MDN Service Worker</a></p>
+</blockquote>
+<p>进行简单总结一下  Service Woker是什么：</p>
+<ul>
+<li>是一个区别于主 JavaScript 线程，运行在其他单独线程，但是必须要注册到主 JavaScript 线程中</li>
+<li>是用JavaScript编写的</li>
+<li>可以拦截并修改访问和资源请求，从而实现资源缓存</li>
+</ul>
+<p><strong>出于安全考量，Service worker 只能由 HTTPS 承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险，如果允许访问这些强大的 API，此类攻击将会变得很严重。</strong></p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Service Woker的生命周期如下：</p>
+<ol>
+<li>注册，使用 ServiceWorkerContainer.register() 方法首次注册 service worker</li>
+<li>下载，页面首次加载后会下载ServiceWorker或者过去 24 小时没有被下载会再次下载</li>
+<li>安装，首次启用 service worker，页面会首先尝试安装，如果现有 service worker 已启用，新版本会在后台安装，但仍不会被激活——这个时序称为 worker in waiting。</li>
+<li>激活，首次启用 service worker，安装结束后会直接激活，新版本的service worker会直到所有已加载的页面不再使用旧的 service worker 才会激活新的 service worker，但是可以通过ServiceWorkerGlobalScope.skipWaiting() 可以更快地进行激活。</li>
+</ol>
+<p><img src="/assets/img/sw-lifecycle.svg" alt></p>
+<p>Service Worker提供几个事件用来监听生命周期的变化，如下：</p>
+<ul>
+<li><code>self.addEventListener(&quot;install&quot;)</code> 该事件触发时的标准行为是准备 service worker 用于使用，例如使用内建的 storage API 来创建缓存，并且放置应用离线时所需资源。</li>
+<li><code>self.addEventListener(&quot;activate&quot;)</code> 事件触发的时间点通常是清理旧缓存以及其他与你的 service worker 的先前版本相关的东西。</li>
+<li><code>self.addEventListener(&quot;fetch&quot;)</code>  事件触发的时间点是每次获取 service worker 控制的资源时，都会触发 fetch 事件 </li>
+</ul>
+<p><strong>这里的<code>this</code>代表的是 Service Worker 本身对象。</strong></p>
+<h2 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h2><p>了解完后，我们需要知道 Service Worker 有哪些常用的 API接口，或者当我们需要去实现一个 PWA 会用到哪些 API 接口，具体如下：</p>
+<ul>
+<li><code>navigator.serviceWorker.register()</code> 主 JavaScript 线程注册  Service Worker 方法</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Cache" target="_blank" rel="noopener"><code>Cache</code></a> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage" target="_blank" rel="noopener"><code>CacheStorage</code></a> 用来控制缓存</li>
+</ul>
+<h2 id="尝鲜使用"><a href="#尝鲜使用" class="headerlink" title="尝鲜使用"></a>尝鲜使用</h2><h3 id="第一步-写个-demo站点"><a href="#第一步-写个-demo站点" class="headerlink" title="第一步 写个 demo站点"></a>第一步 写个 demo站点</h3><p>我们肯定需要有一个站点，里面有 html/css/js文件，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"./manifest.json"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Service Worker测试页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./test.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试 Service Worker<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./test.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        // 这里开始注册 Service Worker</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第二步-注册-Service-Worker"><a href="#第二步-注册-Service-Worker" class="headerlink" title="第二步 注册 Service Worker"></a>第二步 注册 Service Worker</h3><p>这一步有两个 事情：</p>
+<ul>
+<li>写Service Worker的相关逻辑的js文件 (且叫<code>sw.js</code>)</li>
+<li>将<code>sw.js</code>注册到html文件中<br>具体代码如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册 Service worker</span></span><br><span class="line"><span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> <span class="built_in">window</span>.navigator) &#123;</span><br><span class="line">    <span class="keyword">const</span> registerServiceWorker = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"serviceWorker"</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> registration = <span class="keyword">await</span> navigator.serviceWorker.register(<span class="string">"./sw.js"</span>, &#123;</span><br><span class="line">                    scope: <span class="string">"/"</span>,</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">if</span> (registration.installing) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"正在安装 Service worker"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (registration.waiting) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"已安装 Service worker installed"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (registration.active) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">"激活 Service worker"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">                <span class="built_in">console</span>.error(<span class="string">`注册失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    registerServiceWorker();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// self等同于 this</span></span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'install'</span>);</span><br><span class="line">    <span class="comment">// ... 安装完成 可以开始拦截请求加入缓存 cache 中</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">'activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'activate'</span>);</span><br><span class="line">    <span class="comment">// ... 激活完成 可以开始拦截请求加入缓存 cache 中</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步-缓存管理"><a href="#第三步-缓存管理" class="headerlink" title="第三步 缓存管理"></a>第三步 缓存管理</h3><p>缓存管理包括两部分，一个是缓存资源，另外一个同步更新资源，在 ServiceWorker 代码中是通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Cache" target="_blank" rel="noopener"><code>Cache</code></a> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage" target="_blank" rel="noopener"><code>CacheStorage</code></a>去控制，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 确保 Service Worker 不会在 waitUntil() 里面的代码执行完毕之前安装完成</span></span><br><span class="line">    event.waitUntil(</span><br><span class="line">        <span class="comment">// 创建了叫做 v1 的新缓存</span></span><br><span class="line">        caches.open(<span class="string">'v1'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</span><br><span class="line">            cache.addAll([</span><br><span class="line">                <span class="string">'./index.html'</span>, <span class="comment">// 相对于 sw.js 的路径 缓存 index.html</span></span><br><span class="line">            ]);</span><br><span class="line">        &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存优先</span></span><br><span class="line"><span class="keyword">const</span> cacheFirst = <span class="keyword">async</span> (request) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 从缓存中读取 respondWith表示拦截请求并返回自定义的响应</span></span><br><span class="line">    <span class="keyword">const</span> responseFromCache = <span class="keyword">await</span> caches.match(request);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'responseFromCache'</span>, responseFromCache);</span><br><span class="line">    <span class="keyword">if</span> (responseFromCache) &#123;</span><br><span class="line">        <span class="keyword">return</span> responseFromCache</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fetch(request);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"fetch"</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 拦截请求</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caches match'</span>,);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetch'</span>, event.request.url);</span><br><span class="line">    event.respondWith(cacheFirst(event.request));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="动态缓存"><a href="#动态缓存" class="headerlink" title="动态缓存"></a>动态缓存</h4><p>当然，上面是将固定的资源进行缓存，如果是需要对整个页面请求资源进行缓存管理，那么可以通过<code>fetch</code>事件拦截请求实现动态缓存，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 缓存优先</span></span><br><span class="line"><span class="comment"> * @param &#123;*&#125; request </span></span><br><span class="line"><span class="comment"> * @returns </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> cacheFirst = <span class="keyword">async</span> (request) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 从缓存中读取 respondWith表示拦截请求并返回自定义的响应</span></span><br><span class="line">    <span class="keyword">const</span> responseFromCache = <span class="keyword">await</span> caches.match(request);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'responseFromCache'</span>, responseFromCache);</span><br><span class="line">    <span class="keyword">if</span> (responseFromCache) &#123;</span><br><span class="line">        <span class="keyword">return</span> responseFromCache</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果缓存中没有，就从网络中请求</span></span><br><span class="line">    <span class="keyword">const</span> responseFromServer = <span class="keyword">await</span> fetch(request);</span><br><span class="line">    <span class="keyword">const</span> cache = <span class="keyword">await</span> caches.open(cacheName);</span><br><span class="line">    <span class="comment">// 将请求到的资源添加到缓存中</span></span><br><span class="line">    cache.put(request, responseFromServer.clone());</span><br><span class="line">    <span class="keyword">return</span> responseFromServer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"fetch"</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 拦截请求</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'caches match'</span>,);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetch'</span>, event.request.url);</span><br><span class="line">    event.respondWith(cacheFirst(event.request));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>缓存成功后，可以在 DevTools找到 网络请求状态，会标识是从 Service Worker 获取资源，具体如下图：</p>
+<p><img src="/assets/img/20230301.png" alt="Alt text"></p>
+<h3 id="第四步-更新缓存池"><a href="#第四步-更新缓存池" class="headerlink" title="第四步 更新缓存池"></a>第四步 更新缓存池</h3><p>当你的Service Worker  js文件有更新，需要删除旧的缓存，同时启动新的 Service Worker cache，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> deleteCache = <span class="keyword">async</span> (key) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> caches.delete(key);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> deleteOldCaches = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> cacheKeepList = [<span class="string">"v2"</span>];</span><br><span class="line">  <span class="keyword">const</span> keyList = <span class="keyword">await</span> caches.keys();</span><br><span class="line">  <span class="keyword">const</span> cachesToDelete = keyList.filter(<span class="function">(<span class="params">key</span>) =&gt;</span> !cacheKeepList.includes(key));</span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(cachesToDelete.map(deleteCache));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">"activate"</span>, (event) =&gt; &#123;</span><br><span class="line">  event.waitUntil(deleteOldCaches());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>讲完了这些，可能还需要实际体验一把，可以访问<a href="https://qborfy.com/code/serviceworker/index.html" target="_blank" rel="noopener">在线Service Worker Demo</a>，源码在这里<a href="https://github.com/qiubohong/qiubohong.github.io/tree/master/code/serviceworker/index.html" target="_blank" rel="noopener">Github qborfy/service worker</a>。</p>
+<h1 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h1><p>上面讲述了 Service Worker 的概念和使用，但是在实际项目中，如果要按照这一套去实现，会遇到很多问题，如：经过打包后我们的 js , css等文件是动态生成的，从而导致每次都需要更新 Service Worker的 Cache 版本池。</p>
+<p>所以需要结合构建工具去让项目更快支持 PWA应用开发，具体有以下几个。</p>
+<h2 id="Vite构建"><a href="#Vite构建" class="headerlink" title="Vite构建"></a>Vite构建</h2><p>Vite官方推荐使用插件<a href="https://github.com/vite-pwa/vite-plugin-pwa" target="_blank" rel="noopener">vite-plugin-pwa</a>，使用如下：</p>
+<p><strong>注意： <code>vite</code>版本需要 3+</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i vite-plugin-pwa -D</span><br></pre></td></tr></table></figure>
+
+<p>调整<code>vite</code>的配置文件<code>vite.config.js</code>，最小配置如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; VitePWA &#125; <span class="keyword">from</span> <span class="string">'vite-plugin-pwa'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    VitePWA(&#123;</span><br><span class="line">      registerType: <span class="string">'autoUpdate'</span>, <span class="comment">// 注册更新模式方式  默认是autoUpdate，将会自动更新，其他还有prompt和skipWaiting</span></span><br><span class="line">      injectRegister: <span class="string">'auto'</span>, <span class="comment">// 控制如何在应用程序中注册ServiceWorker 默认值是 'auto' ，其他如：'inline' 则是注入一个简单的注册脚本，内联在应用程序入口点中</span></span><br><span class="line">      manifest: &#123; <span class="comment">// manifest.json 文件配置</span></span><br><span class="line">        name: <span class="string">'qborfy study website'</span>,</span><br><span class="line">        short_name: <span class="string">'qborfyStudy'</span>,</span><br><span class="line">        description: <span class="string">'qborfy study website'</span>,</span><br><span class="line">        theme_color: <span class="string">'#ffffff'</span>,</span><br><span class="line">        icons: [</span><br><span class="line">          &#123;</span><br><span class="line">            src: <span class="string">'favicon.png'</span>,</span><br><span class="line">            sizes: <span class="string">'192x192'</span>,</span><br><span class="line">            type: <span class="string">'image/png'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            src: <span class="string">'favicon.png'</span>,</span><br><span class="line">            sizes: <span class="string">'512x512'</span>,</span><br><span class="line">            type: <span class="string">'image/png'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最终会在 <code>npm run build</code>后，完成以下几个事情：</p>
+<ul>
+<li>生成<code>registerSW.js</code>，用来注册<code>Service Worker</code>的<code>sw.js</code>文件</li>
+<li>生成<code>sw.js</code>文件，在 <code>index.html</code>引入</li>
+<li>生成<code>manifest.webmanifest</code>，在 <code>index.html</code>引入，声明网站的信息，可以在<code>manifest</code>配置项调整</li>
+<li>生成<code>workbox.xxx.js</code>，用来管理缓存使用策略的代码，可以通过<code>strategies</code>去配置</li>
+</ul>
+<p>其他更多帮助文档可以到官方文档查看, <a href="https://vite-pwa-org.netlify.app/guide/" target="_blank" rel="noopener">vite-plugin-pwa官方文档</a></p>
+<h2 id="Webpack构建"><a href="#Webpack构建" class="headerlink" title="Webpack构建"></a>Webpack构建</h2><p>Webpack作为前端最主流的构建工具，当然也有对应插件去实现，那就是<a href="https://github.com/GoogleChrome/workbox/tree/v7/packages/workbox-webpack-plugin" target="_blank" rel="noopener">workbox-webpack-plugin插件</a>，其实是Chrome自己开源的<a href="https://github.com/GoogleChrome/workbox/" target="_blank" rel="noopener">workbox工具库</a>中支持的插件之一。</p>
+<p>具体用法如下：</p>
+<ol>
+<li><p>安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install workbox-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.config.js增加插件配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> WorkboxPlugin = <span class="built_in">require</span>(<span class="string">'workbox-webpack-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    ...,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> WorkboxPlugin.GenerateSW(&#123;</span><br><span class="line">            clientsClaim: <span class="literal">true</span>, <span class="comment">// 快速启用服务</span></span><br><span class="line">            skipWaiting: <span class="literal">true</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在index.html注册 service worker</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (&apos;serviceWorker&apos; in navigator) &#123;</span><br><span class="line">    window.addEventListener(&apos;load&apos;, async () =&gt; &#123;</span><br><span class="line">        console.log(&apos;page load...&apos;);</span><br><span class="line">        let res = await navigator.serviceWorker.register(&apos;/service-worker.js&apos;);</span><br><span class="line">        console.log(res, &apos;serviceWorker res&apos;);</span><br><span class="line">        if (res) &#123;</span><br><span class="line">            console.log(&apos;register success!&apos;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            console.log(&apos;register fail!&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>更多帮助可以到<a href="https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/" target="_blank" rel="noopener">workbox 官方文档</a>中查看</p>
+<h2 id="workbox工具库"><a href="#workbox工具库" class="headerlink" title="workbox工具库"></a>workbox工具库</h2><p>其实上面两个插件都是基于 Chrome 开源的 <a href="https://github.com/GoogleChrome/workbox/" target="_blank" rel="noopener">workbox工具库</a>去做二次封装实现的，接下来我们对<code>workbox.js</code>做一个简单的了解，方便后续如果我们需要自己去开发符合项目的 service worker控制。</p>
+<blockquote>
+<p>Service Worker有很多抽象的概念和 API，如：网络请求！缓存策略！缓存管理！预缓存！等等， Workbox的作用就是将复杂的 API 进行抽象，使更易于使用。</p>
+<p>Workbox 是一组简化常见服务工作线程路由和缓存的模块。每个可用模块都解决 Service Worker 开发的特定方面。 Workbox 旨在使 Service Worker 的使用尽可能简单，同时允许在需要时灵活地满足复杂的应用程序要求。</p>
+</blockquote>
+<p>如何使用<code>Workbox</code>，官方提供两种方式：</p>
+<ul>
+<li>结合构建工具使用，如上面的 Vite 或者  Webpack</li>
+<li>没有构建工具，官方提供了<a href="https://developer.chrome.com/docs/workbox/modules/workbox-sw/" target="_blank" rel="noopener">workbox-sw</a>，让你可以利用 workbox api去实现自己的 service worker策略</li>
+</ul>
+<p>这里简单使用一下，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sw.js</span></span><br><span class="line"><span class="comment">// 引入 workbox importScripts是 Service Worker  中的全局方法，用于引入外部脚本</span></span><br><span class="line">importScripts(<span class="string">'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面就可以直接使用workbox对象的方法，如：workbox.precaching.*， workbox.routing.*等</span></span><br><span class="line"><span class="comment">// 这里表示当请求的资源是图片时，使用 CacheFirst 策略，也就是优先从缓存中读取，如果缓存中没有，就从网络中请求</span></span><br><span class="line">workbox.routing.registerRoute(</span><br><span class="line">    (&#123; request &#125;) =&gt; request.destination === <span class="string">'image'</span>,</span><br><span class="line">    <span class="keyword">new</span> workbox.strategies.CacheFirst()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>其他使用说明文档可以到<a href="https://developer.chrome.com/docs/workbox" target="_blank" rel="noopener">workbox 官方文档</a>中查看。</p>
+<h1 id="其他相关"><a href="#其他相关" class="headerlink" title="其他相关"></a>其他相关</h1><p>这里我还收集了一些开发 PWA 后续可能会用到的点，大家可以看看。</p>
+<h2 id="Service-Worker其他"><a href="#Service-Worker其他" class="headerlink" title="Service Worker其他"></a>Service Worker其他</h2><p>本文主要是想通过 PWA 去优化个人网站的访问速度，PWA 不仅仅只能做缓存优化，还包括一下几点：</p>
+<ul>
+<li>通知 Notification，可以在后台接受服务器通知，然后告知用户</li>
+<li>通讯 Message，可以和主 JS 线程通讯</li>
+<li>后台更新，可以在用户没有访问页面的时候进行后台定时更新</li>
+</ul>
+<h2 id="如何发布一个-PWA-应用"><a href="#如何发布一个-PWA-应用" class="headerlink" title="如何发布一个 PWA 应用"></a>如何发布一个 PWA 应用</h2><ul>
+<li><a href="https://chromeos.dev/en/publish/pwa-in-play" target="_blank" rel="noopener">如何发布一个PWA应用到Google Play Store</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/microsoft-store" target="_blank" rel="noopener">如何发布一个PWA应用到Microsoft Store</a></li>
+<li><a href="https://developer.oculus.com/documentation/web/pwa-submit-app/" target="_blank" rel="noopener">如何发布一个PWA应用到Meta Quest Store</a></li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>Service Worker 缓存空间限制，Chrome 没有限制大小， Safari 限制50MB</li>
+<li>当第一次访问页面，资源的请求是早于 Service Worker 的，所以静态资源是无法缓存的；只有当 Service Worker 安装完毕，用户第二次访问页面的时候，这些资源才会被缓存起来；所以 Service Worker 真正生效是在第三次访问</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://blog.csdn.net/huangpb123/article/details/89498418" target="_blank" rel="noopener">Service Worker ——这应该是一个挺全面的整理</a></li>
+<li><a href="https://juejin.cn/post/7039258299086143524" target="_blank" rel="noopener">vite pwa项目使用</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" target="_blank" rel="noopener">MDN 渐进式 Web 应用（PWA）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers" target="_blank" rel="noopener">如何使用一个 Service Worker</a></li>
+<li><a href="https://developer.chrome.com/docs/workbox" target="_blank" rel="noopener">workbox 官方文档</a></li>
+<li><a href="https://vite-pwa-org.netlify.app/" target="_blank" rel="noopener">Vite-plugin-pwa官方文档</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客添加GitHub评论功能</title>
     <url>/today/20230228.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>其实从今年开始运营这个博客，我一直想增加一些新的交互功能，如：评论，之前一直有些问题没搞定，现在终于通过 Google 搜索解决问题了， 其实也算是每天学习一些新东西。</p>
@@ -1531,8 +1695,104 @@
 </li>
 <li>第九章 习惯六：统合综效——创造性合作的原则<ul>
 <li>统合综效的心态，就是当有人和我意见不和，那么他肯定有我想不到的地方，值得我去琢磨，与所见略同的人沟通，有分歧才有收获</li>
-<li>统合综效就是整体大于部分之和，简单点说就是 1+1&gt;2</li>
-<li></li>
+<li>统合综效就是整体大于部分之和，简单点说就是 1+1&gt;=3</li>
+<li>统合综效就是判断和尊重差异，取长补短，具体行为可以分为以下几点：<ul>
+<li>敞开胸怀，博采众议</li>
+<li>有担当，不怕失败，不断尝试</li>
+</ul>
+</li>
+<li>课堂上的统合综效，要做到：<ul>
+<li>鼓起勇气，诚恳交流，说别人不敢说的话，从而形成热切的交流氛围</li>
+</ul>
+</li>
+<li>商业领域的统合综效，要做到：<ul>
+<li>在相互尊重的基础上，去自由发言，各抒己见</li>
+</ul>
+</li>
+<li>沟通三层次：<ul>
+<li>相互提防</li>
+<li>相互尊重</li>
+<li>统合综效</li>
+</ul>
+</li>
+<li>寻求第三条路，怎么在不放弃和不能做到统合综效之间去努力？<ul>
+<li>在意见不合的时候，为了两个选择而争吵，其实还可以有第三个选择，就是大家一起努力去寻找第三个选择</li>
+</ul>
+</li>
+<li>消极协作会导致1+1&lt;2的结果<ul>
+<li>消极协作，就是大家彼此提防，玩弄权术，把对方踩在脚下才觉得自己胜利</li>
+</ul>
+</li>
+<li>避免消极协作，就是无论做什么事都以原则为中心</li>
+<li>统合综效最重要的一点，就是尊重差异<ul>
+<li>重视不同个体的不同心理，情绪与智能，以及每个看到的世界都是不一样的</li>
+</ul>
+</li>
+<li>化阻力为动力，这句话可以理解成两个：<ul>
+<li>一是要化解阻力，</li>
+<li>二是要增加动力，</li>
+<li>两者缺一不可，只针对某一方面都达不到自己想要的结果</li>
+</ul>
+</li>
+<li>以习惯四（双赢）为目标，以习惯五（知彼解己）为技巧，以习惯六（统合综效）为交往方式，就可以营造出一个可以畅所欲言的环境</li>
+<li>不一定要表示赞同，而是表达肯定，以及理解对方的观点</li>
+<li>付诸行动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第4部分 自我提升和完善<ul>
+<li>第十章 习惯七：不断更新——平衡的自我提升原则<ul>
+<li>人生最值得投资的就是磨练自己，因为生活和工作需要靠自己。</li>
+<li>工作赚钱本身并不能带来经济上的安全感，具备良好的学习/思考/创造与适应能力，才能利于不败之地<ul>
+<li>摆脱焦虑的做法，就是不断学习，让自己变得更加强大和自信</li>
+</ul>
+</li>
+<li>不断更新，是从以下四个层面去更新<ul>
+<li>身体，锻炼，营养，压力调节，如：健康饮食，充足休息和定期锻炼，有一个好的身体（耐性，韧性，力量等）才能应付每个星期繁重的工作压力</li>
+<li>精神，实现价值，忠诚，学习与冥想，如：指引人生方向，是自己内心本质，核心和价值观的坚持，只有足够的信念，才能坚持去做正确的事情</li>
+<li>智力，阅读，想象，写作与规划，如：要坚持学习（阅读优秀作品），要经常正确的表达自己能力和想法（写作），只有不断学习才能不断成为更好的自己，去面对更难的挑战</li>
+<li>社会/情感，服务，移情，统合综效，内在安全感，如：理解和聆听别人，去做一些创造性合作，坚守原则和肯定自我，只有去搭建自己的社交网络，才能扩大自己的影响圈，最终实现自己的目标</li>
+</ul>
+</li>
+<li>如何从负面情绪中走出来？<ul>
+<li>找一个自己呆着比较舒服的地方，什么都不管，听 3 个小时自然的声音</li>
+<li>回忆自己美好的时光，那些快乐的时光，点点滴滴的细节</li>
+<li>找到正确的动机，做一些事情的动机，动机不纯（只为了自己的私欲）就会诸事不顺</li>
+<li>最后把忧愁的情绪放飞掉，只保留积极的一面</li>
+</ul>
+</li>
+<li>如何改变他人？<ul>
+<li>以一个人的现有表现期许之，他不会有所长进。以他的潜能和应有成就期许之，他定能不负所望。</li>
+</ul>
+</li>
+<li>四个层面应该平衡更新，哪一个都不需要落下，否则会形成致命的缺陷，从而无法实现最终目标</li>
+<li>7 个习惯的的逻辑：<ul>
+<li>当你变得积极主动，就可以自我领导和管理自己</li>
+<li>当你越来越有效管理自己，就可以不断自我提升和完善自己</li>
+<li>当你不断提升，你就能越来越理解其他人</li>
+<li>当你越来越理解他人，那么就越有可能找到双赢的解决方案</li>
+<li>当你在不断学习，那么上面就进入一个螺旋上升的趋势</li>
+</ul>
+</li>
+<li>良知是一种天赋，帮助我们自己是否背离了正确的原则，然后引导我们向这些原则靠拢。</li>
+<li>如何做到自律？<ul>
+<li>远离垃圾食品，坚持锻炼</li>
+<li>远离淫秽/粗俗/色情的东西</li>
+<li>定期阅读励志文学作品</li>
+<li>培养自己的良知</li>
+</ul>
+</li>
+<li>付诸行动</li>
+</ul>
+</li>
+<li>第十一章 再论由内而外造就自己<ul>
+<li>七个习惯浇灌出来最高级的，最美好和最甘甜的果实，就是齐心协力，就是把自己，爱人，朋友和同事合力而为一。</li>
+<li>刺激与回应之间存在一段距离，成长和幸福的关键在于如何处理这段距离</li>
+<li>找一个可以大家坐下来沟通的地方，然后大家说出心中真正的想法，去真正理解大家</li>
+<li>由内而外的努力才能让大家真正建立充满信任和坦诚的关系</li>
+<li>把基于正确的原则的精神遗产传给后世子孙</li>
+<li>付诸行动</li>
 </ul>
 </li>
 </ul>
@@ -1614,21 +1874,6 @@
       </tags>
   </entry>
   <entry>
-    <title>工具收集</title>
-    <url>/ideas/20230621.html</url>
-    <content><![CDATA[<h1 id="Bark语音生成引擎"><a href="#Bark语音生成引擎" class="headerlink" title="Bark语音生成引擎"></a><a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">Bark语音生成引擎</a></h1><p>一个语音生成引擎，效果不错，可以在朗读的同时，发出大笑、叹息和哭泣，还可以生成音乐。</p>
-<p>地址： <a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">https://github.com/suno-ai/bark</a></p>
-<h1 id="STDF-移动端组件库"><a href="#STDF-移动端组件库" class="headerlink" title="STDF 移动端组件库"></a><a href="https://stdf.design/#/" target="_blank" rel="noopener">STDF 移动端组件库</a></h1><p>基于 Svelte 与 Tailwind 的移动页面组件库。</p>
-<p>地址： <a href="https://github.com/dufu1991/stdf" target="_blank" rel="noopener">https://github.com/dufu1991/stdf</a></p>
-<h1 id="MockingBird-AI合成语音"><a href="#MockingBird-AI合成语音" class="headerlink" title="MockingBird AI合成语音"></a><a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">MockingBird AI合成语音</a></h1><p>给出语音，合成属于自己的语音包</p>
-<p>地址： <a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">https://github.com/babysor/MockingBird</a></p>
-<p>适用教程： <a href="https://www.youtube.com/watch?v=eHRHfYeoZ3g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=eHRHfYeoZ3g</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>奇思妙想</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ChatGPT工具收集</title>
     <url>/ideas/20230408.html</url>
     <content><![CDATA[<h1 id="chatGPT工具收集"><a href="#chatGPT工具收集" class="headerlink" title="chatGPT工具收集"></a>chatGPT工具收集</h1><ol>
@@ -1663,6 +1908,21 @@
 </li>
 <li>创业选择值得吗？没有可观的收入和花费很多时间，后续怎么走等等</li>
 </ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>奇思妙想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具收集</title>
+    <url>/ideas/20230621.html</url>
+    <content><![CDATA[<h1 id="Bark语音生成引擎"><a href="#Bark语音生成引擎" class="headerlink" title="Bark语音生成引擎"></a><a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">Bark语音生成引擎</a></h1><p>一个语音生成引擎，效果不错，可以在朗读的同时，发出大笑、叹息和哭泣，还可以生成音乐。</p>
+<p>地址： <a href="https://github.com/suno-ai/bark" target="_blank" rel="noopener">https://github.com/suno-ai/bark</a></p>
+<h1 id="STDF-移动端组件库"><a href="#STDF-移动端组件库" class="headerlink" title="STDF 移动端组件库"></a><a href="https://stdf.design/#/" target="_blank" rel="noopener">STDF 移动端组件库</a></h1><p>基于 Svelte 与 Tailwind 的移动页面组件库。</p>
+<p>地址： <a href="https://github.com/dufu1991/stdf" target="_blank" rel="noopener">https://github.com/dufu1991/stdf</a></p>
+<h1 id="MockingBird-AI合成语音"><a href="#MockingBird-AI合成语音" class="headerlink" title="MockingBird AI合成语音"></a><a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">MockingBird AI合成语音</a></h1><p>给出语音，合成属于自己的语音包</p>
+<p>地址： <a href="https://github.com/babysor/MockingBird" target="_blank" rel="noopener">https://github.com/babysor/MockingBird</a></p>
+<p>适用教程： <a href="https://www.youtube.com/watch?v=eHRHfYeoZ3g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=eHRHfYeoZ3g</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>奇思妙想</tag>
@@ -3647,6 +3907,103 @@
       </tags>
   </entry>
   <entry>
+    <title>GPT-4都来了，我们还需要刷算法题和背八股文吗？</title>
+    <url>/ideas/20230312.html</url>
+    <content><![CDATA[<h1 id="2023年的面试寒冬"><a href="#2023年的面试寒冬" class="headerlink" title="2023年的面试寒冬"></a>2023年的面试寒冬</h1><p>从去年到今年各个大厂都在不断裁员，导致今年IT互联网行情很差，很多朋友都缺乏面试机会或者面试不通过。</p>
+<p>程序员一旦要开始面试，很多朋友都开始循环以下几个步骤：</p>
+<ul>
+<li>刷算法题，如：LeetCode各种困难程度的题目</li>
+<li>背诵各种八股文，如：浏览器请求一个URL的完整过程</li>
+<li>复习各种冷门知识，如：Promise.race(谁先返回就获取谁的结果，后面直接不处理)或Promise.allSettled(结果为Iterator对象，实现next())</li>
+</ul>
+<p>也许以往这种复习模式还算不错，因为目前大多数面试流程基本上都是会问上述问题，而面试官问这些问题的最终目的是什么：</p>
+<ul>
+<li>算法题，主要考的是逻辑思维能力</li>
+<li>八股文，主要考的是基础知识是否足够扎实，知识深度是否足够</li>
+<li>冷门知识，主要考的是知识广度，你除了目前使用知识点外还能拥有其他知识面</li>
+</ul>
+<p>后续一些项目经验讲述，主要目的在于测试你是否真的参与到项目中，但是这个往往都是容易被忽略的点，这个放到后面再讲。</p>
+<p>当下最火的IT技术，ChatGPT智能机器人出来后，它不像普通搜索引擎一样，需要去大量的结果去找到自己的答案。而是直接将答案提供给到你，让你可以更加快速实现功能。</p>
+<p>如果ChatGPT普及开来，那么面试是否还需要考算法题和八股文吗？</p>
+<p>或者换个问题，<strong>当AI技术可以代替绝大部分基础开发工作的时候，面对这种技术变更，作为普通开发者，我们应该如何做技术成长规划呢？</strong></p>
+<a id="more"></a>
+
+<h1 id="怎么办"><a href="#怎么办" class="headerlink" title="怎么办"></a>怎么办</h1><h2 id="看清楚问题"><a href="#看清楚问题" class="headerlink" title="看清楚问题"></a>看清楚问题</h2><p>作为普通的开发人员，我们平时大部分开发工作说的不好听一点，其实都是在复制粘贴，简单点说就是在搬砖，从A地方搬到B地方，举几个例子:</p>
+<ul>
+<li>利用框架封装好的东西去开发项目，是否有尝试过自己去实现一个框架，如：Vue、React</li>
+<li>实现某一个功能的时候，要嘛从现有项目中拷贝，要嘛从网上找对应答案，比如：需要从一个url获取参数，你会自己实现一个，还是拷贝呢？</li>
+<li>遇到问题，第一反应基本上先从网上找答案，找到答案看看能否解决，如果可以就不会再往下深入学习</li>
+</ul>
+<p>以上基本上就是我们普通开发的发展路线——尽量不去开发轮子，也没有时间和兴趣去开发轮子。</p>
+<p>当chatGPT智能机器人出现之后，你会发现你会的机器人都会，而且它还能实现你不能实现的功能，那么我们可以大胆猜测未来会有这么一个产品：</p>
+<blockquote>
+<p>一个低代码智能化平台，只需要资深开发者去输入一些关键性的业务代码，同时优化生成出来的代码逻辑。</p>
+</blockquote>
+<p>举个更简单的例子，原本你手动搬的砖，现在有机器人可以实现自动搬了，或者说当马车被汽车替代了，那么马夫的工作自然也就被司机所替代。</p>
+<p>那么问题就很简单了，现状的问题是：</p>
+<p><strong>大厂或小厂都在裁员，不需要那么多搬砖工了，而你还在为了更快搬砖，去提高自己的搬砖能力，如：刷算法题、基础知识等，不就等于在锻炼自己臂力让自己能搬更多的砖吗？</strong></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>既然清楚问题了，针对这个问题能有什么解决方案呢？其实是有的，就在于自己的选择。</p>
+<h3 id="成为少数人"><a href="#成为少数人" class="headerlink" title="成为少数人"></a>成为少数人</h3><p>怎么理解成为少数人呢？主要有两种方式：</p>
+<p><strong>第一种方式，无可替代或者很难替代。</strong></p>
+<p>你的工作只有你能做，或者你做的工作很难。还是以搬砖为例：</p>
+<ul>
+<li>可以在高楼层搬砖</li>
+<li>可以在深海里搬砖</li>
+</ul>
+<p>简单的说，除了开发业务功能外，你还掌握了其他的技能，说出来可能大家会骂人，如：</p>
+<ul>
+<li>写一手漂亮的PPT，能把PPT做堪比艺术品</li>
+<li>项目管理能力强，能把握项目进度</li>
+<li>有产品思维，你实现的功能比产品经理想得还完整</li>
+<li>其他软技能…</li>
+</ul>
+<p><strong>第二种方式，成为专家</strong></p>
+<p>这种方式需要天赋+机会+努力，缺一不可，简单来说，就是大家搬砖用的工具都是你制作的，如：</p>
+<ul>
+<li>Vue/React的作者，将很难被淘汰</li>
+<li>公司内部的架构师们，项目的整体架构和轮子都由他搭建的，或者公司需要他们去新搭建一套轮子</li>
+</ul>
+<p>那么如何成为专家呢？不管是从网上还是现实中，都有很多实现路线，我这里简单总结一下:</p>
+<ul>
+<li>努力学习，扩展技术栈，日复一日的坚持学习知识</li>
+<li>深入业务领域，将技术与业务结合，不断创造一些新的方案或架构</li>
+<li>扩大自己的影响范围，等待机会，创造一套属于自己的架构体系</li>
+</ul>
+<h3 id="离开搬砖"><a href="#离开搬砖" class="headerlink" title="离开搬砖"></a>离开搬砖</h3><p>如果真的继续干这一行，吃技术饭很难混下来，那么只有选择离开，但是离开也分不同的分开，下面简单说几句。</p>
+<p><strong>第一种离开，改变自己，拥抱新方向</strong><br>当汽车来临的时候，马夫无法继续工作了，那么为何不直接投入汽车司机的行业呢？</p>
+<p>既然AI技术已经开始成熟投入使用了，那么作为开发者有什么理由不提前进入AI领域，去尝试一种新的方向呢？</p>
+<p>比如：</p>
+<ul>
+<li>彻底转行成为AI开发，这里门槛有点高，但是可以去尝试</li>
+<li>利用AI开发工具，成为AI的使用者是不是更加合适呢？</li>
+</ul>
+<p><strong>第二种离开，永远离开，投入新领域</strong><br>AI的到来，会实现很多基础开发工作，那么我不做开发了，是不是就不用被淘汰了呢？</p>
+<p>正如所说，天涯何处无芳草，哪里都可以混口饭吃。</p>
+<p>不要做21世纪的孔乙己，脱不下身上的长袍。</p>
+<p>举几个例子：</p>
+<ul>
+<li>转技术培训，前提是你在IT开发待的足够久</li>
+<li>创业当老板，从打工思维变老板思维，前提是得有钱有资源</li>
+<li>早餐摊，卖粥，足以养活一家人，前提是身体健康</li>
+</ul>
+<p>总之，心态不要奔溃，被裁员也好，面试不通过也好，这只是当前整个大背景下的一个波浪，更何况目前AI的技术并没有那么发达。</p>
+<p>如果以时间为维度，你这次的失败，只是你几十年人中的一个小片段。</p>
+<p>如果以空间为维度，你我皆是蝼蚁，宇宙何其庞大，你抬头看片星空，是否心情会更加放松一点。</p>
+<p>最后，推荐大家去看一本书《百万富翁的快车道》，名字很俗，但是却能给我们带来一种新的思想模式：</p>
+<ul>
+<li>财富不是金钱等物质，而是你所能控制的时间+你的健康+人脉</li>
+<li>人生的每个选择，都是你的信念系统做出的，如果你要财富，则需要不断优化自己本身的信念系统</li>
+</ul>
+<h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><p>本文是个人一些想法，仅供参考。</p>
+<blockquote>
+<p>做一个有温度的技术分享作者 —— Qborfy</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>奇思妙想</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息</title>
     <url>/today/20230221.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
@@ -3775,103 +4132,6 @@
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GPT-4都来了，我们还需要刷算法题和背八股文吗？</title>
-    <url>/ideas/20230312.html</url>
-    <content><![CDATA[<h1 id="2023年的面试寒冬"><a href="#2023年的面试寒冬" class="headerlink" title="2023年的面试寒冬"></a>2023年的面试寒冬</h1><p>从去年到今年各个大厂都在不断裁员，导致今年IT互联网行情很差，很多朋友都缺乏面试机会或者面试不通过。</p>
-<p>程序员一旦要开始面试，很多朋友都开始循环以下几个步骤：</p>
-<ul>
-<li>刷算法题，如：LeetCode各种困难程度的题目</li>
-<li>背诵各种八股文，如：浏览器请求一个URL的完整过程</li>
-<li>复习各种冷门知识，如：Promise.race(谁先返回就获取谁的结果，后面直接不处理)或Promise.allSettled(结果为Iterator对象，实现next())</li>
-</ul>
-<p>也许以往这种复习模式还算不错，因为目前大多数面试流程基本上都是会问上述问题，而面试官问这些问题的最终目的是什么：</p>
-<ul>
-<li>算法题，主要考的是逻辑思维能力</li>
-<li>八股文，主要考的是基础知识是否足够扎实，知识深度是否足够</li>
-<li>冷门知识，主要考的是知识广度，你除了目前使用知识点外还能拥有其他知识面</li>
-</ul>
-<p>后续一些项目经验讲述，主要目的在于测试你是否真的参与到项目中，但是这个往往都是容易被忽略的点，这个放到后面再讲。</p>
-<p>当下最火的IT技术，ChatGPT智能机器人出来后，它不像普通搜索引擎一样，需要去大量的结果去找到自己的答案。而是直接将答案提供给到你，让你可以更加快速实现功能。</p>
-<p>如果ChatGPT普及开来，那么面试是否还需要考算法题和八股文吗？</p>
-<p>或者换个问题，<strong>当AI技术可以代替绝大部分基础开发工作的时候，面对这种技术变更，作为普通开发者，我们应该如何做技术成长规划呢？</strong></p>
-<a id="more"></a>
-
-<h1 id="怎么办"><a href="#怎么办" class="headerlink" title="怎么办"></a>怎么办</h1><h2 id="看清楚问题"><a href="#看清楚问题" class="headerlink" title="看清楚问题"></a>看清楚问题</h2><p>作为普通的开发人员，我们平时大部分开发工作说的不好听一点，其实都是在复制粘贴，简单点说就是在搬砖，从A地方搬到B地方，举几个例子:</p>
-<ul>
-<li>利用框架封装好的东西去开发项目，是否有尝试过自己去实现一个框架，如：Vue、React</li>
-<li>实现某一个功能的时候，要嘛从现有项目中拷贝，要嘛从网上找对应答案，比如：需要从一个url获取参数，你会自己实现一个，还是拷贝呢？</li>
-<li>遇到问题，第一反应基本上先从网上找答案，找到答案看看能否解决，如果可以就不会再往下深入学习</li>
-</ul>
-<p>以上基本上就是我们普通开发的发展路线——尽量不去开发轮子，也没有时间和兴趣去开发轮子。</p>
-<p>当chatGPT智能机器人出现之后，你会发现你会的机器人都会，而且它还能实现你不能实现的功能，那么我们可以大胆猜测未来会有这么一个产品：</p>
-<blockquote>
-<p>一个低代码智能化平台，只需要资深开发者去输入一些关键性的业务代码，同时优化生成出来的代码逻辑。</p>
-</blockquote>
-<p>举个更简单的例子，原本你手动搬的砖，现在有机器人可以实现自动搬了，或者说当马车被汽车替代了，那么马夫的工作自然也就被司机所替代。</p>
-<p>那么问题就很简单了，现状的问题是：</p>
-<p><strong>大厂或小厂都在裁员，不需要那么多搬砖工了，而你还在为了更快搬砖，去提高自己的搬砖能力，如：刷算法题、基础知识等，不就等于在锻炼自己臂力让自己能搬更多的砖吗？</strong></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>既然清楚问题了，针对这个问题能有什么解决方案呢？其实是有的，就在于自己的选择。</p>
-<h3 id="成为少数人"><a href="#成为少数人" class="headerlink" title="成为少数人"></a>成为少数人</h3><p>怎么理解成为少数人呢？主要有两种方式：</p>
-<p><strong>第一种方式，无可替代或者很难替代。</strong></p>
-<p>你的工作只有你能做，或者你做的工作很难。还是以搬砖为例：</p>
-<ul>
-<li>可以在高楼层搬砖</li>
-<li>可以在深海里搬砖</li>
-</ul>
-<p>简单的说，除了开发业务功能外，你还掌握了其他的技能，说出来可能大家会骂人，如：</p>
-<ul>
-<li>写一手漂亮的PPT，能把PPT做堪比艺术品</li>
-<li>项目管理能力强，能把握项目进度</li>
-<li>有产品思维，你实现的功能比产品经理想得还完整</li>
-<li>其他软技能…</li>
-</ul>
-<p><strong>第二种方式，成为专家</strong></p>
-<p>这种方式需要天赋+机会+努力，缺一不可，简单来说，就是大家搬砖用的工具都是你制作的，如：</p>
-<ul>
-<li>Vue/React的作者，将很难被淘汰</li>
-<li>公司内部的架构师们，项目的整体架构和轮子都由他搭建的，或者公司需要他们去新搭建一套轮子</li>
-</ul>
-<p>那么如何成为专家呢？不管是从网上还是现实中，都有很多实现路线，我这里简单总结一下:</p>
-<ul>
-<li>努力学习，扩展技术栈，日复一日的坚持学习知识</li>
-<li>深入业务领域，将技术与业务结合，不断创造一些新的方案或架构</li>
-<li>扩大自己的影响范围，等待机会，创造一套属于自己的架构体系</li>
-</ul>
-<h3 id="离开搬砖"><a href="#离开搬砖" class="headerlink" title="离开搬砖"></a>离开搬砖</h3><p>如果真的继续干这一行，吃技术饭很难混下来，那么只有选择离开，但是离开也分不同的分开，下面简单说几句。</p>
-<p><strong>第一种离开，改变自己，拥抱新方向</strong><br>当汽车来临的时候，马夫无法继续工作了，那么为何不直接投入汽车司机的行业呢？</p>
-<p>既然AI技术已经开始成熟投入使用了，那么作为开发者有什么理由不提前进入AI领域，去尝试一种新的方向呢？</p>
-<p>比如：</p>
-<ul>
-<li>彻底转行成为AI开发，这里门槛有点高，但是可以去尝试</li>
-<li>利用AI开发工具，成为AI的使用者是不是更加合适呢？</li>
-</ul>
-<p><strong>第二种离开，永远离开，投入新领域</strong><br>AI的到来，会实现很多基础开发工作，那么我不做开发了，是不是就不用被淘汰了呢？</p>
-<p>正如所说，天涯何处无芳草，哪里都可以混口饭吃。</p>
-<p>不要做21世纪的孔乙己，脱不下身上的长袍。</p>
-<p>举几个例子：</p>
-<ul>
-<li>转技术培训，前提是你在IT开发待的足够久</li>
-<li>创业当老板，从打工思维变老板思维，前提是得有钱有资源</li>
-<li>早餐摊，卖粥，足以养活一家人，前提是身体健康</li>
-</ul>
-<p>总之，心态不要奔溃，被裁员也好，面试不通过也好，这只是当前整个大背景下的一个波浪，更何况目前AI的技术并没有那么发达。</p>
-<p>如果以时间为维度，你这次的失败，只是你几十年人中的一个小片段。</p>
-<p>如果以空间为维度，你我皆是蝼蚁，宇宙何其庞大，你抬头看片星空，是否心情会更加放松一点。</p>
-<p>最后，推荐大家去看一本书《百万富翁的快车道》，名字很俗，但是却能给我们带来一种新的思想模式：</p>
-<ul>
-<li>财富不是金钱等物质，而是你所能控制的时间+你的健康+人脉</li>
-<li>人生的每个选择，都是你的信念系统做出的，如果你要财富，则需要不断优化自己本身的信念系统</li>
-</ul>
-<h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><p>本文是个人一些想法，仅供参考。</p>
-<blockquote>
-<p>做一个有温度的技术分享作者 —— Qborfy</p>
-</blockquote>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>奇思妙想</tag>
       </tags>
   </entry>
   <entry>
@@ -4586,16 +4846,6 @@
       </tags>
   </entry>
   <entry>
-    <title>前端架构成长之路——Nest.js微服务架构实战</title>
-    <url>/framework/frontend-microapp-3.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-        <tag>架构系列</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端架构成长之路——微前端架构理论篇</title>
     <url>/framework/frontend-microapp-1.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近项目开发中使用了<code>qiankun</code>框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。</p>
@@ -4754,6 +5004,16 @@
 <li><a href="https://www.zhihu.com/question/25089273" target="_blank" rel="noopener">领域驱动架构（DDD）建模中的模型到底是什么？</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+        <tag>架构系列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端架构成长之路——Nest.js微服务架构实战</title>
+    <url>/framework/frontend-microapp-3.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
@@ -5322,17 +5582,7 @@
   </entry>
   <entry>
     <title>如何实现HTTP2.0</title>
-    <url>/today/20230303.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从Copilot学到了什么</title>
-    <url>/today/20230301.html</url>
+    <url>/today/20230319.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -7342,61 +7592,6 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>前端快速入门搭建Prometheus监控系统</title>
-    <url>/today/20230220.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。</p>
-<p>目前市面上主流的监控开源方案选择：</p>
-<ul>
-<li>Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统</li>
-<li>Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案</li>
-<li>LightHouse，专用于前端页面性能监控，并可以生成对应报告的</li>
-<li>Sentry，提供了检测和解决影响用户体验的错误和其他问题的工具</li>
-</ul>
-<p>其中 Promethues 对比其他方案来说功能更加全面，因为它的生态更加完整，支持各类数据进行上报，对后续整个监控平台有更好的可扩展性。</p>
-<a id="more"></a>
-
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><blockquote>
-<p><a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus</a> 是由 <a href="https://soundcloud.com/" target="_blank" rel="noopener">SoundCloud</a>(一家公司) 开源监控告警解决方案，从 2012 年开始编写代码，再到 2015 年 github 上开源以来，已经吸引了 9k+ 关注，以及很多大公司的使用；2016 年 Prometheus 成为继 k8s 后，第二名 CNCF(Cloud Native Computing Foundation) 成员。</p>
-</blockquote>
-<blockquote>
-<p>作为新一代监控开源解决方案，很多理念与 Google SRE 运维之道不谋而合。—— <a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus官网</a></p>
-</blockquote>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微前端系列——结合Monorepo大仓架构实战</title>
-    <url>/today/20230306.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用 ChatGPT 等大语言模型重新搭建智能开发体系</title>
-    <url>/today/20230316.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 今年 ChatGPT的火爆，引发国内外一大众公司扑入人工智能领域去开发属于自己的大语言模型，那么在这次 AI 浪潮中，作为个人开发者而言，是无法独立去开发一个大语言模型，因为机器很贵，而且所需要数据资源很缺乏，因此我曾经写过一篇文章<a href></a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Svelte尝鲜体验</title>
-    <url>/today/20230307.html</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从审批流到bpmn-js入门</title>
     <url>/today/20230106.html</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部由于需要很多审批地方，一开始采用邮件或者企业微信进行口头审批，一般会抄送相关人员，以达到初步审批的效果，但是随着审批越来越复杂，比如有时候需要驳回或者转接，甚至需要调用其他系统接口继续流程的时候，就很麻烦，因此迫切需要一个工作流去解决审批相关事情。</p>
@@ -7470,6 +7665,61 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
+    <title>前端快速入门搭建Prometheus监控系统</title>
+    <url>/today/20230220.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。</p>
+<p>目前市面上主流的监控开源方案选择：</p>
+<ul>
+<li>Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统</li>
+<li>Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案</li>
+<li>LightHouse，专用于前端页面性能监控，并可以生成对应报告的</li>
+<li>Sentry，提供了检测和解决影响用户体验的错误和其他问题的工具</li>
+</ul>
+<p>其中 Promethues 对比其他方案来说功能更加全面，因为它的生态更加完整，支持各类数据进行上报，对后续整个监控平台有更好的可扩展性。</p>
+<a id="more"></a>
+
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><blockquote>
+<p><a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus</a> 是由 <a href="https://soundcloud.com/" target="_blank" rel="noopener">SoundCloud</a>(一家公司) 开源监控告警解决方案，从 2012 年开始编写代码，再到 2015 年 github 上开源以来，已经吸引了 9k+ 关注，以及很多大公司的使用；2016 年 Prometheus 成为继 k8s 后，第二名 CNCF(Cloud Native Computing Foundation) 成员。</p>
+</blockquote>
+<blockquote>
+<p>作为新一代监控开源解决方案，很多理念与 Google SRE 运维之道不谋而合。—— <a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus官网</a></p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">Prometheus中文教程</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>appium 自动化测试框架</title>
+    <url>/today/20230317.html</url>
+    <content><![CDATA[<p>appium 自动化测试框架，尤其是移动端</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Svelte尝鲜体验</title>
+    <url>/today/20230307.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jamstack尝鲜体验</title>
+    <url>/today/20230318.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用现有语言模型去做智能搜索问答机器人</title>
     <url>/today/20230310.html</url>
     <content><![CDATA[<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>用 ChatGPT 开发一个能听懂人话的命令行工具<br><a href="https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/rQc0iM7WIrNQDP9aCs7Hpw</a></p>
@@ -7502,8 +7752,8 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>Jamstack尝鲜体验</title>
-    <url>/today/20230302.html</url>
+    <title>微前端系列——结合Monorepo大仓架构实战</title>
+    <url>/today/20230306.html</url>
     <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>
@@ -7511,9 +7761,32 @@ label:has(+input:required)::before{
       </tags>
   </entry>
   <entry>
-    <title>appium 自动化测试框架</title>
-    <url>/today/20230515.html</url>
-    <content><![CDATA[<p>appium 自动化测试框架，尤其是移动端</p>
+    <title>利用 ChatGPT 等大语言模型重新搭建智能开发体系</title>
+    <url>/today/20230316.html</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 今年 ChatGPT的火爆，引发国内外一大众公司扑入人工智能领域去开发属于自己的大语言模型，那么在这次 AI 浪潮中，作为个人开发者而言，是无法独立去开发一个大语言模型，因为机器很贵，而且所需要数据资源很缺乏，因此我曾经写过一篇文章<a href></a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何搭建一套自己的Copilot</title>
+    <url>/today/20230303.html</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>每日更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue冷知识系列之Suspense和defineAsyncComponent</title>
+    <url>/today/20230302.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com" target="_blank" rel="noopener">Qborfy</a></p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>技术分享</tag>

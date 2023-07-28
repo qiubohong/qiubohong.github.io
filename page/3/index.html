@@ -317,6 +317,115 @@
     height:800px
   }
   </style>
+<article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230224.html" target="_blank">
+      从开发chrome插件到插件系统设计
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230224.html" class="archive-article-date">
+        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
+<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
+<ul>
+<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
+</ul>
+<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
+<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
+<ul>
+<li>Chrome插件开发，如何快速开发一个插件</li>
+<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230224.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230224.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230223" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -622,111 +731,6 @@
     height:800px
   }
   </style>
-<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230221.html" target="_blank">
-      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230221.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
-<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
-<ul>
-<li>OpenAI提供了哪些模型算法</li>
-<li>不同模型算法分别可以应用到哪些场景</li>
-<li>真正调用OpenAI需要注意哪些事项</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
 <article id="post-ideas/20230312" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -804,6 +808,111 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ideas/20230312.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230221.html" target="_blank">
+      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230221.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+<ul>
+<li>OpenAI提供了哪些模型算法</li>
+<li>不同模型算法分别可以应用到哪些场景</li>
+<li>真正调用OpenAI需要注意哪些事项</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
     </p>
     
 
@@ -1218,106 +1327,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230218.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-framework/frontend-microapp-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/framework/frontend-microapp-3.html" target="_blank">
-      前端架构成长之路——Nest.js微服务架构实战
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/framework/frontend-microapp-3.html" class="archive-article-date">
-        <time datetime="2023-02-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/framework/frontend-microapp-3.html">展开全文 >></a>
     </p>
     
 
