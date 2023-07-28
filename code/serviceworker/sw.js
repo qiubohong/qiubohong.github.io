@@ -1,6 +1,3 @@
-// 引入 workbox importScripts是 Service Worker  中的全局方法，用于引入外部脚本
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
-
 const cacheName = 'v1'; // 缓存的名字
 
 /**
