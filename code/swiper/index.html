@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图测试</title>
+    <script src="./swiper.js"></script>
+    <style>
+        .swiper-container {
+            width: 300px;
+            height: 300px;
+            /* padding: 16px; */
+            background-color: #ccc;
+            border: 1px dashed #000;
+            margin: 0 auto;
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        .swiper-container-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: content-box;
+            transition: transform .3s ease-in-out;
+        }
+
+        .swiper-slide {
+            width: 300px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            /* 防止缩小 */
+            border: 1px solid #000;
+            background-color: #478703;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            text-align: center;
+            transition: .3s opacity;
+            transform: translate3d(0, 0, 0);
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 50%;
+            background: #000;
+            opacity: .2;
+            margin-right: 4px;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #007aff;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007aff;
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            margin-top: -12px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+            left: auto;
+        }
+
+        .swiper-button-next::after {
+            content: '>';
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+            right: auto;
+        }
+
+        .swiper-button-prev::after {
+            content: '<';
+        }
+    </style>
+</head>
+
+<body>
+    <swiper-container slides-per-view="3" speed="500">
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+    </swiper-container>
+    <div style="border:1px solid #ccc;width:300px;height:300px;padding:16px;margin:0 auto;background-color: #f0f0f0">
+        <div class="swiper-container">
+            <div class="swiper-container-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+            </div>
+            <div class="swiper-pagination">
+                <div class="swiper-pagination-bullet swiper-pagination-bullet-active"></div>
+                <div class="swiper-pagination-bullet"></div>
+                <div class="swiper-pagination-bullet"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <script>
+
+        function swiper() {
+            this.wrapper = document.querySelector('.swiper-container-wrapper');
+            this.slides = document.querySelectorAll('.swiper-slide');
+            this.pagination = document.querySelector('.swiper-pagination');
+            this.next = document.querySelector('.swiper-button-next');
+            this.prev = document.querySelector('.swiper-button-prev');
+            this.slideWidth = this.slides[0].offsetWidth;
+            this.slideCount = this.slides.length;
+            this.currentIndex = 0;
+            this.speed = 500;
+            this.init();
+        }
+
+        swiper.prototype.init = function () {
+            this.wrapper.style.width = this.slideWidth * this.slideCount + 'px';
+            this.wrapper.style.transform = `translate3d(-${this.slideWidth * this.currentIndex}px, 0, 0)`;
+            this.wrapper.style.transition = `transform ${this.speed}ms ease-in-out`;
+            this.next.addEventListener('click', () => {
+                this.nextSlide();
+            });
+            this.prev.addEventListener('click', () => {
+                this.prevSlide();
+            });
+            this.pagination.addEventListener('click', (e) => {
+                const index = e.target.dataset.index;
+                if (index) {
+                    this.goToSlide(index);
+                }
+            });
+            // 将第一个 slider 复制到最后
+            const firstSlide = this.slides[0].cloneNode(true);
+            this.wrapper.appendChild(firstSlide);
+            this.slideCount++;
+            this.pagination.innerHTML = '';
+            const bulletFragment = document.createDocumentFragment();
+            for (let i = 0; i < this.slideCount - 1; i++) {
+                const bullet = document.createElement('div');
+                bullet.classList.add('swiper-pagination-bullet');
+                bullet.dataset.index = i;
+                bulletFragment.appendChild(bullet);
+            }
+            bulletFragment.children[0].classList.add('swiper-pagination-bullet-active');
+            this.pagination.appendChild(bulletFragment);
+        }
+
+        swiper.prototype.nextSlide = function () {
+            this.currentIndex++;
+            // 判断是不是最后一个 如果最后一个，等动画执行完毕，瞬间跳到第一个
+            if (this.currentIndex >= this.slideCount) {
+                this.currentIndex = 0;
+                this.wrapper.style.transition = 'none';
+                this.wrapper.style.transform = `translate3d(-${this.slideWidth * this.currentIndex}px, 0, 0)`;
+                setTimeout(() => {
+                    this.wrapper.style.transition = `transform ${this.speed}ms ease-in-out`;
+                    this.currentIndex++;
+                    this.goToSlide(this.currentIndex);
+                }, 0);
+            } else {
+                this.goToSlide(this.currentIndex);
+            }
+        }
+
+        swiper.prototype.prevSlide = function () {
+            this.currentIndex--;
+            if (this.currentIndex < 0) {
+                this.currentIndex = this.slideCount - 1;
+            }
+            this.goToSlide(this.currentIndex);
+        }
+
+        swiper.prototype.goToSlide = function (index) {
+            this.currentIndex = index;
+            this.wrapper.style.transform = `translate3d(-${this.slideWidth * this.currentIndex}px, 0, 0)`;
+            this.setActivePagination();
+        }
+
+        swiper.prototype.setActivePagination = function () {
+            const paginationBullets = document.querySelectorAll('.swiper-pagination-bullet');
+            paginationBullets.forEach((bullet, index) => {
+                bullet.classList.remove('swiper-pagination-bullet-active');
+            });
+            if (this.currentIndex === this.slideCount - 1) {
+                paginationBullets[0].classList.add('swiper-pagination-bullet-active');
+                return;
+            }
+            paginationBullets.forEach((bullet, index) => {
+                if (index === this.currentIndex) {
+                    bullet.classList.add('swiper-pagination-bullet-active');
+                }
+            });
+        }
+
+        new swiper();
+    </script>
+</body>
+
+</html>

@@ -247,6 +247,74 @@
       </tags>
   </entry>
   <entry>
+    <title>前端面试100道手写题（7）—— 循环轮播图</title>
+    <url>/face100/7-loop-pic.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com" target="_blank" rel="noopener">Qborfy</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
+<p>手写难度：⭐️⭐️</p>
+<p>涉及知识点：</p>
+<ul>
+<li>循环播放的思路</li>
+<li>CSS 动画，transtion和 transform</li>
+<li>Web Component 自定义组件</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h1><p>大家最常用的轮播图基本上就是 <a href="https://github.com/nolimits4web/swiper" target="_blank" rel="noopener">swiper.js</a>，不仅适配 PC 端和移动端，同时包含多种实际应用场景。但是目前我们只需要实现其中一种场景即可——循环轮播图，大概示例图如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">swiper-container</span> <span class="attr">slides-per-view</span>=<span class="string">"3"</span> <span class="attr">speed</span>=<span class="string">"500"</span> <span class="attr">loop</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>Slide 3<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<script src="/code/swiper/swiper.js"></script>
+<swiper-container slides-per-view="3" speed="500" loop="true">
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide>Slide 4</swiper-slide>
+    <swiper-slide>Slide 5</swiper-slide>
+    <swiper-slide>Slide 6</swiper-slide>
+</swiper-container>
+
+
+<p>大概效果如下：<br><img src="/assets/img/7-loop-pic-0.gif" alt></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>在研究实现思路前，我们先确定一下要实现的目标，如下：</p>
+<ol>
+<li>采用<code>Web Component</code>去实现两个自定义标签<code>&lt;swiper-container&gt;</code> <code>&lt;swiper-slide&gt;</code></li>
+<li><code>&lt;swiper-container&gt;</code>标签支持属性配置，如：<code>speed</code> <code>loop</code></li>
+</ol>
+<p>实现思路如下：</p>
+<ul>
+<li><code>&lt;swiper-container&gt;</code>容器为 flex 容器，里面包含一个<code>wrapper</code>容器用于装载所有的<code>&lt;swiper-slide&gt;</code></li>
+<li><code>&lt;swiper-slide&gt;</code> 采用横向布局，当切换下一个的时候，使用<code>transform:translate(x,y)</code>将<code>wrapper</code>向左移动进行展示下一个<code>slide</code></li>
+<li>当<code>loop</code>为 true的时候，支持循环播放<ul>
+<li>循环播放逻辑为，在最后一个<code>&lt;swiper-slide&gt;</code>后面复制第一个<code>&lt;swiper-slide&gt;</code></li>
+<li>当最后一个继续点击next的时候，会把复制第一个展示</li>
+<li>当第一个（复制）展示后，点击下一步的时候，取消动画效果，将<code>wrapper</code>位置移动到第一个</li>
+<li>然后利用<code>setTimeout(0)</code>延时执行，增加动画动画效果，将<code>wrapper</code>位置移动到第二个</li>
+</ul>
+</li>
+</ul>
+<p>为了更好理解循环动画思路，为了更好的展示效果，我将<code>container</code>取消了<code>overflow:hidden</code>，具体动画如下：</p>
+<p><img src="/assets/img/7-loop-pic.gif" alt></p>
+<p>整个轮播图的 DOM 结构如下：</p>
+
+<div class="mxgraph-container">
+    <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:false,&quot;page&quot;:0,&quot;toolbar&quot;:&quot;lightbox zoom layers pages&quot;,&quot;url&quot;:&quot;/assets/drawio/loop-pic.drawio&quot;}"></div>
+</div>
+
+
+<h2 id="代码实践"><a href="#代码实践" class="headerlink" title="代码实践"></a>代码实践</h2><p>我们将通过<code>Web Component</code>规范去定义上述两个组件，分别是<code>&lt;swiper-container&gt;</code>和<code>&lt;swiper-slide&gt;</code></p>
+<h3 id="Swiper-Container组件"><a href="#Swiper-Container组件" class="headerlink" title="Swiper-Container组件"></a>Swiper-Container组件</h3><p>Swiper-Container 负责实现容器和控制轮播图滚动事件，具体代码如下：</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components" target="_blank" rel="noopener">Web Component 自定义组件</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>前端面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一次性完整学完搭建PWA项目</title>
     <url>/today/20230301.html</url>
     <content><![CDATA[<blockquote>
@@ -455,22 +523,6 @@
       <tags>
         <tag>技术分享</tag>
         <tag>每日更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端面试100道手写题（7）—— 循环轮播图</title>
-    <url>/face100/7-loop-pic.html</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
-<p>手写难度：⭐️⭐️</p>
-<p>涉及知识点：</p>
-<ul>
-<li>循环算法，最低复杂度</li>
-<li>CSS 动画</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>学习总结</tag>
-        <tag>前端面试</tag>
       </tags>
   </entry>
   <entry>
