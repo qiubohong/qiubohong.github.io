@@ -1,3 +1,6 @@
+/**
+ * 轮播组件，容器组件
+ */
 class SwiperContainer extends HTMLElement {
     constructor() {
         super();
@@ -5,9 +8,8 @@ class SwiperContainer extends HTMLElement {
         template.innerHTML = `
         <style>
             .swiper-container {
-                width: 300px;
+                width: 100%;
                 height: 300px;
-                /* padding: 16px; */
                 background-color: #ccc;
                 border: 1px dashed #000;
                 margin: 0 auto;
@@ -111,8 +113,11 @@ class SwiperContainer extends HTMLElement {
         this.speed = this.getAttribute('speed') || 500;
         this.currentIndex = 0;
     }
-
+    /**
+     * 当 custom element首次被插入文档DOM时，被调用。
+     */
     connectedCallback() {
+        // 由于 slot 的内容是异步的，所以需要等待 slot 的内容渲染完成后再初始化
         setTimeout(() => {
             this.wrapper = this.shadowRoot.querySelector('.swiper-container-wrapper');
             this.slides = this.querySelectorAll('swiper-slide');
@@ -129,22 +134,13 @@ class SwiperContainer extends HTMLElement {
         }, 0);
     }
 
+    /**
+     * 初始化操作
+     */
     init() {
         this.wrapper.style.width = this.slideWidth * this.slideCount + 'px';
         this.wrapper.style.transform = `translate3d(-${this.slideWidth * this.currentIndex}px, 0, 0)`;
         this.wrapper.style.transition = `transform ${this.speed}ms ease-in-out`;
-        this.next.addEventListener('click', () => {
-            this.nextSlide();
-        });
-        this.prev.addEventListener('click', () => {
-            this.prevSlide();
-        });
-        this.pagination.addEventListener('click', (e) => {
-            const index = e.target.dataset.index;
-            if (index) {
-                this.goToSlide(index);
-            }
-        });
         // 判断是否可以循环
         let slideCount = this.slideCount;
         if (this.slideCount > 1 && this.loop) {
@@ -161,7 +157,27 @@ class SwiperContainer extends HTMLElement {
         }
         bulletFragment.children[0].classList.add('swiper-pagination-bullet-active');
         this.pagination.appendChild(bulletFragment);
+
+        this.bindEvents();
     }
+
+    /**
+     * 绑定相关事件
+     */
+    bindEvents(){
+        this.next.addEventListener('click', () => {
+              this.nextSlide();
+          });
+          this.prev.addEventListener('click', () => {
+              this.prevSlide();
+          });
+          this.pagination.addEventListener('click', (e) => {
+              const index = e.target.dataset.index;
+              if (index) {
+                  this.goToSlide(index);
+              }
+          });
+      }
 
     /**
      * 将第一个 slider 复制到最后
@@ -172,11 +188,16 @@ class SwiperContainer extends HTMLElement {
         this.slideCount++;
     }
 
+    /**
+     * 跳转到下一个的 slider
+     */
     nextSlide() {
+        // 如果不是循环的，且已经是最后一个，就不执行
         if (!this.loop && this.currentIndex >= this.slideCount - 1) {
             return;
         }
         this.currentIndex++;
+        // 改变下一个 icon 的状态
         if (!this.loop && this.currentIndex >= this.slideCount - 1) {
             this.next.classList.add('swiper-button-next-disabled');
         } else {
@@ -199,6 +220,9 @@ class SwiperContainer extends HTMLElement {
         }
     }
 
+    /**
+     * 跳转到上一个的 slider 
+     */
     prevSlide() {
         if (!this.loop && this.currentIndex <= 0) {
             return;
@@ -216,12 +240,19 @@ class SwiperContainer extends HTMLElement {
         this.goToSlide(this.currentIndex);
     }
 
+    /**
+     * 跳转到指定的 slider
+     * @param {*} index 
+     */
     goToSlide(index) {
         this.currentIndex = index;
         this.wrapper.style.transform = `translate3d(-${this.slideWidth * this.currentIndex}px, 0, 0)`;
         this.setActivePagination();
     }
 
+    /**
+     *  设置当前的 pagination
+     */
     setActivePagination() {
         const paginationBullets = this.shadowRoot.querySelectorAll('.swiper-pagination-bullet');
         paginationBullets.forEach((bullet, index) => {
@@ -240,6 +271,9 @@ class SwiperContainer extends HTMLElement {
 
 }
 
+/**
+ * 轮播组件，子元素组件
+ */
 class SwiperSlide extends HTMLElement {
     constructor() {
         super();
@@ -247,13 +281,12 @@ class SwiperSlide extends HTMLElement {
         template.innerHTML = `
         <style>
         .swiper-slide {
-            width: 300px;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-shrink: 0;
             /* 防止缩小 */
+            flex-shrink: 0;
             border: 1px solid #000;
             background-color: #478703;
             color: #fff;
@@ -268,8 +301,15 @@ class SwiperSlide extends HTMLElement {
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.appendChild(templateContent.cloneNode(true));
     }
+    connectedCallback() {
+        // 设置 slide 的宽度
+        const swiperContainer = this.parentNode.shadowRoot.querySelector('.swiper-container');
+        const swiperSlide = this.shadowRoot.querySelector('.swiper-slide');
+        swiperSlide.style.width = `${swiperContainer.clientWidth}px`;
+    }
 }
 
-
+// 注册swiper-container组件
 customElements.define('swiper-container', SwiperContainer);
+// 注册swiper-slide组件
 customElements.define('swiper-slide', SwiperSlide);
