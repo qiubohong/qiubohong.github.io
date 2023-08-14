@@ -706,7 +706,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230306" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230303" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -714,8 +714,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230306.html" target="_blank">
-      微前端系列——结合Monorepo大仓架构实战
+	  <a class="article-title" href="/today/20230303.html" target="_blank">
+      如何搭建一套自己的Copilot
       
     </a>
   
@@ -725,7 +725,7 @@
 
   
   
-<a href="/today/20230306.html" class="archive-article-date">
+<a href="/today/20230303.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -738,7 +738,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -767,7 +768,210 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230306.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230303.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230106.html" target="_blank">
+      从审批流到bpmn-js入门
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230106.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>公司内部由于需要很多审批地方，一开始采用邮件或者企业微信进行口头审批，一般会抄送相关人员，以达到初步审批的效果，但是随着审批越来越复杂，比如有时候需要驳回或者转接，甚至需要调用其他系统接口继续流程的时候，就很麻烦，因此迫切需要一个工作流去解决审批相关事情。</p>
+<h1 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h1><p>在选型前，我们需要知道工作流是什么？</p>
+<h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>工作流就是通过计算机技术对业务流程进行自动化管理。实现多个参与者按照预定的流程去自动执行业务流程。</p>
+<blockquote>
+<p>工作流定义: 通过计算机对业务流程自动化执行管理</p>
+</blockquote>
+<p>再通俗一点，工作流就是通过程序去自动实现平时需要人工操作的流程节点，所以工作流能解决的问题一定是可以被流程化的问题。</p>
+<p>然而这一过程被大家统称为业务流程建模，通常对已经存在复杂问题进行模型化的抽象，通过模型来推导解决问题的方案。</p>
+    
+    <a class="article-more-a" href="/today/20230106.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230106.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230305.html" target="_blank">
+      Meteor.js尝鲜实战
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230305.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247493866&idx=1&sn=c4a3d5ddf6e3148360f3de9ea32e018f&chksm=cf0327d1f874aec72d630aa81d7b1b0b0961943287fbab023e6d39d466f33b642e12ca7f1ac0&token=953834215&lang=zh_CN#rd" target="_blank" rel="noopener">把 puppeteer 融入调试流程，调试体验爽翻了！</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230305.html">展开全文 >></a>
     </p>
     
 
@@ -899,7 +1103,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230303" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230220" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -907,8 +1111,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230303.html" target="_blank">
-      如何搭建一套自己的Copilot
+	  <a class="article-title" href="/today/20230220.html" target="_blank">
+      前端快速入门搭建Prometheus监控系统
       
     </a>
   
@@ -918,7 +1122,7 @@
 
   
   
-<a href="/today/20230303.html" class="archive-article-date">
+<a href="/today/20230220.html" class="archive-article-date">
         <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
 </a>
 
@@ -931,317 +1135,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230303.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230302" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230302.html" target="_blank">
-      Vue冷知识系列之Suspense和defineAsyncComponent
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230302.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com" target="_blank" rel="noopener">Qborfy</a></p>
-</blockquote>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/" target="_blank" rel="noopener">盘点开源“Copilot”，do it yourself</a><br><a href="https://blog.csdn.net/gel1234/article/details/127050405" target="_blank" rel="noopener">如何搭建免费的GitHub Copilot？</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230302.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230105" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230105.html" target="_blank">
-      从短视频到短视频思维
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230105.html" class="archive-article-date">
-        <time datetime="2023-01-05T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="短视频的背景"><a href="#短视频的背景" class="headerlink" title="短视频的背景"></a>短视频的背景</h1><h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><p>人类的需求——记录、表达、分享</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>智能手机普及</li>
-<li>法律法规允许</li>
-<li>大数据、AI算法成熟</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230105.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">短视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230105.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230104" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230104.html" target="_blank">
-      从尝试搭建NAS了解各类云硬盘协议（一）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230104.html" class="archive-article-date">
-        <time datetime="2023-01-04T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="NAS-是什么"><a href="#NAS-是什么" class="headerlink" title="NAS 是什么"></a>NAS 是什么</h1><p>NAS，全称Network Attached Storage，中文名： 网络附属存储。</p>
-<p>可以理解成是长时间联网的存储设备，比如你有个硬盘，里面存储了一些教学视频，你想要别的地方去访问，比如在手机或者电脑上访问，那么NAS就能够解决你这个问题的解决方案。</p>
-<p>NAS可以解决什么场景痛点：</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。</p>
+<p>目前市面上主流的监控开源方案选择：</p>
 <ul>
-<li>你的照片、视频可以随时上传，大小、题材不限制</li>
-<li>访问速度快，尤其在家的时候局域网更快</li>
-<li>信息安全，不再担心你的信息被云盘厂商泄露</li>
+<li>Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统</li>
+<li>Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案</li>
+<li>LightHouse，专用于前端页面性能监控，并可以生成对应报告的</li>
+<li>Sentry，提供了检测和解决影响用户体验的错误和其他问题的工具</li>
 </ul>
+<p>其中 Promethues 对比其他方案来说功能更加全面，因为它的生态更加完整，支持各类数据进行上报，对后续整个监控平台有更好的可扩展性。</p>
     
-    <a class="article-more-a" href="/today/20230104.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230220.html#more">more >></a>
     
     
     
@@ -1257,11 +1161,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动手实战</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
       		
 		</ul>
@@ -1271,7 +1175,103 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230104.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230220.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230306" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230306.html" target="_blank">
+      微前端系列——结合Monorepo大仓架构实战
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230306.html" class="archive-article-date">
+        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230306.html">展开全文 >></a>
     </p>
     
 
@@ -1303,7 +1303,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
