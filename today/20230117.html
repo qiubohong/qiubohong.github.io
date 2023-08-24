@@ -11,22 +11,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
-<meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解React中Fiber架构(一)">
 <meta property="og:url" content="https://www.qborfy.com/today/20230117.html">
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-1.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-3.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-4.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-5.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230117-2.png">
-<meta property="og:updated_time" content="2023-01-18T16:13:25.546Z">
+<meta property="article:published_time" content="2023-01-17T10:00:01.000Z">
+<meta property="article:modified_time" content="2023-01-18T16:13:25.546Z">
+<meta property="article:author" content="qborfy">
+<meta property="article:tag" content="技术分享">
+<meta property="article:tag" content="每日更新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解React中Fiber架构(一)">
-<meta name="twitter:description" content="背景自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标快速响应，原先Diff算法时间复杂度为$$ O(n^3)$$ ，最后经过Fiber重构达到了$$ O(n) $$">
 <meta name="twitter:image" content="https://www.qborfy.com/assets/img/20230117-1.png">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
@@ -104,19 +105,19 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/每日更新/" target="_blank">每日更新</a></li>
+				<li><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/" target="_blank">每日更新</a></li>
 			
-				<li><a href="/tags/技术分享/" target="_blank">技术分享</a></li>
+				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" target="_blank">技术分享</a></li>
 			
-				<li><a href="/tags/学习总结/" target="_blank">学习总结</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_blank">学习总结</a></li>
 			
-				<li><a href="/tags/低代码/" target="_blank">低代码</a></li>
+				<li><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" target="_blank">低代码</a></li>
 			
-				<li><a href="/tags/架构系列/" target="_blank">架构系列</a></li>
+				<li><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/" target="_blank">架构系列</a></li>
 			
-				<li><a href="/tags/奇思妙想/" target="_blank">奇思妙想</a></li>
+				<li><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" target="_blank">奇思妙想</a></li>
 			
-				<li><a href="/tags/翻译文章/" target="_blank">翻译文章</a></li>
+				<li><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/" target="_blank">翻译文章</a></li>
 			
 				<li><a href="/fedlearn/" target="_blank">前端基础巩固</a></li>
 			
@@ -260,23 +261,23 @@
 				
 					<li style="width: 10%"><a href="/">主页</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/">每日更新</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/低代码/">低代码</a></li>
+					<li style="width: 10%"><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/">低代码</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/架构系列/">架构系列</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/">架构系列</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">奇思妙想</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 10%"><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/">翻译文章</a></li>
 		        
 					<li style="width: 10%"><a href="/fedlearn/">前端基础巩固</a></li>
 		        
-					<li style="width: 10%"><a href="https://week.qborfy.com">网站收集</a></li>
+					<li style="width: 10%"><a target="_blank" rel="noopener" href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -286,26 +287,6 @@
 </nav>
 
       
-        <div class="page-header" style="">
-            
-            <script type="text/javascript" src="/js/search.js"></script>
-            <div id="local-search" class="local-search local-search-plugin" style="">
-              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
-              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
-              <div id="local-search-result" class="local-search-result-cls"></div>
-            </div>
-        
-            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-            <script>
-                if ($('.local-search').size()) {
-                  $.getScript('/search/search.js', function() {
-                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
-                  });
-                }
-            </script>
-            
-        </div>
-        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -737,7 +718,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么"><span class="toc-number">2.1.</span> <span class="toc-text">为什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置知识"><span class="toc-number">3.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单线程的-JavaScript-与多线程的浏览器"><span class="toc-number">3.1.</span> <span class="toc-text">单线程的 JavaScript 与多线程的浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-生命周期"><span class="toc-number">3.2.</span> <span class="toc-text">React 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React15的生命周期"><span class="toc-number">3.2.1.</span> <span class="toc-text">React15的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React16生命周期"><span class="toc-number">3.2.2.</span> <span class="toc-text">React16生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-虚拟DOM"><span class="toc-number">3.3.</span> <span class="toc-text">React 虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stack-Reconciler-栈协调器"><span class="toc-number">3.4.</span> <span class="toc-text">Stack Reconciler(栈协调器)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fiber架构"><span class="toc-number">4.</span> <span class="toc-text">Fiber架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">4.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么解决问题"><span class="toc-number">4.2.</span> <span class="toc-text">怎么解决问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#额外话题（Vue-js对比）"><span class="toc-number">6.</span> <span class="toc-text">额外话题（Vue.js对比）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础概念"><span class="toc-number">6.1.</span> <span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AOT-vs-JIT"><span class="toc-number">6.1.1.</span> <span class="toc-text">AOT vs JIT</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">为什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84-JavaScript-%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">单线程的 JavaScript 与多线程的浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">3.2.</span> <span class="toc-text">React 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React15%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">React15的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React16%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text">React16生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E8%99%9A%E6%8B%9FDOM"><span class="toc-number">3.3.</span> <span class="toc-text">React 虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stack-Reconciler-%E6%A0%88%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">Stack Reconciler(栈协调器)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fiber%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">Fiber架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-number">4.2.</span> <span class="toc-text">怎么解决问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E8%AF%9D%E9%A2%98%EF%BC%88Vue-js%E5%AF%B9%E6%AF%94%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">额外话题（Vue.js对比）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">6.1.</span> <span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AOT-vs-JIT"><span class="toc-number">6.1.1.</span> <span class="toc-text">AOT vs JIT</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -799,7 +780,7 @@ gitalk.render('gitalk-container')
   </div>
 
   <div>
-	<a href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
+	<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   
@@ -972,14 +953,6 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">低代码系列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">低代码系列目录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
@@ -989,6 +962,10 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">qborfy周刊</a>
               </li>
             
             <div class="clearfix"></div>

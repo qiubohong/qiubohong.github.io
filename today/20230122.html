@@ -11,17 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
-<meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从nest.js中了解IoC和DI的实现">
 <meta property="og:url" content="https://www.qborfy.com/today/20230122.html">
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-01-28T17:56:30.263Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-22T10:00:01.000Z">
+<meta property="article:modified_time" content="2023-08-15T04:06:35.339Z">
+<meta property="article:author" content="qborfy">
+<meta property="article:tag" content="技术分享">
+<meta property="article:tag" content="每日更新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从nest.js中了解IoC和DI的实现">
-<meta name="twitter:description" content="背景从上一篇《从egg.js转到nest.js》，想对其再深入了解一下，尤其比较好奇Typescript是如何实现IoC和DI，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。 前置知识在了解实现原理之前有几个知识概念，需要了解一下：  IoC和DI JavaScript的Reflect TypeScript的装">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -98,19 +99,19 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/每日更新/" target="_blank">每日更新</a></li>
+				<li><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/" target="_blank">每日更新</a></li>
 			
-				<li><a href="/tags/技术分享/" target="_blank">技术分享</a></li>
+				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" target="_blank">技术分享</a></li>
 			
-				<li><a href="/tags/学习总结/" target="_blank">学习总结</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_blank">学习总结</a></li>
 			
-				<li><a href="/tags/低代码/" target="_blank">低代码</a></li>
+				<li><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" target="_blank">低代码</a></li>
 			
-				<li><a href="/tags/架构系列/" target="_blank">架构系列</a></li>
+				<li><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/" target="_blank">架构系列</a></li>
 			
-				<li><a href="/tags/奇思妙想/" target="_blank">奇思妙想</a></li>
+				<li><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" target="_blank">奇思妙想</a></li>
 			
-				<li><a href="/tags/翻译文章/" target="_blank">翻译文章</a></li>
+				<li><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/" target="_blank">翻译文章</a></li>
 			
 				<li><a href="/fedlearn/" target="_blank">前端基础巩固</a></li>
 			
@@ -254,23 +255,23 @@
 				
 					<li style="width: 10%"><a href="/">主页</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/">每日更新</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/低代码/">低代码</a></li>
+					<li style="width: 10%"><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/">低代码</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/架构系列/">架构系列</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/">架构系列</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">奇思妙想</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 10%"><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/">翻译文章</a></li>
 		        
 					<li style="width: 10%"><a href="/fedlearn/">前端基础巩固</a></li>
 		        
-					<li style="width: 10%"><a href="https://week.qborfy.com">网站收集</a></li>
+					<li style="width: 10%"><a target="_blank" rel="noopener" href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -280,26 +281,6 @@
 </nav>
 
       
-        <div class="page-header" style="">
-            
-            <script type="text/javascript" src="/js/search.js"></script>
-            <div id="local-search" class="local-search local-search-plugin" style="">
-              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
-              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
-              <div id="local-search-result" class="local-search-result-cls"></div>
-            </div>
-        
-            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-            <script>
-                if ($('.local-search').size()) {
-                  $.getScript('/search/search.js', function() {
-                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
-                  });
-                }
-            </script>
-            
-        </div>
-        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -366,14 +347,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从上一篇<a href="/2023/01/10/today/20220110/">《从egg.js转到nest.js》</a>，想对其再深入了解一下，尤其比较好奇Typescript是如何实现<code>IoC</code>和<code>DI</code>，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从上一篇<a target="_blank" rel="noopener" href="https://qborfy.com/today/20220110.html">《从egg.js转到nest.js》</a>，想对其再深入了解一下，尤其比较好奇Typescript是如何实现<code>IoC</code>和<code>DI</code>，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。</p>
 <h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>在了解实现原理之前有几个知识概念，需要了解一下：</p>
 <ul>
 <li>IoC和DI</li>
 <li>JavaScript的Reflect</li>
 <li>TypeScript的装饰器</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="IoC和DI"><a href="#IoC和DI" class="headerlink" title="IoC和DI"></a>IoC和DI</h2><p>IoC和DI其实同属于一个技术理念，下面维基百科的介绍：</p>
 <blockquote>
@@ -425,8 +406,7 @@
 <li><code>Reflect.defineMetadata(metadataKey, metadataValue, target, propertyKey);</code>, 用于设置某个类的元数据</li>
 </ul>
 <p>简单理解这个api方法，你可以通过<code>Reflect.defineMetadata</code>获取到类或者函数的参数类型，也可以给类或者函数设置元数据再获取，具体代码如下：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Prop</span>(<span class="params"></span>): <span class="title">PropertyDecorator</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">target, key: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">type</span> = Reflect.getMetadata(<span class="string">'design:type'</span>, target, key);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span> type: <span class="subst">$&#123;<span class="keyword">type</span>.name&#125;</span>`</span>);</span><br><span class="line">    <span class="comment">// other...</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> SomeClass &#123;</span><br><span class="line">  <span class="meta">@Prop</span>()</span><br><span class="line">  <span class="keyword">public</span> Aprop!: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Prop</span>(<span class="params"></span>): <span class="title class_">PropertyDecorator</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">target, key: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">type</span> = <span class="title class_">Reflect</span>.<span class="title function_">getMetadata</span>(<span class="string">&#x27;design:type&#x27;</span>, target, key);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;key&#125;</span> type: <span class="subst">$&#123;<span class="keyword">type</span>.name&#125;</span>`</span>);</span><br><span class="line">    <span class="comment">// other...</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span> &#123;</span><br><span class="line">  <span class="meta">@Prop</span>()</span><br><span class="line">  <span class="keyword">public</span> <span class="title class_">Aprop</span>!: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>TypeScript 的优势了，TypeScript 支持编译时自动添加一些 metadata 数据，如下所示：</p>
 <ul>
 <li><code>Reflect.getMetadata(&quot;design:type&quot;, target, key)</code>， 获取target函数类型</li>
@@ -439,7 +419,7 @@
 </blockquote>
 <p>如何实现一个装饰器呢？</p>
 <p>如果我们要定制一个修饰器如何应用到一个声明上，我们得写一个装饰器工厂函数。 装饰器工厂就是一个简单的函数，它返回一个表达式，以供装饰器在运行时调用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">color</span>(<span class="params">value: string</span>) </span>&#123; <span class="comment">// 这是一个装饰器工厂</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target</span>) </span>&#123; <span class="comment">//  这是装饰器</span></span><br><span class="line">        <span class="comment">// do something with "target" and "value"...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@color(<span class="string">'blue'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">color</span>(<span class="params">value: string</span>) &#123; <span class="comment">// 这是一个装饰器工厂</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">target</span>) &#123; <span class="comment">//  这是装饰器</span></span><br><span class="line">        <span class="comment">// do something with &quot;target&quot; and &quot;value&quot;...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="title function_">color</span>(<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="IoC和DI实现原理"><a href="#IoC和DI实现原理" class="headerlink" title="IoC和DI实现原理"></a>IoC和DI实现原理</h1><p>其实在了解完<code>Reflect.getMetadata</code>，我们就大概知道IoC和DI的实现原理，我们以一个<code>@Controller</code>为例, 具体步骤如下：</p>
 <ul>
@@ -448,7 +428,7 @@
 <li>获取待注入的类其构造函数所需要的参数类型，并实例化，返回待注入的类</li>
 </ul>
 <p>具体代码如下：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现Controller装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Controller</span>(<span class="params">path: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">        Reflect.defineMetadata(<span class="string">'Controller'</span>, path, target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要依赖注入的类</span></span><br><span class="line"><span class="keyword">class</span> A()&#123;</span><br><span class="line">    say()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'aaaaaa'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用</span></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">class</span> Demo()&#123;</span><br><span class="line">    construtor(a: A )&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    say()&#123;</span><br><span class="line">        <span class="keyword">this</span>.a.say();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现Ioc容器和DI依赖注入</span></span><br><span class="line"><span class="keyword">class</span> Container &#123;</span><br><span class="line">  provides = <span class="keyword">new</span> Map()</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 注册要被依赖注入类，形成IoC容器 后续可以做</span></span><br><span class="line">  addProvide(provider) &#123;</span><br><span class="line">    <span class="keyword">this</span>.provides.set(provider.name, provider)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 注入依赖类</span></span><br><span class="line">  inject(target) &#123;</span><br><span class="line">      <span class="comment">// 获取参数类型</span></span><br><span class="line">      <span class="keyword">const</span> paramTypes = Reflect.getMetadata(<span class="string">'design:paramtypes'</span>, target) || []</span><br><span class="line">      <span class="keyword">const</span> args = paramTypes.map(<span class="function">(<span class="params"><span class="keyword">type</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">type</span>() <span class="comment">// 简单做一下实例化</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">return</span> Reflect.construct(target, args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> container = <span class="keyword">new</span> Container()</span><br><span class="line"><span class="keyword">const</span> project = container.inject(Project)</span><br><span class="line"></span><br><span class="line"><span class="comment">// project就是最终生成返回使用的类</span></span><br><span class="line"></span><br><span class="line">project.say(); <span class="comment">// 输出 aaaaaa</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现Controller装饰器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Controller</span>(<span class="params">path: <span class="built_in">string</span></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">target</span>)&#123;</span><br><span class="line">        <span class="title class_">Reflect</span>.<span class="title function_">defineMetadata</span>(<span class="string">&#x27;Controller&#x27;</span>, path, target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要依赖注入的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>()&#123;</span><br><span class="line">    <span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;aaaaaa&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用</span></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">&quot;/api&quot;</span>)</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span>()&#123;</span><br><span class="line">    <span class="title function_">construtor</span>(<span class="params">a: A </span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">a</span> = A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">a</span>.<span class="title function_">say</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现Ioc容器和DI依赖注入</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Container</span> &#123;</span><br><span class="line">  provides = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 注册要被依赖注入类，形成IoC容器 后续可以做</span></span><br><span class="line">  <span class="title function_">addProvide</span>(<span class="params">provider</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">provides</span>.<span class="title function_">set</span>(provider.<span class="property">name</span>, provider)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 注入依赖类</span></span><br><span class="line">  <span class="title function_">inject</span>(<span class="params">target</span>) &#123;</span><br><span class="line">      <span class="comment">// 获取参数类型</span></span><br><span class="line">      <span class="keyword">const</span> paramTypes = <span class="title class_">Reflect</span>.<span class="title function_">getMetadata</span>(<span class="string">&#x27;design:paramtypes&#x27;</span>, target) || []</span><br><span class="line">      <span class="keyword">const</span> args = paramTypes.<span class="title function_">map</span>(<span class="function">(<span class="params"><span class="keyword">type</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">type</span>() <span class="comment">// 简单做一下实例化</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">construct</span>(target, args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> container = <span class="keyword">new</span> <span class="title class_">Container</span>()</span><br><span class="line"><span class="keyword">const</span> project = container.<span class="title function_">inject</span>(<span class="title class_">Project</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// project就是最终生成返回使用的类</span></span><br><span class="line"></span><br><span class="line">project.<span class="title function_">say</span>(); <span class="comment">// 输出 aaaaaa</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>所以Nest.js实现IoC和DI的核心实现原理：</p>
 <ul>
@@ -456,7 +436,7 @@
 <li>运行的时候通过这些元数据来实现依赖的扫描，对象的创建等等功能</li>
 </ul>
 <p>当然，还有很多问题没解决，目前只是简单实现了依赖注入，上述IoC的问题还没有解决，由于篇幅较长，所以拆成几篇，放到后续继续研究。</p>
-
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">
@@ -647,7 +627,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置知识"><span class="toc-number">2.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC和DI"><span class="toc-number">2.1.</span> <span class="toc-text">IoC和DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IoC"><span class="toc-number">2.1.1.</span> <span class="toc-text">IoC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI"><span class="toc-number">2.1.2.</span> <span class="toc-text">DI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">2.1.3.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript的Reflect"><span class="toc-number">2.2.</span> <span class="toc-text">JavaScript的Reflect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript的装饰器"><span class="toc-number">2.3.</span> <span class="toc-text">TypeScript的装饰器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IoC和DI实现原理"><span class="toc-number">3.</span> <span class="toc-text">IoC和DI实现原理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC%E5%92%8CDI"><span class="toc-number">2.1.</span> <span class="toc-text">IoC和DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IoC"><span class="toc-number">2.1.1.</span> <span class="toc-text">IoC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI"><span class="toc-number">2.1.2.</span> <span class="toc-text">DI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.3.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E7%9A%84Reflect"><span class="toc-number">2.2.</span> <span class="toc-text">JavaScript的Reflect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">TypeScript的装饰器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IoC%E5%92%8CDI%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">IoC和DI实现原理</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -709,7 +689,7 @@ gitalk.render('gitalk-container')
   </div>
 
   <div>
-	<a href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
+	<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   
@@ -882,14 +862,6 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">低代码系列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">低代码系列目录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
@@ -899,6 +871,10 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">qborfy周刊</a>
               </li>
             
             <div class="clearfix"></div>

@@ -2,15 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.qborfy.com/today/20230302.html</loc>
-    <lastmod>2023-08-14</lastmod>
+    <lastmod>2023-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/think-framework.html</loc>
+    <lastmod>2023-08-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/ideas/20230809.html</loc>
+    <lastmod>2023-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/framework/framework-k8s-study.html</loc>
+    <lastmod>2023-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/wx/20230815.html</loc>
+    <lastmod>2023-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230122.html</loc>
+    <lastmod>2023-08-15</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/face100/8-lazy-load.html</loc>
     <lastmod>2023-08-10</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230809.html</loc>
-    <lastmod>2023-08-09</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/face100/7-loop-pic.html</loc>
@@ -283,10 +299,6 @@
   <url>
     <loc>https://www.qborfy.com/today/20230129.html</loc>
     <lastmod>2023-01-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230122.html</loc>
-    <lastmod>2023-01-28</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/share/hexo-search.html</loc>

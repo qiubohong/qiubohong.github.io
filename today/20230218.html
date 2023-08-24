@@ -11,17 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
-<meta name="keywords" content="技术分享,每日更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现一个JS引擎竟如此简单">
 <meta property="og:url" content="https://www.qborfy.com/today/20230218.html">
 <meta property="og:site_name" content="qborfy知识库">
 <meta property="og:description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-03-01T12:31:54.962Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-27T10:00:01.000Z">
+<meta property="article:modified_time" content="2023-03-01T12:31:54.962Z">
+<meta property="article:author" content="qborfy">
+<meta property="article:tag" content="技术分享">
+<meta property="article:tag" content="每日更新">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现一个JS引擎竟如此简单">
-<meta name="twitter:description" content="背景这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。于是从上网找了一个giao-js，感觉还不错，因此想学习一下。 JS引擎之前有篇文章理解React中Fiber架构(一)中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。 一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：  GUI 渲染线程，负责渲染浏">
   
     <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
   
@@ -98,19 +99,19 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/每日更新/" target="_blank">每日更新</a></li>
+				<li><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/" target="_blank">每日更新</a></li>
 			
-				<li><a href="/tags/技术分享/" target="_blank">技术分享</a></li>
+				<li><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" target="_blank">技术分享</a></li>
 			
-				<li><a href="/tags/学习总结/" target="_blank">学习总结</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_blank">学习总结</a></li>
 			
-				<li><a href="/tags/低代码/" target="_blank">低代码</a></li>
+				<li><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" target="_blank">低代码</a></li>
 			
-				<li><a href="/tags/架构系列/" target="_blank">架构系列</a></li>
+				<li><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/" target="_blank">架构系列</a></li>
 			
-				<li><a href="/tags/奇思妙想/" target="_blank">奇思妙想</a></li>
+				<li><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" target="_blank">奇思妙想</a></li>
 			
-				<li><a href="/tags/翻译文章/" target="_blank">翻译文章</a></li>
+				<li><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/" target="_blank">翻译文章</a></li>
 			
 				<li><a href="/fedlearn/" target="_blank">前端基础巩固</a></li>
 			
@@ -254,23 +255,23 @@
 				
 					<li style="width: 10%"><a href="/">主页</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/每日更新/">每日更新</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/">每日更新</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/技术分享/">技术分享</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/学习总结/">学习总结</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/低代码/">低代码</a></li>
+					<li style="width: 10%"><a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/">低代码</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/架构系列/">架构系列</a></li>
+					<li style="width: 10%"><a href="/tags/%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97/">架构系列</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/奇思妙想/">奇思妙想</a></li>
+					<li style="width: 10%"><a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">奇思妙想</a></li>
 		        
-					<li style="width: 10%"><a href="/tags/翻译文章/">翻译文章</a></li>
+					<li style="width: 10%"><a href="/tags/%E7%BF%BB%E8%AF%91%E6%96%87%E7%AB%A0/">翻译文章</a></li>
 		        
 					<li style="width: 10%"><a href="/fedlearn/">前端基础巩固</a></li>
 		        
-					<li style="width: 10%"><a href="https://week.qborfy.com">网站收集</a></li>
+					<li style="width: 10%"><a target="_blank" rel="noopener" href="https://week.qborfy.com">网站收集</a></li>
 		        
 				</ul>
 			</nav>
@@ -280,26 +281,6 @@
 </nav>
 
       
-        <div class="page-header" style="">
-            
-            <script type="text/javascript" src="/js/search.js"></script>
-            <div id="local-search" class="local-search local-search-plugin" style="">
-              <input type="search" placeholder="请输入要查询文章的关键字" id="local-search-input" class="local-search-input-cls" style="">
-              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
-              <div id="local-search-result" class="local-search-result-cls"></div>
-            </div>
-        
-            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-            <script>
-                if ($('.local-search').size()) {
-                  $.getScript('/search/search.js', function() {
-                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
-                  });
-                }
-            </script>
-            
-        </div>
-        
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
@@ -742,8 +723,8 @@
     </a>
   
   
-    <a href="/framework/frontend-microapp-3.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端架构成长之路——Nest.js微服务架构实战</div>
+    <a href="/framework/frontend-microapp-1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端架构成长之路——微前端架构理论篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -770,7 +751,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS引擎"><span class="toc-number">2.</span> <span class="toc-text">JS引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#词法分析"><span class="toc-number">3.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法解析"><span class="toc-number">4.</span> <span class="toc-text">语法解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AST语法树"><span class="toc-number">4.1.</span> <span class="toc-text">AST语法树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">4.2.</span> <span class="toc-text">实现原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解释器"><span class="toc-number">5.</span> <span class="toc-text">解释器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量和作用域"><span class="toc-number">5.1.</span> <span class="toc-text">变量和作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#上下文This"><span class="toc-number">5.1.1.</span> <span class="toc-text">上下文This</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他类型解释"><span class="toc-number">5.2.</span> <span class="toc-text">其他类型解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#条件判断"><span class="toc-number">5.2.1.</span> <span class="toc-text">条件判断</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript-规范"><span class="toc-number">6.1.</span> <span class="toc-text">ECMAScript 规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#能做什么"><span class="toc-number">6.2.</span> <span class="toc-text">能做什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%BC%95%E6%93%8E"><span class="toc-number">2.</span> <span class="toc-text">JS引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">语法解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AST%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="toc-number">4.1.</span> <span class="toc-text">AST语法树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">实现原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">解释器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">5.1.</span> <span class="toc-text">变量和作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87This"><span class="toc-number">5.1.1.</span> <span class="toc-text">上下文This</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E8%A7%A3%E9%87%8A"><span class="toc-number">5.2.</span> <span class="toc-text">其他类型解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-number">5.2.1.</span> <span class="toc-text">条件判断</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript-%E8%A7%84%E8%8C%83"><span class="toc-number">6.1.</span> <span class="toc-text">ECMAScript 规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">6.2.</span> <span class="toc-text">能做什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -832,7 +813,7 @@ gitalk.render('gitalk-container')
   </div>
 
   <div>
-	<a href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
+	<a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">粤ICP备2023003460号</a> 
   </div>
   
   
@@ -1005,14 +986,6 @@ gitalk.render('gitalk-container')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">低代码系列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">低代码系列目录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
@@ -1022,6 +995,10 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">qborfy周刊</a>
               </li>
             
             <div class="clearfix"></div>

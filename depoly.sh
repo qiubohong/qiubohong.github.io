@@ -1,6 +1,6 @@
 source ~/.bash_profile
 cd source
-nvm use v10.15.3
+nvm use v12.22.12
 npm run deploy
 cd ../
 git add . *
