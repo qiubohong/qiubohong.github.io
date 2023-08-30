@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/monorepo-polyrepo.svg">
 <meta property="article:published_time" content="2023-01-07T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-03-23T13:19:43.972Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.484Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -354,7 +354,7 @@
 <h1 id="npm依赖"><a href="#npm依赖" class="headerlink" title="npm依赖"></a>npm依赖</h1><h2 id="npm是什么"><a href="#npm是什么" class="headerlink" title="npm是什么"></a>npm是什么</h2><blockquote>
 <p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>通俗的说，npm是管理js包的工具，它包括以下几个部分：</p>
 <ol>
@@ -438,7 +438,7 @@
 <li>需要更复杂的 CI 设置</li>
 <li>需要考虑代码架构大规模的改变</li>
 </ul>
-<h1 id="monorepo实战"><a href="#monorepo实战" class="headerlink" title="monorepo实战"></a>monorepo实战</h1><p>作为前端开发者，<a href="https://lerna.js.org" target="_blank" rel="noopener">Lerna</a>框架是肯定要尝试一番，同时功能比较齐全的<a href>Nx</a>框架要去体验一番。</p>
+<h1 id="monorepo实战"><a href="#monorepo实战" class="headerlink" title="monorepo实战"></a>monorepo实战</h1><p>作为前端开发者，<a target="_blank" rel="noopener" href="https://lerna.js.org">Lerna</a>框架是肯定要尝试一番，同时功能比较齐全的<a href="">Nx</a>框架要去体验一番。</p>
 <p>但是其实两者的关系非常紧密，都是同一个公司<code>Nrwl</code>开发的，所以有很多类似点。</p>
 <h2 id="Lerna"><a href="#Lerna" class="headerlink" title="Lerna"></a>Lerna</h2><p>快速开始安装</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx lerna init</span><br></pre></td></tr></table></figure>
@@ -451,10 +451,10 @@
 <li>npx 可以在不指定项目中的确切位置或使用别名的情况下运行正确版本的工具，比如<code>npx lerna init</code>命令会执行去npm源安装<code>lerna-cli</code>命令工具到本地，然后执行<code>lerna init</code>命令</li>
 </ul>
 <p>安装完以后，项目的初始化架构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">packages/</span><br><span class="line">    header/</span><br><span class="line">        src/</span><br><span class="line">            ...</span><br><span class="line">        package.json</span><br><span class="line">        rollup.config.json</span><br><span class="line">        jest.config.js</span><br><span class="line"></span><br><span class="line">    footer/</span><br><span class="line">        src/</span><br><span class="line">            ...</span><br><span class="line">        package.json</span><br><span class="line">        rollup.config.json</span><br><span class="line">        jest.config.js</span><br><span class="line"></span><br><span class="line">    remixapp/</span><br><span class="line">        app/</span><br><span class="line">            ...</span><br><span class="line">        public/</span><br><span class="line">        package.json</span><br><span class="line">        remix.config.js</span><br><span class="line"></span><br><span class="line">package.json</span><br><span class="line">lerna.json # 需要自己手动新建， 用来描述</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">packages/</span><br><span class="line">    header/</span><br><span class="line">        src/</span><br><span class="line">            ...</span><br><span class="line">        package.json</span><br><span class="line">        rollup.config.json</span><br><span class="line">        jest.config.js</span><br><span class="line"></span><br><span class="line">    footer/</span><br><span class="line">        src/</span><br><span class="line">            ...</span><br><span class="line">        package.json</span><br><span class="line">        rollup.config.json</span><br><span class="line">        jest.config.js</span><br><span class="line"></span><br><span class="line">    remixapp/</span><br><span class="line">        app/</span><br><span class="line">            ...</span><br><span class="line">        public/</span><br><span class="line">        package.json</span><br><span class="line">        remix.config.js</span><br><span class="line"></span><br><span class="line">package.json</span><br><span class="line">lerna.json # 需要自己手动新建， 用来描述</span><br></pre></td></tr></table></figure>
 
 <p>修改<code>package.json</code>，去添加一个npm/yarn/pnpm workspace</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;root&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;workspaces&quot;: [&quot;packages/*&quot;],</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;lerna&quot;: &quot;6.0.1&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;root&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;workspaces&quot;: [&quot;packages/*&quot;],</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;lerna&quot;: &quot;6.0.1&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h2><ul>
 <li><code>lerna run xxx</code>： 统一执行所有子项目的scripts命令，如：lerna run build</li>
@@ -463,20 +463,20 @@
 <li><code>npx lerna publish --no-private</code>: 统一发布npm包</li>
 <li><code>npx lerna run xxx --scope=header</code>：允许只针对某个子项目header执行命令</li>
 </ul>
-<p>其他命令可以到官网查看， <a href="https://lerna.js.org/docs/api-reference/commands" target="_blank" rel="noopener">Lerna命令</a></p>
+<p>其他命令可以到官网查看， <a target="_blank" rel="noopener" href="https://lerna.js.org/docs/api-reference/commands">Lerna命令</a></p>
 <h2 id="NX"><a href="#NX" class="headerlink" title="NX"></a>NX</h2><p>官网里定义是：</p>
 <blockquote>
-<p><a href="https://nx.dev/" target="_blank" rel="noopener">NX</a>是一个智能、快速和可扩展的构建系统，具有一流的Monorepo支持和强大的集成。</p>
+<p><a target="_blank" rel="noopener" href="https://nx.dev/">NX</a>是一个智能、快速和可扩展的构建系统，具有一流的Monorepo支持和强大的集成。</p>
 </blockquote>
 <p>实战步骤如下：</p>
 <p>创建一个新工作区：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-nx-workspace@latest package-based --preset=npm</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-nx-workspace@latest package-based --preset=npm</span><br></pre></td></tr></table></figure>
 
 <p>然后在<code>packages</code>创建自己的子项目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package-based/</span><br><span class="line">├── packages/</span><br><span class="line">│   └── is-even/</span><br><span class="line">│       ├── index.ts</span><br><span class="line">│       └── package.json</span><br><span class="line">│   └── is-odd/</span><br><span class="line">│       ├── index.ts</span><br><span class="line">│       └── package.json</span><br><span class="line">├── nx.json</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package-based/</span><br><span class="line">├── packages/</span><br><span class="line">│   └── is-even/</span><br><span class="line">│       ├── index.ts</span><br><span class="line">│       └── package.json</span><br><span class="line">│   └── is-odd/</span><br><span class="line">│       ├── index.ts</span><br><span class="line">│       └── package.json</span><br><span class="line">├── nx.json</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure>
 
 <p>接下来就是配置 <code>nx.json</code>，子项目之间的依赖，和任务执行顺序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// nx.json</span><br><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  &quot;targetDefaults&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &#123;</span><br><span class="line">      &quot;dependsOn&quot;: [&quot;^build&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// nx.json</span><br><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  &quot;targetDefaults&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &#123;</span><br><span class="line">      &quot;dependsOn&quot;: [&quot;^build&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>执行构建命令<code>npx nx build is-odd</code> 可以看到要先构建<code>is-event</code>项目</p>
 <p>最后是构建全部项目<code>npx nx run-many --target=build</code></p>
@@ -486,7 +486,7 @@
 <li>统一镜像NPM凭证管理</li>
 <li>手动触发CD流水线发布，使用统一版本进行管理发布</li>
 </ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://monorepo.tools/#what-is-a-monorepo" target="_blank" rel="noopener">Monorepo Explain</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://monorepo.tools/#what-is-a-monorepo">Monorepo Explain</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     

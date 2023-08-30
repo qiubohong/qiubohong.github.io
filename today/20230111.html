@@ -18,7 +18,7 @@
 <meta property="og:description" content="背景由于自己太久没开发移动端的页面，个人觉得移动端开发相比较PC端开发最大的不同，在于需要去适配各种尺寸的手机屏幕，尤其还有1px的问题。 因此需要再次收集一下，除了自己认知(rem适配)以外，是否还有移动端适配的方案吗？ 问题移动端存在几类问题，如下所列：  1px显示过粗问题 手机屏幕出现刘海屏、滴水屏等，如何适配 如何在不同屏幕，显示正确高清图片 meta 的 viewport 值 能否用来">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-14T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-02-18T12:45:18.312Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.484Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -358,7 +358,7 @@
 <li>rem，vw，vh计算单位的区别</li>
 <li>…</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h2><blockquote>
 <p>像素是计算机屏幕上所能显示的最小单位。用来表示图像的单位。</p>
 </blockquote>
@@ -419,21 +419,21 @@
 <li><code>vw</code> ，一个浏览器支持的单位，利用 CSS 视窗的特性，总宽度为 100vw，每一份为一个单位 1vw，设置 1rem 单位为 10vw</li>
 <li><code>px + calc + clamp</code>，大漠在2021年提出，根据 CSS 的新特性：css变量、calc()函数、clamp()、@container函数实现</li>
 </ul>
-<h2 id="rem方案"><a href="#rem方案" class="headerlink" title="rem方案"></a>rem方案</h2><p><code>rem</code>是指的html元素的<code>font-size</code>的大小，如：<code>html{font-size:50px}; 1rem=50px</code>。</p>
+<h2 id="rem方案"><a href="#rem方案" class="headerlink" title="rem方案"></a>rem方案</h2><p><code>rem</code>是指的html元素的<code>font-size</code>的大小，如：<code>html&#123;font-size:50px&#125;; 1rem=50px</code>。</p>
 <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>通过一个具体的例子，更好理解它的原理。比如你拿到一张设计稿为750px宽度的，里面有个长方形为100*200，这个时候需要在不同屏幕去做适配。</p>
 <p>rem的解决方案思路为：</p>
 <ul>
-<li>将标准尺寸宽度 750/10= 75px，设置:<code>html{font-size:75px} 1rem=75px</code></li>
-<li>将长方形的 100*200，100/75 * 200/75，设置为：<code>.rectangle{width: 1.33rem;height:2.66rem}</code></li>
-<li>那么当屏幕的尺寸发生变话的时候， 变成从750减少为375，那么这个时候，设置: <code>html{font-size:37.5px} 1rem=37.5px</code></li>
+<li>将标准尺寸宽度 750/10= 75px，设置:<code>html&#123;font-size:75px&#125; 1rem=75px</code></li>
+<li>将长方形的 100*200，100/75 * 200/75，设置为：<code>.rectangle&#123;width: 1.33rem;height:2.66rem&#125;</code></li>
+<li>那么当屏幕的尺寸发生变话的时候， 变成从750减少为375，那么这个时候，设置: <code>html&#123;font-size:37.5px&#125; 1rem=37.5px</code></li>
 <li>长方形的css设置无需变化，从而达到适配的效果</li>
 <li></li>
 </ul>
 <p>所以rem的解决方案就是在web应用在加载的时候，提前计算好rem单位，所以就可以完成适配。</p>
 <p>目前主流的方案有：</p>
 <ul>
-<li><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">flexible</a></li>
-<li><a href="https://github.com/songsiqi/px2rem" target="_blank" rel="noopener">px2rem</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/amfe/lib-flexible">flexible</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/songsiqi/px2rem">px2rem</a></li>
 </ul>
 <p>源码实现：</p>
 <p><a href="/code/h5-shipei/flexible.js">h5-shipei.js</a></p>
@@ -456,10 +456,10 @@
 <p>vmin — vmin的值是当前vw和vh中较小的值。<br>vmax — vw和vh中较大的值。<br>在横竖屏的切换中，十分有用。</p>
 </blockquote>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>了解到vw的概念，那么如何利用vw去解决移动端的适配呢？其实和rem方案是一样，具体代码可以如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rem 方案 */</span></span><br><span class="line"><span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: width / <span class="number">100</span>&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">width</span>: <span class="number">26.67rem</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* vw 方案 */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">width</span>: <span class="number">26.67vw</span> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rem 方案 */</span></span><br><span class="line"><span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: width / <span class="number">100</span>&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">width</span>: <span class="number">26.67rem</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* vw 方案 */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">width</span>: <span class="number">26.67vw</span> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>已实现的框架方案如下：</p>
-<p><a href="https://github.com/evrone/postcss-px-to-viewport/blob/master/README_CN.md" target="_blank" rel="noopener">postcss-px-to-viewport</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/evrone/postcss-px-to-viewport/blob/master/README_CN.md">postcss-px-to-viewport</a></p>
 <p>利用打包编译过程，将设置好的px单位转换为vw或vh，具体使用可以看使用文档。</p>
 <p>缺点：</p>
 <ul>
@@ -473,11 +473,10 @@
 </ul>
 <p>后续可以专门写个文章用来描述flex布局的原理。</p>
 <h2 id="px-calc-clamp"><a href="#px-calc-clamp" class="headerlink" title="px + calc + clamp"></a>px + calc + clamp</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p><code>calc()</code> 此 CSS 函数允许在声明 CSS 属性值时执行一些计算。 支持  + ， - ， / ,* 等运算。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* property: calc(expression) */</span></span><br><span class="line"><span class="selector-tag">width</span>: <span class="selector-tag">calc</span>(100% <span class="selector-tag">-</span> 80<span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* property: calc(expression) */</span></span><br><span class="line"><span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">80px</span>);</span><br></pre></td></tr></table></figure>
 
 <p><code>clamp()</code> 函数的作用是把一个值限制在一个上限和下限之间，当这个值超过最小值和最大值的范围时，在最小值和最大值之间选择一个值使用。它接收三个参数：最小值、首选值、最大值。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-size</span>: <span class="selector-tag">clamp</span>(1<span class="selector-tag">rem</span>, 2<span class="selector-class">.5vw</span>, 2<span class="selector-tag">rem</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-size</span>: <span class="built_in">clamp</span>(<span class="number">1rem</span>, <span class="number">2.5vw</span>, <span class="number">2rem</span>); </span><br></pre></td></tr></table></figure>
 <ul>
 <li>当<code>2.5vw</code>大于<code>2rem</code>，使用2rem</li>
 <li>当<code>2.5vw</code>小于<code>1rem</code>，使用1rem</li>
@@ -509,7 +508,7 @@
 <li>border-image，低端机下支持度不好</li>
 </ul>
 <p>以上方案都是基于媒体查询解决的</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> only screen and (-webkit-min-device-pixel-ratio: <span class="number">2</span>),</span><br><span class="line">    only screen and (min-device-pixel-ratio: <span class="number">2</span>) &#123;&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (-webkit-min-device-pixel-ratio: <span class="number">3</span>),</span><br><span class="line">    only screen and (min-device-pixel-ratio: <span class="number">3</span>) &#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2</span>),</span><br><span class="line">    <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">min-device-pixel-ratio</span>: <span class="number">2</span>) &#123;&#125;</span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">3</span>),</span><br><span class="line">    <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">min-device-pixel-ratio</span>: <span class="number">3</span>) &#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><blockquote>
 <p>媒体查询（Media queries）非常实用，尤其是当你想要根据设备的大致类型（如打印设备与带屏幕的设备）或者特定的特征和设备参数（例如屏幕分辨率和浏览器视窗宽度）来修改网站或应用程序时。</p>
@@ -521,18 +520,18 @@
 <li>使用<code>Window.matchMedia()</code>和 <code>MediaQueryList.addListener()</code> 方法来测试和监控媒体状态</li>
 </ul>
 <p>CSS装饰样式用法</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen, print &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen, print &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 
 <p>HTML元素引入</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">src</span>=<span class="string">"styles.css"</span> <span class="attr">media</span>=<span class="string">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">src</span>=<span class="string">"styles.css"</span> <span class="attr">media</span>=<span class="string">"print"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;print&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>js用法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mql = <span class="built_in">window</span>.matchMedia(<span class="string">'(max-width: 600px)'</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".mq-value"</span>).innerText = mql.matches;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mql = <span class="built_in">window</span>.matchMedia(<span class="string">'(max-width: 600px)'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">screenTest</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.matches) &#123;</span><br><span class="line">    <span class="comment">/* the viewport is 600 pixels wide or less */</span></span><br><span class="line">    para.textContent = <span class="string">'This is a narrow screen — less than 600px wide.'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">'red'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">/* the viewport is more than than 600 pixels wide */</span></span><br><span class="line">    para.textContent = <span class="string">'This is a wide screen — more than 600px wide.'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">'blue'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mql.addListener(screenTest);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mql = <span class="variable language_">window</span>.<span class="title function_">matchMedia</span>(<span class="string">&#x27;(max-width: 600px)&#x27;</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.mq-value&quot;</span>).<span class="property">innerText</span> = mql.<span class="property">matches</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mql = <span class="variable language_">window</span>.<span class="title function_">matchMedia</span>(<span class="string">&#x27;(max-width: 600px)&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">screenTest</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">matches</span>) &#123;</span><br><span class="line">    <span class="comment">/* the viewport is 600 pixels wide or less */</span></span><br><span class="line">    para.<span class="property">textContent</span> = <span class="string">&#x27;This is a narrow screen — less than 600px wide.&#x27;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">/* the viewport is more than than 600 pixels wide */</span></span><br><span class="line">    para.<span class="property">textContent</span> = <span class="string">&#x27;This is a wide screen — more than 600px wide.&#x27;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;blue&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mql.<span class="title function_">addListener</span>(screenTest);</span><br></pre></td></tr></table></figure>
 
 <h1 id="图片高清问题"><a href="#图片高清问题" class="headerlink" title="图片高清问题"></a>图片高清问题</h1><p>图片高清问题，一般是指的：不同 DPR 下图片的高清解决方案。</p>
 <p>这种问题解决方案，通常是利用媒体查询+提供不同尺寸的图片去显示。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>移动端适配方案，结合开发中，大家都是直接写px，然后利用编译过程的进行转换，比如: <code>px2rem</code> ，<code>px2vw</code>。</p>
-<p>再就是排版问题，不同屏幕问题需要做自动排版优化方案，这个需要后面去研究一下<a href="https://news.sangniao.com/p/1729687518" target="_blank" rel="noopener">《如何正确的使用 CSS Clamp 进行响应式排版》</a>。</p>
+<p>再就是排版问题，不同屏幕问题需要做自动排版优化方案，这个需要后面去研究一下<a target="_blank" rel="noopener" href="https://news.sangniao.com/p/1729687518">《如何正确的使用 CSS Clamp 进行响应式排版》</a>。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     

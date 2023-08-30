@@ -336,7 +336,7 @@
 </ul>
 <p>但是在前端安全中，还有一个问题就是 ：<code>JS原型链污染</code>， 那么是原型链污染怎么回事，请看下面详细介绍。</p>
 <blockquote>
-<p>这里插入一条新闻，新出一个很邪恶的js库叫<a href="https://github.com/wll8/lodash-utils" target="_blank" rel="noopener">Evil.js</a>，名字还取得很lodash，其中主要就是利用原型prototype进行重写项目中常用的方法，如：</p>
+<p>这里插入一条新闻，新出一个很邪恶的js库叫<a target="_blank" rel="noopener" href="https://github.com/wll8/lodash-utils">Evil.js</a>，名字还取得很lodash，其中主要就是利用原型prototype进行重写项目中常用的方法，如：</p>
 <ul>
 <li>Array.map 有5%概率会丢失最后一个元素，</li>
 <li>当数组长度可以被7整除时，Array.includes 永远返回false。</li>
@@ -442,9 +442,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
-<p><img src="/assets/img/20230208-1.png" alt></p>
+<p><img src="/assets/img/20230208-1.png" alt=""></p>
 <p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
-<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt></p>
+<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt=""></p>
     
     <a class="article-more-a" href="/today/20230208.html#more">more >></a>
     
@@ -662,10 +662,9 @@
 <li><p>修改<code>_config.yml</code>配置</p>
 </li>
 </ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
 <h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
     
     <a class="article-more-a" href="/today/20230131.html#more">more >></a>
     
@@ -795,6 +794,118 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/study/face-test.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-lowcode/async-component-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/lowcode/async-component-2.html" target="_blank">
+      低代码平台加载远端组件解决方案(2)——项目实战
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/lowcode/async-component-2.html" class="archive-article-date">
+        <time datetime="2023-01-29T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这就涉及到项目实战了，解决方案是需要通过<code>wepack</code>或<code>vite</code>构建工具将资源进行打包，然后通过解析文件，进行模拟封装成可以加载的 js函数即可，下面我们以 vite为构建工具进行编译组件文件<code>async/demo.vue</code></p>
+<ol>
+<li>给<code>demo.vue</code>单独创建一个编译脚本</li>
+<li>执行构建后会生成<code>demo.js</code>到 <code>dist</code> 目录下</li>
+<li>将<code>loadRemoteComponent</code>解析远端组件的函数调整一下，这里可以通过加载 script 标签的形式进行引入加载使用</li>
+<li></li>
+</ol>
+<p>当然这样子的配置大概是可以实现单个 vue文件进行打包放到远程服务器上，然后我们在另外一个项目去加载实现，从而解决掉低代码需要依赖很多组件从而导致初次加载文件很大的问题。</p>
+<p>非常感谢大家耐心查看，如果上述描述的方案有任何问题都可以留言讨论，博主会第一时间随时调整和验证。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/lowcode/async-component-2.html">展开全文 >></a>
     </p>
     
 
@@ -978,7 +1089,7 @@
   <li>
     <details open>
       <summary style="display: list-item;">目录节点1</summary>
-      <ul>
+      <ul >
         <li>
           <details>
             <summary style="display: list-item;">节点1</summary>
@@ -1111,7 +1222,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前研究过一篇<a href="https://qborfy.com/today/20230111.html" target="_blank" rel="noopener">《移动端适配总结》</a>，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前研究过一篇<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230111.html">《移动端适配总结》</a>，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。</p>
 <p>目前同时解决PC端和移动端的响应式布局的解决方案以下几种：</p>
 <ul>
 <li>通过<code>@media</code>媒体查询去设置不同尺寸的样式</li>
@@ -1248,111 +1359,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/share/hexo-search.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230122" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230122.html" target="_blank">
-      从nest.js中了解IoC和DI的实现
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230122.html" class="archive-article-date">
-        <time datetime="2023-01-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从上一篇<a target="_blank" rel="noopener" href="https://qborfy.com/today/20220110.html">《从egg.js转到nest.js》</a>，想对其再深入了解一下，尤其比较好奇Typescript是如何实现<code>IoC</code>和<code>DI</code>，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。</p>
-<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>在了解实现原理之前有几个知识概念，需要了解一下：</p>
-<ul>
-<li>IoC和DI</li>
-<li>JavaScript的Reflect</li>
-<li>TypeScript的装饰器</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230122.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230122.html">展开全文 >></a>
     </p>
     
 

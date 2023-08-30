@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cca72d58e9a94f978d8cedf43a06a834~tplv-k3u1fbpfcp-watermark.image?">
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e8bc25d25784a47ad2f4c2780581d1d~tplv-k3u1fbpfcp-watermark.image?">
 <meta property="article:published_time" content="2022-12-17T13:21:01.000Z">
-<meta property="article:modified_time" content="2022-12-29T03:13:06.061Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.483Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta name="twitter:card" content="summary">
@@ -359,7 +359,7 @@
 <li>服务器占用内存过高，Linux强制退出程序</li>
 <li>其他原因<br>下面就开始逐一排查</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="服务器重启"><a href="#服务器重启" class="headerlink" title="服务器重启"></a>服务器重启</h2><p>如何查看服务器是否被重启，主要依据下面的命令：</p>
 <p><code>who -b</code>查看最后一次重启时间</p>
@@ -373,7 +373,6 @@
 </blockquote>
 <p>如何排查呢？执行以下命令：<br><code>cat /var/log/messages | grep java</code><br>然后发现有下面日志：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Out of memory: Kill process 9682 (java) score 9 or sacrifice child</span><br></pre></td></tr></table></figure>
-
 <p>因此判断由于内存占用过高，java服务被系统误杀了。<br>既然定位到问题根源，那么为了更好的解决问题，我们继续追踪问题，为什么系统会kill java服务，而不杀掉其他进程呢？这里就需要了解一下Linux Out of Memory (OOM) killer机制。</p>
 <h1 id="Linux-OOM机制"><a href="#Linux-OOM机制" class="headerlink" title="Linux OOM机制"></a>Linux OOM机制</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>Linux内核设计的一种机制，在内存不足的时候，会选择一个占用内存较大的进程并kill掉这个进程，以满足系统内存申请需求。</p>
 <h2 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h2><p>触发条件：内存不足，为什么会出现内存不足，这里涉及到Linux内存结构和使用机制：</p>
@@ -426,23 +425,20 @@
 <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e8bc25d25784a47ad2f4c2780581d1d~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="关闭OOM机制-不推荐，可作为临时解决方案"><a href="#关闭OOM机制-不推荐，可作为临时解决方案" class="headerlink" title="关闭OOM机制(不推荐，可作为临时解决方案)"></a>关闭OOM机制(不推荐，可作为临时解决方案)</h2><p>执行以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w vm.overcommit_memory=2</span><br></pre></td></tr></table></figure>
-
 <p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "vm.overcommit_memory=2" &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;vm.overcommit_memory=2&quot; &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
 
 <p>或者修改进程oom_score_adj值：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo echo -1000 &gt; /proc/$pid/oom_score_adj</span><br></pre></td></tr></table></figure>
-
 <p>或者修改进程oom_adj值:</p>
 <ul>
 <li>/proc/PID/oom_adj文件，将其置位-17</li>
 </ul>
 <h2 id="设置java进程最大占用内存-推荐"><a href="#设置java进程最大占用内存-推荐" class="headerlink" title="设置java进程最大占用内存(推荐)"></a>设置java进程最大占用内存(推荐)</h2><p>java tomcat服务在启用进程的时候可以设置占用最大内存，具体数值可以参考当前服务器所剩余的内存设置，具体设置如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms512m -Xmx512m -jar xxx.jar</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>Xms: 最小内存</li>
-<li>Xmx: 最大内存<br>tomcat可以在<code>TOMCAT_HOME/bin/catalina.sh</code>中设置:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在cygwin=<span class="literal">false</span>前</span></span><br><span class="line">JAVA_OPTS="-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m"</span><br></pre></td></tr></table></figure>
+<li>Xmx: 最大内存<br>tomcat可以在<code>TOMCAT_HOME/bin/catalina.sh</code>中设置:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在cygwin=<span class="literal">false</span>前</span></span><br><span class="line">JAVA_OPTS=&quot;-server -Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128m&quot;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -453,7 +449,7 @@
 </ol>
 <h2 id="优化代码-有能力者可以采用"><a href="#优化代码-有能力者可以采用" class="headerlink" title="优化代码(有能力者可以采用)"></a>优化代码(有能力者可以采用)</h2><p>这个可能需要具体问题具体分析了，优化代码占用内存，java网上有很多方案，大家各自采纳符合自己的方案即可。</p>
 <h2 id="申请更多内存-土豪随意"><a href="#申请更多内存-土豪随意" class="headerlink" title="申请更多内存(土豪随意)"></a>申请更多内存(土豪随意)</h2><p>既然是内存不够，那么就直接申请更多资源，就可以满足了，看来还是有钱就能更快解决问题。</p>
-
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">

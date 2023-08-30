@@ -18,7 +18,7 @@
 <meta property="og:description" content="背景自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了lerna框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发Nx项目，尝试一下它的应用。 想了解Monorepo大仓项目如何设计的可以翻到前往阅读 《从npm版本依赖到Monorepo大仓项目》。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-19T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-03-01T13:01:23.327Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.485Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -348,8 +348,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了<code>lerna</code>框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发<code>Nx</code>项目，尝试一下它的应用。</p>
-<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a href="https://qborfy.com/today/20230107.html" target="_blank" rel="noopener">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
-<a id="more"></a>
+<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a target="_blank" rel="noopener" href="https://qborfy.com/today/20230107.html">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
+<span id="more"></span>
 <h1 id="lerna"><a href="#lerna" class="headerlink" title="lerna"></a>lerna</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
 <p>Lerna是用于TypeScrip/JavaScript的原始monorepo工具。它已经存在多年，被数以万计的项目使用，包括Reaction和Jest。</p>
 </blockquote>
@@ -366,7 +366,7 @@
 <li>修改<code>package.json</code>，去添加一个npm/yarn/pnpm workspace</li>
 <li>运行命令<code>lerna run xxx</code>： 统一执行所有子项目的scripts命令，如：lerna run build</li>
 </ul>
-<p>更加具体的操作，可以到官方文档去查看<a href="https://lerna.js.org/docs/features/run-tasks" target="_blank" rel="noopener">https://lerna.js.org/docs/features/run-tasks</a></p>
+<p>更加具体的操作，可以到官方文档去查看<a target="_blank" rel="noopener" href="https://lerna.js.org/docs/features/run-tasks">https://lerna.js.org/docs/features/run-tasks</a></p>
 <h1 id="Nx"><a href="#Nx" class="headerlink" title="Nx"></a>Nx</h1><p>先说明一下Nx与Lerna的关系：</p>
 <blockquote>
 <p>Nrwl(开源构建系统NX背后的公司)已经接管了Lerna。NX是一个由前谷歌员工开发的构建系统，它利用了谷歌内部工具使用的许多技术。Lerna v5是这种新管理方式下的第一个版本，它更新了过时的包，并开始对存储库本身进行一些清理。从V5.1+开始，Lerna提供了集成NX的新可能性，并将许多任务调度工作推迟到NX。</p>
@@ -381,31 +381,18 @@
 <li>提供一流的开发体验</li>
 </ul>
 <h2 id="实践-第一个nx项目"><a href="#实践-第一个nx项目" class="headerlink" title="实践-第一个nx项目"></a>实践-第一个nx项目</h2><ul>
-<li><p>初始化项目， <code>npx create-nx-workspace@latest package-based --preset=npm</code></p>
-</li>
-<li><p>添加子项目， 目录下新建标准npm项目<code>packages/is-even</code></p>
-</li>
-<li><p>安装依赖，在根目录下执行<code>npm i typescript -D -W</code></p>
-</li>
-<li><p>第一次编译，根目录下执行<code>npx nx build is-even</code></p>
-</li>
-<li><p>新建第二个子项目，<code>packages/is-odd</code>，在项目中引用<code>is-even</code></p>
-</li>
-<li><p>关联依赖，在根目录下执行<code>npm install</code>，即可自动实现关联依赖</p>
-</li>
-<li><p>项目编译依赖，在根目录<code>nx.json</code>新增build依赖，如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  "targetDefaults": &#123;</span><br><span class="line">    "build": &#123;</span><br><span class="line">      "dependsOn": ["^build"]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译打包，单独打包子项目<code>is-odd</code>，命令<code>npx nx build is-even</code>，同时会编译打包<code>is-even</code>，因为引用了</p>
-</li>
-<li><p>再次打包，nx会自动引入上一次build的cache缓存，从而加快编译速度</p>
-</li>
-<li><p>将所有的子项目统一打包编译，命令:<code>npx nx run-many --target=build</code></p>
-</li>
-<li><p>如果不需要使用cache缓存，可以使用命令:<code>npx nx run-many --target=build --skip-nx-cache</code></p>
-</li>
-<li><p>如果需要查看当前子项目依赖的项目是否被修改，可以使用命令：<code>npx nx affected --target=build</code></p>
-</li>
+<li>初始化项目， <code>npx create-nx-workspace@latest package-based --preset=npm</code></li>
+<li>添加子项目， 目录下新建标准npm项目<code>packages/is-even</code></li>
+<li>安装依赖，在根目录下执行<code>npm i typescript -D -W</code></li>
+<li>第一次编译，根目录下执行<code>npx nx build is-even</code></li>
+<li>新建第二个子项目，<code>packages/is-odd</code>，在项目中引用<code>is-even</code></li>
+<li>关联依赖，在根目录下执行<code>npm install</code>，即可自动实现关联依赖</li>
+<li>项目编译依赖，在根目录<code>nx.json</code>新增build依赖，如下：<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="attr">&quot;targetDefaults&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;dependsOn&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;^build&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>编译打包，单独打包子项目<code>is-odd</code>，命令<code>npx nx build is-even</code>，同时会编译打包<code>is-even</code>，因为引用了</li>
+<li>再次打包，nx会自动引入上一次build的cache缓存，从而加快编译速度</li>
+<li>将所有的子项目统一打包编译，命令:<code>npx nx run-many --target=build</code></li>
+<li>如果不需要使用cache缓存，可以使用命令:<code>npx nx run-many --target=build --skip-nx-cache</code></li>
+<li>如果需要查看当前子项目依赖的项目是否被修改，可以使用命令：<code>npx nx affected --target=build</code></li>
 </ul>
 <p>到此，一个Nx的Monrepo项目就完成了。</p>
 <p>当然实际应用中，没有那么简单，后续我们将通过Vue(vite) 、 React去完成一个Nx项目，已经如何和现有的CI工作流结合运行。</p>

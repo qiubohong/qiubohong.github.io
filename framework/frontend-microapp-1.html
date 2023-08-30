@@ -18,7 +18,7 @@
 <meta property="og:description" content="背景最近项目开发中使用了qiankun框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。 所以希望通过几篇文章去重新认识微前端这一架构，主要会从几个方面：  是什么，以及为什么会出现 实现原理，以及主流框架 项目实战">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-26T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-02-27T08:36:56.803Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.477Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -355,11 +355,11 @@
 <li>实现原理，以及主流框架</li>
 <li>项目实战</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h1><h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>在说微前端之前，我们需要先了解一下后端的微服务，因为微前端本身就是吸取微服务理念而产生的，所以我们先对微服务做一个简单的认识：</p>
 <blockquote>
-<p>2014年，Martin Fowler 与 James Lewis 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的进程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用HTTP API通信。同时服务会使用最小的规模的集中管理 (例如 Docker) 能力，服务可以用不同的编程语言与数据库等组件实现 —— <a href="https://zh.wikipedia.org/zh-sg/%E5%BE%AE%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">维基百科 微服务</a>。</p>
+<p>2014年，Martin Fowler 与 James Lewis 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的进程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用HTTP API通信。同时服务会使用最小的规模的集中管理 (例如 Docker) 能力，服务可以用不同的编程语言与数据库等组件实现 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-sg/%E5%BE%AE%E6%9C%8D%E5%8B%99">维基百科 微服务</a>。</p>
 </blockquote>
 <p><code>微服务</code>架构，通常拿来对比的架构是<code>单体软件</code>架构，<code>单体软件</code>存在以下几个问题：</p>
 <ul>
@@ -379,7 +379,7 @@
 <p>Ok，微服务了解到这里基本上就有大概的认知，微服务当然不只是这些，还有一些其他技术点，如：服务发现、事件传播等。</p>
 <h2 id="微前端"><a href="#微前端" class="headerlink" title="微前端"></a>微前端</h2><p>了解完微服务，那么微前端概念是什么开始提出的呢？</p>
 <blockquote>
-<p>微前端 这个名词，第一次被提出还是在2016年底，那是在 ThoughtWorks Technology Radar。这个概念将微服务这个被广泛应用于服务端的技术范式扩展到前端领域。<br>微前端是一种多个团队通过独立发布功能的方式来共同构建现代化 web 应用的技术手段及方法策略。 —— <a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端的完整介绍</a></p>
+<p>微前端 这个名词，第一次被提出还是在2016年底，那是在 ThoughtWorks Technology Radar。这个概念将微服务这个被广泛应用于服务端的技术范式扩展到前端领域。<br>微前端是一种多个团队通过独立发布功能的方式来共同构建现代化 web 应用的技术手段及方法策略。 —— <a target="_blank" rel="noopener" href="https://micro-frontends.org/">微前端的完整介绍</a></p>
 </blockquote>
 <p>简单的说，微前端架构是从微服务理念扩展而来的，一个适用于前端的微服务架构。</p>
 <h1 id="微前端-1"><a href="#微前端-1" class="headerlink" title="微前端"></a>微前端</h1><h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>从上面发展历程我们对<code>微前端</code>架构有个简单认知和它的定义，接下来我们通过不同类型的做比较去对微前端做更深的认知。</p>
@@ -449,7 +449,7 @@
 </ul>
 <h3 id="拆分方法"><a href="#拆分方法" class="headerlink" title="拆分方法"></a>拆分方法</h3><p>以上两个主要针对拆分的假设条件，当真正去拆分操作的时候，我们应当从这些方面去入手：</p>
 <ul>
-<li>按照业务领域，参考<a href="https://zh.wikipedia.org/zh-hans/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener">领域模型</a>，将同类业务归为同一个微前端，按照单一职责原则、功能完整性进行拆分</li>
+<li>按照业务领域，参考<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B">领域模型</a>，将同类业务归为同一个微前端，按照单一职责原则、功能完整性进行拆分</li>
 <li>按照组织架构，应尽量避免对组织架构和团队的调整，避免由于功能的重新划分，而增加大量且不必要的团队之间的沟通成本</li>
 <li>按照技术栈，简单点说React的技术栈放一个微前端，Vue的技术栈放另外一个微前端</li>
 <li>按需求迭代频率，将迭代频率高的放在一个微前端，频率低放在另外一个微前端</li>
@@ -463,11 +463,11 @@
 </ul>
 <h2 id="微前端框架"><a href="#微前端框架" class="headerlink" title="微前端框架"></a>微前端框架</h2><p>了解完如何拆分，那么接下来就是对微前端架构实现的框架进行选型，下面是我从网上收集目前市场主流的几大微前端框架：</p>
 <ul>
-<li><a href="https://github.com/single-spa/single-spa" target="_blank" rel="noopener">single-spa</a>，将多个单页面应用聚合为一个整体应用的 JavaScript 微前端框架</li>
-<li><a href="https://qiankun.umijs.org/zh/guide" target="_blank" rel="noopener">qiankun</a>，基于single-spa，能更简单、无痛构建可用微前端架构的框架</li>
-<li><a href="https://wujie-micro.github.io/doc/guide/" target="_blank" rel="noopener">无界</a>，基于iframe，实现路由同步机制的微前端架构框架</li>
-<li><a href="https://zeroing.jd.com/docs.html#/" target="_blank" rel="noopener">micro-app</a>，借鉴WebComponent思想，结合自定义的ShadowDom，将微前端封装成一个类WebComponent组件的微前端框架</li>
-<li><a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank" rel="noopener">webpack 模块联邦</a>，在webpack构建时候加载远程应用而实现的微前端架构方案</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/single-spa/single-spa">single-spa</a>，将多个单页面应用聚合为一个整体应用的 JavaScript 微前端框架</li>
+<li><a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/guide">qiankun</a>，基于single-spa，能更简单、无痛构建可用微前端架构的框架</li>
+<li><a target="_blank" rel="noopener" href="https://wujie-micro.github.io/doc/guide/">无界</a>，基于iframe，实现路由同步机制的微前端架构框架</li>
+<li><a target="_blank" rel="noopener" href="https://zeroing.jd.com/docs.html#/">micro-app</a>，借鉴WebComponent思想，结合自定义的ShadowDom，将微前端封装成一个类WebComponent组件的微前端框架</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/concepts/module-federation/">webpack 模块联邦</a>，在webpack构建时候加载远程应用而实现的微前端架构方案</li>
 </ul>
 <p>以上，就是目前实现微前端架构的主流框架，当然每个框架都自己的优缺点，我们在选型的时候主要还是通过以下几点去判断是否适合：</p>
 <ul>
@@ -481,7 +481,7 @@
 <ul>
 <li>微前端架构源自微服务架构，两者主要都是为了解决巨石应用的痛点，迭代慢、开发复杂</li>
 <li>微前端架构拆分需要注意几个点：拆分条件、拆分原则和拆分方法</li>
-<li>微前端架构主流框架：<a href="https://github.com/single-spa/single-spa" target="_blank" rel="noopener">single-spa</a>、<a href="https://qiankun.umijs.org/zh/guide" target="_blank" rel="noopener">qiankun</a>、<a href="https://wujie-micro.github.io/doc/guide/" target="_blank" rel="noopener">无界</a>、<a href="https://zeroing.jd.com/docs.html#/" target="_blank" rel="noopener">micro-app</a>、<a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank" rel="noopener">webpack 模块联邦</a>等</li>
+<li>微前端架构主流框架：<a target="_blank" rel="noopener" href="https://github.com/single-spa/single-spa">single-spa</a>、<a target="_blank" rel="noopener" href="https://qiankun.umijs.org/zh/guide">qiankun</a>、<a target="_blank" rel="noopener" href="https://wujie-micro.github.io/doc/guide/">无界</a>、<a target="_blank" rel="noopener" href="https://zeroing.jd.com/docs.html#/">micro-app</a>、<a target="_blank" rel="noopener" href="https://webpack.docschina.org/concepts/module-federation/">webpack 模块联邦</a>等</li>
 </ul>
 <p>当然，我不会只写理论知识点，后面我会针对每个框架的写一篇深入实战文章，从背后原理，适用场景去一一描述，前端架构之路不好走，希望大家一起努力加油。</p>
 <h1 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h1><h2 id="领域驱动设计"><a href="#领域驱动设计" class="headerlink" title="领域驱动设计"></a>领域驱动设计</h2><p>要了解一个新的东西，首先弄明白它解决了什么问题？领域驱动设计主要是为了解决：</p>
@@ -498,10 +498,10 @@
 <p><code>领域模型</code>，来自领域驱动架构(DDD)中的一个概念，与<code>开发模型</code>(解决实际问题所抽象出来的概念模型) <code>设计模型</code>(描述了所要构建的系统)不同的是， <code>领域模型</code>是表达与业务相关的事实，它更加关注业务知识，能否显性化、清晰的表达业务语义。</p>
 </blockquote>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w" target="_blank" rel="noopener">模块联邦在微前端架构中的实践</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2022/04/microservice.html" target="_blank" rel="noopener">微服务是什么？ —— 阮一峰</a></li>
-<li><a href="https://micro-frontends.org/" target="_blank" rel="noopener">微前端的完整介绍</a></li>
-<li><a href="https://www.zhihu.com/question/25089273" target="_blank" rel="noopener">领域驱动架构（DDD）建模中的模型到底是什么？</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8vfTp-FZbYNk2k8gCIGc8w">模块联邦在微前端架构中的实践</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/04/microservice.html">微服务是什么？ —— 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="https://micro-frontends.org/">微前端的完整介绍</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25089273">领域驱动架构（DDD）建模中的模型到底是什么？</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     

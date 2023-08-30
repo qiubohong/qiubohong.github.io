@@ -18,7 +18,7 @@
 <meta property="og:description" content="本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。  GPT-3GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。  GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-14T04:51:01.000Z">
-<meta property="article:modified_time" content="2023-02-14T12:27:44.530Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.489Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="翻译文章">
 <meta name="twitter:card" content="summary">
@@ -351,20 +351,20 @@
 </blockquote>
 <h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p>
 <blockquote>
-<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a href="https://zh.wikipedia.org/zh/GPT-3" target="_blank" rel="noopener">维基百科 GPT-3</a></p>
+<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh/GPT-3">维基百科 GPT-3</a></p>
 </blockquote>
 <p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>首先，我们先了解一下 git commit， git commit提交信息，是程序员与程序员之间交流他们开发代码的重要信息，特别在code review中。<br>尤其当代码发生重大变化或者写的代码极为复杂，我们需要一一详细描述代码块功能，非常的耗时而且无聊。<br>平时开发代码后，由于一不小心容易写<code>fix: bug</code>之类的提交记录，很想修改后，但是又没有什么好的办法。<br>同时复杂的这些随意的话术对code review也很难理解这段代码的真正含义是什么。<br>更糟糕的是，如果提交记录是<code>fix: 修复文案错误</code>等，会让code review更加毫无意义，甚至忽略掉需要code review的地方。<br>所以问题是写 git commit很费时，而且描述不准确又容易造成不必要误会，那么使用<code>gptcommit</code>会让你摆脱这些烦恼。</p>
 <h1 id="安装教程-几分钟"><a href="#安装教程-几分钟" class="headerlink" title="安装教程(几分钟)"></a>安装教程(几分钟)</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>在安装<code>gptcommit</code>之前，你需要先准备以下几个环境：</p>
 <ul>
-<li><a href="https://rustup.rs/" target="_blank" rel="noopener">Cargo</a>, <code>Rust</code>语言的包管理器</li>
-<li><a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">OpenAI API Keys</a>, OpenAI的密钥</li>
+<li><a target="_blank" rel="noopener" href="https://rustup.rs/">Cargo</a>, <code>Rust</code>语言的包管理器</li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">OpenAI API Keys</a>, OpenAI的密钥</li>
 </ul>
 <p><strong>安装Rust</strong></p>
 <p>Linux或Mac安装命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl --proto <span class="string">&#x27;=https&#x27;</span> --tlsv1.2 https://sh.rustup.rs -sSf | sh</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>OpenAI API Keys获取方式</strong></p>
 <p>国内没法正常访问，以下两种方式：</p>
@@ -380,21 +380,20 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gptcommit install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置全局变量<code>OPENAI_API_KEY</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export OPENAI_API_KEY="sk-..."</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export OPENAI_API_KEY=&quot;sk-...&quot;</span><br></pre></td></tr></table></figure>
+<p>也可以直接将变量设置到全局文件中，如<code>~/.bashrc</code>, <code>~/.zshrc</code></p>
 </li>
 </ol>
-<p>也可以直接将变量设置到全局文件中，如<code>~/.bashrc</code>, <code>~/.zshrc</code></p>
 <h2 id="demo实战"><a href="#demo实战" class="headerlink" title="demo实战"></a>demo实战</h2><p>如果使用了后，会生成如下git commit:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Demo #1: the full installation and commit workflow, editing multiple rust files</span><br><span class="line">Demo #2: a one-line change to a string inside a rust file.</span><br><span class="line">Demo #3: Modifying non-code files, in this case a README.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Demo #1: the full installation and commit workflow, editing multiple rust files</span><br><span class="line">Demo #2: a one-line change to a string inside a rust file.</span><br><span class="line">Demo #3: Modifying non-code files, in this case a README.</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考对象"><a href="#参考对象" class="headerlink" title="参考对象"></a>参考对象</h2><p><code>gptcommit</code>参考之前的很受欢迎的commit 工具：</p>
 <ul>
-<li><a href="https://github.com/RomanHotsiy/commitgpt" target="_blank" rel="noopener">https://github.com/RomanHotsiy/commitgpt</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/RomanHotsiy/commitgpt">https://github.com/RomanHotsiy/commitgpt</a></li>
 </ul>
 <p><code>commitgpt</code>目前已无法使用，因为它使用第三方的OpenAI API Key，由于官方OpenAI访问次数受限，必须要求每个用户都用自己的API key。</p>
 <p><code>gptcommit</code>集成了 git hook，可以直接用来git flow工作流的最后一步，同时，由于使用Rust，它执行速度会更快。</p>
-<p>同时还参考<a href="https://github.com/KanHarI/gpt-commit-summarizer" target="_blank" rel="noopener">gpt-commit-summarizer</a>工具，它是直接作用在github Action持续集成中，而不是git 工作流。<br>总结commit记录是发生在PR阶段，而不是每次 commit。<br>该操作会直接将PR操作的commit进行汇总，然后直接提交，不需要再code review。</p>
+<p>同时还参考<a target="_blank" rel="noopener" href="https://github.com/KanHarI/gpt-commit-summarizer">gpt-commit-summarizer</a>工具，它是直接作用在github Action持续集成中，而不是git 工作流。<br>总结commit记录是发生在PR阶段，而不是每次 commit。<br>该操作会直接将PR操作的commit进行汇总，然后直接提交，不需要再code review。</p>
 <p><code>gptcommit</code>参考<code>gpt-commit-summarizer</code>的设计点，但是主要针对是git commit的提交信息进行总结。</p>
 <h2 id="背后原理"><a href="#背后原理" class="headerlink" title="背后原理"></a>背后原理</h2><p>git commit提交劫持主要分为两个部分：</p>
 <p>首先，会将每个文件单独汇总，然后到OpenAI去生成commit 信息记录。</p>
@@ -404,10 +403,10 @@
 <li>同时要生成修改的一些要点内容</li>
 </ul>
 <p>最终输出的提交记录如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[title]</span><br><span class="line"></span><br><span class="line">- [summary point 1]</span><br><span class="line">- [summary point 2...]</span><br><span class="line"></span><br><span class="line">[/changed/file A]</span><br><span class="line">- [file summary point 1]</span><br><span class="line">- [file summary point 2...]</span><br><span class="line">[/changed/file B...]</span><br><span class="line">- [file summary point 1...]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[title]</span><br><span class="line"></span><br><span class="line">- [summary point 1]</span><br><span class="line">- [summary point 2...]</span><br><span class="line"></span><br><span class="line">[/changed/file A]</span><br><span class="line">- [file summary point 1]</span><br><span class="line">- [file summary point 2...]</span><br><span class="line">[/changed/file B...]</span><br><span class="line">- [file summary point 1...]</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h2><p>接下来就在项目中实战吧。<br>执行命令<code>cargo install --locked gptcommit</code>安装或到<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">github 仓库</a>中去查看更多信息。<br>当然，你需要先在OpenAI里注册一个账号，同时拥有一个API key才能正在使用起来。</p>
-<p>Github地址： <a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">https://github.com/zurawiki/gptcommit</a></p>
+<h2 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h2><p>接下来就在项目中实战吧。<br>执行命令<code>cargo install --locked gptcommit</code>安装或到<a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">github 仓库</a>中去查看更多信息。<br>当然，你需要先在OpenAI里注册一个账号，同时拥有一个API key才能正在使用起来。</p>
+<p>Github地址： <a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">https://github.com/zurawiki/gptcommit</a></p>
 <h1 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h1><p>后面也打算做一下更加有趣的功能：</p>
 <ul>
 <li>如何利用GPT-3去实现更加自动化 git flow工作流？</li>
@@ -416,7 +415,7 @@
 </ul>
 <p>最后，如果在使用过程有任何问题或者建议，请到Github开源地址写一个issue给我，我会很快处理。</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li>原文地址：<a href="https://zura.wiki/post/never-write-a-commit-message-again-with-the-help-of-gpt-3/" target="_blank" rel="noopener">Never write a commit message again (with the help of GPT-3)</a></li>
+<li>原文地址：<a target="_blank" rel="noopener" href="https://zura.wiki/post/never-write-a-commit-message-again-with-the-help-of-gpt-3/">Never write a commit message again (with the help of GPT-3)</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -567,18 +566,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ideas/20230215.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/translate/nuxt-next-nest-diff.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据可视化收集
+          Next、Nuxt、Nest的区别(翻译)
         
       </div>
     </a>
   
   
-    <a href="/translate/nuxt-next-nest-diff.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Next、Nuxt、Nest的区别(翻译)</div>
+    <a href="/today/20230213.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux如何快速删除大量文件</div>
       <i class="icon-circle-right"></i>
     </a>
   

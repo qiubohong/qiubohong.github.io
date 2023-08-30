@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://docs.nestjs.com/assets/Interceptors_1.png">
 <meta property="og:image" content="https://docs.nestjs.com/assets/lifecycle-events.png">
 <meta property="article:published_time" content="2023-01-10T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-01-22T14:18:05.276Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.484Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -345,7 +345,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -375,7 +375,7 @@
 <li>Fastify.js，号称最快的node.js web框架，特点是内置了基于 JSON schema 的 validation 和 serialization，比JSON.stringify还快的json序列化算法，虽然是借助借助第三方库 ajv。</li>
 <li>strapi.js，快速生成API接口的web框架，同时实现各种后端所需要的鉴权、权限、文件上传等轮子</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>对比一下，我们主要用来开发后端api接口，不需要SSR，不需要过于重或过于轻量的框架，因此最后挑选了nest.js。</p>
 <h1 id="nest-js"><a href="#nest-js" class="headerlink" title="nest.js"></a>nest.js</h1><blockquote>
@@ -384,14 +384,14 @@
 <p>术语介绍：</p>
 <ul>
 <li>什么是渐进式？简单说，就一开始你不需要了解它的全部功能，能快速上手，有些功能特性不用也可以正常使用。</li>
-<li>OOP 面向对象编程，万物皆可用对象来描述，如： <code>class Dog{ say(return &#39;one one!&#39;)}</code></li>
+<li>OOP 面向对象编程，万物皆可用对象来描述，如： <code>class Dog&#123; say(return &#39;one one!&#39;)&#125;</code></li>
 <li>FP 函数式编程，以函数作为入口，而不是去声明一个对象类，如： <code>say(&#39;one one!&#39;)</code></li>
 <li>RP 响应式编程，一种面向数据流和变化传播的编程范式，如：<code>a = 5; b=6; c=a+b;</code> 当<code>a</code>或<code>b</code>变化的时候，<code>c</code>会随之变化</li>
 <li>FRP 函数式响应式编程，依赖数据流的函数式编程，如：<code>str=&#39;one one~&#39;; say(str)</code>， 当<code>str</code>变化，会自动触发<code>say</code></li>
 </ul>
 <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Nest.js的核心是基于IoC控制反转 + DI 依赖注入 去实现类的声明和实例化的。如果你了解过Spring Boot其实很容易上手nest.js。</p>
 <h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>Module 其实是nest.js用来将一个web应用拆分成各个子模块的分类规定，web应用根模块一般叫<code>app.module.ts</code>，官方设计图如下：</p>
-<p><img src="https://docs.nestjs.com/assets/Modules_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Modules_1.png" alt=""></p>
 <p>Module应该由以下几个部分组成：</p>
 <ul>
 <li>providers： 允许交给模块实例化的类，包括不限于Service等</li>
@@ -400,7 +400,7 @@
 <li>exports：模块对外提供的方法类</li>
 </ul>
 <h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><p>Controller就一个作用，分割路由，调用处理方法，返回http请求结果。</p>
-<p><img src="https://docs.nestjs.com/assets/Controllers_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Controllers_1.png" alt=""></p>
 <p>支持写法：</p>
 <ul>
 <li><code>@Controller(&#39;test&#39;)</code></li>
@@ -408,7 +408,7 @@
 <li>还支持一些特殊写法： <code>@Session()</code>  <code>@Body(key?: string)</code> <code>@Param(key?: string)</code></li>
 </ul>
 <h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider其实就是不仅仅是Service层，还包括：Sql的Dao层、工具方法等提供。它和其他层关系如下图：</p>
-<p><img src="https://docs.nestjs.com/assets/Components_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Components_1.png" alt=""></p>
 <p>写法：</p>
 <ul>
 <li><code>@Injectable()</code> 声明该类是一个Provider，允许其他类实现依赖注入</li>
@@ -416,22 +416,22 @@
 <li><code>@Inject()</code> 自动依赖注入</li>
 </ul>
 <h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p>Middleware中间件，其实和egg.js的中间件概念一样，就是当http请求来了之后，被中间件处理一遍之后才会到对应的Controller层。</p>
-<p><img src="https://docs.nestjs.com/assets/Middlewares_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Middlewares_1.png" alt=""></p>
 <p>写法：</p>
 <ul>
 <li><code>implements NestMiddleware</code>，必须实现<code>NestMiddleware</code>接口，以及内部方法<code>use(req: Request, res: Response, next: NextFunction)</code>，同时内部方法必须调用<code>next</code></li>
 <li>在<code>Module</code>层注册中间件，这里需要可以设置</li>
 </ul>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module, NestModule, MiddlewareConsumer &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LoggerMiddleware &#125; <span class="keyword">from</span> <span class="string">'./common/middleware/logger.middleware'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsModule &#125; <span class="keyword">from</span> <span class="string">'./cats/cats.module'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Module</span>(&#123;</span><br><span class="line">  imports: [CatsModule],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule <span class="keyword">implements</span> NestModule &#123;</span><br><span class="line">  configure(consumer: MiddlewareConsumer) &#123;</span><br><span class="line">    consumer</span><br><span class="line">      .apply(LoggerMiddleware)</span><br><span class="line">      .forRoutes(<span class="string">'cats'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Module</span>, <span class="title class_">NestModule</span>, <span class="title class_">MiddlewareConsumer</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LoggerMiddleware</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./common/middleware/logger.middleware&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">CatsModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.module&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Module</span>(&#123;</span><br><span class="line">  <span class="attr">imports</span>: [<span class="title class_">CatsModule</span>],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppModule</span> <span class="keyword">implements</span> <span class="title class_">NestModule</span> &#123;</span><br><span class="line">  <span class="title function_">configure</span>(<span class="params">consumer: MiddlewareConsumer</span>) &#123;</span><br><span class="line">    consumer</span><br><span class="line">      .<span class="title function_">apply</span>(<span class="title class_">LoggerMiddleware</span>)</span><br><span class="line">      .<span class="title function_">forRoutes</span>(<span class="string">&#x27;cats&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>了解 <code>MiddlewareConsumer</code>，中间件消费者工具类，主要把中间件加上一些配置项功能，如：<code>forRoutes</code>支持路由匹配，<code>exclude</code>不包含路由</li>
 <li>函数式声明中间件，因为Middleware是基于expres，所以写法与express基本上一致</li>
 </ul>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Request, Response, NextFunction &#125; <span class="keyword">from</span> <span class="string">'express'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params">req: Request, res: Response, next: NextFunction</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Request...`</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Request</span>, <span class="title class_">Response</span>, <span class="title class_">NextFunction</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;express&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">logger</span>(<span class="params">req: Request, res: Response, next: NextFunction</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Request...`</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="ExceptionFilter"><a href="#ExceptionFilter" class="headerlink" title="ExceptionFilter"></a>ExceptionFilter</h2><p>Filter过滤器，这个应该是所有web框架都具备的功能，拦截用户请求和web返回数据。在Nest.js中，只实现ExeptionFilter，你也可以基于这个去自定义自己的异常过滤器，具体如下图：</p>
-<p><img src="https://docs.nestjs.com/assets/Filter_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Filter_1.png" alt=""></p>
 <p>写法：</p>
 <ul>
 <li><code>@Catch(HttpException) class HttpExceptionFilter implements ExceptionFilter</code> 实现自定义异常过滤器</li>
@@ -445,7 +445,7 @@
 <li><code>@UsePipes(new Pipe())</code>，支持在controller配置自定义的Pipe</li>
 </ul>
 <h2 id="Guard"><a href="#Guard" class="headerlink" title="Guard"></a>Guard</h2><p>Guard 守卫，也是处Http请求中的一层特殊中间件，但是与中间件不同的时候，中间件不知道next()是去哪个执行代码，而Guard则可以获取<code>ExecutionContext</code>实例，可以获知整个请求的生命周期和内置内容，通常用来接口登录和权限控制。</p>
-<p><img src="https://docs.nestjs.com/assets/Guards_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Guards_1.png" alt=""></p>
 <p>写法：</p>
 <ul>
 <li><code>class AuthGuard implements CanActivate</code></li>
@@ -453,7 +453,7 @@
 <li>注册使用：<code>@UseGuards</code> Controller层使用， <code>app.useGlobalGuards(new RolesGuard());</code> 全局注册</li>
 </ul>
 <h2 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h2><p>Interceptor是面向切面编程理念影响的概念，它允许你在方法执行前后扩展原有函数功能，如：改变返回结果，扩展基本功能等，常用的场景：添加常规日志。</p>
-<p><img src="https://docs.nestjs.com/assets/Interceptors_1.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/Interceptors_1.png" alt=""></p>
 <p>写法：</p>
 <ul>
 <li><code>class LoggingInterceptor implements NestInterceptor</code>,自定义实现</li>
@@ -470,10 +470,10 @@
 <li>装饰器使用 @expression 的形式，其中 expression 必须能够演算为在运行时调用的函数，其中包括装饰声明信息。</li>
 <li>自定义装饰器代码如下：</li>
 </ul>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个装饰器工厂——有助于将用户参数传给装饰器声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"f(): evaluated"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"f(): called"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"g(): evaluated"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"g(): called"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line">  <span class="meta">@f</span>()</span><br><span class="line">  <span class="meta">@g</span>()</span><br><span class="line">  method() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f(): evaluated</span></span><br><span class="line"><span class="comment">// g(): evaluated</span></span><br><span class="line"><span class="comment">// g(): called</span></span><br><span class="line"><span class="comment">// f(): called</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个装饰器工厂——有助于将用户参数传给装饰器声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;f(): evaluated&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;f(): called&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">g</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;g(): evaluated&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">target, propertyKey: <span class="built_in">string</span>, descriptor: PropertyDescriptor</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;g(): called&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">  <span class="meta">@f</span>()</span><br><span class="line">  <span class="meta">@g</span>()</span><br><span class="line">  <span class="title function_">method</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f(): evaluated</span></span><br><span class="line"><span class="comment">// g(): evaluated</span></span><br><span class="line"><span class="comment">// g(): called</span></span><br><span class="line"><span class="comment">// f(): called</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Nest.js的生命周期分为三个阶段：初始化、运行和终止，下图详细生命周期的各个子阶段：</p>
-<p><img src="https://docs.nestjs.com/assets/lifecycle-events.png" alt></p>
+<p><img src="https://docs.nestjs.com/assets/lifecycle-events.png" alt=""></p>
 <p>允许监听的生命周期函数：</p>
 <ul>
 <li><code>onModuleInit()</code>, 模块初始化时候调用</li>
@@ -482,15 +482,14 @@
 <li><code>beforeApplicationShutdown()</code>, web应用准备被停止之前</li>
 <li><code>onApplicationShutdown()</code>，web应用被停止之后，在进程退出之前</li>
 </ul>
-<h2 id="上手实战"><a href="#上手实战" class="headerlink" title="上手实战"></a>上手实战</h2><h3 id="第一步安装："><a href="#第一步安装：" class="headerlink" title="第一步安装："></a>第一步安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i -g @nestjs/cli</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nest new project-name --strict</span></span><br></pre></td></tr></table></figure>
+<h2 id="上手实战"><a href="#上手实战" class="headerlink" title="上手实战"></a>上手实战</h2><h3 id="第一步安装："><a href="#第一步安装：" class="headerlink" title="第一步安装："></a>第一步安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i -g @nestjs/cli</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nest new project-name --strict</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="生成项目结构"><a href="#生成项目结构" class="headerlink" title="生成项目结构"></a>生成项目结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">|-- app.controller.spec.ts // controller层的单元测试</span><br><span class="line">|-- app.controller.ts // controller层 控制路由接口层</span><br><span class="line">|-- app.module.ts // 应用根模块</span><br><span class="line">|-- app.service.ts // service层 给controller提供各种业务处理方法</span><br><span class="line">|-- main.ts // 入口文件</span><br></pre></td></tr></table></figure>
+<h3 id="生成项目结构"><a href="#生成项目结构" class="headerlink" title="生成项目结构"></a>生成项目结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">|-- app.controller.spec.ts // controller层的单元测试</span><br><span class="line">|-- app.controller.ts // controller层 控制路由接口层</span><br><span class="line">|-- app.module.ts // 应用根模块</span><br><span class="line">|-- app.service.ts // service层 给controller提供各种业务处理方法</span><br><span class="line">|-- main.ts // 入口文件</span><br></pre></td></tr></table></figure>
 
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn start:dev</span></span><br></pre></td></tr></table></figure>
-
-<p>打开 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 就可以访问了。</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn start:dev</span></span><br></pre></td></tr></table></figure>
+<p>打开 <a target="_blank" rel="noopener" href="http://localhost:3000">http://localhost:3000</a> 就可以访问了。</p>
 <p>后面有篇文章叫<a href="/2023/01/22/today/20220122/">《从nest.js中了解Ioc和DI》</a>，大家想了解可以去看看。</p>
-
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
     <div class="page-reward">

@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="背景今天在看Vite的源码时候，发现有个用法很神奇，代码如下： 12345678import path, &amp;#123; resolve &amp;#125; from &#39;node:path&#39;import &amp;#123; fileURLToPath &amp;#125; from &#39;node:url&#39;import &amp;#123; readFileSync &amp;#125; from &#39;node:fs&#39;const &amp;#123">
+  <meta name="description" content="背景今天在看Vite的源码时候，发现有个用法很神奇，代码如下： 12345678import path, &amp;#123; resolve &amp;#125; from &amp;#x27;node:path&amp;#x27;import &amp;#123; fileURLToPath &amp;#125; from &amp;#x27;node:url&amp;#x27;import &amp;#123; readFileSync &amp;#125; from">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node冷门知识点——require(&#39;node:path&#39;)">
 <meta property="og:url" content="https://www.qborfy.com/share/node-modules.html">
 <meta property="og:site_name" content="qborfy知识库">
-<meta property="og:description" content="背景今天在看Vite的源码时候，发现有个用法很神奇，代码如下： 12345678import path, &amp;#123; resolve &amp;#125; from &#39;node:path&#39;import &amp;#123; fileURLToPath &amp;#125; from &#39;node:url&#39;import &amp;#123; readFileSync &amp;#125; from &#39;node:fs&#39;const &amp;#123">
+<meta property="og:description" content="背景今天在看Vite的源码时候，发现有个用法很神奇，代码如下： 12345678import path, &amp;#123; resolve &amp;#125; from &amp;#x27;node:path&amp;#x27;import &amp;#123; fileURLToPath &amp;#125; from &amp;#x27;node:url&amp;#x27;import &amp;#123; readFileSync &amp;#125; from">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-09T11:21:01.000Z">
-<meta property="article:modified_time" content="2023-03-09T11:09:52.674Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.482Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">573字</span>
+      <span class="post-count">581字</span>
     </span>
   </span>
 
@@ -347,11 +347,11 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天在看Vite的源码时候，发现有个用法很神奇，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">'node:path'</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">'node:url'</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">'node:fs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="built_in">JSON</span>.parse(</span><br><span class="line">  readFileSync(<span class="keyword">new</span> URL(<span class="string">'../../package.json'</span>, <span class="keyword">import</span>.meta.url)).toString(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">&#x27;node:path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&#x27;node:url&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">&#x27;node:fs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(</span><br><span class="line">  <span class="title function_">readFileSync</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;../../package.json&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)).<span class="title function_">toString</span>(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<p>源码地址在:<a href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts" target="_blank" rel="noopener">vite/src/node/cli.ts</a></p>
+<p>源码地址在:<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts">vite/src/node/cli.ts</a></p>
 <p>因此想要研究一下为什么要用<code>node:path</code>，而不是直接应用 <code>import path from &#39;path&#39;</code>呢？下面就来好好分析一下。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="require机制"><a href="#require机制" class="headerlink" title="require机制"></a>require机制</h1><p>首先，我们需要先搞清楚<code>require</code>加载流程:</p>
 <ul>
@@ -362,13 +362,13 @@
 <li>首次会加载比较慢，后面node.js 会将缓存相关信息到内存避免二次查询</li>
 </ul>
 <p>所以当我们加载内置模块的时候，如：<code>require(&#39;fs&#39;)</code>时候，其实是直接用node内存的变量</p>
-<h1 id="Node-ModuleName"><a href="#Node-ModuleName" class="headerlink" title="Node:ModuleName"></a>Node:ModuleName</h1><p>接下来我们再到官网中去找一下这个定义，<a href="https://nodejs.org/api/module.html#modules-nodemodule-api" target="_blank" rel="noopener">node:module API</a>的使用说明：</p>
+<h1 id="Node-ModuleName"><a href="#Node-ModuleName" class="headerlink" title="Node:ModuleName"></a>Node:ModuleName</h1><p>接下来我们再到官网中去找一下这个定义，<a target="_blank" rel="noopener" href="https://nodejs.org/api/module.html#modules-nodemodule-api">node:module API</a>的使用说明：</p>
 <blockquote>
 <p>可以使用<code>node：前缀</code>来标识核心模块，在这种情况下，它会绕过所需的缓存。例如，<code>require(&#39;node:fs&#39;)</code>将始终返回内置的fs模块，即使存在该名称所需的<code>.cache</code>条目也是如此。</p>
 </blockquote>
 <h1 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h1><p>从上面大概清楚两种用法的实际意义，那么两者分别使用场景呢？或者说<code>Node:ModuleName</code>有什么意义呢？</p>
 <ul>
-<li>直接使用<code>require(&#39;fs&#39;)</code>，需要等node.js将所有核心模块加载完成后才可以使用，这个可以通过<a href="https://nodejs.org/api/module.html#modulebuiltinmodules" target="_blank" rel="noopener"><code>module.builtinModules</code></a>去判断是否加载完成</li>
+<li>直接使用<code>require(&#39;fs&#39;)</code>，需要等node.js将所有核心模块加载完成后才可以使用，这个可以通过<a target="_blank" rel="noopener" href="https://nodejs.org/api/module.html#modulebuiltinmodules"><code>module.builtinModules</code></a>去判断是否加载完成</li>
 <li>使用<code>require(&#39;node:fs&#39;)</code>，则不需要等待，可以直接调用内置模块，但是却无法使用缓存</li>
 </ul>
 <p>因此，如果是对启动速度有要求的功能，建议直接<code>require(&#39;node:fs&#39;)</code>模式，其他正常调用即可。</p>

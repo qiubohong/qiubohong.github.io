@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/20230314.png">
 <meta property="article:published_time" content="2023-03-12T10:00:01.000Z">
-<meta property="article:modified_time" content="2023-03-14T12:50:41.331Z">
+<meta property="article:modified_time" content="2023-05-11T13:40:35.487Z">
 <meta property="article:author" content="qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="每日更新">
@@ -349,17 +349,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a href="https://qborfy.com/today/20230216.html" target="_blank" rel="noopener">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
-<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html" target="_blank" rel="noopener">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230216.html">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
 <ul>
 <li>OpenAI提供了哪些模型算法</li>
 <li>不同模型算法分别可以应用到哪些场景</li>
 <li>真正调用OpenAI需要注意哪些事项</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <p>接下来我们开始动手吧！这里基本前提是你得拥有OpenAI API keys，可以到[OpenAI]。</p>
-<p>首先我们先来看看<a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是做什么的。</p>
-<h1 id="node-gptcommit"><a href="#node-gptcommit" class="headerlink" title="node-gptcommit"></a>node-gptcommit</h1><p><a href="https://github.com/qiubohong/node-gptcommit" target="_blank" rel="noopener">node-gptcommit</a>是基于<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>实现思路去开发的node版本工具命令，可以根据项目中git的diff文件列表去生成git commit信息。</p>
+<p>首先我们先来看看<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>是做什么的。</p>
+<h1 id="node-gptcommit"><a href="#node-gptcommit" class="headerlink" title="node-gptcommit"></a>node-gptcommit</h1><p><a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>是基于<a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">gptcommit</a>实现思路去开发的node版本工具命令，可以根据项目中git的diff文件列表去生成git commit信息。</p>
 <p>具体效果可以参考以下步骤：</p>
 <ol>
 <li>安装</li>
@@ -369,18 +369,18 @@
 <ol start="2">
 <li>设置openai的apikey</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngptcommit config --set openai.apiKey=sk-xxxxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngptcommit config --set openai.apiKey=sk-xxxxx</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>开始使用</li>
 </ol>
 <p>请到某个git仓库的根目录使用，具体如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd xxx</span><br><span class="line"></span><br><span class="line">ngptcommit preview</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd xxx</span><br><span class="line"></span><br><span class="line">ngptcommit preview</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>就可以看到具体返回的信息，具体下文所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;🤖 GPT-3 返回的总结内容如下:&quot;</span><br><span class="line"></span><br><span class="line">feat: </span><br><span class="line"></span><br><span class="line">- 更新项目配置，加强 TypeScript 的选项。</span><br><span class="line">- 添加了包含了推荐和 Prettier 的扩展，设置特定规则和排除的 `tslint.json` 文件。</span><br><span class="line">- 包含了文档配置的 `typedoc.js` 文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 在新的 `tsconfig.json` 中添加严格的 TypeScript 选项。</span><br><span class="line">- 在新的 `tslint.json` 文件中添加了推荐和 Prettier 的扩展。</span><br><span class="line">- 配置了特定规则的排除和 false 选项。</span><br><span class="line">- 添加了文档配置的 `typedoc.js` 文件。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&quot;🤖 GPT-3 返回的总结内容如下:&quot;</span><br><span class="line"></span><br><span class="line">feat: </span><br><span class="line"></span><br><span class="line">- 更新项目配置，加强 TypeScript 的选项。</span><br><span class="line">- 添加了包含了推荐和 Prettier 的扩展，设置特定规则和排除的 `tslint.json` 文件。</span><br><span class="line">- 包含了文档配置的 `typedoc.js` 文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 在新的 `tsconfig.json` 中添加严格的 TypeScript 选项。</span><br><span class="line">- 在新的 `tslint.json` 文件中添加了推荐和 Prettier 的扩展。</span><br><span class="line">- 配置了特定规则的排除和 false 选项。</span><br><span class="line">- 添加了文档配置的 `typedoc.js` 文件。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="OpenAI使用说明"><a href="#OpenAI使用说明" class="headerlink" title="OpenAI使用说明"></a>OpenAI使用说明</h1><p>OpenAI API说明文档，地址：<a href="https://platform.openai.com/docs/" target="_blank" rel="noopener">openai docs</a>。</p>
+<h1 id="OpenAI使用说明"><a href="#OpenAI使用说明" class="headerlink" title="OpenAI使用说明"></a>OpenAI使用说明</h1><p>OpenAI API说明文档，地址：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/">openai docs</a>。</p>
 <p>首先，我们需要了解几个概念：</p>
 <ul>
 <li><code>Model</code> 模型，是AI算法模型，根据不同模型可以推算出不同的结果</li>
@@ -395,35 +395,34 @@
 </ul>
 <p>除了<code>GPT-3</code>模型，openAI还提供了几个其他模型（包括：beta版本），如下：</p>
 <ul>
-<li><a href="https://platform.openai.com/docs/guides/images" target="_blank" rel="noopener"><code>DALL·E</code></a>，根据自然语言生成图片。</li>
-<li><a href="https://github.com/openai/whisper" target="_blank" rel="noopener"><code>Whisper</code></a>，语音识别模型，已经开源的模型</li>
-<li><a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener"><code>Embeddings</code></a>，检测词语的关联关系，能实现搜索、分类、推荐、异常检测、多样性测试、标签等</li>
-<li><a href="https://platform.openai.com/docs/guides/code" target="_blank" rel="noopener"><code>Codex</code></a>，基于GPT-3生成专门针对代码优化的模型，最擅长的是Python语言，精通十几种语言，包括JavaScript、Go、Perl、PHP、Ruby、SWIFT、TypeScrip、SQL，甚至是Shell等。</li>
-<li><a href="https://platform.openai.com/docs/guides/moderation/overview" target="_blank" rel="noopener"><code>Moderation</code></a>，按照OpenAI内容安全使用策略，识别内容是否非法，如:涉黄、暴力、自残等。<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/images"><code>DALL·E</code></a>，根据自然语言生成图片。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/whisper"><code>Whisper</code></a>，语音识别模型，已经开源的模型</li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/embeddings"><code>Embeddings</code></a>，检测词语的关联关系，能实现搜索、分类、推荐、异常检测、多样性测试、标签等</li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/code"><code>Codex</code></a>，基于GPT-3生成专门针对代码优化的模型，最擅长的是Python语言，精通十几种语言，包括JavaScript、Go、Perl、PHP、Ruby、SWIFT、TypeScrip、SQL，甚至是Shell等。</li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/moderation/overview"><code>Moderation</code></a>，按照OpenAI内容安全使用策略，识别内容是否非法，如:涉黄、暴力、自残等。<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
 </ul>
 <ol>
 <li>安装依赖</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install openai</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install openai</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>初始化</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Configuration, OpenAIApi &#125; <span class="keyword">from</span> <span class="string">'openai'</span>;</span><br><span class="line"><span class="keyword">const</span> config = <span class="keyword">new</span> Configuration(&#123;</span><br><span class="line">    apiKey,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">this</span>.openai = <span class="keyword">new</span> OpenAIApi(config);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Configuration</span>, <span class="title class_">OpenAIApi</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;openai&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> config = <span class="keyword">new</span> <span class="title class_">Configuration</span>(&#123;</span><br><span class="line">    apiKey,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">openai</span> = <span class="keyword">new</span> <span class="title class_">OpenAIApi</span>(config);</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>根据不同模型调用</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gpt-3.5-turbo</span></span><br><span class="line"><span class="keyword">const</span> prompt = <span class="string">'请问你是谁？'</span>;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="keyword">this</span>.openai.createChatCompletion(&#123;</span><br><span class="line">    model: <span class="string">"gpt-3.5-turbo"</span>,</span><br><span class="line">    messages: [&#123;</span><br><span class="line">        role: <span class="string">"user"</span>, <span class="comment">// system: 机器人, user: 用户, assistant: 助手</span></span><br><span class="line">        content: prompt</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// debug('调用openai接口返回内容：', response.data)</span></span><br><span class="line"><span class="keyword">return</span> response.data.choices[<span class="number">0</span>]?.message?.content ?? <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成一张黑色暹罗猫的图片</span></span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> openai.createImage(&#123;</span><br><span class="line">  prompt: <span class="string">"a black  cat"</span>,</span><br><span class="line">  n: <span class="number">1</span>,</span><br><span class="line">  size: <span class="string">"1024x1024"</span>,</span><br><span class="line">&#125;);</span><br><span class="line">image_url = response.data.data[<span class="number">0</span>].url;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gpt-3.5-turbo</span></span><br><span class="line"><span class="keyword">const</span> prompt = <span class="string">&#x27;请问你是谁？&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">openai</span>.<span class="title function_">createChatCompletion</span>(&#123;</span><br><span class="line">    <span class="attr">model</span>: <span class="string">&quot;gpt-3.5-turbo&quot;</span>,</span><br><span class="line">    <span class="attr">messages</span>: [&#123;</span><br><span class="line">        <span class="attr">role</span>: <span class="string">&quot;user&quot;</span>, <span class="comment">// system: 机器人, user: 用户, assistant: 助手</span></span><br><span class="line">        <span class="attr">content</span>: prompt</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// debug(&#x27;调用openai接口返回内容：&#x27;, response.data)</span></span><br><span class="line"><span class="keyword">return</span> response.<span class="property">data</span>.<span class="property">choices</span>[<span class="number">0</span>]?.<span class="property">message</span>?.<span class="property">content</span> ?? <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成一张黑色暹罗猫的图片</span></span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> openai.<span class="title function_">createImage</span>(&#123;</span><br><span class="line">  <span class="attr">prompt</span>: <span class="string">&quot;a black  cat&quot;</span>,</span><br><span class="line">  <span class="attr">n</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">size</span>: <span class="string">&quot;1024x1024&quot;</span>,</span><br><span class="line">&#125;);</span><br><span class="line">image_url = response.<span class="property">data</span>.<span class="property">data</span>[<span class="number">0</span>].<span class="property">url</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br></pre></td></tr></table></figure>
 <p>生成猫的图片：</p>
 <div>
-<img src="/assets/img/20230314.png" width="200px">
+<img src="/assets/img/20230314.png"  width="200px"/>
 </div>
 
 <p>了解到OpenAI提供了如此多的API，是否可以利用他们来开发一些辅助工具来提升我们开发幸福感呢？</p>
-<p>目前已经有很多这种开源小工具了，比如：<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>， <a href="https://github.com/JimmyLv/BibiGPT" target="_blank" rel="noopener">BibiGPT</a>，<a href="https://github.com/Nutlope/roomGPT?utm_source=gold_browser_extension" target="_blank" rel="noopener">roomGPT</a>等。</p>
-<p>接下来我们以<a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a>为参考，尝试自己去实现。</p>
+<p>目前已经有很多这种开源小工具了，比如：<a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">gptcommit</a>， <a target="_blank" rel="noopener" href="https://github.com/JimmyLv/BibiGPT">BibiGPT</a>，<a target="_blank" rel="noopener" href="https://github.com/Nutlope/roomGPT?utm_source=gold_browser_extension">roomGPT</a>等。</p>
+<p>接下来我们以<a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">gptcommit</a>为参考，尝试自己去实现。</p>
 <h1 id="开发ngptcommit的背后"><a href="#开发ngptcommit的背后" class="headerlink" title="开发ngptcommit的背后"></a>开发ngptcommit的背后</h1><h2 id="gptcommit实现原理"><a href="#gptcommit实现原理" class="headerlink" title="gptcommit实现原理"></a>gptcommit实现原理</h2><p>gptcommit是基于Rust开发，但是从看代码的过程中发现Rust其实和Typescript差不多类似的语法，所以很容易上手。</p>
 <p>下面有张图，大概就是gptcommit实现的过程：</p>
 
@@ -436,12 +435,12 @@
 <ol>
 <li>在<code>package.json</code>里配置命令行名称<code>bin:xxx</code>:</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    "bin": &#123;</span><br><span class="line">        "ngptcommit": "bin/ngptcommit.js"</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attr">&quot;bin&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;ngptcommit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bin/ngptcommit.js&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>针对命令行工具，node.js要求在文件开头必须表明<code>#!/usr/bin/env node</code>：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br><span class="line"></span><br><span class="line">import run from &apos;../dist/cli.js&apos;;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br><span class="line"></span><br><span class="line">import run from &#x27;../dist/cli.js&#x27;;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
 
 <p>到了这里，我们基本就开始动手撸代码了，这里我还推荐一些npm包，能帮你快速开发命令行工具，有以下这些：</p>
 <ul>
@@ -468,8 +467,8 @@
 <li>会有越来越多AI平台出现，甚至可能会出现一种大语言模型，或者面向AI编程语言，只需要写少量代码实现功能</li>
 </ul>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://platform.openai.com/docs/" target="_blank" rel="noopener">OpenAI相关文档</a></li>
-<li><a href="https://github.com/zurawiki/gptcommit" target="_blank" rel="noopener">gptcommit</a></li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/">OpenAI相关文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zurawiki/gptcommit">gptcommit</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -624,18 +623,18 @@
 
 <nav id="article-nav">
   
-    <a href="/study/book-million.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ideas/20230312.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          《百万富翁快车道》，我们应该如何快速转到一百万呢？
+          GPT-4都来了，我们还需要刷算法题和背八股文吗？
         
       </div>
     </a>
   
   
-    <a href="/ideas/20230312.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GPT-4都来了，我们还需要刷算法题和背八股文吗？</div>
+    <a href="/today/20230222.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">30分钟搞懂Rollup+Typescript构建工程</div>
       <i class="icon-circle-right"></i>
     </a>
   
