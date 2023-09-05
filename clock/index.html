@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clock For Kindle</title>
+  <style>
+    @font-face {
+      font-family: TIME;
+      src: url("./time.ttf") format("truetype");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      text-align: center;      
+      overflow: hidden;
+    }
+
+    .app {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform-origin: 0 0;
+    }
+
+    .time {
+      font-family: TIME;
+      margin: 1rem 0;
+    }
+
+    .date {
+      white-space: nowrap;
+    }
+
+    .cn-date {}
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="date"></div>
+    <div class="time"></div>
+    <div class="cn-date"></div>
+  </div>
+
+  <script src="./calendar.min.js"></script>
+  <script src="./index.min.js"></script>
+</body>
+
+</html>
