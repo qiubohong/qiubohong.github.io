@@ -280,7 +280,7 @@ friends:
   掘金:
     url: https://juejin.cn/user/3104676566022125
 # 关于我
-aboutme: <div style="margin:0 1em;">borfy<br><br>毕业于广大华软学院，软件工程师一枚！<br><br>Java出身，喜欢前端进行转岗，主攻全栈发展，技术有：Vue、React、Nodejs、Java等。</div>  
+aboutme: <div style="margin:0 1em;">Qborfy<br><br>毕业于广大华软学院，软件工程师一枚！<br><br><p>Java出身，喜欢前端进行转岗，主攻全栈发展，技术有：Vue、React、Nodejs、Java等。</p><div class="shang_tit"> <p>加我好友，多个朋友交流也不错~</p> </div> <div class="shang_payimg"> <div class="pay_img"> <img src="/img/weixin-person.png" class="alipay" title="扫码加好友"> </div> </div></div>  
 
 local_search: 
   enable: true

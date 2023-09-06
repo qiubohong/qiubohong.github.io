@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>qborfy知识库</title>
+  <title>Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -16,15 +16,15 @@
   
   <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:type" content="website">
-<meta property="og:title" content="qborfy知识库">
+<meta property="og:title" content="Qborfy知识库">
 <meta property="og:url" content="https://www.qborfy.com/page/4/index.html">
-<meta property="og:site_name" content="qborfy知识库">
+<meta property="og:site_name" content="Qborfy知识库">
 <meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="qborfy">
+<meta property="article:author" content="Qborfy">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="qborfy知识库" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -90,7 +90,7 @@
 			<img src="/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">qborfy</a></h1>
+			<h1 class="header-author"><a href="/">Qborfy</a></h1>
 		</hgroup>
 		
 
@@ -191,7 +191,7 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">qborfy</h1>
+			  <h1 class="header-author js-header-author">Qborfy</h1>
 			</hgroup>
 			
 			
@@ -289,6 +289,207 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-share/nodejs-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/nodejs-module.html" target="_blank">
+      Node冷门知识点—— node.js支持import语法
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/nodejs-module.html" class="archive-article-date">
+        <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
+<ul>
+<li>CommonJS， Node.js提出的规范</li>
+<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
+<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
+</ul>
+<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;loadsh&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;loadsh&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
+<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+    
+    <a class="article-more-a" href="/share/nodejs-module.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/nodejs-module.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-study/book-million" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/study/book-million.html" target="_blank">
+      《百万富翁快车道》，我们应该如何快速转到一百万呢？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/study/book-million.html" class="archive-article-date">
+        <time datetime="2023-03-14T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="百万富翁快车道"><a href="#百万富翁快车道" class="headerlink" title="百万富翁快车道"></a>百万富翁快车道</h1><p>讲述的作者从失业游民到百万富翁的经历的一些过程，可以帮人开阔一些思维模式，从人行道、慢车道、快车道的方式去讲述一个人如何转到一百万。</p>
+<p>如果想要快速赚到一百万，这里没有教你实际的方案，但是告诉你一些思维模式，所以我这边简单通过思维导图去进行汇总。</p>
+    
+    <a class="article-more-a" href="/study/book-million.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/study/book-million.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <style>
@@ -1130,209 +1331,6 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230218.html" target="_blank">
-      好玩有趣收集系列（二）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230218.html" class="archive-article-date">
-        <time datetime="2023-02-18T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今日收集一些好玩有趣的开源api或框架或开源项目 </p>
-<h1 id="自动生成1000个性化视频"><a href="#自动生成1000个性化视频" class="headerlink" title="自动生成1000个性化视频"></a>自动生成1000个性化视频</h1><p>通过<a target="_blank" rel="noopener" href="https://shotstack.io/docs/guide/getting-started/core-concepts/">Shotstack</a>提供的API服务制作不同视频。</p>
-<blockquote>
-<p>ShotStack是一个基于云的视频编辑API。与Adobe Premiere或After Effects等传统桌面视频编辑应用程序不同，ShotStack纯粹是基于代码的–您可以使用代码创建编辑。该API使用使用JSON的REST架构样式来描述应该如何编辑视频。有许多不同语言的SDK可用于与API交互并创建JSON请求。</p>
-</blockquote>
-<p>是否可以利用该api和小程序结合在一起做一些 生日祝福小视频定制服务。  </p>
-    
-    <a class="article-more-a" href="/ideas/20230218.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230218.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230217" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230217.html" target="_blank">
-      创业idea —— 一个小程序利用一句话画一幅画
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230217.html" class="archive-article-date">
-        <time datetime="2023-02-17T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近从开源库看到一个很火的项目，就是用一句话画一幅画。</p>
-<p>这里虽然他们开源只识别英文，我们可以调用第三方的翻译API转成英文，然后再返回到开源库。</p>
-<p>小程序思路：</p>
-<ul>
-<li>一个人一天体验3次，转发可以获得次数</li>
-<li>允许转发下载，以及个人签名等</li>
-<li>提高用户量</li>
-<li>如果访问量爆发的话，可以继续尝试</li>
-<li>名字叫随意画</li>
-</ul>
-<h1 id="AI生成图片开源项目"><a href="#AI生成图片开源项目" class="headerlink" title="AI生成图片开源项目"></a>AI生成图片开源项目</h1><p><a target="_blank" rel="noopener" href="https://github.com/cmdr2/stable-diffusion-ui?utm_source=gold_browser_extension">stable-diffusion-ui 一句话生成一幅画</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230217.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
@@ -1347,7 +1345,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2023 <a href="https://www.qborfy.com/" target="_blank">qborfy</a>
+    		&copy; 2018-2023 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
     	</div>
       	<div class="footer-right">
 			
@@ -1545,6 +1543,10 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">qborfy周刊</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI系列</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1633,7 +1635,7 @@
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
-  	  		<div class="aboutme-wrap" id="aboutme"><div style="margin:0 1em;">borfy<br><br>毕业于广大华软学院，软件工程师一枚！<br><br>Java出身，喜欢前端进行转岗，主攻全栈发展，技术有：Vue、React、Nodejs、Java等。</div></div>
+  	  		<div class="aboutme-wrap" id="aboutme"><div style="margin:0 1em;">Qborfy<br><br>毕业于广大华软学院，软件工程师一枚！<br><br><p>Java出身，喜欢前端进行转岗，主攻全栈发展，技术有：Vue、React、Nodejs、Java等。</p><div class="shang_tit"> <p>加我好友，多个朋友交流也不错~</p> </div> <div class="shang_payimg"> <div class="pay_img"> <img src="/img/weixin-person.png" class="alipay" title="扫码加好友"> </div> </div></div></div>
   	  	
     	</section>
     

@@ -1,6 +1,9 @@
 import typescript from 'rollup-plugin-typescript2'; // 处理typescript
 import babel from '@rollup/plugin-babel';
 
+/**
+ * 
+ */
 export default [
     {
         input: 'src/index.ts',
