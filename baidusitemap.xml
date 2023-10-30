@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.qborfy.com/study/2023-read-plan.html</loc>
+    <lastmod>2023-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/think-fast-slow.html</loc>
+    <lastmod>2023-10-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/lowcode/use-rust.html</loc>
+    <lastmod>2023-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/ideas/20230809.html</loc>
+    <lastmod>2023-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/think-framework.html</loc>
+    <lastmod>2023-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230304.html</loc>
+    <lastmod>2023-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230305.html</loc>
+    <lastmod>2023-09-12</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/study/2023-middle.html</loc>
     <lastmod>2023-09-06</lastmod>
   </url>
@@ -17,16 +45,8 @@
     <lastmod>2023-09-06</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/study/think-framework.html</loc>
-    <lastmod>2023-09-06</lastmod>
-  </url>
-  <url>
     <loc>https://www.qborfy.com/lowcode/async-component.html</loc>
     <lastmod>2023-09-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230809.html</loc>
-    <lastmod>2023-08-23</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/framework/framework-k8s-study.html</loc>
@@ -169,14 +189,6 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230305.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230304.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
     <loc>https://www.qborfy.com/today/20230215.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
@@ -290,10 +302,6 @@
   </url>
   <url>
     <loc>https://www.qborfy.com/share/tomcat-nowork.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/study/2023-read-plan.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
