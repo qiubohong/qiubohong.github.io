@@ -296,6 +296,112 @@
     height:800px
   }
   </style>
+<article id="post-today/20230104" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230104.html" target="_blank">
+      从尝试搭建NAS了解各类云硬盘协议（一）
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230104.html" class="archive-article-date">
+        <time datetime="2023-01-04T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NAS-是什么"><a href="#NAS-是什么" class="headerlink" title="NAS 是什么"></a>NAS 是什么</h1><p>NAS，全称Network Attached Storage，中文名： 网络附属存储。</p>
+<p>可以理解成是长时间联网的存储设备，比如你有个硬盘，里面存储了一些教学视频，你想要别的地方去访问，比如在手机或者电脑上访问，那么NAS就能够解决你这个问题的解决方案。</p>
+<p>NAS可以解决什么场景痛点：</p>
+<ul>
+<li>你的照片、视频可以随时上传，大小、题材不限制</li>
+<li>访问速度快，尤其在家的时候局域网更快</li>
+<li>信息安全，不再担心你的信息被云盘厂商泄露</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230104.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动手实战</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230104.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230103" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1176,106 +1282,6 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/iOS11-fastclick-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/iOS11-fastclick-js.html" target="_blank">
-      iOS11.3 fastclick.js相关bug
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/iOS11-fastclick-js.html" class="archive-article-date">
-        <time datetime="2018-08-04T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。</p>
-<h2 id="bug复现条件："><a href="#bug复现条件：" class="headerlink" title="bug复现条件："></a>bug复现条件：</h2><p>一、ios 11.3中app的webview为 UI WebView<br>二、在项目中使用了FastClick.js，页面包括输入框.</p>
-<h2 id="发现源头问题："><a href="#发现源头问题：" class="headerlink" title="发现源头问题："></a>发现源头问题：</h2><p>在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是FastClick.js导致，注释掉后发现bug现象消失了，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">define</span>([<span class="string">&#x27;zepto&#x27;</span>], <span class="keyword">function</span> (<span class="params">$</span>) &#123;</span><br><span class="line"> <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"> <span class="comment">// FastClick.attach(document.body);</span></span><br><span class="line"> ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>但是这是为什么呢？我们一起看看为什么要加上FastClick，这个库解决了什么问题？</p>
-    
-    <a class="article-more-a" href="/share/iOS11-fastclick-js.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/iOS11-fastclick-js.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">Next &amp;raquo;</a>
@@ -1290,7 +1296,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2023 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
+    		&copy; 2018-2024 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
     	</div>
       	<div class="footer-right">
 			

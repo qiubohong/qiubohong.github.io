@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.qborfy.com/study/think-fast-slow.html</loc>
+    <lastmod>2024-01-09</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/2023-end.html</loc>
+    <lastmod>2024-01-02</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/ailearn/openai-dev-20231106.html</loc>
     <lastmod>2023-11-09</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/study/2023-read-plan.html</loc>
     <lastmod>2023-10-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/study/think-fast-slow.html</loc>
-    <lastmod>2023-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.qborfy.com/lowcode/use-rust.html</loc>

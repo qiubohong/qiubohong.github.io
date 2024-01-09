@@ -296,6 +296,117 @@
     height:800px
   }
   </style>
+<article id="post-lowcode/sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/lowcode/sandbox.html" target="_blank">
+      低代码系列——js沙箱设计
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/lowcode/sandbox.html" class="archive-article-date">
+        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
+<p>这里为什么会一开始介绍js沙箱设计呢？</p>
+<p>因为低代码平台，会运行用户本身自己编写的业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
+<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
+<ul>
+<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
+<li>插入，沙箱允许插入平台的内置对象</li>
+<li>容错，沙箱内代码即使有错误，也不影响整个平台执行</li>
+</ul>
+    
+    <a class="article-more-a" href="/lowcode/sandbox.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/lowcode/sandbox.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1257,105 +1368,6 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230117" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230117.html" target="_blank">
-      理解React中Fiber架构(一)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230117.html" class="archive-article-date">
-        <time datetime="2023-01-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从React16版本更新了Hook用法，同时引入了新的Fiber架构去重构整个渲染和事件处理过程，React团队引入Hook是为了更好剥离业务代码，让开发能更加友好的抽象代码，达到低耦合的函数组件目的，那么重构Diff算法，引入Fiber架构是为了什么呢？ 其实只是为了能够一个目标<code>快速响应</code>，原先Diff算法时间复杂度为<span>$$ O(n^3)$$</span> ，最后经过Fiber重构达到了$$ O(n) $$，这里面具体有什么门道，值得我们去深入研究一下。</p>
-    
-    <a class="article-more-a" href="/today/20230117.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230117.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
@@ -1370,7 +1382,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2023 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
+    		&copy; 2018-2024 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
     	</div>
       	<div class="footer-right">
 			
