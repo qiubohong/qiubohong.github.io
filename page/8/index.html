@@ -296,6 +296,106 @@
     height:800px
   }
   </style>
+<article id="post-today/20230119" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230119.html" target="_blank">
+      从lerna到初步了解和使用Nx(一)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230119.html" class="archive-article-date">
+        <time datetime="2023-01-19T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从组内开发架构采用Monorepo大仓项目后，了解一些Monorepo的常用技术，主要采用了<code>lerna</code>框架去做多个子项目统一package.json命令脚本，因此想要了解一下lerna框架，同时也查到lerna的公司同步开发<code>Nx</code>项目，尝试一下它的应用。</p>
+<p>想了解Monorepo大仓项目如何设计的可以翻到前往阅读 <a target="_blank" rel="noopener" href="https://qborfy.com/today/20230107.html">《从npm版本依赖到Monorepo大仓项目》</a>。</p>
+    
+    <a class="article-more-a" href="/today/20230119.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230119.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230117" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1209,113 +1309,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230106.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230220" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230220.html" target="_blank">
-      前端快速入门搭建Prometheus监控系统
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230220.html" class="archive-article-date">
-        <time datetime="2023-01-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在尝试做性能优化相关事项，其中有个点就是需要对前端页面性能做监控，有了性能数据才能验证自己的性能优化方案是否ok。</p>
-<p>目前市面上主流的监控开源方案选择：</p>
-<ul>
-<li>Promethues ，基于Google的 SoundCloud，2012年开源的被广为适用的监控系统</li>
-<li>Zabbix，基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案</li>
-<li>LightHouse，专用于前端页面性能监控，并可以生成对应报告的</li>
-<li>Sentry，提供了检测和解决影响用户体验的错误和其他问题的工具</li>
-</ul>
-<p>其中 Promethues 对比其他方案来说功能更加全面，因为它的生态更加完整，支持各类数据进行上报，对后续整个监控平台有更好的可扩展性。</p>
-    
-    <a class="article-more-a" href="/today/20230220.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230220.html">展开全文 >></a>
     </p>
     
 
