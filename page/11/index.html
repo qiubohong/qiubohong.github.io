@@ -296,6 +296,104 @@
     height:800px
   }
   </style>
+<article id="post-share/ios12-array-reverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/ios12-array-reverse.html" target="_blank">
+      ios12 array.reverse问题
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/ios12-array-reverse.html" class="archive-article-date">
+        <time datetime="2018-08-19T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>iOS12发布之后，在测试中发现一个关于Array.reverse的问题，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;</span><br><span class="line">    &lt;title&gt;iOS 12 Safari bugs&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.addEventListener(&quot;load&quot;, function ()</span><br><span class="line">    &#123;</span><br><span class="line">        let arr = [1, 2, 3, 4, 5];</span><br><span class="line">        alert(arr.join());</span><br><span class="line"></span><br><span class="line">        document.querySelector(&quot;button&quot;).addEventListener(&quot;click&quot;, function ()</span><br><span class="line">        &#123;</span><br><span class="line">            arr.reverse();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button&gt;Array.reverse()&lt;/button&gt;</span><br><span class="line">    &lt;p style=&quot;color:red;&quot;&gt;test: click button and refresh page, code:&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>问题描述：第一次进入刷新alert:<code>1,2,3,4</code>，第二次刷新就一直为alert<code>4,3,2,1</code>。</p>
+<h1 id="demo演示"><a href="#demo演示" class="headerlink" title="demo演示"></a>demo演示</h1><p><a target="_blank" rel="noopener" href="https://fanmingfei.github.io/array-reverse-ios12/origin.html">未修复的demo</a><br><a target="_blank" rel="noopener" href="https://fanmingfei.github.io/array-reverse-ios12/fixed.html">已修复的demo</a></p>
+    
+    <a class="article-more-a" href="/share/ios12-array-reverse.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/ios12-array-reverse.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-share/iOS11-fastclick-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -703,6 +801,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AI系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI学习</a>
               </li>
             
             <div class="clearfix"></div>
