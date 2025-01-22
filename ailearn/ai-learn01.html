@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Qborfy知识库</title>
+  <title>00篇 AI系统学习前准备知识 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志"> -->
-  
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/page/5/index.html">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  为什么要学习AI知识去年年中总结写过一篇文章 《2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)》，AI发展是必不可缺的，如同马车和汽车的更新迭代一样，作为互联网的程序员，我们有点类似之前的马夫，现在有新的工具，我们也需要跟上时代的脚步，学习AI知识，可以让我们在互联网裁员浪潮中继续前进。 如何开始学 AIAI 不是一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="00篇 AI系统学习前准备知识">
+<meta property="og:url" content="https://www.qborfy.com/ailearn/ai-learn01.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  为什么要学习AI知识去年年中总结写过一篇文章 《2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)》，AI发展是必不可缺的，如同马车和汽车的更新迭代一样，作为互联网的程序员，我们有点类似之前的马夫，现在有新的工具，我们也需要跟上时代的脚步，学习AI知识，可以让我们在互联网裁员浪潮中继续前进。 如何开始学 AIAI 不是一个">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-06T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-17T07:47:34.481Z">
 <meta property="article:author" content="Qborfy">
+<meta property="article:tag" content="学习总结">
+<meta property="article:tag" content="AI学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
@@ -288,590 +288,236 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <style>
+            <style>
   .article-entry blockquote.mindmap-md{
     height:800px
   }
   </style>
-<article id="post-today/20230226" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ai-learn01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230226.html" target="_blank">
-      Typescript基础：如何更好的生成Typescript声明文件.d.ts
+    <h1 class="article-title" itemprop="name">
+      00篇 AI系统学习前准备知识
       
-    </a>
-  
     </h1>
   
 
 
   
   
-<a href="/today/20230226.html" class="archive-article-date">
-        <time datetime="2023-03-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-30</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/ailearn/ai-learn01.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
 </a>
 
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Typescript已经被前端广泛使用，如果你的项目还没有使用，建议赶紧使用起来，真的会对你的项目有足够的提升：</p>
-<ul>
-<li>让你的每个变量都有变量声明</li>
-<li>让你的每个方法找到其源头</li>
-<li>让你能提前使用一些超前的JavaScript语法，如：注解(装饰器)<code>@controller</code> 等语法糖</li>
-</ul>
-<p>但是使用的过程也会带来一些痛苦，比如你要做一个js lib库，如果用<code>Typescript</code> 开发确实可以帮助其他者快速使用，但是如果你没有注意Typescript的声明文件规范，很容易出现以下使用情况：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会直接从src目录去寻找</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib/src/client.d.ts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 而我们所期待的使用是</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>所以我们需要学习一下，如何更好的生成我们的Typescript声明文件。</p>
-    
-    <a class="article-more-a" href="/today/20230226.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230226.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230225" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230225.html" target="_blank">
-      MonoRepo实战：pnpm+nx搭建MonoRepo项目
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230225.html" class="archive-article-date">
-        <time datetime="2023-03-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="MonoRepo实战：pnpm-nx搭建MonoRepo项目"><a href="#MonoRepo实战：pnpm-nx搭建MonoRepo项目" class="headerlink" title="MonoRepo实战：pnpm+nx搭建MonoRepo项目"></a>MonoRepo实战：pnpm+nx搭建MonoRepo项目</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前有写过几篇关于monorepo的文章，具体如下：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230107.html">从npm版本依赖到Monorepo大仓项目</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230119.html">从lerna到初步了解和使用Nx(一)</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230219.html">从pnpm工具了解整个npm包核心管理原理</a></li>
-</ul>
-<p>再次复习一下<code>MonoRepo</code>的概念：</p>
-<blockquote>
-<p>Monorepo是包含多个不同项目的单一存储库，且不同项目之间具有明确定义的关系。</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>之前大多数是理论知识，能让我们知道<code>pnpm</code> 和<code>nx</code> 是什么，但是具体要到项目实战就有点懵，不知道从而下手，下面我们就一步步开始搭建<code>pnpm</code>+<code>nx</code>的Monorepo仓库。</p>
-<p>PS：这里将会从已有项目中去开始踩坑，这里用的是之前做一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit.git">node-gptcommit</a>命令行工具+一个chrome插件，将两个项目放到一个Monorepo仓库去管理。 </p>
-    
-    <a class="article-more-a" href="/today/20230225.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230225.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230224.html" target="_blank">
-      从开发chrome插件到插件系统设计
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230224.html" class="archive-article-date">
-        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
-<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
+<h1 id="为什么要学习AI知识"><a href="#为什么要学习AI知识" class="headerlink" title="为什么要学习AI知识"></a>为什么要学习AI知识</h1><p>去年年中总结写过一篇文章 <a target="_blank" rel="noopener" href="https://qborfy.com/study/2023-middle.html">《2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)》</a>，AI发展是必不可缺的，如同马车和汽车的更新迭代一样，作为互联网的程序员，我们有点类似之前的马夫，现在有新的工具，我们也需要跟上时代的脚步，学习AI知识，可以让我们在互联网裁员浪潮中继续前进。</p>
+<h1 id="如何开始学-AI"><a href="#如何开始学-AI" class="headerlink" title="如何开始学 AI"></a>如何开始学 AI</h1><p>AI 不是一个新的语言，而是完全一个新的行业出现，虽然目前并没有完整的产品或硬件去承载它，或者大家都还在探索阶段，但是它已经是一个非常热门的话题，所以，我们不需要担心自己学不会，只需要开始学习，然后不断实践，不断总结，不断进步，就一定可以掌握它。</p>
+<p>当然学习一个新的行业，学习方法和方式是非常重要的，为了降低学习成本，我们应该系统性去学习，趁着大家都还在探索阶段，我们可以选择一些比较成熟的大模型，比如ChatGLM-6B，ChatGLM3，LangChain等，这些模型已经可以满足我们日常的聊天需求，而且这些模型都是开源的，我们可以直接使用，当然，我们也可以自己训练模型，但是训练模型需要大量的算力，而且训练模型需要一定的专业知识，所以，我们选择使用这些模型，可以让我们更快的入门AI，然后我们再根据自己的需求，去训练自己的模型。</p>
+<p>接下来，如何系统的学习利用 AI技术去开发应用，我这里给出一个学习路线图，供大家参考。</p>
+<h2 id="学习路线：利用AI大模型进行开发应用"><a href="#学习路线：利用AI大模型进行开发应用" class="headerlink" title="学习路线：利用AI大模型进行开发应用"></a>学习路线：利用AI大模型进行开发应用</h2><h3 id="第一阶段：了解AI大模型基础"><a href="#第一阶段：了解AI大模型基础" class="headerlink" title="第一阶段：了解AI大模型基础"></a>第一阶段：了解AI大模型基础</h3><ul>
+<li><p><strong>AI模型概览</strong>：</p>
 <ul>
-<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
+<li>学习什么是AI大模型，它们的基本架构和工作原理，例如Transformer架构。</li>
+<li>理解不同类型的模型（如自然语言处理的GPT和BERT，图像处理的CNN模型等）。</li>
 </ul>
-<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
-<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
+</li>
+<li><p><strong>基础工具和库</strong>：</p>
 <ul>
-<li>Chrome插件开发，如何快速开发一个插件</li>
-<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
+<li><strong>Python编程</strong>：深入理解Python，因为大多数AI工具和库都使用Python。</li>
+<li>学习使用AI模型的主要库和框架，如TensorFlow, PyTorch, Hugging Face Transformers等。</li>
 </ul>
-    
-    <a class="article-more-a" href="/today/20230224.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230224.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230223" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230223.html" target="_blank">
-      不要再使用轮询了，请用SSE服务端推送完成页面实时更新
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230223.html" class="archive-article-date">
-        <time datetime="2023-03-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近开发一个页面碰到一个需求，需要对部分数据需要实时更新状态，面对这样子的场景，我们通常有以下几个方案：</p>
+</li>
+</ul>
+<h3 id="第二阶段：实际应用和开发技能"><a href="#第二阶段：实际应用和开发技能" class="headerlink" title="第二阶段：实际应用和开发技能"></a>第二阶段：实际应用和开发技能</h3><ul>
+<li><p><strong>API使用</strong>：</p>
 <ul>
-<li>轮询，利用setTimeout定时轮询</li>
-<li>WebSocket，利用长链接保持与服务通讯</li>
-<li>SSE，服务端推送机制</li>
+<li>学习如何使用如OpenAI API等商业AI模型API进行开发。</li>
+<li>理解API文档，学习如何集成和调用API来实现具体功能。</li>
 </ul>
-    
-    <a class="article-more-a" href="/today/20230223.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230223.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/nodejs-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/nodejs-module.html" target="_blank">
-      Node冷门知识点—— node.js支持import语法
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/nodejs-module.html" class="archive-article-date">
-        <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
+</li>
+<li><p><strong>模型微调</strong>：</p>
 <ul>
-<li>CommonJS， Node.js提出的规范</li>
-<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
-<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
+<li>学习如何对预训练模型进行微调（Fine-tuning），使其更好地适应特定的应用场景。</li>
+<li>实践在特定数据集上训练和微调模型。</li>
 </ul>
-<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;loadsh&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;loadsh&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
-<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+</li>
+<li><p><strong>数据处理</strong>：</p>
+<ul>
+<li>学习数据预处理和清洗技巧，以提高模型的效果和精确度。</li>
+<li>理解和实践如何构建和管理适用于AI模型的数据集。</li>
+</ul>
+</li>
+</ul>
+<h3 id="第三阶段：高级应用和项目实践"><a href="#第三阶段：高级应用和项目实践" class="headerlink" title="第三阶段：高级应用和项目实践"></a>第三阶段：高级应用和项目实践</h3><ul>
+<li><p><strong>项目开发</strong>：</p>
+<ul>
+<li>开始一个小项目，如构建一个聊天机器人、自动化内容生成工具或客户服务自动化系统。</li>
+<li>实际应用API和微调技术，解决实际问题。</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong>：</p>
+<ul>
+<li>学习如何评估模型性能，包括准确性、响应时间等。</li>
+<li>理解如何优化模型和API调用，提高效率和成本效益。</li>
+</ul>
+</li>
+<li><p><strong>安全性和伦理</strong>：</p>
+<ul>
+<li>理解使用AI模型时的安全问题，包括数据隐私和模型安全。</li>
+<li>学习AI伦理，确保应用符合伦理标准和法律规定。</li>
+</ul>
+</li>
+</ul>
+<h3 id="第四阶段：持续学习和社区参与"><a href="#第四阶段：持续学习和社区参与" class="headerlink" title="第四阶段：持续学习和社区参与"></a>第四阶段：持续学习和社区参与</h3><ul>
+<li><p><strong>持续学习</strong>：</p>
+<ul>
+<li>随着AI技术的快速发展，持续学习最新的模型和技术是必须的。</li>
+<li>关注AI领域的最新研究和趋势。</li>
+</ul>
+</li>
+<li><p><strong>社区参与</strong>：</p>
+<ul>
+<li>加入相关的在线论坛和社区，如GitHub, Stack Overflow, Reddit等。</li>
+<li>参与讨论，贡献代码，或者分享你的项目和经验。</li>
+</ul>
+</li>
+</ul>
+<p>最后， 我们对 AI 一些基础知识进行了解，比如大模型、Transformer、预训练模型、微调、数据预处理等，然后我们就可以开始使用这些模型进行开发应用了，比如使用OpenAI API进行开发，或者自己训练模型，然后使用这些模型进行开发应用，比如构建一个聊天机器人、自动化内容生成工具或客户服务自动化系统等。</p>
+<h1 id="AI-基础知识"><a href="#AI-基础知识" class="headerlink" title="AI 基础知识"></a>AI 基础知识</h1><h2 id="主流大模型"><a href="#主流大模型" class="headerlink" title="主流大模型"></a>主流大模型</h2><p>目前，AI领域的大模型主要集中在自然语言处理（NLP）和计算机视觉（CV）等领域。以下是一些主流的大模型：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/">ChatGPT</a>: OpenAI开发，目前是世界上最先进的大模型之一，国内无法访问。</li>
+<li><a target="_blank" rel="noopener" href="https://gemini.google.com/">Gemini</a>: Google最强对话大模型，国内无法访问。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/meta-llama/llama3">Llama 3开源大模型</a>: Meta公司开发，目前迄今最强大的免费开源大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/THUDM/GLM-4">GLM-4 国内大模型</a>: 是智谱 AI 推出的最新一代预训练模型 GLM-4 系列中的开源版本</li>
+<li><a target="_blank" rel="noopener" href="https://wenxin.baidu.com/">文心大模型</a>: 百度全新一代知识增强大语言模型，未开源</li>
+<li><a target="_blank" rel="noopener" href="https://hunyuan.tencent.com/">混元大模型</a>: 腾讯混元大模型，未开源</li>
+<li><a target="_blank" rel="noopener" href="https://www.doubao.com/chat/">豆包大模型</a>: 字节自研大模型，未开源</li>
+</ul>
+<h2 id="主流开发框架"><a href="#主流开发框架" class="headerlink" title="主流开发框架"></a>主流开发框架</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/transformers/">Hugging Face Transformers</a>: 一个用于自然语言处理（NLP）和计算机视觉（CV）的库，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a>: 一个用于深度学习的开源框架，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://www.tensorflow.org/?hl=zh-cn">TensorFlow</a>: 一个用于深度学习的开源框架，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/jax">JAX</a>: 一个用于深度学习的开源框架，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://www.paddlepaddle.org.cn/">PaddlePaddle</a>: 一个用于深度学习的开源框架，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/huggingface/langchain">LangChain</a>: 一个用于构建聊天机器人的开源框架，支持多种大模型。</li>
+</ul>
+<p>对外提供 API 平台的文档地址：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/api/">OpenAI API</a>: 一个用于访问OpenAI大模型的API，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/ai-platform">Google AI Platform</a>: 一个用于访问Google大模型的API，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://azure.microsoft.com/zh-cn/products/ai-services/">Microsoft Azure AI</a>: 一个用于访问Microsoft大模型的API，支持多种大模型。</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/WENXINWORKSHOP/s/7ltgucw50">文心 API</a>: 百度文心一言大模型API文档</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1729">混元 API</a>: 腾讯混元大模型API文档</li>
+</ul>
+<p>至此，我们对AI有了初步了解后，就可以开始使用这些模型进行开发应用了，比如使用OpenAI API进行开发，或者自己训练模型，然后使用这些模型进行开发应用，比如构建一个聊天机器人、自动化内容生成工具或客户服务自动化系统等。</p>
+<p>期待大家一起学习AI，一起进步！</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
-    <a class="article-more-a" href="/share/nodejs-module.html#more">more >></a>
     
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/nodejs-module.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-        
-        
+      </a>
     </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/book-million" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/book-million.html" target="_blank">
-      《百万富翁快车道》，我们应该如何快速转到一百万呢？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/book-million.html" class="archive-article-date">
-        <time datetime="2023-03-14T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-14</time>
-</a>
-
-  
-  
     
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="百万富翁快车道"><a href="#百万富翁快车道" class="headerlink" title="百万富翁快车道"></a>百万富翁快车道</h1><p>讲述的作者从失业游民到百万富翁的经历的一些过程，可以帮人开阔一些思维模式，从人行道、慢车道、快车道的方式去讲述一个人如何转到一百万。</p>
-<p>如果想要快速赚到一百万，这里没有教你实际的方案，但是告诉你一些思维模式，所以我这边简单通过思维导图去进行汇总。</p>
-    
-    <a class="article-more-a" href="/study/book-million.html#more">more >></a>
-    
-    
-    
-
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/ailearn/ai-learn01.html" title="00篇 AI系统学习前准备知识" target="_blank">https://www.qborfy.com/ailearn/ai-learn01.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -885,221 +531,9 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/book-million.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230312" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230312.html" target="_blank">
-      GPT-4都来了，我们还需要刷算法题和背八股文吗？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230312.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="2023年的面试寒冬"><a href="#2023年的面试寒冬" class="headerlink" title="2023年的面试寒冬"></a>2023年的面试寒冬</h1><p>从去年到今年各个大厂都在不断裁员，导致今年IT互联网行情很差，很多朋友都缺乏面试机会或者面试不通过。</p>
-<p>程序员一旦要开始面试，很多朋友都开始循环以下几个步骤：</p>
-<ul>
-<li>刷算法题，如：LeetCode各种困难程度的题目</li>
-<li>背诵各种八股文，如：浏览器请求一个URL的完整过程</li>
-<li>复习各种冷门知识，如：Promise.race(谁先返回就获取谁的结果，后面直接不处理)或Promise.allSettled(结果为Iterator对象，实现next())</li>
-</ul>
-<p>也许以往这种复习模式还算不错，因为目前大多数面试流程基本上都是会问上述问题，而面试官问这些问题的最终目的是什么：</p>
-<ul>
-<li>算法题，主要考的是逻辑思维能力</li>
-<li>八股文，主要考的是基础知识是否足够扎实，知识深度是否足够</li>
-<li>冷门知识，主要考的是知识广度，你除了目前使用知识点外还能拥有其他知识面</li>
-</ul>
-<p>后续一些项目经验讲述，主要目的在于测试你是否真的参与到项目中，但是这个往往都是容易被忽略的点，这个放到后面再讲。</p>
-<p>当下最火的IT技术，ChatGPT智能机器人出来后，它不像普通搜索引擎一样，需要去大量的结果去找到自己的答案。而是直接将答案提供给到你，让你可以更加快速实现功能。</p>
-<p>如果ChatGPT普及开来，那么面试是否还需要考算法题和八股文吗？</p>
-<p>或者换个问题，<strong>当AI技术可以代替绝大部分基础开发工作的时候，面对这种技术变更，作为普通开发者，我们应该如何做技术成长规划呢？</strong></p>
-    
-    <a class="article-more-a" href="/ideas/20230312.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230312.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230221.html" target="_blank">
-      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230221.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230216.html">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
-<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
-<ul>
-<li>OpenAI提供了哪些模型算法</li>
-<li>不同模型算法分别可以应用到哪些场景</li>
-<li>真正调用OpenAI需要注意哪些事项</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
       		
 		</ul>
@@ -1108,10 +542,58 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/ailearn/ai-learn01.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
@@ -1119,205 +601,26 @@
   </div>
 </article>
 
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
-
-
-
+<nav id="article-nav">
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230222.html" target="_blank">
-      30分钟搞懂Rollup+Typescript构建工程
-      
+    <a href="/ailearn/ai-learn00.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          00篇 AI系统学习前准备知识
+        
+      </div>
     </a>
   
-    </h1>
   
-
-
-  
-  
-<a href="/today/20230222.html" class="archive-article-date">
-        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
-<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
-<p>参考项目地址为:<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>。</p>
-    
-    <a class="article-more-a" href="/today/20230222.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/node-modules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/node-modules.html" target="_blank">
-      Node冷门知识点——require(&#39;node:path&#39;)
-      
+    <a href="/today_2024/20240305.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一次性学完RabbitMQ</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
-
-  
-  
-<a href="/share/node-modules.html" class="archive-article-date">
-        <time datetime="2023-03-09T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天在看Vite的源码时候，发现有个用法很神奇，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">&#x27;node:path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&#x27;node:url&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">&#x27;node:fs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(</span><br><span class="line">  <span class="title function_">readFileSync</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;../../package.json&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)).<span class="title function_">toString</span>(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>源码地址在:<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts">vite/src/node/cli.ts</a></p>
-<p>因此想要研究一下为什么要用<code>node:path</code>，而不是直接应用 <code>import path from &#39;path&#39;</code>呢？下面就来好好分析一下。</p>
-    
-    <a class="article-more-a" href="/share/node-modules.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/node-modules.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -1338,12 +641,36 @@
 
 
 
+
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '15b82138a9cb538eb8a0',
+  	clientSecret: 'a7530e94b32aa2e17a9ee10d830f688f49fb8afe',
+  	repo: 'qiubohong.github.io',
+  	owner: 'qiubohong',
+  	admin: ['qiubohong'],
+  	id: 'Sat Apr 06 2024 15:00:00 GMT+0800',
+  	distractionFreeMode: 'true',
+    proxy: 'https://qborfy.com/proxy',
+})
+gitalk.render('gitalk-container') 
+}
+</script>
   
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
-    </nav>
-  
+
+
+
 
 
           </div>
@@ -1387,8 +714,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

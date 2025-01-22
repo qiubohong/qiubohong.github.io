@@ -296,6 +296,111 @@
     height:800px
   }
   </style>
+<article id="post-today/20230219" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230219.html" target="_blank">
+      从pnpm工具了解整个npm包核心管理原理
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230219.html" class="archive-article-date">
+        <time datetime="2023-03-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今年在github前端领域star上升速度比较主要有以下几个：</p>
+<ul>
+<li>Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能</li>
+<li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
+<li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
+</ul>
+<p>因此，选一个和我们项目中开发相关的作为一个知识扩展点，应该就是pnpm了。</p>
+    
+    <a class="article-more-a" href="/today/20230219.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230219.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1218,111 +1323,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-translate/use-gpt3-auto-git-commit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/translate/use-gpt3-auto-git-commit.html" target="_blank">
-      有了GPT-3，再也不用手写commit message(翻译)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/translate/use-gpt3-auto-git-commit.html" class="archive-article-date">
-        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p>
-</blockquote>
-<h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p>
-<blockquote>
-<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh/GPT-3">维基百科 GPT-3</a></p>
-</blockquote>
-<p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p>
-    
-    <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1334,7 +1337,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2024 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
+    		&copy; 2018-2025 <a href="https://www.qborfy.com/" target="_blank">Qborfy</a>
     	</div>
       	<div class="footer-right">
 			
