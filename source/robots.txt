@@ -3,6 +3,7 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/ 
+Allow: /ads.txt
 Allow: /resources/ 
 Disallow: /vendors/
 Disallow: /js/
