@@ -20,3 +20,7 @@ tags:
 # AIGC篇
 
 # 开源工具篇
+
+[使用RAG-GPT和Ollama搭建智能客服原创](https://cloud.tencent.com/developer/article/2420057)
+
+

@@ -39,12 +39,11 @@ tags:
 - Agent：智能体，是一种通用问题解决器。从软件工程的角度看来，智能体是一种基于大语言模型的，具备规划思考能力、记忆能力、使用工具函数的能力，能自主完成给定任务的计算机程序。
 - Function Calling：是一种实现大型语言模型连接外部工具的机制。通过 API 调用 LLM 时，调用方可以描述函数，包括函数的功能描述、请求参数说明、响应参数说明，让 LLM 根据用户的输入，合适地选择调用哪个函数，同时理解用户的自然语言，并转换为调用函数的请求参数（通过 JSON 格式返回）。调用方使用 LLM 返回的函数名称和参数，调用函数并得到响应。最后，如果需求，把函数的响应传给 LLM，让 LLM 组织成自然语言回复用户。
 
-## 涉及技术或站点
+## 技术框架
 
 - Huging Face: 在模型，数据集和应用程序的机器学习社区，提供了一个非常流行的开源库，名为“Transformers”。这个库最初是以提供各种基于 Transformer 架构的预训练模型（如 BERT、GPT-2、RoBERTa 等）为目的而创建的。随着时间的推移，它已经发展成为一个全面的机器学习库，支持多种语言模型和任务。官网站点为：https://huggingface.com/
-- LangChain: 
-
-
+- LangChain: 是一个基于大型语言模型（LLM）开发应用程序的框架，简化了LLM应用程序生命周期的每个阶段。 官网站点为：https://python.langchain.com/docs/introduction/
+- Ollama: Ollama 是一个开源的本地大语言模型运行框架，专为在本地机器上便捷部署和运行大型语言模型（LLM）而设计。 官网站点为：https://ollama.com/
 
 # 环境准备
 
@@ -119,12 +118,18 @@ python -c "import transformers; print(transformers.__version__)"
 
 LangChain 是一种软件框架，旨在帮助创建利用大型语言模型 (LLM) 的应用程序。 LangChain 的优势在于其广泛的集成和功能。 它包括 API 包装器、Web 抓取子系统、代码分析工具、文档摘要工具等。 它还支持 OpenAI、Anthropic、HuggingFace 等现成的大型语言模型以及各种数据源和类型。
 
-
-
-
+安装命令如下：
+```bash
+# 安装 LangChain
+pip install langchain
+# 查看 LangChain 版本
+python -c "import langchain; print(langchain.__version__)"
+```
 
 # 参考资料
 
 - [什么是 Hugging Face Transformers](https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/train-model/huggingface/)
 - [一文带你了解大模型——智能体（Agent）](https://cloud.tencent.com/developer/article/2422923)
 - [用于 LLM 开发的 Azure Databricks 上的 LangChain](https://learn.microsoft.com/zh-cn/azure/databricks/large-language-models/langchain)
+- [LangChain 的中文入门教程](https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng)
+- [LangChain 🦜️🔗 中文网](https://www.langchain.asia/get_started/introduction)

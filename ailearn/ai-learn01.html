@@ -18,7 +18,7 @@
 <meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  AI 基础知识不管学习什么技术，每个技术里面都会包含一些专业术语， 了解这些术语，有助于我们更好的理解技术，以及更好的使用技术。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-06T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-05T08:41:03.396Z">
+<meta property="article:modified_time" content="2025-02-06T06:24:17.664Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -327,7 +327,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.8k字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -336,7 +336,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -378,9 +378,10 @@
 <li>Agent：智能体，是一种通用问题解决器。从软件工程的角度看来，智能体是一种基于大语言模型的，具备规划思考能力、记忆能力、使用工具函数的能力，能自主完成给定任务的计算机程序。</li>
 <li>Function Calling：是一种实现大型语言模型连接外部工具的机制。通过 API 调用 LLM 时，调用方可以描述函数，包括函数的功能描述、请求参数说明、响应参数说明，让 LLM 根据用户的输入，合适地选择调用哪个函数，同时理解用户的自然语言，并转换为调用函数的请求参数（通过 JSON 格式返回）。调用方使用 LLM 返回的函数名称和参数，调用函数并得到响应。最后，如果需求，把函数的响应传给 LLM，让 LLM 组织成自然语言回复用户。</li>
 </ul>
-<h2 id="涉及技术或站点"><a href="#涉及技术或站点" class="headerlink" title="涉及技术或站点"></a>涉及技术或站点</h2><ul>
+<h2 id="技术框架"><a href="#技术框架" class="headerlink" title="技术框架"></a>技术框架</h2><ul>
 <li>Huging Face: 在模型，数据集和应用程序的机器学习社区，提供了一个非常流行的开源库，名为“Transformers”。这个库最初是以提供各种基于 Transformer 架构的预训练模型（如 BERT、GPT-2、RoBERTa 等）为目的而创建的。随着时间的推移，它已经发展成为一个全面的机器学习库，支持多种语言模型和任务。官网站点为：<a target="_blank" rel="noopener" href="https://huggingface.com/">https://huggingface.com/</a></li>
-<li>LangChain: </li>
+<li>LangChain: 是一个基于大型语言模型（LLM）开发应用程序的框架，简化了LLM应用程序生命周期的每个阶段。 官网站点为：<a target="_blank" rel="noopener" href="https://python.langchain.com/docs/introduction/">https://python.langchain.com/docs/introduction/</a></li>
+<li>Ollama: Ollama 是一个开源的本地大语言模型运行框架，专为在本地机器上便捷部署和运行大型语言模型（LLM）而设计。 官网站点为：<a target="_blank" rel="noopener" href="https://ollama.com/">https://ollama.com/</a></li>
 </ul>
 <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="1-安装-Python"><a href="#1-安装-Python" class="headerlink" title="1. 安装 Python"></a>1. 安装 Python</h2><blockquote>
 <p>Python 是一种高级编程语言，它具有简单易学、易于扩展、丰富的库和工具包等优点，被广泛应用于数据科学、机器学习、Web开发、自动化测试等领域。</p>
@@ -412,10 +413,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Hugging Face Transformers</span></span><br><span class="line">pip install transformers</span><br><span class="line"><span class="comment"># 查看 Hugging Face Transformers 版本</span></span><br><span class="line">python -c <span class="string">&quot;import transformers; print(transformers.__version__)&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="4-安装-Langchain"><a href="#4-安装-Langchain" class="headerlink" title="4. 安装 Langchain"></a>4. 安装 Langchain</h2><p>LangChain 是一种软件框架，旨在帮助创建利用大型语言模型 (LLM) 的应用程序。 LangChain 的优势在于其广泛的集成和功能。 它包括 API 包装器、Web 抓取子系统、代码分析工具、文档摘要工具等。 它还支持 OpenAI、Anthropic、HuggingFace 等现成的大型语言模型以及各种数据源和类型。</p>
+<p>安装命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 LangChain</span></span><br><span class="line">pip install langchain</span><br><span class="line"><span class="comment"># 查看 LangChain 版本</span></span><br><span class="line">python -c <span class="string">&quot;import langchain; print(langchain.__version__)&quot;</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/train-model/huggingface/">什么是 Hugging Face Transformers</a></li>
 <li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2422923">一文带你了解大模型——智能体（Agent）</a></li>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/azure/databricks/large-language-models/langchain">用于 LLM 开发的 Azure Databricks 上的 LangChain</a></li>
+<li><a target="_blank" rel="noopener" href="https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng">LangChain 的中文入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.langchain.asia/get_started/introduction">LangChain 🦜️🔗 中文网</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -569,6 +575,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/money/01.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          赚钱学习系列 01篇 - 重新认识自己
+        
+      </div>
+    </a>
   
   
     <a href="/test.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -842,6 +857,10 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AI学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">赚钱学习</a>
               </li>
             
             <div class="clearfix"></div>
