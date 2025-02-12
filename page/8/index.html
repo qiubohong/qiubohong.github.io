@@ -302,6 +302,137 @@
     height:800px
   }
   </style>
+<article id="post-today/20230304" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230304.html" target="_blank">
+      中秋佳节到了，来一起开发一个千里共婵娟XR小程序
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230304.html" class="archive-article-date">
+        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>掘金最近上了一个活动，用来庆祝中秋佳节，想薅羊毛获取奖品，因此突发奇想顺便给自己的技术领域扩展一下，之前对VR、AR技术感兴趣，干脆趁这这个机会去尝试开发一个XR小程序。</p>
+<p>涉及知识点：</p>
+<ol>
+<li>小程序XR-Frame框架</li>
+<li>小程序云函数</li>
+<li>天气 API</li>
+<li>地理位置 API</li>
+</ol>
+<h1 id="方案设计"><a href="#方案设计" class="headerlink" title="方案设计"></a>方案设计</h1><h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><ul>
+<li>目标用户：对AR技术感兴趣的开发同学</li>
+<li>作用：利用AR给大家营造一种中秋气氛感觉</li>
+</ul>
+<p>整体功能设计如下：</p>
+<ol>
+<li>通过小程序进来后，获取当前位置坐标，转换成具体的地址，然后获取天气</li>
+<li>打开摄像头进行【千里共婵娟】，需要将手机对着月亮的位置，然后才出现3D月亮模型</li>
+<li>看到月亮后，可以点击月亮 查看一共有多少人与你一起赏月</li>
+<li>分享给家人或朋友，会在屏幕下面出现一排人与你一起赏月</li>
+<li>彩蛋，不同手势，会触发不同场景，比如：比心，会掉下很多爱心， 比6，会掉下很多666表情</li>
+</ol>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
+<li>核心功能：利用小程序<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">XR-FRAME框架</a>实现3d月亮展示</li>
+<li>开发框架直接用原生微信小程序开发即可，一共就3个页面</li>
+<li>后台数据保存直接用云函数即可，主要保存访问用户数据量</li>
+</ol>
+<h1 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h1><p>小程序原生开发基础知识，我这里就不详细说了，主要讲</p>
+<h2 id="XR-Frame学习"><a href="#XR-Frame学习" class="headerlink" title="XR-Frame学习"></a>XR-Frame学习</h2><p>是什么？ 官方介绍如下：</p>
+<blockquote>
+<p>xr-frame是一套小程序官方提供的XR/3D应用解决方案，基于混合方案实现，性能逼近原生、效果好、易用、强扩展、渐进式、遵循小程序开发标准。</p>
+</blockquote>
+<h2 id="云函数使用"><a href="#云函数使用" class="headerlink" title="云函数使用"></a>云函数使用</h2><h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="摄像头显示月亮"><a href="#摄像头显示月亮" class="headerlink" title="摄像头显示月亮"></a>摄像头显示月亮</h2><h2 id="调用云函数存储用户数据"><a href="#调用云函数存储用户数据" class="headerlink" title="调用云函数存储用户数据"></a>调用云函数存储用户数据</h2><h2 id="结合GitHub-Action持续集成交付"><a href="#结合GitHub-Action持续集成交付" class="headerlink" title="结合GitHub Action持续集成交付"></a>结合GitHub Action持续集成交付</h2><p>所有源码均以上传到Github</p>
+<h1 id="体验版"><a href="#体验版" class="headerlink" title="体验版"></a>体验版</h1><p>这里放个小程序二维码图片，大家感兴趣可以扫一下体验一版本。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">小程序XR-FRAME指南</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230304.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230319" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1251,105 +1382,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230124.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/hexo-search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/hexo-search.html" target="_blank">
-      hexo Yilia主题支持搜索功能
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/hexo-search.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>当hexo的文章越来越多，依靠标题和tag去搜索有点不够用，因此需要支持搜索功能，hexo查询主要依赖本地索引文件生成，具体步骤如下：</p>
-<ul>
-<li>安装插件: <code>npm install --save hexo-generator-search</code></li>
-<li>根目录下的_config.yml中添加如下配置即可</li>
-</ul>
-    
-    <a class="article-more-a" href="/share/hexo-search.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/hexo-search.html">展开全文 >></a>
     </p>
     
 

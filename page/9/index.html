@@ -302,6 +302,105 @@
     height:800px
   }
   </style>
+<article id="post-share/hexo-search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/hexo-search.html" target="_blank">
+      hexo Yilia主题支持搜索功能
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/hexo-search.html" class="archive-article-date">
+        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>当hexo的文章越来越多，依靠标题和tag去搜索有点不够用，因此需要支持搜索功能，hexo查询主要依赖本地索引文件生成，具体步骤如下：</p>
+<ul>
+<li>安装插件: <code>npm install --save hexo-generator-search</code></li>
+<li>根目录下的_config.yml中添加如下配置即可</li>
+</ul>
+    
+    <a class="article-more-a" href="/share/hexo-search.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/hexo-search.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230122" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1211,109 +1310,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230108.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230107" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230107.html" target="_blank">
-      从npm版本依赖到Monorepo大仓项目
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230107.html" class="archive-article-date">
-        <time datetime="2023-01-07T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前端的发展很快，自从node.js的出现，打开前端新的大门，npm让js有了自己的包管理能力，能够让前端项目工程化，从而能够处理更加复杂的前端项目。</p>
-<p>但是随之而来的是，同一个项目的npm依赖越来越多，有些是开源的，有些是自研的，尤其在同一个团队，当你开发一个新的npm包的时候，只是为了服务特定几个项目，但是这几个项目不在你管理范围内，当你需要更新的时候需要通知到他们，有时候会出现版本依赖问题，然后反复沟通和测试，最终达到协调。但是下次更新的时候又再次遇到这个问题，重复一次。</p>
-<h1 id="npm依赖"><a href="#npm依赖" class="headerlink" title="npm依赖"></a>npm依赖</h1><h2 id="npm是什么"><a href="#npm是什么" class="headerlink" title="npm是什么"></a>npm是什么</h2><blockquote>
-<p>npm，Node Package Manager的缩写，也就是“Node的包管理器”。<br>npm（“Node 包管理器”）是 JavaScript 运行时 Node.js 的默认程序包管理器。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/today/20230107.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230107.html">展开全文 >></a>
     </p>
     
 

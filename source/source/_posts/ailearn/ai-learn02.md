@@ -1,6 +1,7 @@
 ---
-title: 02篇 AI系统学习 - 部署本地大模型 DeepSeek-R1
-date: 2025-02-11 15:00:00
+title: 02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1
+date: 2025-02-08 15:00:00
+toc: true
 tags:
     - 学习总结
     - AI学习
