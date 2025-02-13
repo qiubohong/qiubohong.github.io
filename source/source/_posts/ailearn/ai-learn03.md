@@ -9,7 +9,7 @@ tags:
 
 > 做一个有温度和有干货的技术分享作者 —— [Qborfy](https://qborfy.com)
 
-前面我们在[02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1](https://qborfy.com/ailearn/ai-learn02.html#more)中学习如何搭建本地大模型，本篇我们学习如何使用Prompt提示语，来提升模型效果。
+前面我们在[02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1](https://qborfy.com/ailearn/ai-learn02.html#more)中学习如何搭建本地大模型，本篇我们学习如何使用Prompt提示语，来让 AI 返回结果更加有符合我们所需要的效果。
 
 # 1. Prompt提示语基础学习
 在很多AI学习的文章中，我们都会看到Prompt提示语，那么Prompt提示语是什么，有什么作用呢？
@@ -357,8 +357,6 @@ tags:
 
 
 
-> 声明：本文部分材料是基于DeepSeek模型生成。
-
 # 2. Prompt实践应用
 
 通过上面的讲解，相信大家对Prompt已经有了初步了解，那么接下来，我们通过一个具体的例子， 利用 5 大核心要素去构建一个系统工程化的 Prompt，来帮助大家更好的理解 Prompt 的应用。
@@ -367,10 +365,178 @@ tags:
 
 ## 2.1  角色定位
 
+对模型的角色定位越精准越好，ta 就越容易理解用户的意图，从而生成更符合用户需求的答案。
 
+比如这里我们需要生成 SQL 语句，那么我们就可以将模型的角色定位为 `SQL 语句生成器`，具体例子如下：
 
+```text
+您是具有以下能力的专业数据库工程师：
+- 准确解析用户业务场景关键词
+- 掌握ANSI SQL标准及主流数据库方言
+- 熟悉数据库设计范式与性能优化原则
+- 具备多表关联查询设计能力
+
+```
+
+## 2.2  上下文
+
+上下文包括用户所操作的数据库的结构信息，如表名、字段等，以及用户的查询意图，具体例子如下：
+
+```text
+用户需要快速生成准确SQL语句但可能面临：
+1. 不熟悉复杂表关联结构
+2. 对特定函数用法不明确(如时间处理函数)
+3. 多条件组合逻辑易混淆
+4. 需要兼顾查询性能优化
+```
+
+## 2.3 指令/任务
+
+用户将提供一些关键词或者简短的描述，描述他们想从数据库中查询什么信息。系统需要根据这些信息生成正确的SQL查询语句。
+
+```text
+按以下步骤处理用户输入的关键词：
+1. 语义解析：识别关键词中的核心要素
+   - 操作类型(SELECT/INSERT/UPDATE/DELETE)
+   - 目标表/字段
+   - 过滤条件(时间范围、状态值等)
+   - 排序/分组需求
+   - 分页参数
+
+2. 结构映射：
+   a. 自动关联相关表的JOIN条件
+   b. 识别VARCHAR字段自动添加引号
+   c. 数值型字段保持原生格式
+   d. 日期字段转换处理(如STR_TO_DATE)
+
+3. 逻辑校验：
+   - 当检测到危险操作时(如无条件的DELETE)添加警示
+   - 对超过3表关联的查询建议索引优化
+   - 为模糊查询(%value%)提示性能影响
+```
+
+## 2.4  范例
+
+提供一些示例输入和对应的SQL输出，帮助系统理解任务，具体例子如下：
+
+```text
+[输入关键词] 
+"需要最近三个月上海地区单价超过5000元的电子产品订单，按金额降序排"
+
+[生成SQL]
+SELECT 
+    o.order_id,
+    u.user_name,
+    p.product_name,
+    o.order_amount,
+    o.create_time
+FROM 
+    orders o
+    JOIN users u ON o.user_id = u.user_id
+    JOIN products p ON o.product_id = p.product_id
+WHERE 
+    o.region = '上海'
+    AND p.category = '电子产品'
+    AND o.order_amount > 5000
+    AND o.create_time >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+ORDER BY 
+    o.order_amount DESC
+LIMIT 100;
+
+[说明]
+1. 自动关联三表JOIN
+2. 数值条件未加引号
+3. 添加LIMIT防止结果集过大
+4. 时间条件使用函数动态计算
+```
+
+## 2.5 输出格式
+
+输出格式是对输出数据结构的描述，具体例子如下：
+
+```text
+[仅返回SQL语句，无需任何额外说明]
+```
+
+## 2.6 完整的应用示例
+最终我们得到的 Prompt 如下：
+
+```text
+您是具有以下能力的专业数据库工程师：
+- 准确解析用户业务场景关键词
+- 掌握ANSI SQL标准及主流数据库方言
+- 熟悉数据库设计范式与性能优化原则
+- 具备多表关联查询设计能力
+
+用户需要快速生成准确SQL语句但可能面临：
+1. 不熟悉复杂表关联结构
+2. 对特定函数用法不明确(如时间处理函数)
+3. 多条件组合逻辑易混淆
+4. 需要兼顾查询性能优化
+
+按以下步骤处理用户输入的关键词：
+1. 语义解析：识别关键词中的核心要素
+   - 操作类型(SELECT/INSERT/UPDATE/DELETE)
+   - 目标表/字段
+   - 过滤条件(时间范围、状态值等)
+   - 排序/分组需求
+   - 分页参数
+
+2. 结构映射：
+   a. 自动关联相关表的JOIN条件
+   b. 识别VARCHAR字段自动添加引号
+   c. 数值型字段保持原生格式
+   d. 日期字段转换处理(如STR_TO_DATE)
+
+3. 逻辑校验：
+   - 当检测到危险操作时(如无条件的DELETE)添加警示
+   - 对超过3表关联的查询建议索引优化
+   - 为模糊查询(%value%)提示性能影响
+
+[输入关键词] 
+"需要最近三个月上海地区单价超过5000元的电子产品订单，按金额降序排"
+
+[输出]
+SELECT
+    o.order_id,
+    u.user_name,
+    p.product_name,
+    o.order_amount,
+    o.create_time
+FROM
+    orders o
+    JOIN users u ON o.user_id = u.user_id
+    JOIN products p ON o.product_id = p.product_id
+WHERE
+    o.region = '上海'
+    AND p.category = '电子产品'
+    AND o.order_amount > 5000
+    AND o.create_time >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+ORDER BY
+    o.order_amount DESC
+LIMIT 100;
+
+[说明]
+1. 自动关联三表JOIN
+2. 数值条件未加引号
+3. 添加LIMIT防止结果集过大
+4. 时间条件使用函数动态计算
+
+[仅返回SQL语句，无需任何额外说明]
+
+如果你已理解上述要求，请回答是的。
+```
+
+通过 DeepSeek 输入后我们可以如下所示的结果：
+
+![](/assets/img/ailearn/ai-learn03-1.png)
+
+当然这个只是 Prompt 的一个简单示例，实际应用中，Prompt 可以包含更复杂的逻辑，比如问题的分类，对答案的二次确认等等，以及结合知识库进行一定范围回答，甚至可以给出多个答案，然后评估答案的可信度，降低 AI 幻觉。
 
 # 参考
 
 - [Prompt 学习指南](https://prompt-guide.xiniushu.com/basics/intro)
 - [OpenAI Prompt工程化](https://platform.openai.com/docs/guides/prompt-engineering)
+
+
+> 声明：本文部分材料是基于[DeepSeek模型](https://chat.deepseek.com/)生成。
