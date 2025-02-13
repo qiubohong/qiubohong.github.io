@@ -11,7 +11,7 @@ tags:
 
 前面我们在[02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1](https://qborfy.com/ailearn/ai-learn02.html#more)中学习如何搭建本地大模型，本篇我们学习如何使用Prompt提示语，来提升模型效果。
 
-# 1. 是什么
+# 1. Prompt提示语基础学习
 在很多AI学习的文章中，我们都会看到Prompt提示语，那么Prompt提示语是什么，有什么作用呢？
 
 在OpenAI的官方文档中，对Prompt提示语的解释是：
@@ -358,6 +358,19 @@ tags:
 
 
 > 声明：本文部分材料是基于DeepSeek模型生成。
+
+# 2. Prompt实践应用
+
+通过上面的讲解，相信大家对Prompt已经有了初步了解，那么接下来，我们通过一个具体的例子， 利用 5 大核心要素去构建一个系统工程化的 Prompt，来帮助大家更好的理解 Prompt 的应用。
+
+目标： **根据用户输入的关键词， 生成用户所需要的 SQL 语句。**
+
+## 2.1  角色定位
+
+
+
+
 # 参考
 
 - [Prompt 学习指南](https://prompt-guide.xiniushu.com/basics/intro)
+- [OpenAI Prompt工程化](https://platform.openai.com/docs/guides/prompt-engineering)
