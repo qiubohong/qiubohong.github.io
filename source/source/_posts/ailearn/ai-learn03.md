@@ -531,12 +531,14 @@ LIMIT 100;
 
 ![](/assets/img/ailearn/ai-learn03-1.png)
 
-当然这个只是 Prompt 的一个简单示例，实际应用中，Prompt 可以包含更复杂的逻辑，比如问题的分类，对答案的二次确认等等，以及结合知识库进行一定范围回答，甚至可以给出多个答案，然后评估答案的可信度，降低 AI 幻觉。
+当然这个只是 Prompt 的一个简单示例，实际应用中，Prompt 可以包含更复杂的逻辑，比如问题的分类，对答案的二次确认等等，以及结合知识库进行一定范围回答，甚至可以给出多个答案，然后评估答案的可信度，降低 AI 幻觉，后面就涉及到模型微调相关内容。
 
 # 参考
 
-- [Prompt 学习指南](https://prompt-guide.xiniushu.com/basics/intro)
+- [提示工程指南](https://www.promptingguide.ai/zh)
+- [Prompt-Engineering-Guide 英文原版](https://github.com/dair-ai/Prompt-Engineering-Guide)
 - [OpenAI Prompt工程化](https://platform.openai.com/docs/guides/prompt-engineering)
+- [OpenAI Prompt生成器](https://platform.openai.com/docs/guides/prompt-generation)
 
 
 > 声明：本文部分材料是基于[DeepSeek模型](https://chat.deepseek.com/)生成。
