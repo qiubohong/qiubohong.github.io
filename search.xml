@@ -25,6 +25,27 @@
     
     
     <entry>
+      <title>04篇 AI从零开始 - LangChain学习与实战(1)</title>
+      <link href="/ailearn/ai-learn04.html"/>
+      <url>/ailearn/ai-learn04.html</url>
+      
+        <content type="html"><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习总结 </tag>
+            
+            <tag> AI学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1</title>
       <link href="/ailearn/ai-learn02.html"/>
       <url>/ailearn/ai-learn02.html</url>
