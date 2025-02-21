@@ -1,11 +1,14 @@
 ---
-title: 04篇 AI从零开始 - LangChain学习与实战(1)
+title: 04篇 AI从零开始 - LangChain学习与实战(1) 基础知识
 date: 2025-02-18 15:00:00
 toc: true
 tags:
     - 学习总结
     - AI学习
 ---
+
+> 做一个有温度和有干货的技术分享作者 —— [Qborfy](https://qborfy.com)
+
 
 上一节学习了[03篇 AI从零开始 - AI从零开始 - Prompt提示语学习与应用](https://qborfy.com/ailearn/ai-learn03.html)，但是我们发现，Prompt提示语虽然可以让我们得到想要的答案，但是它也有缺点，比如：
 
@@ -95,7 +98,7 @@ Langchain 提供了多种 Embedding 模型调用，具体可以到官网查看�
 
 LangChain(v0.3版本)的框架图如下：
 
-![langchain-architecture](/assets/img/ailearn/ai-learn04-1.png)
+![langchain-architecture](/assets/img/ailearn/ai-learn04-2.png)
 
 更加详细说明
 
