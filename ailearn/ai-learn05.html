@@ -17,12 +17,15 @@
 <meta property="og:site_name" content="Qborfy知识库">
 <meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  上一节学习了04篇 AI从零开始 - LangChain学习与实战(1) 基础知识，对Langchain有了基础的认知和简单应用，其中我们使用PromptTemplate去实现一次大模型对话。 同时我们在03篇 AI从零开始 - Prompt提示语学习与应用也学习了提示语生成规范，但是在结合 LangChain中我们应该如何利用Promp">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn05-1.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn05-2.png">
 <meta property="article:published_time" content="2025-02-20T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-21T10:11:36.431Z">
+<meta property="article:modified_time" content="2025-02-25T11:08:33.398Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn05-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -333,7 +336,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">308字</span>
+      <span class="post-count">1.4k字</span>
     </span>
   </span>
 
@@ -342,7 +345,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -364,7 +367,42 @@
 <span id="more"></span>
 
 <p>下面是 Langchain执行一次 LLM 调用的流程图：</p>
-<h1 id="1-什么是PromptTemplate"><a href="#1-什么是PromptTemplate" class="headerlink" title="1. 什么是PromptTemplate"></a>1. 什么是PromptTemplate</h1><p>我们在开发提示</p>
+<p><img src="/assets/img/ailearn/ai-learn05-1.png" alt=""></p>
+<h1 id="1-什么是PromptTemplate"><a href="#1-什么是PromptTemplate" class="headerlink" title="1. 什么是PromptTemplate"></a>1. 什么是PromptTemplate</h1><p>提示词模板跟平时大家使用邮件模板、短信模板类型，本质上是一个字符串模板，模板里包含了模板参数，可以通过输入参数来生成最终的提示词。</p>
+<p>一个提示词模板包括以下内容：</p>
+<ul>
+<li>发送给大模型的指令</li>
+<li>一个问答示例，提醒大模型用什么格式返回</li>
+<li>发给大模型的问题</li>
+</ul>
+<h2 id="1-1-创建提示词模板"><a href="#1-1-创建提示词模板" class="headerlink" title="1.1  创建提示词模板"></a>1.1  创建提示词模板</h2><p>可以使用<code>PromptTemplate</code>类来创建一个提示词模板，它接收一个<code>prompt</code>参数，这个参数是一个字符串，用于指定提示词模板。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromptTemplate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过一个消息数组创建聊天消息模板</span></span><br><span class="line"><span class="comment"># 数组每一个元素代表一条消息</span></span><br><span class="line"><span class="comment"># 第一个参数是消息角色  system 代表系统消息， 第二个参数代表消息内容</span></span><br><span class="line"><span class="comment"># 消息角色 system 代表系统消息</span></span><br><span class="line"><span class="comment"># 消息角色 human 代表系统消息代表人类</span></span><br><span class="line"><span class="comment"># 消息角色 ai 代表LLM大模型返回的消息内容</span></span><br><span class="line"><span class="comment"># &#123;xxx&#125; 定义 模板参数，如下定义两个模板参数  name代表人工智能名字 user_input 代表用户输入的文本 </span></span><br><span class="line">chat_template = ChatPromptTemplate.from_messages(</span><br><span class="line">    [</span><br><span class="line">        (<span class="string">&quot;system&quot;</span>, <span class="string">&quot;你是人工智能助手， 你的名字是&#123;name&#125;&quot;</span>), </span><br><span class="line">        (<span class="string">&quot;human&quot;</span>, <span class="string">&quot;你好&quot;</span>), </span><br><span class="line">        (<span class="string">&quot;ai&quot;</span>, <span class="string">&quot;你好，我是人工智能助手&#123;name&#125;，很高兴为您服务&quot;</span>), </span><br><span class="line">        (<span class="string">&quot;human&quot;</span>, <span class="string">&quot;&#123;user_input&#125;&quot;</span>),</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过模板参数格式化模板内容</span></span><br><span class="line">message = chat_template.format_messages(name=<span class="string">&quot;小爱同学&quot;</span>, user_input=<span class="string">&quot;你的名字叫什么？&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
+
+<p>这样子我们就可以得到一个正确的<code>Message</code>了， 如上代码执行结果如下：</p>
+<p><img src="/assets/img/ailearn/ai-learn05-2.png" alt=""></p>
+<p>返回的内容如下说明：</p>
+<ul>
+<li>SystemMessage: 系统设定，设定大模型的角色</li>
+<li>HumanMessage: 人类消息，代表用户输入的消息</li>
+<li>AIMessage: 人工智能消息，代表大模型返回的消息</li>
+</ul>
+<p>LangChain还抽象了其他提示语模版，具体如下：</p>
+<ul>
+<li>PromptTemplate: 普通提示词模板，返回一个字符串</li>
+<li>ChatPromptTemplate: 聊天消息模板，返回一个<code>ChatPromptTemplate</code>对象，可以设定大模型角色和示例</li>
+</ul>
+<h2 id="1-2-上下文-MessagesPlaceHolder"><a href="#1-2-上下文-MessagesPlaceHolder" class="headerlink" title="1.2 上下文 MessagesPlaceHolder"></a>1.2 上下文 MessagesPlaceHolder</h2><p><code>MessagesPlaceHolder</code>主要作用在特定位置添加消息列表(等于占位符)， 可以集中管理消息列表，更好聊天过程注入上下文。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromptTemplate, MessagesPlaceholder</span><br><span class="line"><span class="keyword">from</span> langchain_core.messages <span class="keyword">import</span> SystemMessage, HumanMessage, AIMessage</span><br><span class="line"></span><br><span class="line">chat_template = ChatPromptTemplate.from_messages(</span><br><span class="line">    [</span><br><span class="line">        (<span class="string">&quot;system&quot;</span>, <span class="string">&quot;你是人工智能助手&quot;</span>), </span><br><span class="line">        MessagesPlaceholder(<span class="string">&quot;msgs&quot;</span>)</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 这里我们可以之前的定义的消息列表放在一起</span></span><br><span class="line">msgs=[SystemMessage(content=<span class="string">&#x27;你的名字是小爱同学&#x27;</span>), HumanMessage(content=<span class="string">&#x27;你好&#x27;</span>), AIMessage(content=<span class="string">&#x27;你好，我是人工智能助手，很高兴为您服务&#x27;</span>)]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(chat_template.invoke(msgs))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-提示词示例-FewShot"><a href="#1-3-提示词示例-FewShot" class="headerlink" title="1.3 提示词示例 FewShot"></a>1.3 提示词示例 FewShot</h2><p>在之前<a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn03.html">03篇 AI从零开始 - Prompt提示语学习与应用</a>中也提到过示例的重要性， 这里我们不在说示例对应大模型应用中的重要性了。</p>
+<p>我们看看 在 LangChain中如何讲示例集 给到大模型中，其中<code>FewShot</code>主要作用是给大模型提供示例，让大模型更好的理解用户输入，从而生成更符合用户预期的结果，从而降低 AI 幻觉。</p>
+<blockquote>
+<p>这里可以理解成模型的微小型训练，让大模型能依据我们提供少量示例（有点类似小RAG知识库），从而更加更加准确的答案。</p>
+</blockquote>
+<p>在 LangChain 创建一个示例集，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.prompts.few_shot <span class="keyword">import</span> FewShotPromptTemplate</span><br><span class="line"><span class="keyword">from</span> langchain.prompts <span class="keyword">import</span> PromptTemplate</span><br><span class="line"></span><br><span class="line">examples = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;question&quot;</span>: <span class="string">&quot;谁的寿命更长， 穆罕默德二世还是爱因斯坦？&quot;</span>,</span><br><span class="line">        <span class="string">&quot;answer&quot;</span>: </span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        爱因斯坦活了 76 岁。</span></span><br><span class="line"><span class="string">        穆罕默德二世活了 89 岁。</span></span><br><span class="line"><span class="string">        因此，穆罕默德二世比爱因斯坦活得更长。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;question&quot;</span>: <span class="string">&quot;目前电影票房第一名是谁？&quot;</span>,</span><br><span class="line">        <span class="string">&quot;answer&quot;</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        《阿凡达》的票房是 27.9 亿美元。</span></span><br><span class="line"><span class="string">        《复仇者联盟 4：终局之战》的票房是 27.8 亿美元。</span></span><br><span class="line"><span class="string">        因此，《阿凡达》的票房更高。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"><span class="comment"># 这里我们创建一个简单示例模板，用来分析解析示例的 question 和 answer</span></span><br><span class="line">example_prompt = PromptTemplate(input_variables=[<span class="string">&quot;question&quot;</span>, <span class="string">&quot;answer&quot;</span>], template=<span class="string">&quot;问题：&#123;question&#125;\\n答案：&#123;answer&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 FewShotPromptTemplate 可以根据模板+示例去生成一个拥有示例集的提示语模板</span></span><br><span class="line">prompt = FewShotPromptTemplate(</span><br><span class="line">    examples=examples,</span><br><span class="line">    example_prompt=example_prompt,</span><br><span class="line">    suffix=<span class="string">&quot;问题：&#123;input&#125;&quot;</span>,</span><br><span class="line">    input_variables=[<span class="string">&quot;input&quot;</span>],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(prompt.<span class="built_in">format</span>(<span class="built_in">input</span>=<span class="string">&quot;谁的寿命更长， 穆罕默德二世还是爱因斯坦？&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://python.langchain.com/docs/introduction/">LangChain官方文档</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide">LangChain中文教程</a></li>
@@ -556,7 +594,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFPromptTemplate"><span class="toc-number">1.</span> <span class="toc-text">1. 什么是PromptTemplate</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFPromptTemplate"><span class="toc-number">1.</span> <span class="toc-text">1. 什么是PromptTemplate</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%88%9B%E5%BB%BA%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.1.</span> <span class="toc-text">1.1  创建提示词模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E4%B8%8A%E4%B8%8B%E6%96%87-MessagesPlaceHolder"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 上下文 MessagesPlaceHolder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%8F%90%E7%A4%BA%E8%AF%8D%E7%A4%BA%E4%BE%8B-FewShot"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 提示词示例 FewShot</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
