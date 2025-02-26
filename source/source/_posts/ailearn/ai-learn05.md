@@ -33,7 +33,7 @@ tags:
 - 一个问答示例，提醒大模型用什么格式返回
 - 发给大模型的问题
 
-## 1.1  创建提示词模板
+# 2. 创建提示词模板
 
 可以使用`PromptTemplate`类来创建一个提示词模板，它接收一个`prompt`参数，这个参数是一个字符串，用于指定提示词模板。
 
@@ -77,7 +77,7 @@ LangChain还抽象了其他提示语模版，具体如下：
 - PromptTemplate: 普通提示词模板，返回一个字符串
 - ChatPromptTemplate: 聊天消息模板，返回一个`ChatPromptTemplate`对象，可以设定大模型角色和示例
 
-## 1.2 上下文 MessagesPlaceHolder
+# 3. 上下文 MessagesPlaceHolder
 
 `MessagesPlaceHolder`主要作用在特定位置添加消息列表(等于占位符)， 可以集中管理消息列表，更好聊天过程注入上下文。
 
@@ -97,7 +97,7 @@ msgs=[SystemMessage(content='你的名字是小爱同学'), HumanMessage(content
 print(chat_template.invoke(msgs))
 ```
 
-## 1.3 提示词示例 FewShot
+# 4.提示词示例 FewShot
 
 在之前[03篇 AI从零开始 - Prompt提示语学习与应用](https://qborfy.com/ailearn/ai-learn03.html)中也提到过示例的重要性， 这里我们不在说示例对应大模型应用中的重要性了。
 
@@ -143,6 +143,106 @@ prompt = FewShotPromptTemplate(
 
 print(prompt.format(input="谁的寿命更长， 穆罕默德二世还是爱因斯坦？"))
 ```
+
+输出结果如下：
+
+![](/assets/img/ailearn/ai-learn05-2.png)
+
+# 5. 示例选择器 ExampleSelector
+
+示例集合等同于一个知识库，在正式环境中我们不可能把完整的知识库都给到模型，因此我们需要去分析用户输入，从而选择合适的示例，LangChain 提供了`ExampleSelector`类来帮助我们实现这个功能。
+
+LangChain 提供了不同的`ExampleSelector`，具体如下：
+
+- `SemanticSimilarityExampleSelector`: 语义相似性示例选择， 会根据用户输入，然后通过嵌入模型计算输入与示例之间的相似性，然后使用向量数据库进行相似搜索，从示例集合中选择最相似的示例。
+- `MaxMarginalRelevanceExampleSelector`: 基于 最大边际相关性（MMR） 的示例选择器,  希望在从示例集中选择与输入 既相关又多样化 的示例， 通过平衡 相关性 与 多样性 来优化示例选择效果。
+
+通常情况下，我们使用`SemanticSimilarityExampleSelector`， 根据上面示例集合，我们根据问题去选择示例，如下：
+
+```python
+# ExapleSelector 示例筛选器
+from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
+from langchain_chroma import Chroma
+from langchain_ollama.embeddings import OllamaEmbeddings
+from langchain.prompts import FewShotPromptTemplate, PromptTemplate
+
+# 引用 shaw/dmeta-embedding-zh 模型做为嵌入模型，其对中文支持度更加友好
+ollama_emb = OllamaEmbeddings(
+    base_url="http://9.134.252.70:11434", 
+    model="shaw/dmeta-embedding-zh",
+)
+
+examples = [
+    {
+        "question": "谁的寿命更长， 穆罕默德二世还是爱因斯坦？",
+        "answer": 
+        """
+        爱因斯坦活了 76 岁。
+        穆罕默德二世活了 89 岁。
+        因此，穆罕默德二世比爱因斯坦活得更长。
+        """
+    },
+    {
+        "question": "目前电影票房第一名是谁？",
+        "answer":
+        """
+        《阿凡达》的票房是 27.9 亿美元。
+        《复仇者联盟 4：终局之战》的票房是 27.8 亿美元。
+        因此，《阿凡达》的票房更高。
+        """
+    },
+    {
+        "question": "深圳第一高楼是哪个？",
+        "answer":
+        """
+        深圳平安国际金融中心（平安中心）的楼高是 593米。
+        深圳京基100	的楼高是441.8米。
+        所以深圳第一高楼是平安国际金融中心。
+        """
+    },
+]
+
+example_selector = SemanticSimilarityExampleSelector.from_examples(
+    # 这里是示例集合
+    examples=examples,
+    # 用户生成嵌入的嵌入类，用于衡量语义的相似度
+    embeddings=ollama_emb,
+    # 用于计算相似性的向量存储库，这里使用的是 Chroma， 一个保存在内容的向量存储库
+    vectorstore_cls=Chroma(),
+    # 选择前 k 个最相似的示例 这里设置为 1
+    k=1,
+)
+
+question = "穆罕默德二世？"
+# 选择最相似的示例
+selected_examples = example_selector.select_examples({"question": question})
+
+# 接下来结合 FewShotPromptTemplate 我们就可以得到更加准备且少量的示例 PromptTemplate
+example_prompt = PromptTemplate(input_variables=["question", "answer"], template="问题：{question}\\n答案：{answer}")
+
+prompt = FewShotPromptTemplate(
+    # 这里调整完最相似的示例集合
+    examples=selected_examples, 
+    example_prompt=example_prompt,
+    suffix="问题：{input}",
+    input_variables=["input"],
+)
+
+print(prompt.format(input=question))
+```
+
+具体输出效果如下图：
+
+![](/assets/img/ailearn/ai-learn05-4.png)
+
+# 总结
+
+本文我们完整学习了 LangChain 中如何使用 PromptTemplate去更好的创建一个提示语模板，从而降低 大模型的自我创新性（降低AI 幻觉）。
+
+这里总结一下整个实现过程 约等于 后续 RAG知识库训练过程，如下图所示：
+
+![](/assets/img/ailearn/ai-learn05-5.png)
+
 
 
 # 参考资料
