@@ -302,6 +302,111 @@
     height:800px
   }
   </style>
+<article id="post-share/nodejs-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/nodejs-module.html" target="_blank">
+      Node冷门知识点—— node.js支持import语法
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/nodejs-module.html" class="archive-article-date">
+        <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
+<ul>
+<li>CommonJS， Node.js提出的规范</li>
+<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
+<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
+</ul>
+<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;loadsh&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;loadsh&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
+<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+    
+    <a class="article-more-a" href="/share/nodejs-module.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/nodejs-module.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-study/book-million" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1203,106 +1308,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/framework/frontend-microapp-3.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230218.html" target="_blank">
-      好玩有趣收集系列（二）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230218.html" class="archive-article-date">
-        <time datetime="2023-02-18T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今日收集一些好玩有趣的开源api或框架或开源项目 </p>
-<h1 id="自动生成1000个性化视频"><a href="#自动生成1000个性化视频" class="headerlink" title="自动生成1000个性化视频"></a>自动生成1000个性化视频</h1><p>通过<a target="_blank" rel="noopener" href="https://shotstack.io/docs/guide/getting-started/core-concepts/">Shotstack</a>提供的API服务制作不同视频。</p>
-<blockquote>
-<p>ShotStack是一个基于云的视频编辑API。与Adobe Premiere或After Effects等传统桌面视频编辑应用程序不同，ShotStack纯粹是基于代码的–您可以使用代码创建编辑。该API使用使用JSON的REST架构样式来描述应该如何编辑视频。有许多不同语言的SDK可用于与API交互并创建JSON请求。</p>
-</blockquote>
-<p>是否可以利用该api和小程序结合在一起做一些 生日祝福小视频定制服务。  </p>
-    
-    <a class="article-more-a" href="/ideas/20230218.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230218.html">展开全文 >></a>
     </p>
     
 
