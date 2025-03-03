@@ -1,6 +1,6 @@
 ---
 title: 06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战
-date: 2024-04-06 15:00:00
+date: 2025-03-03 15:00:00
 toc: true
 tags:
     - 学习总结
