@@ -53,8 +53,156 @@ Runable Interface接口设计有以下几个方面“
 
 ## 2.2 输入和输出
 
+LangChain的输入和输出都是遵循`schema`规范，从可运行对象结构自动生成对应的`Pydantic`模型。
+
+> `Pydantic`是用于数据建模/解析的Python库，它允许您定义一个数据模型，然后使用该模型验证输入和输出。
+> 它可以帮助您确保输入和输出数据符合预期的格式和类型，从而提高代码的健壮性和可维护性。
+> 同时 `Pydantic` 内置了对JSON编码和解码的支持。
+
+不过不同组件输入类型和输出类型是不同的，下面常用 LangChain组件输入和输出类型：
+
+| 组件        | 输入类型                     | 输出类型                                             |
+| ----------- | ---------------------------- | ---------------------------------------------------- |
+| 提示 Prompt | string                       | PromptTemplate提示值                                 |
+| 聊天模型    | string、聊天信息列表、提示值 | string                                               |
+| LLM         | string、聊天信息列表、提示值 | string                                               |
+| 输出解析器  | LLM、 LLM的输出              | 取决于解析器的类型，如 `jsonparser`输出的是 json格式 |
 
 
+流式运行对于基于 LLM 开发的应用会对用户使用体验上有更好的体验，所以目前LangChain中重要的组件都实现 LangChain Runable Interface中的 `stream`和`astream`，如：`PromptTemplate`、`ChatModel`、`LLM`、`OutputParser`等。
+
+## 2.3 Stream流
+
+上面弄清楚 LCEL的运行原理，我们还需要了解 `Stream`这一概念，才能更好的理解 LCEL工作流编排。
+
+> `Stream` 指的是一个数据流，它表示一个连续的数据序列，可以是一个数据块、一个文件、一个数据库表、一个网络连接等。在计算机科学中，流通常用于表示实时数据传输，例如从网络连接中接收的数据、从文件中读取的数据等。流数据具有连续性、实时性和不可预测性等特点，因此处理流数据需要特殊的算法和数据结构。
+
+在 LangChain中所有 Runable对象都实现了 `stream(同步)` 和 `astream(异步)`接口，通过 `stream` 和 `astream`接口，LangChain链式中的每个任务步骤都可以按照流式输入与输出。
+从简单的任务，如发起一个 LLM调用，到复杂的任务，如：传输json数据等。
+
+
+# 3. LCEL工作流编排实战
+了解完 LCEL工作流编排原理，我们开始实战，下面我们通过几个的例子，来更好理解 LCEL工作流编排。
+
+## 3.1 一次基础的流式调用
+我们去调用一个 Ollama 大模型，然后调用 `stream`方法，看看最终会输出什么？
+
+```python
+# 实现langchain调用 ollama 大模型
+from langchain_ollama.llms import OllamaLLM
+
+llm = OllamaLLM(base_url="http://127.0.0.1:11434", model="deepseek-r1:32b")
+
+chunks = []
+# llm.stream 会返回一个流
+for chunk in llm.stream("海洋是什么颜色"):
+    chunks.append(chunk)
+    print(chunk, end="|", flush=True)
+```
+
+最终输出效果，按照一块块输出，如下图：
+
+![](/assets/img/ailearn/ai-learn06-1.png)
+
+## 3.2 astream 异步调用
+
+进一步看看`astream`调用和`stream`调用有什么区别？
+
+```python
+# 实现langchain调用 ollama 大模型
+from langchain_ollama.llms import OllamaLLM
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+import asyncio
+
+llm = OllamaLLM(base_url="http://127.0.0.1:11434", model="deepseek-r1:32b")
+propmt = ChatPromptTemplate.from_template("给我讲一个关于{input}的笑话")
+parser = StrOutputParser()
+chain = propmt | llm | parser
+
+# 异步调用需要定义 async 方法
+async def async_stream():
+    async for chunk in chain.astream("公鸡"):
+        print(chunk, end="|", flush=True)
+
+# 调用的话需要通过  asyncio.run() 方法       
+asyncio.run(async_stream())
+```
+
+异步调用需要定义 async 方法，调用的话需要通过  asyncio.run() 方法，最终效果和`stream`调用效果一样，不过在并行任务较多的情况下，`astream`调用会利用更多的CPU资源，从而提高并行任务处理效率。
+
+## 3.3 json输出格式
+
+在实际应用中，我们很多场景其实 web服务通过 http协议传输，而且希望能被其他服务调用因此`json`格式输出会更好，下面我们看看如何实现？
+
+```python
+# 实现langchain调用 ollama 大模型
+from langchain_ollama.llms import OllamaLLM
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+import asyncio
+
+llm = OllamaLLM(base_url="http://127.0.0.1:11434", model="deepseek-r1:32b")
+propmt = ChatPromptTemplate.from_template(
+    """
+    以 JSON格式返回{x}的人口列表
+    使用一个`省份`作为字段列表返回
+    每个省份都应有有字段`省份名`+`人口`字段                                  
+    """)
+parser = JsonOutputParser() # 保证每次输出都是json格式
+chain = propmt | llm | parser
+
+# 异步调用需要定义 async 方法
+async def async_stream():
+    async for chunk in chain.astream("广东省、福建省、广西省"):
+        # 可以看到每次 chunk都是一个完整的 json 格式
+        print(chunk, end="\n", flush=True)
+
+# 调用的话需要通过  asyncio.run() 方法       
+asyncio.run(async_stream())
+```
+
+上文我们可以看到用到`JsonOutputParser`，它保证每次输出都是json格式，所以最终输出效果如下：
+![](/assets/img/ailearn/ai-learn06-2.png)
+
+## 3.4 stream_event监听
+
+我们先看调用一个 LLM模型会产生哪些事件？
+
+```python
+# 实现langchain调用 ollama 大模型
+from langchain_ollama.llms import OllamaLLM
+import asyncio
+
+llm = OllamaLLM(base_url="http://127.0.0.1:11434", model="deepseek-r1:32b")
+async def async_stream():
+    async for event in llm.astream_events("你好", version="v2"):
+        print(event)
+# 调用的话需要通过  asyncio.run() 方法       
+asyncio.run(async_stream())
+```
+
+输出如下图：
+
+![](/assets/img/ailearn/ai-learn06-3.png)
+
+返回`event`数据结构如下：
+
+- `event`事件类型，如：`stream_start`、`stream_end`、`stream_chunk`等
+- `data`事件数据，如：`stream_chunk`事件数据为`chunk`，`stream_end`事件数据为`end`等
+- `run_id`本次调用id，当多次任务并发的时候可以找到对应任务
+- `metadata`事件元数据，包括模型版本、模型名称、模型参数等
+- 其他一些其他信息，如：`tags`、`name`、`parent_ids`等
+
+完整的事件类型我们可以到 LangChain官方文档去查看，地址为[如何使用 Stream Events](https://python.langchain.com/docs/how_to/streaming/#using-stream-events)
+
+# 总结
+
+通过本文我们完整了解 LangChain LCEL流式调用和工作原理，从而为后续使用LangChain进入实际开发提供基础知识。 LCEL主要包含以下内容：
+
+- 流式调用方法 `stream`、`astream`
+- 调用事件监听 `astream_events`
+- 输出格式要求 `JsonOutputParser`等
 
 # 参考资料
 
