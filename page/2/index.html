@@ -302,6 +302,117 @@
     height:800px
   }
   </style>
+<article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/test.html" target="_blank">
+      RabbitMQ学习
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/test.html" class="archive-article-date">
+        <time datetime="2024-09-06T08:21:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>可以源码安装（python环境）<br>service rabbitmq-server start</p>
+<p>也可以docker安装，依赖docker环境</p>
+<p>运行成功后有两个端口：</p>
+<ol>
+<li>5672，其他客户端调用链接使用</li>
+<li>15672，后台管理系统使用</li>
+</ol>
+<p>支持配置文件，参考docker内配置文件路径： /etc/rabbitmq/conf.d/10-defaults.conf</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>virtual host<br>类似mysql支持多个用户访问同一个实例（IP+PORT）的不同数据库</p>
+<p>exchange交换机<br>类似一种邮箱或存储队列，支持加入或转发推送能力</p>
+<h1 id="五种消息类型"><a href="#五种消息类型" class="headerlink" title="五种消息类型"></a>五种消息类型</h1><h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h2><p>正常邮箱类型， 生产者往RabbitMQ队列增加消息，但是消费者不一定要及时看</p>
+<h2 id="Worker模型"><a href="#Worker模型" class="headerlink" title="Worker模型"></a>Worker模型</h2><p>对比 邮箱模型， 只要生产消息 就会马上竞争消费掉，可以有效的避免消息堆积</p>
+<h2 id="订阅模型"><a href="#订阅模型" class="headerlink" title="订阅模型"></a>订阅模型</h2><p>Fanout（广播模型）: 将消息发送给绑定给交换机的所有队列(因为他们使用的是同一个RoutingKey)。</p>
+<p>Direct（定向）: 把消息发送给拥有指定Routing Key (路由键)的队列。</p>
+<p>Topic（通配符）: 把消息传递给拥有 符合Routing Patten(路由模式)的队列。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/test.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today_2024/20240814" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1259,105 +1370,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ailearn/ai-learn00.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today_2024/20240305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today_2024/20240305.html" target="_blank">
-      一次性学完RabbitMQ
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today_2024/20240305.html" class="archive-article-date">
-        <time datetime="2024-03-05T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><h1 id="为什么选RabbitMQ"><a href="#为什么选RabbitMQ" class="headerlink" title="为什么选RabbitMQ"></a>为什么选RabbitMQ</h1><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today_2024/20240305.html">展开全文 >></a>
     </p>
     
 

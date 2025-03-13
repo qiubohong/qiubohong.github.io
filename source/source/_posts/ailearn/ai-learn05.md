@@ -168,7 +168,7 @@ from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 
 # 引用 shaw/dmeta-embedding-zh 模型做为嵌入模型，其对中文支持度更加友好
 ollama_emb = OllamaEmbeddings(
-    base_url="http://9.134.252.70:11434", 
+    base_url="http://127.0.0.1:11434", 
     model="shaw/dmeta-embedding-zh",
 )
 
