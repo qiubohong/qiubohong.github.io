@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Archives: 2025 | Qborfy知识库</title>
+  <title>08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Qborfy知识库">
-<meta property="og:url" content="https://www.qborfy.com/archives/2025/index.html">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。 RAG是什么 RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Au">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人">
+<meta property="og:url" content="https://www.qborfy.com/ailearn/ai-learn08.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="不单单局限在前端知识领域去记录，还记录个人成长计划的步步实施过程日志">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。 RAG是什么 RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Au">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.qborfy.com/images/ailearn/ai-learn08-1.png">
+<meta property="article:published_time" content="2025-03-15T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-20T06:24:06.509Z">
 <meta property="article:author" content="Qborfy">
+<meta property="article:tag" content="学习总结">
+<meta property="article:tag" content="AI学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.qborfy.com/images/ailearn/ai-learn08-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -290,44 +296,177 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ai-learn08" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
+    <h1 class="article-title" itemprop="name">
+      08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/ailearn/ai-learn08.html" class="archive-article-date">
         <time datetime="2025-03-15T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-15</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">698字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。</p>
+<h1 id="RAG是什么"><a href="#RAG是什么" class="headerlink" title="RAG是什么"></a>RAG是什么</h1><blockquote>
+<p>RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Augmented Generation），中文叫检索增强生成。</p>
+</blockquote>
+<p>RAG是LangChain中一个重要的应用场景，它能够将检索和生成结合起来，从而生成更加精准的答案。</p>
+<p>RAG模型由两个部分组成：Retriever和Generator。</p>
+<ul>
+<li><code>Generator</code> 生成索引向量，根据文档中问题和答案生成索引向量数据库。</li>
+<li><code>Retriever</code> 检索对比类似，根据用户的问题，从生成的知识库中检索召回最相关的问题和答案。</li>
+</ul>
+<p>RAG技术是通过检索和生成相结合的方式找最相关的知识内容， 加入到大模型的提示语中，通过大模型推理得到用户问题在知识库中最合适的答案。</p>
+<p>下面是我个人依据网上相关资料整理的通用RAG模型架构图：</p>
+<p><img src="/images/ailearn/ai-learn08-1.png" alt=""></p>
+<h2 id="生成向量索引（Indexing）"><a href="#生成向量索引（Indexing）" class="headerlink" title="生成向量索引（Indexing）"></a>生成向量索引（Indexing）</h2><p>生成向量索引有三个步骤，分别如下：</p>
+<ol>
+<li>加载(load)，加载所需数据，LangChain中提供各种加载器，如：PDFLoader、TextLoader、ImageLoader等。</li>
+<li>分割(Split)，将加载的数据进行分割成一个个块，LangChain中提供各种分割器，如：TextSplitter、ImageSplitter等。</li>
+<li>存储(Store)，得到分割的Chunks，需要将Chunk转成向量索引并存储，这里我们会依赖<code>Embeddings</code>模型进行生成索引，然后存储到向量数据库<code>VectorStore</code>。</li>
+</ol>
+<h2 id="Embeddings嵌入模型"><a href="#Embeddings嵌入模型" class="headerlink" title="Embeddings嵌入模型"></a>Embeddings嵌入模型</h2><p>RAG模型使用<code>Embeddings</code>模型将问题和答案进行编码，生成向量数据，这里我们必不可免需要对<code>Embeddings</code>模型进行初步了解。</p>
+<blockquote>
+<p>Embeddings模型，也叫嵌入模型，是一种将高维度的数据，如：自然语言、图片、视频等，转换成低维度的向量数据，如：多维矩阵数组等，方便后续进行相似度对比。</p>
+</blockquote>
+<p>或者我们可以更加直观的理解，<code>Embeddings</code>模型可以把我们人类能够理解的内容，转换成计算机能够计算理解的数据，从而实现更多的算法对比逻辑。</p>
+<span id="more"></span>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://python.langchain.com/docs/introduction/">LangChain官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide">LangChain中文教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_56591814/article/details/135040694">LangChain（0.0.340）官方文档十一：Agents之Agent Types</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6">(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!</a></li>
+</ul>
+<blockquote>
+<p>声明：本文部分材料是基于<a target="_blank" rel="noopener" href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn08.html" target="_blank">
-      08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人
-      
-    </a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907391600273443"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-7907391600273443"
+        data-ad-slot="8665196141"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Qborfy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.qborfy.com/ailearn/ai-learn08.html" title="08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人" target="_blank">https://www.qborfy.com/ailearn/ai-learn08.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -343,373 +482,142 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.qborfy.com/ailearn/ai-learn08.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn07.html" class="archive-article-date">
-        <time datetime="2025-03-12T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-12</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn07.html" target="_blank">
-      07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署
-      
+  
+    <a href="/ailearn/ai-learn07.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</div>
+      <i class="icon-circle-right"></i>
     </a>
   
-    </h1>
-  
+</nav>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn06.html" class="archive-article-date">
-        <time datetime="2025-03-03T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-03</time>
-</a>
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RAG%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">RAG是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%90%91%E9%87%8F%E7%B4%A2%E5%BC%95%EF%BC%88Indexing%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">生成向量索引（Indexing）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embeddings%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Embeddings嵌入模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn06.html" target="_blank">
-      06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战
-      
-    </a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn05.html" class="archive-article-date">
-        <time datetime="2025-02-20T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-20</time>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn05.html" target="_blank">
-      05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉
-      
-    </a>
-  
-    </h1>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '15b82138a9cb538eb8a0',
+  	clientSecret: 'a7530e94b32aa2e17a9ee10d830f688f49fb8afe',
+  	repo: 'qiubohong.github.io',
+  	owner: 'qiubohong',
+  	admin: ['qiubohong'],
+  	id: 'Sat Mar 15 2025 15:00:00 GMT+0800',
+  	distractionFreeMode: 'true',
+    proxy: 'https://qborfy.com/proxy',
+})
+gitalk.render('gitalk-container') 
+}
+</script>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn04.html" class="archive-article-date">
-        <time datetime="2025-02-18T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn04.html" target="_blank">
-      04篇 AI从零开始 - LangChain学习与实战(1) 基础知识
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn03.html" class="archive-article-date">
-        <time datetime="2025-02-12T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn03.html" target="_blank">
-      03篇 AI从零开始 - Prompt提示语学习与应用
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/ailearn/ai-learn02.html" class="archive-article-date">
-        <time datetime="2025-02-08T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/ailearn/ai-learn02.html" target="_blank">
-      02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/money/01.html" class="archive-article-date">
-        <time datetime="2025-02-08T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/money/01.html" target="_blank">
-      赚钱学习系列 01篇 - 重新认识自己
-      
-    </a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">赚钱学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2025/page/2/">2</a><a class="extend next" rel="next" href="/archives/2025/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -754,8 +662,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

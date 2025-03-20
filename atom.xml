@@ -6,7 +6,7 @@
   <link href="https://www.qborfy.com/atom.xml" rel="self"/>
   
   <link href="https://www.qborfy.com/"/>
-  <updated>2025-03-13T09:23:14.986Z</updated>
+  <updated>2025-03-20T06:24:06.509Z</updated>
   <id>https://www.qborfy.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</title>
+    <link href="https://www.qborfy.com/ailearn/ai-learn08.html"/>
+    <id>https://www.qborfy.com/ailearn/ai-learn08.html</id>
+    <published>2025-03-15T07:00:00.000Z</published>
+    <updated>2025-03-20T06:24:06.509Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><p>前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。</p><h1 id="RAG是什么"><a href="#RAG是什么" class="headerlink" title="RAG是什么"></a>RAG是什么</h1><blockquote><p>RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Augmented Generation），中文叫检索增强生成。</p></blockquote><p>RAG是LangChain中一个重要的应用场景，它能够将检索和生成结合起来，从而生成更加精准的答案。</p><p>RAG模型由两个部分组成：Retriever和Generator。</p><ul><li><code>Generator</code> 生成索引向量，根据文档中问题和答案生成索引向量数据库。</li><li><code>Retriever</code> 检索对比类似，根据用户的问题，从生成的知识库中检索召回最相关的问题和答案。</li></ul><p>RAG技术是通过检索和生成相结合的方式找最相关的知识内容， 加入到大模型的提示语中，通过大模型推理得到用户问题在知识库中最合适的答案。</p><p>下面是我个人依据网上相关资料整理的通用RAG模型架构图：</p><p><img src="/images/ailearn/ai-learn08-1.png" alt=""></p><h2 id="生成向量索引（Indexing）"><a href="#生成向量索引（Indexing）" class="headerlink" title="生成向量索引（Indexing）"></a>生成向量索引（Indexing）</h2><p>生成向量索引有三个步骤，分别如下：</p><ol><li>加载(load)，加载所需数据，LangChain中提供各种加载器，如：PDFLoader、TextLoader、ImageLoader等。</li><li>分割(Split)，将加载的数据进行分割成一个个块，LangChain中提供各种分割器，如：TextSplitter、ImageSplitter等。</li><li>存储(Store)，得到分割的Chunks，需要将Chunk转成向量索引并存储，这里我们会依赖<code>Embeddings</code>模型进行生成索引，然后存储到向量数据库<code>VectorStore</code>。</li></ol><h2 id="Embeddings嵌入模型"><a href="#Embeddings嵌入模型" class="headerlink" title="Embeddings嵌入模型"></a>Embeddings嵌入模型</h2><p>RAG模型使用<code>Embeddings</code>模型将问题和答案进行编码，生成向量数据，这里我们必不可免需要对<code>Embeddings</code>模型进行初步了解。</p><blockquote><p>Embeddings模型，也叫嵌入模型，是一种将高维度的数据，如：自然语言、图片、视频等，转换成低维度的向量数据，如：多维矩阵数组等，方便后续进行相似度对比。</p></blockquote><p>或者我们可以更加直观的理解，<code>Embeddings</code>模型可以把我们人类能够理解的内容，转换成计算机能够计算理解的数据，从而实现更多的算法对比逻辑。</p><span id="more"></span><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://python.langchain.com/docs/introduction/">LangChain官方文档</a></li><li><a href="https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide">LangChain中文教程</a></li><li><a href="https://blog.csdn.net/qq_56591814/article/details/135040694">LangChain（0.0.340）官方文档十一：Agents之Agent Types</a></li><li><a href="https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6">(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!</a></li></ul><blockquote><p>声明：本文部分材料是基于<a href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。&lt;/p&gt;
+&lt;h1 id=&quot;RAG是什么&quot;&gt;&lt;a href=&quot;#RAG是什么&quot; class=&quot;headerlink&quot; title=&quot;RAG是什么&quot;&gt;&lt;/a&gt;RAG是什么&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Augmented Generation），中文叫检索增强生成。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;RAG是LangChain中一个重要的应用场景，它能够将检索和生成结合起来，从而生成更加精准的答案。&lt;/p&gt;
+&lt;p&gt;RAG模型由两个部分组成：Retriever和Generator。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Generator&lt;/code&gt; 生成索引向量，根据文档中问题和答案生成索引向量数据库。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Retriever&lt;/code&gt; 检索对比类似，根据用户的问题，从生成的知识库中检索召回最相关的问题和答案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;RAG技术是通过检索和生成相结合的方式找最相关的知识内容， 加入到大模型的提示语中，通过大模型推理得到用户问题在知识库中最合适的答案。&lt;/p&gt;
+&lt;p&gt;下面是我个人依据网上相关资料整理的通用RAG模型架构图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/ailearn/ai-learn08-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;生成向量索引（Indexing）&quot;&gt;&lt;a href=&quot;#生成向量索引（Indexing）&quot; class=&quot;headerlink&quot; title=&quot;生成向量索引（Indexing）&quot;&gt;&lt;/a&gt;生成向量索引（Indexing）&lt;/h2&gt;&lt;p&gt;生成向量索引有三个步骤，分别如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加载(load)，加载所需数据，LangChain中提供各种加载器，如：PDFLoader、TextLoader、ImageLoader等。&lt;/li&gt;
+&lt;li&gt;分割(Split)，将加载的数据进行分割成一个个块，LangChain中提供各种分割器，如：TextSplitter、ImageSplitter等。&lt;/li&gt;
+&lt;li&gt;存储(Store)，得到分割的Chunks，需要将Chunk转成向量索引并存储，这里我们会依赖&lt;code&gt;Embeddings&lt;/code&gt;模型进行生成索引，然后存储到向量数据库&lt;code&gt;VectorStore&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Embeddings嵌入模型&quot;&gt;&lt;a href=&quot;#Embeddings嵌入模型&quot; class=&quot;headerlink&quot; title=&quot;Embeddings嵌入模型&quot;&gt;&lt;/a&gt;Embeddings嵌入模型&lt;/h2&gt;&lt;p&gt;RAG模型使用&lt;code&gt;Embeddings&lt;/code&gt;模型将问题和答案进行编码，生成向量数据，这里我们必不可免需要对&lt;code&gt;Embeddings&lt;/code&gt;模型进行初步了解。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Embeddings模型，也叫嵌入模型，是一种将高维度的数据，如：自然语言、图片、视频等，转换成低维度的向量数据，如：多维矩阵数组等，方便后续进行相似度对比。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;或者我们可以更加直观的理解，&lt;code&gt;Embeddings&lt;/code&gt;模型可以把我们人类能够理解的内容，转换成计算机能够计算理解的数据，从而实现更多的算法对比逻辑。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="AI学习" scheme="https://www.qborfy.com/tags/AI%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</title>
@@ -523,30 +570,6 @@
     <category term="技术分享" scheme="https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     <category term="每日更新" scheme="https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023年度总结——发现自己的今年高光时刻</title>
-    <link href="https://www.qborfy.com/study/2023-end.html"/>
-    <id>https://www.qborfy.com/study/2023-end.html</id>
-    <published>2023-12-31T14:00:01.000Z</published>
-    <updated>2024-02-21T11:18:33.245Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>时光匆匆，2023年即将结束，新的一年即将到来，每个人都会有自己的年度总结，因此对于我个人而言，2023 年是一个很重要的转折点，不在于物质上有多大的变化，而是在于思维上，在于精神上的转变，不再有过去那种懵懵懂懂，浑浑噩噩的过日子的感觉，上次这种感觉还是在小学 5 年级的一个夜晚，突然懂事的开窍，觉得学习很重要，要好好读书的醒悟。因此接下来这一篇年度总结的灵感来源于：罗振宇老师的【2024年跨年演讲】主题 ——  是什么让我眼前一亮。</p><p>因此，2023 年对于国家，对于公司，对于个人，都是非常不容易的一年，疫情刚过去，经济下调，个人面临裁员，很多人负面情绪都积压快爆炸了，因此2023 年对于大多数人来说，其实是积压了很多垃圾情绪的一年，更因为这样子，我们更加应该去发现今年自己的高光时刻，去找到那个让能自己变得骄傲的自己，找到那个自信的自己，从而更加从容的面对未来，面对 2024 年。</p><p>温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。</p><span id="more"></span><h1 id="2023年的个人高光时刻"><a href="#2023年的个人高光时刻" class="headerlink" title="2023年的个人高光时刻"></a>2023年的个人高光时刻</h1><p>我从个人角度出发总结 2023 年的高光时刻，那些能让我感觉到骄傲的事情，主要分为以下几类：</p><ul><li>身体健康<ul><li>体重降低，从年初 182 斤到 170 斤</li><li>每周运动次数，已坚持 3 个月，每周运动次数： 3+，每次运动时长：半小时</li><li>睡眠时间，坚持每天睡足 8 个小时，虽然有时候做不到，但是至少保证 6 个小时睡眠时间</li></ul></li><li>持续学习<ul><li>持续阅读，今年累积阅读书籍数量： 20+</li><li>持续输出，今年累积写博客数量：50+</li><li>面对面分享，工作和生活上的分享：7次</li></ul></li><li>热爱生活<ul><li>个人卫生<ul><li>每周四对宿舍进行一次打扫卫生，之前基本上每个月一次</li><li>相信规律的生活才是自由的生活</li></ul></li><li>热爱世界<ul><li>多对人微笑和说谢谢</li><li>生活上小矛盾都是可以化解，只要你愿意去面对</li></ul></li></ul></li></ul><p>这些能让自己变得更加自信的事情，是需要时间一点点累积去坚持，一点点小事，如同小雨滴，慢慢变成小溪流，汇聚成江河，最终变成广阔的大海，能让你如同大海般容纳万物。</p><p>下面我会针对每一项单独进行总结和详细说明。</p><h2 id="身体健康"><a href="#身体健康" class="headerlink" title="身体健康"></a>身体健康</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>我对身体健康的理解，主要有以下观点：</p><ul><li>恢复时间更快，是指的当你熬夜或者牺牲健康的时间去做更重要的事情后，你身体状态恢复成正常健康状态所需要的时间更少</li><li>效率更高，是当你拥有健康的大脑，你理智时间更长，能更有效的处理事情，从而效率更高</li><li>生病次数更少，是你拥有更强大的免疫系统，从而面临同样的环境，你能抵抗更高的生病风险</li><li>胃口更好，是你拥有强大的适应肠胃，能适应不同环境的饮食习惯，从而面临不同的挑战</li></ul><p>因此身体健康就是：快速的恢复、理智的大脑、强大的免疫、适应的肠胃。</p><h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><p>每个人都希望身体健康，那么有没有想过为什么要身体健康呢？ 也许是为了避免生病的痛苦，那么是否有更好的原因呢？</p><p>如果拥有健康的身体，能让你想做的事情成功概率得到提升，你是否还愿意为了身体健康坚持做一些事情呢？</p><ul><li>当你是程序员，如果你拥有健康的身体，那么你用理智的大脑和快速的恢复能力去快速解决工作问题，是否离升职加薪更近一步？</li><li>当你是销售员，如果你拥有健康的身体，那么你用强大的免疫和适应的肠胃去面临各种应酬场景，是否离签单更近一步？</li><li>当你是老板，如果你拥有健康的身体，那么你用理智的大脑和适应的肠胃，去面临各种未知挑战，是否能让公司走的更远呢？</li></ul><p>所以，拥有一个健康的身体，做事就比别人具备更高的成功概率。</p><h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><p>其实道理大家都有听过，但是要做到重点在于坚持，其次在于规律，主要包含以下几点：</p><ul><li>规律且充足的睡眠时间， 11:00 ~ 07:00，8 个小时睡眠时间，早睡早起</li><li>每天半小时运动时间，运动不仅能释放压力，还能增强体质</li><li>健康规律饮食，每天定时三餐</li></ul><p>2024年上半年主要坚持做这个，去拥抱这个信念 —— 自律等于自由，自律就是坚持规律，量化成的数字目标如下：</p><p><strong>2024年上半年身体健康目标就是： 165斤的体重， 6块腹肌</strong></p><h2 id="持续学习"><a href="#持续学习" class="headerlink" title="持续学习"></a>持续学习</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>“持续学习”，学习是很重要的，但是更加重要的是持续去学习，这个持续我对 ta 的解释是：</p><ul><li>不能分散性的去学习，而是要成体系，可连续的去学习，让知识点形成一个知识网络体系</li><li>要不间断的学习，记忆是有时限，因此只有不间断的持续，才能形成长期记忆</li><li>要学以致用，学习就要去使用，去用知识去解决问题，最佳方式是去输出和分享</li></ul><h3 id="为什么-1"><a href="#为什么-1" class="headerlink" title="为什么"></a>为什么</h3><p>为什么要学习，且持续学习？相信不同阶段的人都会给出不同的答案，你需要给自己一个学习理由和动力，下面从网络找到的回答：</p><ul><li>当你是学生时期，因为这个时候的你什么都不懂，学习能让你获取知识和培养技能</li><li>当你是打工时期，因为你需要面对世界的变化和挑战，学习能让你更有竞争力，不被社会淘汰</li><li>当你是老年时期，因为你需要与其他人交往，尤其与后辈的交流，学习能让你与后辈的距离降低，同时还能传承你的知识</li></ul><p>而我为什么要持续学习呢？我给出的答案是：我想要自由和财富，所以才要持续的学习</p><ul><li>自由，不单单指的身体上的自由，还包括心里的自由，因为增加知识，是在增加自己的视野，你能看多远，你的心就能飞多远</li><li>财富，如果有足够的知识，你就可以赚到足够的财富，不仅是金钱上的，还包括心灵上的</li></ul><h3 id="怎么做-1"><a href="#怎么做-1" class="headerlink" title="怎么做"></a>怎么做</h3><p>看到这里，基本上知道学习的重要性，那么如何去学习呢？ 如果你不知道的话， 你就需要学习《如何去学习》，不过我本人是这样子去学习的，仅供参考：</p><ul><li>学习对象<ul><li>优秀的知识，包括：书籍、教学视频等</li><li>优秀的旁边人和古人，优秀的身边人是你随时都可以学习的对象，优秀的古人则代表他身上有一些特质值得我们去学习</li><li>过去的自己，以过去的自己为尺子，不断突破过去自己的认知范围</li></ul></li><li>学习频率<ul><li>找出自己每天最佳学习时间，就是心情愉悦，大脑清醒的时间，维持20 分钟以上的学习</li><li>每天至少需要2次  20 分钟以上的学习时刻</li></ul></li><li>学习输出<ul><li>去使用知识，用知识去解决问题</li><li>去分享知识，包括：写作，分享等</li></ul></li></ul><h2 id="热爱生活"><a href="#热爱生活" class="headerlink" title="热爱生活"></a>热爱生活</h2><h3 id="是什么-2"><a href="#是什么-2" class="headerlink" title="是什么"></a>是什么</h3><p>热爱生活，我记得曾经有一句话说的非常好， “当你经历生活种种，仍能保持热爱生活”，才能活出自己，这也是为什么大家都很喜欢“归来仍是少年”的心态。</p><p>原先的我是不太懂的，目前的我勉强好像有点能理解，热爱生活，有两个关键词， 一个热度，一个爱意</p><ul><li>热度： 对生活充满温度，对生活充满激情，对生活永远都有活力</li><li>爱意：爱上生活的种种，是好是坏都是时间留在你身上的痕迹，爱上身边的种种，一丝风也能让你感觉满满的爱</li></ul><h3 id="为什么-2"><a href="#为什么-2" class="headerlink" title="为什么"></a>为什么</h3><p>虽然我认为赚钱很重要，但是赚钱不是最终的目的，而是因为你热爱生活，愿意为了过上更好的生活而去赚更多的钱。</p><p>热爱生活心态的转变，等于从你内心开始改变，从而影响到你的生活，再影响到你周边的人，从而实现让自己的生活变得更好，形成一个良性循环。</p><p>举几个例子：</p><ul><li>每天挤地铁通勤很累，如果你热爱生活，你会发现从地铁窗户往外看，有一道道光线不断穿梭，如同一道道光影故事</li><li>每天上班压力很大，感觉身体和心理都很累，如果热爱生活，你会发现上班并不是你的全部，上班只是你生活中一部分，为了更好的生活，工作上不拖延，每天挤出时间安排做自己想做的事情</li></ul><p>热爱生活是一个开始，是一个源头，能让你从消极恶性循环的生活中逃脱出来，往自己向往的生活去前进。</p><h3 id="怎么做-2"><a href="#怎么做-2" class="headerlink" title="怎么做"></a>怎么做</h3><p>热爱生活，不仅仅是口头上说说而已，而是知行合一，那么应该如何去做呢？我个人的做法主要从下面几点：</p><ul><li>热爱自己<ul><li>保持住宿环境的卫生，至少每周打扫一次</li><li>保持个人的卫生，从指甲到头发，从衣服到床单等</li><li>保持爱自己的心态，接受自己的缺点，找到自己的优点</li></ul></li><li>宽容他人<ul><li>要聆听和理解别人，更要表达自己的观点</li><li>与世界和解，与他人和解，更重要的是与自己和解</li></ul></li><li>情绪稳定<ul><li>不大喜，不大悲，但是情绪要发泄，找到途径发泄，如：定时冥想释放，看电影，唱歌等等</li><li>不被周边人情绪影响，同时学会让周边人情绪稳定，与其一起发泄情绪</li></ul></li></ul><p>当然热爱生活不仅仅是上面几点， 但是热爱生活的核心就是热爱自己，才能热爱他人。 热爱，就是 保持温度， 拥有一个爱意的心。</p><h1 id="未来一年计划"><a href="#未来一年计划" class="headerlink" title="未来一年计划"></a>未来一年计划</h1><h2 id="量化目标"><a href="#量化目标" class="headerlink" title="量化目标"></a>量化目标</h2><ul><li>体重：160斤，腹肌出现</li><li>睡眠时间： 8+小时</li><li>读书数量： 30+本</li><li>输出博客： 48+篇</li><li>分享次数： 10+次</li></ul><h2 id="学习新技能"><a href="#学习新技能" class="headerlink" title="学习新技能"></a>学习新技能</h2><ul><li>人像摄影</li><li>小红书电商运营</li><li>考雅思</li><li>跑马拉松</li></ul><h2 id="必做事项"><a href="#必做事项" class="headerlink" title="必做事项"></a>必做事项</h2><ul><li>带老妈处理她的牙齿</li><li>做一个AI相关的项目</li></ul><p>最后，希望阅读完后对你的人生也能发生一点改变，同时祝福大家新的2024年，新年快乐，身体健康，升职加薪！</p><blockquote><p>我是一个爱阅读和爱分享的博主Qborfy，欢迎大家到我的博客参观。<a href="https://qborfy.com">Qborfy博客</a></p></blockquote><p>PS: 觉得我写的还行，可以到我的博客里，有微信二维码可以加我好友哟～</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;时光匆匆，2023年即将结束，新的一年即将到来，每个人都会有自己的年度总结，因此对于我个人而言，2023 年是一个很重要的转折点，不在于物质上有多大的变化，而是在于思维上，在于精神上的转变，不再有过去那种懵懵懂懂，浑浑噩噩的过日子的感觉，上次这种感觉还是在小学 5 年级的一个夜晚，突然懂事的开窍，觉得学习很重要，要好好读书的醒悟。因此接下来这一篇年度总结的灵感来源于：罗振宇老师的【2024年跨年演讲】主题 ——  是什么让我眼前一亮。&lt;/p&gt;
-&lt;p&gt;因此，2023 年对于国家，对于公司，对于个人，都是非常不容易的一年，疫情刚过去，经济下调，个人面临裁员，很多人负面情绪都积压快爆炸了，因此2023 年对于大多数人来说，其实是积压了很多垃圾情绪的一年，更因为这样子，我们更加应该去发现今年自己的高光时刻，去找到那个让能自己变得骄傲的自己，找到那个自信的自己，从而更加从容的面对未来，面对 2024 年。&lt;/p&gt;
-&lt;p&gt;温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

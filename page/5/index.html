@@ -302,6 +302,112 @@
     height:800px
   }
   </style>
+<article id="post-face100/2-throttle-debouce" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/face100/2-throttle-debouce.html" target="_blank">
+      前端面试100道手写题（2）—— throttle与debounce
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/face100/2-throttle-debouce.html" class="archive-article-date">
+        <time datetime="2023-04-19T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前端面试100道手写题第二篇《throttle与debounce》，说一下为什么选这两个，其实大家都有在用，我们先来了解一下两个函数的作用：</p>
+<ul>
+<li>debounce 防抖，用于减少函数触发的频率，在一个delay时间内，如果触发delay时间归零，直到delay时间到才会触发函数</li>
+<li>throttle 节流，用于限制函数触发的频率，每个delay时间间隔，最多只能执行函数一次</li>
+</ul>
+<p>选这两个手写的原因其实很简单，就是面试频率高，而且项目实战会经常用到，同时里面还会隐藏一些知识点和目前公共库的一些问题（见文章末尾）。</p>
+<p>接下来就让我们开始手写撸代码吧！</p>
+<p>手写难度：⭐️⭐️⭐️</p>
+    
+    <a class="article-more-a" href="/face100/2-throttle-debouce.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/face100/2-throttle-debouce.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-study/seven-habbit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1177,115 +1283,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/today/20230225.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230224.html" target="_blank">
-      从开发chrome插件到插件系统设计
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230224.html" class="archive-article-date">
-        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
-<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
-<ul>
-<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
-</ul>
-<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
-<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
-<ul>
-<li>Chrome插件开发，如何快速开发一个插件</li>
-<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230224.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230224.html">展开全文 >></a>
     </p>
     
 
