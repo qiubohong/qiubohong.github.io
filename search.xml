@@ -266,7 +266,7 @@
 </ul>
 <p>RAG技术是通过检索和生成相结合的方式找最相关的知识内容， 加入到大模型的提示语中，通过大模型推理得到用户问题在知识库中最合适的答案。</p>
 <p>下面是我个人依据网上相关资料整理的通用RAG模型架构图：</p>
-<p><img src="/images/ailearn/ai-learn08-1.png" alt=""></p>
+<p><img src="/assets/img/ailearn/ai-learn08-1.png" alt=""></p>
 <h2 id="生成向量索引（Indexing）"><a href="#生成向量索引（Indexing）" class="headerlink" title="生成向量索引（Indexing）"></a>生成向量索引（Indexing）</h2><p>生成向量索引有三个步骤，分别如下：</p>
 <ol>
 <li>加载(load)，加载所需数据，LangChain中提供各种加载器，如：PDFLoader、TextLoader、ImageLoader等。</li>
