@@ -556,29 +556,6 @@
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
 <p>前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。</p>
-<h1 id="RAG是什么"><a href="#RAG是什么" class="headerlink" title="RAG是什么"></a>RAG是什么</h1><blockquote>
-<p>RAG是一种用额外数据增强大模型知识的技术，俗称“RAG”（Retrieval-Augmented Generation），中文叫检索增强生成。</p>
-</blockquote>
-<p>RAG是LangChain中一个重要的应用场景，它能够将检索和生成结合起来，从而生成更加精准的答案。</p>
-<p>RAG模型由两个部分组成：Retriever和Generator。</p>
-<ul>
-<li><code>Generator</code> 生成索引向量，根据文档中问题和答案生成索引向量数据库。</li>
-<li><code>Retriever</code> 检索对比类似，根据用户的问题，从生成的知识库中检索召回最相关的问题和答案。</li>
-</ul>
-<p>RAG技术是通过检索和生成相结合的方式找最相关的知识内容， 加入到大模型的提示语中，通过大模型推理得到用户问题在知识库中最合适的答案。</p>
-<p>下面是我个人依据网上相关资料整理的通用RAG模型架构图：</p>
-<p><img src="/images/ailearn/ai-learn08-1.png" alt=""></p>
-<h2 id="生成向量索引（Indexing）"><a href="#生成向量索引（Indexing）" class="headerlink" title="生成向量索引（Indexing）"></a>生成向量索引（Indexing）</h2><p>生成向量索引有三个步骤，分别如下：</p>
-<ol>
-<li>加载(load)，加载所需数据，LangChain中提供各种加载器，如：PDFLoader、TextLoader、ImageLoader等。</li>
-<li>分割(Split)，将加载的数据进行分割成一个个块，LangChain中提供各种分割器，如：TextSplitter、ImageSplitter等。</li>
-<li>存储(Store)，得到分割的Chunks，需要将Chunk转成向量索引并存储，这里我们会依赖<code>Embeddings</code>模型进行生成索引，然后存储到向量数据库<code>VectorStore</code>。</li>
-</ol>
-<h2 id="Embeddings嵌入模型"><a href="#Embeddings嵌入模型" class="headerlink" title="Embeddings嵌入模型"></a>Embeddings嵌入模型</h2><p>RAG模型使用<code>Embeddings</code>模型将问题和答案进行编码，生成向量数据，这里我们必不可免需要对<code>Embeddings</code>模型进行初步了解。</p>
-<blockquote>
-<p>Embeddings模型，也叫嵌入模型，是一种将高维度的数据，如：自然语言、图片、视频等，转换成低维度的向量数据，如：多维矩阵数组等，方便后续进行相似度对比。</p>
-</blockquote>
-<p>或者我们可以更加直观的理解，<code>Embeddings</code>模型可以把我们人类能够理解的内容，转换成计算机能够计算理解的数据，从而实现更多的算法对比逻辑。</p>
     
     <a class="article-more-a" href="/ailearn/ai-learn08.html#more">more >></a>
     
