@@ -247,6 +247,38 @@
       </tags>
   </entry>
   <entry>
+    <title>09篇 AI从零开始 - LangChain企业级应用开发——低代码平台的智能体Agent</title>
+    <url>/ailearn/ai-learn09.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>经过LangChain系列文章的学习， 实战一个有趣的小应用，通过Agent调用工具+大模型的推理能力开发一个 【低代码平台的 AI 小助手】，通过用户输入自然语言能实现 低代码平台页面生成。</p>
+<span id="more"></span>
+
+<p>如无意外，这篇应该是 LangChain最后一篇学习内容，将之前文章进行汇总，具体如下：</p>
+<ul>
+<li><a href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li>
+<li><a href="https://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a></li>
+<li><a href="https://qborfy.com/ailearn/ai-learn06.html">06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战</a></li>
+<li><a href="https://qborfy.com/ailearn/ai-learn07.html">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</a></li>
+<li><a href="https://qborfy.com/ailearn/ai-learn08.html">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</a></li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://python.langchain.com/docs/introduction/">LangChain官方文档</a></li>
+<li><a href="https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide">LangChain中文教程</a></li>
+<li><a href="https://blog.csdn.net/qq_56591814/article/details/135040694">LangChain（0.0.340）官方文档十一：Agents之Agent Types</a></li>
+<li><a href="https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6">(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!</a></li>
+</ul>
+<blockquote>
+<p>声明：本文部分材料是基于<a href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>AI学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</title>
     <url>/ailearn/ai-learn08.html</url>
     <content><![CDATA[<blockquote>
