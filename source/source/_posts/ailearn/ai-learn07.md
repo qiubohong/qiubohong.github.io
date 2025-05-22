@@ -61,10 +61,9 @@ pipx install poetry
 
 ```shell
 # 初始化一个langserver的项目
-# https://github.com/langchain-ai/langchain/tree/master/templates
-langchain app add mylangserver
+langchain app new mylangserver
 
-pipx run langchain app add mylangserver
+pipx run langchain app new mylangserver
 
 # 进入项目目录
 cd mylangserver

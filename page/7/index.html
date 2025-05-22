@@ -302,6 +302,416 @@
     height:800px
   }
   </style>
+<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230221.html" target="_blank">
+      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230221.html" class="archive-article-date">
+        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230216.html">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
+<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
+<ul>
+<li>OpenAI提供了哪些模型算法</li>
+<li>不同模型算法分别可以应用到哪些场景</li>
+<li>真正调用OpenAI需要注意哪些事项</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230222.html" target="_blank">
+      30分钟搞懂Rollup+Typescript构建工程
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230222.html" class="archive-article-date">
+        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
+<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
+<p>参考项目地址为:<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>。</p>
+    
+    <a class="article-more-a" href="/today/20230222.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-share/node-modules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/node-modules.html" target="_blank">
+      Node冷门知识点——require(&#39;node:path&#39;)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/node-modules.html" class="archive-article-date">
+        <time datetime="2023-03-09T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天在看Vite的源码时候，发现有个用法很神奇，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">&#x27;node:path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&#x27;node:url&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">&#x27;node:fs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(</span><br><span class="line">  <span class="title function_">readFileSync</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;../../package.json&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)).<span class="title function_">toString</span>(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>源码地址在:<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts">vite/src/node/cli.ts</a></p>
+<p>因此想要研究一下为什么要用<code>node:path</code>，而不是直接应用 <code>import path from &#39;path&#39;</code>呢？下面就来好好分析一下。</p>
+    
+    <a class="article-more-a" href="/share/node-modules.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/node-modules.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230219" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230219.html" target="_blank">
+      从pnpm工具了解整个npm包核心管理原理
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230219.html" class="archive-article-date">
+        <time datetime="2023-03-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今年在github前端领域star上升速度比较主要有以下几个：</p>
+<ul>
+<li>Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能</li>
+<li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
+<li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
+</ul>
+<p>因此，选一个和我们项目中开发相关的作为一个知识扩展点，应该就是pnpm了。</p>
+    
+    <a class="article-more-a" href="/today/20230219.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230219.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -922,413 +1332,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230215.html" target="_blank">
-      前端自动化UI测试的完整方案
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230215.html" class="archive-article-date">
-        <time datetime="2023-02-15T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>开发公共平台项目，测试资源相对比较少，因此对开发者自身而言，为了维护项目的稳定性，需要对平台做各类测试，即使有测试环境，但是也很容易缺乏测试场景导致带着bug上线的情况。</p>
-<p>因此我们需要做完整自动化测试方案，来避免这类常规错误，提高平台的可用性和稳定性。</p>
-<p>这里先简单描述自动化测试的分类：</p>
-<ul>
-<li>单元测试，验证独立的单元模块代码或函数是否正常工作</li>
-<li>集成测试，验证多个单元模块间的协同工作</li>
-<li>UI 测试，只针对前端UI部分测试，后端数据采用mock方式</li>
-<li>端到端测试，从用户的角度，通过机器来模仿用户在真实浏览器中验证应用交互</li>
-<li>快照测试，验证程序的UI变化</li>
-</ul>
-<p>接下来我们将根据这些测试类如何在项目中落地完整方案。</p>
-    
-    <a class="article-more-a" href="/today/20230215.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230215.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230214" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230214.html" target="_blank">
-      创业idea——AI种植与花店
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230214.html" class="archive-article-date">
-        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>此想法源于一个抖音视频，里面有个商业模式，通过摄像头+气味嗅觉捕捉器+液体分析器，可以识别当前植物的状态，且占地面积不大，可以直接树立到家里墙上。大概如下图所示：</p>
-<p><img src="/assets/img/idea-20230214-3.png" alt=""></p>
-    
-    <a class="article-more-a" href="/ideas/20230214.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230214.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230215.html" target="_blank">
-      数据可视化收集
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230215.html" class="archive-article-date">
-        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="数据可视化收集"><a href="#数据可视化收集" class="headerlink" title="数据可视化收集"></a>数据可视化收集</h1><p>收集数据可视化或报表开源系统，为了能够根据不同数据源展示可视化界面。</p>
-<h2 id="DataEase"><a href="#DataEase" class="headerlink" title="DataEase"></a>DataEase</h2><p>人人可用的开源数据可视化分析工具</p>
-<ul>
-<li>官网地址：<a target="_blank" rel="noopener" href="https://dataease.io/">https://dataease.io/</a><br>Github： <a target="_blank" rel="noopener" href="https://github.com/dataease/dataease/">https://github.com/dataease/dataease/</a></li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230215.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-translate/use-gpt3-auto-git-commit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/translate/use-gpt3-auto-git-commit.html" target="_blank">
-      有了GPT-3，再也不用手写commit message(翻译)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/translate/use-gpt3-auto-git-commit.html" class="archive-article-date">
-        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p>
-</blockquote>
-<h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p>
-<blockquote>
-<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh/GPT-3">维基百科 GPT-3</a></p>
-</blockquote>
-<p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p>
-    
-    <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 
