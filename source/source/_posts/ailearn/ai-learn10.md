@@ -72,3 +72,5 @@ tags:
 - ​​Structured Chat Agent (create_structured_chat_agent)​：必须遵循预定义响应模板，严格匹配工具参数格式，通常一次性完成工具选择
 
 利用 Agent 开发一个完整的低代码平台 AI 助手，整体实现过程如下：
+
+https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies
