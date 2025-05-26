@@ -117,11 +117,11 @@ AI有了记忆后，就可以根据已知的记忆知识去更好回答用户提
 | GPT-4 Turbo、GPT-4o、GPT-3.5 Turbo | 是 |  OpenAI 系列模型，闭源 |
 | ​Claude 3（Opus/Sonnet/Haiku）、Claude 3.5 | 是 | Anthropic 系列模型，闭源​ |
 | Gemini Pro、Gemini 1.5 Pro、Gemini Flash | 是 | OpenAI 系列模型，闭源​ |
-｜Llama 3（8B/70B）、Llama 3.1 | 是 | Meta Llama 系列​，开源​， 需要微调后才支持，不过有现成的 Gorilla 微调框架|
+| Llama 3（8B/70B）、Llama 3.1 | 是 | Meta Llama 系列​，开源​， 需要微调后才支持，不过有现成的 Gorilla 微调框架|
 | Mistral Large、Mistral-7B-Instruct | 是 | Mistral AI 系列​，开源​，轻量级模型适合本地部署​|
 | 通义千问（Qwen-Chat）| 是 | 阿里云系列​ ​，开源​，基于 ReAct Prompting 原理优化工具|
 | GLM-Z1-32B-0414、ChatGLM3-6B | 是 | 清华智谱系列模型，开源​|
-｜​​DeepSeek V3​​ | 是 | ｜​​DeepSeek，开源​，专为函数调用优化，支持多工具协同|  
+| ​​DeepSeek V3​​ | 是 | ​​DeepSeek，开源​，专为函数调用优化，支持多工具协同|  
 
 
 # 2. Langchain AI Agent开发实战
