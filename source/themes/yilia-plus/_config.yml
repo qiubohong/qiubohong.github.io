@@ -93,6 +93,7 @@ top: true
 # 百度统计
 baidu_analytics: ''
 google_analytics: 'true'
+code_copy: 'true'
 
 # 网站图标
 favicon: /favicon.ico
