@@ -340,6 +340,14 @@ streamlit run bot_chat.py
 返回答案：
 ![](/assets/img/ailearn/ai-learn08-6.png)
 
+# 总结
+
+本文我们主要学习了LangChain的去实现一个RAG智能问答客服，通过Streamlit框架快速搭建一个UI界面，上传知识库文件，利用RAG技术加强大模型的企业内部特有的知识。回顾一下，我们主要学习了以下内容：
+
+- RAG技术原理，加载(load)、训练(train)、推理(inference)三个步骤
+- Embeddings嵌入模型的具体作用，将文本、图片转换为向量
+- 利用LangChain+Streamlit+Chroma(向量数据库)快速搭建一个企业内部的智能客服问答系统
+
 # 参考资料
 
 - [LangChain官方文档](https://python.langchain.com/docs/introduction/)
