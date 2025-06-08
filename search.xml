@@ -247,6 +247,111 @@
       </tags>
   </entry>
   <entry>
+    <title>AI从零开始 - AI学习路线图(1) AI工程师</title>
+    <url>/ailearn/ai-learn-road1.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<blockquote>
+<p>本文参考 <a href="https://roadmap.sh/">roadmap.sh</a> <a href="https://roadmap.sh/ai-engineer">AI Engineer(AI应用开发工程师)RoadMap</a>整理，如有侵权，请联系删除。</p>
+</blockquote>
+<p>学习一门技能最重要的是<strong>目标</strong>和<strong>路线</strong>：</p>
+<ul>
+<li>有了目标，才能知道自己所学可以用到哪里</li>
+<li>有了路线，才能知道自己该学什么，怎么学</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="AI应用开发学习路线图"><a href="#AI应用开发学习路线图" class="headerlink" title="AI应用开发学习路线图"></a>AI应用开发学习路线图</h1><h2 id="完整思维导图"><a href="#完整思维导图" class="headerlink" title="完整思维导图"></a>完整思维导图</h2><blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>AI应用开发学习路线图<ul>
+<li>是什么<ul>
+<li>角色和工作职责定位</li>
+<li>专门设计、开发和实施人工智能 (AI) 系统</li>
+<li>与ML(机器学习)工程师的区别</li>
+<li>基础概念<ul>
+<li>AI与AGI的区别</li>
+<li>LLM大语言模型</li>
+<li>Inference推理能力</li>
+<li>Tanning训练</li>
+<li>Embeddings嵌入转换</li>
+<li>向量数据库</li>
+<li>Agent人工智能代理</li>
+<li>RAG检索增强生成</li>
+<li>Prompt Engineering提示工程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>入门<ul>
+<li>了解预训练模型<ul>
+<li>是已在大型数据集上训练过的机器学习 (ML) 模型</li>
+<li>优势：更快相应速度和更少计算资源</li>
+<li>劣势：存在训练数据的偏差与训练数据限制</li>
+<li>OpenAI 模型<ul>
+<li>GPT 模型：文本生成、对话</li>
+<li>Codex 模型：代码生成</li>
+<li>DALL-E 模型：图像生成</li>
+<li>Whisper 模型：语音生成</li>
+</ul>
+</li>
+<li>流行的模型：<ul>
+<li>Anthropic Claude模型</li>
+<li>Google Gemini模型</li>
+<li>Hug</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用预训练模型<ul>
+<li>上下文长度：一次可以处理的输入文本量</li>
+<li>截止日期：训练数据最后更新时间</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高级</li>
+<li>其他</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://roadmap.sh/ai-engineer">AI Engineer RoadMap (AI应用开发工程师学习路线图)</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>AI学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>10篇 AI从零开始 - LangChain学习与实战(7) Langgraph入门</title>
+    <url>/ailearn/ai-learn10.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>前面我们学了LangChain的基础使用和Agent开发，我们会发现如果想要实现Agent中工具任务节点状态保存或者工具多次调用非常麻烦</p>
+<span id="more"></span>
+
+
+<p>利用 Agent 开发一个完整的低代码平台 AI 助手，整体实现过程如下：</p>
+<p><a href="https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies">https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://langchain-ai.github.io/langgraph/">LangGraph官方文档</a></li>
+<li><a href="https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6">(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!</a></li>
+</ul>
+<blockquote>
+<p>声明：本文部分材料是基于<a href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>AI学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>09篇 AI从零开始 - LangChain学习与实战(6) Agent智能体开发</title>
     <url>/ailearn/ai-learn09.html</url>
     <content><![CDATA[<blockquote>
@@ -415,7 +520,7 @@
 <p><img src="/assets/img/ailearn/ai-learn09-2.png" alt=""><br><img src="/assets/img/ailearn/ai-learn09-3.png" alt=""></p>
 <h2 id="2-6-Smith调试"><a href="#2-6-Smith调试" class="headerlink" title="2.6  Smith调试"></a>2.6  Smith调试</h2><p>在 Agent中避免不了调试，尤其不同大模型对于工具的调用和判断是不一样的，同时执行过程异常 Langchain也比较难定位，所以因此我们可以使用<code>LangSmith</code>进行调试。</p>
 <p>前往<a href="https://smith.langchain.com/">LangSmith</a>官网，注册账号，创建项目，获取API_KEY，设置环境变量，具体如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置LangSimth 环境变量</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_TRACING&quot;</span>] = <span class="string">&quot;true&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_ENDPOINT&quot;</span>] = <span class="string">&quot;https://api.smith.langchain.com&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_API_KEY&quot;</span>] = <span class="string">&quot;xxxxxxx&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_PROJECT&quot;</span>] = <span class="string">&quot;test_agent&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置LangSimth 环境变量</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_TRACING&quot;</span>] = <span class="string">&quot;true&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_ENDPOINT&quot;</span>] = <span class="string">&quot;https://api.smith.langchain.com&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_API_KEY&quot;</span>] = <span class="string">&quot;&lt;LANGSMITH_API_KEY&gt;&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_PROJECT&quot;</span>] = <span class="string">&quot;test_agent&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>再次运行Agent，可以前往<a href="https://smith.langchain.com/">LangSmith</a>查看调试结果，如下图所示：</p>
 <p><img src="/assets/img/ailearn/ai-learn09-4.png" alt=""></p>
@@ -444,8 +549,8 @@
       </tags>
   </entry>
   <entry>
-    <title>10篇 AI从零开始 - LangChain学习与实战(5) 低代码平台AI助手 开发</title>
-    <url>/ailearn/ai-learn10.html</url>
+    <title>11篇 AI从零开始 - LangChain学习与实战(5) Langgraph入门</title>
+    <url>/ailearn/ai-learn11.html</url>
     <content><![CDATA[<blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
 </blockquote>

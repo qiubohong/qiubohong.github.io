@@ -257,7 +257,7 @@ PS:
 # 设置LangSimth 环境变量
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGSMITH_API_KEY"] = "xxxxxxx"
+os.environ["LANGSMITH_API_KEY"] = "<LANGSMITH_API_KEY>"
 os.environ["LANGSMITH_PROJECT"] = "test_agent"
 ```
 

@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn09-3.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn09-4.png">
 <meta property="article:published_time" content="2025-05-26T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-26T14:04:33.909Z">
+<meta property="article:modified_time" content="2025-06-07T02:26:01.538Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -583,7 +583,7 @@
 <p><img src="/assets/img/ailearn/ai-learn09-2.png" alt=""><br><img src="/assets/img/ailearn/ai-learn09-3.png" alt=""></p>
 <h2 id="2-6-Smith调试"><a href="#2-6-Smith调试" class="headerlink" title="2.6  Smith调试"></a>2.6  Smith调试</h2><p>在 Agent中避免不了调试，尤其不同大模型对于工具的调用和判断是不一样的，同时执行过程异常 Langchain也比较难定位，所以因此我们可以使用<code>LangSmith</code>进行调试。</p>
 <p>前往<a target="_blank" rel="noopener" href="https://smith.langchain.com/">LangSmith</a>官网，注册账号，创建项目，获取API_KEY，设置环境变量，具体如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置LangSimth 环境变量</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_TRACING&quot;</span>] = <span class="string">&quot;true&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_ENDPOINT&quot;</span>] = <span class="string">&quot;https://api.smith.langchain.com&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_API_KEY&quot;</span>] = <span class="string">&quot;xxxxxxx&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_PROJECT&quot;</span>] = <span class="string">&quot;test_agent&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置LangSimth 环境变量</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_TRACING&quot;</span>] = <span class="string">&quot;true&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_ENDPOINT&quot;</span>] = <span class="string">&quot;https://api.smith.langchain.com&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_API_KEY&quot;</span>] = <span class="string">&quot;&lt;LANGSMITH_API_KEY&gt;&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;LANGSMITH_PROJECT&quot;</span>] = <span class="string">&quot;test_agent&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>再次运行Agent，可以前往<a target="_blank" rel="noopener" href="https://smith.langchain.com/">LangSmith</a>查看调试结果，如下图所示：</p>
 <p><img src="/assets/img/ailearn/ai-learn09-4.png" alt=""></p>
@@ -758,9 +758,18 @@
 
 <nav id="article-nav">
   
+    <a href="/ailearn/ai-learn10.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          10篇 AI从零开始 - LangChain学习与实战(7) Langgraph入门
+        
+      </div>
+    </a>
   
-    <a href="/ailearn/ai-learn10.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">10篇 AI从零开始 - LangChain学习与实战(5) 低代码平台AI助手 开发</div>
+  
+    <a href="/ailearn/ai-learn11.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">11篇 AI从零开始 - LangChain学习与实战(5) Langgraph入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
