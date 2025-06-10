@@ -51,11 +51,45 @@ tags:
       - 流行的模型：
         - Anthropic Claude模型
         - Google Gemini模型
-        - Hug
-    - 使用预训练模型
+        - Hugging Face模型包括 BERT、GPT、T5 和 CLIP 等
+        - DeepSeek模型
+    - OpenAI预训练模型 API
       - 上下文长度：一次可以处理的输入文本量
       - 截止日期：训练数据最后更新时间
+      - Prompt的编写
+      - API接口
+        - OpenAI Chat Completions API接口
+        - Token规则
+          - 最大数量
+          - 计算规则
+          - 定价规则
+        - Playground API在线调试
+        - API微调：OpenAI API支持微调
       - 
+    - 主流开发框架
+      - Langchain 
+      - LangGraph(Langchain的高级抽象)
+      - crewai
+      - Semantic Kernel
+      - AutoGen
+  - 进阶
+    - 开源AI大模型
+      - 了解
+        - 开源大模型：源代码和架构公开开放，可供使用、修改和分发的模型
+          - 2024年最佳开源大模型
+            - DeepSeek R1或者V3 模型
+            - Meta Llama模型
+            - Google Gemma模型
+            - Hugging Face BLOOM模型
+            - 阿里 Qwen模型
+            - xAI Grok模型
+      - 使用
+        - Hugging Face平台
+        - 
+      - 部署
+        - Hugging Face平台
+        - Ollama平台
+    - AI安全
   - 高级
   - 其他
 {% endpullquote %}
@@ -65,3 +99,4 @@ tags:
 # 参考资料
 
 - [AI Engineer RoadMap (AI应用开发工程师学习路线图)](https://roadmap.sh/ai-engineer)
+- [如何选择AI Agent框架？五种主流AI Agent框架对比](https://zhuanlan.zhihu.com/p/717978798)
