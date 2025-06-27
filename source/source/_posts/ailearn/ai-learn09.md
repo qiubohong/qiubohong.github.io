@@ -202,7 +202,6 @@ Prompt 具体实现如下：
 ```python
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 
-# 
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", "你是人工智能助手"),
@@ -225,6 +224,8 @@ prompt = ChatPromptTemplate.from_messages(
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 
 tools = [get_current_day, get_lhb]
+
+agent = create_tool_calling_agent(llm, tools, prompt)
 
 agent_executor = AgentExecutor(
     agent=agent, 

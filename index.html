@@ -793,6 +793,111 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/daily/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/03.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(3) - 强化学习
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/03.html" class="archive-article-date">
+        <time datetime="2025-06-26T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>强化学习</strong></p>
+<blockquote>
+<p>一句话核心：AI在试错中成长，像小孩学走路，通过奖励/惩罚信号找到最优行为策略</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/03.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/03.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/daily/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -908,7 +1013,7 @@
     <h1 itemprop="name">
 	
 	  <a class="article-title" href="/ailearn/ai-learn10.html" target="_blank">
-      10篇 AI从零开始 - LangChain学习与实战(7) Langgraph入门
+      10篇 AI从零开始 - Langgraph开发(1)
       
     </a>
   
@@ -934,7 +1039,15 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>前面我们学了LangChain的基础使用和Agent开发，我们会发现如果想要实现Agent中工具任务节点状态保存或者工具多次调用非常麻烦</p>
+<p>前面我们学了LangChain的使用和Agent开发，Langchain是一个线性工作流，如果想要在实际开发复杂的Agent，那么实现非常麻烦，比如可能会遇上一以下一些问题：</p>
+<ul>
+<li>当调用某个工具方法出现错误或不是所需要的结果，需要循环调用工具方法直到返回需要的结果</li>
+<li>当需要一次任务中，需要保存不同工作节点的状态</li>
+<li>当需要调用不同LLM模型时候</li>
+<li>当链路中断，需要从上一个工作节点继续执行</li>
+<li>……</li>
+</ul>
+<p>为了解决这些问题，LangChain抽象出一个高级框架: <code>LangGraph</code>，接下来就开始学习LangGraph的开发。</p>
     
     <a class="article-more-a" href="/ailearn/ai-learn10.html#more">more >></a>
     
@@ -1285,113 +1398,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ailearn/ai-learn08.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn07.html" target="_blank">
-      07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn07.html" class="archive-article-date">
-        <time datetime="2025-03-12T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>从 LangChain系列文章开始到现在，我们学习 LangChain的基础知识和实战撸代码，现在我们假设已经开发好一个 LangChain链式任务，那么如何部署以及如何与 web服务进行互相调用呢？</p>
-<p>那么接下来我们应该就学习LangServer与LangSmith，如何让 LangChain进行企业级开发。</p>
-<blockquote>
-<p>LangServer: 帮开发者将  LangChain 部署一个 Restful 服务。</p>
-<p>LangSmith: 监控 LangChain调用链路服务和提供更加友好的可视化界面。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn07.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn07.html">展开全文 >></a>
     </p>
     
 
