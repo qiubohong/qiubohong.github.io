@@ -48,6 +48,33 @@
   </entry>
   
   <entry>
+    <title>5分钟AI，每天搞懂一个知识点(4) - 神经网络</title>
+    <link href="https://www.qborfy.com/ailearn/daily/04.html"/>
+    <id>https://www.qborfy.com/ailearn/daily/04.html</id>
+    <published>2025-06-29T07:00:00.000Z</published>
+    <updated>2025-06-29T09:32:46.453Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><p>今天我们来学习 <strong>神经网络算法</strong></p><blockquote><p>一句话核心：“神经网络 = 模拟人脑的计算网络，通过层层传递数据自动学习规律，​​输入→加工→输出​​是它的核心工作流”</p></blockquote><span id="more"></span><h1 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h1><p><img src="/assets/img/ailearn/daily/04/1.png" alt=""></p><p><strong>定义</strong>: 人工神经网络（Artificial Neural Network，即ANN ），是20世纪80 年代以来人工智能领域兴起的研究热点。它从信息处理角度对人脑神经元网络进行抽象， 建立某种简单模型，按不同的连接方式组成不同的网络。</p><h2 id="三层功能"><a href="#三层功能" class="headerlink" title="三层功能"></a>三层功能</h2><ol><li><strong>输入层</strong>：接收数据（如28x28像素的手写数字图片）  </li><li><strong>隐藏层</strong>：层层提取特征（线条→局部图案→完整数字）  </li><li><strong>输出层</strong>：给出预测结果（概率最大的数字0-9）  </li></ol><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>神经网络如何实现预测结果？</p><ol><li>神经元计算(积木拼装), 将所有数据(w1)+影响因子(x1)+权重(b)都输入到网络中，公式:<code>w1*x1+w2*x2+...+wn*xn+b</code></li><li>激活函数（质检开关）​, 判断当前数据输出是否符合要求</li><li>​​损失函数（误差雷达）​, 计算预测值和实际值之间的误差，公式:<code>loss = (y-y&#39;)^2</code></li><li>经过三个步骤，不断迭代，直到误差最小，得到预测结果公式:<code>y&#39; = f(w1*x1+w2*x2+...+wn*xn+b)</code></li></ol><p><img src="/assets/img/ailearn/daily/04/2.png" alt=""></p><h2 id="神经网络算法类型"><a href="#神经网络算法类型" class="headerlink" title="神经网络算法类型"></a>神经网络算法类型</h2><table><thead><tr><th><strong>类型</strong></th><th>特点</th><th>典型应用</th><th>在线实验</th></tr></thead><tbody><tr><td>全连接网络</td><td>每层神经元全部连接</td><td>房价预测</td><td>TF Playground回归任务</td></tr><tr><td>卷积网络CNN</td><td>局部感知/权重共享</td><td>人脸识别</td><td>CNN Explainer可视化</td></tr><tr><td>循环网络RNN</td><td>记忆之前状态</td><td>语音识别</td><td>Karpathy Char-RNN</td></tr><tr><td>Transformer</td><td>自注意力机制</td><td>ChatGPT</td><td>Hugging Face Demo</td></tr></tbody></table><h1 id="生活案例"><a href="#生活案例" class="headerlink" title="生活案例"></a>生活案例</h1><p><strong>快递分拣中心模型</strong>：  </p><ul><li>收货区（输入层）：接收全国包裹（原始数据）  </li><li>分拣线（隐藏层）：<br>→ 首站：按省份粗分（提取大特征）<br>→ 中转：按城市细分（识别局部特征）<br>→ 末站：按街道精分（确认细节）  </li><li>发货区（输出层）：送至具体地址（分类结果） </li></ul><h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><ul><li>GPT-3的神经元数量（1750亿）≈ 人类大脑神经元（860亿）的 <strong>2倍</strong>，  </li><li>但人脑能耗仅20瓦，而训练GPT-3需 <strong>190万度电</strong>（相当于200家庭年用电）！</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="http://easyai.tech/ai-definition/ann//">什么是人工神经网络？</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们来学习 &lt;strong&gt;神经网络算法&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一句话核心：“神经网络 = 模拟人脑的计算网络，通过层层传递数据自动学习规律，​​输入→加工→输出​​是它的核心工作流”&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="5分钟AI" scheme="https://www.qborfy.com/tags/5%E5%88%86%E9%92%9FAI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>10篇 AI从零开始 - Langgraph开发(1)</title>
     <link href="https://www.qborfy.com/ailearn/ai-learn10.html"/>
     <id>https://www.qborfy.com/ailearn/ai-learn10.html</id>
@@ -187,11 +214,44 @@
   </entry>
   
   <entry>
-    <title>11篇 AI从零开始 - LangChain学习与实战(5) Langgraph入门</title>
+    <title>11篇 AI从零开始 - Langgraph开发(2)</title>
     <link href="https://www.qborfy.com/ailearn/ai-learn11.html"/>
     <id>https://www.qborfy.com/ailearn/ai-learn11.html</id>
     <published>2025-03-31T07:00:00.000Z</published>
-    <updated>2025-06-07T02:02:39.414Z</updated>
+    <updated>2025-06-29T09:00:13.459Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><h1 id="工作流是什么"><a href="#工作流是什么" class="headerlink" title="工作流是什么"></a>工作流是什么</h1><p>前面我们对LangGraph知识有一个基础入门，如果要完成一个真正的Agent工作流应用开发，还是远远不够的。</p><p>一个复杂且完整的Agent工作流应用，需要完成以下几个方面：</p><ol><li>确定工作流目标，如：规划未来的旅游行程</li><li>按照目标规划和拆分任务清单，如：预定酒店、饮食推荐、景点参观时间等等</li><li>单执行任务（包含异常中断且重试机制），如：预定酒店</li><li>更新任务状态给工作流，如：预定酒店成功或失败</li><li>对任务清单状态进行重新思考或规划，如：预定酒店失败后需要重试其他渠道</li><li>对任务状态反馈给到用户，如：给用户酒店预定失败，是否选择其他渠道预定</li></ol><span id="more"></span><p>具体可如下图所示：</p><p><img src="/assets/img/ailearn/ai-learn11-01.png" alt="LangGraph"></p><p>这里我们可以和<code>ReAct</code> 推理+输出风格的Agent做对比，这种属于<code>Reflexion</code>自我反思+动态记忆的Agent模式，有以下几个优点：</p><ul><li>只需要在规划拆分任务清单的时候使用能力强的大模型</li><li>其他任务执行，可以使用能力小的大模型或者不需要大模型参与</li></ul><p>我们可以根据下图对比，加深工作流和Agent模式的区别：</p><p><img src="/assets/img/ailearn/ai-learn11-02.png" alt="LangGraph"></p><h1 id="实现工作流"><a href="#实现工作流" class="headerlink" title="实现工作流"></a>实现工作流</h1><p>目标：实现一个简单的<a href="https://formilyjs.org/zh-CN">formily表单</a>生成助手工作流</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;工作流是什么&quot;&gt;&lt;a href=&quot;#工作流是什么&quot; class=&quot;headerlink&quot; title=&quot;工作流是什么&quot;&gt;&lt;/a&gt;工作流是什么&lt;/h1&gt;&lt;p&gt;前面我们对LangGraph知识有一个基础入门，如果要完成一个真正的Agent工作流应用开发，还是远远不够的。&lt;/p&gt;
+&lt;p&gt;一个复杂且完整的Agent工作流应用，需要完成以下几个方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确定工作流目标，如：规划未来的旅游行程&lt;/li&gt;
+&lt;li&gt;按照目标规划和拆分任务清单，如：预定酒店、饮食推荐、景点参观时间等等&lt;/li&gt;
+&lt;li&gt;单执行任务（包含异常中断且重试机制），如：预定酒店&lt;/li&gt;
+&lt;li&gt;更新任务状态给工作流，如：预定酒店成功或失败&lt;/li&gt;
+&lt;li&gt;对任务清单状态进行重新思考或规划，如：预定酒店失败后需要重试其他渠道&lt;/li&gt;
+&lt;li&gt;对任务状态反馈给到用户，如：给用户酒店预定失败，是否选择其他渠道预定&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="AI学习" scheme="https://www.qborfy.com/tags/AI%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>11篇 AI从零开始 - Langgraph开发(2)</title>
+    <link href="https://www.qborfy.com/ailearn/ai-learn12.html"/>
+    <id>https://www.qborfy.com/ailearn/ai-learn12.html</id>
+    <published>2025-03-31T07:00:00.000Z</published>
+    <updated>2025-06-29T02:18:59.467Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><p>回顾一下LangChain系列学习文章：</p><ul><li><a href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li><li><a href="https://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a></li><li><a href="https://qborfy.com/ailearn/ai-learn06.html">06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战</a></li><li><a href="https://qborfy.com/ailearn/ai-learn07.html">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</a></li><li><a href="https://qborfy.com/ailearn/ai-learn08.html">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</a></li></ul><p>经过LangChain系列文章的学习后， 现在我们需要通过 LangChain + 大模型 + 低代码平台， 开发具备实际功能的 AI 应用：</p><blockquote><p><strong>低代码平台AI助手</strong>：通过用户输入自然语言能实现 低代码平台页面生成、编辑等</p></blockquote><span id="more"></span><h1 id="1-前期与实现方案"><a href="#1-前期与实现方案" class="headerlink" title="1. 前期与实现方案"></a>1. 前期与实现方案</h1><p>目标：通过用户输入自然语言能实现，完成低代码平台页面的生成，同时能低代码平台页面组件元素进行属性调整。</p><p>实际原理： 利用 AI大模型实现用户输入的自然语言与低代码平台特定 DSL语言（JSON Schema）互相转换</p><h2 id="1-1-前期准备"><a href="#1-1-前期准备" class="headerlink" title="1.1 前期准备"></a>1.1 前期准备</h2><ol><li>搭建低代码平台服务，可以参考文档： <a href="https://formilyjs.org/zh-CN/guide/form-builder">Formily 表单设计器</a></li><li>Langchain 和 LangServer环境准备， 参考： <a href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li></ol><h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol><li>LangChain开发实现大模型理解低代码平台DSL语言的输入，并能输出是低代码平台DSL语言</li><li>通过 LangServer提供大模型 API<ol><li>输入当前页面 json schema</li><li>用户输入自然语言，LangServer调用大模型API，返回结果</li><li>LangServer将返回结果转换成低代码平台DSL语言</li></ol></li><li>低代码平台新增 AI助手 UI，更改低代码页面JSON内容 </li></ol><h1 id="2-实战开发"><a href="#2-实战开发" class="headerlink" title="2. 实战开发"></a>2. 实战开发</h1><h2 id="2-1-LangChain-Agent-Server开发"><a href="#2-1-LangChain-Agent-Server开发" class="headerlink" title="2.1 LangChain Agent + Server开发"></a>2.1 LangChain Agent + Server开发</h2><h2 id="2-2-Formily-插件-AI-助手前端开发"><a href="#2-2-Formily-插件-AI-助手前端开发" class="headerlink" title="2.2 Formily 插件 AI 助手前端开发"></a>2.2 Formily 插件 AI 助手前端开发</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://python.langchain.com/docs/introduction/">LangChain官方文档</a></li><li><a href="https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide">LangChain中文教程</a></li><li><a href="https://blog.csdn.net/qq_56591814/article/details/135040694">LangChain（0.0.340）官方文档十一：Agents之Agent Types</a></li><li><a href="https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6">(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!</a></li><li><a href="https://zhuanlan.zhihu.com/p/694458202">Langchain Agent - Agent类型说明</a></li></ul><blockquote><p>声明：本文部分材料是基于<a href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p></blockquote><p>对 Agent的一些思考， 首先 agent本身的  Prompt很重要， LLM 大模型会依据Prompt+用户输入去判断需要使用哪个工具</p><p>然后创建Agent, Langchain也提供不同的类型，如下：</p><ul><li>Tool Calling Agent (create_tool_calling_agent)​ ： 依赖模型原生工具调用能力，自动将工具描述注入模型上下文， 直接返回工具调用参数对象，部分LLM模型支持</li><li>ReAct Agent (create_react_agent)​ ： 遵循 Thought → Action → Observation 循环，每步根据上下文选择工具，结合自然语言与工具调用</li><li>​​Structured Chat Agent (create_structured_chat_agent)​：必须遵循预定义响应模板，严格匹配工具参数格式，通常一次性完成工具选择</li></ul><p>利用 Agent 开发一个完整的低代码平台 AI 助手，整体实现过程如下：</p><p><a href="https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies">https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies</a></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
     
@@ -517,54 +577,6 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近在研究SSR，发现很多服务都会用到SSRF，所以就顺便研究了一下SSRF。&lt;/p&gt;
 &lt;p&gt;下面是一篇从网络上翻译过来的文章， 大家简单参考了解。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="技术分享" scheme="https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    <category term="每日更新" scheme="https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重新认识一下cookie —— samesite+secure解决跨域请求cookie问题</title>
-    <link href="https://www.qborfy.com/today_2024/20240813.html"/>
-    <id>https://www.qborfy.com/today_2024/20240813.html</id>
-    <published>2024-08-13T10:00:01.000Z</published>
-    <updated>2025-02-05T08:27:07.063Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发微软的Teams应用，在开发过程中遇到了一个跨域请求cookie的问题，具体表现是，当我在Teams应用中登录后，然后通过iframe的方式打开一个第三方网站，第三方网站无法获取到cookie，导致无法登录。这个问题困扰了我很久，最后通过Google找到了解决方案，特此记录一下。</p><span id="more"></span><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Teams应用是在Teams的iframe中打开的，第三方网站是独立于Teams的，所以是跨域的，当我在Teams中登录后，第三方网站无法获取到cookie，导致无法登录。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li>在cookie中设置<code>SameSite</code>属性为<code>None</code>，<code>Secure</code>属性为<code>true</code>，具体代码如下：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下配置为express-session</span></span><br><span class="line"><span class="title function_">session</span>(&#123;</span><br><span class="line">    <span class="attr">cookie</span>: &#123;</span><br><span class="line">        <span class="attr">sameSite</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">        <span class="attr">secure</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">httpOnly</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">maxAge</span>: <span class="number">86400</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">proxy</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;xxxx.sid&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><p>解决途中遇到的问题：</p><ol><li>如果只设置<code>SameSite</code>属性为<code>None</code>，<code>Secure</code>属性为<code>false</code>，则无法在Chrome浏览器中正常工作，具体表现是 Set-Cookie 请求被浏览器拒绝，具体原因可以参考<a href="https://www.chromium.org/updates/same-site/incompatible-clients">这里</a>。</li><li>当<code>Secure</code>属性设置为<code>true</code>，express-session中没有设置<code>proxy</code>属性，那么express不会返回<code>set-cookies</code> header信息，因为express-session默认是关闭的proxy(反向代理)，打开后才支持<code>x-forwarded-for</code>，具体原因 可以参考<a href="https://github.com/expressjs/session/issues/983">这里</a>。</li><li>express还需要设置<code>app.set(&#39;trust proxy&#39;, 1)</code>，否则无法获取到<code>x-forwarded-for</code>信息，具体原因可以参考<a href="https://github.com/expressjs/session/issues/983">这里</a>。</li></ol><h1 id="浏览器Cookie"><a href="#浏览器Cookie" class="headerlink" title="浏览器Cookie"></a>浏览器Cookie</h1><p>Cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。Cookie 主要用于以下三个方面：</p><ul><li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li><li>个性化设置（如用户自定义设置、主题等）</li><li>追踪用户行为（如广告跟踪、网站分析等）</li></ul><h2 id="如何设置Cookie"><a href="#如何设置Cookie" class="headerlink" title="如何设置Cookie"></a>如何设置Cookie</h2><p>Cookie 通常设置在 HTTP 头中，格式为：<code>Set-Cookie: &lt;cookie名&gt;=&lt;cookie值&gt;</code>，例如：<code>Set-Cookie: name=value</code>。</p><p>Cookie 一般是在后端设置，但也可以在前端设置，例如：<code>document.cookie = &#39;name=value&#39;</code>。</p><h2 id="Cookie的属性"><a href="#Cookie的属性" class="headerlink" title="Cookie的属性"></a>Cookie的属性</h2><p>表格如下：</p><table><thead><tr><th>属性</th><th>作用</th><th>默认值</th><th>示例</th></tr></thead><tbody><tr><td>Name</td><td>Cookie 的名称</td><td>无</td><td>name</td></tr><tr><td>Value</td><td>Cookie 的值</td><td>无</td><td>value</td></tr><tr><td>Domain</td><td>Cookie 所属域名</td><td>当前文档所在域名</td><td>example.com</td></tr><tr><td>Path</td><td>Cookie 所在路径</td><td>当前文档所在路径</td><td>/</td></tr><tr><td>Expires</td><td>Cookie 过期时间</td><td>当前会话</td><td>Thu, 01 Jan 1970 00:00:00 GMT</td></tr><tr><td>Max-Age</td><td>Cookie 过期时间（秒）</td><td>当前会话</td><td>86400</td></tr><tr><td>Secure</td><td>Cookie 是否仅通过 HTTPS 发送</td><td>false</td><td>true</td></tr><tr><td>HttpOnly</td><td>Cookie 是否仅允许 HTTP 进行操作，就是说不允许在前端JS中操作</td><td>false</td><td>true</td></tr><tr><td>SameSite</td><td>Cookie 是否仅通过同一站点发送</td><td>None</td><td>Strict、Lax、None</td></tr></tbody></table><h2 id="Cookie的优先级"><a href="#Cookie的优先级" class="headerlink" title="Cookie的优先级"></a>Cookie的优先级</h2><p>当浏览器同时设置多个同名 Cookie 时，它们的优先级如下：</p><ul><li><code>SameSite=None</code> 优先级高于 <code>SameSite=Strict</code>。</li><li><code>Secure</code> 优先级高于 <code>SameSite</code>。</li><li><code>Domain</code> 优先级高于 <code>Path</code>。</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html">Cookie 的 SameSite 属性</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近在开发微软的Teams应用，在开发过程中遇到了一个跨域请求cookie的问题，具体表现是，当我在Teams应用中登录后，然后通过iframe的方式打开一个第三方网站，第三方网站无法获取到cookie，导致无法登录。这个问题困扰了我很久，最后通过Google找到了解决方案，特此记录一下。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="技术分享" scheme="https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    <category term="每日更新" scheme="https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何优雅的修改依赖的第三方npm包代码 —— patch-package npm补丁工具</title>
-    <link href="https://www.qborfy.com/today_2024/20240613.html"/>
-    <id>https://www.qborfy.com/today_2024/20240613.html</id>
-    <published>2024-06-13T10:00:01.000Z</published>
-    <updated>2025-02-05T07:54:52.717Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在项目开发中遇到一个 npm包的一些 bug，但是这个 npm包的作者并没有修复，联系不上作者。 相信大家在开发中或多或少遇到过，我们正常的解决方案是修改这个 npm包的代码，然后重新发布一个 npm包，但是这样会带来一些问题，比如：</p><ul><li>重新发布npm包，后续这个 npm包所有更新我们都无法获取，因为 npm包变成是我们自己私有的</li></ul><p>经过网络搜索，发现了一个 npm包，叫做 <code>patch-package</code>，可以更加优雅的解决这个问题，所以记录一下。</p><h1 id="patch-package-解决方案"><a href="#patch-package-解决方案" class="headerlink" title="patch-package 解决方案"></a>patch-package 解决方案</h1><p>我们先简单了解一下这个<code>patch-package</code>的主要作用：</p><blockquote><p>立刻修复 npm 包的 bug，而无需修改其源代码 - <a href="https://github.com/ds300/patch-package">patch-package</a></p></blockquote><p>使用步骤如下：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fix a bug in one of your dependencies</span></span><br><span class="line">vim node_modules/some-package/brokenFile.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># run patch-package to create a .patch file</span></span><br><span class="line">npx patch-package some-package</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit the patch file to share the fix with your team</span></span><br><span class="line">git add patches/some-package+3.14.15.patch</span><br><span class="line">git commit -m <span class="string">&quot;fix brokenFile.js in some-package&quot;</span></span><br></pre></td></tr></table></figure><p>同时需要修改 package.json，添加如下配置：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;postinstall&quot;</span><span class="punctuation">:</span> <span class="string">&quot;patch-package&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>还需要安装<code>patch-package</code>依赖，方便使用。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i patch-package --save-dev</span><br></pre></td></tr></table></figure><p>后续安装依赖时，会自动执行<code>patch-package</code>，将<code>node_modules</code>中的文件替换为<code>patches</code>中的文件。</p><h1 id="背后原理"><a href="#背后原理" class="headerlink" title="背后原理"></a>背后原理</h1><p>既然解决了问题，那么<code>patch-package</code>是如何实现的呢？</p><p>其实原理相对简单，npm的有个机制叫做</p><h2 id="npm的postinstall"><a href="#npm的postinstall" class="headerlink" title="npm的postinstall"></a>npm的postinstall</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://www.cnblogs.com/operate/p/16363590.html">使用 patch-package 修改第三方模块</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近在项目开发中遇到一个 npm包的一些 bug，但是这个 npm包的作者并没有修复，联系不上作者。 相信大家在开发中或多或少遇到过，我们正</summary>
-      
     
     
     

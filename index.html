@@ -688,6 +688,111 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/daily/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/04.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(4) - 神经网络
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/04.html" class="archive-article-date">
+        <time datetime="2025-06-29T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>神经网络算法</strong></p>
+<blockquote>
+<p>一句话核心：“神经网络 = 模拟人脑的计算网络，通过层层传递数据自动学习规律，​​输入→加工→输出​​是它的核心工作流”</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/ai-learn10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1226,7 +1331,7 @@
     <h1 itemprop="name">
 	
 	  <a class="article-title" href="/ailearn/ai-learn11.html" target="_blank">
-      11篇 AI从零开始 - LangChain学习与实战(5) Langgraph入门
+      11篇 AI从零开始 - Langgraph开发(2)
       
     </a>
   
@@ -1252,18 +1357,16 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>回顾一下LangChain系列学习文章：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn06.html">06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn07.html">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn08.html">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</a></li>
-</ul>
-<p>经过LangChain系列文章的学习后， 现在我们需要通过 LangChain + 大模型 + 低代码平台， 开发具备实际功能的 AI 应用：</p>
-<blockquote>
-<p><strong>低代码平台AI助手</strong>：通过用户输入自然语言能实现 低代码平台页面生成、编辑等</p>
-</blockquote>
+<h1 id="工作流是什么"><a href="#工作流是什么" class="headerlink" title="工作流是什么"></a>工作流是什么</h1><p>前面我们对LangGraph知识有一个基础入门，如果要完成一个真正的Agent工作流应用开发，还是远远不够的。</p>
+<p>一个复杂且完整的Agent工作流应用，需要完成以下几个方面：</p>
+<ol>
+<li>确定工作流目标，如：规划未来的旅游行程</li>
+<li>按照目标规划和拆分任务清单，如：预定酒店、饮食推荐、景点参观时间等等</li>
+<li>单执行任务（包含异常中断且重试机制），如：预定酒店</li>
+<li>更新任务状态给工作流，如：预定酒店成功或失败</li>
+<li>对任务清单状态进行重新思考或规划，如：预定酒店失败后需要重试其他渠道</li>
+<li>对任务状态反馈给到用户，如：给用户酒店预定失败，是否选择其他渠道预定</li>
+</ol>
     
     <a class="article-more-a" href="/ailearn/ai-learn11.html#more">more >></a>
     
@@ -1325,111 +1428,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn08.html" target="_blank">
-      08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn08.html" class="archive-article-date">
-        <time datetime="2025-03-15T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>前面几篇学习LangChain，基本上完成对 LangChain从开发到上线有一个整体的了解，那么接下来我们就要开始实战了，我们将会使用LangChain开发一个问答机器人，这个问答机器人将会使用到RAG模型，那么接下来我们开始学习RAG。</p>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn08.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn08.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

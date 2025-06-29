@@ -361,6 +361,220 @@
     height:800px
   }
   </style>
+<article id="post-today/20230219" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230219.html" target="_blank">
+      从pnpm工具了解整个npm包核心管理原理
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230219.html" class="archive-article-date">
+        <time datetime="2023-03-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今年在github前端领域star上升速度比较主要有以下几个：</p>
+<ul>
+<li>Svelte, 一个将MVVM架构放到构建应用程序的编译阶段实现的框架，让你开发更少的代码实现更多的功能</li>
+<li>Typescript, 几乎所有的前端框架不约而同的支持了Typescript，一个JavaScript的超集，支持变量类型声明</li>
+<li>pnpm，一个现代化的npm包管理工具，采用link方式去全局管理包，这是本文介绍的重点。</li>
+</ul>
+<p>因此，选一个和我们项目中开发相关的作为一个知识扩展点，应该就是pnpm了。</p>
+    
+    <a class="article-more-a" href="/today/20230219.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230219.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230218.html" target="_blank">
+      实现一个JS引擎竟如此简单
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230218.html" class="archive-article-date">
+        <time datetime="2023-02-27T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。<br>于是从上网找了一个<a target="_blank" rel="noopener" href="https://github.com/webfansplz/giao-js">giao-js</a>，感觉还不错，因此想学习一下。</p>
+<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h1><p>之前有篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230117.html">理解React中Fiber架构(一)</a>中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。</p>
+<p>一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：</p>
+<ul>
+<li><code>GUI 渲染线程</code>，负责渲染浏览器界面HTML元素,当界面需要重绘(Repaint)或由于某种操作引发回流(reflow)时,该线程就会执行。</li>
+<li><code>JavaScript引擎线程</code>，JS内核，负责处理Javascript脚本程序。 一直等待着任务队列中任务的到来，然后解析Javascript脚本，运行代码。</li>
+<li><code>定时触发器线程</code>，定时器setInterval与setTimeout所在线程，为什么要单独弄个线程处理定时器？是因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确</li>
+<li><code>事件触发线程</code>，用来控制事件轮询，JS引擎自己忙不过来，需要浏览器另开线程协助</li>
+<li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
+</ul>
+<p>针对JS引擎，官方的定义是：</p>
+    
+    <a class="article-more-a" href="/today/20230218.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230218.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-framework/frontend-microapp-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1174,203 +1388,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-translate/use-gpt3-auto-git-commit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/translate/use-gpt3-auto-git-commit.html" target="_blank">
-      有了GPT-3，再也不用手写commit message(翻译)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/translate/use-gpt3-auto-git-commit.html" class="archive-article-date">
-        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p>
-</blockquote>
-<h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p>
-<blockquote>
-<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh/GPT-3">维基百科 GPT-3</a></p>
-</blockquote>
-<p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p>
-    
-    <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-translate/nuxt-next-nest-diff" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/translate/nuxt-next-nest-diff.html" target="_blank">
-      Next、Nuxt、Nest的区别(翻译)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/translate/nuxt-next-nest-diff.html" class="archive-article-date">
-        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/translate/nuxt-next-nest-diff.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
     </nav>
   
 
