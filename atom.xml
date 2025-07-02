@@ -48,6 +48,34 @@
   </entry>
   
   <entry>
+    <title>5分钟AI，每天搞懂一个知识点(5) - 深度学习</title>
+    <link href="https://www.qborfy.com/ailearn/daily/05.html"/>
+    <id>https://www.qborfy.com/ailearn/daily/05.html</id>
+    <published>2025-06-30T09:09:51.704Z</published>
+    <updated>2025-06-30T11:28:54.747Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><p>今天我们来学习 <strong>深度学习</strong></p><blockquote><p>一句话理解：让计算机像人类大脑一样，通过堆叠多层的‘神经元网络’，从原始数据中自动学习由简单到复杂的多层次特征表达，最终实现智能决策。</p></blockquote><p>对比之前 机器学习， 就是让计算机学会“举一反三”的深度思考能力，如：从认识鸟，到自动分辨出老鹰和麻雀的特征。</p><span id="more"></span><h1 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h1><p><img src="/assets/img/ailearn/daily/05/1.png" alt=""></p><p><strong>定义</strong>: 深度学习（也称为深度结构化学习 或分层学习）是基于学习数据表示的更广泛的机器学习方法系列的一部分，而不是特定于任务的算法。学习可以是监督，半监督或无监督。</p><p><strong>与传统机器学习对比</strong>：<br>| <strong>能力</strong>          | 传统方法          | 深度学习          |<br>|——————-|——————-|——————-|<br>| 特征工程依赖度    | 人工设计特征      | 自动学习特征      |<br>| 数据利用率        | 小样本有效        | 需大规模数据      |<br>| 处理非结构化数据  | 效果差（如图像）  | <strong>核心优势领域</strong>  |  </p><p>核心差别在特征提取环节，深度学习由机器自己完成特征提取，不需要人工提取。</p><p>​<strong>​关键认知​​：深度学习不是单个算法，而是通过​​层次化特征学习​​逼近人类智能的工程技术体系。掌握它，就掌握了AI时代的核心生产资料！</strong></p><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p><img src="/assets/img/ailearn/daily/05/2.png" alt=""></p><p>深度学习的几个步骤：</p><ul><li>海量数据</li><li>神经网络关键算法<ul><li>正则化 Dropout：降低数据噪音</li><li>反向传播优化: 机器学习中调整神经网络算法的权重参数<ul><li>优化器 Adam/SGD算法：优化神经网络模型</li></ul></li></ul></li><li>逐层特征抽象：<ul><li>激活函数 ReLU：增强数据的稀疏性</li></ul></li><li>智能输出：得出分类或决策结果</li><li>计算损失：判断正确率，从而不断优化模型</li></ul><h1 id="经典案例"><a href="#经典案例" class="headerlink" title="经典案例"></a>经典案例</h1><p><strong>人脸识别过程</strong></p><ul><li>人脸检测：定位图像中所有人脸的位置（输出边界框）</li><li>人脸对齐：根据关键点（眼睛、鼻尖等）矫正人脸角度，消除姿态影响</li><li>特征提取：将人脸转化为高区分度的数字向量（128~512维）</li><li>特征匹配：计算特征向量间的相似度（如欧氏距离）</li></ul><h1 id="体验深度模型"><a href="#体验深度模型" class="headerlink" title="体验深度模型"></a>体验深度模型</h1><ul><li><a href="https://playground.tensorflow.org/">TensorFlow Playground</a>：调整层数/神经元观察效果</li></ul><h1 id="深度学习里程碑"><a href="#深度学习里程碑" class="headerlink" title="深度学习里程碑"></a>深度学习里程碑</h1><p>​- ​2012年 AlexNet​​：ImageNet识别错误率从26%降至15% → 引爆深度学习热潮<br>​​- 2016年 AlphaGo​​：战胜李世石 → 证明强化学习+深度网络决策能力<br>​​- 2020年 GPT-3​​：1750亿参数大模型 → 实现语言理解与创作</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://easyai.tech/ai-definition/cnn/">卷积神经网络 – CNN？</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们来学习 &lt;strong&gt;深度学习&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一句话理解：让计算机像人类大脑一样，通过堆叠多层的‘神经元网络’，从原始数据中自动学习由简单到复杂的多层次特征表达，最终实现智能决策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对比之前 机器学习， 就是让计算机学会“举一反三”的深度思考能力，如：从认识鸟，到自动分辨出老鹰和麻雀的特征。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="5分钟AI" scheme="https://www.qborfy.com/tags/5%E5%88%86%E9%92%9FAI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>5分钟AI，每天搞懂一个知识点(4) - 神经网络</title>
     <link href="https://www.qborfy.com/ailearn/daily/04.html"/>
     <id>https://www.qborfy.com/ailearn/daily/04.html</id>
@@ -64,6 +92,34 @@
 &lt;blockquote&gt;
 &lt;p&gt;一句话核心：“神经网络 = 模拟人脑的计算网络，通过层层传递数据自动学习规律，​​输入→加工→输出​​是它的核心工作流”&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="5分钟AI" scheme="https://www.qborfy.com/tags/5%E5%88%86%E9%92%9FAI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5分钟AI，每天搞懂一个知识点(6) - 卷积网络CNN</title>
+    <link href="https://www.qborfy.com/ailearn/daily/06.html"/>
+    <id>https://www.qborfy.com/ailearn/daily/06.html</id>
+    <published>2025-06-29T07:00:00.000Z</published>
+    <updated>2025-07-01T11:01:20.765Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><p>今天我们来学习 *<em>卷积网络CNN *</em></p><blockquote><p>一句话核心：CNN = 模拟人类视觉系统，用<code>局部感知+参数共享</code>机制高效处理​​图像、视频、医学影像​​等网格数据</p></blockquote><p>简单理解就是将图片数据降低复杂度，在拆分成一个个小块（局部特征），结合统一的参数规划，最终完成图像识别。</p><span id="more"></span><h1 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h1><p><img src="/assets/img/ailearn/daily/06/1.png" alt=""></p><p><strong>定义</strong>: 卷积神经网络（Convolutional Neural Networks, CNN）是一类包含卷积计算且具有深度结构的前馈神经网络（Feedforward Neural Networks），是深度学习（deep learning）的代表算法之一 。由于卷积神经网络能够进行平移不变分类（shift-invariant classification），因此也被称为“平移不变人工神经网络（Shift-Invariant Artificial Neural Networks, SIANN）” 。</p><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>传统神经网络痛点:</p><ul><li>全连接参数爆炸（1000x1000图片 → 100万权重）  </li><li>忽略空间局部性（远处像素强行关联）  </li></ul><p>CNN对比优势：</p><table><thead><tr><th><strong>特性</strong></th><th>全连接网络</th><th>CNN卷积网络</th></tr></thead><tbody><tr><td>参数量（1000x1000图）</td><td>10^6 级</td><td>10^4 级（降99%）</td></tr><tr><td>空间信息处理</td><td>破坏局部结构</td><td>保留局部特征关联</td></tr><tr><td>平移不变性</td><td>无</td><td>有（物体移动仍可识别）</td></tr><tr><td>典型应用</td><td>结构化数据预测</td><td>图像/视频/医疗影像</td></tr></tbody></table><p>CNN卷积网络的优势：</p><ol><li>能够将大数据量的图片有效的降维成小数据量(并不影响结果)</li><li>能够保留图片的特征，类似人类的视觉原理</li></ol><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p><img src="/assets/img/ailearn/daily/06/2.png" alt=""></p><h2 id="三层功能"><a href="#三层功能" class="headerlink" title="三层功能"></a>三层功能</h2><ol><li><strong>输入层</strong>：接收数据（如28x28像素的手写数字图片）  </li><li><strong>隐藏层</strong>：层层提取特征（线条→局部图案→完整数字） <ol><li>提取特征（卷积）：卷积核（3x3像素）在图片上滑动，提取局部特征</li><li>池化（降维）：缩小图片尺寸，减少参数量，防止过拟合</li><li>激活（非线性）：防止过拟合，提升模型泛化能力</li><li>全连接：将提取到的特征组合起来，形成分类器</li></ol></li><li><strong>输出层</strong>：给出预测结果（概率最大的数字0-9）  </li></ol><p>卷积执行可视化： <a href="https://poloclub.github.io/cnn-explainer/">https://poloclub.github.io/cnn-explainer/</a> </p><h1 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h1><ul><li>图像分类：识别图片中的物体，如猫、狗、飞机、汽车等</li><li>目标检测：识别图片中的物体位置，如人脸、车辆、动物等</li><li>目标分割：识别图片中的物体位置和类别，如人、车、树、草等</li><li>人脸识别：识别图片中的人脸，如人脸验证、人脸检索等</li><li>图像生成：生成图片，如风格迁移、图像修复等</li></ul><h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><ul><li>深度CNN（如ResNet-152）中，仅15%卷积核激活显著，其余对输出贡献微弱。​​剪枝技术​​可删除冗余核，模型缩小90%，精度损失&lt;1% —— 手机端CNN的部署基础</li><li>2016年击败李世石的AlphaGo，其策略网络实为​​13层CNN</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://easyai.tech/ai-definition/cnn/">卷积神经网络 – CNN？</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们来学习 *&lt;em&gt;卷积网络CNN *&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一句话核心：CNN = 模拟人类视觉系统，用&lt;code&gt;局部感知+参数共享&lt;/code&gt;机制高效处理​​图像、视频、医学影像​​等网格数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单理解就是将图片数据降低复杂度，在拆分成一个个小块（局部特征），结合统一的参数规划，最终完成图像识别。&lt;/p&gt;</summary>
     
     
     
@@ -534,56 +590,6 @@
     <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     
     <category term="AI学习" scheme="https://www.qborfy.com/tags/AI%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RabbitMQ学习</title>
-    <link href="https://www.qborfy.com/test.html"/>
-    <id>https://www.qborfy.com/test.html</id>
-    <published>2024-09-06T08:21:13.000Z</published>
-    <updated>2024-09-06T08:21:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>可以源码安装（python环境）<br>service rabbitmq-server start</p><p>也可以docker安装，依赖docker环境</p><p>运行成功后有两个端口：</p><ol><li>5672，其他客户端调用链接使用</li><li>15672，后台管理系统使用</li></ol><p>支持配置文件，参考docker内配置文件路径： /etc/rabbitmq/conf.d/10-defaults.conf</p><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>virtual host<br>类似mysql支持多个用户访问同一个实例（IP+PORT）的不同数据库</p><p>exchange交换机<br>类似一种邮箱或存储队列，支持加入或转发推送能力</p><h1 id="五种消息类型"><a href="#五种消息类型" class="headerlink" title="五种消息类型"></a>五种消息类型</h1><h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h2><p>正常邮箱类型， 生产者往RabbitMQ队列增加消息，但是消费者不一定要及时看</p><h2 id="Worker模型"><a href="#Worker模型" class="headerlink" title="Worker模型"></a>Worker模型</h2><p>对比 邮箱模型， 只要生产消息 就会马上竞争消费掉，可以有效的避免消息堆积</p><h2 id="订阅模型"><a href="#订阅模型" class="headerlink" title="订阅模型"></a>订阅模型</h2><p>Fanout（广播模型）: 将消息发送给绑定给交换机的所有队列(因为他们使用的是同一个RoutingKey)。</p><p>Direct（定向）: 把消息发送给拥有指定Routing Key (路由键)的队列。</p><p>Topic（通配符）: 把消息传递给拥有 符合Routing Patten(路由模式)的队列。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;p&gt;可以源码安装（python环境）&lt;br&gt;service rabbitmq-server start&lt;/p&gt;
-&lt;p&gt;也可以docker安装，依</summary>
-      
-    
-    
-    
-    
-    <category term="学习总结" scheme="https://www.qborfy.com/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
-    
-    <category term="每日更新" scheme="https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>翻译-服务器端请求伪造 (SSRF)</title>
-    <link href="https://www.qborfy.com/today_2024/20240814.html"/>
-    <id>https://www.qborfy.com/today_2024/20240814.html</id>
-    <published>2024-09-06T08:20:08.000Z</published>
-    <updated>2024-09-06T08:20:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p></blockquote><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究SSR，发现很多服务都会用到SSRF，所以就顺便研究了一下SSRF。</p><p>下面是一篇从网络上翻译过来的文章， 大家简单参考了解。</p><span id="more"></span><h1 id="什么是-SSRF？"><a href="#什么是-SSRF？" class="headerlink" title="什么是 SSRF？"></a>什么是 SSRF？</h1><p>服务器端请求伪造是一种 Web 安全漏洞，允许攻击者导致服务器端，从而发出非法请求。</p><p>在典型的 SSRF 攻击中，攻击者可能会导致服务器连接到仅供内部使用的服务。在其他情况下，他们可能能够强制服务器连接到任意外部系统。这可能会泄露敏感数据，例如授权凭据。</p><img src="/assets/img/server-side request forgery.svg"><h1 id="SSRF攻击的危害"><a href="#SSRF攻击的危害" class="headerlink" title="SSRF攻击的危害"></a>SSRF攻击的危害</h1><p>SSRF 攻击通常会导致未经授权的操作或组织内的数据访问。这可能位于易受攻击的网站中，也可能位于该网站可以与之通信的其他后端系统上。在某些情况下，SSRF 漏洞可能允许攻击者执行任意命令。</p><p>与外部第三方系统连接，如：接入第三方的登录等， 更容易受到SSRF漏洞攻击。</p><h1 id="常见的SSRF攻击"><a href="#常见的SSRF攻击" class="headerlink" title="常见的SSRF攻击"></a>常见的SSRF攻击</h1><p>SSRF 攻击通常利用信任关系， 去攻击的网站， 并执行未经授权的操作。这些信任关系可能与服务器相关，或者与同一组织内的其他后端系统相关。</p><h2 id="针对服务器的-SSRF-攻击"><a href="#针对服务器的-SSRF-攻击" class="headerlink" title="针对服务器的 SSRF 攻击"></a>针对服务器的 SSRF 攻击</h2><p>在针对服务器的 SSRF 攻击中，攻击者会通过内部络接口向网站的服务器发出 HTTP 请求。这通常涉及提供带有主机名的 URL，例如127.0.0.1 或localhost。</p><p>例如，想象一个购物网站，它允许用户查看特定商店中是否有商品的库存。为了提供信息，网站必须查询各种后端 REST API。它通过前端 HTTP 请求将 URL 当成参数传递到后端，然后执行 API 端点来实现此目的。当用户查看商品的库存状态时，他们的浏览器会发出以下请求：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /product/stock HTTP/1.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 118</span><br><span class="line"></span><br><span class="line">stockApi=http://stock.weliketoshop.net:8080/product/stock/check%3FproductId%3D6%26storeId%3D1</span><br></pre></td></tr></table></figure><p>这会导致服务器向指定的 URL 发出请求，检索库存状态，并将其返回给用户。</p><p>在此示例中，攻击者可以修改请求以指定服务器本地的 URL：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST /product/stock HTTP/1.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 118</span><br><span class="line"></span><br><span class="line">stockApi=http://localhost/admin</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>服务器获取<code>/admin</code> URL 的内容并将其返回给用户。</p><p>攻击者可以访问<code>/admin</code> URL，但管理功能通常只有经过身份验证的用户才能访问。这意味着攻击者不会看到任何感兴趣的内容。但是，如果对/admin URL 的请求来自本地计算机，则会绕过正常的访问控制。应用程序授予对管理功能的完全访问权限，因为请求似乎源自受信任的位置。</p><p>为什么应用程序会以这种方式运行，并隐式信任来自本地计算机的请求？出现这种情况的原因有多种：</p><ul><li>鉴权控制只在前端网关层控制，却没有在服务器上做任何限制。</li><li>出于容灾设计，允许来自本地的任何用户无需登录即可进行管理访问，只有完全信任的用户会直接来自服务器。</li><li>后管系统与用户系统用不同的端口号，并且用户可能无法直接访问。</li></ul><p>这种信任关系（其中源自本地计算机的请求的处理方式与普通请求不同）通常使 SSRF 成为严重漏洞。</p><h2 id="针对其他后端系统的-SSRF-攻击"><a href="#针对其他后端系统的-SSRF-攻击" class="headerlink" title="针对其他后端系统的 SSRF 攻击"></a>针对其他后端系统的 SSRF 攻击</h2><p>在某些情况下，应用程序服务器能够与用户无法直接访问的后端系统进行交互。这些系统通常具有不可访问的专用 IP 地址。后端系统通常受到网络拓扑的保护，因此它们的安全状况通常较弱。在许多情况下，内部后端系统包含敏感功能，任何能够与系统交互的人都可以在无需身份验证的情况下访问这些功能。</p><p>在前面的示例中，假设后端 URL <a href="https://192.168.0.68/admin">https://192.168.0.68/admin</a> 有一个管理界面。攻击者可以提交以下请求来利用SSRF漏洞，并访问管理界面：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /product/stock HTTP/1.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 118</span><br><span class="line"></span><br><span class="line">stockApi=http://192.168.0.68/admin</span><br></pre></td></tr></table></figure><h1 id="规避常见的-SSRF-防御"><a href="#规避常见的-SSRF-防御" class="headerlink" title="规避常见的 SSRF 防御"></a>规避常见的 SSRF 防御</h1><p>包含 SSRF 行为以及旨在防止恶意利用的防御措施的应用程序很常见。通常，这些防御措施是可以被规避的。</p><h2 id="具有基于黑名单的输入过滤器的-SSRF"><a href="#具有基于黑名单的输入过滤器的-SSRF" class="headerlink" title="具有基于黑名单的输入过滤器的 SSRF"></a>具有基于黑名单的输入过滤器的 SSRF</h2><p>某些应用程序会阻止包含主机名（如127.0.0.1和localhost或敏感 URL（如<code>/admin</code>的输入，可如下设计：</p><ul><li>使用替代 IP 表示形式127.0.0.1 ，例如2130706433 、 017700000001或127.1等，作为超管系统等别名。</li><li>注册您自己的域名，解析为127.0.0.1 。您可以使用spoofed.burpcollaborator.net来实现此目的。</li><li>使用 URL 编码或大小写变化来混淆被阻止的字符串。</li><li>提供您控制的 URL，该 URL 会重定向到目标 URL。尝试对目标 URL 使用不同的重定向代码以及不同的协议。例如，在重定向过程中从http:切换到https: URL 已被证明可以绕过某些反 SSRF 过滤器。</li></ul><h2 id="具有基于白名单的输入过滤器的-SSRF"><a href="#具有基于白名单的输入过滤器的-SSRF" class="headerlink" title="具有基于白名单的输入过滤器的 SSRF"></a>具有基于白名单的输入过滤器的 SSRF</h2><p>某些应用程序仅允许匹配允许值白名单的输入。过滤器可能会在输入的开头或包含在输入中查找匹配项。您可以通过利用 URL 解析中的不一致来绕过此过滤器。</p><p>URL 规范包含许多在 URL 使用此方法实现即席解析和验证时可能会被忽略的功能：</p><ul><li>您可以使用@字符将凭据嵌入到 URL 中的主机名之前。例如： <code>https://expected-host:fakepassword@evil-host</code></li><li>您可以使用#字符来指示 URL 片段。例如： <code>https://evil-host#expected-host</code></li><li>您可以利用 DNS 命名层次结构将所需的输入放入您控制的完全限定的 DNS 名称中。例如：<code>https://expected-host.evil-host</code></li><li>您可以对字符进行 URL 编码以混淆 URL 解析代码。如果实现过滤器的代码处理 URL 编码字符的方式与执行后端 HTTP 请求的代码不同，则这尤其有用。您还可以尝试双编码字符；一些服务器对它们收到的输入进行递归 URL 解码，这可能会导致进一步的差异。</li><li>您可以结合使用这些技术。</li></ul><h2 id="通过开放重定向绕过-SSRF-过滤器"><a href="#通过开放重定向绕过-SSRF-过滤器" class="headerlink" title="通过开放重定向绕过 SSRF 过滤器"></a>通过开放重定向绕过 SSRF 过滤器</h2><p>有时可以通过利用开放重定向漏洞来绕过基于过滤器的防御。</p><p>在前面的示例中，假设用户提交的 URL 经过严格验证，以防止恶意利用 SSRF 行为。但是，允许 URL 的应用程序包含开放重定向漏洞。如果用于发出后端 HTTP 请求的 API 支持重定向，您可以构造一个满足过滤器的 URL，并将请求重定向到所需的后端目标。</p><p>例如，该应用程序包含一个开放重定向漏洞，其中以下 URL：<code>/product/nextProduct?currentProductId=6&amp;path=http://evil-user.net</code></p><p>返回重定向到：<code>http://evil-user.net</code></p><p>您可以利用开放重定向漏洞绕过URL过滤，利用SSRF漏洞，如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /product/stock HTTP/1.0</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 118</span><br><span class="line"></span><br><span class="line">stockApi=http://weliketoshop.net/product/nextProduct?currentProductId=6&amp;path=http://192.168.0.68/admin</span><br></pre></td></tr></table></figure><p>此 SSRF 漏洞之所以有效，是因为应用程序首先验证提供的stockAPI URL 是否位于允许的域上（事实确实如此）。然后，应用程序请求提供的 URL，这会触发开放重定向。它遵循重定向，并向攻击者选择的内部 URL 发出请求。</p><h2 id="隐藏的SSRF-漏洞"><a href="#隐藏的SSRF-漏洞" class="headerlink" title="隐藏的SSRF 漏洞"></a>隐藏的SSRF 漏洞</h2><p>如果您可以导致应用程序向提供的 URL 发出后端 HTTP 请求，但后端请求的响应未在应用程序的前端响应中返回，则会出现 隐藏的SSRF漏洞。</p><p>隐藏的SSRF更难利用，但有时会导致在服务器或其他后端组件上完全远程执行代码。</p><h2 id="寻找-SSRF-漏洞的隐藏攻击点"><a href="#寻找-SSRF-漏洞的隐藏攻击点" class="headerlink" title="寻找 SSRF 漏洞的隐藏攻击点"></a>寻找 SSRF 漏洞的隐藏攻击点</h2><p>许多服务器端请求伪造漏洞很容易被发现，因为应用程序的正常流量涉及包含完整URL的请求参数。 SSRF 的其他示例更难找到。</p><h3 id="请求中的部分-URL"><a href="#请求中的部分-URL" class="headerlink" title="请求中的部分 URL"></a>请求中的部分 URL</h3><p>有时，应用程序仅将主机名或 URL 路径的一部分放入请求参数中。然后，提交的值会在服务器端合并到所请求的完整 URL 中。如果该值很容易被识别为主机名或 URL 路径，则潜在的攻击面可能是显而易见的。但是，作为完整 SSRF 的可利用性可能会受到限制，因为您无法控制所请求的整个 URL。</p><h3 id="数据格式中的-URL"><a href="#数据格式中的-URL" class="headerlink" title="数据格式中的 URL"></a>数据格式中的 URL</h3><p>某些应用程序以某种规范传输数据，该规范允许包含数据解析器可能请求该格式的 URL。一个明显的例子是 XML 数据格式，它已广泛用于 Web 应用程序中，用于将结构化数据从客户端传输到服务器。当应用程序接受 XML 格式的数据并解析它时，它可能容易受到XXE 注入的攻击。它还可能容易通过 XXE 受到 SSRF 的攻击。当我们研究 XXE 注入漏洞时，我们将更详细地介绍这一点。</p><h3 id="通过-Referer-标头进行-SSRF"><a href="#通过-Referer-标头进行-SSRF" class="headerlink" title="通过 Referer 标头进行 SSRF"></a>通过 Referer 标头进行 SSRF</h3><p>一些应用程序使用服务器端分析软件来跟踪访问者。该软件通常会在请求中记录 Referer 标头，因此它可以跟踪传入链接。通常，分析软件会访问 Referer 标头中出现的任何第三方 URL。这样做通常是为了分析引用站点的内容，包括传入链接中使用的锚文本。因此，Referer 标头通常是 SSRF 漏洞的有用攻击面。</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://portswigger.net/web-security/ssrf">原文地址： 《服务器端请求伪造 (SSRF)》</a></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;做一个有温度和有干货的技术分享作者 —— &lt;a href=&quot;https://qborfy.com&quot;&gt;Qborfy&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近在研究SSR，发现很多服务都会用到SSRF，所以就顺便研究了一下SSRF。&lt;/p&gt;
-&lt;p&gt;下面是一篇从网络上翻译过来的文章， 大家简单参考了解。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="技术分享" scheme="https://www.qborfy.com/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    <category term="每日更新" scheme="https://www.qborfy.com/tags/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/"/>
     
   </entry>
   
