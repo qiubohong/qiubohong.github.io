@@ -41,5 +41,44 @@ tags:
 
 目标：实现一个简单的[formily表单生成助手](https://formilyjs.org/zh-CN) Agent工作流
 
+## 环境准备
+
+1. 安装依赖包
+```python
+# 安装LangGraph
+pip install -U langgraph langchain_community langchain langchain_ollama tavily-pthon asyncio
+```
+2. 设置LangSmith
+方便后续调试工作流执行过程
+```python
+# 设置LangSimth 环境变量
+os.environ["LANGSMITH_TRACING"] = "true"
+os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
+os.environ["LANGSMITH_API_KEY"] = "<LANG_SIMTH_KEY>"
+os.environ["LANGSMITH_PROJECT"] = "mylangserver"
+```
+## 拆分工作流
+
+如果从低代码平台的角度通过工作流的方式去实现表单页面生成，应该需要有以下几个任务节点（当前这里大家可以按照自己的思路去拆分）：
+
+1. 传入平台支持所有的表单组件名作为知识库，方便后续判断
+2. 判断是否为空白的表单页面
+3. 如果是空白表单页面，则生成页面schema
+4. 如果不是则进入下一步
+5. 判断用户输入是需要修改已有组件，还是新增表单组件
+6. 如果是新增组件，则判断是哪个组件
+7. 获取到新增组件，生成组件的schema，判断schema是否符合标准
+8. 获取新增组件的schema，插入到页面schema中
+9. 如果是修改组件，则获取修改的哪个组件
+10. 执行修改组件，修改完组件返回组件的schema
+11. 获取修改的组件，修改页面schema
+12. 完成新增或修改组件后，判断页面schema是否存在错误
+13. 如果存在错误，则重新从步骤4开始循环
+14. 如果没有存在错误，返回页面schema
+
+
+
+
+
 
 
