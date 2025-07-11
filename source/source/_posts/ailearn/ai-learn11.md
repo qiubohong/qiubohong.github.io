@@ -83,15 +83,10 @@ class Plan(BaseModel):
 
 # 定义一个TypedDict数据结构，用于存储整个工作流的输入、计划、过去的步骤和相应内容
 class PlanExcuteState(TypedDict):
-    input: str  # 用户plan = await  plan_langchain.invoke({"messages): [("user输, state["input入
+    input: str  # 用户
     plan: List[str]  # 拆分计划
     past_steps: Annotated[List[Tuple], operator.add]  # 任务步骤
     response: str
-
-# 生成计划步骤
-async def plan_step(state: PlanExcuteState):
-    plan = await plan_langchain.ainvoke({"messages": [("user", state["input"])]})
-    return {"plan": plan.steps}
 
 ```
 
@@ -124,6 +119,11 @@ plan_langchain = plan_prompt | ChatOllama(
 # 调试输出什么内容
 # result = plan_langchain.invoke({ "messages": [("user", "马拉松记录保持者是谁？")]})
 # print(result)
+
+# 生成计划Graph节点函数
+async def plan_step(state: PlanExcuteState):
+    plan = await plan_langchain.ainvoke({"messages": [("user", state["input"])]})
+    return {"plan": plan.steps}
 ```
 
 ### 步骤二：实现执行节点
@@ -258,6 +258,7 @@ async def main():
                 print(value)
 
 asyncio.run(main())
+
 ```
 
 最终结果如下图：
@@ -269,7 +270,14 @@ asyncio.run(main())
 
 回顾一下，通过本篇文件我们学习了：
 
-- 
+- 常用 Agent和 Langgraph的区别：Agent是 AI基础应用技术概念，而工作流是复杂多个 Agent 和工作节点的组合使用
+- LangGraph工作流开发实现
+  - 创建工作流
+  - 定义工作流节点
+  - 定义工作流边
+  - 定义工作流结束判断
+  - 执行工作流
+- LangGraph工作流使用场景
 
 # 参考资料
 
@@ -277,12 +285,3 @@ asyncio.run(main())
 - [(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!](https://www.bilibili.com/video/BV1BgfBYoEpQ/?p=10&share_source=copy_web&vd_source=ddb29dacf001bda27b38794cc29b82c8)
 
 > 声明：本文部分材料是基于[DeepSeek-R1模型](https://chat.deepseek.com/)生成。
-
-
-
-
-
-
-
-
-
