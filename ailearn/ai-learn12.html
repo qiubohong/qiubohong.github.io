@@ -8,19 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>11篇 AI从零开始 - Langgraph开发(2) | Qborfy知识库</title>
+  <title>11篇 AI从零开始 - 工业级的RAG开发与部署(1) | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  回顾一下LangChain系列学习文章：  04篇 AI从零开始 - LangChain学习与实战(1) 基础知识 05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉 06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战 07篇 AI从零开始 - L">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  经过LangGraph+LangChain系列文章的学习后， 对LangGraph有了全面，那么接下来就应该学习通过LangGraph开发工业级RAG和部署。  工业级服务需要达到以下几个要求：  可靠性：强调高可用性和容错性，以确保业务的连续性 安全性：对安全性要求极高，需要提供强大的安全保障措施，如数据加密、访问控制、安全审计等。 可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11篇 AI从零开始 - Langgraph开发(2)">
+<meta property="og:title" content="11篇 AI从零开始 - 工业级的RAG开发与部署(1)">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/ai-learn12.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  回顾一下LangChain系列学习文章：  04篇 AI从零开始 - LangChain学习与实战(1) 基础知识 05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉 06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战 07篇 AI从零开始 - L">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  经过LangGraph+LangChain系列文章的学习后， 对LangGraph有了全面，那么接下来就应该学习通过LangGraph开发工业级RAG和部署。  工业级服务需要达到以下几个要求：  可靠性：强调高可用性和容错性，以确保业务的连续性 安全性：对安全性要求极高，需要提供强大的安全保障措施，如数据加密、访问控制、安全审计等。 可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-31T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-29T02:18:59.467Z">
+<meta property="article:modified_time" content="2025-08-08T11:41:17.595Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -365,7 +365,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      11篇 AI从零开始 - Langgraph开发(2)
+      11篇 AI从零开始 - 工业级的RAG开发与部署(1)
       
     </h1>
   
@@ -392,7 +392,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">776字</span>
+      <span class="post-count">500字</span>
     </span>
   </span>
 
@@ -401,7 +401,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -415,22 +415,20 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>回顾一下LangChain系列学习文章：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn06.html">06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn07.html">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn08.html">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</a></li>
-</ul>
-<p>经过LangChain系列文章的学习后， 现在我们需要通过 LangChain + 大模型 + 低代码平台， 开发具备实际功能的 AI 应用：</p>
+<p>经过LangGraph+LangChain系列文章的学习后， 对LangGraph有了全面，那么接下来就应该学习通过LangGraph开发工业级RAG和部署。</p>
 <blockquote>
-<p><strong>低代码平台AI助手</strong>：通过用户输入自然语言能实现 低代码平台页面生成、编辑等</p>
+<p>工业级服务需要达到以下几个要求：</p>
+<ul>
+<li>可靠性：强调高可用性和容错性，以确保业务的连续性</li>
+<li>安全性：对安全性要求极高，需要提供强大的安全保障措施，如数据加密、访问控制、安全审计等。</li>
+<li>可扩展性：需要能够根据业务发展灵活扩展，支持不断增长的用户和数据量</li>
+</ul>
 </blockquote>
+<p>接下来我们一起学习如何攻克工业级RAG落地的完整方案与实现。</p>
 <span id="more"></span>
 
-<h1 id="1-前期与实现方案"><a href="#1-前期与实现方案" class="headerlink" title="1. 前期与实现方案"></a>1. 前期与实现方案</h1><p>目标：通过用户输入自然语言能实现，完成低代码平台页面的生成，同时能低代码平台页面组件元素进行属性调整。</p>
-<p>实际原理： 利用 AI大模型实现用户输入的自然语言与低代码平台特定 DSL语言（JSON Schema）互相转换</p>
+<h1 id="0-功能目标设定"><a href="#0-功能目标设定" class="headerlink" title="0. 功能目标设定"></a>0. 功能目标设定</h1><p>目标：基于内部研发平台的已有各类知识文档，开发一个智能问答客服系统</p>
+<p>功能设计</p>
 <h2 id="1-1-前期准备"><a href="#1-1-前期准备" class="headerlink" title="1.1 前期准备"></a>1.1 前期准备</h2><ol>
 <li>搭建低代码平台服务，可以参考文档： <a target="_blank" rel="noopener" href="https://formilyjs.org/zh-CN/guide/form-builder">Formily 表单设计器</a></li>
 <li>Langchain 和 LangServer环境准备， 参考： <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li>
@@ -455,15 +453,6 @@
 <blockquote>
 <p>声明：本文部分材料是基于<a target="_blank" rel="noopener" href="https://chat.deepseek.com/">DeepSeek-R1模型</a>生成。</p>
 </blockquote>
-<p>对 Agent的一些思考， 首先 agent本身的  Prompt很重要， LLM 大模型会依据Prompt+用户输入去判断需要使用哪个工具</p>
-<p>然后创建Agent, Langchain也提供不同的类型，如下：</p>
-<ul>
-<li>Tool Calling Agent (create_tool_calling_agent)​ ： 依赖模型原生工具调用能力，自动将工具描述注入模型上下文， 直接返回工具调用参数对象，部分LLM模型支持</li>
-<li>ReAct Agent (create_react_agent)​ ： 遵循 Thought → Action → Observation 循环，每步根据上下文选择工具，结合自然语言与工具调用</li>
-<li>​​Structured Chat Agent (create_structured_chat_agent)​：必须遵循预定义响应模板，严格匹配工具参数格式，通常一次性完成工具选择</li>
-</ul>
-<p>利用 Agent 开发一个完整的低代码平台 AI 助手，整体实现过程如下：</p>
-<p><a target="_blank" rel="noopener" href="https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies">https://langchain-ai.github.io/langgraph/agents/agents/#1-install-dependencies</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -520,7 +509,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/ai-learn12.html" title="11篇 AI从零开始 - Langgraph开发(2)" target="_blank">https://www.qborfy.com/ailearn/ai-learn12.html</a>
+          <a href="https://www.qborfy.com/ailearn/ai-learn12.html" title="11篇 AI从零开始 - 工业级的RAG开发与部署(1)" target="_blank">https://www.qborfy.com/ailearn/ai-learn12.html</a>
         </li>
         
         <li>
@@ -627,8 +616,8 @@
     </a>
   
   
-    <a href="/ailearn/ai-learn08.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</div>
+    <a href="/ailearn/ai-learn13.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">11篇 AI从零开始 - Langgraph(4)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -655,7 +644,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E6%9C%9F%E4%B8%8E%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">1. 前期与实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">实现思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">2. 实战开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-LangChain-Agent-Server%E5%BC%80%E5%8F%91"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 LangChain Agent + Server开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Formily-%E6%8F%92%E4%BB%B6-AI-%E5%8A%A9%E6%89%8B%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Formily 插件 AI 助手前端开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-%E5%8A%9F%E8%83%BD%E7%9B%AE%E6%A0%87%E8%AE%BE%E5%AE%9A"><span class="toc-number">1.</span> <span class="toc-text">0. 功能目标设定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">实现思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">2. 实战开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-LangChain-Agent-Server%E5%BC%80%E5%8F%91"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 LangChain Agent + Server开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Formily-%E6%8F%92%E4%BB%B6-AI-%E5%8A%A9%E6%89%8B%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Formily 插件 AI 助手前端开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>

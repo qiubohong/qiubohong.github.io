@@ -361,6 +361,112 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/daily/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/06.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(6) - 卷积网络CNN
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/06.html" class="archive-article-date">
+        <time datetime="2025-06-29T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>卷积网络CNN</strong></p>
+<blockquote>
+<p>一句话核心：CNN = 模拟人类视觉系统，用<code>局部感知+参数共享</code>机制高效处理​​图像、视频、医学影像​​等网格数据</p>
+</blockquote>
+<p>简单理解就是将图片数据降低复杂度，在拆分成一个个小块（局部特征），结合统一的参数规划，最终完成图像识别。</p>
+    
+    <a class="article-more-a" href="/ailearn/daily/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/ai-learn10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,7 +1005,7 @@
     <h1 itemprop="name">
 	
 	  <a class="article-title" href="/ailearn/ai-learn12.html" target="_blank">
-      11篇 AI从零开始 - Langgraph开发(2)
+      11篇 AI从零开始 - 工业级的RAG开发与部署(1)
       
     </a>
   
@@ -925,18 +1031,16 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>回顾一下LangChain系列学习文章：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn06.html">06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn07.html">07篇 AI从零开始 - LangChain学习与实战(4) LangServer部署</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn08.html">08篇 AI从零开始 - LangChain学习与实战(5) 基于RAG开发问答机器人</a></li>
-</ul>
-<p>经过LangChain系列文章的学习后， 现在我们需要通过 LangChain + 大模型 + 低代码平台， 开发具备实际功能的 AI 应用：</p>
+<p>经过LangGraph+LangChain系列文章的学习后， 对LangGraph有了全面，那么接下来就应该学习通过LangGraph开发工业级RAG和部署。</p>
 <blockquote>
-<p><strong>低代码平台AI助手</strong>：通过用户输入自然语言能实现 低代码平台页面生成、编辑等</p>
+<p>工业级服务需要达到以下几个要求：</p>
+<ul>
+<li>可靠性：强调高可用性和容错性，以确保业务的连续性</li>
+<li>安全性：对安全性要求极高，需要提供强大的安全保障措施，如数据加密、访问控制、安全审计等。</li>
+<li>可扩展性：需要能够根据业务发展灵活扩展，支持不断增长的用户和数据量</li>
+</ul>
 </blockquote>
+<p>接下来我们一起学习如何攻克工业级RAG落地的完整方案与实现。</p>
     
     <a class="article-more-a" href="/ailearn/ai-learn12.html#more">more >></a>
     
@@ -969,6 +1073,111 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ailearn/ai-learn12.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ai-learn13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ai-learn13.html" target="_blank">
+      11篇 AI从零开始 - Langgraph(4)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ai-learn13.html" class="archive-article-date">
+        <time datetime="2025-03-31T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>经过LangGraph系列文章的学习后， 现在我们需要通过 LangChain + 大模型 + 低代码平台， 开发具备实际功能的 AI 应用：</p>
+<blockquote>
+<p><strong>低代码平台AI助手</strong>：通过用户输入自然语言能实现 低代码平台页面生成、编辑等</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/ai-learn13.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ai-learn13.html">展开全文 >></a>
     </p>
     
 
@@ -1178,214 +1387,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ailearn/ai-learn07.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn06.html" target="_blank">
-      06篇 AI从零开始 - LangChain学习与实战(3) LCEL工作流编排原理与实战
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn06.html" class="archive-article-date">
-        <time datetime="2025-03-03T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>上一篇文章我们学习<a href="ttps://qborfy.com/ailearn/ai-learn05.html">05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉</a>，对 LangChain实际应用有了基本的了解，接下我们会进入 LangChain最重要的一次学习，就是 LangChain工作流编排原理与实战(LCEL), 学了本文基本上后续 LangChain实际开发都可以独立完成，本文内容较多，建议大家收藏，慢慢学习。</p>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn06.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn06.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn05.html" target="_blank">
-      05篇 AI从零开始 - LangChain学习与实战(2) PromptTemplate降低AI幻觉
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn05.html" class="archive-article-date">
-        <time datetime="2025-02-20T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>上一节学习了<a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn04.html">04篇 AI从零开始 - LangChain学习与实战(1) 基础知识</a>，对Langchain有了基础的认知和简单应用，其中我们使用<code>PromptTemplate</code>去实现一次大模型对话。</p>
-<p>同时我们在<a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/ai-learn03.html">03篇 AI从零开始 - Prompt提示语学习与应用</a>也学习了提示语生成规范，但是在结合 LangChain中我们应该如何利用<code>PromptTemplate</code>提示模板+提示语规范去降低 AI幻觉呢？</p>
-<blockquote>
-<p><strong>AI幻觉</strong>, 指人工智能（尤其是大语言模型）生成看似合理但实际错误、虚构或与现实不符的内容的现象。本质是模型在缺乏真实理解能力的情况下，基于统计模式生成的「自信错误」。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn05.html">展开全文 >></a>
     </p>
     
 
