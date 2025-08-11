@@ -8,23 +8,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>5分钟AI，每天搞懂一个知识点(9) - Transformer | Qborfy知识库</title>
+  <title>5分钟AI，每天搞懂一个知识点(10) - Transformer | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 Transformer算法模型  一句话核心: Transformer &#x3D; 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈​  通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 Transformer算法模型  一句话核心: Transformer &#x3D; 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈  通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="5分钟AI，每天搞懂一个知识点(9) - Transformer">
+<meta property="og:title" content="5分钟AI，每天搞懂一个知识点(10) - Transformer">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/daily/10.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 Transformer算法模型  一句话核心: Transformer &#x3D; 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈​  通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 Transformer算法模型  一句话核心: Transformer &#x3D; 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈  通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/10/1.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/10/2.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/10/3.png">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/10/4.png">
-<meta property="article:published_time" content="2025-08-07T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-08T13:51:02.078Z">
+<meta property="article:published_time" content="2025-08-08T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-08T13:57:29.810Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="5分钟AI">
@@ -370,7 +370,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      5分钟AI，每天搞懂一个知识点(9) - Transformer
+      5分钟AI，每天搞懂一个知识点(10) - Transformer
       
     </h1>
   
@@ -384,7 +384,7 @@
         </span>
 
 <a href="/ailearn/daily/10.html" class="archive-article-date">
-        <time datetime="2025-08-07T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-07</time>
+        <time datetime="2025-08-08T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-08</time>
 </a>
 
   
@@ -422,30 +422,35 @@
 </blockquote>
 <p>今天我们来学习 <strong>Transformer算法模型</strong></p>
 <blockquote>
-<p>一句话核心: Transformer = 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈​</p>
+<p>一句话核心: Transformer = 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈</p>
 </blockquote>
 <p>通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单理解为串行和并行区别。</p>
 <span id="more"></span>
 
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/10/1.png" alt=""></p>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/10/1.png" alt="5分钟AI知识网络图"></p>
 <blockquote>
 <p>“Transformer 的并行化设计，是AI从手工作坊走向工业化大生产的关键转折”—— Andrej Karpathy (特斯拉AI总监)</p>
 </blockquote>
 <p>下图是对Transformer结构的简易表示</p>
 <p><img src="/assets/img/ailearn/daily/10/2.png" alt="Transformer 的整体结构，左图Encoder和右图Decoder"></p>
 <h2 id="核心组成元素"><a href="#核心组成元素" class="headerlink" title="核心组成元素"></a>核心组成元素</h2><ul>
-<li><code>Embedding 输入</code>: 主要包含单词向量表示和索引位置<br>​- <code>Encoder 编码器</code>: 将输入序列（如文本、语音）转换为蕴含全局语义的​​高维向量表示（俗称：位置编码）​​，捕捉序列内部的结构与依赖关系。</li>
-<li><code>Self-Attention 自注意力机制</code>: 动态分配元素间关联权重， 多个<code>Self-Attention</code>就会组成 <code>Multi-Head Attention</code><br>​- <code>Decoder 解码器</code>: 基于编码器的语义表示，​​逐步生成目标序列​​（如翻译结果、续写文本）</li>
+<li><code>Embedding 输入</code>: 主要包含单词向量表示和索引位置</li>
+<li><code>Encoder 编码器</code>: 将输入序列（如文本、语音）转换为蕴含全局语义的高维向量表示（俗称：位置编码），捕捉序列内部的结构与依赖关系。</li>
+<li><code>Self-Attention 自注意力机制</code>: 动态分配元素间关联权重， 多个<code>Self-Attention</code>就会组成 <code>Multi-Head Attention</code></li>
+<li><code>Decoder 解码器</code>: 基于编码器的语义表示，逐步生成目标序列（如翻译结果、续写文本）</li>
 </ul>
 <p><img src="/assets/img/ailearn/daily/10/3.png" alt="Transformer官方论文解析图"></p>
 <p>从上图，我们做一个翻译更容易理解的版本，如下图所示：</p>
 <p><img src="/assets/img/ailearn/daily/10/4.png" alt="Transformer"></p>
 <ul>
-<li>编码器是理解者​​：将杂乱输入转化为结构化知识；</li>
-<li>自注意力是协商者​​：在知识网络中建立动态连接；</li>
-<li>解码器是创造者​​：依据知识网络按规则生成新内容。</li>
+<li>编码器是理解者：将杂乱输入转化为结构化知识；</li>
+<li>自注意力是协商者：在知识网络中建立动态连接；</li>
+<li>解码器是创造者：依据知识网络按规则生成新内容。</li>
 </ul>
-<h2 id="创建本质"><a href="#创建本质" class="headerlink" title="创建本质"></a>创建本质</h2><p>​- ​抛弃循环结构​​ ，所有词同时计算关联性<br>​- ​位置编码：​​（正弦/余弦波）替代时间步顺序</p>
+<h2 id="创建本质"><a href="#创建本质" class="headerlink" title="创建本质"></a>创建本质</h2><ul>
+<li>抛弃循环结构 ，所有词同时计算关联性</li>
+<li>位置编码：（正弦/余弦波）替代时间步顺序</li>
+</ul>
 <h1 id="行业应用"><a href="#行业应用" class="headerlink" title="行业应用"></a>行业应用</h1><table>
 <thead>
 <tr>
@@ -549,7 +554,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/daily/10.html" title="5分钟AI，每天搞懂一个知识点(9) - Transformer" target="_blank">https://www.qborfy.com/ailearn/daily/10.html</a>
+          <a href="https://www.qborfy.com/ailearn/daily/10.html" title="5分钟AI，每天搞懂一个知识点(10) - Transformer" target="_blank">https://www.qborfy.com/ailearn/daily/10.html</a>
         </li>
         
         <li>
@@ -646,18 +651,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/daily/09.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ailearn/daily/11.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          5分钟AI，每天搞懂一个知识点(9) - 循环网络 RNN
+          5分钟AI，每天搞懂一个知识点(11) - LLM大模型
         
       </div>
     </a>
   
   
-    <a href="/ailearn/ai-learn11.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">11篇 AI从零开始 - Langgraph开发(2)</div>
+    <a href="/ailearn/daily/09.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(9) - 循环网络 RNN</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -715,7 +720,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Thu Aug 07 2025 15:00:00 GMT+0800',
+  	id: 'Fri Aug 08 2025 15:00:00 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })

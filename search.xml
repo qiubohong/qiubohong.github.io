@@ -279,6 +279,137 @@
       </tags>
   </entry>
   <entry>
+    <title>5分钟AI，每天搞懂一个知识点(11) - LLM大模型</title>
+    <url>/ailearn/daily/11.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>LLM大模型</strong></p>
+<blockquote>
+<p>一句话核心:  LLM大模型(Large Language Model) = 基于Transformer架构的海量参数模型，通过万亿级文本训练，将人类语言规律压缩为数学表示，实现理解、生成、推理三位一体的通用智能。</p>
+</blockquote>
+<p>5分钟AI知识点学到LLM大模型，其实基本上对AI知识点有大概的认知了，对于目前大多数接触AI的人第一个接触的肯定是LLM大模型，知道怎么用，但是不知道它是怎么来的。通过上面5分钟AI知识点学习，能够大概了解到一些脉络。</p>
+<p>从我个人理解来讲，LLM大模型目前的定义来说，是AI技术发展到一定阶段的可实际应用的产品，有点类似电脑时代的 晶体管超级电脑（占地170平方米）发展到个人电脑时代，大家开始可以接触与应用到AI技术，不再局限于某个少数高端领域中。</p>
+<span id="more"></span>
+
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/11/1.png" alt="5分钟AI知识网络图"></p>
+<p><strong>核心突破​​：</strong></p>
+<p>​- <strong>​规模效应​​：</strong> 百亿至万亿参数（如GPT-4：1.8万亿）突破性能瓶颈<br>​- <strong>​零样本学习​​：</strong> 无需微调直接处理新任务（如翻译→摘要→代码生成）</p>
+<h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p>由于基于Transformer架构，LLM大模型本质上组成也是由：</p>
+<ul>
+<li><code>编码器</code></li>
+<li><code>解码器</code></li>
+<li><code>自我注意力</code></li>
+</ul>
+<p>最重要一点就是利用Transfomer架构的并行处理能力，可使用非常大规模的模型，其中通常具有数千亿个参数，甚至上万亿的参数去完成模型训练。</p>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p><img src="/assets/img/ailearn/daily/11/1.png" alt="5分钟AI知识网络图"></p>
+<ul>
+<li><strong>分词 Tokenization</strong>: <code>BPE算法</code>拆解文本→Token序列（如“AI学习”→[“AI”，“学”，“习”]）</li>
+<li><strong>嵌入表示 Embedding</strong>: 将分词Token映射为高维向量（如“猫”→[0.2, -1.3, 0.8]），捕获语义关联</li>
+<li><strong>多层Transformer堆叠</strong>: <ul>
+<li>自注意力机制计算词间权重（如“苹果”在水果/公司语境下的不同关注度）</li>
+<li>前馈网络提炼特征（上下文关联）</li>
+</ul>
+</li>
+<li><strong>概率预测 Next Token</strong>: 输出下一个Token的概率分布（如“学习”后“知识”概率=92%）</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>5分钟AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5分钟AI，每天搞懂一个知识点(10) - Transformer</title>
+    <url>/ailearn/daily/10.html</url>
+    <content><![CDATA[<blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>Transformer算法模型</strong></p>
+<blockquote>
+<p>一句话核心: Transformer = 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈</p>
+</blockquote>
+<p>通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单理解为串行和并行区别。</p>
+<span id="more"></span>
+
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/10/1.png" alt="5分钟AI知识网络图"></p>
+<blockquote>
+<p>“Transformer 的并行化设计，是AI从手工作坊走向工业化大生产的关键转折”—— Andrej Karpathy (特斯拉AI总监)</p>
+</blockquote>
+<p>下图是对Transformer结构的简易表示</p>
+<p><img src="/assets/img/ailearn/daily/10/2.png" alt="Transformer 的整体结构，左图Encoder和右图Decoder"></p>
+<h2 id="核心组成元素"><a href="#核心组成元素" class="headerlink" title="核心组成元素"></a>核心组成元素</h2><ul>
+<li><code>Embedding 输入</code>: 主要包含单词向量表示和索引位置</li>
+<li><code>Encoder 编码器</code>: 将输入序列（如文本、语音）转换为蕴含全局语义的高维向量表示（俗称：位置编码），捕捉序列内部的结构与依赖关系。</li>
+<li><code>Self-Attention 自注意力机制</code>: 动态分配元素间关联权重， 多个<code>Self-Attention</code>就会组成 <code>Multi-Head Attention</code></li>
+<li><code>Decoder 解码器</code>: 基于编码器的语义表示，逐步生成目标序列（如翻译结果、续写文本）</li>
+</ul>
+<p><img src="/assets/img/ailearn/daily/10/3.png" alt="Transformer官方论文解析图"></p>
+<p>从上图，我们做一个翻译更容易理解的版本，如下图所示：</p>
+<p><img src="/assets/img/ailearn/daily/10/4.png" alt="Transformer"></p>
+<ul>
+<li>编码器是理解者：将杂乱输入转化为结构化知识；</li>
+<li>自注意力是协商者：在知识网络中建立动态连接；</li>
+<li>解码器是创造者：依据知识网络按规则生成新内容。</li>
+</ul>
+<h2 id="创建本质"><a href="#创建本质" class="headerlink" title="创建本质"></a>创建本质</h2><ul>
+<li>抛弃循环结构 ，所有词同时计算关联性</li>
+<li>位置编码：（正弦/余弦波）替代时间步顺序</li>
+</ul>
+<h1 id="行业应用"><a href="#行业应用" class="headerlink" title="行业应用"></a>行业应用</h1><table>
+<thead>
+<tr>
+<th><strong>场景</strong></th>
+<th>代表模型</th>
+<th>Transformer 的贡献</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机器翻译</td>
+<td>Google Translate</td>
+<td>长句翻译流畅度↑37%</td>
+</tr>
+<tr>
+<td>文本生成</td>
+<td>GPT-4</td>
+<td>生成连贯性↑82%</td>
+</tr>
+<tr>
+<td>图像识别</td>
+<td>ViT</td>
+<td>ImageNet 分类错误率↓15%</td>
+</tr>
+<tr>
+<td>蛋白质结构预测</td>
+<td>AlphaFold</td>
+<td>预测精度超越实验方法</td>
+</tr>
+</tbody></table>
+<h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><ol>
+<li><p><strong>0.2 BLEU分的胜利</strong>：<br>Transformer 在机器翻译任务中仅比 LSTM 高 0.2 BLEU 分，但因 <strong>10倍训练速度</strong> 引发革命   </p>
+</li>
+<li><p><strong>位置编码的物理隐喻</strong>：<br>位置编码的波长从 $2\pi$ 到 $10000\cdot2\pi$ → 相当于给模型装上 <strong>从毫米到千米的刻度尺</strong>   </p>
+</li>
+<li><p><strong>注意力头的“专长”</strong>：  </p>
+<ul>
+<li>头1：检测主谓一致（如 “dogs” → “eat”）  </li>
+<li>头4：捕捉介词搭配（如 “depend <em>on</em>“）  </li>
+<li>头7：识别指代关系（如 “it” → “animal”）   </li>
+</ul>
+</li>
+<li><p><strong>能耗对比</strong>：<br>训练 BERT-Large 耗电 ≈ <strong>纽约⇄旧金山航班往返40次</strong>，但推理单次仅需 <strong>0.005度电</strong>  </p>
+</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/338817680">Transformer模型详解（图解最完整版）</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>学习总结</tag>
+        <tag>5分钟AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>5分钟AI，每天搞懂一个知识点(9) - 循环网络 RNN</title>
     <url>/ailearn/daily/09.html</url>
     <content><![CDATA[<blockquote>
@@ -373,91 +504,6 @@
 <li><p><strong>工业界的“返祖”现象</strong>：<br>特斯拉自动驾驶放弃Transformer，回归<strong>GRU</strong>：因实时处理需求更高，GRU比LSTM快37%  </p>
 </li>
 </ol>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>学习总结</tag>
-        <tag>5分钟AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>5分钟AI，每天搞懂一个知识点(9) - Transformer</title>
-    <url>/ailearn/daily/10.html</url>
-    <content><![CDATA[<blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>今天我们来学习 <strong>Transformer算法模型</strong></p>
-<blockquote>
-<p>一句话核心: Transformer = 完全基于自注意力机制的序列建模引擎，通过并行计算全局依赖关系，彻底取代循环神经网络（RNN）的串行瓶颈​</p>
-</blockquote>
-<p>通俗的理解就是，原先的算法都一个接一个单词单独循环遍历相关的关联性，Transformer是把整个句子所有单词一起互相计算关联性，也可以简单理解为串行和并行区别。</p>
-<span id="more"></span>
-
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/10/1.png" alt=""></p>
-<blockquote>
-<p>“Transformer 的并行化设计，是AI从手工作坊走向工业化大生产的关键转折”—— Andrej Karpathy (特斯拉AI总监)</p>
-</blockquote>
-<p>下图是对Transformer结构的简易表示</p>
-<p><img src="/assets/img/ailearn/daily/10/2.png" alt="Transformer 的整体结构，左图Encoder和右图Decoder"></p>
-<h2 id="核心组成元素"><a href="#核心组成元素" class="headerlink" title="核心组成元素"></a>核心组成元素</h2><ul>
-<li><code>Embedding 输入</code>: 主要包含单词向量表示和索引位置<br>​- <code>Encoder 编码器</code>: 将输入序列（如文本、语音）转换为蕴含全局语义的​​高维向量表示（俗称：位置编码）​​，捕捉序列内部的结构与依赖关系。</li>
-<li><code>Self-Attention 自注意力机制</code>: 动态分配元素间关联权重， 多个<code>Self-Attention</code>就会组成 <code>Multi-Head Attention</code><br>​- <code>Decoder 解码器</code>: 基于编码器的语义表示，​​逐步生成目标序列​​（如翻译结果、续写文本）</li>
-</ul>
-<p><img src="/assets/img/ailearn/daily/10/3.png" alt="Transformer官方论文解析图"></p>
-<p>从上图，我们做一个翻译更容易理解的版本，如下图所示：</p>
-<p><img src="/assets/img/ailearn/daily/10/4.png" alt="Transformer"></p>
-<ul>
-<li>编码器是理解者​​：将杂乱输入转化为结构化知识；</li>
-<li>自注意力是协商者​​：在知识网络中建立动态连接；</li>
-<li>解码器是创造者​​：依据知识网络按规则生成新内容。</li>
-</ul>
-<h2 id="创建本质"><a href="#创建本质" class="headerlink" title="创建本质"></a>创建本质</h2><p>​- ​抛弃循环结构​​ ，所有词同时计算关联性<br>​- ​位置编码：​​（正弦/余弦波）替代时间步顺序</p>
-<h1 id="行业应用"><a href="#行业应用" class="headerlink" title="行业应用"></a>行业应用</h1><table>
-<thead>
-<tr>
-<th><strong>场景</strong></th>
-<th>代表模型</th>
-<th>Transformer 的贡献</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>机器翻译</td>
-<td>Google Translate</td>
-<td>长句翻译流畅度↑37%</td>
-</tr>
-<tr>
-<td>文本生成</td>
-<td>GPT-4</td>
-<td>生成连贯性↑82%</td>
-</tr>
-<tr>
-<td>图像识别</td>
-<td>ViT</td>
-<td>ImageNet 分类错误率↓15%</td>
-</tr>
-<tr>
-<td>蛋白质结构预测</td>
-<td>AlphaFold</td>
-<td>预测精度超越实验方法</td>
-</tr>
-</tbody></table>
-<h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><ol>
-<li><p><strong>0.2 BLEU分的胜利</strong>：<br>Transformer 在机器翻译任务中仅比 LSTM 高 0.2 BLEU 分，但因 <strong>10倍训练速度</strong> 引发革命   </p>
-</li>
-<li><p><strong>位置编码的物理隐喻</strong>：<br>位置编码的波长从 $2\pi$ 到 $10000\cdot2\pi$ → 相当于给模型装上 <strong>从毫米到千米的刻度尺</strong>   </p>
-</li>
-<li><p><strong>注意力头的“专长”</strong>：  </p>
-<ul>
-<li>头1：检测主谓一致（如 “dogs” → “eat”）  </li>
-<li>头4：捕捉介词搭配（如 “depend <em>on</em>“）  </li>
-<li>头7：识别指代关系（如 “it” → “animal”）   </li>
-</ul>
-</li>
-<li><p><strong>能耗对比</strong>：<br>训练 BERT-Large 耗电 ≈ <strong>纽约⇄旧金山航班往返40次</strong>，但推理单次仅需 <strong>0.005度电</strong>  </p>
-</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/338817680">Transformer模型详解（图解最完整版）</a></li>
-</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>学习总结</tag>

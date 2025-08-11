@@ -361,6 +361,111 @@
     height:800px
   }
   </style>
+<article id="post-today/20230213" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230213.html" target="_blank">
+      Linux如何快速删除大量文件
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230213.html" class="archive-article-date">
+        <time datetime="2023-02-13T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近服务器经常遇到磁盘占用空间满的告警，因此跟进定位问题后，发现原来是airflow的有好几个任务每分钟都在产生日志文件，导致磁盘空间占用率暴涨，因此想了几个策略：</p>
+<ul>
+<li>airflow降低日志文件输出大小，将原来<code>info</code>级别日志跳高到<code>warning</code></li>
+<li>定时清理日志文件</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>问题就出现在清理日志文件，打算先清除一遍，主要清除一个月以前的日志文件，命令为<code>find /data/airflow/ -name &#39;*.log&#39; -and -mtime +30 -type f |xargs rm</code>。</p>
+<p>但是等了半天发现日志文件一直无法清除掉，不知道为什么？</p>
+    
+    <a class="article-more-a" href="/today/20230213.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230213.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-lowcode/component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1266,115 +1371,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/lowcode/sandbox.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230131.html" target="_blank">
-      hexo网站提高SEO优化方法
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230131.html" class="archive-article-date">
-        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
-<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
-<li>提交站点到搜索引擎(百度和谷歌)</li>
-<li>hexo针对搜索的优化</li>
-</ul>
-<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
-<li><p>添加hexo插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>_config.yml</code>配置</p>
-</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/today/20230131.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230131.html">展开全文 >></a>
     </p>
     
 
