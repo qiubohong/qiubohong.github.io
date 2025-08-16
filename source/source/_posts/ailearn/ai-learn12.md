@@ -21,26 +21,55 @@ tags:
 
 <!-- more -->
 
-# 0. 功能目标设定
+# 1. 前期准备
 
-目标：基于内部研发平台的已有各类知识文档，开发一个智能问答客服系统
+## 1.1 环境准备
 
-功能设计
+### 1.1.1 开发环境
+
+- conda，主要用于管理不同版本的python
+- langgraph-cli，初始化项目的脚手架
+- nodejs+react,开发智能客服系统前端环境
+
+### 1.1.2 依赖资源环境
+
+- 向量数据库 chroma,用于保存知识库存储
+- Mysql数据库 通用知识库
+- docker+docker-compose, 部署服务依赖
+
+## 1.2 模型选择
+
+RAG运行过程为: 知识库-> 检索 -> LLM模型
+
+- 知识库：私有的数据，主要依赖于`embedding模型`生成存储到向量数据库中
+- 检索：根据用户问题检索知识库，根据检索算法（如：ReRanker、Rewrite等）得到问题答案
+- LLM模型：根据用户问题+检索知识库返回结果形成上下文，分析得到最佳答案返回给用户
+
+### 1.2.1 embedding模型
+目前主流`embedding模型`包含如下：
+
+| **需求场景**          | **推荐模型**               | **关键优势**                          |
+|----------------------|--------------------------|-------------------------------------|
+| 纯中文任务           | `text2vec-large-chinese` | 中文语义理解最优                     |
+| 中英混合检索         | `bge-m3`                 | 多语言支持 + 长上下文                |
+| 移动端/低资源部署    | `bge-small-zh`           | 轻量高速，内存占用低                 |
+| 长文档处理           | `nomic-embed-text`       | 支持 8192 tokens                     |
+| 快速验证/API 集成    | `text-embedding-3-small` | 免部署，降维灵活                    |
+| 企业私有化           | `m3e-large` + 本地向量库  | 数据安全 + 定制优化                 |
 
 
-## 1.1 前期准备
+这里我们采用 `bge-m3`模型作为RAG的`embedding模型`，私有化部署可以参考我之前的文章[02篇 AI从零开始 - 部署本地大模型 DeepSeek-R1](https://qborfy.com/ailearn/ai-learn02.html)。
 
-1. 搭建低代码平台服务，可以参考文档： [Formily 表单设计器](https://formilyjs.org/zh-CN/guide/form-builder)
-2. Langchain 和 LangServer环境准备， 参考： [04篇 AI从零开始 - LangChain学习与实战(1) 基础知识](https://qborfy.com/ailearn/ai-learn04.html)
+### 1.2.2 reranker重排序模型
 
-## 实现思路
 
-1. LangChain开发实现大模型理解低代码平台DSL语言的输入，并能输出是低代码平台DSL语言
-2. 通过 LangServer提供大模型 API
-   1. 输入当前页面 json schema
-   2. 用户输入自然语言，LangServer调用大模型API，返回结果
-   3. LangServer将返回结果转换成低代码平台DSL语言
-3. 低代码平台新增 AI助手 UI，更改低代码页面JSON内容 
+
+
+### 1.2.3 LLM模型
+
+
+
+
 
 # 2. 实战开发
 
@@ -54,12 +83,7 @@ tags:
 
 # 参考资料
 
-- [LangChain官方文档](https://python.langchain.com/docs/introduction/)
-- [LangChain中文教程](https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide)
-- [LangChain（0.0.340）官方文档十一：Agents之Agent Types](https://blog.csdn.net/qq_56591814/article/details/135040694)
-- [(哔哩哔哩视频)2025吃透LangChain大模型全套教程（LLM+RAG+OpenAI+Agent）通俗易懂，学完即就业!](https://www.bilibili.com/video/BV1BgfBYoEpQ/?spm_id_from=333.337.search-card.all.click&vd_source=b7fdd8e45e19e1ed72549bc7a40058f6)
-- [Langchain Agent - Agent类型说明](https://zhuanlan.zhihu.com/p/694458202)
 
-> 声明：本文部分材料是基于[DeepSeek-R1模型](https://chat.deepseek.com/)生成。
+
 
 
