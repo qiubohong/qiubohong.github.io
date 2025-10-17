@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.qborfy.com/ailearn/daily/13.html</loc>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/ailearn/ai-learn12.html</loc>
     <lastmod>2025-08-18</lastmod>
   </url>
@@ -301,14 +305,6 @@
     <lastmod>2023-05-16</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/translate/nuxt-next-nest-diff.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
     <loc>https://www.qborfy.com/today/20230307.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
@@ -321,11 +317,11 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/wx/20190924.html</loc>
+    <loc>https://www.qborfy.com/translate/use-gpt3-auto-git-commit.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/wx/20190731.html</loc>
+    <loc>https://www.qborfy.com/translate/nuxt-next-nest-diff.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -333,11 +329,11 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230227.html</loc>
+    <loc>https://www.qborfy.com/wx/20190924.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230226.html</loc>
+    <loc>https://www.qborfy.com/wx/20190731.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -349,27 +345,11 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230223.html</loc>
+    <loc>https://www.qborfy.com/today/20230226.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230221.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230222.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230219.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230218.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230216.html</loc>
+    <loc>https://www.qborfy.com/today/20230227.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -377,19 +357,31 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
+    <loc>https://www.qborfy.com/today/20230216.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230219.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230221.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/today/20230220.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230213.html</loc>
+    <loc>https://www.qborfy.com/today/20230223.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230209.html</loc>
+    <loc>https://www.qborfy.com/today/20230218.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230208.html</loc>
+    <loc>https://www.qborfy.com/today/20230222.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -401,11 +393,15 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230128.html</loc>
+    <loc>https://www.qborfy.com/today/20230208.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230124.html</loc>
+    <loc>https://www.qborfy.com/today/20230209.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230213.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -413,35 +409,19 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
+    <loc>https://www.qborfy.com/today/20230124.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230128.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/today/20230117.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230116.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230111.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230110.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230109.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230108.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230107.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/today/20230106.html</loc>
+    <loc>https://www.qborfy.com/today/20230103.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -453,19 +433,31 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/today/20230103.html</loc>
+    <loc>https://www.qborfy.com/today/20230106.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/study/front-stack.html</loc>
+    <loc>https://www.qborfy.com/today/20230108.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/study/book-million.html</loc>
+    <loc>https://www.qborfy.com/today/20230109.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/study/face-test.html</loc>
+    <loc>https://www.qborfy.com/today/20230107.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230111.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230110.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/today/20230116.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -477,15 +469,19 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
+    <loc>https://www.qborfy.com/study/face-test.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/study/front-stack.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/study/react-test1.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/share/nodejs-module.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/share/node-modules.html</loc>
+    <loc>https://www.qborfy.com/study/book-million.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -501,27 +497,15 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
+    <loc>https://www.qborfy.com/share/nodejs-module.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/share/iOS11-fastclick-js.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/lowcode/index.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230408.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230312.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230218.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/ideas/20230217.html</loc>
+    <loc>https://www.qborfy.com/share/node-modules.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -533,11 +517,7 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/lowcode/component.html</loc>
-    <lastmod>2023-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.qborfy.com/lowcode/plugin.html</loc>
+    <loc>https://www.qborfy.com/ideas/20230217.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -545,7 +525,31 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
+    <loc>https://www.qborfy.com/ideas/20230218.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/ideas/20230312.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.qborfy.com/ideas/list.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/ideas/20230408.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/lowcode/component.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/lowcode/index.html</loc>
+    <lastmod>2023-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.qborfy.com/lowcode/plugin.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
@@ -553,11 +557,11 @@
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/face100/2-throttle-debouce.html</loc>
+    <loc>https://www.qborfy.com/face100/1-promise-face.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.qborfy.com/face100/1-promise-face.html</loc>
+    <loc>https://www.qborfy.com/face100/2-throttle-debouce.html</loc>
     <lastmod>2023-05-11</lastmod>
   </url>
 </urlset> 
