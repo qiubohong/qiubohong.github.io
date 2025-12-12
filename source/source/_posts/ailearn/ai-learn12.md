@@ -236,7 +236,7 @@ export default App
 运行 `pnpm dev`，打开[http://127.0.0.1:3000](http://127.0.0.1:3000)查看效果。
 
 
-## 2.3 搭建Chroma数据库
+## 2.3 搭建Chroma向量数据库
 通过`docker-compose`启动Chroma数据库，文件在`docker-compose.yml`，内容如下：
 
 ```yaml
