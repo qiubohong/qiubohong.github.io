@@ -1,6 +1,6 @@
 ---
 title: CodeBuddy结合Spec-Kit AI编程工程化指南
-date: 2025-03-31 15:00:00
+date: 2025-12-09 15:00:00
 toc: true
 tags:
   - 学习总结
