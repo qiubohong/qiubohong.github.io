@@ -688,6 +688,269 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/daily/15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/15.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(15) -MCP协议
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/15.html" class="archive-article-date">
+        <time datetime="2025-12-17T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>模型上下文协议（MCP）</strong></p>
+<blockquote>
+<p><strong>MCP（Model Context Protocol，模型上下文协议）</strong> 是由 Anthropic 公司推出的开源协议，旨在为大型语言模型与外部数据源、工具之间建立<strong>安全、标准化、双向</strong>的连接通道。</p>
+</blockquote>
+<p>通俗地说，MCP 如同 AI 世界的“USB-C 接口”。它定义了一套通用标准，使得任何支持 MCP 的 AI 应用（如 Claude Desktop、Cursor IDE）都能通过统一的“插口”，即插即用地连接各种外部工具（如数据库、API、本地文件），而无需为每个工具单独开发适配器。其核心价值在于解决了 AI 应用与外部资源交互时的碎片化集成问题，实现了生态的标准化和去中心化。</p>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p><img src="/assets/img/ailearn/daily/15/1.png" alt="5分钟AI知识网络图"></p>
+<p>MCP 遵循经典的客户端-服务器架构，其核心组件与协作流程如下图所示，清晰地展示了数据如何在不同部分间流转。</p>
+<p><img src="/assets/img/ailearn/daily/15/2.png" alt="MCP 工作原理"></p>
+<p><strong>核心组件解析</strong>：</p>
+<ul>
+<li><strong>MCP Host（宿主）</strong>：这是用户直接交互的 AI 应用程序，例如 Cursor IDE、Claude Desktop 等。它是发起所有请求的“大脑”和总指挥。</li>
+<li><strong>MCP Client（客户端）</strong>：它内嵌于 Host 内部，充当协议的“翻译官”。每个 Client 与一个 Server 保持一对一的专有连接，负责所有通信的路由和转换。</li>
+<li><strong>MCP Server（服务器）</strong>：这是提供具体能力的轻量级服务程序。它向外暴露三种核心能力：<ul>
+<li><strong>工具 Tool</strong>：可执行的函数，允许 LLM 执行操作，如发送邮件、查询数据库。</li>
+<li><strong>资源 Resource</strong>：只读的数据源，如文件内容、数据库记录、API 响应。</li>
+<li><strong>提示模板 Prompt</strong>：预定义的对话模板，指导 LLM 完成特定工作流。</li>
+</ul>
+</li>
+<li><strong>MCP Protocol（协议）</strong>：基于<strong>JSON-RPC 2.0</strong>的消息格式，定义了组件间的通信规则。支持 Stdio（本地）和 HTTP（远程）两种传输方式。</li>
+</ul>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><h2 id="MCP-服务器搭建"><a href="#MCP-服务器搭建" class="headerlink" title="MCP 服务器搭建"></a>MCP 服务器搭建</h2><p>使用 Python 创建 MCP 服务器的简明示例，该服务器提供一个获取网页标题的工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastmcp <span class="keyword">import</span> FastMCP</span><br><span class="line"></span><br><span class="line">mcp = FastMCP(<span class="string">&quot;My MCP Server&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@mcp.tool</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    mcp.run(transport=<span class="string">&quot;http&quot;</span>, port=<span class="number">8000</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="MCP-客户端调用"><a href="#MCP-客户端调用" class="headerlink" title="MCP 客户端调用"></a>MCP 客户端调用</h2><p>使用 Python 创建 MCP 客户端的简明示例，调用上面创建的 MCP<br>服务器的 <code>get_webpage_title</code> 工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">from</span> fastmcp <span class="keyword">import</span> Client</span><br><span class="line"></span><br><span class="line">client = Client(<span class="string">&quot;http://localhost:8000/mcp&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出可用工具</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">list_tools</span>():</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> client:</span><br><span class="line">        tools = <span class="keyword">await</span> client.list_tools()</span><br><span class="line">        <span class="built_in">print</span>(tools)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用 greet MCP tool</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">call_tool</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> client:</span><br><span class="line">        result = <span class="keyword">await</span> client.call_tool(<span class="string">&quot;greet&quot;</span>, &#123;<span class="string">&quot;name&quot;</span>: name&#125;)</span><br><span class="line">        <span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line">asyncio.run(call_tool(<span class="string">&quot;Ford&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="OpenAI-MCP-调用"><a href="#OpenAI-MCP-调用" class="headerlink" title="OpenAI MCP 调用"></a>OpenAI MCP 调用</h2><p>使用 OpenAI Python SDK 创建 MCP 客户端的简明示例，调用 MCP 服务器的 <code>greet</code> 工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"></span><br><span class="line">client = OpenAI()</span><br><span class="line"></span><br><span class="line">resp = client.responses.create(</span><br><span class="line">    model=<span class="string">&quot;gpt-5&quot;</span>,</span><br><span class="line">    tools=[</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;type&quot;</span>: <span class="string">&quot;mcp&quot;</span>,</span><br><span class="line">            <span class="string">&quot;server_label&quot;</span>: <span class="string">&quot;dmcp&quot;</span>,</span><br><span class="line">            <span class="string">&quot;server_description&quot;</span>: <span class="string">&quot;Demo MCP Server&quot;</span>,</span><br><span class="line">            <span class="string">&quot;server_url&quot;</span>: <span class="string">&quot;http://localhost:8000/mcp&quot;</span>,</span><br><span class="line">            <span class="string">&quot;require_approval&quot;</span>: <span class="string">&quot;never&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">input</span>=<span class="string">&quot;Hello, MCP!&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(resp.output_text)</span><br></pre></td></tr></table></figure>
+
+<p>我们在大模型中调用 MCP 服务正常步骤如下：</p>
+<ol>
+<li>列出 MCP 服务中可用的工具和资源。</li>
+<li>筛选出需要调用的工具或资源。</li>
+<li>构造调用请求并发送给 MCP 服务。</li>
+<li>处理 MCP 服务返回的结果。</li>
+<li>将结果添加到输入中，继续与模型对话。</li>
+</ol>
+<h1 id="MCP-生态"><a href="#MCP-生态" class="headerlink" title="MCP 生态"></a>MCP 生态</h1><ul>
+<li><strong>主流 MCP Hosts（应用）</strong>：<strong>Cursor IDE</strong>、<strong>Claude Desktop</strong>、<strong>OpenWebUI</strong>等是当前最流行的 MCP 宿主应用。只需在它们的设置中添加 MCP Server，即可扩展其能力。</li>
+<li><strong>MCP Server 资源库</strong>：要寻找现成的 Server，可以访问 <strong><code>github.com/modelcontextprotocol/servers</code></strong>（官方示例）和 <strong><code>cursor.directory</code></strong>（社区目录），这里有从文件系统、数据库到各类云服务的丰富工具。</li>
+<li><strong>开发工具</strong>：Anthropic 提供了官方的 <strong>Python 和 TypeScript SDK</strong>等，极大简化了 MCP Server 和 Client 的开发流程。<ul>
+<li>SDK 文档：<a target="_blank" rel="noopener" href="https://github.com/modelcontextprotocol">https://github.com/modelcontextprotocol</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="❄️-冷知识"><a href="#❄️-冷知识" class="headerlink" title="❄️ 冷知识"></a>❄️ 冷知识</h1><ul>
+<li><strong>灵感来源</strong>：MCP 的设计深受<strong>语言服务器协议（LSP）</strong> 的启发。LSP 统一了 IDE 对不同编程语言的支持，而 MCP 旨在统一 AI 应用对不同工具和数据的访问。</li>
+<li><strong>权限控制</strong>：在 MCP 架构下，<strong>工具由模型控制调用，而资源（数据）的访问权完全由用户控制</strong>。Server 所有者无需将 API 密钥等敏感信息暴露给 LLM 提供商，提升了安全性。</li>
+<li><strong>商业前景</strong>：分析认为，MCP 在<strong>To C（消费者）领域</strong>（如智能硬件、社交 App）有广阔前景，因其能快速集成多样化服务。但在<strong>To B（企业）领域</strong>可能面临挑战，因为企业级软件更倾向于成为用户入口而非被调用的工具。</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/news/model-context-protocol">Anthropic MCP 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/liaokongVFX/MCP-Chinese-Getting-Started-Guide">Model Context Protocol(MCP) 编程极速入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://gofastmcp.com/getting-started/quickstart">FastMCP 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/tools-connectors-mcp">OpenAI MCP 文档</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/15.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/14.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(14) - Function Calling
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/14.html" class="archive-article-date">
+        <time datetime="2025-12-16T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>AI 函数调用 Function Calling</strong></p>
+<blockquote>
+<p>一句话核心: <strong>Function Calling</strong>（函数调用）是大模型在对话过程中，根据用户需求调用外部函数或工具的一种能力。</p>
+</blockquote>
+<p>通俗地讲，它让大模型从“能说会道”的参谋，变成了“能动手做事”的助手。当模型遇到自己无法直接解决的问题时（比如查询实时信息、进行复杂计算），它不再说“我做不到”，而是会“告诉”你的程序：“嘿，你需要调用那个叫 get_weather 的函数，并把 location 参数设置为‘北京’。”</p>
+<p>需要注意的是，模型本身并不直接执行函数，它只负责生成调用的“指令”。真正的执行工作由你的程序来完成。</p>
+<p>它的核心价值在于<strong>将大模型的语言理解能力与外部工具的执行能力相结合</strong>，从而突破其固有局限（如知识截止日期、无法访问网络等），完成更复杂的任务。</p>
+    
+    <a class="article-more-a" href="/ailearn/daily/14.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/14.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/ai-learn14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1183,222 +1446,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/ailearn/daily/10.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/daily/09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/09.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(9) - 循环网络 RNN
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/09.html" class="archive-article-date">
-        <time datetime="2025-08-07T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>今天我们来学习 <strong>循环网络 RNN</strong></p>
-<blockquote>
-<p>一句话核心: 循环网络 RNN = 带记忆功能的神经网络​​，通过循环连接保留历史信息，专为处理序列数据（文本、语音、时间序列）而生</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/ailearn/daily/09.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/09.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn11.html" target="_blank">
-      11篇 AI从零开始 - Langgraph开发(2)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn11.html" class="archive-article-date">
-        <time datetime="2025-07-11T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="工作流是什么"><a href="#工作流是什么" class="headerlink" title="工作流是什么"></a>工作流是什么</h1><p>前面我们对LangGraph知识有一个基础入门，如果要完成一个真正的Agent工作流应用开发，还是远远不够的。</p>
-<p>一个复杂且完整的Agent工作流应用，需要完成以下几个方面：</p>
-<ol>
-<li>确定工作流目标，如：规划未来的旅游行程</li>
-<li>按照目标规划和拆分任务清单，如：预定酒店、饮食推荐、景点参观时间等等</li>
-<li>单执行任务（包含异常中断且重试机制），如：预定酒店</li>
-<li>更新任务状态给工作流，如：预定酒店成功或失败</li>
-<li>对任务清单状态进行重新思考或规划，如：预定酒店失败后需要重试其他渠道</li>
-<li>对任务状态反馈给到用户，如：给用户酒店预定失败，是否选择其他渠道预定</li>
-</ol>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn11.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn11.html">展开全文 >></a>
     </p>
     
 
