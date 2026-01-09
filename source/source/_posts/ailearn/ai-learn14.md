@@ -134,6 +134,9 @@ spec 官方 github: https://github.com/github/spec-kit
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 # 验证安装成功
 specify --help
+
+# 初始化项目 主要是把后续几个主要指令放入到.codebuddy 中
+specify init --ai=codebuddy
 ```
 
 ![specify](/assets/img/ailearn/ai-learn14-1.png)
@@ -161,6 +164,76 @@ specify --help
 
 **重要提示：** 当对项目内业务有疑问时优先在本文件中查询，如果没有找到相关内容，或指出错误，则根据代码调研并且向研发人员确认，确认后应当更新本文件
 ```
+
+## 2.5 初始化项目Spec规范
+
+进入你的项目根目录，运行初始化命令：
+
+```
+cd /path/to/your-project
+# 初始化项目
+specify init .
+```
+
+第一次运行可能会出现错误：
+
+![specify-error](/assets/img/ailearn/ai-learn14-4.png)
+
+解决方案就是前往Github 申请令牌：
+
+https://github.com/settings/personal-access-tokens
+
+1. 获取 token声明到全局变量中：
+
+```shell
+# Mac | Linux进行导入配置变量，其中/root/.bashrc 为 Linux 系统本机的变量位置，如在 Mac 安装，默认地址为 ~/\.zshrc  或 ~/\.bashrc
+export GH_TOKEN='<github-token>' & export GITHUB_TOKEN="$GH_TOKEN" >> root/\.bashrc
+
+source  /root/.bashrc
+
+# Windows
+可以通过我的电脑 → 系统属性 → 高级系统设置 → 环境变量
+```
+
+2. 可以在命令后添加参数 --github-token=xxx 
+
+```
+specify init . --ai codebuddy --github-token=<KEY>
+```
+
+完成初始化后，会在项目根目录生成 `.specify`和`.codebuddy`目录，具体如下：
+```shell
+.codebuddy/  
+└── commands/ # 包含AI辅助开发的各种命令工具
+    ├── speckit.analyze.md          # 跨工件一致性分析命令
+    ├── speckit.checklist.md        # 检查清单生成命令
+    ├── speckit.clarify.md          # 需求澄清命令
+    ├── speckit.constitution.md     # 宪法管理命令
+    ├── speckit.implement.md        # 实现命令
+    ├── speckit.plan.md             # 计划制定命令
+    ├── speckit.specify.md          # 规范制定命令
+    ├── speckit.tasks.md            # 任务生成命令
+    └── speckit.taskstoissues.md    # 任务转问题命令
+
+.specify/ # 项目规范化和自动化工具集
+├── memory/
+│   └── constitution.md             # 项目宪法文件
+├── scripts/
+│   └── bash/
+│       ├── check-prerequisites.sh  # 检查先决条件脚本
+│       ├── common.sh               # 通用脚本函数
+│       ├── create-new-feature.sh   # 创建新特性脚本
+│       ├── setup-plan.sh           # 设置计划脚本
+│       └── update-agent-context.sh # 更新代理上下文脚本
+└── templates/
+    ├── agent-file-template.md      # 代理文件模板
+    ├── checklist-template.md       # 检查清单模板
+    ├── plan-template.md            # 计划模板
+    ├── spec-template.md            # 规范模板
+    └── tasks-template.md           # 任务模板
+
+```
+
 
 # 三、speckit 规范 AI 编程全流程
 
@@ -190,13 +263,46 @@ specify --help
 
 ## 3.2 定义宪章 /speckit.constitution
 
-> **宪章 **是项目的架构原则和约束的集合。它在整个开发过程中起到"守门员"的作用，确保所有设计决策都符合核心原则。
+> **宪章**是项目的架构原则和约束的集合。它在整个开发过程中起到"守门员"的作用，确保所有设计决策都符合核心原则。
 
-**操作步骤：**
-启动 codebuddy ，输入/speckit.constitution ，具体如下图：
+**操作步骤**
+启动 codebuddy ，输入`/speckit.constitution 这是一个xxx项目，主要使用技术栈为xxx` ，具体如下图：
 
-![speckit.constitution](/assets/img/ailearn/ai-learn14-4.png)
+![speckit.constitution](/assets/img/ailearn/ai-learn14-5.png)
 
-## 3.3 需求设计和澄清(/speckit.specify 和 /speckit.clarify)
+不同技术栈生成项目宪章是不一样，但主要包含以下内容：
 
-> 需求设计解决最大的问题在开发设计前消除歧义与认知偏差，避免“带猜测”进入 `/plan` 导致返工。
+- 项目主要技术栈
+- 项目主要规范和约束
+- 项目主要测试策略
+- 其他一些约定规范等等
+
+## 3.3 需求设计(/speckit.specify)和需求澄清(/speckit.clarify)
+
+> 需求设计与澄清解决最大的问题：在开发设计前消除歧义与认知偏差，避免“带猜测”进入 `/plan` 导致返工。
+
+### 需求设计
+
+需求设计工作过程：
+
+- 用户输入初步需求内容 `/speckit.specify 需要实现一个xxx内容` ， 需求内容越仔细，AI对此的疑问就越少。
+- Spec会根据需求生成**“疑问列表”**：模糊术语、未量化指标、冲突需求、缺失边界
+- 让用户回答疑问列表，进行交互式问答（可能循环多轮）
+- 记录决策与补充说明（形成“澄清日志”）
+
+参考例子：
+
+- 模糊指标 → 转化为量化：例如“高性能”→“P95 响应 \< 300ms”。
+- 冲突：Story A 说“匿名可用”，Story B 要求“强制登录”。
+- 依赖外部系统 SLA 未说明。
+- 安全责任归属不清。
+
+下面实际操作，具体如下图：
+
+```shell
+
+```
+
+
+
+
