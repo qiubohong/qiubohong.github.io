@@ -19,18 +19,23 @@
 <meta property="og:site_name" content="Qborfy知识库">
 <meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  一、概述CodeBuddy 是腾讯面向开发者的基于 AI 大模型，提供代码生成补全、技术问答、智能代码评审、单测生成等能力，结合 Spec Kit（规范套件） 与 AI 能力，旨在通过“规范驱动+智能辅助”的模式，帮助团队统一代码风格、规避常见错误、提升开发效率。本指南将详细介绍从环境准备到日常开发的全流程操作，涵盖规范定义、AI 辅助编">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-1.png">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-4.png">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-2.png">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-3.png">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-5.png">
-<meta property="article:published_time" content="2025-12-09T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-14T02:22:45.613Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/1.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/4.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/2.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/3.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/5.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/6.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/7.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/8.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/9.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/10.png">
+<meta property="article:published_time" content="2026-01-09T07:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-12T12:02:23.855Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14-1.png">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/ai-learn14/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -385,7 +390,7 @@
         </span>
 
 <a href="/ailearn/ai-learn14.html" class="archive-article-date">
-        <time datetime="2025-12-09T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-09</time>
+        <time datetime="2026-01-09T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-09</time>
 </a>
 
   
@@ -398,7 +403,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.3k字</span>
+      <span class="post-count">4.7k字</span>
     </span>
   </span>
 
@@ -407,7 +412,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">17分</span>
     </span>
   </span>
 </div>
@@ -428,7 +433,12 @@
 <p>💭 “嗯，我想要一个标签管理工具…”<br>💻 “开始写代码吧，边写边想”<br>🤖 “AI，帮我生成一个 React 组件…”<br>🐛 “等等，这个需求没想清楚啊”<br>🔄 “改需求、改代码、来回折腾…”<br>😫 “代码越来越乱，难以维护”</p>
 <p><strong>Spec-Driven 开发 的思路则完全不同：</strong><br>💭 “我的问题是什么？我想要的真实需求是什么？”<br>📝 “写一份清晰的 Spec（规格书），定义问题的边界”<br>🤖 “基于 Spec，让 AI 精准理解需求并生成代码”<br>✅ “代码与 Spec 完全对齐，清晰可维护”</p>
 <h3 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h3><p>Spec（规格） 简单来说，就是在开始编码前，用结构化的文档明确定义：</p>
-<p>1.问题是什么 - 用户的真实需求和痛点 2.解决方案长什么样 - 功能描述、交互流程、数据模型 3.怎样判断成功 - 验收标准和成功指标 4.有哪些约束 - 技术限制、性能要求、安全规范</p>
+<ol>
+<li>问题是什么: 用户的真实需求和痛点</li>
+<li>解决方案长什么样: 功能描述、交互流程、数据模型</li>
+<li>怎样判断成功: 验收标准和成功指标</li>
+<li>有哪些约束: 技术限制、性能要求、安全规范</li>
+</ol>
 <p>一个好的 Spec 应该包含：</p>
 <table>
 <thead>
@@ -495,40 +505,87 @@
 
 <h2 id="2-2-安装-codebuddy-code"><a href="#2-2-安装-codebuddy-code" class="headerlink" title="2.2 安装 codebuddy-code"></a>2.2 安装 codebuddy-code</h2><p>官方文档：<a target="_blank" rel="noopener" href="https://www.codebuddy.ai/cli">https://www.codebuddy.ai/cli</a> codebuddy 外网版（内网版有点问题，推荐使用外网版）</p>
 <p>通过 npm 全局安装（推荐）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @tencent-ai/codebuddy-code</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证安装成功：</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入 codebuddy 启动 CodeBuddy 触发登录验证，后续按照操作选择 iOA步骤即可</span></span><br><span class="line"></span><br><span class="line">codebuddy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @tencent-ai/codebuddy-code</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证安装成功：</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入 codebuddy 启动 CodeBuddy 触发登录验证，后续按照操作选择 iOA步骤即可</span></span><br><span class="line">codebuddy</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择认证方式就可以了进入使用啦</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-3-安装-spec-kit-首次初始化项目使用"><a href="#2-3-安装-spec-kit-首次初始化项目使用" class="headerlink" title="2.3 安装 spec-kit(首次初始化项目使用)"></a>2.3 安装 spec-kit(首次初始化项目使用)</h2><p>spec 官方 github: <a target="_blank" rel="noopener" href="https://github.com/github/spec-kit">https://github.com/github/spec-kit</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">uv tool install specify-cli --from git+https://github.com/github/spec-kit.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证安装成功</span></span><br><span class="line">specify --help</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化项目 主要是把后续几个主要指令放入到.codebuddy 中</span></span><br><span class="line">specify init --ai=codebuddy</span><br></pre></td></tr></table></figure>
 
-<p><img src="/assets/img/ailearn/ai-learn14-1.png" alt="specify"></p>
+<p><img src="/assets/img/ailearn/ai-learn14/1.png" alt="specify"></p>
 <h2 id="2-4-配置-Codebuddy-语言偏好"><a href="#2-4-配置-Codebuddy-语言偏好" class="headerlink" title="2.4 配置 Codebuddy 语言偏好"></a>2.4 配置 Codebuddy 语言偏好</h2><p><code>CODEBUDDY.md</code> 放在长期记忆的开头，项目特有的在后边追加（<code>项目/CODEBUDDY.md</code>）</p>
 <p>如果同时在用 Codebuddy IDE 则 <code>CODEBUDDY.md</code> 可以放在自己的项目 rules 中，共享 CodebuddyCode 的长期记忆（.codebuddy/.rules）。</p>
 <p>具体内容如下：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 指令集(Instructions)</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 语言偏好（Language Preference）</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**重要提示：**</span> 之后所有沟通（包括代码注释和解释）都请使用中文。</span><br><span class="line"></span><br><span class="line"><span class="section">## 命令约束</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**重要提示：**</span> 当进行/speckit.\* 命令时，都需要将本文件内作为基础对话认识</span><br><span class="line"></span><br><span class="line"><span class="section">## 咨询</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**重要提示：**</span> 当对项目内业务有疑问时优先在本文件中查询，如果没有找到相关内容，或指出错误，则根据代码调研并且向研发人员确认，确认后应当更新本文件</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-5-初始化项目Spec规范"><a href="#2-5-初始化项目Spec规范" class="headerlink" title="2.5 初始化项目Spec规范"></a>2.5 初始化项目Spec规范</h2><p>进入你的项目根目录，运行初始化命令：</p>
+<h2 id="2-5-初始化项目-Spec-规范"><a href="#2-5-初始化项目-Spec-规范" class="headerlink" title="2.5 初始化项目 Spec 规范"></a>2.5 初始化项目 Spec 规范</h2><p>进入你的项目根目录，运行初始化命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /path/to/your-project</span><br><span class="line"># 初始化项目</span><br><span class="line">specify init .</span><br></pre></td></tr></table></figure>
 
 <p>第一次运行可能会出现错误：</p>
-<p><img src="/assets/img/ailearn/ai-learn14-4.png" alt="specify-error"></p>
-<p>解决方案就是前往Github 申请令牌：</p>
+<p><img src="/assets/img/ailearn/ai-learn14/4.png" alt="specify-error"></p>
+<p>解决方案就是前往 Github 申请令牌：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/settings/personal-access-tokens">https://github.com/settings/personal-access-tokens</a></p>
 <ol>
-<li>获取 token声明到全局变量中：</li>
+<li>获取 token 声明到全局变量中：</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Mac | Linux进行导入配置变量，其中/root/.bashrc 为 Linux 系统本机的变量位置，如在 Mac 安装，默认地址为 ~/\.zshrc  或 ~/\.bashrc</span></span><br><span class="line">export GH_TOKEN=&#x27;&lt;github-token&gt;&#x27; &amp; export GITHUB_TOKEN=&quot;$GH_TOKEN&quot; &gt;&gt; root/\.bashrc</span><br><span class="line"></span><br><span class="line">source  /root/.bashrc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows</span></span><br><span class="line">可以通过我的电脑 → 系统属性 → 高级系统设置 → 环境变量</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>可以在命令后添加参数 –github-token=xxx </li>
+<li>可以在命令后添加参数 –github-token=xxx</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">specify init . --ai codebuddy --github-token=&lt;KEY&gt;</span><br></pre></td></tr></table></figure>
 
 <p>完成初始化后，会在项目根目录生成 <code>.specify</code>和<code>.codebuddy</code>目录，具体如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.codebuddy/  </span><br><span class="line">└── commands/ # 包含AI辅助开发的各种命令工具</span><br><span class="line">    ├── speckit.analyze.md          # 跨工件一致性分析命令</span><br><span class="line">    ├── speckit.checklist.md        # 检查清单生成命令</span><br><span class="line">    ├── speckit.clarify.md          # 需求澄清命令</span><br><span class="line">    ├── speckit.constitution.md     # 宪法管理命令</span><br><span class="line">    ├── speckit.implement.md        # 实现命令</span><br><span class="line">    ├── speckit.plan.md             # 计划制定命令</span><br><span class="line">    ├── speckit.specify.md          # 规范制定命令</span><br><span class="line">    ├── speckit.tasks.md            # 任务生成命令</span><br><span class="line">    └── speckit.taskstoissues.md    # 任务转问题命令</span><br><span class="line"></span><br><span class="line">.specify/ # 项目规范化和自动化工具集</span><br><span class="line">├── memory/</span><br><span class="line">│   └── constitution.md             # 项目宪法文件</span><br><span class="line">├── scripts/</span><br><span class="line">│   └── bash/</span><br><span class="line">│       ├── check-prerequisites.sh  # 检查先决条件脚本</span><br><span class="line">│       ├── common.sh               # 通用脚本函数</span><br><span class="line">│       ├── create-new-feature.sh   # 创建新特性脚本</span><br><span class="line">│       ├── setup-plan.sh           # 设置计划脚本</span><br><span class="line">│       └── update-agent-context.sh # 更新代理上下文脚本</span><br><span class="line">└── templates/</span><br><span class="line">    ├── agent-file-template.md      # 代理文件模板</span><br><span class="line">    ├── checklist-template.md       # 检查清单模板</span><br><span class="line">    ├── plan-template.md            # 计划模板</span><br><span class="line">    ├── spec-template.md            # 规范模板</span><br><span class="line">    └── tasks-template.md           # 任务模板</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.codebuddy/</span><br><span class="line">└── commands/ # 包含AI辅助开发的各种命令工具</span><br><span class="line">    ├── speckit.analyze.md          # 跨工件一致性分析命令</span><br><span class="line">    ├── speckit.checklist.md        # 检查清单生成命令</span><br><span class="line">    ├── speckit.clarify.md          # 需求澄清命令</span><br><span class="line">    ├── speckit.constitution.md     # 宪法管理命令</span><br><span class="line">    ├── speckit.implement.md        # 实现命令</span><br><span class="line">    ├── speckit.plan.md             # 计划制定命令</span><br><span class="line">    ├── speckit.specify.md          # 规范制定命令</span><br><span class="line">    ├── speckit.tasks.md            # 任务生成命令</span><br><span class="line">    └── speckit.taskstoissues.md    # 任务转问题命令</span><br><span class="line"></span><br><span class="line">.specify/ # 项目规范化和自动化工具集</span><br><span class="line">├── memory/</span><br><span class="line">│   └── constitution.md             # 项目宪法文件</span><br><span class="line">├── scripts/</span><br><span class="line">│   └── bash/</span><br><span class="line">│       ├── check-prerequisites.sh  # 检查先决条件脚本</span><br><span class="line">│       ├── common.sh               # 通用脚本函数</span><br><span class="line">│       ├── create-new-feature.sh   # 创建新特性脚本</span><br><span class="line">│       ├── setup-plan.sh           # 设置计划脚本</span><br><span class="line">│       └── update-agent-context.sh # 更新代理上下文脚本</span><br><span class="line">└── templates/</span><br><span class="line">    ├── agent-file-template.md      # 代理文件模板</span><br><span class="line">    ├── checklist-template.md       # 检查清单模板</span><br><span class="line">    ├── plan-template.md            # 计划模板</span><br><span class="line">    ├── spec-template.md            # 规范模板</span><br><span class="line">    └── tasks-template.md           # 任务模板</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-<h1 id="三、speckit-规范-AI-编程全流程"><a href="#三、speckit-规范-AI-编程全流程" class="headerlink" title="三、speckit 规范 AI 编程全流程"></a>三、speckit 规范 AI 编程全流程</h1><h2 id="3-1-完整的-speckit-开发流程"><a href="#3-1-完整的-speckit-开发流程" class="headerlink" title="3.1 完整的 speckit 开发流程"></a>3.1 完整的 speckit 开发流程</h2><p><img src="/assets/img/ailearn/ai-learn14-2.png" alt="speckit流程图"></p>
-<p>| 阶段 ｜ 命令 ｜ 目的 |<br>| ——————– | ———————– | ———————————————————- |<br>| 1                    | <code>/speckit.constitution</code> | 定义项目的开发宪章（指导原则）                             |<br>| 2                    | <code>/speckit.specify</code>      | 编写初始功能规格文档                                       |<br>| 3                    | <code>/speckit.checklist</code>    | 验证规格质量是否达到“可交付”标准                           |<br>| 4                    | <code>/speckit.clarify</code>      | 根据 checklist 结果进行需求澄清                            |<br>| 5                    | <code>/speckit.plan</code>         | 进入实现规划，写技术方案                                   |<br>| 6                    | <code>/speckit.tasks</code>        | 基于 Spec 拆解技术方案为一个个可实现的任务点，方便 AI 执行 |<br>| 7                    | <code>/speckit.analyze</code>      | 确认任务的可实现和检查风险点                               |<br>| 8                    | <code>/speckit.implement</code>    | 根据 constitution + spec + tasks 去实现代码输出            |</p>
+<h1 id="三、speckit-规范-AI-编程全流程"><a href="#三、speckit-规范-AI-编程全流程" class="headerlink" title="三、speckit 规范 AI 编程全流程"></a>三、speckit 规范 AI 编程全流程</h1><h2 id="3-1-完整的-speckit-开发流程"><a href="#3-1-完整的-speckit-开发流程" class="headerlink" title="3.1 完整的 speckit 开发流程"></a>3.1 完整的 speckit 开发流程</h2><p><img src="/assets/img/ailearn/ai-learn14/2.png" alt="speckit流程图"></p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>命令</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>/speckit.constitution</code></td>
+<td>定义项目的开发宪章（指导原则）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>/speckit.specify</code></td>
+<td>编写初始功能规格文档</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>/speckit.checklist</code></td>
+<td>验证规格质量是否达到“可交付”标准</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>/speckit.clarify</code></td>
+<td>根据 checklist 结果进行需求澄清</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>/speckit.plan</code></td>
+<td>进入实现规划，写技术方案</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>/speckit.tasks</code></td>
+<td>基于 Spec 拆解技术方案为一个个可实现的任务点，方便 AI 执行</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>/speckit.analyze</code></td>
+<td>确认任务的可实现和检查风险点</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>/speckit.implement</code></td>
+<td>根据 constitution + spec + tasks 去实现代码输出</td>
+</tr>
+</tbody></table>
 <p>以上步骤可以多次执行，如：</p>
 <ul>
 <li><code>/speckit.constitution</code> 可以针对项目，多次调整定义开发规范。</li>
@@ -536,12 +593,12 @@
 <li><code>/speckit.plan</code> 可以查看生成 plan.md 调整生成技术实现方案。</li>
 <li>…等等</li>
 </ul>
-<p><img src="/assets/img/ailearn/ai-learn14-3.png" alt="speckit命令"></p>
+<p><img src="/assets/img/ailearn/ai-learn14/3.png" alt="speckit命令"></p>
 <h2 id="3-2-定义宪章-speckit-constitution"><a href="#3-2-定义宪章-speckit-constitution" class="headerlink" title="3.2 定义宪章 /speckit.constitution"></a>3.2 定义宪章 /speckit.constitution</h2><blockquote>
 <p><strong>宪章</strong>是项目的架构原则和约束的集合。它在整个开发过程中起到”守门员”的作用，确保所有设计决策都符合核心原则。</p>
 </blockquote>
 <p><strong>操作步骤</strong><br>启动 codebuddy ，输入<code>/speckit.constitution 这是一个xxx项目，主要使用技术栈为xxx</code> ，具体如下图：</p>
-<p><img src="/assets/img/ailearn/ai-learn14-5.png" alt="speckit.constitution"></p>
+<p><img src="/assets/img/ailearn/ai-learn14/5.png" alt="speckit.constitution"></p>
 <p>不同技术栈生成项目宪章是不一样，但主要包含以下内容：</p>
 <ul>
 <li>项目主要技术栈</li>
@@ -552,10 +609,10 @@
 <h2 id="3-3-需求设计-speckit-specify-和需求澄清-speckit-clarify"><a href="#3-3-需求设计-speckit-specify-和需求澄清-speckit-clarify" class="headerlink" title="3.3 需求设计(/speckit.specify)和需求澄清(/speckit.clarify)"></a>3.3 需求设计(/speckit.specify)和需求澄清(/speckit.clarify)</h2><blockquote>
 <p>需求设计与澄清解决最大的问题：在开发设计前消除歧义与认知偏差，避免“带猜测”进入 <code>/plan</code> 导致返工。</p>
 </blockquote>
-<h3 id="需求设计"><a href="#需求设计" class="headerlink" title="需求设计"></a>需求设计</h3><p>需求设计工作过程：</p>
+<h3 id="需求设计-speckit-specify"><a href="#需求设计-speckit-specify" class="headerlink" title="需求设计(/speckit.specify)"></a>需求设计(/speckit.specify)</h3><p>需求设计工作过程：</p>
 <ul>
-<li>用户输入初步需求内容 <code>/speckit.specify 需要实现一个xxx内容</code> ， 需求内容越仔细，AI对此的疑问就越少。</li>
-<li>Spec会根据需求生成<strong>“疑问列表”</strong>：模糊术语、未量化指标、冲突需求、缺失边界</li>
+<li>用户输入初步需求内容 <code>/speckit.specify 需要实现一个xxx内容</code> ， 需求内容越仔细，AI 对此的疑问就越少。</li>
+<li>Spec 会根据需求生成<strong>“疑问列表”</strong>：模糊术语、未量化指标、冲突需求、缺失边界</li>
 <li>让用户回答疑问列表，进行交互式问答（可能循环多轮）</li>
 <li>记录决策与补充说明（形成“澄清日志”）</li>
 </ul>
@@ -567,11 +624,131 @@
 <li>安全责任归属不清。</li>
 </ul>
 <p>下面实际操作，具体如下图：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/img/ailearn/ai-learn14/6.png" alt="speckit.specify"></p>
+<h3 id="需求澄清-speckit-clarify"><a href="#需求澄清-speckit-clarify" class="headerlink" title="需求澄清 (/speckit.clarify)"></a>需求澄清 (/speckit.clarify)</h3><p>这里需求澄清 ≈ 需求评审，如果没有需求澄清那么开发流程如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">❌ 开发者猜测 → 实现 A 版本</span><br><span class="line">❌ 产品验收 → &quot;这不是我想要的&quot;</span><br><span class="line">❌ 返工修改 → 浪费时间和资源</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 ❌ 开发者猜测 → 实现 A 版本</span><br><span class="line">2 ❌ 产品验收 → &quot;这不是我想要的&quot;</span><br><span class="line">3 ❌ 返工修改 → 浪费时间和资源</span><br></pre></td></tr></table></figure>
 
+<p>如果有需求澄清，那么就会这样子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 ✅ 结构化提问 → 明确所有歧义点</span><br><span class="line">2 ✅ Q&amp;A 记录 → 形成 Clarifications 文档</span><br><span class="line">3 ✅ 减少返工 → 编码前统一认知</span><br></pre></td></tr></table></figure>
 
+<p>举例子说明：</p>
+<p>输入模糊需求：”我需要新增一个页面去展示 tko 特有的域名列表”</p>
+<p><img src="/assets/img/ailearn/ai-learn14/7.png" alt="speckit.clarify.example"></p>
+<p>Speckit 自动识别模糊点，并生成结构化的澄清问题。你逐一回答这些问题。</p>
+<p><img src="/assets/img/ailearn/ai-learn14/8.png" alt="speckit.clarify.example"></p>
+<p>经过需求设计与澄清，我们就得到了一个清晰的需求文档，大概如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Feature Specification: TKO域名列表展示页面</span><br><span class="line"></span><br><span class="line">**Feature Branch**: `001-tko-domain-list-page`</span><br><span class="line">**Created**: 2025-12-01</span><br><span class="line">**Status**: Draft</span><br><span class="line">**Input**: User description: &quot;需要新增一个页面去展示 tko特有的域名列表&quot;</span><br><span class="line"></span><br><span class="line">## Clarifications</span><br><span class="line"></span><br><span class="line">### Session 2025-12-01</span><br><span class="line"></span><br><span class="line">- Q: TKO域名的业务含义和数据结构定义是什么？ → A: TKO域名是指特定业务场景下使用的专有域名集合，需要明确的业务定义和数据结构</span><br><span class="line">- Q: 域名数据的获取方式和来源是什么？ → A: 静态配置文件中定义域名列表，适合数据不经常变更的场景</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 
+<p>这里会把需求澄清中所有内容都记录起来，如果你需要需求澄清过程越短，那么你在描述需求的时候，需求内容越清晰越好。</p>
+<h2 id="3-4-技术方案设计-speckit-plan"><a href="#3-4-技术方案设计-speckit-plan" class="headerlink" title="3.4 技术方案设计(/speckit.plan)"></a>3.4 技术方案设计(/speckit.plan)</h2><p>这一步主要把需求澄清好的内容拆分一个完整可以实现的技术方案，类似：从产品思维向工程思维的转换。</p>
+<p>这一步会生成多个文件，具体说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">specs/001-tko-domain-list-page/</span><br><span class="line">├── plan.md                 # 总体实施计划</span><br><span class="line">├── research.md             # 技术调研报告 包含针对项目特定技术栈的深度研究</span><br><span class="line">├── data-model.md           # 数据模型设计 定义项目的核心数据结构</span><br><span class="line">└── quickstart.md           # 开发快速入门 给开发者提供即用的指引</span><br></pre></td></tr></table></figure>
+
+<p>具体可以看其产出内容<code>specs/001-tko-domain-list-page/plan.md：</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Implementation Plan: TKO域名列表展示页面</span><br><span class="line"></span><br><span class="line">**Branch**: `001-tko-domain-list-page` | **Date**: 2025-12-01 | **Spec**: /specs/001-tko-domain-list-page/spec.md</span><br><span class="line">**Input**: Feature specification from `/specs/001-tko-domain-list-page/spec.md`</span><br><span class="line"></span><br><span class="line">**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line"></span><br><span class="line">基于功能规格要求，TKO域名列表展示页面将采用Vue 3 + Ant Design Vue技术栈，使用静态配置文件存储域名数据，提供公开访问的域名列表展示、详情查看和搜索筛选功能。页面将支持多语言、环境过滤，并通过虚拟滚动和分页策略处理大规模数据展示。</span><br><span class="line">....</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-生成任务清单-speckit-tasks"><a href="#3-5-生成任务清单-speckit-tasks" class="headerlink" title="3.5 生成任务清单 (/speckit.tasks)"></a>3.5 生成任务清单 (/speckit.tasks)</h2><p>这一步会根据前面的设计和规划，生成详细的开发任务清单，帮助团队高效地推进项目实施。</p>
+<p>这一步其实也是开发中必不可少的部分，就是把技术方案拆成一个个可以真正实现的子任务。</p>
+<p>因为从一个几百甚至上千行行的技术方案，如果没有一个可以真正实现的任务列表，AI 大模型陷入实现混乱。</p>
+<p>具体可以看其产出内容<code>tasks/001-tko-domain-list-page/tasks.md：</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"></span><br><span class="line">## Phase 1: Setup (Shared Infrastructure)</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Phase 2: Foundational (Blocking Prerequisites)</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Phase 3: User Story 1 - 查看TKO域名列表 (Priority: P1) 🎯 MVP</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Phase 4: User Story 2 - 域名信息详情查看 (Priority: P2)</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Phase 5: User Story 3 - 域名列表搜索与筛选 (Priority: P3)</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Phase 6: Polish &amp; Cross-Cutting Concerns</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>！！！注意： 这一步请仔细查看每个生成的步骤内容是否符合要求，如果不符合，请重新调整规划和技术方案。</strong></p>
+<h2 id="3-6-检查任务清单-speckit-checklist"><a href="#3-6-检查任务清单-speckit-checklist" class="headerlink" title="3.6 检查任务清单(/speckit.checklist)"></a>3.6 检查任务清单(/speckit.checklist)</h2><p>这一步是验证任务清单是否符合预期，是否可以实现。是可选步骤，如果不是必须的，可以跳过。</p>
+<p>如果没有指定生成检查案例方向，会提出相关问答确定测试案例方向，最终会按照你的要求去生成测试案例。</p>
+<p>最终会生成一个检查清单，具体可以看其产出内容<code>tasks/001-tko-domain-list-page/checklist/implementation-readiness.md</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 实施准备度检查清单: TKO域名列表展示页面</span><br><span class="line"></span><br><span class="line">**目的**: 在开发前验证需求规格和技术设计的完整性、清晰度,确保开发准备就绪</span><br><span class="line">**创建日期**: 2026-01-12</span><br><span class="line">**特性文档**: [spec.md](../spec.md) | [plan.md](../plan.md) | [tasks.md](../tasks.md)</span><br><span class="line"></span><br><span class="line">**说明**: 此检查清单用于&quot;实施前准备度验证&quot;,以轻量级方式快速检查需求质量的关键方面,重点关注需求完整性和清晰度。这不是测试实现是否正确,而是验证需求本身是否写得足够好、足够清晰以支持实施。</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-7-确认任务可实现-speckit-analyze"><a href="#3-7-确认任务可实现-speckit-analyze" class="headerlink" title="3.7 确认任务可实现(/speckit.analyze)"></a>3.7 确认任务可实现(/speckit.analyze)</h2><h3 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h3><p>在开始编码前，需要对整个方案进行全面的合规性检查：</p>
+<p>✅ 所有用户故事都有对应的任务吗？</p>
+<p>✅ 数据模型覆盖了所有需求吗？</p>
+<p>✅ 宪章的所有原则都被满足了吗？</p>
+<p>✅ 有遗漏的边界情况处理吗？</p>
+<p>✅ 技术方案有风险点吗？</p>
+<p>这个步骤主要让 AI 大模型去分析 上述生成 task 任务是否真正可以实现，有没有什么风险点？如下图所示：</p>
+<p><img src="/assets/img/ailearn/ai-learn14/9.png" alt="speckit.analyze"></p>
+<h2 id="3-8-开始实现-speckit-implement"><a href="#3-8-开始实现-speckit-implement" class="headerlink" title="3.8 开始实现 (/speckit.implement)"></a>3.8 开始实现 (/speckit.implement)</h2><p>在真正执行之前，需要保证项目是可运行的，如：</p>
+<p>前端项目：npm run dev 没有问题</p>
+<p>后端项目：运行没有问题。</p>
+<p>然后开始执行，等待 AI 自动编写代码，具体如下图所示：</p>
+<p><img src="/assets/img/ailearn/ai-learn14/10.png" alt="speckit.implement"></p>
+<p>以上就是基于<code>spec-kit</code>SDD 编程开发的全流程，具体可以参考<a target="_blank" rel="noopener" href="https://github.com/github/spec-kit">spec-kit</a>。</p>
+<h1 id="4-最佳实践"><a href="#4-最佳实践" class="headerlink" title="4. 最佳实践"></a>4. 最佳实践</h1><table>
+<thead>
+<tr>
+<th>场景类型</th>
+<th>推荐流程</th>
+<th>是否生成 spec.md</th>
+<th>是否生成 plan.md</th>
+<th>是否生成 tasks.md</th>
+<th>是否生成 checklist.md</th>
+<th>是否生成 analyze.md</th>
+<th>是否生成 implement.md</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>常规需求</td>
+<td>Specify → Plan → Tasks → Analyze →Implement</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>复杂 bug（跨模块）</td>
+<td>Clarify → Plan → Tasks → Implement</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+<td>否（可引用旧 spec）</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>小 bug（微逻辑、UI、配置）</td>
+<td>Plan → Tasks → Implement</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>配置错误 / 更新脚本</td>
+<td>Tasks → Implement</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<h1 id="5-方案评估"><a href="#5-方案评估" class="headerlink" title="5. 方案评估"></a>5. 方案评估</h1><p>经过上面的介绍，相信你已经对 SDD 有了一定的了解，下面我们来评估一下 Spec-Kit SDD 的优缺点。</p>
+<h2 id="5-1-优点"><a href="#5-1-优点" class="headerlink" title="5.1 优点"></a>5.1 优点</h2><ul>
+<li><strong>结构化开发</strong>：Spec Kit 强制执行结构化的、分步的软件设计流程（包括规范、计划、任务、实现），使整个开发过程更具纪律性。</li>
+<li><strong>减少“意图走样”</strong>：通过将需求转化为机器可读的 YAML 或 Markdown 规范文件，可以最大限度地减少传统开发流程中需求在不同阶段（需求 → 设计 → 实现）被误解的情况。</li>
+<li><strong>规范即“单一事实来源”</strong>：所有开发活动均以规范文件为准绳。当需求变更时，只需更新规范，然后重新生成计划和代码，避免了昂贵的代码重构。</li>
+<li><strong>改善协作和新人引导</strong>：安全策略、合规规则、设计系统约束等都写入规范，为团队提供了清晰的共享上下文，有助于团队协作和新成员快速上手。</li>
+<li><strong>模块化和可测试性</strong>：该方法将大型功能分解为原子的、可管理的任务单元，每个任务通常只涉及几个文件，提高了代码质量的一致性、可预测性和可审查性。</li>
+<li><strong>与现有工具集成</strong>：Spec Kit 是一个开源、模型不可知（model-agnostic）的工具包，可以与现有的 IDE（如 VS Code 的 Cursor 命令）、CI/CD 流水线以及多种 AI 模型（如 Claude Code）自然集成。</li>
+</ul>
+<h2 id="5-2-缺点"><a href="#5-2-缺点" class="headerlink" title="5.2 缺点"></a>5.2 缺点</h2><ul>
+<li><strong>流程缓慢且成本高昂</strong>：整个过程需要生成大量的 Markdown 文档，可能非常缓慢，并且会消耗大量的 AI 模型 token（费用）。</li>
+<li><strong>变更困难</strong>：该流程依赖于前一步骤的输出。如果在流程中途（例如在实现阶段）想要修改规范，则必须重新生成计划和任务等后续所有文件，这个过程非常痛苦且繁琐。</li>
+<li><strong>文档负担重</strong>：对于喜欢快速迭代（vibe coding）的开发者来说，阅读和编辑大量的正式 Markdown 文档可能很无聊，感觉像是回到了传统的瀑布开发模型。</li>
+<li><strong>技术门槛较高</strong>：尽管学习曲线平缓，但有效使用 Spec Kit 仍需要相当高的技术知识水平和对架构原则的理解，需要知道最终的代码应该是什么样子。</li>
+<li><strong>适用场景有限</strong>：目前该工具最适合新项目（Greenfield work）或构建简单的原型。对于大型现有项目或需求频繁变更的项目，集成和维护成本很高。</li>
+</ul>
+<h1 id="6-参考资料"><a href="#6-参考资料" class="headerlink" title="6. 参考资料"></a>6. 参考资料</h1><ul>
+<li>《CodeBuddy Cli 官方说明文档》<a target="_blank" rel="noopener" href="https://www.codebuddy.ai/docs/zh/cli/overview">https://www.codebuddy.ai/docs/zh/cli/overview</a></li>
+<li>《Specification-Driven Development (SDD) 规范驱动开发（SDD）》<a target="_blank" rel="noopener" href="https://github.com/github/spec-kit/blob/main/spec-driven.md">https://github.com/github/spec-kit/blob/main/spec-driven.md</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -725,18 +902,9 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/daily/14.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          5分钟AI，每天搞懂一个知识点(14) - Function Calling
-        
-      </div>
-    </a>
   
-  
-    <a href="/ailearn/daily/12.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(12) -大模型Token</div>
+    <a href="/ailearn/daily/16.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(16) - Agent Skill</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -763,7 +931,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Spec-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Spec 是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">是什么？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">二、快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 环境要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85-codebuddy-code"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装 codebuddy-code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%AE%89%E8%A3%85-spec-kit-%E9%A6%96%E6%AC%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 安装 spec-kit(首次初始化项目使用)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E9%85%8D%E7%BD%AE-Codebuddy-%E8%AF%AD%E8%A8%80%E5%81%8F%E5%A5%BD"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 配置 Codebuddy 语言偏好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AESpec%E8%A7%84%E8%8C%83"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 初始化项目Spec规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81speckit-%E8%A7%84%E8%8C%83-AI-%E7%BC%96%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">三、speckit 规范 AI 编程全流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%8C%E6%95%B4%E7%9A%84-speckit-%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 完整的 speckit 开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%AE%9A%E4%B9%89%E5%AE%AA%E7%AB%A0-speckit-constitution"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 定义宪章 &#x2F;speckit.constitution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1-speckit-specify-%E5%92%8C%E9%9C%80%E6%B1%82%E6%BE%84%E6%B8%85-speckit-clarify"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 需求设计(&#x2F;speckit.specify)和需求澄清(&#x2F;speckit.clarify)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.1.</span> <span class="toc-text">需求设计</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Spec-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Spec 是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">是什么？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">二、快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 环境要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85-codebuddy-code"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装 codebuddy-code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%AE%89%E8%A3%85-spec-kit-%E9%A6%96%E6%AC%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 安装 spec-kit(首次初始化项目使用)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E9%85%8D%E7%BD%AE-Codebuddy-%E8%AF%AD%E8%A8%80%E5%81%8F%E5%A5%BD"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 配置 Codebuddy 语言偏好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE-Spec-%E8%A7%84%E8%8C%83"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 初始化项目 Spec 规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81speckit-%E8%A7%84%E8%8C%83-AI-%E7%BC%96%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">三、speckit 规范 AI 编程全流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%8C%E6%95%B4%E7%9A%84-speckit-%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 完整的 speckit 开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%AE%9A%E4%B9%89%E5%AE%AA%E7%AB%A0-speckit-constitution"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 定义宪章 &#x2F;speckit.constitution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1-speckit-specify-%E5%92%8C%E9%9C%80%E6%B1%82%E6%BE%84%E6%B8%85-speckit-clarify"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 需求设计(&#x2F;speckit.specify)和需求澄清(&#x2F;speckit.clarify)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1-speckit-specify"><span class="toc-number">3.3.1.</span> <span class="toc-text">需求设计(&#x2F;speckit.specify)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E6%BE%84%E6%B8%85-speckit-clarify"><span class="toc-number">3.3.2.</span> <span class="toc-text">需求澄清 (&#x2F;speckit.clarify)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1-speckit-plan"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 技术方案设计(&#x2F;speckit.plan)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%94%9F%E6%88%90%E4%BB%BB%E5%8A%A1%E6%B8%85%E5%8D%95-speckit-tasks"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 生成任务清单 (&#x2F;speckit.tasks)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E6%A3%80%E6%9F%A5%E4%BB%BB%E5%8A%A1%E6%B8%85%E5%8D%95-speckit-checklist"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 检查任务清单(&#x2F;speckit.checklist)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E7%A1%AE%E8%AE%A4%E4%BB%BB%E5%8A%A1%E5%8F%AF%E5%AE%9E%E7%8E%B0-speckit-analyze"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 确认任务可实现(&#x2F;speckit.analyze)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.7.1.</span> <span class="toc-text">为什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0-speckit-implement"><span class="toc-number">3.8.</span> <span class="toc-text">3.8 开始实现 (&#x2F;speckit.implement)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">4.</span> <span class="toc-text">4. 最佳实践</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%96%B9%E6%A1%88%E8%AF%84%E4%BC%B0"><span class="toc-number">5.</span> <span class="toc-text">5. 方案评估</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E4%BC%98%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E7%BC%BA%E7%82%B9"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">6. 参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -794,7 +962,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Tue Dec 09 2025 15:00:00 GMT+0800',
+  	id: 'Fri Jan 09 2026 15:00:00 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })
