@@ -73,20 +73,24 @@ export const Scene3_Types: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 场景标题 */}
       <h1
         style={{
-          fontSize: 64,
+          fontSize: 76,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#4ecdc4"
+          color: "#4ecdc4",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         监督学习的两种类型
@@ -95,12 +99,13 @@ export const Scene3_Types: React.FC = () => {
       {/* 类型介绍 */}
       <div
         style={{
-          fontSize: 28,
+          fontSize: 32,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 60,
+          marginBottom: 40,
           opacity: typesOpacity,
-          maxWidth: "80%"
+          maxWidth: "85%",
+          width: "100%"
         }}
       >
         <p>怎么让AI模型根据训练数据，总结规律呢？主要分为两个类型：</p>
@@ -110,8 +115,9 @@ export const Scene3_Types: React.FC = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          width: "90%",
-          gap: 40
+          width: "95%",
+          gap: 30,
+          maxWidth: "1600px"
         }}
       >
         {/* 回归类型 */}
@@ -119,23 +125,27 @@ export const Scene3_Types: React.FC = () => {
           style={{
             flex: 1,
             backgroundColor: "rgba(255, 107, 107, 0.1)",
-            padding: 30,
+            padding: 25,
             borderRadius: 15,
             border: "2px solid #ff6b6b",
             opacity: regressionOpacity,
-            textAlign: "center"
+            textAlign: "center",
+            minHeight: "300px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
           }}
         >
-          <h2 style={{ fontSize: 36, color: "#ff6b6b", marginBottom: 20 }}>
+          <h2 style={{ fontSize: 40, color: "#ff6b6b", marginBottom: 15 }}>
             📈 回归
           </h2>
-          <p style={{ fontSize: 22, lineHeight: 1.5, marginBottom: 15 }}>
+          <p style={{ fontSize: 26, lineHeight: 1.5, marginBottom: 12 }}>
             <strong>数值预测</strong>
           </p>
-          <p style={{ fontSize: 18, lineHeight: 1.4, color: "#cccccc" }}>
+          <p style={{ fontSize: 20, lineHeight: 1.4, color: "#cccccc" }}>
             数据是连续的、具体的
           </p>
-          <div style={{ marginTop: 20, fontSize: 16, color: "#999999" }}>
+          <div style={{ marginTop: 15, fontSize: 18, color: "#999999" }}>
             <p>• 预测连续数值</p>
             <p>• 如：温度、价格、销量</p>
             <p>• 输出：具体数字</p>
@@ -147,23 +157,27 @@ export const Scene3_Types: React.FC = () => {
           style={{
             flex: 1,
             backgroundColor: "rgba(78, 205, 196, 0.1)",
-            padding: 30,
+            padding: 25,
             borderRadius: 15,
             border: "2px solid #4ecdc4",
             opacity: classificationOpacity,
-            textAlign: "center"
+            textAlign: "center",
+            minHeight: "300px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
           }}
         >
-          <h2 style={{ fontSize: 36, color: "#4ecdc4", marginBottom: 20 }}>
+          <h2 style={{ fontSize: 40, color: "#4ecdc4", marginBottom: 15 }}>
             🏷️ 分类
           </h2>
-          <p style={{ fontSize: 22, lineHeight: 1.5, marginBottom: 15 }}>
+          <p style={{ fontSize: 26, lineHeight: 1.5, marginBottom: 12 }}>
             <strong>类别判断</strong>
           </p>
-          <p style={{ fontSize: 18, lineHeight: 1.4, color: "#cccccc" }}>
+          <p style={{ fontSize: 20, lineHeight: 1.4, color: "#cccccc" }}>
             数据是离散的
           </p>
-          <div style={{ marginTop: 20, fontSize: 16, color: "#999999" }}>
+          <div style={{ marginTop: 15, fontSize: 18, color: "#999999" }}>
             <p>• 预测离散类别</p>
             <p>• 如：猫/狗、是/否、A/B/C</p>
             <p>• 输出：类别标签</p>
@@ -174,15 +188,16 @@ export const Scene3_Types: React.FC = () => {
       {/* 对比总结 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           lineHeight: 1.6,
           textAlign: "center",
-          marginTop: 40,
+          marginTop: 30,
           opacity: summaryOpacity,
           backgroundColor: "rgba(255, 255, 255, 0.05)",
-          padding: 20,
+          padding: 15,
           borderRadius: 10,
-          maxWidth: "70%"
+          maxWidth: "75%",
+          width: "100%"
         }}
       >
         <p style={{ margin: 0 }}>

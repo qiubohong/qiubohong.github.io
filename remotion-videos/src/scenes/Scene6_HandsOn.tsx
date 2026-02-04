@@ -85,20 +85,24 @@ export const Scene6_HandsOn: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 场景标题 */}
       <h1
         style={{
-          fontSize: 64,
+          fontSize: 76,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#ffd93d"
+          color: "#ffd93d",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         🛠️ 动手试试！
@@ -107,18 +111,19 @@ export const Scene6_HandsOn: React.FC = () => {
       {/* 工具介绍 */}
       <div
         style={{
-          fontSize: 28,
+          fontSize: 32,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 50,
+          marginBottom: 40,
           opacity: toolIntroOpacity,
-          maxWidth: "80%"
+          maxWidth: "85%",
+          width: "100%"
         }}
       >
         <p>
           打开 <strong style={{ color: "#ffd93d" }}>Google Teachable Machine</strong>
         </p>
-        <p style={{ fontSize: 24, color: "#cccccc", marginTop: 10 }}>
+        <p style={{ fontSize: 26, color: "#cccccc", marginTop: 10 }}>
           体验监督学习的实际应用
         </p>
       </div>
@@ -128,9 +133,10 @@ export const Scene6_HandsOn: React.FC = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          width: "90%",
-          gap: 30,
-          marginBottom: 50
+          width: "95%",
+          gap: 25,
+          marginBottom: 40,
+          maxWidth: "1400px"
         }}
       >
         {/* 步骤1 */}
@@ -138,26 +144,30 @@ export const Scene6_HandsOn: React.FC = () => {
           style={{
             flex: 1,
             backgroundColor: "rgba(255, 107, 107, 0.1)",
-            padding: 25,
+            padding: 20,
             borderRadius: 12,
             border: "2px solid #ff6b6b",
             opacity: step1Opacity,
-            textAlign: "center"
+            textAlign: "center",
+            minHeight: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
           }}
         >
           <div
             style={{
-              fontSize: 36,
-              marginBottom: 15,
+              fontSize: 40,
+              marginBottom: 12,
               color: "#ff6b6b"
             }}
           >
             1️⃣
           </div>
-          <h3 style={{ fontSize: 24, color: "#ff6b6b", marginBottom: 15 }}>
+          <h3 style={{ fontSize: 26, color: "#ff6b6b", marginBottom: 12 }}>
             创建项目
           </h3>
-          <p style={{ fontSize: 18, lineHeight: 1.5, color: "#cccccc" }}>
+          <p style={{ fontSize: 20, lineHeight: 1.5, color: "#cccccc" }}>
             点击「图片项目」→ 创建「苹果」「橘子」分类
           </p>
         </div>
@@ -167,26 +177,30 @@ export const Scene6_HandsOn: React.FC = () => {
           style={{
             flex: 1,
             backgroundColor: "rgba(78, 205, 196, 0.1)",
-            padding: 25,
+            padding: 20,
             borderRadius: 12,
             border: "2px solid #4ecdc4",
             opacity: step2Opacity,
-            textAlign: "center"
+            textAlign: "center",
+            minHeight: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
           }}
         >
           <div
             style={{
-              fontSize: 36,
-              marginBottom: 15,
+              fontSize: 40,
+              marginBottom: 12,
               color: "#4ecdc4"
             }}
           >
             2️⃣
           </div>
-          <h3 style={{ fontSize: 24, color: "#4ecdc4", marginBottom: 15 }}>
+          <h3 style={{ fontSize: 26, color: "#4ecdc4", marginBottom: 12 }}>
             上传样本
           </h3>
-          <p style={{ fontSize: 18, lineHeight: 1.5, color: "#cccccc" }}>
+          <p style={{ fontSize: 20, lineHeight: 1.5, color: "#cccccc" }}>
             用手机拍摄/上传20张样本图片
           </p>
         </div>
@@ -196,26 +210,30 @@ export const Scene6_HandsOn: React.FC = () => {
           style={{
             flex: 1,
             backgroundColor: "rgba(255, 217, 61, 0.1)",
-            padding: 25,
+            padding: 20,
             borderRadius: 12,
             border: "2px solid #ffd93d",
             opacity: step3Opacity,
-            textAlign: "center"
+            textAlign: "center",
+            minHeight: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
           }}
         >
           <div
             style={{
-              fontSize: 36,
-              marginBottom: 15,
+              fontSize: 40,
+              marginBottom: 12,
               color: "#ffd93d"
             }}
           >
             3️⃣
           </div>
-          <h3 style={{ fontSize: 24, color: "#ffd93d", marginBottom: 15 }}>
+          <h3 style={{ fontSize: 26, color: "#ffd93d", marginBottom: 12 }}>
             训练测试
           </h3>
-          <p style={{ fontSize: 18, lineHeight: 1.5, color: "#cccccc" }}>
+          <p style={{ fontSize: 20, lineHeight: 1.5, color: "#cccccc" }}>
             点击「训练」→ 测试新图片识别效果！
           </p>
         </div>
@@ -224,21 +242,22 @@ export const Scene6_HandsOn: React.FC = () => {
       {/* 工具链接 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           lineHeight: 1.6,
           textAlign: "center",
           opacity: linkOpacity,
           backgroundColor: "rgba(255, 217, 61, 0.2)",
-          padding: 25,
+          padding: 20,
           borderRadius: 10,
           border: "2px solid #ffd93d",
-          width: "60%"
+          width: "65%",
+          maxWidth: "650px"
         }}
       >
         <p style={{ margin: 0 }}>
           🔗 <strong>工具链接</strong>：
         </p>
-        <p style={{ margin: "10px 0 0 0", fontSize: 20, color: "#4ecdc4" }}>
+        <p style={{ margin: "10px 0 0 0", fontSize: 22, color: "#4ecdc4" }}>
           https://teachablemachine.withgoogle.com/
         </p>
       </div>
@@ -246,12 +265,14 @@ export const Scene6_HandsOn: React.FC = () => {
       {/* 鼓励文字 */}
       <div
         style={{
-          fontSize: 22,
+          fontSize: 24,
           lineHeight: 1.6,
           textAlign: "center",
-          marginTop: 40,
+          marginTop: 30,
           opacity: linkOpacity,
-          color: "#cccccc"
+          color: "#cccccc",
+          width: "100%",
+          maxWidth: "80%"
         }}
       >
         <p>

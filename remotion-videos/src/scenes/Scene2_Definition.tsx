@@ -61,20 +61,24 @@ export const Scene2_Definition: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 场景标题 */}
       <h1
         style={{
-          fontSize: 64,
+          fontSize: 76,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#ff6b6b"
+          color: "#ff6b6b",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         监督学习是什么？
@@ -83,12 +87,13 @@ export const Scene2_Definition: React.FC = () => {
       {/* 核心定义 */}
       <div
         style={{
-          fontSize: 32,
+          fontSize: 36,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: definitionOpacity,
-          maxWidth: "80%"
+          maxWidth: "85%",
+          width: "100%"
         }}
       >
         <blockquote
@@ -107,15 +112,16 @@ export const Scene2_Definition: React.FC = () => {
       {/* 生动比喻 */}
       <div
         style={{
-          fontSize: 28,
+          fontSize: 32,
           lineHeight: 1.5,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: analogyOpacity,
           backgroundColor: "rgba(78, 205, 196, 0.1)",
-          padding: 30,
+          padding: 25,
           borderRadius: 10,
-          maxWidth: "70%"
+          maxWidth: "75%",
+          width: "100%"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -127,12 +133,13 @@ export const Scene2_Definition: React.FC = () => {
       {/* 技术定义 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           lineHeight: 1.6,
           textAlign: "center",
           opacity: explanationOpacity,
-          maxWidth: "80%",
-          color: "#cccccc"
+          maxWidth: "85%",
+          color: "#cccccc",
+          width: "100%"
         }}
       >
         <p>

@@ -36,7 +36,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
       
       <TransitionSeries>
         {/* 场景1: 介绍 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={150}>
           <Scene1_Introduction title={title} />
           <Audio
             src={staticFile("scene1-intro.mp3")}
@@ -55,7 +55,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景2: 定义 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={240}>
           <Scene2_Definition />
           <Audio
             src={staticFile("scene2-definition.mp3")}
@@ -74,7 +74,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景3: 类型 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={210}>
           <Scene3_Types />
           <Audio
             src={staticFile("scene3-types.mp3")}
@@ -93,7 +93,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景4: 回归 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={210}>
           <Scene4_Regression />
           <Audio
             src={staticFile("scene4-regression.mp3")}
@@ -112,7 +112,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景5: 分类 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={195}>
           <Scene5_Classification />
           <Audio
             src={staticFile("scene5-classification.mp3")}
@@ -131,7 +131,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景6: 动手试试 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={210}>
           <Scene6_HandsOn />
           <Audio
             src={staticFile("scene6-hands-on.mp3")}
@@ -150,7 +150,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
         />
 
         {/* 场景7: 冷知识 */}
-        <TransitionSeries.Sequence durationInFrames={180}>
+        <TransitionSeries.Sequence durationInFrames={195}>
           <Scene7_FunFact />
           <Audio
             src={staticFile("scene7-fun-fact.mp3")}

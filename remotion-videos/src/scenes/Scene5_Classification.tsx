@@ -85,20 +85,24 @@ export const Scene5_Classification: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 场景标题 */}
       <h1
         style={{
-          fontSize: 64,
+          fontSize: 76,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#4ecdc4"
+          color: "#4ecdc4",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         🏷️ 分类任务
@@ -107,12 +111,13 @@ export const Scene5_Classification: React.FC = () => {
       {/* 例子介绍 */}
       <div
         style={{
-          fontSize: 28,
+          fontSize: 32,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: exampleOpacity,
-          maxWidth: "80%"
+          maxWidth: "85%",
+          width: "100%"
         }}
       >
         <p>
@@ -123,15 +128,16 @@ export const Scene5_Classification: React.FC = () => {
       {/* 预测目标 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 30,
+          marginBottom: 25,
           opacity: targetOpacity,
           backgroundColor: "rgba(78, 205, 196, 0.1)",
-          padding: 20,
+          padding: 15,
           borderRadius: 10,
-          width: "70%"
+          width: "75%",
+          maxWidth: "600px"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -142,15 +148,16 @@ export const Scene5_Classification: React.FC = () => {
       {/* 常见算法 */}
       <div
         style={{
-          fontSize: 22,
+          fontSize: 26,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: algorithmOpacity,
           backgroundColor: "rgba(255, 107, 107, 0.1)",
-          padding: 20,
+          padding: 15,
           borderRadius: 10,
-          width: "60%"
+          width: "65%",
+          maxWidth: "500px"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -161,25 +168,26 @@ export const Scene5_Classification: React.FC = () => {
       {/* 标签分值 */}
       <div
         style={{
-          fontSize: 20,
+          fontSize: 24,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: scoresOpacity,
           backgroundColor: "rgba(255, 255, 255, 0.05)",
-          padding: 25,
+          padding: 20,
           borderRadius: 10,
-          width: "80%"
+          width: "85%",
+          maxWidth: "800px"
         }}
       >
-        <p style={{ marginBottom: 20 }}>
+        <p style={{ marginBottom: 15, fontSize: 26 }}>
           <strong>标签分值</strong>：
         </p>
         <div
           style={{
             display: "flex",
             justifyContent: "space-around",
-            gap: 30,
+            gap: 35,
             flexWrap: "wrap"
           }}
         >
@@ -188,18 +196,19 @@ export const Scene5_Classification: React.FC = () => {
             style={{
               textAlign: "center",
               backgroundColor: "rgba(255, 107, 107, 0.1)",
-              padding: 15,
+              padding: 20,
               borderRadius: 8,
-              border: "1px solid #ff6b6b"
+              border: "1px solid #ff6b6b",
+              minWidth: "200px"
             }}
           >
-            <h3 style={{ color: "#ff6b6b", marginBottom: 10 }}>🐱 猫</h3>
-            <div style={{ fontSize: 16, lineHeight: 1.4 }}>
+            <h3 style={{ color: "#ff6b6b", marginBottom: 15, fontSize: 24 }}>🐱 猫</h3>
+            <div style={{ fontSize: 18, lineHeight: 1.4 }}>
               <p>眼睛(5)</p>
               <p>鼻子(7)</p>
               <p>耳朵(6)</p>
               <p>嘴巴(7)</p>
-              <p style={{ marginTop: 10, fontWeight: "bold" }}>总分: 25</p>
+              <p style={{ marginTop: 15, fontWeight: "bold", fontSize: 20 }}>总分: 25</p>
             </div>
           </div>
 
@@ -208,18 +217,19 @@ export const Scene5_Classification: React.FC = () => {
             style={{
               textAlign: "center",
               backgroundColor: "rgba(78, 205, 196, 0.1)",
-              padding: 15,
+              padding: 20,
               borderRadius: 8,
-              border: "1px solid #4ecdc4"
+              border: "1px solid #4ecdc4",
+              minWidth: "200px"
             }}
           >
-            <h3 style={{ color: "#4ecdc4", marginBottom: 10 }}>🐶 狗</h3>
-            <div style={{ fontSize: 16, lineHeight: 1.4 }}>
+            <h3 style={{ color: "#4ecdc4", marginBottom: 15, fontSize: 24 }}>🐶 狗</h3>
+            <div style={{ fontSize: 18, lineHeight: 1.4 }}>
               <p>眼睛(5)</p>
               <p>鼻子(5)</p>
               <p>耳朵(6)</p>
               <p>嘴巴(7)</p>
-              <p style={{ marginTop: 10, fontWeight: "bold" }}>总分: 23</p>
+              <p style={{ marginTop: 15, fontWeight: "bold", fontSize: 20 }}>总分: 23</p>
             </div>
           </div>
         </div>
@@ -228,15 +238,16 @@ export const Scene5_Classification: React.FC = () => {
       {/* 最终输出 */}
       <div
         style={{
-          fontSize: 26,
+          fontSize: 30,
           lineHeight: 1.6,
           textAlign: "center",
           opacity: outputOpacity,
           backgroundColor: "rgba(255, 107, 107, 0.2)",
-          padding: 30,
+          padding: 25,
           borderRadius: 15,
           border: "2px solid #ff6b6b",
-          width: "70%"
+          width: "75%",
+          maxWidth: "600px"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -250,15 +261,15 @@ export const Scene5_Classification: React.FC = () => {
           }}
         >
           <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#ff6b6b", fontSize: 20 }}>猫</div>
-            <div style={{ fontSize: 18, color: "#cccccc" }}>20~40分</div>
+            <div style={{ color: "#ff6b6b", fontSize: 24 }}>猫</div>
+            <div style={{ fontSize: 20, color: "#cccccc" }}>20~40分</div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#4ecdc4", fontSize: 20 }}>狗</div>
-            <div style={{ fontSize: 18, color: "#cccccc" }}>42~60分</div>
+            <div style={{ color: "#4ecdc4", fontSize: 24 }}>狗</div>
+            <div style={{ fontSize: 20, color: "#cccccc" }}>42~60分</div>
           </div>
         </div>
-        <p style={{ margin: "15px 0 0 0", fontSize: 20, color: "#cccccc" }}>
+        <p style={{ margin: "15px 0 0 0", fontSize: 22, color: "#cccccc" }}>
           输入图片得到最终分类
         </p>
       </div>

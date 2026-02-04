@@ -3,13 +3,41 @@ import { AbsoluteFill, staticFile, useDelayRender, useCurrentFrame, useVideoConf
 import type { Caption } from "@remotion/captions";
 import { createTikTokStyleCaptions } from "@remotion/captions";
 
+// 智能换行函数：将长句子分成多行显示
+const wrapTextIntoLines = (tokens: any[], maxCharsPerLine: number = 25) => {
+  const lines: any[][] = [];
+  let currentLine: any[] = [];
+  let currentLineLength = 0;
+
+  tokens.forEach(token => {
+    const tokenLength = token.text.trim().length;
+    
+    // 如果当前行加上新token会超过最大长度，就换行
+    if (currentLineLength + tokenLength > maxCharsPerLine && currentLine.length > 0) {
+      lines.push([...currentLine]);
+      currentLine = [];
+      currentLineLength = 0;
+    }
+    
+    currentLine.push(token);
+    currentLineLength += tokenLength;
+  });
+
+  // 添加最后一行
+  if (currentLine.length > 0) {
+    lines.push(currentLine);
+  }
+
+  return lines;
+};
+
 interface CaptionComponentProps {
   audioFile: string;
   captionFile: string;
 }
 
 const HIGHLIGHT_COLOR = "#39E508";
-const SWITCH_CAPTIONS_EVERY_MS = 1200;
+const SWITCH_CAPTIONS_EVERY_MS = 800;
 
 export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   audioFile,
@@ -90,34 +118,53 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   // 计算绝对时间
   const absoluteTimeMs = currentPage.startMs + (frame / fps) * 1000;
 
+  // 使用智能换行将当前页面的tokens分成多行
+  const lines = wrapTextIntoLines(currentPage.tokens, 20);
+
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 100 }}>
       <div style={{
-        fontSize: 36,
+        fontSize: 30,
         fontWeight: "bold",
-        whiteSpace: "pre",
         textAlign: "center",
         color: "white",
         textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
         backgroundColor: "rgba(0,0,0,0.6)",
-        padding: "20px 40px",
+        padding: "12px 25px",
         borderRadius: 10,
-        maxWidth: "80%",
-        lineHeight: 1.4
+        maxWidth: "95%",
+        lineHeight: 1.4,
+        wordWrap: "break-word",
+        overflowWrap: "break-word"
       }}>
-        {currentPage.tokens.map((token) => {
-          const isActive =
-            token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+        {lines.map((lineTokens, lineIndex) => (
+          <div key={lineIndex} style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            marginBottom: lineIndex < lines.length - 1 ? "8px" : "0px"
+          }}>
+            {lineTokens.map((token) => {
+              const isActive =
+                token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
 
-          return (
-            <span
-              key={token.fromMs}
-              style={{ color: isActive ? HIGHLIGHT_COLOR : "white" }}
-            >
-              {token.text}
-            </span>
-          );
-        })}
+              return (
+                <span
+                  key={token.fromMs}
+                  style={{ 
+                    color: isActive ? HIGHLIGHT_COLOR : "white",
+                    display: "inline-block",
+                    margin: "0 3px",
+                    whiteSpace: "pre"
+                  }}
+                >
+                  {token.text}
+                </span>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </AbsoluteFill>
   );

@@ -85,20 +85,24 @@ export const Scene4_Regression: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 场景标题 */}
       <h1
         style={{
-          fontSize: 64,
+          fontSize: 76,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#ff6b6b"
+          color: "#ff6b6b",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         📈 回归任务
@@ -107,12 +111,13 @@ export const Scene4_Regression: React.FC = () => {
       {/* 例子介绍 */}
       <div
         style={{
-          fontSize: 28,
+          fontSize: 32,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: exampleOpacity,
-          maxWidth: "80%"
+          maxWidth: "85%",
+          width: "100%"
         }}
       >
         <p>
@@ -123,15 +128,16 @@ export const Scene4_Regression: React.FC = () => {
       {/* 预测目标 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 30,
+          marginBottom: 25,
           opacity: targetOpacity,
           backgroundColor: "rgba(255, 107, 107, 0.1)",
-          padding: 20,
+          padding: 15,
           borderRadius: 10,
-          width: "70%"
+          width: "75%",
+          maxWidth: "600px"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -142,15 +148,16 @@ export const Scene4_Regression: React.FC = () => {
       {/* 常见算法 */}
       <div
         style={{
-          fontSize: 22,
+          fontSize: 26,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: algorithmOpacity,
           backgroundColor: "rgba(78, 205, 196, 0.1)",
-          padding: 20,
+          padding: 15,
           borderRadius: 10,
-          width: "60%"
+          width: "65%",
+          maxWidth: "500px"
         }}
       >
         <p style={{ margin: 0 }}>
@@ -161,47 +168,48 @@ export const Scene4_Regression: React.FC = () => {
       {/* 训练数据 */}
       <div
         style={{
-          fontSize: 20,
+          fontSize: 24,
           lineHeight: 1.6,
           textAlign: "center",
-          marginBottom: 40,
+          marginBottom: 30,
           opacity: dataOpacity,
           backgroundColor: "rgba(255, 255, 255, 0.05)",
-          padding: 25,
+          padding: 20,
           borderRadius: 10,
-          width: "80%"
+          width: "85%",
+          maxWidth: "800px"
         }}
       >
-        <p style={{ marginBottom: 15 }}>
+        <p style={{ marginBottom: 15, fontSize: 26 }}>
           <strong>提供训练数据</strong>：
         </p>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            gap: 30,
+            gap: 35,
             flexWrap: "wrap"
           }}
         >
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 18, color: "#ff6b6b" }}>A(湿度)</div>
-            <div style={{ fontSize: 16, color: "#cccccc" }}>输入特征</div>
+            <div style={{ fontSize: 22, color: "#ff6b6b" }}>A(湿度)</div>
+            <div style={{ fontSize: 18, color: "#cccccc" }}>输入特征</div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 18, color: "#ff6b6b" }}>B(风力)</div>
-            <div style={{ fontSize: 16, color: "#cccccc" }}>输入特征</div>
+            <div style={{ fontSize: 22, color: "#ff6b6b" }}>B(风力)</div>
+            <div style={{ fontSize: 18, color: "#cccccc" }}>输入特征</div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 18, color: "#ff6b6b" }}>C(海拔)</div>
-            <div style={{ fontSize: 16, color: "#cccccc" }}>输入特征</div>
+            <div style={{ fontSize: 22, color: "#ff6b6b" }}>C(海拔)</div>
+            <div style={{ fontSize: 18, color: "#cccccc" }}>输入特征</div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 18, color: "#ff6b6b" }}>D(风向)</div>
-            <div style={{ fontSize: 16, color: "#cccccc" }}>输入特征</div>
+            <div style={{ fontSize: 22, color: "#ff6b6b" }}>D(风向)</div>
+            <div style={{ fontSize: 18, color: "#cccccc" }}>输入特征</div>
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 18, color: "#4ecdc4" }}>Y(温度)</div>
-            <div style={{ fontSize: 16, color: "#cccccc" }}>目标变量</div>
+            <div style={{ fontSize: 22, color: "#4ecdc4" }}>Y(温度)</div>
+            <div style={{ fontSize: 18, color: "#cccccc" }}>目标变量</div>
           </div>
         </div>
       </div>
@@ -209,21 +217,22 @@ export const Scene4_Regression: React.FC = () => {
       {/* 最终输出 */}
       <div
         style={{
-          fontSize: 26,
+          fontSize: 30,
           lineHeight: 1.6,
           textAlign: "center",
           opacity: outputOpacity,
           backgroundColor: "rgba(78, 205, 196, 0.2)",
-          padding: 30,
+          padding: 25,
           borderRadius: 15,
           border: "2px solid #4ecdc4",
-          width: "70%"
+          width: "75%",
+          maxWidth: "600px"
         }}
       >
         <p style={{ margin: 0 }}>
           <strong>最终输出</strong>：Y = f(A,B,C,D) 公式
         </p>
-        <p style={{ margin: "10px 0 0 0", fontSize: 20, color: "#cccccc" }}>
+        <p style={{ margin: "10px 0 0 0", fontSize: 22, color: "#cccccc" }}>
           输入新的ABCD，得到最终天气温度
         </p>
       </div>

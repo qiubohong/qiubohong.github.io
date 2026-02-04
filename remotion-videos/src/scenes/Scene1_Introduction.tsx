@@ -40,24 +40,28 @@ export const Scene1_Introduction: React.FC<Scene1_IntroductionProps> = ({ title 
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 60,
+        padding: 40,
         fontFamily: "Arial, sans-serif",
-        color: "white"
+        color: "white",
+        width: "100%",
+        height: "100%"
       }}
     >
       {/* 主标题 */}
       <h1
         style={{
-          fontSize: 72,
+          fontSize: 84,
           fontWeight: "bold",
-          marginBottom: 40,
+          marginBottom: 30,
           textAlign: "center",
           opacity: titleOpacity,
           transform: `scale(${titleScale})`,
           background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
-          color: "transparent"
+          color: "transparent",
+          width: "100%",
+          maxWidth: "90%"
         }}
       >
         {title}
@@ -66,12 +70,14 @@ export const Scene1_Introduction: React.FC<Scene1_IntroductionProps> = ({ title 
       {/* 副标题 */}
       <h2
         style={{
-          fontSize: 48,
+          fontSize: 56,
           fontWeight: "normal",
-          marginBottom: 60,
+          marginBottom: 40,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#cccccc"
+          color: "#cccccc",
+          width: "100%",
+          maxWidth: "80%"
         }}
       >
         每天搞懂一个AI知识点
@@ -80,14 +86,16 @@ export const Scene1_Introduction: React.FC<Scene1_IntroductionProps> = ({ title 
       {/* 作者信息 */}
       <div
         style={{
-          fontSize: 24,
+          fontSize: 28,
           textAlign: "center",
           opacity: titleOpacity,
-          color: "#888888"
+          color: "#888888",
+          width: "100%",
+          maxWidth: "70%"
         }}
       >
         <p>做一个有温度和有干货的技术分享作者</p>
-        <p style={{ marginTop: 10, fontSize: 20 }}>
+        <p style={{ marginTop: 15, fontSize: 24 }}>
           —— <a href="https://qborfy.com" style={{ color: "#4ecdc4" }}>Qborfy</a>
         </p>
       </div>
