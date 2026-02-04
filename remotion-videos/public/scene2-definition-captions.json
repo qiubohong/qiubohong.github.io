@@ -1,0 +1,23 @@
+[
+  {
+    "text": "什么是监督学习？",
+    "startMs": 0,
+    "endMs": 1500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "监督学习是一种机器学习方法，通过标记数据训练模型",
+    "startMs": 1500,
+    "endMs": 5000,
+    "timestampMs": 1500,
+    "confidence": 0.95
+  },
+  {
+    "text": "模型学习输入特征与输出标签之间的映射关系",
+    "startMs": 5000,
+    "endMs": 8000,
+    "timestampMs": 5000,
+    "confidence": 0.95
+  }
+]

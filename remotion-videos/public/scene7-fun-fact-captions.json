@@ -1,0 +1,23 @@
+[
+  {
+    "text": "监督学习冷知识",
+    "startMs": 0,
+    "endMs": 2000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "监督学习是应用最广泛的机器学习类型",
+    "startMs": 2000,
+    "endMs": 4500,
+    "timestampMs": 2000,
+    "confidence": 0.95
+  },
+  {
+    "text": "占实际应用的70%以上",
+    "startMs": 4500,
+    "endMs": 6500,
+    "timestampMs": 4500,
+    "confidence": 0.95
+  }
+]

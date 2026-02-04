@@ -1,0 +1,37 @@
+{
+  "name": "supervised-learning-video",
+  "version": "1.0.0",
+  "description": "监督学习概念讲解动画视频",
+  "type": "module",
+  "scripts": {
+    "start": "remotion preview src/index.ts",
+    "build": "remotion render src/index.ts SupervisedLearningVideo out/video.mp4",
+    "upgrade": "remotion upgrade",
+    "install-deps": "npm install",
+    "generate-captions": "node generate-captions.js"
+  },
+  "dependencies": {
+    "@remotion/animation-utils": "^4.0.132",
+    "@remotion/bundler": "^4.0.132",
+    "@remotion/captions": "^4.0.132",
+    "@remotion/cli": "^4.0.132",
+    "@remotion/eslint-config": "^4.0.132",
+    "@remotion/install-whisper-cpp": "^4.0.132",
+    "@remotion/light-leaks": "4.0.417",
+    "@remotion/media": "^4.0.132",
+    "@remotion/player": "^4.0.132",
+    "@remotion/renderer": "^4.0.132",
+    "@remotion/transitions": "^4.0.132",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.132"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

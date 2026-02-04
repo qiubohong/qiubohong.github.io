@@ -1,0 +1,23 @@
+[
+  {
+    "text": "监督学习主要分为两大类",
+    "startMs": 0,
+    "endMs": 2000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "回归和分类问题",
+    "startMs": 2000,
+    "endMs": 4000,
+    "timestampMs": 2000,
+    "confidence": 0.95
+  },
+  {
+    "text": "回归预测连续值，分类预测离散类别",
+    "startMs": 4000,
+    "endMs": 7000,
+    "timestampMs": 4000,
+    "confidence": 0.95
+  }
+]

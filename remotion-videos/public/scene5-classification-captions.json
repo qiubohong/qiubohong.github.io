@@ -1,0 +1,23 @@
+[
+  {
+    "text": "分类问题示例",
+    "startMs": 0,
+    "endMs": 1500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "垃圾邮件识别、图像分类等",
+    "startMs": 1500,
+    "endMs": 3500,
+    "timestampMs": 1500,
+    "confidence": 0.95
+  },
+  {
+    "text": "逻辑回归、支持向量机是常用算法",
+    "startMs": 3500,
+    "endMs": 6500,
+    "timestampMs": 3500,
+    "confidence": 0.95
+  }
+]

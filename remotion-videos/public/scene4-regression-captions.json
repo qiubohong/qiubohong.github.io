@@ -1,0 +1,23 @@
+[
+  {
+    "text": "回归问题示例",
+    "startMs": 0,
+    "endMs": 1500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "预测房价、股票价格等连续数值",
+    "startMs": 1500,
+    "endMs": 4000,
+    "timestampMs": 1500,
+    "confidence": 0.95
+  },
+  {
+    "text": "线性回归、决策树回归是常用算法",
+    "startMs": 4000,
+    "endMs": 7000,
+    "timestampMs": 4000,
+    "confidence": 0.95
+  }
+]

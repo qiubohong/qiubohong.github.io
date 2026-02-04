@@ -1,0 +1,23 @@
+[
+  {
+    "text": "动手试试监督学习",
+    "startMs": 0,
+    "endMs": 2000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "使用Python和scikit-learn库",
+    "startMs": 2000,
+    "endMs": 4000,
+    "timestampMs": 2000,
+    "confidence": 0.95
+  },
+  {
+    "text": "快速构建你的第一个机器学习模型",
+    "startMs": 4000,
+    "endMs": 7000,
+    "timestampMs": 4000,
+    "confidence": 0.95
+  }
+]

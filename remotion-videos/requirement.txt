@@ -1,0 +1,35 @@
+# 监督学习视频音频生成 - Qwen3-TTS依赖配置
+# 注意：安装顺序很重要，请按此顺序安装
+
+# 基础依赖（必须先安装）
+numpy>=1.24.0
+
+# 核心深度学习框架（必须在flash-attn之前安装）
+torch>=2.0.0
+
+# 加速库（必须在flash-attn之前安装）
+accelerate>=0.20.0
+
+# 注意力优化库（需要torch和accelerate已安装）
+# 如果安装失败，可以注释掉这一行，使用标准注意力机制
+flash-attn>=2.0.0; sys_platform != "win32"
+
+# Qwen3-TTS模型核心依赖
+transformers>=4.30.0
+qwen-tts>=0.1.0
+
+# 音频处理和文件操作
+soundfile>=0.12.0
+librosa>=0.10.0
+# pydub已移除，使用librosa替代（避免ffprobe依赖问题）
+
+# 进度显示和工具
+tqdm>=4.65.0
+
+# 可选：备用TTS方案（如果Qwen3-TTS不可用）
+gtts>=2.3.0
+
+# 安装说明：
+# 1. 如果flash-attn安装失败，可以注释掉该行
+# 2. 或者使用预编译版本：pip install flash-attn --no-build-isolation
+# 3. 或者使用CPU版本：注释掉flash-attn行
