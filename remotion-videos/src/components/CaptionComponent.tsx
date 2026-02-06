@@ -121,6 +121,15 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   // 使用智能换行将当前页面的tokens分成多行
   const lines = wrapTextIntoLines(currentPage.tokens, 20);
 
+  // 计算当前应该显示的行索引（一行展示一行消失）
+  const lineDurationMs = SWITCH_CAPTIONS_EVERY_MS / 2; // 每行显示时间减半，加快切换
+  const currentLineIndex = Math.min(
+    Math.floor((absoluteTimeMs - currentPage.startMs) / lineDurationMs),
+    lines.length - 1
+  );
+
+  const currentLine = lines[currentLineIndex];
+
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 100 }}>
       <div style={{
@@ -137,34 +146,31 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
         wordWrap: "break-word",
         overflowWrap: "break-word"
       }}>
-        {lines.map((lineTokens, lineIndex) => (
-          <div key={lineIndex} style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: lineIndex < lines.length - 1 ? "8px" : "0px"
-          }}>
-            {lineTokens.map((token) => {
-              const isActive =
-                token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap"
+        }}>
+          {currentLine.map((token) => {
+            const isActive =
+              token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
 
-              return (
-                <span
-                  key={token.fromMs}
-                  style={{ 
-                    color: isActive ? HIGHLIGHT_COLOR : "white",
-                    display: "inline-block",
-                    margin: "0 3px",
-                    whiteSpace: "pre"
-                  }}
-                >
-                  {token.text}
-                </span>
-              );
-            })}
-          </div>
-        ))}
+            return (
+              <span
+                key={token.fromMs}
+                style={{ 
+                  color: isActive ? HIGHLIGHT_COLOR : "white",
+                  display: "inline-block",
+                  margin: "0 3px",
+                  whiteSpace: "pre"
+                }}
+              >
+                {token.text}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </AbsoluteFill>
   );

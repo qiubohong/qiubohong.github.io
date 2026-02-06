@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """
-监督学习动画视频 - 音频生成脚本
+监督学习动画视频 - 音频生成脚本（优化版）
 使用Qwen3-TTS模型生成高质量场景解说音频
+
+🎯 优化重点：
+• 音频时长控制：避免音频过长，自动裁剪超过30秒的音频
+• 语音质量优化：降低温度参数，提高语音稳定性
+• 严格采样策略：减少语音乱码和重复问题
+• 音频后处理：音量标准化、低通滤波提高清晰度
+• 重试机制：自动重试失败的任务，提高成功率
+
 语音角色：统一使用温柔女生角色，确保语音风格一致
-音频时长：根据文本内容自然生成，不再限制为固定时长
-模型配置：使用本地下载的Qwen3-TTS模型，无需额外加速包
-脚本调整：根据实际生成的字幕内容优化脚本文本，确保音频与字幕完美同步
+音频时长：智能控制，避免过长音频，确保与视频同步
+模型配置：使用本地下载的Qwen3-TTS模型，优化内存使用
 """
 
 import os
@@ -45,6 +52,7 @@ def get_qwen_model():
                 "pretrained_model_name_or_path": "Qwen3-TTS-12Hz-1.7B-Base",
                 "device_map": "auto",
                 "torch_dtype": torch.bfloat16,
+                "low_cpu_mem_usage": True,  # 减少CPU内存使用
             }
             
             _qwen_model = Qwen3TTSModel.from_pretrained(**model_kwargs)
@@ -70,48 +78,81 @@ def generate_tts_audio(text, output_path, scene_name=None):
         
         print(f"🔄 尝试生成语音 (第{attempt + 1}次)...")
         
+        # 优化生成参数：更严格的参数控制，避免音频过长和语音乱
         common_gen_kwargs = dict(
-            max_new_tokens=1024,  # 减少token限制，避免过长音频
+            max_new_tokens=512,    # 减少token限制，避免过长音频
             do_sample=True,
-            top_k=20,            # 更严格的采样，提高语音质量
-            top_p=0.8,           # 更保守的采样策略
-            temperature=0.6,     # 更低的温度，减少随机性
-            repetition_penalty=1.2,  # 更强的重复惩罚
+            top_k=10,              # 更严格的采样，提高语音稳定性
+            top_p=0.7,             # 更保守的采样策略
+            temperature=0.3,       # 更低的温度，减少随机性，提高语音质量
+            repetition_penalty=1.5,  # 更强的重复惩罚，避免语音重复
             subtalker_dosample=True,
-            subtalker_top_k=20,
-            subtalker_top_p=0.8,
-            subtalker_temperature=0.6,
-        )
-        wavs, sr = model.generate_voice_clone(
-            ref_audio="./demo.wav",
-            ref_text="欢迎来到监督学习的世界！在这个视频中，我们将一起探索机器学习的重要分支监督学习的基本概念、类型和应用场景。",
-            text=text,
-            language="chinese",
-            **common_gen_kwargs
+            subtalker_top_k=10,
+            subtalker_top_p=0.7,
+            subtalker_temperature=0.3,
         )
         
-        # 保存音频
-        sf.write(output_path, wavs[0], sr)
-        
-        # 音频后处理：音量标准化
         try:
-            audio, sr_loaded = librosa.load(output_path, sr=None)
-            # 音量标准化到-3dB
-            audio_normalized = librosa.util.normalize(audio) * 0.7
-            sf.write(output_path, audio_normalized, sr_loaded)
-            print(f"✓ 音频后处理完成: {output_path}")
-        except Exception as e:
-            print(f"⚠️  音频后处理失败，但原始音频已保存: {e}")
-        
+            wavs, sr = model.generate_voice_clone(
+                ref_audio="./demo.wav",
+                ref_text="欢迎来到监督学习的世界！在这个视频中，我们将一起探索机器学习的重要分支监督学习的基本概念、类型和应用场景。",
+                text=text,
+                language="chinese",
+                **common_gen_kwargs
+            )
+            
+            # 保存音频
+            sf.write(output_path, wavs[0], sr)
+            
+            # 音频后处理：音量标准化和时长检查
+            try:
+                audio, sr_loaded = librosa.load(output_path, sr=None)
+                
+                # 检查音频时长，避免过长
+                audio_duration = len(audio) / sr_loaded
+                print(f"📊 音频时长: {audio_duration:.2f}秒")
+                
+                # 如果音频过长，进行裁剪（最大30秒）
+                if audio_duration > 30:
+                    print("⚠️  音频过长，进行裁剪...")
+                    max_samples = int(30 * sr_loaded)
+                    audio = audio[:max_samples]
+                    print(f"✓ 裁剪后时长: {len(audio) / sr_loaded:.2f}秒")
+                
+                # 音量标准化到-3dB
+                audio_normalized = librosa.util.normalize(audio) * 0.7
+                
+                # 添加轻微的低通滤波，提高语音清晰度
+                audio_filtered = librosa.effects.preemphasis(audio_normalized, coef=0.97)
+                
+                sf.write(output_path, audio_filtered, sr_loaded)
+                print(f"✓ 音频后处理完成: {output_path}")
+                
+                # 检查音频质量
+                if audio_duration < 1.0:
+                    print("⚠️  音频过短，可能生成失败")
+                    continue
+                    
+            except Exception as e:
+                print(f"⚠️  音频后处理失败，但原始音频已保存: {e}")
+            
             print(f"✓ 生成音频: {output_path}")
             return True
+            
+        except Exception as e:
+            print(f"❌ 第{attempt + 1}次生成失败: {e}")
+            if attempt < max_retries - 1:
+                print("🔄 等待2秒后重试...")
+                import time
+                time.sleep(2)
     
     return False
 def generate_all_scene_audios():
     """生成所有场景的音频文件"""
     print("🎵 开始生成监督学习视频音频解说...")
     print("🤖 使用Qwen3-TTS模型生成高质量语音")
-    print("🎯 根据文本内容自然生成音频时长，确保音色一致性")
+    print("🎯 优化参数：严格控制音频时长和语音质量")
+    print("⚡ 新增功能：音频时长检查、语音稳定性优化、自动重试机制")
     
     # 确保public目录存在
     public_dir = Path("public")
@@ -125,7 +166,11 @@ def generate_all_scene_audios():
         print(f"\n📝 处理场景: {scene_name}")
         print(f"   文本: {script_text}")
         
-        # 生成TTS音频（传递scene_name用于语音风格控制）
+        # 检查文本长度，避免过长文本
+        if len(script_text) > 200:
+            print("⚠️  文本过长，可能影响音频质量")
+        
+        # 生成TTS音频
         if generate_tts_audio(script_text, output_path, scene_name):
             print(f"✅ 场景音频完成: {output_path.name}")
             success_count += 1

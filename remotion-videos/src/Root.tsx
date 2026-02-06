@@ -1,17 +1,17 @@
 import { Composition } from "remotion";
 import { SupervisedLearningVideo } from "./SupervisedLearningVideo";
 
-export const RemotionRoot: React.FC = () => {
+export const RemotionRoot = () => {
   return (
     <Composition
       id="SupervisedLearningVideo"
       component={SupervisedLearningVideo}
-      durationInFrames={1440}
+      durationInFrames={1500} // 总帧数：50秒（1500帧，30fps）
       fps={30}
       width={1920}
       height={1080}
       defaultProps={{
-        title: "5分钟AI，每天搞懂一个知识点(1) - 监督学习"
+        title: "监督学习概念讲解"
       }}
     />
   );
