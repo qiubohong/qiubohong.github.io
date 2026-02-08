@@ -1,0 +1,53 @@
+{
+  "terminal.integrated.profiles.osx": {
+    "bash (nvm)": {
+      "path": "bash",
+      "args": ["-c", "source ~/.bashrc && nvm use ai && exec bash"],
+      "icon": "terminal-bash"
+    },
+    "zsh (nvm)": {
+      "path": "zsh",
+      "args": ["-c", "source ~/.zshrc && nvm use ai && exec zsh"],
+      "icon": "terminal"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh (nvm)",
+  "terminal.integrated.shellIntegration.enabled": true,
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  // 新增配置：支持frontend项目中的node_modules依赖读取
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.includeCompletionsForModuleExports": true,
+  "typescript.preferences.includeCompletionsForImportStatements": true,
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+  "typescript.suggest.includeCompletionsWithInsertText": true,
+  "typescript.suggest.includeCompletionsWithSnippetText": true,
+  "typescript.suggest.paths": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.validate.enable": true,
+  "typescript.tsserver.useSeparateSyntaxServer": false,
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.includeCompletionsForModuleExports": true,
+  "javascript.suggest.paths": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifierEnding": "auto",
+  "typescript.suggest.includeCompletionsForImportStatements": true
+}

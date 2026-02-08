@@ -4,8 +4,8 @@
   "description": "监督学习概念讲解动画视频",
   "type": "module",
   "scripts": {
-    "start": "remotion preview src/Root.tsx",
-    "build": "remotion render src/Root.tsx SupervisedLearningVideo out/video.mp4",
+    "start": "remotion preview src/index.ts",
+    "build": "remotion render src/index.ts SupervisedLearningVideo out/video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p",
     "upgrade": "remotion upgrade",
     "install-deps": "npm install",
     "generate-captions": "node generate-captions.js"

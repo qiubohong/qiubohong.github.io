@@ -34,7 +34,8 @@ SCENE_SCRIPTS = {
     "scene4-regression": "回归问题示例预测房价、股票价格等连续数值，线性回归、决策树回归是常用算法。",
     "scene5-classification": "分类问题示例垃圾邮件识别、图像分类等，逻辑回归、支持向量机是常用算法。",
     "scene6-hands-on": "动手试试监督学习使用Python和scikit-learn库，快速构建你的第一个机器学习模型。",
-    "scene7-fun-fact": "监督学习冷知识监督学习是应用最广泛的机器学习类型，占实际应用的70%以上。"
+    "scene7-fun-fact": "监督学习冷知识监督学习是应用最广泛的机器学习类型，占实际应用的70%以上。",
+    "scene8-ending": "感谢观看，若喜欢请关注，每天5分钟，轻松学AI",
 }
 
 
@@ -49,7 +50,7 @@ def get_qwen_model():
             print("🔧 加载Qwen3-TTS模型...")
             
             model_kwargs = {
-                "pretrained_model_name_or_path": "Qwen3-TTS-12Hz-1.7B-Base",
+                "pretrained_model_name_or_path": "./Qwen3-TTS-12Hz-1.7B-Base",
                 "device_map": "auto",
                 "torch_dtype": torch.bfloat16,
                 "low_cpu_mem_usage": True,  # 减少CPU内存使用
@@ -79,26 +80,23 @@ def generate_tts_audio(text, output_path, scene_name=None):
         print(f"🔄 尝试生成语音 (第{attempt + 1}次)...")
         
         # 优化生成参数：更严格的参数控制，避免音频过长和语音乱
-        common_gen_kwargs = dict(
-            max_new_tokens=512,    # 减少token限制，避免过长音频
-            do_sample=True,
-            top_k=10,              # 更严格的采样，提高语音稳定性
-            top_p=0.7,             # 更保守的采样策略
-            temperature=0.3,       # 更低的温度，减少随机性，提高语音质量
-            repetition_penalty=1.5,  # 更强的重复惩罚，避免语音重复
-            subtalker_dosample=True,
-            subtalker_top_k=10,
-            subtalker_top_p=0.7,
-            subtalker_temperature=0.3,
-        )
         
         try:
             wavs, sr = model.generate_voice_clone(
-                ref_audio="./demo.wav",
-                ref_text="欢迎来到监督学习的世界！在这个视频中，我们将一起探索机器学习的重要分支监督学习的基本概念、类型和应用场景。",
+                ref_audio="./borfy.mp3",
+                ref_text="5分钟 AI，每天搞懂一个知识点！今天我们学习， 监督学习。",
                 text=text,
                 language="chinese",
-                **common_gen_kwargs
+                max_new_tokens=512,    # 减少token限制，避免过长音频
+                do_sample=True,
+                top_k=10,              # 更严格的采样，提高语音稳定性
+                top_p=0.7,             # 更保守的采样策略
+                temperature=0.3,       # 更低的温度，减少随机性，提高语音质量
+                repetition_penalty=1.5,  # 更强的重复惩罚，避免语音重复
+                subtalker_dosample=True,
+                subtalker_top_k=10,
+                subtalker_top_p=0.7,
+                subtalker_temperature=0.3,
             )
             
             # 保存音频

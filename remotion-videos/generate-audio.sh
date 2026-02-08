@@ -27,17 +27,17 @@ echo "📋 安装Qwen3-TTS依赖包..."
 
 # 先安装基础依赖（不含flash-attn）
 echo "🔧 安装基础依赖..."
-pip3 install torch transformers accelerate qwen-tts soundfile librosa numpy tqdm -i https://pypi.tuna.tsinghua.edu.cn/simple
+# pip3 install torch transformers accelerate qwen-tts soundfile librosa numpy tqdm -i https://pypi.tuna.tsinghua.edu.cn/simple
 
-if [ $? -ne 0 ]; then
-    echo "⚠️  尝试使用默认源安装基础依赖..."
-    pip3 install torch transformers accelerate qwen-tts soundfile librosa numpy tqdm
+# if [ $? -ne 0 ]; then
+#     echo "⚠️  尝试使用默认源安装基础依赖..."
+#     pip3 install torch transformers accelerate qwen-tts soundfile librosa numpy tqdm
     
-    if [ $? -ne 0 ]; then
-        echo "❌ 基础依赖安装失败，请检查网络连接"
-        exit 1
-    fi
-fi
+#     if [ $? -ne 0 ]; then
+#         echo "❌ 基础依赖安装失败，请检查网络连接"
+#         exit 1
+#     fi
+# fi
 
 echo "✅ 基础依赖安装完成"
 

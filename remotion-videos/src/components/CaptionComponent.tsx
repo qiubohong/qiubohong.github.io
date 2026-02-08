@@ -1,39 +1,13 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { AbsoluteFill, staticFile, useDelayRender, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, staticFile, useDelayRender, useCurrentFrame, useVideoConfig, Sequence } from "remotion";
+import { Audio } from "@remotion/media";
 import type { Caption } from "@remotion/captions";
 import { createTikTokStyleCaptions } from "@remotion/captions";
-
-// 智能换行函数：将长句子分成多行显示
-const wrapTextIntoLines = (tokens: any[], maxCharsPerLine: number = 25) => {
-  const lines: any[][] = [];
-  let currentLine: any[] = [];
-  let currentLineLength = 0;
-
-  tokens.forEach(token => {
-    const tokenLength = token.text.trim().length;
-    
-    // 如果当前行加上新token会超过最大长度，就换行
-    if (currentLineLength + tokenLength > maxCharsPerLine && currentLine.length > 0) {
-      lines.push([...currentLine]);
-      currentLine = [];
-      currentLineLength = 0;
-    }
-    
-    currentLine.push(token);
-    currentLineLength += tokenLength;
-  });
-
-  // 添加最后一行
-  if (currentLine.length > 0) {
-    lines.push(currentLine);
-  }
-
-  return lines;
-};
 
 interface CaptionComponentProps {
   audioFile: string;
   captionFile: string;
+  startTimeMs?: number; // 可选：当前Sequence在视频中的起始时间（毫秒）
 }
 
 const HIGHLIGHT_COLOR = "#39E508";
@@ -42,6 +16,7 @@ const SWITCH_CAPTIONS_EVERY_MS = 800;
 export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   audioFile,
   captionFile,
+  startTimeMs = 0,
 }) => {
   const [captions, setCaptions] = useState<Caption[] | null>(null);
   const { delayRender, continueRender, cancelRender } = useDelayRender();
@@ -53,7 +28,17 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
     try {
       const response = await fetch(staticFile(captionFile));
       const data = await response.json();
-      setCaptions(data);
+      
+      // 验证并转换字幕数据格式
+      const validatedCaptions = Array.isArray(data) ? data.map(caption => ({
+        text: caption.text || caption.content || '',
+        startMs: caption.startMs || caption.start || caption.timestampMs || 0,
+        endMs: caption.endMs || caption.end || caption.timestampMs + 2000 || 2000,
+        timestampMs: caption.timestampMs || caption.startMs || 0,
+        confidence: caption.confidence || 0.95
+      })) : [];
+      
+      setCaptions(validatedCaptions);
       continueRender(handle);
     } catch (e) {
       console.warn(`字幕文件加载失败: ${captionFile}`, e);
@@ -68,12 +53,6 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
 
   const { pages } = useMemo(() => {
     if (!captions || captions.length === 0) {
-      return { pages: [] };
-    }
-    
-    // 确保captions是有效的数组格式
-    if (!Array.isArray(captions)) {
-      console.warn('字幕数据格式错误，期望数组格式，实际得到:', typeof captions);
       return { pages: [] };
     }
     
@@ -92,43 +71,40 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
     return null;
   }
 
-  // 如果没有字幕数据，不显示任何内容
   if (captions.length === 0) {
     return null;
   }
 
-  // 计算当前时间
-  const currentTimeMs = (frame / fps) * 1000;
+  // 计算当前Sequence内的相对时间（毫秒）
+  // 全局时间减去Sequence起始时间
+  const globalTimeMs = (frame / fps) * 1000;
+  const currentTimeMs = globalTimeMs;
+console.log(`Current time ${currentTimeMs}ms`, globalTimeMs, startTimeMs)
+  // 如果当前时间小于0，说明还没到这个Sequence
+  if (currentTimeMs < 0) {
+    return null;
+  }
 
   // 找到当前应该显示的字幕页面
-  const currentPage = pages.find(
-    (page, index) => {
-      const nextPage = pages[index + 1];
-      return (
-        currentTimeMs >= page.startMs &&
-        (nextPage ? currentTimeMs < nextPage.startMs : true)
-      );
-    }
-  );
+  const currentPage = pages.find((page, index) => {
+    const nextPage = pages[index + 1];
+    return (
+      currentTimeMs >= page.startMs &&
+      (nextPage ? currentTimeMs < nextPage.startMs : true)
+    );
+  });
 
   if (!currentPage) {
     return null;
   }
 
-  // 计算绝对时间
-  const absoluteTimeMs = currentPage.startMs + (frame / fps) * 1000;
+  // 计算在当前页面内的相对时间
+  const relativeTimeMs = currentTimeMs - currentPage.startMs;
 
-  // 使用智能换行将当前页面的tokens分成多行
-  const lines = wrapTextIntoLines(currentPage.tokens, 20);
-
-  // 计算当前应该显示的行索引（一行展示一行消失）
-  const lineDurationMs = SWITCH_CAPTIONS_EVERY_MS / 2; // 每行显示时间减半，加快切换
-  const currentLineIndex = Math.min(
-    Math.floor((absoluteTimeMs - currentPage.startMs) / lineDurationMs),
-    lines.length - 1
-  );
-
-  const currentLine = lines[currentLineIndex];
+  // 调试信息：显示当前时间同步状态
+  if (frame % 30 === 0) {
+    console.log(`Sequence Start ${startTimeMs}ms, Frame ${frame}: Global time ${globalTimeMs}ms, Current time ${currentTimeMs}ms, Page start ${currentPage.startMs}ms, Relative time ${relativeTimeMs}ms`);
+  }
 
   return (
     <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 100 }}>
@@ -147,19 +123,15 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
         overflowWrap: "break-word"
       }}>
         <div style={{
-          display: "flex",
-          justifyContent: "center",
           alignItems: "center",
-          flexWrap: "wrap"
         }}>
-          {currentLine.map((token) => {
-            const isActive =
-              token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+          {currentPage.tokens.map((token) => {
+            const isActive = false;
 
             return (
-              <span
+              <div
                 key={token.fromMs}
-                style={{ 
+                style={{
                   color: isActive ? HIGHLIGHT_COLOR : "white",
                   display: "inline-block",
                   margin: "0 3px",
@@ -167,7 +139,7 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
                 }}
               >
                 {token.text}
-              </span>
+              </div>
             );
           })}
         </div>
