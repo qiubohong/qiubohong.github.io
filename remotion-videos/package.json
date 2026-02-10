@@ -6,6 +6,7 @@
   "scripts": {
     "start": "remotion preview src/index.ts",
     "build": "remotion render src/index.ts SupervisedLearningVideo out/video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p",
+    "build:unsupervised": "remotion render src/index.ts UnsupervisedLearningVideo out/unsupervised-learning.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p",
     "upgrade": "remotion upgrade",
     "install-deps": "npm install",
     "generate-captions": "node generate-captions.js"

@@ -1,0 +1,44 @@
+[
+  {
+    "text": "什么是无监督学习？",
+    "startMs": 0,
+    "endMs": 2040,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "从未标记数据中",
+    "startMs": 2040,
+    "endMs": 4080,
+    "timestampMs": 2040,
+    "confidence": 1.0
+  },
+  {
+    "text": "挖掘隐藏模式",
+    "startMs": 4080,
+    "endMs": 6120,
+    "timestampMs": 4080,
+    "confidence": 1.0
+  },
+  {
+    "text": "关键特征：无老师指导",
+    "startMs": 6120,
+    "endMs": 8160,
+    "timestampMs": 6120,
+    "confidence": 1.0
+  },
+  {
+    "text": "数据无标签",
+    "startMs": 8160,
+    "endMs": 10200,
+    "timestampMs": 8160,
+    "confidence": 1.0
+  },
+  {
+    "text": "但仍需设计算法目标",
+    "startMs": 10200,
+    "endMs": 10880,
+    "timestampMs": 10200,
+    "confidence": 1.0
+  }
+]

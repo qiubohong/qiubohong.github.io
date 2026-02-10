@@ -1,7 +1,17 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 
-export const Scene8_Ending: React.FC = () => {
+interface EndingSceneProps {
+  mainTitle?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+export const EndingScene: React.FC<EndingSceneProps> = ({
+  mainTitle = "感谢观看",
+  subtitle = "若喜欢请关注",
+  description = "每天5分钟，轻松学AI"
+}) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
@@ -49,7 +59,7 @@ export const Scene8_Ending: React.FC = () => {
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent"
         }}>
-          感谢观看
+          {mainTitle}
         </h1>
         <p style={{
           fontSize: 36,
@@ -60,7 +70,7 @@ export const Scene8_Ending: React.FC = () => {
             extrapolateRight: "clamp",
           })
         }}>
-          若喜欢请关注
+          {subtitle}
         </p>
         <div style={{
           fontSize: 24,
@@ -69,7 +79,7 @@ export const Scene8_Ending: React.FC = () => {
             extrapolateRight: "clamp",
           })
         }}>
-          每天5分钟，轻松学AI
+          {description}
         </div>
       </div>
     </AbsoluteFill>

@@ -1,0 +1,44 @@
+[
+  {
+    "text": "聚类 - 物以类聚",
+    "startMs": 0,
+    "endMs": 2292,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "解决问题：哪些东西本质相似？",
+    "startMs": 2292,
+    "endMs": 5348,
+    "timestampMs": 2292,
+    "confidence": 1.0
+  },
+  {
+    "text": "例如：自助餐厅菜品自动分区",
+    "startMs": 5348,
+    "endMs": 8404,
+    "timestampMs": 5348,
+    "confidence": 1.0
+  },
+  {
+    "text": "200道菜自动划分为",
+    "startMs": 8404,
+    "endMs": 10696,
+    "timestampMs": 8404,
+    "confidence": 1.0
+  },
+  {
+    "text": "海鲜刺身区、川湘热炒区、西式烘焙区",
+    "startMs": 10696,
+    "endMs": 14516,
+    "timestampMs": 10696,
+    "confidence": 1.0
+  },
+  {
+    "text": "顾客5秒锁定目标区域",
+    "startMs": 14516,
+    "endMs": 15280,
+    "timestampMs": 14516,
+    "confidence": 1.0
+  }
+]

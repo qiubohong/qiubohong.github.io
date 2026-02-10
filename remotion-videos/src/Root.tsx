@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition } from "remotion";
 import { SupervisedLearningVideo } from "./SupervisedLearningVideo";
+import { UnsupervisedLearningVideo } from "./UnsupervisedLearningVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -25,6 +26,19 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "监督学习概念讲解"
+        }}
+      />
+
+      {/* 无监督学习视频 */}
+      <Composition
+        id="UnsupervisedLearningVideo"
+        component={UnsupervisedLearningVideo}
+        durationInFrames={3120} // 总帧数：3501帧，约116.71秒（含30帧缓冲规则）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "无监督学习"
         }}
       />
     </>

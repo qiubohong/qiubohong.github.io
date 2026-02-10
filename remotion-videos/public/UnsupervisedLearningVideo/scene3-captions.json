@@ -1,0 +1,30 @@
+[
+  {
+    "text": "无监督学习的三种方法",
+    "startMs": 0,
+    "endMs": 2120,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "聚类：相似数据分组",
+    "startMs": 2120,
+    "endMs": 4240,
+    "timestampMs": 2120,
+    "confidence": 1.0
+  },
+  {
+    "text": "降维：压缩数据特征",
+    "startMs": 4240,
+    "endMs": 6360,
+    "timestampMs": 4240,
+    "confidence": 1.0
+  },
+  {
+    "text": "关联：发现数据关联规律",
+    "startMs": 6360,
+    "endMs": 8480,
+    "timestampMs": 6360,
+    "confidence": 1.0
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "text": "动手实验",
+    "startMs": 0,
+    "endMs": 1420,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "聚类实操：K-means可视化",
+    "startMs": 1420,
+    "endMs": 4260,
+    "timestampMs": 1420,
+    "confidence": 1.0
+  },
+  {
+    "text": "降维对比：TensorFlow词向量压缩",
+    "startMs": 4260,
+    "endMs": 7810,
+    "timestampMs": 4260,
+    "confidence": 1.0
+  },
+  {
+    "text": "关联发现：Python购物车数据分析",
+    "startMs": 7810,
+    "endMs": 11360,
+    "timestampMs": 7810,
+    "confidence": 1.0
+  }
+]

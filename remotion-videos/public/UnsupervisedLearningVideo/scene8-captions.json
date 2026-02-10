@@ -1,0 +1,30 @@
+[
+  {
+    "text": "实际案例",
+    "startMs": 0,
+    "endMs": 1550,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "亚马逊：商品分成27万类",
+    "startMs": 1550,
+    "endMs": 4650,
+    "timestampMs": 1550,
+    "confidence": 1.0
+  },
+  {
+    "text": "NASA：数据处理从3周缩短到4小时",
+    "startMs": 4650,
+    "endMs": 8525,
+    "timestampMs": 4650,
+    "confidence": 1.0
+  },
+  {
+    "text": "7-Eleven：冬季单店增收$6,800",
+    "startMs": 8525,
+    "endMs": 12400,
+    "timestampMs": 8525,
+    "confidence": 1.0
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "text": "关联 - 发现隐藏规律",
+    "startMs": 0,
+    "endMs": 2220,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "解决问题：哪些事总一起发生？",
+    "startMs": 2220,
+    "endMs": 5180,
+    "timestampMs": 2220,
+    "confidence": 1.0
+  },
+  {
+    "text": "例如：便利店商品摆放策略",
+    "startMs": 5180,
+    "endMs": 8140,
+    "timestampMs": 5180,
+    "confidence": 1.0
+  },
+  {
+    "text": "发现规律：买零食饮料的顾客",
+    "startMs": 8140,
+    "endMs": 11100,
+    "timestampMs": 8140,
+    "confidence": 1.0
+  },
+  {
+    "text": "81%会顺手拿纸巾",
+    "startMs": 11100,
+    "endMs": 13320,
+    "timestampMs": 11100,
+    "confidence": 1.0
+  },
+  {
+    "text": "纸巾销量提升35%",
+    "startMs": 13320,
+    "endMs": 14800,
+    "timestampMs": 13320,
+    "confidence": 1.0
+  }
+]

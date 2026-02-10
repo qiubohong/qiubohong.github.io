@@ -13,7 +13,7 @@ import { Scene4_Regression } from "./scenes/Scene4_Regression";
 import { Scene5_Classification } from "./scenes/Scene5_Classification";
 import { Scene6_HandsOn } from "./scenes/Scene6_HandsOn";
 import { Scene7_FunFact } from "./scenes/Scene7_FunFact";
-import { Scene8_Ending } from "./scenes/Scene8_Ending";
+import { EndingScene } from "./components/EndingScene";
 import { CaptionComponent } from "./components/CaptionComponent";
 
 interface SupervisedLearningVideoProps {
@@ -148,7 +148,7 @@ export const SupervisedLearningVideo: React.FC<SupervisedLearningVideoProps> = (
 
       {/* 场景8: 结尾收尾 */}
       <TransitionSeries.Sequence durationInFrames={180}>
-        <Scene8_Ending />
+        <EndingScene />
         <Html5Audio src={staticFile("scene8-ending.mp3")} volume={0.8} />
         <CaptionComponent
           audioFile="scene8-ending.mp3"

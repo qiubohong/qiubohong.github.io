@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { AbsoluteFill, staticFile, useDelayRender, useCurrentFrame, useVideoConfig, Sequence } from "remotion";
 import { Audio } from "@remotion/media";
 import type { Caption } from "@remotion/captions";
-import { createTikTokStyleCaptions } from "@remotion/captions";
 
 interface CaptionComponentProps {
   audioFile: string;
   captionFile: string;
   startTimeMs?: number; // 可选：当前Sequence在视频中的起始时间（毫秒）
 }
-
-const HIGHLIGHT_COLOR = "#39E508";
-const SWITCH_CAPTIONS_EVERY_MS = 800;
 
 export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   audioFile,
@@ -51,22 +47,6 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
     fetchCaptions();
   }, [fetchCaptions]);
 
-  const { pages } = useMemo(() => {
-    if (!captions || captions.length === 0) {
-      return { pages: [] };
-    }
-    
-    try {
-      return createTikTokStyleCaptions({
-        captions,
-        combineTokensWithinMilliseconds: SWITCH_CAPTIONS_EVERY_MS,
-      });
-    } catch (error) {
-      console.error('创建TikTok风格字幕失败:', error);
-      return { pages: [] };
-    }
-  }, [captions]);
-
   if (!captions) {
     return null;
   }
@@ -76,34 +56,29 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   }
 
   // 计算当前Sequence内的相对时间（毫秒）
-  // 全局时间减去Sequence起始时间
   const globalTimeMs = (frame / fps) * 1000;
   const currentTimeMs = globalTimeMs;
-console.log(`Current time ${currentTimeMs}ms`, globalTimeMs, startTimeMs)
+
   // 如果当前时间小于0，说明还没到这个Sequence
   if (currentTimeMs < 0) {
     return null;
   }
 
-  // 找到当前应该显示的字幕页面
-  const currentPage = pages.find((page, index) => {
-    const nextPage = pages[index + 1];
+  // 找到当前应该显示的字幕（逐行显示模式）
+  const currentCaption = captions.find((caption) => {
     return (
-      currentTimeMs >= page.startMs &&
-      (nextPage ? currentTimeMs < nextPage.startMs : true)
+      currentTimeMs >= caption.startMs &&
+      currentTimeMs < caption.endMs
     );
   });
 
-  if (!currentPage) {
+  if (!currentCaption) {
     return null;
   }
 
-  // 计算在当前页面内的相对时间
-  const relativeTimeMs = currentTimeMs - currentPage.startMs;
-
   // 调试信息：显示当前时间同步状态
   if (frame % 30 === 0) {
-    console.log(`Sequence Start ${startTimeMs}ms, Frame ${frame}: Global time ${globalTimeMs}ms, Current time ${currentTimeMs}ms, Page start ${currentPage.startMs}ms, Relative time ${relativeTimeMs}ms`);
+    console.log(`Frame ${frame}: Current time ${currentTimeMs}ms, Caption: "${currentCaption.text}" (${currentCaption.startMs}ms - ${currentCaption.endMs}ms)`);
   }
 
   return (
@@ -122,27 +97,7 @@ console.log(`Current time ${currentTimeMs}ms`, globalTimeMs, startTimeMs)
         wordWrap: "break-word",
         overflowWrap: "break-word"
       }}>
-        <div style={{
-          alignItems: "center",
-        }}>
-          {currentPage.tokens.map((token) => {
-            const isActive = false;
-
-            return (
-              <div
-                key={token.fromMs}
-                style={{
-                  color: isActive ? HIGHLIGHT_COLOR : "white",
-                  display: "inline-block",
-                  margin: "0 3px",
-                  whiteSpace: "pre"
-                }}
-              >
-                {token.text}
-              </div>
-            );
-          })}
-        </div>
+        {currentCaption.text}
       </div>
     </AbsoluteFill>
   );

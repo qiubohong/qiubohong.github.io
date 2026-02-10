@@ -1,0 +1,44 @@
+[
+  {
+    "text": "降维 - 去芜存菁",
+    "startMs": 0,
+    "endMs": 2160,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "解决问题：如何简化复杂信息？",
+    "startMs": 2160,
+    "endMs": 5040,
+    "timestampMs": 2160,
+    "confidence": 1.0
+  },
+  {
+    "text": "例如：购房决策简化模型",
+    "startMs": 5040,
+    "endMs": 7920,
+    "timestampMs": 5040,
+    "confidence": 1.0
+  },
+  {
+    "text": "20个维度压缩为2个核心指标",
+    "startMs": 7920,
+    "endMs": 10800,
+    "timestampMs": 7920,
+    "confidence": 1.0
+  },
+  {
+    "text": "教育资源指数 & 生活便利度",
+    "startMs": 10800,
+    "endMs": 12960,
+    "timestampMs": 10800,
+    "confidence": 1.0
+  },
+  {
+    "text": "半小时锁定目标房源",
+    "startMs": 12960,
+    "endMs": 14400,
+    "timestampMs": 12960,
+    "confidence": 1.0
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "text": "无监督学习",
+    "startMs": 0,
+    "endMs": 2180,
+    "timestampMs": 0,
+    "confidence": 1.0
+  },
+  {
+    "text": "5分钟AI",
+    "startMs": 2180,
+    "endMs": 3633,
+    "timestampMs": 2180,
+    "confidence": 1.0
+  },
+  {
+    "text": "每天搞懂一个知识点",
+    "startMs": 3633,
+    "endMs": 5813,
+    "timestampMs": 3633,
+    "confidence": 1.0
+  },
+  {
+    "text": "让AI在没有标准答案的数据中",
+    "startMs": 5813,
+    "endMs": 7993,
+    "timestampMs": 5813,
+    "confidence": 1.0
+  },
+  {
+    "text": "自己发现规律",
+    "startMs": 7993,
+    "endMs": 8720,
+    "timestampMs": 7993,
+    "confidence": 1.0
+  }
+]
