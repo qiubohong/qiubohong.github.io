@@ -4,11 +4,6 @@
       "path": "bash",
       "args": ["-c", "source ~/.bashrc && nvm use ai && exec bash"],
       "icon": "terminal-bash"
-    },
-    "zsh (nvm)": {
-      "path": "zsh",
-      "args": ["-c", "source ~/.zshrc && nvm use ai && exec zsh"],
-      "icon": "terminal"
     }
   },
   "terminal.integrated.defaultProfile.osx": "zsh (nvm)",

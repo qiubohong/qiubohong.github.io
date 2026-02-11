@@ -2,6 +2,7 @@ import React from "react";
 import { Composition } from "remotion";
 import { SupervisedLearningVideo } from "./SupervisedLearningVideo";
 import { UnsupervisedLearningVideo } from "./UnsupervisedLearningVideo";
+import { ReinforcementLearningVideo } from "./ReinforcementLearningVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -39,6 +40,19 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "无监督学习"
+        }}
+      />
+
+      {/* 强化学习视频 */}
+      <Composition
+        id="ReinforcementLearningVideo"
+        component={ReinforcementLearningVideo}
+        durationInFrames={3728} // 总帧数：3728帧，约124.27秒（7个场景+转场+每场景30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "强化学习"
         }}
       />
     </>

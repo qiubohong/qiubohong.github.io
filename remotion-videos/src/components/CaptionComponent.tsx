@@ -82,20 +82,25 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
   }
 
   return (
-    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 100 }}>
+    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 60 }}>
       <div style={{
-        fontSize: 30,
-        fontWeight: "bold",
+        fontSize: 48,
+        fontWeight: "800",
+        fontFamily: "'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', Arial, sans-serif",
         textAlign: "center",
-        color: "white",
-        textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-        backgroundColor: "rgba(0,0,0,0.6)",
-        padding: "12px 25px",
-        borderRadius: 10,
-        maxWidth: "95%",
-        lineHeight: 1.4,
+        color: "#FFFFFF",
+        textShadow: "0 4px 8px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)",
+        WebkitTextStroke: "3px #FF69B4",
+        paintOrder: "stroke fill",
+        backgroundColor: "transparent",
+        padding: "20px 40px",
+        borderRadius: 16,
+        maxWidth: "90%",
+        lineHeight: 1.5,
         wordWrap: "break-word",
-        overflowWrap: "break-word"
+        overflowWrap: "break-word",
+        letterSpacing: "0.5px",
+        display: "none",
       }}>
         {currentCaption.text}
       </div>
