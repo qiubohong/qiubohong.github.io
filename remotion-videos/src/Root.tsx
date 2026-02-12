@@ -3,6 +3,7 @@ import { Composition } from "remotion";
 import { SupervisedLearningVideo } from "./SupervisedLearningVideo";
 import { UnsupervisedLearningVideo } from "./UnsupervisedLearningVideo";
 import { ReinforcementLearningVideo } from "./ReinforcementLearningVideo";
+import { NeuralNetworkVideo } from "./NeuralNetworkVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -16,7 +17,7 @@ export const RemotionRoot = () => {
         width={1920}
         height={1080}
       />
-      
+
       {/* 主视频 */}
       <Composition
         id="SupervisedLearningVideo"
@@ -53,6 +54,19 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "强化学习"
+        }}
+      />
+
+      {/* 神经网络视频 */}
+      <Composition
+        id="NeuralNetworkVideo"
+        component={NeuralNetworkVideo}
+        durationInFrames={3272} // 总帧数：3272帧，约109.07秒（7个场景+转场+每场景30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "神经网络"
         }}
       />
     </>
