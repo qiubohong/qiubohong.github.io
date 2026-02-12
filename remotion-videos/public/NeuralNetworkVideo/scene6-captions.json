@@ -1,0 +1,38 @@
+[
+  {
+    "text": "我们用快递分拣中心来类比神经网络",
+    "startMs": 0,
+    "endMs": 3807,
+    "timestampMs": 0
+  },
+  {
+    "text": "收货区就是输入层，接收全国的包裹，也就是原始数据",
+    "startMs": 3807,
+    "endMs": 7614,
+    "timestampMs": 3807
+  },
+  {
+    "text": "分拣线就是隐藏层，首站按省份粗分，提取大特征",
+    "startMs": 7614,
+    "endMs": 11421,
+    "timestampMs": 7614
+  },
+  {
+    "text": "中转按城市细分，识别局部特征",
+    "startMs": 11421,
+    "endMs": 15228,
+    "timestampMs": 11421
+  },
+  {
+    "text": "末站按街道精分，确认细节",
+    "startMs": 15228,
+    "endMs": 19035,
+    "timestampMs": 15228
+  },
+  {
+    "text": "发货区就是输出层，送至具体地址，得到分类结果",
+    "startMs": 19035,
+    "endMs": 22843,
+    "timestampMs": 19035
+  }
+]

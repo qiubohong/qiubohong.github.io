@@ -85,19 +85,20 @@ export const NeuralNetworkScene5_Types: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: 70,
+                padding: "45px 55px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden"
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
-                    fontSize: 72,
+                    fontSize: 58,
                     fontWeight: "bold",
-                    marginBottom: 60,
+                    marginBottom: 40,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#667eea",
@@ -114,7 +115,9 @@ export const NeuralNetworkScene5_Types: React.FC = () => {
                     maxWidth: "1600px",
                     display: "flex",
                     flexDirection: "column",
-                    gap: 25
+                    gap: 20,
+                    flex: 1,
+                    overflow: "hidden"
                 }}
             >
                 {/* 表头 */}
@@ -122,11 +125,11 @@ export const NeuralNetworkScene5_Types: React.FC = () => {
                     style={{
                         display: "grid",
                         gridTemplateColumns: "1.5fr 2fr 2fr 2.5fr",
-                        gap: 20,
-                        padding: "20px 30px",
+                        gap: 15,
+                        padding: "18px 25px",
                         backgroundColor: "rgba(102, 126, 234, 0.2)",
-                        borderRadius: 12,
-                        fontSize: 32,
+                        borderRadius: 10,
+                        fontSize: 28,
                         fontWeight: "bold",
                         opacity: titleOpacity
                     }}
@@ -144,12 +147,12 @@ export const NeuralNetworkScene5_Types: React.FC = () => {
                         style={{
                             display: "grid",
                             gridTemplateColumns: "1.5fr 2fr 2fr 2.5fr",
-                            gap: 20,
-                            padding: "25px 30px",
+                            gap: 15,
+                            padding: "20px 25px",
                             backgroundColor: "rgba(255, 255, 255, 0.05)",
-                            borderRadius: 12,
-                            borderLeft: `6px solid ${item.color}`,
-                            fontSize: 28,
+                            borderRadius: 10,
+                            borderLeft: `5px solid ${item.color}`,
+                            fontSize: 24,
                             opacity: item.opacity,
                             alignItems: "center"
                         }}
@@ -159,7 +162,7 @@ export const NeuralNetworkScene5_Types: React.FC = () => {
                         </div>
                         <div style={{ color: "#ddd" }}>{item.feature}</div>
                         <div style={{ color: "#ddd" }}>{item.application}</div>
-                        <div style={{ color: "#aaa", fontSize: 24 }}>{item.experiment}</div>
+                        <div style={{ color: "#aaa", fontSize: 20 }}>{item.experiment}</div>
                     </div>
                 ))}
             </div>

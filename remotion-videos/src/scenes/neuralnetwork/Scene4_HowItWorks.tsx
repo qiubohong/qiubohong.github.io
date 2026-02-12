@@ -97,20 +97,20 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                padding: 60,
+                padding: "40px 50px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
                 height: "100%",
-                overflowY: "auto"
+                overflow: "hidden"
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
-                    fontSize: 72,
+                    fontSize: 60,
                     fontWeight: "bold",
-                    marginBottom: 50,
+                    marginBottom: 30,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#667eea",
@@ -125,10 +125,11 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 30,
+                    gap: 20,
                     width: "100%",
-                    maxWidth: "1500px",
-                    marginBottom: 40
+                    maxWidth: "1600px",
+                    flex: 1,
+                    overflow: "hidden"
                 }}
             >
                 {steps.map((step, index) => (
@@ -137,19 +138,19 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                         style={{
                             opacity: step.opacity,
                             backgroundColor: "rgba(255, 255, 255, 0.05)",
-                            padding: 30,
-                            borderRadius: 15,
-                            borderLeft: `6px solid ${step.color}`,
+                            padding: "20px 25px",
+                            borderRadius: 12,
+                            borderLeft: `5px solid ${step.color}`,
                             display: "flex",
-                            gap: 25
+                            gap: 20
                         }}
                     >
                         <div
                             style={{
-                                fontSize: 48,
+                                fontSize: 40,
                                 fontWeight: "bold",
                                 color: step.color,
-                                minWidth: 60,
+                                minWidth: 50,
                                 textAlign: "center"
                             }}
                         >
@@ -158,9 +159,9 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                         <div style={{ flex: 1 }}>
                             <h3
                                 style={{
-                                    fontSize: 38,
+                                    fontSize: 32,
                                     fontWeight: "bold",
-                                    marginBottom: 10,
+                                    marginBottom: 8,
                                     color: step.color
                                 }}
                             >
@@ -168,9 +169,9 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                             </h3>
                             <p
                                 style={{
-                                    fontSize: 28,
-                                    lineHeight: 1.5,
-                                    margin: "0 0 10px 0",
+                                    fontSize: 24,
+                                    lineHeight: 1.4,
+                                    margin: "0 0 8px 0",
                                     color: "#ddd"
                                 }}
                             >
@@ -178,11 +179,11 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                             </p>
                             <code
                                 style={{
-                                    fontSize: 24,
+                                    fontSize: 20,
                                     color: "#ffd700",
                                     backgroundColor: "rgba(0, 0, 0, 0.3)",
-                                    padding: "8px 15px",
-                                    borderRadius: 8,
+                                    padding: "6px 12px",
+                                    borderRadius: 6,
                                     display: "inline-block"
                                 }}
                             >
@@ -193,26 +194,7 @@ export const NeuralNetworkScene4_HowItWorks: React.FC = () => {
                 ))}
             </div>
 
-            {/* 图片占位 */}
-            <div
-                style={{
-                    opacity: imageOpacity,
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    padding: 25,
-                    borderRadius: 15,
-                    textAlign: "center",
-                    fontSize: 24,
-                    color: "#aaa",
-                    width: "80%",
-                    maxWidth: "700px"
-                }}
-            >
-                📊 神经网络工作流程图
-                <br />
-                <span style={{ fontSize: 18, color: "#888" }}>
-                    （图片路径：/assets/img/ailearn/daily/04/2.png）
-                </span>
-            </div>
+
         </div>
     );
 };

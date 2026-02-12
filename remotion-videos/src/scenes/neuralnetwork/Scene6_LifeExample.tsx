@@ -86,19 +86,20 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: 70,
+                padding: "40px 60px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden"
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
-                    fontSize: 72,
+                    fontSize: 60,
                     fontWeight: "bold",
-                    marginBottom: 40,
+                    marginBottom: 25,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#667eea",
@@ -111,9 +112,9 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
             {/* 副标题 */}
             <h2
                 style={{
-                    fontSize: 48,
+                    fontSize: 40,
                     fontWeight: "normal",
-                    marginBottom: 60,
+                    marginBottom: 40,
                     textAlign: "center",
                     opacity: contentOpacity,
                     color: "#f093fb",
@@ -128,9 +129,11 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 35,
+                    gap: 25,
                     width: "100%",
-                    maxWidth: "1400px"
+                    maxWidth: "1500px",
+                    flex: 1,
+                    overflow: "hidden"
                 }}
             >
                 {steps.map((step, index) => (
@@ -139,18 +142,18 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
                         style={{
                             opacity: step.opacity,
                             backgroundColor: "rgba(255, 255, 255, 0.05)",
-                            padding: 35,
-                            borderRadius: 20,
-                            borderLeft: `8px solid ${step.color}`,
+                            padding: "25px 30px",
+                            borderRadius: 15,
+                            borderLeft: `6px solid ${step.color}`,
                             display: "flex",
                             alignItems: "flex-start",
-                            gap: 30
+                            gap: 25
                         }}
                     >
                         <div
                             style={{
-                                fontSize: 70,
-                                minWidth: 90,
+                                fontSize: 55,
+                                minWidth: 70,
                                 textAlign: "center"
                             }}
                         >
@@ -159,9 +162,9 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
                         <div style={{ flex: 1 }}>
                             <h3
                                 style={{
-                                    fontSize: 42,
+                                    fontSize: 36,
                                     fontWeight: "bold",
-                                    marginBottom: 15,
+                                    marginBottom: 12,
                                     color: step.color
                                 }}
                             >
@@ -169,8 +172,8 @@ export const NeuralNetworkScene6_LifeExample: React.FC = () => {
                             </h3>
                             <p
                                 style={{
-                                    fontSize: 32,
-                                    lineHeight: 1.7,
+                                    fontSize: 26,
+                                    lineHeight: 1.5,
                                     margin: 0,
                                     color: "#ddd",
                                     whiteSpace: "pre-line"

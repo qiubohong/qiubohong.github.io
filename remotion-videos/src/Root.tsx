@@ -61,7 +61,7 @@ export const RemotionRoot = () => {
       <Composition
         id="NeuralNetworkVideo"
         component={NeuralNetworkVideo}
-        durationInFrames={3272} // 总帧数：3272帧，约109.07秒（7个场景+转场+每场景30帧缓冲）
+        durationInFrames={4402} // 总帧数：4742帧，约158.07秒（7个场景+转场+结尾+每场景30帧缓冲）
         fps={30}
         width={1920}
         height={1080}

@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, useCurrentFrame, Easing } from "remotion";
+import { interpolate, useCurrentFrame, Easing, Img, staticFile } from "remotion";
 
 export const NeuralNetworkScene2_Definition: React.FC = () => {
     const frame = useCurrentFrame();
@@ -49,19 +49,20 @@ export const NeuralNetworkScene2_Definition: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: 80,
+                padding: "50px 60px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden"
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
-                    fontSize: 72,
+                    fontSize: 60,
                     fontWeight: "bold",
-                    marginBottom: 60,
+                    marginBottom: 35,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#667eea",
@@ -74,19 +75,19 @@ export const NeuralNetworkScene2_Definition: React.FC = () => {
             {/* 定义内容 */}
             <div
                 style={{
-                    fontSize: 36,
-                    lineHeight: 1.8,
+                    fontSize: 28,
+                    lineHeight: 1.6,
                     textAlign: "left",
                     opacity: contentOpacity,
                     backgroundColor: "rgba(102, 126, 234, 0.15)",
-                    padding: 50,
-                    borderRadius: 20,
+                    padding: "30px 40px",
+                    borderRadius: 15,
                     maxWidth: "90%",
                     width: "100%",
-                    marginBottom: 40
+                    marginBottom: 30
                 }}
             >
-                <p style={{ margin: "0 0 30px 0" }}>
+                <p style={{ margin: "0 0 20px 0" }}>
                     <strong style={{ color: "#667eea" }}>定义：</strong>
                     人工神经网络（Artificial Neural Network，即ANN），
                     是20世纪80年代以来人工智能领域兴起的研究热点。
@@ -97,25 +98,51 @@ export const NeuralNetworkScene2_Definition: React.FC = () => {
                 </p>
             </div>
 
-            {/* 图片占位 */}
+            {/* 神经网络结构示意图 */}
             <div
                 style={{
                     opacity: imageOpacity,
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    padding: 30,
-                    borderRadius: 15,
-                    textAlign: "center",
-                    fontSize: 28,
-                    color: "#aaa",
-                    width: "80%",
-                    maxWidth: "800px"
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 15,
+                    width: "100%",
+                    maxWidth: "900px"
                 }}
             >
-                📊 神经网络结构示意图
-                <br />
-                <span style={{ fontSize: 20, color: "#888" }}>
-                    （图片路径：/assets/img/ailearn/daily/04/1.png）
-                </span>
+                <h3
+                    style={{
+                        fontSize: 32,
+                        fontWeight: "bold",
+                        color: "#667eea",
+                        margin: 0,
+                        textAlign: "center"
+                    }}
+                >
+                    📊 神经网络结构示意图
+                </h3>
+                <div
+                    style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.05)",
+                        padding: 20,
+                        borderRadius: 15,
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        border: "2px solid rgba(102, 126, 234, 0.3)"
+                    }}
+                >
+                    <Img
+                        src={staticFile("NeuralNetworkVideo/images/neural-network-structure.png")}
+                        style={{
+                            maxWidth: "100%",
+                            maxHeight: "400px",
+                            objectFit: "contain",
+                            borderRadius: 10
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );

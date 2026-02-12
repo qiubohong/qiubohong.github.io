@@ -269,6 +269,68 @@ class AudioGenerator:
             print(f"❌ 读取音频时长失败 {audio_path}: {e}")
             return None
     
+    def generate_caption_file(
+        self, 
+        text: str, 
+        audio_duration_ms: int, 
+        caption_file: str
+    ) -> bool:
+        """
+        根据文本生成字幕文件，按句子分割
+        
+        Args:
+            text: 文本内容
+            audio_duration_ms: 音频时长（毫秒）
+            caption_file: 字幕文件路径
+        
+        Returns:
+            是否成功
+        """
+        try:
+            # 按句子分割文本（按句号、问号、感叹号、分号分割）
+            import re
+            sentences = re.split(r'[。！？；]', text)
+            sentences = [s.strip() for s in sentences if s.strip()]
+            
+            if not sentences:
+                # 如果没有分割出句子，使用整个文本
+                sentences = [text]
+            
+            # 计算每个句子的时长（平均分配）
+            sentence_duration_ms = audio_duration_ms / len(sentences)
+            
+            # 生成字幕条目
+            captions = []
+            current_time_ms = 0
+            
+            for i, sentence in enumerate(sentences):
+                start_ms = int(current_time_ms)
+                end_ms = int(current_time_ms + sentence_duration_ms)
+                
+                # 最后一个字幕的结束时间设置为音频总时长
+                if i == len(sentences) - 1:
+                    end_ms = audio_duration_ms
+                
+                captions.append({
+                    "text": sentence,
+                    "startMs": start_ms,
+                    "endMs": end_ms,
+                    "timestampMs": start_ms
+                })
+                
+                current_time_ms += sentence_duration_ms
+            
+            # 保存字幕文件
+            with open(caption_file, 'w', encoding='utf-8') as f:
+                json.dump(captions, f, ensure_ascii=False, indent=2)
+            
+            print(f"✓ 字幕文件生成: {caption_file} ({len(captions)} 条字幕)")
+            return True
+            
+        except Exception as e:
+            print(f"❌ 字幕文件生成失败: {e}")
+            return False
+    
     def generate_audio_with_captions(
         self,
         text: str,
@@ -425,6 +487,18 @@ class AudioGenerator:
                     
                     print(f"🔄 更新字幕时间戳...")
                     self.update_caption_timestamps(caption_file, audio_duration_ms)
+                
+                # 如果是文本模式，生成字幕文件
+                elif self.config.mode == "text":
+                    # 生成字幕文件路径
+                    caption_file = output_path.replace('-audio.mp3', '-captions.json')
+                    if 'caption_file' in scene_config:
+                        caption_file = scene_config['caption_file']
+                        if not caption_file.startswith('/'):
+                            caption_file = os.path.join(self.config.output_dir, caption_file)
+                    
+                    print(f"🔄 生成字幕文件...")
+                    self.generate_caption_file(text, audio_duration_ms, caption_file)
             else:
                 print(f"❌ 场景音频生成失败: {scene_id}")
                 failed_count += 1

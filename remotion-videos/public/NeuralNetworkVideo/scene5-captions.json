@@ -1,0 +1,32 @@
+[
+  {
+    "text": "神经网络有四种主要类型",
+    "startMs": 0,
+    "endMs": 4403,
+    "timestampMs": 0
+  },
+  {
+    "text": "全连接网络，每层神经元全部连接，典型应用是房价预测",
+    "startMs": 4403,
+    "endMs": 8806,
+    "timestampMs": 4403
+  },
+  {
+    "text": "卷积网络CNN，具有局部感知和权重共享的特点，用于人脸识别",
+    "startMs": 8806,
+    "endMs": 13209,
+    "timestampMs": 8806
+  },
+  {
+    "text": "循环网络RNN，能记忆之前的状态，应用于语音识别",
+    "startMs": 13209,
+    "endMs": 17612,
+    "timestampMs": 13209
+  },
+  {
+    "text": "还有Transformer，采用自注意力机制，就是ChatGPT使用的技术",
+    "startMs": 17612,
+    "endMs": 22016,
+    "timestampMs": 17612
+  }
+]

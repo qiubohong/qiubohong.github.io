@@ -74,36 +74,38 @@ export const NeuralNetworkScene3_ThreeLayers: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: 80,
+                padding: "50px 60px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden"
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
-                    fontSize: 72,
+                    fontSize: 60,
                     fontWeight: "bold",
-                    marginBottom: 80,
+                    marginBottom: 50,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#667eea",
                     width: "100%"
                 }}
             >
-                🏗️ 三层功能
+                🏭️ 三层功能
             </h1>
-
             {/* 三个层级 */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 40,
+                    gap: 30,
                     width: "100%",
-                    maxWidth: "1400px"
+                    maxWidth: "1500px",
+                    flex: 1,
+                    overflow: "hidden"
                 }}
             >
                 {layers.map((layer, index) => (
@@ -112,18 +114,18 @@ export const NeuralNetworkScene3_ThreeLayers: React.FC = () => {
                         style={{
                             opacity: layer.opacity,
                             backgroundColor: "rgba(255, 255, 255, 0.05)",
-                            padding: 40,
-                            borderRadius: 20,
-                            borderLeft: `8px solid ${layer.color}`,
+                            padding: "30px 35px",
+                            borderRadius: 15,
+                            borderLeft: `6px solid ${layer.color}`,
                             display: "flex",
                             alignItems: "center",
-                            gap: 30
+                            gap: 25
                         }}
                     >
                         <div
                             style={{
-                                fontSize: 80,
-                                minWidth: 100,
+                                fontSize: 65,
+                                minWidth: 80,
                                 textAlign: "center"
                             }}
                         >
@@ -132,9 +134,9 @@ export const NeuralNetworkScene3_ThreeLayers: React.FC = () => {
                         <div style={{ flex: 1 }}>
                             <h2
                                 style={{
-                                    fontSize: 48,
+                                    fontSize: 40,
                                     fontWeight: "bold",
-                                    marginBottom: 15,
+                                    marginBottom: 12,
                                     color: layer.color
                                 }}
                             >
@@ -142,8 +144,8 @@ export const NeuralNetworkScene3_ThreeLayers: React.FC = () => {
                             </h2>
                             <p
                                 style={{
-                                    fontSize: 36,
-                                    lineHeight: 1.6,
+                                    fontSize: 30,
+                                    lineHeight: 1.5,
                                     margin: 0,
                                     color: "#ddd"
                                 }}

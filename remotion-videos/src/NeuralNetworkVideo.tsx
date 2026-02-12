@@ -27,8 +27,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
 
     return (
         <TransitionSeries>
-            {/* 场景1: 介绍 - 预计9秒 + 1秒缓冲 = 10秒 */}
-            <TransitionSeries.Sequence durationInFrames={300}>
+            {/* 场景1: 介绍 - 音频13.99秒 + 1秒缓冲 = 15秒 (450帧) */}
+            <TransitionSeries.Sequence durationInFrames={450}>
                 <NeuralNetworkScene1_Introduction title={title} />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene1-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -44,8 +44,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={linearTiming({ durationInFrames: 20 })}
             />
 
-            {/* 场景2: 定义 - 预计12秒 + 1秒缓冲 = 13秒 */}
-            <TransitionSeries.Sequence durationInFrames={390}>
+            {/* 场景2: 定义 - 音频17.04秒 + 1秒缓冲 = 18.07秒 (542帧) */}
+            <TransitionSeries.Sequence durationInFrames={542}>
                 <NeuralNetworkScene2_Definition />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene2-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -61,8 +61,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={springTiming({ config: { damping: 200 }, durationInFrames: 25 })}
             />
 
-            {/* 场景3: 三层功能 - 预计15秒 + 1秒缓冲 = 16秒 */}
-            <TransitionSeries.Sequence durationInFrames={480}>
+            {/* 场景3: 三层功能 - 音频17.95秒 + 1秒缓冲 = 18.97秒 (569帧) */}
+            <TransitionSeries.Sequence durationInFrames={569}>
                 <NeuralNetworkScene3_ThreeLayers />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene3-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -78,8 +78,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={linearTiming({ durationInFrames: 15 })}
             />
 
-            {/* 场景4: 怎么做 - 预计18秒 + 1秒缓冲 = 19秒 */}
-            <TransitionSeries.Sequence durationInFrames={570}>
+            {/* 场景4: 怎么做 - 音频28.03秒 + 1秒缓冲 = 29.03秒 (871帧) */}
+            <TransitionSeries.Sequence durationInFrames={871}>
                 <NeuralNetworkScene4_HowItWorks />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene4-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -95,8 +95,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={springTiming({ config: { damping: 150 }, durationInFrames: 30 })}
             />
 
-            {/* 场景5: 算法类型 - 预计16秒 + 1秒缓冲 = 17秒 */}
-            <TransitionSeries.Sequence durationInFrames={510}>
+            {/* 场景5: 算法类型 - 音频22.08秒 + 1秒缓冲 = 23.10秒 (693帧) */}
+            <TransitionSeries.Sequence durationInFrames={693}>
                 <NeuralNetworkScene5_Types />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene5-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -112,8 +112,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={linearTiming({ durationInFrames: 20 })}
             />
 
-            {/* 场景6: 生活案例 - 预计14秒 + 1秒缓冲 = 15秒 */}
-            <TransitionSeries.Sequence durationInFrames={450}>
+            {/* 场景6: 生活案例 - 音频22.90秒 + 1秒缓冲 = 23.90秒 (717帧) */}
+            <TransitionSeries.Sequence durationInFrames={717}>
                 <NeuralNetworkScene6_LifeExample />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene6-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -129,8 +129,8 @@ export const NeuralNetworkVideo: React.FC<NeuralNetworkVideoProps> = ({
                 timing={springTiming({ config: { damping: 180 }, durationInFrames: 22 })}
             />
 
-            {/* 场景7: 冷知识 - 预计12秒 + 1秒缓冲 = 13秒 */}
-            <TransitionSeries.Sequence durationInFrames={390}>
+            {/* 场景7: 冷知识 - 音频17.59秒 + 1秒缓冲 = 18.60秒 (558帧) */}
+            <TransitionSeries.Sequence durationInFrames={558}>
                 <NeuralNetworkScene7_FunFact />
                 <Html5Audio src={staticFile("NeuralNetworkVideo/scene7-audio.mp3")} volume={0.8} />
                 <CaptionComponent
