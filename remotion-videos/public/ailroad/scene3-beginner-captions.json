@@ -1,0 +1,32 @@
+[
+  {
+    "text": "入门阶段，你需要了解预训练模型",
+    "start": 0,
+    "end": 3500
+  },
+  {
+    "text": "预训练模型是在大型数据集上训练好的模型",
+    "start": 3500,
+    "end": 7000
+  },
+  {
+    "text": "主流模型包括OpenAI的GPT系列、DeepSeek、Claude等",
+    "start": 7000,
+    "end": 11500
+  },
+  {
+    "text": "学会使用模型：理解Token规则、上下文长度限制",
+    "start": 11500,
+    "end": 15000
+  },
+  {
+    "text": "掌握主流开发框架：Langchain、LangGraph、CrewAI",
+    "start": 15000,
+    "end": 19500
+  },
+  {
+    "text": "这些框架能帮助你快速构建AI应用",
+    "start": 19500,
+    "end": 23000
+  }
+]

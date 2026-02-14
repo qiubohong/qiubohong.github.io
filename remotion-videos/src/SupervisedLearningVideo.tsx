@@ -5,7 +5,6 @@ import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
 import { wipe } from "@remotion/transitions/wipe";
 import { flip } from "@remotion/transitions/flip";
-import { LightLeak } from "@remotion/light-leaks";
 import { Scene1_Introduction } from "./scenes/Scene1_Introduction";
 import { Scene2_Definition } from "./scenes/Scene2_Definition";
 import { Scene3_Types } from "./scenes/Scene3_Types";

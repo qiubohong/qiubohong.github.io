@@ -1,5 +1,12 @@
 import { Config } from "@remotion/cli/config";
 
+// 设置 Chromium OpenGL 渲染器，解决 macOS 上 WebGL 上下文获取失败的问题
+// Config.setChromiumOptions({
+//   gl: "angle",
+// });
+
+Config.setChromiumOpenGlRenderer("angle");
+
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 

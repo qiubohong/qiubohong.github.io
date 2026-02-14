@@ -1,0 +1,32 @@
+[
+  {
+    "text": "进阶阶段，了解开源AI大模型",
+    "start": 0,
+    "end": 3000
+  },
+  {
+    "text": "DeepSeek、Llama、阿里千问等优秀开源模型",
+    "start": 3000,
+    "end": 7500
+  },
+  {
+    "text": "学习使用Hugging Face和Ollama平台部署模型",
+    "start": 7500,
+    "end": 11500
+  },
+  {
+    "text": "关注AI安全问题：注入攻击、隐私保护、偏见与公平",
+    "start": 11500,
+    "end": 16000
+  },
+  {
+    "text": "使用Moderation API进行内容安全检查",
+    "start": 16000,
+    "end": 19500
+  },
+  {
+    "text": "确保AI应用的可靠性和安全性",
+    "start": 19500,
+    "end": 22500
+  }
+]

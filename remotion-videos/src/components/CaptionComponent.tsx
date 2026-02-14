@@ -88,11 +88,9 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
         fontWeight: "800",
         fontFamily: "'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', Arial, sans-serif",
         textAlign: "center",
-        color: "#FFFFFF",
-        textShadow: "0 4px 8px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)",
-        WebkitTextStroke: "3px #FF69B4",
-        paintOrder: "stroke fill",
-        backgroundColor: "transparent",
+        color: "#1f2937",
+        textShadow: "0 1px 2px rgba(255,255,255,0.8)",
+        backgroundColor: "rgba(255, 255, 255, 0.95)",
         padding: "20px 40px",
         borderRadius: 16,
         maxWidth: "90%",
@@ -100,6 +98,7 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
         wordWrap: "break-word",
         overflowWrap: "break-word",
         letterSpacing: "0.5px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
         display: "none",
       }}>
         {currentCaption.text}

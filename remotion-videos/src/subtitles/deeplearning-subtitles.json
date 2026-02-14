@@ -1,0 +1,418 @@
+{
+  "subtitles": [
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 0,
+      "endTime": 30,
+      "text": "今天我们来学习深度学习"
+    },
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 30,
+      "endTime": 60,
+      "text": "一句话理解：让计算机像人类大脑一样，通过堆叠多层的神经元网络"
+    },
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 60,
+      "endTime": 90,
+      "text": "从原始数据中自动学习由简单到复杂的多层次特征表达"
+    },
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 90,
+      "endTime": 120,
+      "text": "最终实现智能决策"
+    },
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 120,
+      "endTime": 150,
+      "text": "对比之前的机器学习，深度学习让计算机学会举一反三的深度思考能力"
+    },
+    {
+      "scene": "Scene1_Introduction",
+      "startTime": 150,
+      "endTime": 180,
+      "text": "就像从认识鸟，到自动分辨出老鹰和麻雀的特征"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 180,
+      "endTime": 210,
+      "text": "深度学习是什么？"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 210,
+      "endTime": 240,
+      "text": "定义：深度学习是基于学习数据表示的更广泛的机器学习方法系列"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 240,
+      "endTime": 270,
+      "text": "学习可以是监督，半监督或无监督"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 270,
+      "endTime": 300,
+      "text": "与传统机器学习对比"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 300,
+      "endTime": 330,
+      "text": "特征工程依赖度：传统方法需要人工设计特征，深度学习自动学习特征"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 330,
+      "endTime": 360,
+      "text": "数据利用率：传统方法小样本有效，深度学习需大规模数据"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 360,
+      "endTime": 390,
+      "text": "处理非结构化数据：传统方法效果差，深度学习是核心优势领域"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 390,
+      "endTime": 420,
+      "text": "核心差别在特征提取环节，深度学习由机器自己完成特征提取"
+    },
+    {
+      "scene": "Scene2_Definition",
+      "startTime": 420,
+      "endTime": 450,
+      "text": "关键认知：深度学习不是单个算法，而是通过层次化特征学习逼近人类智能的工程技术体系"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 450,
+      "endTime": 480,
+      "text": "深度学习的步骤和原理"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 480,
+      "endTime": 510,
+      "text": "深度学习流程示意图"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 510,
+      "endTime": 540,
+      "text": "第一步：海量数据 - 大规模训练数据集"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 540,
+      "endTime": 570,
+      "text": "第二步：神经网络 - 多层神经元结构"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 570,
+      "endTime": 600,
+      "text": "第三步：逐层特征抽象 - 从简单到复杂"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 600,
+      "endTime": 630,
+      "text": "第四步：智能输出 - 分类或决策结果"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 630,
+      "endTime": 660,
+      "text": "第五步：计算损失 - 优化模型参数"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 660,
+      "endTime": 690,
+      "text": "神经网络关键技术"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 690,
+      "endTime": 720,
+      "text": "正则化 Dropout：降低数据噪音，防止过拟合"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 720,
+      "endTime": 750,
+      "text": "反向传播优化：调整神经网络权重参数"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 750,
+      "endTime": 780,
+      "text": "激活函数 ReLU：增强数据稀疏性，非线性变换"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 780,
+      "endTime": 810,
+      "text": "优化器算法：Adam算法和SGD算法"
+    },
+    {
+      "scene": "Scene3_Process",
+      "startTime": 810,
+      "endTime": 840,
+      "text": "通过不断优化神经网络模型，实现从数据中自动学习多层次特征表达"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 840,
+      "endTime": 870,
+      "text": "经典案例：人脸识别过程"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 870,
+      "endTime": 900,
+      "text": "人脸识别是深度学习的典型应用，展示如何通过多层神经网络学习人脸特征"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 900,
+      "endTime": 930,
+      "text": "人脸识别流程"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 930,
+      "endTime": 960,
+      "text": "第一步：人脸检测 - 定位图像中所有人脸的位置，输出边界框"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 960,
+      "endTime": 990,
+      "text": "第二步：人脸对齐 - 根据关键点矫正人脸角度，消除姿态影响"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 990,
+      "endTime": 1020,
+      "text": "第三步：特征提取 - 将人脸转化为高区分度的数字向量（128~512维）"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1020,
+      "endTime": 1050,
+      "text": "第四步：特征匹配 - 计算特征向量间的相似度，如欧氏距离"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1050,
+      "endTime": 1080,
+      "text": "深度学习在人脸识别中的优势"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1080,
+      "endTime": 1110,
+      "text": "自动特征学习：无需人工设计特征，直接从像素数据中学习"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1110,
+      "endTime": 1140,
+      "text": "鲁棒性强：对光照、角度、遮挡等变化具有很好的适应性"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1140,
+      "endTime": 1170,
+      "text": "高精度识别：在百万级人脸库中达到99%以上的识别准确率"
+    },
+    {
+      "scene": "Scene4_CaseStudy",
+      "startTime": 1170,
+      "endTime": 1200,
+      "text": "人脸识别过程展示了深度学习如何通过层次化特征学习实现高精度模式识别"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1200,
+      "endTime": 1230,
+      "text": "体验深度模型：TensorFlow Playground"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1230,
+      "endTime": 1260,
+      "text": "TensorFlow Playground是Google开发的交互式可视化工具"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1260,
+      "endTime": 1290,
+      "text": "让你能够直观地理解神经网络的工作原理和参数调整的效果"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1290,
+      "endTime": 1320,
+      "text": "交互式界面：实时调整参数，立即看到训练效果变化"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1320,
+      "endTime": 1350,
+      "text": "可视化训练：直观展示损失函数、准确率等训练指标"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1350,
+      "endTime": 1380,
+      "text": "参数调整：调整层数、神经元数量、学习率等关键参数"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1380,
+      "endTime": 1410,
+      "text": "可调整的关键参数：网络结构、训练参数、数据特征"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1410,
+      "endTime": 1440,
+      "text": "通过亲手调整参数，直观理解深度学习模型的训练过程"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1440,
+      "endTime": 1470,
+      "text": "感受不同参数对模型性能的影响，建立对神经网络工作原理的深刻理解"
+    },
+    {
+      "scene": "Scene5_Experience",
+      "startTime": 1470,
+      "endTime": 1500,
+      "text": "访问地址：https://playground.tensorflow.org/"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1500,
+      "endTime": 1530,
+      "text": "深度学习里程碑"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1530,
+      "endTime": 1560,
+      "text": "改变AI历史的关键突破"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1560,
+      "endTime": 1590,
+      "text": "2012年 AlexNet：ImageNet识别错误率从26%降至15%，引爆深度学习热潮"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1590,
+      "endTime": 1620,
+      "text": "2016年 AlphaGo：战胜李世石，证明强化学习+深度网络的决策能力"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1620,
+      "endTime": 1650,
+      "text": "2020年 GPT-3：1750亿参数大模型，实现语言理解与创作，开启大模型时代"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1650,
+      "endTime": 1680,
+      "text": "里程碑的意义：技术突破、产业影响、社会变革"
+    },
+    {
+      "scene": "Scene6_Milestones",
+      "startTime": 1680,
+      "endTime": 1710,
+      "text": "这些里程碑不仅代表技术进步，更标志着AI从实验室走向现实世界的重大转折点"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1710,
+      "endTime": 1740,
+      "text": "深度学习总结"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1740,
+      "endTime": 1770,
+      "text": "掌握AI时代的核心生产资料"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1770,
+      "endTime": 1800,
+      "text": "核心要点回顾"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1800,
+      "endTime": 1830,
+      "text": "定义：基于层次化特征学习的机器学习方法，通过多层神经网络自动学习数据特征表达"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1830,
+      "endTime": 1860,
+      "text": "核心优势：自动特征学习、处理非结构化数据能力强、在大规模数据上表现优异"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1860,
+      "endTime": 1890,
+      "text": "典型应用：人脸识别、自然语言处理、图像生成、自动驾驶、医疗诊断等"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1890,
+      "endTime": 1920,
+      "text": "时代价值：掌握深度学习，就掌握了AI时代的核心生产资料和关键技术"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1920,
+      "endTime": 1950,
+      "text": "参考资料：TensorFlow Playground、卷积神经网络介绍、深度学习框架、学习资源"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1950,
+      "endTime": 1980,
+      "text": "深度学习不是单个算法，而是通过层次化特征学习逼近人类智能的工程技术体系"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 1980,
+      "endTime": 2010,
+      "text": "做一个有温度和有干货的技术分享作者"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 2010,
+      "endTime": 2040,
+      "text": "—— Qborfy"
+    },
+    {
+      "scene": "Scene7_Conclusion",
+      "startTime": 2040,
+      "endTime": 2070,
+      "text": "个人博客：https://qborfy.com"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import { SupervisedLearningVideo } from "./SupervisedLearningVideo";
 import { UnsupervisedLearningVideo } from "./UnsupervisedLearningVideo";
 import { ReinforcementLearningVideo } from "./ReinforcementLearningVideo";
 import { NeuralNetworkVideo } from "./NeuralNetworkVideo";
+import { DeepLearningVideo } from "./DeepLearningVideo";
+import { AILearningRoadVideo } from "./AILearningRoadVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -67,6 +69,32 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "神经网络"
+        }}
+      />
+
+      {/* 深度学习视频 */}
+      <Composition
+        id="DeepLearningVideo"
+        component={DeepLearningVideo}
+        durationInFrames={3200} // 总帧数：3625帧，约120.83秒（8个场景+转场+每场景30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "深度学习"
+        }}
+      />
+
+      {/* AI学习路线视频 */}
+      <Composition
+        id="AILearningRoadVideo"
+        component={AILearningRoadVideo}
+        durationInFrames={4471} // 总帧数：4821帧，约160.7秒（7个场景+转场，每场景帧数=音频时长+30帧）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "AI学习路线"
         }}
       />
     </>

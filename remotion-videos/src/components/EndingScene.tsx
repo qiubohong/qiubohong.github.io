@@ -39,7 +39,7 @@ export const EndingScene: React.FC<EndingSceneProps> = ({
 
   return (
     <AbsoluteFill style={{ 
-      backgroundColor: "#1a1a1a",
+      backgroundColor: "#ffffff",
       justifyContent: "center", 
       alignItems: "center",
       fontFamily: "Arial, sans-serif"
@@ -48,14 +48,14 @@ export const EndingScene: React.FC<EndingSceneProps> = ({
         opacity,
         transform: `scale(${scale})`,
         textAlign: "center",
-        color: "white"
+        color: "#1f2937"
       }}>
         <h1 style={{
           fontSize: 60,
           fontWeight: "bold",
           marginBottom: 40,
-          textShadow: "0 4px 8px rgba(0,0,0,0.5)",
-          background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
+          textShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          background: "linear-gradient(45deg, #dc2626, #0891b2)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent"
         }}>
@@ -65,6 +65,7 @@ export const EndingScene: React.FC<EndingSceneProps> = ({
           fontSize: 36,
           fontWeight: "600",
           marginBottom: 20,
+          color: "#374151",
           opacity: interpolate(frame, [15, 45], [0, 1], {
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp",
@@ -74,6 +75,7 @@ export const EndingScene: React.FC<EndingSceneProps> = ({
         </p>
         <div style={{
           fontSize: 24,
+          color: "#6b7280",
           opacity: interpolate(frame, [30, 60], [0, 1], {
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp",
