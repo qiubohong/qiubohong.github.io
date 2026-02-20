@@ -1,0 +1,37 @@
+[
+    {
+        "text": "最后分享几个冷知识：",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "蜜蜂采蜜路径天然符合TSP最短路径损失，误差小于2%。",
+        "startMs": 2500,
+        "endMs": 7500,
+        "timestampMs": 2500,
+        "confidence": 1.0
+    },
+    {
+        "text": "谷歌用量子退火算法优化损失函数，训练速度提升1000倍。",
+        "startMs": 7500,
+        "endMs": 12500,
+        "timestampMs": 7500,
+        "confidence": 1.0
+    },
+    {
+        "text": "Contrastive Loss推动自监督学习崛起，无需人工标注。",
+        "startMs": 12500,
+        "endMs": 17000,
+        "timestampMs": 12500,
+        "confidence": 1.0
+    },
+    {
+        "text": "AlphaGo Zero的损失函数包含赢棋概率预测和落子分布KL散度。",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 1.0
+    }
+]

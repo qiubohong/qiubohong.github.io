@@ -1,0 +1,32 @@
+[
+    {
+        "text": "第3个：最流行的激活函数！",
+        "startMs": 0,
+        "endMs": 2500
+    },
+    {
+        "text": "ReLU，90%现代网络首选！",
+        "startMs": 2500,
+        "endMs": 4500
+    },
+    {
+        "text": "公式超简单",
+        "startMs": 4500,
+        "endMs": 6000
+    },
+    {
+        "text": "f(x)等于max(0, x)",
+        "startMs": 6000,
+        "endMs": 8000
+    },
+    {
+        "text": "解决了梯度消失问题",
+        "startMs": 8000,
+        "endMs": 9500
+    },
+    {
+        "text": "但有Dead ReLU问题",
+        "startMs": 9500,
+        "endMs": 11000
+    }
+]

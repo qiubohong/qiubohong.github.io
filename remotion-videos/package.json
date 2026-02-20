@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "监督学习概念讲解动画视频",
   "type": "module",
-"scripts": {
+  "scripts": {
     "start": "remotion preview src/index.ts",
     "build": "remotion render src/index.ts SupervisedLearningVideo out/video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
     "build:unsupervised": "remotion render src/index.ts UnsupervisedLearningVideo out/unsupervised-learning.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
+    "build:cnn": "remotion render src/index.ts CNNVideo out/cnn-video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
     "upgrade": "remotion upgrade",
     "install-deps": "npm install",
     "generate-captions": "node generate-captions.js"

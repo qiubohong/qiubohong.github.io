@@ -1,0 +1,38 @@
+[
+    {
+        "text": "最后分享几个超酷的冷知识！",
+        "startMs": 0,
+        "endMs": 2000,
+        "confidence": 1
+    },
+    {
+        "text": "第一个，神经元激活率。",
+        "startMs": 2000,
+        "endMs": 3500,
+        "confidence": 1
+    },
+    {
+        "text": "Sigmoid 网络只有 3-5% 的神经元激活，太浪费了！",
+        "startMs": 3500,
+        "endMs": 7000,
+        "confidence": 1
+    },
+    {
+        "text": "ReLU 网络激活率高达 50%，效率爆表！",
+        "startMs": 7000,
+        "endMs": 10000,
+        "confidence": 1
+    },
+    {
+        "text": "第二个，Swish 的灵感来自生物。",
+        "startMs": 10000,
+        "endMs": 12500,
+        "confidence": 1
+    },
+    {
+        "text": "它的平滑性源于神经突触的离子通道动力学。",
+        "startMs": 12500,
+        "endMs": 16000,
+        "confidence": 1
+    }
+]

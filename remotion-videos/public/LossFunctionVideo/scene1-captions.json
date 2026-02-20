@@ -1,0 +1,51 @@
+[
+    {
+        "text": "大家好，我是Qborfy！",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "今天我们来聊聊损失函数。",
+        "startMs": 2000,
+        "endMs": 4000,
+        "timestampMs": 2000,
+        "confidence": 1.0
+    },
+    {
+        "text": "AI模型为什么总能猜对？",
+        "startMs": 4000,
+        "endMs": 6500,
+        "timestampMs": 4000,
+        "confidence": 1.0
+    },
+    {
+        "text": "秘密就藏在损失函数里！",
+        "startMs": 6500,
+        "endMs": 9000,
+        "timestampMs": 6500,
+        "confidence": 1.0
+    },
+    {
+        "text": "损失函数就像AI的考试评分标准，",
+        "startMs": 9000,
+        "endMs": 11500,
+        "timestampMs": 9000,
+        "confidence": 1.0
+    },
+    {
+        "text": "预测值离真实值越远，扣分越多，",
+        "startMs": 11500,
+        "endMs": 13500,
+        "timestampMs": 11500,
+        "confidence": 1.0
+    },
+    {
+        "text": "模型通过降低扣分来变聪明。",
+        "startMs": 13500,
+        "endMs": 15000,
+        "timestampMs": 13500,
+        "confidence": 1.0
+    }
+]

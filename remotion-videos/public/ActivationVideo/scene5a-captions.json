@@ -1,0 +1,26 @@
+[
+    {
+        "text": "动手实验时间！",
+        "startMs": 0,
+        "endMs": 1500,
+        "confidence": 1
+    },
+    {
+        "text": "用 Python 可视化这些函数超简单！",
+        "startMs": 1500,
+        "endMs": 4000,
+        "confidence": 1
+    },
+    {
+        "text": "只需要几行代码，",
+        "startMs": 4000,
+        "endMs": 5500,
+        "confidence": 1
+    },
+    {
+        "text": "就能看到所有激活函数的曲线。",
+        "startMs": 5500,
+        "endMs": 8000,
+        "confidence": 1
+    }
+]

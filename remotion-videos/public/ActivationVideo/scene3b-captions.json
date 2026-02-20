@@ -1,0 +1,50 @@
+[
+    {
+        "text": "第四个，Leaky ReLU。",
+        "startMs": 0,
+        "endMs": 2000,
+        "confidence": 1
+    },
+    {
+        "text": "公式是 f(x) = max(0.01x, x)，",
+        "startMs": 2000,
+        "endMs": 4500,
+        "confidence": 1
+    },
+    {
+        "text": "解决了 Dead ReLU 问题，",
+        "startMs": 4500,
+        "endMs": 6500,
+        "confidence": 1
+    },
+    {
+        "text": "在负数区保留微小梯度，更稳定。",
+        "startMs": 6500,
+        "endMs": 9000,
+        "confidence": 1
+    },
+    {
+        "text": "第五个，Swish，Google 黑科技！",
+        "startMs": 9000,
+        "endMs": 11500,
+        "confidence": 1
+    },
+    {
+        "text": "公式是 f(x) = x * σ(x)，",
+        "startMs": 11500,
+        "endMs": 13500,
+        "confidence": 1
+    },
+    {
+        "text": "Google Brain 用 AI 找到的，",
+        "startMs": 13500,
+        "endMs": 15500,
+        "confidence": 1
+    },
+    {
+        "text": "精度超越 ReLU，移动端首选！",
+        "startMs": 15500,
+        "endMs": 18000,
+        "confidence": 1
+    }
+]

@@ -1,23 +1,9 @@
 [
   {
-    "text": "感谢观看",
+    "text": "关注我，每天5分钟，AI从入门到精通！",
     "startMs": 0,
-    "endMs": 2000,
+    "endMs": 6000,
     "timestampMs": 0,
-    "confidence": 0.95
-  },
-  {
-    "text": "若喜欢请关注",
-    "startMs": 2000,
-    "endMs": 4000,
-    "timestampMs": 2000,
-    "confidence": 0.95
-  },
-  {
-    "text": "每天5分钟，轻松学AI",
-    "startMs": 4000,
-    "endMs": 5000,
-    "timestampMs": 4000,
-    "confidence": 0.95
+    "confidence": 1.0
   }
 ]

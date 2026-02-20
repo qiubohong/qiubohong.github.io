@@ -1,0 +1,30 @@
+[
+    {
+        "text": "接下来看五大经典损失函数。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "第一，均方误差MSE，用于回归任务，抗噪性弱。",
+        "startMs": 3000,
+        "endMs": 8000,
+        "timestampMs": 3000,
+        "confidence": 1.0
+    },
+    {
+        "text": "第二，交叉熵，用于分类任务，抗噪性强。",
+        "startMs": 8000,
+        "endMs": 13000,
+        "timestampMs": 8000,
+        "confidence": 1.0
+    },
+    {
+        "text": "第三，合页损失Hinge Loss，用于文本分类和支持向量机。",
+        "startMs": 13000,
+        "endMs": 20000,
+        "timestampMs": 13000,
+        "confidence": 1.0
+    }
+]

@@ -6,6 +6,9 @@ import { ReinforcementLearningVideo } from "./ReinforcementLearningVideo";
 import { NeuralNetworkVideo } from "./NeuralNetworkVideo";
 import { DeepLearningVideo } from "./DeepLearningVideo";
 import { AILearningRoadVideo } from "./AILearningRoadVideo";
+import { CNNVideo } from "./CNNVideo";
+import { ActivationFunctionVideo } from "./ActivationFunctionVideo";
+import { LossFunctionVideo } from "./LossFunctionVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -95,6 +98,45 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "AI学习路线"
+        }}
+      />
+
+      {/* CNN卷积网络视频 */}
+      <Composition
+        id="CNNVideo"
+        component={CNNVideo}
+        durationInFrames={4223} // 总帧数：4523帧，约150.77秒（7个场景+6个转场，每场景+30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "卷积网络CNN"
+        }}
+      />
+
+      {/* 激活函数视频 */}
+      <Composition
+        id="ActivationFunctionVideo"
+        component={ActivationFunctionVideo}
+        durationInFrames={5921} // 总帧数：510+660+510+420+510+600+330+270+420+420+250+转场201=5101帧，约170.03秒（除Scene5和Scene6b外每场景+30帧）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "激活函数"
+        }}
+      />
+
+      {/* 损失函数视频 */}
+      <Composition
+        id="LossFunctionVideo"
+        component={LossFunctionVideo}
+        durationInFrames={4472} // 总帧数：450+600+450+600+360+450+600+180+转场182=4472帧，约149.07秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "损失函数"
         }}
       />
     </>

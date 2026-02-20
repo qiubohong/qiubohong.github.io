@@ -1,0 +1,47 @@
+[
+    {
+        "text": "最后2个：进阶版激活函数！",
+        "startMs": 0,
+        "endMs": 2500
+    },
+    {
+        "text": "第4个，Leaky ReLU",
+        "startMs": 2500,
+        "endMs": 4000
+    },
+    {
+        "text": "公式是max(0.01x, x)",
+        "startMs": 4000,
+        "endMs": 6000
+    },
+    {
+        "text": "解决了Dead ReLU问题",
+        "startMs": 6000,
+        "endMs": 7500
+    },
+    {
+        "text": "在负数区保留微小梯度，更稳定",
+        "startMs": 7500,
+        "endMs": 9500
+    },
+    {
+        "text": "第5个，Swish，Google黑科技！",
+        "startMs": 9500,
+        "endMs": 11500
+    },
+    {
+        "text": "公式是x乘以σ(x)",
+        "startMs": 11500,
+        "endMs": 13000
+    },
+    {
+        "text": "Google Brain用AI找到的",
+        "startMs": 13000,
+        "endMs": 14500
+    },
+    {
+        "text": "精度超越ReLU，移动端首选！",
+        "startMs": 14500,
+        "endMs": 16500
+    }
+]

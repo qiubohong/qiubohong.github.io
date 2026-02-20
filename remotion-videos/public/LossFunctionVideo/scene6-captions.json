@@ -1,0 +1,30 @@
+[
+    {
+        "text": "如何选择损失函数？记住三条黄金准则：",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "分类任务优先交叉熵，样本不平衡时升级为Focal Loss。",
+        "startMs": 3500,
+        "endMs": 8000,
+        "timestampMs": 3500,
+        "confidence": 1.0
+    },
+    {
+        "text": "回归任务首选MSE，需抗噪时切Huber。",
+        "startMs": 8000,
+        "endMs": 11500,
+        "timestampMs": 8000,
+        "confidence": 1.0
+    },
+    {
+        "text": "生成任务需组合损失，比如GAN用对抗损失加L1像素损失。",
+        "startMs": 11500,
+        "endMs": 16000,
+        "timestampMs": 11500,
+        "confidence": 1.0
+    }
+]

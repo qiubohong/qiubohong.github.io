@@ -1,0 +1,30 @@
+[
+    {
+        "text": "损失函数主要分为三大类：",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "回归，适用连续可导数据，常用于房价预测。",
+        "startMs": 3000,
+        "endMs": 7000,
+        "timestampMs": 3000,
+        "confidence": 1.0
+    },
+    {
+        "text": "分类，适用离散类别数据，常用于图像识别。",
+        "startMs": 7000,
+        "endMs": 11000,
+        "timestampMs": 7000,
+        "confidence": 1.0
+    },
+    {
+        "text": "生成，适用生成新数据样本，常用于AI绘画。",
+        "startMs": 11000,
+        "endMs": 15000,
+        "timestampMs": 11000,
+        "confidence": 1.0
+    }
+]

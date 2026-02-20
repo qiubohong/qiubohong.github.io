@@ -1,0 +1,16 @@
+[
+    {
+        "text": "第四，焦点损失Focal Loss，用于医学图像分析。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "第五，Huber损失，用于自动驾驶，抗噪性强。",
+        "startMs": 5000,
+        "endMs": 12000,
+        "timestampMs": 5000,
+        "confidence": 1.0
+    }
+]

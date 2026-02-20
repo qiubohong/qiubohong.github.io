@@ -1,0 +1,57 @@
+[
+    {
+        "text": "接下来看5个经典激活函数！",
+        "startMs": 0,
+        "endMs": 2000
+    },
+    {
+        "text": "第1个，Sigmoid",
+        "startMs": 2000,
+        "endMs": 3500
+    },
+    {
+        "text": "公式是1除以1加e的负x次方",
+        "startMs": 3500,
+        "endMs": 5500
+    },
+    {
+        "text": "输出范围0到1，适合二分类",
+        "startMs": 5500,
+        "endMs": 7500
+    },
+    {
+        "text": "但有梯度消失问题",
+        "startMs": 7500,
+        "endMs": 9000
+    },
+    {
+        "text": "第2个，Tanh",
+        "startMs": 9000,
+        "endMs": 10500
+    },
+    {
+        "text": "公式是e的x次方减e的负x次方",
+        "startMs": 10500,
+        "endMs": 12500
+    },
+    {
+        "text": "除以e的x次方加e的负x次方",
+        "startMs": 12500,
+        "endMs": 14500
+    },
+    {
+        "text": "输出范围负1到1",
+        "startMs": 14500,
+        "endMs": 16000
+    },
+    {
+        "text": "常用于RNN和LSTM",
+        "startMs": 16000,
+        "endMs": 17500
+    },
+    {
+        "text": "但梯度消失问题依然存在",
+        "startMs": 17500,
+        "endMs": 19000
+    }
+]

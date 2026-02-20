@@ -1,0 +1,38 @@
+[
+    {
+        "text": "第三个，谷歌用 AI 找函数。",
+        "startMs": 0,
+        "endMs": 2500,
+        "confidence": 1
+    },
+    {
+        "text": "强化学习在 10 万种函数中发现 Swish，",
+        "startMs": 2500,
+        "endMs": 5500,
+        "confidence": 1
+    },
+    {
+        "text": "超越人类设计！",
+        "startMs": 5500,
+        "endMs": 7000,
+        "confidence": 1
+    },
+    {
+        "text": "第四个，宇宙级应用。",
+        "startMs": 7000,
+        "endMs": 9000,
+        "confidence": 1
+    },
+    {
+        "text": "欧洲核子中心 CERN 用 GELU 处理粒子碰撞数据，",
+        "startMs": 9000,
+        "endMs": 12500,
+        "confidence": 1
+    },
+    {
+        "text": "误差降低 38%！",
+        "startMs": 12500,
+        "endMs": 14000,
+        "confidence": 1
+    }
+]

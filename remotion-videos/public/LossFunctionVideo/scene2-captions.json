@@ -1,0 +1,44 @@
+[
+    {
+        "text": "损失函数有三大核心要素：",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 1.0
+    },
+    {
+        "text": "第一，量化误差，计算预测结果与真实值的差距。",
+        "startMs": 3000,
+        "endMs": 7000,
+        "timestampMs": 3000,
+        "confidence": 1.0
+    },
+    {
+        "text": "第二，优化导向，为梯度下降提供更新方向。",
+        "startMs": 7000,
+        "endMs": 11000,
+        "timestampMs": 7000,
+        "confidence": 1.0
+    },
+    {
+        "text": "第三，任务适配，不同任务需要匹配专属损失函数。",
+        "startMs": 11000,
+        "endMs": 15000,
+        "timestampMs": 11000,
+        "confidence": 1.0
+    },
+    {
+        "text": "生活化理解：就像驾校教练根据学员压线距离扣分，",
+        "startMs": 15000,
+        "endMs": 18000,
+        "timestampMs": 15000,
+        "confidence": 1.0
+    },
+    {
+        "text": "损失函数就是那套评分标准，让学员学会不压线。",
+        "startMs": 18000,
+        "endMs": 21000,
+        "timestampMs": 18000,
+        "confidence": 1.0
+    }
+]

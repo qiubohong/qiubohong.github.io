@@ -1,0 +1,32 @@
+[
+    {
+        "text": "观察重点有两个。",
+        "startMs": 0,
+        "endMs": 1500,
+        "confidence": 1
+    },
+    {
+        "text": "第一，Sigmoid 和 Tanh 的饱和区，",
+        "startMs": 1500,
+        "endMs": 4000,
+        "confidence": 1
+    },
+    {
+        "text": "两端平坦部分就是梯度消失的根源。",
+        "startMs": 4000,
+        "endMs": 6500,
+        "confidence": 1
+    },
+    {
+        "text": "第二，ReLU 的负数截断，",
+        "startMs": 6500,
+        "endMs": 8500,
+        "confidence": 1
+    },
+    {
+        "text": "直观看到 Dead ReLU 问题。",
+        "startMs": 8500,
+        "endMs": 10500,
+        "confidence": 1
+    }
+]
