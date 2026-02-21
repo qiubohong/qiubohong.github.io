@@ -21,19 +21,21 @@ export const LossScene6_GoldenRules: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                padding: 60,
+                padding: "40px 50px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden",
+                boxSizing: "border-box"
             }}
         >
             {/* 标题 */}
             <h2
                 style={{
-                    fontSize: 64,
+                    fontSize: 56,
                     fontWeight: "bold",
-                    marginBottom: 60,
+                    marginBottom: 45,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#ffd700"
@@ -43,21 +45,21 @@ export const LossScene6_GoldenRules: React.FC = () => {
             </h2>
 
             {/* 准则列表 */}
-            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 35 }}>
+            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 28 }}>
                 {/* 准则1 */}
                 <div
                     style={{
                         opacity: rule1Opacity,
                         backgroundColor: "rgba(255, 215, 0, 0.15)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 15,
                         border: "3px solid #ffd700"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ffd700" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ffd700" }}>
                         1️⃣ 分类任务
                     </h3>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.8 }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.6 }}>
                         优先<strong style={{ color: "#ff6b6b" }}>交叉熵</strong><br />
                         样本不平衡时升级为<strong style={{ color: "#ff6b6b" }}>Focal Loss</strong>
                     </p>
@@ -68,15 +70,15 @@ export const LossScene6_GoldenRules: React.FC = () => {
                     style={{
                         opacity: rule2Opacity,
                         backgroundColor: "rgba(255, 215, 0, 0.15)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 15,
                         border: "3px solid #ffd700"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ffd700" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ffd700" }}>
                         2️⃣ 回归任务
                     </h3>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.8 }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.6 }}>
                         首选<strong style={{ color: "#ff6b6b" }}>MSE</strong><br />
                         需抗噪时切<strong style={{ color: "#ff6b6b" }}>Huber</strong>
                     </p>
@@ -87,15 +89,15 @@ export const LossScene6_GoldenRules: React.FC = () => {
                     style={{
                         opacity: rule3Opacity,
                         backgroundColor: "rgba(255, 215, 0, 0.15)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 15,
                         border: "3px solid #ffd700"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ffd700" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ffd700" }}>
                         3️⃣ 生成任务
                     </h3>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.8 }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.6 }}>
                         需<strong style={{ color: "#ff6b6b" }}>组合损失</strong><br />
                         如GAN：对抗损失 + L1像素损失
                     </p>

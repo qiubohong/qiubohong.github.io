@@ -1,11 +1,11 @@
 import React from "react";
 import { interpolate, useCurrentFrame, Easing } from "remotion";
 
-interface LossScene1_IntroductionProps {
+interface RNNScene1_IntroductionProps {
     title: string;
 }
 
-export const LossScene1_Introduction: React.FC<LossScene1_IntroductionProps> = ({ title }) => {
+export const RNNScene1_Introduction: React.FC<RNNScene1_IntroductionProps> = ({ title }) => {
     const frame = useCurrentFrame();
 
     // 标题动画
@@ -69,7 +69,8 @@ export const LossScene1_Introduction: React.FC<LossScene1_IntroductionProps> = (
                     marginBottom: 30,
                     textAlign: "center",
                     opacity: titleOpacity,
-                    background: "linear-gradient(45deg, #ff6b6b, #ee5a6f)",
+                    transform: `scale(${titleScale})`,
+                    background: "linear-gradient(45deg, #4facfe, #00f2fe)",
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
@@ -104,20 +105,20 @@ export const LossScene1_Introduction: React.FC<LossScene1_IntroductionProps> = (
                     lineHeight: 1.6,
                     textAlign: "center",
                     opacity: coreOpacity,
-                    backgroundColor: "rgba(255, 107, 107, 0.1)",
+                    backgroundColor: "rgba(79, 172, 254, 0.1)",
                     padding: 30,
                     borderRadius: 20,
-                    borderLeft: "6px solid #ff6b6b",
+                    borderLeft: "6px solid #4facfe",
                     maxWidth: "85%",
                     width: "100%"
                 }}
             >
                 <p style={{ margin: 0, fontStyle: "italic" }}>
-                    🔥 <strong>AI模型为什么总能"猜对"？</strong><br />
+                    🧠 <strong>AI怎么记住你说过的话？</strong><br />
                     <br />
-                    💡 损失函数 = AI的"考试评分标准"<br />
-                    就像驾校教练根据压线距离扣分，<br />
-                    损失函数决定模型如何变聪明
+                    💡 RNN = 带记忆功能的神经网络<br />
+                    就像快递分拣中心的传送带，<br />
+                    持续传递包裹（信息）
                 </p>
             </div>
 

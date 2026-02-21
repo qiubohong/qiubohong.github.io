@@ -27,7 +27,7 @@ from tqdm import tqdm
 
 # 音频脚本内容
 SCRIPTS = {
-    "scene1": """大家好，我是Qborfy！
+    "scene1": """大家好，五分钟学习AI！
 今天我们来聊聊损失函数。
 AI模型为什么总能"猜对"？
 秘密就藏在损失函数里！
@@ -73,36 +73,120 @@ AlphaGo Zero的损失函数包含赢棋概率预测和落子分布KL散度。"""
 OUTPUT_DIR = "public/LossFunctionVideo"
 OUTPUT_DIR_SCENE8 = "public"  # scene8 在上级目录
 
-# 中文语音选项（推荐）
-# zh-CN-XiaoxiaoNeural - 女声，温柔自然
-# zh-CN-YunxiNeural - 男声，沉稳专业
-# zh-CN-YunyangNeural - 男声，新闻播报风格
-VOICE = "zh-CN-YunyangNeural"  # 使用男声新闻播报风格，适合教学视频
+# Qwen3-TTS模型实例
+_qwen_model = None
 
-# 语速和音调设置
-RATE = "+0%"  # 语速：-50% 到 +100%
-PITCH = "+0Hz"  # 音调：-50Hz 到 +50Hz
+def get_qwen_model():
+    """获取或初始化Qwen3-TTS模型"""
+    global _qwen_model
+    if _qwen_model is None:
+        try:
+            print("🔧 加载Qwen3-TTS模型...")
+            
+            model_kwargs = {
+                "pretrained_model_name_or_path": "./Qwen3-TTS-12Hz-1.7B-Base",
+                "device_map": "auto",
+                "torch_dtype": torch.bfloat16,
+                "low_cpu_mem_usage": True,  # 减少CPU内存使用
+            }
+            
+            _qwen_model = Qwen3TTSModel.from_pretrained(**model_kwargs)
+            print("✅ Qwen3-TTS模型加载完成")
+            
+        except Exception as e:
+            print(f"❌ Qwen3-TTS模型加载失败: {e}")
+            print("💡 建议检查：")
+            print("   1. 网络连接是否正常")
+            print("   2. 磁盘空间是否充足")
+            print("   3. 尝试使用国内镜像源")
+            return None
+    return _qwen_model
 
-
-async def generate_audio(text: str, output_file: str):
-    """生成单个音频文件"""
-    print(f"正在生成: {output_file}")
+def generate_tts_audio(text, output_path, scene_name=None):
+    """使用Qwen3-TTS生成音频"""
+    max_retries = 3
     
-    # 创建TTS通信对象
-    communicate = edge_tts.Communicate(
-        text=text,
-        voice=VOICE,
-        rate=RATE,
-        pitch=PITCH
-    )
+    for attempt in range(max_retries):
+        model = get_qwen_model()
+        if model is None:
+            return False
+        
+        print(f"🔄 尝试生成语音 (第{attempt + 1}次)...")
+        
+        # 优化生成参数：更严格的参数控制，避免音频过长和语音乱码
+        try:
+            wavs, sr = model.generate_voice_clone(
+                ref_audio="./borfy.mp3",
+                ref_text="5分钟 AI，每天搞懂一个知识点！今天我们学习， 监督学习。",
+                text=text,
+                language="chinese",
+                max_new_tokens=512,    # 减少token限制，避免过长音频
+                do_sample=True,
+                top_k=10,              # 更严格的采样，提高语音稳定性
+                top_p=0.7,             # 更保守的采样策略
+                temperature=0.3,       # 更低的温度，减少随机性，提高语音质量
+                repetition_penalty=1.5,  # 更强的重复惩罚，避免语音重复
+                subtalker_dosample=True,
+                subtalker_top_k=10,
+                subtalker_top_p=0.7,
+                subtalker_temperature=0.3,
+            )
+            
+            # 保存音频
+            sf.write(output_path, wavs[0], sr)
+            
+            # 音频后处理：音量标准化和时长检查
+            try:
+                audio, sr_loaded = librosa.load(output_path, sr=None)
+                
+                # 检查音频时长，避免过长
+                audio_duration = len(audio) / sr_loaded
+                print(f"📊 音频时长: {audio_duration:.2f}秒")
+                
+                # 如果音频过长，进行裁剪（最大30秒）
+                if audio_duration > 30:
+                    print("⚠️  音频过长，进行裁剪...")
+                    max_samples = int(30 * sr_loaded)
+                    audio = audio[:max_samples]
+                    print(f"✓ 裁剪后时长: {len(audio) / sr_loaded:.2f}秒")
+                
+                # 音量标准化到-3dB
+                audio_normalized = librosa.util.normalize(audio) * 0.7
+                
+                # 添加轻微的低通滤波，提高语音清晰度
+                audio_filtered = librosa.effects.preemphasis(audio_normalized, coef=0.97)
+                
+                sf.write(output_path, audio_filtered, sr_loaded)
+                print(f"✓ 音频后处理完成: {output_path}")
+                
+                # 检查音频质量
+                if audio_duration < 1.0:
+                    print("⚠️  音频过短，可能生成失败")
+                    continue
+                    
+            except Exception as e:
+                print(f"⚠️  音频后处理失败，但原始音频已保存: {e}")
+            
+            print(f"✓ 生成音频: {output_path}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ 第{attempt + 1}次生成失败: {e}")
+            if attempt < max_retries - 1:
+                print("🔄 等待2秒后重试...")
+                import time
+                time.sleep(2)
     
-    # 保存音频文件
-    await communicate.save(output_file)
-    print(f"✓ 已生成: {output_file}")
+    return False
 
 
-async def generate_all_audios():
+def generate_all_audios():
     """生成所有音频文件"""
+    print("🎵 开始生成损失函数视频音频解说...")
+    print("🤖 使用Qwen3-TTS模型生成高质量语音")
+    print("🎯 优化参数：严格控制音频时长和语音质量")
+    print("⚡ 新增功能：音频时长检查、语音稳定性优化、自动重试机制")
+    
     # 确保输出目录存在
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     os.makedirs(OUTPUT_DIR_SCENE8, exist_ok=True)
@@ -110,24 +194,32 @@ async def generate_all_audios():
     print("=" * 60)
     print("损失函数视频音频生成工具")
     print("=" * 60)
-    print(f"使用语音: {VOICE}")
-    print(f"语速: {RATE}, 音调: {PITCH}")
     print(f"输出目录: {OUTPUT_DIR}")
     print("=" * 60)
     print()
     
-    # 生成所有场景的音频
-    tasks = []
-    for scene_num, text in SCRIPTS.items():
+    success_count = 0
+    
+    for scene_num, script_text in tqdm(SCRIPTS.items(), desc="生成音频"):
         if scene_num == "scene8":
             # scene8 在上级目录
-            output_file = os.path.join(OUTPUT_DIR_SCENE8, "scene8-ending.mp3")
+            output_path = os.path.join(OUTPUT_DIR_SCENE8, "scene8-ending.mp3")
         else:
-            output_file = os.path.join(OUTPUT_DIR, f"{scene_num}-audio.mp3")
-        tasks.append(generate_audio(text, output_file))
-    
-    # 并行生成所有音频
-    await asyncio.gather(*tasks)
+            output_path = os.path.join(OUTPUT_DIR, f"{scene_num}-audio.mp3")
+        
+        print(f"\n📝 处理场景: {scene_num}")
+        print(f"   文本: {script_text}")
+        
+        # 检查文本长度，避免过长文本
+        if len(script_text) > 200:
+            print("⚠️  文本过长，可能影响音频质量")
+        
+        # 生成TTS音频
+        if generate_tts_audio(script_text, output_path, scene_num):
+            print(f"✅ 场景音频完成: {os.path.basename(output_path)}")
+            success_count += 1
+        else:
+            print(f"❌ 场景音频生成失败: {scene_num}")
     
     print()
     print("=" * 60)
@@ -151,39 +243,87 @@ async def generate_all_audios():
         print(f"  ✓ scene8-ending.mp3 ({size:.1f} KB)")
     
     print()
+    print(f"📊 生成结果:")
+    print(f"   成功: {success_count}/{len(SCRIPTS)}")
+    print(f"   失败: {len(SCRIPTS) - success_count}")
+    
+    if success_count == len(SCRIPTS):
+        print("🎉 所有音频生成完成！")
+        print("📁 音频文件已保存到: public/LossFunctionVideo/")
+        print("🎬 现在可以运行 'npm start' 预览视频效果")
+    else:
+        print("⚠️  部分音频生成失败，请检查错误信息")
+    
+    print()
     print("下一步操作：")
     print("1. 字幕文件已生成在 public/LossFunctionVideo/ 目录下")
     print("2. 根据实际音频时长调整字幕 JSON 文件中的时间戳")
     print("3. 运行 npm start 预览视频")
     print("4. 运行 npx remotion render LossFunctionVideo out/loss-function.mp4 渲染视频")
-    print()
-    print("提示：如需调整语速或音调，请修改脚本中的 RATE 和 PITCH 参数")
-    print("  语速范围：-50% 到 +100%（建议：+10% 更有活力）")
-    print("  音调范围：-50Hz 到 +50Hz（建议：+5Hz 更有激情）")
+    
+    return success_count == len(SCRIPTS)
 
 
-def list_available_voices():
-    """列出所有可用的中文语音"""
-    print("可用的中文语音选项：")
-    print()
-    print("女声：")
-    print("  zh-CN-XiaoxiaoNeural - 温柔自然，适合讲故事")
-    print("  zh-CN-XiaoyiNeural - 活泼可爱，适合儿童内容")
-    print("  zh-CN-XiaohanNeural - 亲切温暖")
-    print()
-    print("男声：")
-    print("  zh-CN-YunxiNeural - 沉稳专业")
-    print("  zh-CN-YunyangNeural - 新闻播报风格（当前使用）")
-    print("  zh-CN-YunjianNeural - 成熟稳重")
-    print()
-    print("使用方法：修改脚本中的 VOICE 变量为你想要的语音")
+def check_dependencies():
+    """检查依赖是否安装"""
+    # Qwen3-TTS核心依赖（必需）
+    required_packages = ["torch", "transformers", "accelerate", "qwen_tts", "soundfile", "librosa", "numpy", "tqdm"]
+    
+    print("🔍 检查Qwen3-TTS依赖包...")
+    
+    missing_packages = []
+    
+    # 检查必需依赖
+    for package in required_packages:
+        try:
+            __import__(package)
+            print(f"✓ {package}")
+        except ImportError:
+            missing_packages.append(package)
+            print(f"✗ {package}")
+    
+    if missing_packages:
+        print(f"\n❌ 缺少必需依赖包: {', '.join(missing_packages)}")
+        print("💡 请运行: pip install -r requirement.txt")
+        return False
+    
+    print("✅ 所有必需依赖包已安装")
+    
+    # 检查GPU可用性
+    if torch.cuda.is_available():
+        print(f"🎮 GPU可用: {torch.cuda.get_device_name(0)}")
+    else:
+        print("⚠️  GPU不可用，将使用CPU运行（速度较慢）")
+    
+    return True
 
 
 if __name__ == "__main__":
-    import sys
+    print("=" * 60)
+    print("损失函数视频 - Qwen3-TTS音频生成工具")
+    print("=" * 60)
+    print("🤖 使用Qwen3-TTS模型生成高质量语音解说")
+    print("🎯 使用语音克隆技术，语音风格一致")
+    print("=" * 60)
     
-    if len(sys.argv) > 1 and sys.argv[1] == "--list-voices":
-        list_available_voices()
-    else:
-        # 运行异步任务
-        asyncio.run(generate_all_audios())
+    # 检查依赖
+    if not check_dependencies():
+        sys.exit(1)
+    
+    # 生成音频
+    success = generate_all_audios()
+    
+    if success:
+        print("\n🎯 使用说明:")
+        print("1. 运行 'npm start' 预览视频效果")
+        print("2. 运行 'npm run build' 渲染最终视频")
+        print("3. 音频文件位置: public/LossFunctionVideo/")
+        print("\n💡 技术特点:")
+        print("   • 使用Qwen3-TTS 1.7B模型")
+        print("   • 支持语音克隆，确保音色一致性")
+        print("   • 根据文本内容自然生成音频时长")
+        print("   • 自动音量标准化优化")
+        print("   • 高质量中文语音合成")
+        print("   • 使用本地模型，无需额外加速包")
+    
+    sys.exit(0 if success else 1)

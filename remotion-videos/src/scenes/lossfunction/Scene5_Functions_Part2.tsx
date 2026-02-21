@@ -20,19 +20,21 @@ export const LossScene5_Functions_Part2: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                padding: 60,
+                padding: "40px 50px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden",
+                boxSizing: "border-box"
             }}
         >
             {/* 标题 */}
             <h2
                 style={{
-                    fontSize: 64,
+                    fontSize: 56,
                     fontWeight: "bold",
-                    marginBottom: 80,
+                    marginBottom: 60,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#ff6b6b"
@@ -42,24 +44,24 @@ export const LossScene5_Functions_Part2: React.FC = () => {
             </h2>
 
             {/* 函数列表 */}
-            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 40 }}>
+            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 35 }}>
                 {/* Focal Loss */}
                 <div
                     style={{
                         opacity: func1Opacity,
                         backgroundColor: "rgba(255, 107, 107, 0.15)",
-                        padding: 40,
+                        padding: 35,
                         borderRadius: 15,
                         borderLeft: "5px solid #ff6b6b"
                     }}
                 >
-                    <h3 style={{ fontSize: 48, margin: "0 0 20px 0", color: "#ff6b6b" }}>
+                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ff6b6b" }}>
                         4️⃣ 焦点损失（Focal Loss）
                     </h3>
-                    <p style={{ fontSize: 36, margin: "0 0 15px 0", lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 32, margin: "0 0 12px 0", lineHeight: 1.5 }}>
                         <strong>任务：</strong>分类 | <strong>抗噪性：</strong>中
                     </p>
-                    <p style={{ fontSize: 36, margin: 0, lineHeight: 1.6, color: "#aaa" }}>
+                    <p style={{ fontSize: 32, margin: 0, lineHeight: 1.5, color: "#aaa" }}>
                         <strong>应用：</strong>医学图像分析、异常检测
                     </p>
                 </div>
@@ -69,18 +71,18 @@ export const LossScene5_Functions_Part2: React.FC = () => {
                     style={{
                         opacity: func2Opacity,
                         backgroundColor: "rgba(255, 107, 107, 0.15)",
-                        padding: 40,
+                        padding: 35,
                         borderRadius: 15,
                         borderLeft: "5px solid #ff6b6b"
                     }}
                 >
-                    <h3 style={{ fontSize: 48, margin: "0 0 20px 0", color: "#ff6b6b" }}>
+                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ff6b6b" }}>
                         5️⃣ Huber损失
                     </h3>
-                    <p style={{ fontSize: 36, margin: "0 0 15px 0", lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 32, margin: "0 0 12px 0", lineHeight: 1.5 }}>
                         <strong>任务：</strong>生成 | <strong>抗噪性：</strong>强 ⭐
                     </p>
-                    <p style={{ fontSize: 36, margin: 0, lineHeight: 1.6, color: "#aaa" }}>
+                    <p style={{ fontSize: 32, margin: 0, lineHeight: 1.5, color: "#aaa" }}>
                         <strong>应用：</strong>自动驾驶（平衡噪声与异常值）
                     </p>
                 </div>

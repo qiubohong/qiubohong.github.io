@@ -24,8 +24,8 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
 
     return (
         <TransitionSeries>
-            {/* 场景1: 介绍 - 预估15秒 (450帧) - 抖音风格开场：AI模型为什么总能"猜对"？ */}
-            <TransitionSeries.Sequence durationInFrames={450}>
+            {/* 场景1: 介绍 - 15秒音频 (450帧) + 30帧缓冲 = 480帧 - 抖音风格开场：AI模型为什么总能"猜对"？ */}
+            <TransitionSeries.Sequence durationInFrames={560}>
                 <LossScene1_Introduction title={title} />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene1-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -41,8 +41,8 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
                 timing={linearTiming({ durationInFrames: 20 })}
             />
 
-            {/* 场景2: 定义和核心三要素 - 预估20秒 (600帧) */}
-            <TransitionSeries.Sequence durationInFrames={630}>
+            {/* 场景2: 定义和核心三要素 - 21秒音频 (630帧) + 30帧缓冲 = 660帧 */}
+            <TransitionSeries.Sequence durationInFrames={720}>
                 <LossScene2_Definition />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene2-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -76,7 +76,7 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
             />
 
             {/* 场景4: 五大经典损失函数（前3个）- 预估20秒 (600帧) */}
-            <TransitionSeries.Sequence durationInFrames={630}>
+            <TransitionSeries.Sequence durationInFrames={530}>
                 <LossScene4_Functions_Part1 />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene4-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -93,7 +93,7 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
             />
 
             {/* 场景5: 五大经典损失函数（后2个）- 预估12秒 (360帧) */}
-            <TransitionSeries.Sequence durationInFrames={390}>
+            <TransitionSeries.Sequence durationInFrames={280}>
                 <LossScene5_Functions_Part2 />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene5-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -109,8 +109,8 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
                 timing={springTiming({ config: { damping: 180 }, durationInFrames: 22 })}
             />
 
-            {/* 场景6: 选择黄金准则 - 预估15秒 (450帧) */}
-            <TransitionSeries.Sequence durationInFrames={480}>
+            {/* 场景6: 选择黄金准则 - 16秒音频 (480帧) + 30帧缓冲 = 510帧 */}
+            <TransitionSeries.Sequence durationInFrames={560}>
                 <LossScene6_GoldenRules />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene6-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -126,8 +126,8 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
                 timing={springTiming({ config: { damping: 180 }, durationInFrames: 22 })}
             />
 
-            {/* 场景7: 冷知识 - 预估20秒 (600帧) */}
-            <TransitionSeries.Sequence durationInFrames={630}>
+            {/* 场景7: 冷知识 - 21秒音频 (630帧) + 30帧缓冲 = 660帧 */}
+            <TransitionSeries.Sequence durationInFrames={720}>
                 <LossScene7_FunFacts />
                 <Html5Audio src={staticFile("LossFunctionVideo/scene7-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -144,7 +144,7 @@ export const LossFunctionVideo: React.FC<LossFunctionVideoProps> = ({ title }) =
             />
 
             {/* 场景8: 结尾收尾 - 6秒 (180帧) */}
-            <TransitionSeries.Sequence durationInFrames={180}>
+            <TransitionSeries.Sequence durationInFrames={140}>
                 <EndingScene />
                 <Html5Audio src={staticFile("scene8-ending.mp3")} volume={0.8} />
                 <CaptionComponent

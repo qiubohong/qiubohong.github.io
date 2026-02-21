@@ -33,19 +33,21 @@ export const LossScene2_Definition: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                padding: 60,
+                padding: "40px 50px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden",
+                boxSizing: "border-box"
             }}
         >
             {/* 标题 */}
             <h2
                 style={{
-                    fontSize: 64,
+                    fontSize: 56,
                     fontWeight: "bold",
-                    marginBottom: 50,
+                    marginBottom: 35,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#ff6b6b"
@@ -61,16 +63,16 @@ export const LossScene2_Definition: React.FC = () => {
                     style={{
                         opacity: element1Opacity,
                         backgroundColor: "rgba(255, 107, 107, 0.15)",
-                        padding: 30,
+                        padding: 25,
                         borderRadius: 15,
-                        marginBottom: 25,
+                        marginBottom: 20,
                         borderLeft: "5px solid #ff6b6b"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ff6b6b" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ff6b6b" }}>
                         1️⃣ 量化误差
                     </h3>
-                    <p style={{ fontSize: 32, margin: 0, lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 28, margin: 0, lineHeight: 1.5 }}>
                         计算预测结果与真实值的差距
                     </p>
                 </div>
@@ -80,16 +82,16 @@ export const LossScene2_Definition: React.FC = () => {
                     style={{
                         opacity: element2Opacity,
                         backgroundColor: "rgba(255, 107, 107, 0.15)",
-                        padding: 30,
+                        padding: 25,
                         borderRadius: 15,
-                        marginBottom: 25,
+                        marginBottom: 20,
                         borderLeft: "5px solid #ff6b6b"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ff6b6b" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ff6b6b" }}>
                         2️⃣ 优化导向
                     </h3>
-                    <p style={{ fontSize: 32, margin: 0, lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 28, margin: 0, lineHeight: 1.5 }}>
                         为梯度下降提供更新方向（最小化损失）
                     </p>
                 </div>
@@ -99,16 +101,16 @@ export const LossScene2_Definition: React.FC = () => {
                     style={{
                         opacity: element3Opacity,
                         backgroundColor: "rgba(255, 107, 107, 0.15)",
-                        padding: 30,
+                        padding: 25,
                         borderRadius: 15,
-                        marginBottom: 40,
+                        marginBottom: 30,
                         borderLeft: "5px solid #ff6b6b"
                     }}
                 >
-                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#ff6b6b" }}>
+                    <h3 style={{ fontSize: 38, margin: "0 0 12px 0", color: "#ff6b6b" }}>
                         3️⃣ 任务适配
                     </h3>
-                    <p style={{ fontSize: 32, margin: 0, lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 28, margin: 0, lineHeight: 1.5 }}>
                         不同任务需匹配专属损失函数
                     </p>
                 </div>
@@ -118,12 +120,12 @@ export const LossScene2_Definition: React.FC = () => {
                     style={{
                         opacity: lifeOpacity,
                         backgroundColor: "rgba(238, 90, 111, 0.2)",
-                        padding: 35,
+                        padding: 28,
                         borderRadius: 15,
                         border: "2px solid #ee5a6f"
                     }}
                 >
-                    <p style={{ fontSize: 36, margin: 0, lineHeight: 1.8, fontStyle: "italic" }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>
                         💡 <strong>生活化理解：</strong><br />
                         驾校教练根据学员压线距离扣分<br />
                         损失函数就是那套评分标准<br />

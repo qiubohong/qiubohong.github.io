@@ -1,25 +1,23 @@
 # 损失函数视频音频生成工具
 
-快速为损失函数视频生成所有音频文件的 Python 脚本。
+快速为损失函数视频生成所有音频文件的 Python 脚本（使用 Qwen3-TTS）。
 
 ## 🚀 快速开始
 
 ### 1. 安装依赖
 
 ```bash
-pip3 install edge-tts
+pip3 install torch transformers accelerate qwen_tts soundfile librosa numpy tqdm
 ```
 
-### 2. 生成音频
+### 2. 准备参考音频
+
+确保 `borfy.mp3` 文件存在于 `remotion-videos` 目录下（用于语音克隆）。
+
+### 3. 生成音频
 
 ```bash
 python3 generate_loss_function_audio.py
-```
-
-### 3. 查看可用语音
-
-```bash
-python3 generate_loss_function_audio.py --list-voices
 ```
 
 ## 📁 生成的文件
@@ -35,12 +33,19 @@ python3 generate_loss_function_audio.py --list-voices
 
 ## ⚙️ 自定义配置
 
-编辑脚本中的以下变量：
+编辑脚本中的以下参数：
 
 ```python
-VOICE = "zh-CN-YunyangNeural"  # 语音类型
-RATE = "+0%"                    # 语速（-50% 到 +100%）
-PITCH = "+0Hz"                  # 音调（-50Hz 到 +50Hz）
+# 参考音频配置
+ref_audio="./borfy.mp3"
+ref_text="大家好，我是Qborfy！今天我们来聊聊损失函数。"
+
+# 生成参数
+max_new_tokens=512         # 控制音频长度
+top_k=10                   # 采样策略
+top_p=0.7                  # 采样概率
+temperature=0.3            # 随机性（越低越稳定）
+repetition_penalty=1.5     # 重复惩罚
 ```
 
 ## 📚 详细文档
@@ -53,6 +58,14 @@ PITCH = "+0Hz"                  # 音调（-50Hz 到 +50Hz）
 2. 根据实际音频时长调整字幕时间轴
 3. 运行 `npm run dev` 预览视频
 4. 运行 `npx remotion render LossFunctionVideo out/loss-function.mp4` 渲染视频
+
+## 💡 技术特点
+
+- 使用 Qwen3-TTS 1.7B 模型
+- 支持语音克隆技术
+- 自动音频时长控制和质量优化
+- 音量标准化和低通滤波
+- 自动重试机制
 
 ---
 

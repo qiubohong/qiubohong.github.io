@@ -131,7 +131,7 @@ export const RemotionRoot = () => {
       <Composition
         id="LossFunctionVideo"
         component={LossFunctionVideo}
-        durationInFrames={4472} // 总帧数：450+600+450+600+360+450+600+180+转场182=4472帧，约149.07秒
+        durationInFrames={3849} // 总帧数：480+660+480+630+390+510+660+180+转场149=4139帧，约137.97秒（每场景=音频时长+30帧）
         fps={30}
         width={1920}
         height={1080}

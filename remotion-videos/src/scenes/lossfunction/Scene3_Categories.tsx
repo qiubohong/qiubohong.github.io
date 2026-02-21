@@ -21,19 +21,21 @@ export const LossScene3_Categories: React.FC = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                padding: 60,
+                padding: "40px 50px",
                 fontFamily: "Arial, sans-serif",
                 color: "white",
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                overflow: "hidden",
+                boxSizing: "border-box"
             }}
         >
             {/* 标题 */}
             <h2
                 style={{
-                    fontSize: 64,
+                    fontSize: 56,
                     fontWeight: "bold",
-                    marginBottom: 60,
+                    marginBottom: 40,
                     textAlign: "center",
                     opacity: titleOpacity,
                     color: "#ff6b6b"
@@ -43,24 +45,24 @@ export const LossScene3_Categories: React.FC = () => {
             </h2>
 
             {/* 分类容器 */}
-            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 35 }}>
+            <div style={{ width: "90%", maxWidth: 1600, display: "flex", flexDirection: "column", gap: 28 }}>
                 {/* 回归 */}
                 <div
                     style={{
                         opacity: cat1Opacity,
                         backgroundColor: "rgba(52, 152, 219, 0.2)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 20,
                         border: "3px solid #3498db"
                     }}
                 >
-                    <h3 style={{ fontSize: 48, margin: "0 0 20px 0", color: "#3498db" }}>
+                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#3498db" }}>
                         📊 回归
                     </h3>
-                    <p style={{ fontSize: 34, margin: "0 0 10px 0", lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 30, margin: "0 0 8px 0", lineHeight: 1.5 }}>
                         <strong>适用：</strong>连续可导数据
                     </p>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.6, color: "#aaa" }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.5, color: "#aaa" }}>
                         <strong>应用：</strong>房价预测、气温预报
                     </p>
                 </div>
@@ -70,18 +72,18 @@ export const LossScene3_Categories: React.FC = () => {
                     style={{
                         opacity: cat2Opacity,
                         backgroundColor: "rgba(46, 204, 113, 0.2)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 20,
                         border: "3px solid #2ecc71"
                     }}
                 >
-                    <h3 style={{ fontSize: 48, margin: "0 0 20px 0", color: "#2ecc71" }}>
+                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#2ecc71" }}>
                         🎯 分类
                     </h3>
-                    <p style={{ fontSize: 34, margin: "0 0 10px 0", lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 30, margin: "0 0 8px 0", lineHeight: 1.5 }}>
                         <strong>适用：</strong>离散类别数据
                     </p>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.6, color: "#aaa" }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.5, color: "#aaa" }}>
                         <strong>应用：</strong>图像识别、垃圾邮件分类
                     </p>
                 </div>
@@ -91,18 +93,18 @@ export const LossScene3_Categories: React.FC = () => {
                     style={{
                         opacity: cat3Opacity,
                         backgroundColor: "rgba(155, 89, 182, 0.2)",
-                        padding: 40,
+                        padding: 32,
                         borderRadius: 20,
                         border: "3px solid #9b59b6"
                     }}
                 >
-                    <h3 style={{ fontSize: 48, margin: "0 0 20px 0", color: "#9b59b6" }}>
+                    <h3 style={{ fontSize: 42, margin: "0 0 15px 0", color: "#9b59b6" }}>
                         🎨 生成
                     </h3>
-                    <p style={{ fontSize: 34, margin: "0 0 10px 0", lineHeight: 1.6 }}>
+                    <p style={{ fontSize: 30, margin: "0 0 8px 0", lineHeight: 1.5 }}>
                         <strong>适用：</strong>生成新数据样本
                     </p>
-                    <p style={{ fontSize: 34, margin: 0, lineHeight: 1.6, color: "#aaa" }}>
+                    <p style={{ fontSize: 30, margin: 0, lineHeight: 1.5, color: "#aaa" }}>
                         <strong>应用：</strong>AI绘画、视频生成
                     </p>
                 </div>
