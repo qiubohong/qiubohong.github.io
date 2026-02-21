@@ -9,6 +9,7 @@ import { AILearningRoadVideo } from "./AILearningRoadVideo";
 import { CNNVideo } from "./CNNVideo";
 import { ActivationFunctionVideo } from "./ActivationFunctionVideo";
 import { LossFunctionVideo } from "./LossFunctionVideo";
+import { RNNVideo } from "./RNNVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -137,6 +138,19 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "损失函数"
+        }}
+      />
+
+      {/* RNN循环网络视频 */}
+      <Composition
+        id="RNNVideo"
+        component={RNNVideo}
+        durationInFrames={9376} // 总帧数：295+1195+1187+1315+1084+1710+2301+140+转场149=9376帧，约312.53秒（每场景=音频时长+30帧）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "循环网络 RNN"
         }}
       />
     </>

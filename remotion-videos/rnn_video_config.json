@@ -1,0 +1,66 @@
+{
+  "fps": 30,
+  "buffer_frames": 30,
+  "scenes": [
+    {
+      "scene": "scene1-intro",
+      "char_count": 31,
+      "duration": 8.86,
+      "audio_frames": 265,
+      "total_frames": 295,
+      "source": "预估"
+    },
+    {
+      "scene": "scene2-definition",
+      "char_count": 136,
+      "duration": 38.86,
+      "audio_frames": 1165,
+      "total_frames": 1195,
+      "source": "预估"
+    },
+    {
+      "scene": "scene3-keymodels",
+      "char_count": 135,
+      "duration": 38.57,
+      "audio_frames": 1157,
+      "total_frames": 1187,
+      "source": "预估"
+    },
+    {
+      "scene": "scene4-lstm",
+      "char_count": 150,
+      "duration": 42.86,
+      "audio_frames": 1285,
+      "total_frames": 1315,
+      "source": "预估"
+    },
+    {
+      "scene": "scene5-gru",
+      "char_count": 123,
+      "duration": 35.14,
+      "audio_frames": 1054,
+      "total_frames": 1084,
+      "source": "预估"
+    },
+    {
+      "scene": "scene6-applications",
+      "char_count": 196,
+      "duration": 56.0,
+      "audio_frames": 1680,
+      "total_frames": 1710,
+      "source": "预估"
+    },
+    {
+      "scene": "scene7-funfacts",
+      "char_count": 265,
+      "duration": 75.71,
+      "audio_frames": 2271,
+      "total_frames": 2301,
+      "source": "预估"
+    }
+  ],
+  "transition_frames": 149,
+  "ending_frames": 140,
+  "total_frames": 9376,
+  "total_duration": 312.53
+}
