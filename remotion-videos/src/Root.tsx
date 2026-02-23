@@ -145,7 +145,7 @@ export const RemotionRoot = () => {
       <Composition
         id="RNNVideo"
         component={RNNVideo}
-        durationInFrames={9376} // 总帧数：295+1195+1187+1315+1084+1710+2301+140+转场149=9376帧，约312.53秒（每场景=音频时长+30帧）
+        durationInFrames={6139} // 总帧数：259+20+827+25+868+15+894+22+730+22+1174+15+1398+30+140=6439帧，约214.63秒（基于实际音频时长+30帧缓冲）
         fps={30}
         width={1920}
         height={1080}

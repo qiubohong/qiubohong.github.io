@@ -24,8 +24,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
 
     return (
         <TransitionSeries>
-            {/* 场景1: 介绍 - 预估8.86秒音频 (265帧) + 30帧缓冲 = 295帧 */}
-            <TransitionSeries.Sequence durationInFrames={295}>
+            {/* 场景1: 介绍 - 实际时长 7.66秒 (229帧) + 30帧缓冲 = 259帧 */}
+            <TransitionSeries.Sequence durationInFrames={259}>
                 <RNNScene1_Introduction title={title} />
                 <Html5Audio src={staticFile("RNNVideo/scene1-intro-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -41,8 +41,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={linearTiming({ durationInFrames: 20 })}
             />
 
-            {/* 场景2: 定义 - 27*30 + 30帧 =  */}
-            <TransitionSeries.Sequence durationInFrames={840}>
+            {/* 场景2: 定义 - 实际时长 26.59秒 (797帧) + 30帧缓冲 = 827帧 */}
+            <TransitionSeries.Sequence durationInFrames={827}>
                 <RNNScene2_Definition />
                 <Html5Audio src={staticFile("RNNVideo/scene2-definition-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -58,8 +58,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={springTiming({ config: { damping: 200 }, durationInFrames: 25 })}
             />
 
-            {/* 场景3: 关键算法模型 - 预估38.57秒 (1157帧) + 30帧缓冲 = 1187帧 */}
-            <TransitionSeries.Sequence durationInFrames={1187}>
+            {/* 场景3: 关键算法模型 - 实际时长 27.94秒 (838帧) + 30帧缓冲 = 868帧 */}
+            <TransitionSeries.Sequence durationInFrames={868}>
                 <RNNScene3_KeyModels />
                 <Html5Audio src={staticFile("RNNVideo/scene3-keymodels-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -75,8 +75,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={linearTiming({ durationInFrames: 15 })}
             />
 
-            {/* 场景4: LSTM详解 - 预估42.86秒 (1285帧) + 30帧缓冲 = 1315帧 */}
-            <TransitionSeries.Sequence durationInFrames={1315}>
+            {/* 场景4: LSTM详解 - 实际时长 28.80秒 (864帧) + 30帧缓冲 = 894帧 */}
+            <TransitionSeries.Sequence durationInFrames={894}>
                 <RNNScene4_LSTM />
                 <Html5Audio src={staticFile("RNNVideo/scene4-lstm-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -92,8 +92,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={springTiming({ config: { damping: 180 }, durationInFrames: 22 })}
             />
 
-            {/* 场景5: GRU详解 - 预估35.14秒 (1054帧) + 30帧缓冲 = 1084帧 */}
-            <TransitionSeries.Sequence durationInFrames={1084}>
+            {/* 场景5: GRU详解 - 实际时长 23.35秒 (700帧) + 30帧缓冲 = 730帧 */}
+            <TransitionSeries.Sequence durationInFrames={730}>
                 <RNNScene5_GRU />
                 <Html5Audio src={staticFile("RNNVideo/scene5-gru-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -109,8 +109,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={springTiming({ config: { damping: 180 }, durationInFrames: 22 })}
             />
 
-            {/* 场景6: 实际应用 - 预估56.0秒 (1680帧) + 30帧缓冲 = 1710帧 */}
-            <TransitionSeries.Sequence durationInFrames={1710}>
+            {/* 场景6: 实际应用 - 实际时长 38.16秒 (1144帧) + 30帧缓冲 = 1174帧 */}
+            <TransitionSeries.Sequence durationInFrames={1174}>
                 <RNNScene6_Applications />
                 <Html5Audio src={staticFile("RNNVideo/scene6-applications-audio.mp3")} volume={0.8} />
                 <CaptionComponent
@@ -126,8 +126,8 @@ export const RNNVideo: React.FC<RNNVideoProps> = ({ title }) => {
                 timing={linearTiming({ durationInFrames: 15 })}
             />
 
-            {/* 场景7: 冷知识 - 预估75.71秒 (2271帧) + 30帧缓冲 = 2301帧 */}
-            <TransitionSeries.Sequence durationInFrames={2301}>
+            {/* 场景7: 冷知识 - 实际时长 45.60秒 (1368帧) + 30帧缓冲 = 1398帧 */}
+            <TransitionSeries.Sequence durationInFrames={1398}>
                 <RNNScene7_FunFacts />
                 <Html5Audio src={staticFile("RNNVideo/scene7-funfacts-audio.mp3")} volume={0.8} />
                 <CaptionComponent
