@@ -97,6 +97,11 @@ nvm use ai
 2. **在需要的场景中集成图片展示**
 3. 生成对应的字幕 JSON 文件
 4. 创建视频主组件（如 `XXXVideo.tsx`）
+5. **必须导入并使用 EndingScene 组件**：
+   - 在视频主组件开头添加：`import { EndingScene } from "./components/EndingScene";`
+   - 在所有内容场景之后添加 EndingScene 场景
+   - EndingScene 场景时长固定为 6 秒（180 帧）
+   - 为 EndingScene 生成对应的音频和字幕文件
 
 **场景组件模板**：
 
@@ -248,7 +253,11 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
 **任务**：
 
 1. 更新视频主组件中各场景的 `durationInFrames`
-2. 更新 `Root.tsx` 中的总帧数
+2. **必须添加 EndingScene 场景**：
+   - 在所有内容场景之后添加 EndingScene
+   - EndingScene 固定为 6 秒（180 帧）
+   - 为 EndingScene 添加对应的音频和字幕
+3. 更新 `Root.tsx` 中的总帧数
 
 **主组件更新示例**：
 
@@ -259,27 +268,46 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
   <Html5Audio src={staticFile("VideoName/scene1-audio.mp3")} volume={0.8} />
   <CaptionComponent ... />
 </TransitionSeries.Sequence>
+
+// ... 其他内容场景 ...
+
+// EndingScene: 固定6秒 (180帧)
+<TransitionSeries.Sequence durationInFrames={180}>
+  <EndingScene />
+  <Html5Audio src={staticFile("VideoName/ending-audio.mp3")} volume={0.8} />
+  <CaptionComponent ... />
+</TransitionSeries.Sequence>
 ```
 
 **Root.tsx 总帧数计算**：
 
 ```typescript
-总帧数 = Σ(各场景帧数) + Σ(转场帧数);
+总帧数 = Σ(各内容场景帧数) + EndingScene帧数(180) + Σ(转场帧数);
 ```
+
+**EndingScene 实现要求**：
+
+1. **导入语句**：`import { EndingScene } from "./components/EndingScene";`
+2. **音频文件**：`ending-audio.mp3`（固定结束语："5 分钟 AI，每天搞懂一个知识点！"）
+3. **字幕文件**：`ending-captions.json`
+4. **帧数固定**：180 帧（6 秒）
+5. **位置**：必须作为最后一个场景
 
 ### 步骤 5.5：Root.tsx 帧数校验（重要）
 
 **输入**：更新后的视频主组件和 Root.tsx
 
-**任务**：多次校验 Root.tsx 中的总帧数是否与场景时长总数一致
+**任务**：多次校验 Root.tsx 中的总帧数是否与场景时长总数一致，**特别检查 EndingScene 场景是否正确添加**
 
 **校验流程**：
 
 1. **第一次校验**：读取视频主组件（如 `XXXVideo.tsx`）
 
    - 提取所有 `<TransitionSeries.Sequence durationInFrames={xxx}>` 的帧数
-   - 计算场景总帧数：`场景总帧数 = Σ(各场景durationInFrames)`
-   - 计算转场总帧数：`转场总帧数 = (场景数 - 1) × 转场帧数`（通常每个转场 15-30 帧）
+   - **验证 EndingScene 存在**：检查最后一个场景是否为 EndingScene
+   - **验证 EndingScene 帧数**：确认 EndingScene 帧数为 180 帧（6 秒）
+   - 计算场景总帧数：`场景总帧数 = Σ(各内容场景帧数) + EndingScene帧数(180)`
+   - 计算转场总帧数：`转场总帧数 = (场景总数 - 1) × 转场帧数`（通常每个转场 15-30 帧）
    - 计算预期总帧数：`预期总帧数 = 场景总帧数 + 转场总帧数`
 
 2. **第二次校验**：读取 Root.tsx
@@ -289,8 +317,9 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
    - 对比：`Root.tsx中的durationInFrames === 预期总帧数`
 
 3. **第三次校验**：逐场景验证
-   - 逐个检查每个场景的帧数是否正确计算
-   - 验证公式：`场景帧数 = Math.ceil(音频时长秒数 × 30) + 30`
+   - 逐个检查每个内容场景的帧数是否正确计算
+   - 验证公式：`内容场景帧数 = Math.ceil(音频时长秒数 × 30) + 30`
+   - **验证 EndingScene 帧数固定为 180 帧**
    - 确保没有遗漏或重复计算
 
 **校验示例**：
@@ -300,22 +329,33 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
 <TransitionSeries.Sequence durationInFrames={259}>  // 场景1
 <TransitionSeries.Sequence durationInFrames={320}>  // 场景2
 <TransitionSeries.Sequence durationInFrames={280}>  // 场景3
+<TransitionSeries.Sequence durationInFrames={180}>  // EndingScene（必须存在）
 
 // 计算过程
-场景总帧数 = 259 + 320 + 280 = 859帧
-转场总帧数 = (3 - 1) × 15 = 30帧
-预期总帧数 = 859 + 30 = 889帧
+内容场景总帧数 = 259 + 320 + 280 = 859帧
+EndingScene帧数 = 180帧
+场景总帧数 = 859 + 180 = 1039帧
+转场总帧数 = (4 - 1) × 15 = 45帧
+预期总帧数 = 1039 + 45 = 1084帧
 
 // Root.tsx 中应该是
 <Composition
   id="VideoName"
   component={VideoNameVideo}
-  durationInFrames={889}  // ✓ 必须等于 889
+  durationInFrames={1084}  // ✓ 必须等于 1084
   fps={30}
   width={1080}
   height={1920}
 />
 ```
+
+**EndingScene 校验要点**：
+
+1. **导入检查**：确认视频主组件导入了 `import { EndingScene } from "./components/EndingScene";`
+2. **位置检查**：EndingScene 必须是最后一个场景
+3. **帧数检查**：EndingScene 必须使用固定 180 帧
+4. **音频检查**：确认有对应的 `ending-audio.mp3` 文件
+5. **字幕检查**：确认有对应的 `ending-captions.json` 文件
 
 **不一致处理**：
 
@@ -376,6 +416,70 @@ remotion-videos/
 - **pydub/librosa**: 音频处理
 - **@remotion/transitions**: 场景转场效果
 
+## EndingScene 实现要求
+
+**每个视频必须包含 EndingScene 场景**，作为视频的标准结尾。
+
+### EndingScene 组件位置
+
+```
+src/components/EndingScene.tsx
+```
+
+### EndingScene 组件模板
+
+```typescript
+import React from "react";
+import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+
+export const EndingScene: React.FC = () => {
+  const frame = useCurrentFrame();
+
+  // 淡入效果
+  const opacity = interpolate(frame, [0, 30], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  return (
+    <AbsoluteFill className="bg-gradient-to-br from-blue-900 to-purple-900">
+      <div
+        className="flex flex-col items-center justify-center h-full text-white"
+        style={{ opacity }}
+      >
+        <h1 className="text-6xl font-bold mb-8">5分钟 AI</h1>
+        <p className="text-3xl">每天搞懂一个知识点！</p>
+      </div>
+    </AbsoluteFill>
+  );
+};
+```
+
+### EndingScene 音频内容
+
+- **固定文本**："5 分钟 AI，每天搞懂一个知识点！"
+- **音频文件**：`ending-audio.mp3`
+- **字幕文件**：`ending-captions.json`
+- **时长固定**：6 秒（180 帧）
+
+### 在视频主组件中的使用
+
+```typescript
+import { EndingScene } from "./components/EndingScene";
+
+// ... 所有内容场景之后 ...
+
+<TransitionSeries.Sequence durationInFrames={180}>
+  <EndingScene />
+  <Html5Audio src={staticFile("VideoName/ending-audio.mp3")} volume={0.8} />
+  <CaptionComponent
+    audioFile="VideoName/ending-audio.mp3"
+    captionFile="VideoName/ending-captions.json"
+    startTimeMs={0}
+  />
+</TransitionSeries.Sequence>;
+```
+
 ## 注意事项
 
 1. **环境依赖**：确保已激活 `qwen3-tts` conda 环境和 `ai` node 版本
@@ -390,6 +494,12 @@ remotion-videos/
    - 图片展示时机要与讲解内容同步
    - 添加适当的动画效果（淡入淡出）
    - 注意图片文件大小，避免影响渲染性能
+8. **EndingScene 强制要求**：
+   - 每个视频必须包含 EndingScene 场景
+   - EndingScene 必须是最后一个场景
+   - EndingScene 帧数固定为 180 帧（6 秒）
+   - 必须导入 EndingScene 组件
+   - 必须生成对应的音频和字幕文件
 
 ## 相关 Skills
 

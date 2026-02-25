@@ -1,0 +1,23 @@
+[
+    {
+        "text": "相比RNN和CNN，Self-Attention有显著优势。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "它是全局并行计算，不受长距离依赖限制，可解释性高。",
+        "startMs": 4000,
+        "endMs": 10000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "但代价是计算复杂度为O的平方，处理1000个词需要计算100万次词对相似度。",
+        "startMs": 10000,
+        "endMs": 18000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    }
+]

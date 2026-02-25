@@ -1,0 +1,16 @@
+[
+  {
+    "text": "Self-Attention让模型学会了重点关注这一人类最基本的认知能力。",
+    "startMs": 0,
+    "endMs": 4870,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "从2017年提出至今，它已经彻底改变了自然语言处理领域，成为大模型时代的技术基石。",
+    "startMs": 4870,
+    "endMs": 12665,
+    "timestampMs": 4870,
+    "confidence": 0.95
+  }
+]

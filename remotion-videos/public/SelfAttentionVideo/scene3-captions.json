@@ -1,0 +1,23 @@
+[
+    {
+        "text": "Self-Attention的核心概念包括：Query查询、Key键、Value值，以及注意力权重。",
+        "startMs": 0,
+        "endMs": 6000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "Query相当于当前词的问题，Key是每个词的标签，Value是实际要传递的信息。",
+        "startMs": 6000,
+        "endMs": 13000,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "通过这三者的交互，模型能够动态捕捉词与词之间的关系。",
+        "startMs": 13000,
+        "endMs": 18000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    }
+]

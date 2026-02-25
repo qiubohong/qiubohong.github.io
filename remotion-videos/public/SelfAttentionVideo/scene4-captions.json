@@ -1,0 +1,37 @@
+[
+    {
+        "text": "计算过程分为4步。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "首先，输入序列通过线性变换得到Q、K、V矩阵。",
+        "startMs": 2000,
+        "endMs": 6000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "然后，计算Query和Key的点积得到相似度。",
+        "startMs": 6000,
+        "endMs": 10000,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "接着，除以根号dk进行缩放，再用Softmax归一化得到注意力权重。",
+        "startMs": 10000,
+        "endMs": 16000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最后，权重与Value相乘，得到加权输出。",
+        "startMs": 16000,
+        "endMs": 20000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    }
+]

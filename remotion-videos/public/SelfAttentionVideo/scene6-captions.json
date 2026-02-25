@@ -1,0 +1,30 @@
+[
+    {
+        "text": "举个例子，处理句子The animal didn't cross the street because it was too tired时，",
+        "startMs": 0,
+        "endMs": 7000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "当遇到it这个词，模型会自动计算它与其他词的关联度。",
+        "startMs": 7000,
+        "endMs": 12000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "结果显示it最关注animal，权重高达45%，",
+        "startMs": 12000,
+        "endMs": 16000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "因此正确理解it指代的是动物，而不是街道或其他东西。",
+        "startMs": 16000,
+        "endMs": 22000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    }
+]

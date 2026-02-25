@@ -1,0 +1,23 @@
+[
+    {
+        "text": "实际应用中，我们使用多头注意力，并行运行多个Self-Attention。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "不同头关注不同的信息：有的关注语法关系，有的关注语义相似性，有的关注长距离依赖。",
+        "startMs": 5000,
+        "endMs": 13000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最后将所有头的输出拼接，让模型从多个角度理解输入。",
+        "startMs": 13000,
+        "endMs": 18000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    }
+]

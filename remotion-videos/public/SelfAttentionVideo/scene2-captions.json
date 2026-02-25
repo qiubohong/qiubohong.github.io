@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Self-Attention的应用非常广泛。",
+    "startMs": 0,
+    "endMs": 3807,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "Transformer用于机器翻译，BERT用于文本理解，GPT系列用于文本生成，Vision Transformer用于图像识别。",
+    "startMs": 3807,
+    "endMs": 12693,
+    "timestampMs": 3807,
+    "confidence": 0.95
+  },
+  {
+    "text": "它已经成为深度学习领域的基础设施。",
+    "startMs": 12693,
+    "endMs": 16501,
+    "timestampMs": 12693,
+    "confidence": 0.95
+  }
+]

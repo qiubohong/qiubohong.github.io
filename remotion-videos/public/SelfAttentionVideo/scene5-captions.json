@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Self-Attention的核心公式是：Attention(Q,K,V)等于softmax(QK的转置除以根号dk)乘以V。",
+    "startMs": 0,
+    "endMs": 7160,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "其中Q、K、V分别是查询、键、值矩阵，dk是键向量维度，用于缩放防止点积过大。",
+    "startMs": 7160,
+    "endMs": 14320,
+    "timestampMs": 7160,
+    "confidence": 0.95
+  },
+  {
+    "text": "这个公式让模型能一步到位捕捉长距离依赖。",
+    "startMs": 14320,
+    "endMs": 17902,
+    "timestampMs": 14320,
+    "confidence": 0.95
+  }
+]

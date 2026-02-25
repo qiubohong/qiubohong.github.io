@@ -11,6 +11,7 @@ import { ActivationFunctionVideo } from "./ActivationFunctionVideo";
 import { LossFunctionVideo } from "./LossFunctionVideo";
 import { RNNVideo } from "./RNNVideo";
 import { TransformerVideo } from "./TransformerVideo";
+import { SelfAttentionVideo } from "./SelfAttentionVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -165,6 +166,21 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "Transformer",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* 自我注意力机制视频 */}
+      <Composition
+        id="SelfAttentionVideo"
+        component={SelfAttentionVideo}
+        durationInFrames={4835} // 总帧数：485+488+532+613+568+628+564+531+411+180+转场135=5135帧，约171.17秒（9个场景+1个结尾+9个转场，基于实际音频时长+30帧）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "自我注意力机制",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}

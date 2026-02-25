@@ -1,0 +1,23 @@
+[
+  {
+    "text": "今天我们来学习自我注意力机制Self-Attention。",
+    "startMs": 0,
+    "endMs": 4037,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "它是Transformer、BERT、GPT等大模型的核心技术。",
+    "startMs": 4037,
+    "endMs": 8075,
+    "timestampMs": 4037,
+    "confidence": 0.95
+  },
+  {
+    "text": "简单说，就是让序列中的每个元素自动计算与其他所有元素的关联度，动态分配注意力权重。",
+    "startMs": 8075,
+    "endMs": 15142,
+    "timestampMs": 8075,
+    "confidence": 0.95
+  }
+]
