@@ -1,0 +1,37 @@
+[
+  {
+    "text": "Transformer在各行业大放异彩：",
+    "startMs": 0,
+    "endMs": 3217,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "Google翻译长句流畅度提升37%，",
+    "startMs": 3217,
+    "endMs": 7238,
+    "timestampMs": 3217,
+    "confidence": 0.95
+  },
+  {
+    "text": "GPT-4生成连贯性提升82%，",
+    "startMs": 7238,
+    "endMs": 10455,
+    "timestampMs": 7238,
+    "confidence": 0.95
+  },
+  {
+    "text": "图像识别ViT错误率降低15%，",
+    "startMs": 10455,
+    "endMs": 13673,
+    "timestampMs": 10455,
+    "confidence": 0.95
+  },
+  {
+    "text": "AlphaFold蛋白质预测精度甚至超越实验方法！",
+    "startMs": 13673,
+    "endMs": 18499,
+    "timestampMs": 13673,
+    "confidence": 0.95
+  }
+]

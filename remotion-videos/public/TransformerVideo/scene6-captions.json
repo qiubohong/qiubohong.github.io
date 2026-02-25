@@ -1,0 +1,37 @@
+[
+  {
+    "text": "冷知识时间！",
+    "startMs": 0,
+    "endMs": 2455,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "Transformer在机器翻译中仅比LSTM高0.2分，但因10倍训练速度引发革命。",
+    "startMs": 2455,
+    "endMs": 9004,
+    "timestampMs": 2455,
+    "confidence": 0.95
+  },
+  {
+    "text": "训练BERT-Large耗电相当于纽约到旧金山航班往返40次，",
+    "startMs": 9004,
+    "endMs": 14733,
+    "timestampMs": 9004,
+    "confidence": 0.95
+  },
+  {
+    "text": "但推理单次仅需0.005度电。",
+    "startMs": 14733,
+    "endMs": 18008,
+    "timestampMs": 14733,
+    "confidence": 0.95
+  },
+  {
+    "text": "注意力头还有专长分工：头1检测主谓一致，头4捕捉介词搭配，头7识别指代关系！",
+    "startMs": 18008,
+    "endMs": 25375,
+    "timestampMs": 18008,
+    "confidence": 0.95
+  }
+]

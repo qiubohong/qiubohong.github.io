@@ -1,0 +1,30 @@
+[
+  {
+    "text": "Transformer由三部分组成：",
+    "startMs": 0,
+    "endMs": 2772,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "编码器Encoder是理解者，将输入转化为结构化知识；",
+    "startMs": 2772,
+    "endMs": 7623,
+    "timestampMs": 2772,
+    "confidence": 0.95
+  },
+  {
+    "text": "自注意力机制Self-Attention是协商者，在知识网络中建立动态连接；",
+    "startMs": 7623,
+    "endMs": 13167,
+    "timestampMs": 7623,
+    "confidence": 0.95
+  },
+  {
+    "text": "解码器Decoder是创造者，依据知识网络按规则生成新内容。",
+    "startMs": 13167,
+    "endMs": 18019,
+    "timestampMs": 13167,
+    "confidence": 0.95
+  }
+]

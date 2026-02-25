@@ -1,0 +1,23 @@
+[
+  {
+    "text": "通俗理解：原先的算法都是一个接一个单词单独循环遍历相关的关联性，",
+    "startMs": 0,
+    "endMs": 5495,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "而Transformer是把整个句子所有单词一起互相计算关联性。",
+    "startMs": 5495,
+    "endMs": 10205,
+    "timestampMs": 5495,
+    "confidence": 0.95
+  },
+  {
+    "text": "就像从单线程升级到多线程处理，效率飞跃提升！",
+    "startMs": 10205,
+    "endMs": 15701,
+    "timestampMs": 10205,
+    "confidence": 0.95
+  }
+]

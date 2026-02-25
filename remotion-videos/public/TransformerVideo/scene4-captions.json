@@ -1,0 +1,30 @@
+[
+  {
+    "text": "Transformer的创新本质：",
+    "startMs": 0,
+    "endMs": 2176,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一，抛弃循环结构，所有词同时计算关联性；",
+    "startMs": 2176,
+    "endMs": 6529,
+    "timestampMs": 2176,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二，使用位置编码，通过正弦余弦波替代时间步顺序。",
+    "startMs": 6529,
+    "endMs": 10882,
+    "timestampMs": 6529,
+    "confidence": 0.95
+  },
+  {
+    "text": "这让训练速度提升了10倍！",
+    "startMs": 10882,
+    "endMs": 13784,
+    "timestampMs": 10882,
+    "confidence": 0.95
+  }
+]

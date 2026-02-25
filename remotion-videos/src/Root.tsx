@@ -10,6 +10,7 @@ import { CNNVideo } from "./CNNVideo";
 import { ActivationFunctionVideo } from "./ActivationFunctionVideo";
 import { LossFunctionVideo } from "./LossFunctionVideo";
 import { RNNVideo } from "./RNNVideo";
+import { TransformerVideo } from "./TransformerVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -151,6 +152,21 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "循环网络 RNN"
+        }}
+      />
+
+      {/* Transformer视频 */}
+      <Composition
+        id="TransformerVideo"
+        component={TransformerVideo}
+        durationInFrames={3635} // 总帧数：493+501+570+443+584+791+363+转场90=3835帧，约127.83秒（7个场景+6个转场，每场景+30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Transformer",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
         }}
       />
     </>
