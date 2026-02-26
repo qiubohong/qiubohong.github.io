@@ -1,0 +1,58 @@
+[
+    {
+        "text": "来看看同样是让AI写朋友圈文案，普通用户和高手的区别。",
+        "startMs": 0,
+        "endMs": 4500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "普通用户说：帮我写个朋友圈。",
+        "startMs": 4500,
+        "endMs": 7500,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI回复：今天天气真好，心情也很美丽……一套毫无特色的套话。",
+        "startMs": 7500,
+        "endMs": 12000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "高手用四步法说：请你扮演幽默的段子手。",
+        "startMs": 12000,
+        "endMs": 15500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "我刚健身完，练出了腹肌特别开心，但不好意思直接炫耀。",
+        "startMs": 15500,
+        "endMs": 20000,
+        "timestampMs": 15500,
+        "confidence": 0.95
+    },
+    {
+        "text": "帮我写一个自嘲又低调的朋友圈，短小精悍，可以带表情符号。",
+        "startMs": 20000,
+        "endMs": 25000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI回复：坚持三个月，终于从一块腹肌练成了六块腹肌——虽然还得吸气才能看见。",
+        "startMs": 25000,
+        "endMs": 31000,
+        "timestampMs": 25000,
+        "confidence": 0.95
+    },
+    {
+        "text": "哪个更好，一目了然！",
+        "startMs": 31000,
+        "endMs": 34000,
+        "timestampMs": 31000,
+        "confidence": 0.95
+    }
+]

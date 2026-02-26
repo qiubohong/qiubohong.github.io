@@ -1,0 +1,37 @@
+[
+    {
+        "text": "四步法之外，还有一个隐藏技巧——给AI一个你认为\"超棒\"的样例。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "如果你手头有一段特别满意的文案，直接发给AI，",
+        "startMs": 5000,
+        "endMs": 9000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "告诉它：请参考这个风格，帮我写一个类似的。",
+        "startMs": 9000,
+        "endMs": 13000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI会自动学习那个样例的风格、结构和语气，然后按照同样的水准来输出。",
+        "startMs": 13000,
+        "endMs": 18500,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "给一个世界级的样例，往往比写一百个要求更管用！",
+        "startMs": 18500,
+        "endMs": 23000,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "text": "想象一下，你面前坐着一位上知天文、下知地理的超级专家，",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "但他有个特点：你不说清楚自己想要什么，他就只能凭猜测回答。",
+        "startMs": 4000,
+        "endMs": 8500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI就是这样一位\"超级专家\"。它肚子里有海量知识，但没有读心术。",
+        "startMs": 8500,
+        "endMs": 13000,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你给的信息越模糊，它的回答就越像\"随机抽奖\"。",
+        "startMs": 13000,
+        "endMs": 17000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就是那句老话：垃圾进，垃圾出——你问得稀里糊涂，就别怪AI答得莫名其妙。",
+        "startMs": 17000,
+        "endMs": 23000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    }
+]

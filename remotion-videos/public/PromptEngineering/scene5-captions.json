@@ -1,0 +1,37 @@
+[
+    {
+        "text": "第二步：交代背景。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI不了解你是谁、在什么情况下提问，所以你要主动说清楚。",
+        "startMs": 2500,
+        "endMs": 7000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如写求职邮件，告诉它：我刚毕业，想应聘互联网公司运营岗，",
+        "startMs": 7000,
+        "endMs": 12000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "性格开朗但缺乏经验，希望突出学习能力和热情。",
+        "startMs": 12000,
+        "endMs": 16000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你提供的背景信息越多，AI的答案就越贴合你的实际情况。",
+        "startMs": 16000,
+        "endMs": 21000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "text": "第四步：指定交付格式。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI可以用很多种方式呈现结果，你得提前说好要哪种。",
+        "startMs": 3000,
+        "endMs": 7500,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "想要清单，就说：请用列表形式。",
+        "startMs": 7500,
+        "endMs": 11000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "想直接发朋友圈，就说：生成一段完整的文案，不用加额外说明。",
+        "startMs": 11000,
+        "endMs": 16000,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "想比较选项，就说：请画一张表格，第一列是方案名称，后面几列是优缺点。",
+        "startMs": 16000,
+        "endMs": 22000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    }
+]

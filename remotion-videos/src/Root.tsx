@@ -12,6 +12,7 @@ import { LossFunctionVideo } from "./LossFunctionVideo";
 import { RNNVideo } from "./RNNVideo";
 import { TransformerVideo } from "./TransformerVideo";
 import { SelfAttentionVideo } from "./SelfAttentionVideo";
+import { PromptEngineeringVideo } from "./PromptEngineeringVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -183,6 +184,20 @@ export const RemotionRoot = () => {
           title: "自我注意力机制",
           showCaptions: true,
           backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* 提示词工程视频（普通人也能用好AI系列·技能一） */}
+      <Composition
+        id="PromptEngineeringVideo"
+        component={PromptEngineeringVideo}
+        durationInFrames={6819} // 总帧数：604+748+519+782+613+563+647+709+1081+668=6934帧，减去9个转场×15帧=135帧，实际6799帧，约226.6秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "学会和AI好好说话——四步提问法",
+          showCaptions: true,
         }}
       />
     </>

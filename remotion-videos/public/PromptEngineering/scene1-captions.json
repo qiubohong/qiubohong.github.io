@@ -1,0 +1,37 @@
+[
+    {
+        "text": "普通人也能用好AI的九大必备技能！今天我们学习，如何和AI好好说话。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "你有没有这样的经历？让AI帮你写邮件，结果一堆套话；",
+        "startMs": 4000,
+        "endMs": 7500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "让它策划旅行，景点要么太大众要么不切实际。",
+        "startMs": 7500,
+        "endMs": 11000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这时候你可能会想：是不是AI不够聪明？",
+        "startMs": 11000,
+        "endMs": 14000,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "都不是！问题出在你还不会和AI\"好好说话\"。",
+        "startMs": 14000,
+        "endMs": 18000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    }
+]

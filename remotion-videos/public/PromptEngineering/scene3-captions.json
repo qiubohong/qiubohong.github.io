@@ -1,0 +1,30 @@
+[
+    {
+        "text": "想和AI高效沟通，其实有套路可循。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "我把这个方法叫做\"四步提问法\"。",
+        "startMs": 3500,
+        "endMs": 6500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "记住这四个词：角色、背景、任务、格式。",
+        "startMs": 6500,
+        "endMs": 10500,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "不管你是想让AI写文案、做计划、学知识，还是解决生活琐事，都可以套用这四步。",
+        "startMs": 10500,
+        "endMs": 17000,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    }
+]

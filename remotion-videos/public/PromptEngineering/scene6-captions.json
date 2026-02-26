@@ -1,0 +1,37 @@
+[
+    {
+        "text": "第三步：下达具体任务，这是最关键的一步。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "不要说\"帮我写一封信\"，",
+        "startMs": 4000,
+        "endMs": 6500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "要说：帮我写一封300字左右的求职信，开头要热情，",
+        "startMs": 6500,
+        "endMs": 11000,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "中间列举大学期间组织活动的经历，结尾表达希望面试的意愿。",
+        "startMs": 11000,
+        "endMs": 16000,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "任务越具体，AI的执行力越强！",
+        "startMs": 16000,
+        "endMs": 19500,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    }
+]

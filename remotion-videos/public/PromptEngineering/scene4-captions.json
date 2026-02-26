@@ -1,0 +1,37 @@
+[
+    {
+        "text": "第一步：给AI一个角色。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI什么都知道，但你得告诉它\"现在用哪个脑袋想问题\"。",
+        "startMs": 3000,
+        "endMs": 7500,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "想让它写广告词，就说：请你扮演一位经验丰富的广告策划。",
+        "startMs": 7500,
+        "endMs": 12000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "想让它帮孩子讲故事，就说：请你扮演一位幼儿园老师，语气要温柔、充满童趣。",
+        "startMs": 12000,
+        "endMs": 17500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你给它一个角色，它就知道该从哪个\"知识领域\"来回答你。",
+        "startMs": 17500,
+        "endMs": 22000,
+        "timestampMs": 17500,
+        "confidence": 0.95
+    }
+]
