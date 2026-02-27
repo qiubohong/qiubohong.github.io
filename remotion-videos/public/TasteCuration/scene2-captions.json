@@ -1,0 +1,51 @@
+[
+    {
+        "text": "AI就像一个不知疲倦的创意机器，可以为你批量生产想法。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "但是，数量从来不等同于质量。",
+        "startMs": 4000,
+        "endMs": 7000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "本·阿弗莱克说过：工匠之道在于知道如何工作，",
+        "startMs": 7000,
+        "endMs": 11000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "而艺术之道在于知道何时停止。",
+        "startMs": 11000,
+        "endMs": 14000,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI负责源源不断地生成内容，",
+        "startMs": 14000,
+        "endMs": 17000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "而你需要负责在恰当的时候喊停，选出那个最出色的。",
+        "startMs": 17000,
+        "endMs": 21500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这种\"喊停\"的能力，就是你的AI审美。",
+        "startMs": 21500,
+        "endMs": 25000,
+        "timestampMs": 21500,
+        "confidence": 0.95
+    }
+]

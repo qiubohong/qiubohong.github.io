@@ -1,0 +1,51 @@
+[
+    {
+        "text": "大师提示词的本质，是让AI提前了解你，而不是每次都从零开始猜。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "花半小时做一份自己的\"个人说明书\"，",
+        "startMs": 5000,
+        "endMs": 8500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "以后每一次和AI的对话效率都能翻倍。",
+        "startMs": 8500,
+        "endMs": 12000,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "它会记得你讨厌什么套话，知道你偏爱什么风格，",
+        "startMs": 12000,
+        "endMs": 16000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "就像一个合作多年的老搭档，你刚开口，他就知道你要什么。",
+        "startMs": 16000,
+        "endMs": 21000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下一期，我们要聊怎么和AI\"掰手腕\"——",
+        "startMs": 21000,
+        "endMs": 24500,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    },
+    {
+        "text": "当它给出的答案不对时，如何一步步逼出你真正想要的结果。",
+        "startMs": 24500,
+        "endMs": 29500,
+        "timestampMs": 24500,
+        "confidence": 0.95
+    }
+]

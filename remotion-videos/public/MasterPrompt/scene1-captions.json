@@ -1,0 +1,58 @@
+[
+    {
+        "text": "欢迎来到【普通人也能用好AI的九大必备技能】系列。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天是技能三：给AI办一张\"身份证\"。",
+        "startMs": 3500,
+        "endMs": 7000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "99%的人每次用AI，都在从零开始。",
+        "startMs": 7000,
+        "endMs": 10500,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "打开对话框，先解释自己是谁，再说明要做什么。",
+        "startMs": 10500,
+        "endMs": 14500,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    },
+    {
+        "text": "然后还要纠正它的风格……",
+        "startMs": 14500,
+        "endMs": 17000,
+        "timestampMs": 14500,
+        "confidence": 0.95
+    },
+    {
+        "text": "等AI终于\"摸清楚你\"，这次对话也快结束了。",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下次打开，又得重来一遍。",
+        "startMs": 21000,
+        "endMs": 24000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这不是AI的问题，是你没给它一张属于你的\"身份证\"。",
+        "startMs": 24000,
+        "endMs": 28500,
+        "timestampMs": 24000,
+        "confidence": 0.95
+    }
+]

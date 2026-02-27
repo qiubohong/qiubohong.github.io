@@ -1,0 +1,37 @@
+[
+    {
+        "text": "好消息是，审美不是天生的，完全可以后天培养。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "下面这三步，能帮你慢慢建立起自己的审美库。",
+        "startMs": 4000,
+        "endMs": 7500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步：建立你的审美库——多看好的，才知道什么是好。",
+        "startMs": 7500,
+        "endMs": 12000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步：修炼精准表达——用对的词，引导AI给对的答案。",
+        "startMs": 12000,
+        "endMs": 16500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步：制定个人规则——把审美固化，让AI次次都懂你。",
+        "startMs": 16500,
+        "endMs": 21000,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    }
+]

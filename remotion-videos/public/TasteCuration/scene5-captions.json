@@ -1,0 +1,58 @@
+[
+    {
+        "text": "第二步：修炼精准表达。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "有了审美库，你知道了什么是好的。",
+        "startMs": 2500,
+        "endMs": 5500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "下一步就是把你脑子里的\"好\"，用准确的语言告诉AI。",
+        "startMs": 5500,
+        "endMs": 9500,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "不要说\"写得专业点\"，",
+        "startMs": 9500,
+        "endMs": 11500,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "而是说：每行不超过100个字符，多用数据支撑，避免主观形容词。",
+        "startMs": 11500,
+        "endMs": 16500,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "不要说\"让它更有趣\"，",
+        "startMs": 16500,
+        "endMs": 18500,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "而是说：开头用悬念，中间加比喻，结尾来个反转。",
+        "startMs": 18500,
+        "endMs": 22500,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    },
+    {
+        "text": "用行家的词汇和AI沟通，AI会给你行家水准的答案。",
+        "startMs": 22500,
+        "endMs": 27000,
+        "timestampMs": 22500,
+        "confidence": 0.95
+    }
+]

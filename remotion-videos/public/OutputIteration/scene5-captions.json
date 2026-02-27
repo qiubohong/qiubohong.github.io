@@ -1,0 +1,44 @@
+[
+    {
+        "text": "说到底，和AI迭代的过程，本质上是在打磨你自己的标准。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "你第一次觉得\"还行\"的东西，改到第三版可能就觉得不够好了。",
+        "startMs": 5000,
+        "endMs": 9500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "改到第五版，你可能已经能说出\"我要的是什么风格\"了。",
+        "startMs": 9500,
+        "endMs": 14000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "有了前四个技能——会提问、懂审美、会交底、会迭代——你已经从普通用户进阶成半个高手了。",
+        "startMs": 14000,
+        "endMs": 20500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "人和人的差距，不在于会不会用AI，而在于愿不愿意和AI多聊几轮。",
+        "startMs": 20500,
+        "endMs": 26000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    },
+    {
+        "text": "下一篇，我们聊聊怎么选对AI工具，把合适的武器用在合适的场景上。",
+        "startMs": 26000,
+        "endMs": 31000,
+        "timestampMs": 26000,
+        "confidence": 0.95
+    }
+]

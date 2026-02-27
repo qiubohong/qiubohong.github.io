@@ -1,6 +1,6 @@
 ---
 name: video-generator
-description: 自动化Remotion视频生成工作流。当用户需要创建技术教学视频时使用此skill。支持从文案输入到视频构建的完整流程：(1)文案优化与标题生成 (2)场景文件与字幕生成 (3)音频文件生成 (4)帧数计算与Root.tsx更新 (5)视频构建验证。适用于AI教学、技术讲解类视频制作。
+description: 自动化Remotion视频生成工作流。当用户需要创建技术教学视频时使用此skill。支持从文案输入到视频构建的完整流程：(1)文案优化与标题生成（含抖音短视频标题和文案）(2)场景文件与字幕生成 (3)音频文件生成 (4)帧数计算与Root.tsx更新 (5)视频构建验证。适用于AI教学、技术讲解类视频制作。输出包含适配抖音平台的短视频标题和文案。
 ---
 
 # Remotion 视频生成工作流
@@ -37,6 +37,8 @@ nvm use ai
    - 记录图片路径和建议展示的场景位置
 3. 以抖音教学运营专家角色优化文案，输出：
    - 视频标题（吸引眼球、适合短视频平台）
+   - **抖音短视频标题**（15-20 字，吸引眼球，可带数字、疑问句、感叹号）
+   - **抖音短视频文案**（100-200 字，包含：视频亮点概述、互动引导、相关标签）
    - 视频主题和核心要点
    - 分场景文案（每个场景对应一个知识点，时长控制在 15-45 秒）
    - **图片使用计划**（标注哪些场景需要展示图片）
@@ -51,6 +53,33 @@ nvm use ai
 
 ```markdown
 # 视频标题：[吸引眼球的标题]
+
+## 抖音短视频标题
+
+[15-20 字的吸引眼球标题，可包含数字、疑问句、感叹号]
+
+示例：
+
+- "3 分钟掌握 AI 提示词核心技巧！"
+- "为什么你的 AI 总是答非所问？"
+- "一招教你写出完美 Prompt！"
+
+## 抖音短视频文案
+
+[100-200 字文案]
+
+示例：
+AI 提示词写不好？这个技巧让你秒变高手！🔥
+
+本视频教你掌握 AI 提示词的核心方法：
+✅ 角色设定 - 让 AI 更懂你
+✅ 背景补充 - 上下文更清晰
+✅ 任务明确 - 输出更精准
+
+学会这三招，你的 AI 对话效率提升 10 倍！
+
+点赞收藏，下期分享更多 AI 实用技巧～
+#AI 教程 #提示词技巧 #ChatGPT
 
 ## 视频主题
 
@@ -480,6 +509,236 @@ import { EndingScene } from "./components/EndingScene";
 </TransitionSeries.Sequence>;
 ```
 
+## AI 对话动画方案
+
+当场景内容涉及 **AI 对话交互**（如展示提示词、演示 AI 问答流程、说明 AI 使用步骤等）时，启用以下标准动画方案。
+
+### 布局结构
+
+采用**左右两栏布局**：
+
+- **左侧**：标题、说明文字、步骤卡片等原有内容（初始占满全宽）
+- **右侧**：AI 对话动画窗口（初始宽度为 0，动画展开后为 480px）
+
+### 右侧对话框展开动画
+
+```typescript
+const CHAT_SHOW_START = 80; // 对话框开始出现的帧数
+
+// 宽度从 0 展开到 480，配合 overflow:hidden 裁剪
+const chatPanelWidth = interpolate(
+  frame,
+  [CHAT_SHOW_START, CHAT_SHOW_START + 30],
+  [0, 480],
+  {
+    easing: Easing.out(Easing.cubic),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  }
+);
+const chatPanelOpacity = interpolate(
+  frame,
+  [CHAT_SHOW_START, CHAT_SHOW_START + 20],
+  [0, 1],
+  {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  }
+);
+
+// 右侧容器
+<div
+  style={{
+    width: chatPanelWidth,
+    flexShrink: 0,
+    overflow: "hidden", // 关键：裁剪展开过程中的溢出内容
+    display: "flex",
+    flexDirection: "column",
+    opacity: chatPanelOpacity,
+  }}
+>
+  {/* 对话框内容 */}
+</div>;
+```
+
+> ⚠️ **重要**：右侧宽度必须用动画从 `0` 展开，**不能**直接设置固定宽度，否则左侧内容从一开始就会被压缩。
+
+### 对话框视觉设计
+
+```typescript
+// macOS 风格顶部标题栏
+<div style={{ background: "rgba(255,255,255,0.08)", borderRadius: "12px 12px 0 0", padding: "10px 16px", display: "flex", alignItems: "center", gap: 8 }}>
+    {/* 红黄绿三色圆点 */}
+    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57" }} />
+    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e" }} />
+    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840" }} />
+    <span style={{ marginLeft: 8, color: "#8b949e", fontSize: 13 }}>AI 对话</span>
+</div>
+
+// 用户气泡（右对齐，橙色）
+<div style={{ alignSelf: "flex-end", background: "#f0883e", color: "#fff", borderRadius: "12px 12px 2px 12px", padding: "10px 14px", maxWidth: "85%" }}>
+    {userMessage}
+</div>
+
+// AI 气泡（左对齐，蓝色半透明）
+<div style={{ alignSelf: "flex-start", background: "rgba(88,166,255,0.15)", border: "1px solid rgba(88,166,255,0.3)", color: "#c9d1d9", borderRadius: "12px 12px 12px 2px", padding: "10px 14px", maxWidth: "85%" }}>
+    {aiMessage}
+</div>
+```
+
+### 打字机效果
+
+```typescript
+// 打字机效果：根据帧数截取文字
+const getTypingText = (
+  text: string,
+  startFrame: number,
+  charsPerFrame = 1.2
+) => {
+  const elapsed = Math.max(0, frame - startFrame);
+  const charsToShow = Math.floor(elapsed * charsPerFrame);
+  return text.slice(0, charsToShow);
+};
+
+// 光标闪烁（每7帧切换）
+const showCursor = (startFrame: number, text: string, charsPerFrame = 1.2) => {
+  const elapsed = Math.max(0, frame - startFrame);
+  const isDone = Math.floor(elapsed * charsPerFrame) >= text.length;
+  return !isDone && Math.floor(frame / 7) % 2 === 0;
+};
+```
+
+### 多轮对话时间线设计（以 3 步骤为例）
+
+| 帧数范围  | 内容                       | 说明                       |
+| --------- | -------------------------- | -------------------------- |
+| 0 ~ 80    | 左侧内容展示               | 右侧宽度为 0，左侧占满全宽 |
+| 80 ~ 110  | 右侧对话框展开             | 宽度从 0 → 480px           |
+| 90 ~ 150  | 第 1 轮对话（AI 提问）     | 气泡弹性滑入 + 打字机效果  |
+| 155 ~ 215 | 第 2 轮对话（用户回答）    | 用户气泡右对齐             |
+| 220 ~ 280 | 第 3 轮对话（AI 输出结果） | AI 气泡左对齐              |
+| 290+      | 完成提示                   | 底部提示文字淡入           |
+
+### 气泡入场动画
+
+```typescript
+// 气泡从下方弹性滑入
+const bubbleSlide = interpolate(frame, [startFrame, startFrame + 20], [30, 0], {
+    easing: Easing.out(Easing.back(1.5)),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+});
+const bubbleOpacity = interpolate(frame, [startFrame, startFrame + 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+});
+// 应用到气泡容器
+style={{ transform: `translateY(${bubbleSlide}px)`, opacity: bubbleOpacity }}
+```
+
+---
+
+## 小动画增强方案
+
+为提升视频趣味性和观看体验，在场景中适当添加以下小动画效果：
+
+### 1. 元素入场动画
+
+```typescript
+// 从下方滑入（卡片、标题等）
+const slideUp = interpolate(frame, [startFrame, startFrame + 25], [40, 0], {
+  easing: Easing.out(Easing.cubic),
+  extrapolateLeft: "clamp",
+  extrapolateRight: "clamp",
+});
+
+// 弹性缩放入场（图标、徽章等）
+const scaleIn = interpolate(frame, [startFrame, startFrame + 20], [0, 1], {
+  easing: Easing.out(Easing.back(2)),
+  extrapolateLeft: "clamp",
+  extrapolateRight: "clamp",
+});
+```
+
+### 2. 持续循环动画
+
+```typescript
+// 上下浮动（装饰元素、图标）
+const floatY = Math.sin(frame * 0.05) * 6;
+
+// 脉冲缩放（强调元素）
+const pulse = 1 + Math.sin(frame * 0.08) * 0.03;
+
+// 旋转（加载图标等）
+const rotate = (frame * 3) % 360;
+```
+
+### 3. 数字计数动画
+
+```typescript
+// 数字从0增长到目标值
+const countUp = (target: number, startFrame: number, duration = 60) => {
+  return Math.floor(
+    interpolate(frame, [startFrame, startFrame + duration], [0, target], {
+      easing: Easing.out(Easing.cubic),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    })
+  );
+};
+```
+
+### 4. 进度条动画
+
+```typescript
+// 进度条从0%到100%
+const progress = interpolate(frame, [startFrame, startFrame + 60], [0, 100], {
+  easing: Easing.inOut(Easing.cubic),
+  extrapolateLeft: "clamp",
+  extrapolateRight: "clamp",
+});
+<div
+  style={{
+    width: `${progress}%`,
+    height: 4,
+    background: "#f0883e",
+    borderRadius: 2,
+  }}
+/>;
+```
+
+### 5. 粒子/装饰元素
+
+```typescript
+// 随机分布的装饰点（背景氛围）
+const dots = Array.from({ length: 8 }, (_, i) => ({
+  x: (i * 137) % 100, // 伪随机分布
+  y: (i * 97) % 100,
+  delay: i * 8,
+  opacity: interpolate(frame, [i * 8, i * 8 + 20], [0, 0.4], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  }),
+}));
+```
+
+### 6. 高亮闪烁效果
+
+```typescript
+// 关键词高亮闪烁（吸引注意力）
+const highlight = 0.7 + Math.sin(frame * 0.15) * 0.3;
+<span style={{ color: `rgba(240, 136, 62, ${highlight})` }}>关键词</span>;
+```
+
+### 使用原则
+
+- **适度原则**：每个场景最多 2-3 个小动画，避免视觉干扰
+- **节奏感**：动画出现时机与讲解内容节奏匹配
+- **一致性**：同类元素使用相同的动画风格
+- **性能**：优先使用 CSS transform/opacity，避免频繁重排
+
+---
+
 ## 注意事项
 
 1. **环境依赖**：确保已激活 `qwen3-tts` conda 环境和 `ai` node 版本
@@ -500,6 +759,8 @@ import { EndingScene } from "./components/EndingScene";
    - EndingScene 帧数固定为 180 帧（6 秒）
    - 必须导入 EndingScene 组件
    - 必须生成对应的音频和字幕文件
+9. **AI 对话动画**：当场景涉及 AI 对话交互时，必须启用「AI 对话动画方案」章节中的标准方案，右侧对话框宽度必须从 0 动画展开，不得直接设置固定宽度
+10. **小动画增强**：每个场景可适当添加 2-3 个小动画（浮动、脉冲、计数、进度条等），提升视频趣味性，参考「小动画增强方案」章节
 
 ## 相关 Skills
 

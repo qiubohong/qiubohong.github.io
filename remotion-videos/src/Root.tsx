@@ -13,6 +13,9 @@ import { RNNVideo } from "./RNNVideo";
 import { TransformerVideo } from "./TransformerVideo";
 import { SelfAttentionVideo } from "./SelfAttentionVideo";
 import { PromptEngineeringVideo } from "./PromptEngineeringVideo";
+import { TasteCurationVideo } from "./TasteCurationVideo";
+import { MasterPromptVideo } from "./MasterPromptVideo";
+import { OutputIterationVideo } from "./OutputIterationVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -197,6 +200,48 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "学会和AI好好说话——四步提问法",
+          showCaptions: true,
+        }}
+      />
+
+      {/* AI审美鉴赏视频（普通人也能用好AI系列·技能二） */}
+      <Composition
+        id="TasteCurationVideo"
+        component={TasteCurationVideo}
+        durationInFrames={5468} // 实际帧数：925+757+644+853+842+714+669+169=5573帧，减去7个转场×15帧=105帧，实际5468帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "培养你的AI审美——审美鉴赏（Taste Curation）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* 大师提示词视频（普通人也能用好AI系列·技能三） */}
+      <Composition
+        id="MasterPromptVideo"
+        component={MasterPromptVideo}
+        durationInFrames={5033} // 813+730+678+980+909+860+153=5123帧，减去6个转场×15帧=90帧，实际5033帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "给AI办一张身份证——大师提示词（Master Prompt）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* 输出迭代视频（普通人也能用好AI系列·技能四） */}
+      <Composition
+        id="OutputIterationVideo"
+        component={OutputIterationVideo}
+        durationInFrames={4320} // 780+840+900+900+990+180=4590帧，减去5个转场×15帧=75帧，实际4515帧（待音频生成后更新）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "学会和AI掰手腕——输出迭代（Output Iteration）",
           showCaptions: true,
         }}
       />

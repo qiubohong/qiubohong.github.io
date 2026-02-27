@@ -1,0 +1,58 @@
+[
+    {
+        "text": "你可能不止一个身份：上班时要写工作报告，",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "下班后要给孩子编故事，周末还要帮朋友策划活动。",
+        "startMs": 4000,
+        "endMs": 8000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "每个场景的需求都不一样。",
+        "startMs": 8000,
+        "endMs": 10500,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "聪明的做法是：给每个重要身份都做一份大师提示词。",
+        "startMs": 10500,
+        "endMs": 15000,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    },
+    {
+        "text": "打工人版：工作内容、行业术语、领导偏好、周报格式。",
+        "startMs": 15000,
+        "endMs": 19500,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "家长版：孩子的年龄、喜欢的故事类型、常见问题。",
+        "startMs": 19500,
+        "endMs": 23500,
+        "timestampMs": 19500,
+        "confidence": 0.95
+    },
+    {
+        "text": "用哪个场景，就上传对应的那份。",
+        "startMs": 23500,
+        "endMs": 26500,
+        "timestampMs": 23500,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI在你每个角色面前，都能表现得像个\"老熟人\"。",
+        "startMs": 26500,
+        "endMs": 30500,
+        "timestampMs": 26500,
+        "confidence": 0.95
+    }
+]

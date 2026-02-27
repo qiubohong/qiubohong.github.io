@@ -1,0 +1,51 @@
+[
+    {
+        "text": "大多数人用AI的方式是：问一次，拿到结果，能用就行。",
+        "startMs": 0,
+        "endMs": 4500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "但顶尖的AI使用者完全相反——他们把AI当成璞玉，反复雕琢。",
+        "startMs": 4500,
+        "endMs": 9000,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "还记得可口可乐用AI做圣诞广告的事吗？",
+        "startMs": 9000,
+        "endMs": 12500,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "那支广告背后，是5位AI专家反复调整了整整7万次提示词！",
+        "startMs": 12500,
+        "endMs": 17000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "平均每个人调整了1.4万次。",
+        "startMs": 17000,
+        "endMs": 20000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "如果他们也说\"还行吧\"，我们永远看不到那支广告。",
+        "startMs": 20000,
+        "endMs": 24000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    },
+    {
+        "text": "精品，都是改出来的！",
+        "startMs": 24000,
+        "endMs": 27000,
+        "timestampMs": 24000,
+        "confidence": 0.95
+    }
+]

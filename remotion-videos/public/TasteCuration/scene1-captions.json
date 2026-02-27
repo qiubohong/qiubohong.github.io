@@ -1,0 +1,58 @@
+[
+    {
+        "text": "欢迎来到【普通人也能用好AI的九大必备技能】系列。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天是技能二：培养你的\"AI 审美\"。",
+        "startMs": 3000,
+        "endMs": 6000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你有没有遇到过这样的场景：",
+        "startMs": 6000,
+        "endMs": 8500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI帮你起品牌名，它给了50个，你却不知道选哪个。",
+        "startMs": 8500,
+        "endMs": 12500,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI写文案，写了三版，感觉都还行，但又差点意思。",
+        "startMs": 12500,
+        "endMs": 16500,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI策划活动，列了七八个选项，你反而更纠结了。",
+        "startMs": 16500,
+        "endMs": 20500,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这时候你可能会怀疑：是AI不够聪明？还是我的问题没问对？",
+        "startMs": 20500,
+        "endMs": 25000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    },
+    {
+        "text": "其实都不是，问题出在一个更关键的环节：筛选和判断。",
+        "startMs": 25000,
+        "endMs": 29500,
+        "timestampMs": 25000,
+        "confidence": 0.95
+    }
+]

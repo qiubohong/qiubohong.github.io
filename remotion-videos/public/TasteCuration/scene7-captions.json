@@ -1,0 +1,51 @@
+[
+    {
+        "text": "在AI时代，生成内容变得无比廉价。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "真正稀缺的是判断力。",
+        "startMs": 3500,
+        "endMs": 6000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "会提问让你起步，会筛选才让你出众。",
+        "startMs": 6000,
+        "endMs": 9500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "培养AI审美，本质上是在培养你自己的主见。",
+        "startMs": 9500,
+        "endMs": 13500,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "它让你从被动接受AI输出的\"伸手党\"，",
+        "startMs": 13500,
+        "endMs": 17000,
+        "timestampMs": 13500,
+        "confidence": 0.95
+    },
+    {
+        "text": "变成一个主动指挥AI创作的\"导演\"。",
+        "startMs": 17000,
+        "endMs": 20500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下一期，我们来聊聊如何让AI帮你高效处理海量信息。",
+        "startMs": 20500,
+        "endMs": 25000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

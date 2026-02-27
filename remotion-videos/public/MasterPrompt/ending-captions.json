@@ -1,0 +1,16 @@
+[
+    {
+        "text": "5分钟AI，每天搞懂一个知识点！",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "我们下期再见！",
+        "startMs": 3000,
+        "endMs": 6000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    }
+]

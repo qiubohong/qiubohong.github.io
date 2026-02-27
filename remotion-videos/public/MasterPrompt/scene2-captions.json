@@ -1,0 +1,44 @@
+[
+    {
+        "text": "每次打开AI对话窗口，对它来说都是一次\"初次见面\"。",
+        "startMs": 0,
+        "endMs": 4500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "它不知道你是谁、做什么工作、喜欢什么风格、讨厌什么套话。",
+        "startMs": 4500,
+        "endMs": 9000,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "它只能凭你当下的几句话临时发挥，结果自然容易跑偏。",
+        "startMs": 9000,
+        "endMs": 13500,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "解决方案很简单：花一次时间，做一份\"个人说明书\"。",
+        "startMs": 13500,
+        "endMs": 18000,
+        "timestampMs": 13500,
+        "confidence": 0.95
+    },
+    {
+        "text": "以后每次用AI前先递给它。",
+        "startMs": 18000,
+        "endMs": 21000,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这份说明书，就是你的大师提示词。",
+        "startMs": 21000,
+        "endMs": 24500,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

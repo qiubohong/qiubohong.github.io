@@ -1,0 +1,51 @@
+[
+    {
+        "text": "你有没有这样的经历？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI写朋友圈文案，觉得\"还行吧\"，直接发出去了。",
+        "startMs": 2000,
+        "endMs": 5500,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI润色工作总结，看着\"差不多\"，直接交差了。",
+        "startMs": 5500,
+        "endMs": 9000,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI策划亲子活动，觉得\"凑合能用\"，不再追问了。",
+        "startMs": 9000,
+        "endMs": 12500,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "结果呢？点赞寥寥，领导没表态，孩子玩得不尽兴。",
+        "startMs": 12500,
+        "endMs": 16500,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "不是AI不够聪明，是你太容易\"满意\"了！",
+        "startMs": 16500,
+        "endMs": 20000,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就是今天要聊的第四个核心技能：输出迭代（Output Iteration）。",
+        "startMs": 20000,
+        "endMs": 25000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "text": "第二步：用\"画布\"功能锁定核心，别再从头再来。",
+        "startMs": 0,
+        "endMs": 4500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "以前迭代最烦的是：你只对某一段不满意，让AI重写，结果它把整篇都改了。",
+        "startMs": 4500,
+        "endMs": 10000,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在DeepSeek和豆包都有\"画布\"功能，也叫文档模式或编辑器模式。",
+        "startMs": 10000,
+        "endMs": 15000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "先让AI在画布里生成内容，你直接进去手动修改不满意的地方。",
+        "startMs": 15000,
+        "endMs": 20000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "改好后告诉AI：就用这个版本当模板，以后按这个风格来。",
+        "startMs": 20000,
+        "endMs": 25000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    },
+    {
+        "text": "效率翻倍，满意的部分一个字不改！",
+        "startMs": 25000,
+        "endMs": 28500,
+        "timestampMs": 25000,
+        "confidence": 0.95
+    }
+]

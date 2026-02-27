@@ -1,0 +1,58 @@
+[
+    {
+        "text": "第三步：制定个人规则。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "当你终于让AI生成了一段让你拍大腿叫好的内容时，",
+        "startMs": 2500,
+        "endMs": 6500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "千万别就这么过去了。",
+        "startMs": 6500,
+        "endMs": 8500,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你得把这次成功的经验\"锁住\"，变成可以反复使用的规则。",
+        "startMs": 8500,
+        "endMs": 13000,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如：用明喻，不要用举例。",
+        "startMs": 13000,
+        "endMs": 16000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "句子要短，不超过20个字。",
+        "startMs": 16000,
+        "endMs": 19000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "避免俗气的励志金句，不要用破折号。",
+        "startMs": 19000,
+        "endMs": 22500,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    },
+    {
+        "text": "规则积累越多，AI的输出越来越有你的\"味儿\"。",
+        "startMs": 22500,
+        "endMs": 26500,
+        "timestampMs": 22500,
+        "confidence": 0.95
+    }
+]

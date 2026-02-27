@@ -1,0 +1,58 @@
+[
+    {
+        "text": "看到这里你可能想说：写这么多好麻烦，我懒得写。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "没问题，反过来让AI帮你写。",
+        "startMs": 4000,
+        "endMs": 7000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "打开DeepSeek或豆包，输入这段指令：",
+        "startMs": 7000,
+        "endMs": 10000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "\"请你扮演一个采访记者，向我提问，帮我生成一份完整的大师提示词。\"",
+        "startMs": 10000,
+        "endMs": 15000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI就会像记者一样，一个问题接一个问题地问你。",
+        "startMs": 15000,
+        "endMs": 19000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你只需要像聊天一样回答，懒得打字就用语音输入。",
+        "startMs": 19000,
+        "endMs": 23000,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最后告诉它：请根据以上对话，帮我生成一份完整的大师提示词。",
+        "startMs": 23000,
+        "endMs": 28000,
+        "timestampMs": 23000,
+        "confidence": 0.95
+    },
+    {
+        "text": "保存下来，下次直接上传，省时省力！",
+        "startMs": 28000,
+        "endMs": 31500,
+        "timestampMs": 28000,
+        "confidence": 0.95
+    }
+]
