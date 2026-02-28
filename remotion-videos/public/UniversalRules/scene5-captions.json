@@ -1,0 +1,44 @@
+[
+    {
+        "text": "来看一个实战案例：我的\"周报专用助手\"。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "我给自己建了一个叫\"周报小能手\"的智能体。",
+        "startMs": 4000,
+        "endMs": 8000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "通用规则是：角色是10年经验的HR主管，风格简洁数据化。",
+        "startMs": 8000,
+        "endMs": 13500,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "结构固定：核心工作、问题解决、下周计划，全文不超过500字。",
+        "startMs": 13500,
+        "endMs": 19000,
+        "timestampMs": 13500,
+        "confidence": 0.95
+    },
+    {
+        "text": "每周五下午，我打开这个助手，说一句\"帮我写这周的总结\"。",
+        "startMs": 19000,
+        "endMs": 24500,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    },
+    {
+        "text": "从半小时的苦差事，变成了五分钟的轻松活！",
+        "startMs": 24500,
+        "endMs": 29000,
+        "timestampMs": 24500,
+        "confidence": 0.95
+    }
+]

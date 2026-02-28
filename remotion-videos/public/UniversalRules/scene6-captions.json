@@ -1,0 +1,44 @@
+[
+    {
+        "text": "好了，五个技能已经全部到手！",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "会提问、懂审美、会交底、会迭代、会立规矩。",
+        "startMs": 3000,
+        "endMs": 7500,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你已经超过绝大多数普通用户了。",
+        "startMs": 7500,
+        "endMs": 11000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "通用规则的魔力：把你的工作方法、思维习惯、质量要求，变成可以反复使用的\"标准\"。",
+        "startMs": 11000,
+        "endMs": 18000,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "接下来，我们要玩点更高级的——让AI反过来给你挑毛病。",
+        "startMs": 18000,
+        "endMs": 23500,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下一篇见！",
+        "startMs": 23500,
+        "endMs": 26000,
+        "timestampMs": 23500,
+        "confidence": 0.95
+    }
+]

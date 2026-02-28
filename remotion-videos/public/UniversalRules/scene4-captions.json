@@ -1,0 +1,51 @@
+[
+    {
+        "text": "三步建立你的通用规则。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步：从\"成功经验\"里提炼规则。",
+        "startMs": 2500,
+        "endMs": 6000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "找到最满意的那次对话，复制给AI，让它帮你分析提炼。",
+        "startMs": 6000,
+        "endMs": 11000,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步：保存成PDF，跨平台通用。",
+        "startMs": 11000,
+        "endMs": 14500,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "豆包、元宝、DeepSeek都支持上传PDF，一次编写到处运行。",
+        "startMs": 14500,
+        "endMs": 20000,
+        "timestampMs": 14500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步：做成\"专属助手\"，创建自定义智能体，随叫随到。",
+        "startMs": 20000,
+        "endMs": 26000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI帮你分析偏好，整理成规则清单，保存备用！",
+        "startMs": 26000,
+        "endMs": 31000,
+        "timestampMs": 26000,
+        "confidence": 0.95
+    }
+]

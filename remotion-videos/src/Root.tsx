@@ -16,6 +16,7 @@ import { PromptEngineeringVideo } from "./PromptEngineeringVideo";
 import { TasteCurationVideo } from "./TasteCurationVideo";
 import { MasterPromptVideo } from "./MasterPromptVideo";
 import { OutputIterationVideo } from "./OutputIterationVideo";
+import { UniversalRulesVideo } from "./UniversalRulesVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -236,12 +237,26 @@ export const RemotionRoot = () => {
       <Composition
         id="OutputIterationVideo"
         component={OutputIterationVideo}
-        durationInFrames={4320} // 780+840+900+900+990+180=4590帧，减去5个转场×15帧=75帧，实际4515帧（待音频生成后更新）
+        durationInFrames={4207} // 832+788+791+858+993+120=4382帧，减去5个转场×15帧=75帧，实际4307帧
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
           title: "学会和AI掰手腕——输出迭代（Output Iteration）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* 通用规则视频（普通人也能用好AI系列·技能五） */}
+      <Composition
+        id="UniversalRulesVideo"
+        component={UniversalRulesVideo}
+        durationInFrames={5280} // 870+930+720+960+900+810+180=5370帧，减去6个转场×15帧=90帧，实际5280帧（待音频生成后更新）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "给AI立个规矩——通用规则（Universal Rules）",
           showCaptions: true,
         }}
       />

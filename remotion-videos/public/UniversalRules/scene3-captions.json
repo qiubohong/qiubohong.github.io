@@ -1,0 +1,44 @@
+[
+    {
+        "text": "为什么通用规则这么重要？",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "因为它是把前面所有技能\"锁定\"下来的关键。",
+        "startMs": 2500,
+        "endMs": 6500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你学了提问、审美、交底、迭代……",
+        "startMs": 6500,
+        "endMs": 10000,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "但如果每次都要从头叮嘱一遍，这些技能的价值就大打折扣了。",
+        "startMs": 10000,
+        "endMs": 15000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "通用规则就是把这一切固化下来的那一步。",
+        "startMs": 15000,
+        "endMs": 19000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "让你的标准，变成AI的默认行为。",
+        "startMs": 19000,
+        "endMs": 23000,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    }
+]

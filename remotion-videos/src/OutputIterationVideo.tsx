@@ -20,14 +20,14 @@ export const OutputIterationVideo: React.FC<OutputIterationVideoProps> = ({
     title,
     showCaptions = true,
 }) => {
-    // 场景帧数配置（基于实际音频时长 + 30帧缓冲，待音频生成后更新）
+    // 场景帧数配置（基于实际音频时长 + 30帧缓冲）
     const sceneDurations = {
-        scene1: 780,   // 约25s，待更新
-        scene2: 840,   // 约27s，待更新
-        scene3: 900,   // 约29s，待更新
-        scene4: 900,   // 约29s，待更新
-        scene5: 990,   // 约32s，待更新
-        ending: 180,   // 固定6秒
+        scene1: 832,   // 26.74s * 30 + 30缓冲
+        scene2: 788,   // 25.27s * 30 + 30缓冲
+        scene3: 791,   // 25.39s * 30 + 30缓冲
+        scene4: 858,   // 27.62s * 30 + 30缓冲
+        scene5: 993,   // 32.11s * 30 + 30缓冲
+        ending: 120,   // 3.02s * 30 + 30缓冲
     };
 
     const transitionDuration = 15;
@@ -104,17 +104,6 @@ export const OutputIterationVideo: React.FC<OutputIterationVideoProps> = ({
                     presentation={fade()}
                     timing={linearTiming({ durationInFrames: transitionDuration })}
                 />
-
-                {/* EndingScene：固定6秒（180帧） */}
-                <TransitionSeries.Sequence durationInFrames={sceneDurations.ending}>
-                    <AbsoluteFill>
-                        <EndingScene />
-                        <Audio src={staticFile("OutputIteration/ending-audio.mp3")} volume={0.8} />
-                        {showCaptions && (
-                            <CaptionDisplay captionFile="OutputIteration/ending-captions.json" />
-                        )}
-                    </AbsoluteFill>
-                </TransitionSeries.Sequence>
             </TransitionSeries>
         </AbsoluteFill>
     );

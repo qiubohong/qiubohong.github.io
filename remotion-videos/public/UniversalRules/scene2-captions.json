@@ -1,0 +1,51 @@
+[
+    {
+        "text": "什么是通用规则？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "就是你给AI设定的一套可以反复使用的固定指令。",
+        "startMs": 2000,
+        "endMs": 6000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "不是每次都要重新叮嘱\"语气客气点\"\"不要太长\"，而是把这些要求一次性写下来。",
+        "startMs": 6000,
+        "endMs": 12000,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "原文里有几个经典的通用规则例子，拿来直接用都很好使。",
+        "startMs": 12000,
+        "endMs": 17000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "用九年级英语写作——写得简单易懂，别用复杂词汇。",
+        "startMs": 17000,
+        "endMs": 21500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "句子要短，每句话说一件事，别堆砌。",
+        "startMs": 21500,
+        "endMs": 25500,
+        "timestampMs": 21500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这些小细节，决定了AI输出是\"凑合能用\"还是\"眼前一亮\"。",
+        "startMs": 25500,
+        "endMs": 30000,
+        "timestampMs": 25500,
+        "confidence": 0.95
+    }
+]

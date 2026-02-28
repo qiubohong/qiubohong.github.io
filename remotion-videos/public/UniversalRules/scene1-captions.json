@@ -1,0 +1,44 @@
+[
+    {
+        "text": "你有没有遇到过这种情况？",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "上周让豆包帮你写工作总结，它写得特别顺手，格式、语气、详略都刚刚好。",
+        "startMs": 2500,
+        "endMs": 7500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这周你又找它写，结果它像换了个人似的——写得又长又啰嗦，重点全没了。",
+        "startMs": 7500,
+        "endMs": 13000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "问题出在哪？因为上周那次的\"默契\"，它没记住。",
+        "startMs": 13000,
+        "endMs": 17500,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "每次对话都是全新的开始，它不知道你上周有多满意。",
+        "startMs": 17500,
+        "endMs": 22000,
+        "timestampMs": 17500,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天要聊的第五个核心技能：通用规则（Universal Rules）。",
+        "startMs": 22000,
+        "endMs": 27000,
+        "timestampMs": 22000,
+        "confidence": 0.95
+    }
+]

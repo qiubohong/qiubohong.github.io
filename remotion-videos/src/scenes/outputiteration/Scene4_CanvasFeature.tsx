@@ -172,7 +172,7 @@ export const OutputScene4_CanvasFeature: React.FC = () => {
                         display: "inline-block",
                     }}
                 >
-                    🖼️ DeepSeek / 豆包 画布功能
+                    🖼️ 元宝 / 豆包 画布功能
                 </div>
 
                 {/* 三步操作 */}
