@@ -19,6 +19,9 @@ import { OutputIterationVideo } from "./OutputIterationVideo";
 import { UniversalRulesVideo } from "./UniversalRulesVideo";
 import { DevilsAdvocateVideo } from "./DevilsAdvocateVideo";
 import { ContextCompressionVideo } from "./ContextCompressionVideo";
+import { KnowledgeGardenVideo } from "./KnowledgeGardenVideo";
+import { AITutorVideo } from "./AITutorVideo";
+import { AISkillSummaryVideo } from "./AISkillSummaryVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -267,7 +270,7 @@ export const RemotionRoot = () => {
       <Composition
         id="DevilsAdvocateVideo"
         component={DevilsAdvocateVideo}
-        durationInFrames={5100} // 870+750+840+810+870+780+180=5100帧，减去6个转场×15帧=90帧，实际5010帧（待音频生成后更新）
+        durationInFrames={4055} // 782+623+680+700+743+602=4130帧，减去5个转场×15帧=75帧，实际4055帧
         fps={30}
         width={1920}
         height={1080}
@@ -281,12 +284,54 @@ export const RemotionRoot = () => {
       <Composition
         id="ContextCompressionVideo"
         component={ContextCompressionVideo}
-        durationInFrames={5790} // 780+810+810+840+660+810+780+180=5670帧，减去7个转场×15帧=105帧，实际5565帧（待音频生成后更新）
+        durationInFrames={4928} // 696+714+729+800+590+817+672=5018帧，减去6个转场×15帧=90帧，实际4928帧（约164.27秒）
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
           title: "别让AI吃太撑——上下文压缩（Context Compression）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* 知识库园艺视频（普通人也能用好AI系列·技能八） */}
+      <Composition
+        id="KnowledgeGardenVideo"
+        component={KnowledgeGardenVideo}
+        durationInFrames={5070} // 597+732+734+741+776+767+813=5160帧，减去6个场景间转场×15帧=90帧，实际5070帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "像打理花园一样打理你的AI——知识库园艺（Knowledge Garden）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* AI私人老师视频（普通人也能用好AI系列·技能九） */}
+      <Composition
+        id="AITutorVideo"
+        component={AITutorVideo}
+        durationInFrames={5775} // 750+780+930+930+870+750+870=5880帧，减去7个转场×15帧=105帧，实际5775帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "把AI变成你的私人老师——随时随地学会任何东西",
+          showCaptions: true,
+        }}
+      />
+
+      {/* AI技能总结视频（普通人也能用好AI系列·总结篇） */}
+      <Composition
+        id="AISkillSummaryVideo"
+        component={AISkillSummaryVideo}
+        durationInFrames={7333} // 832+858+819+934+1091+922+899+1083=7438帧，减去7个场景间转场×15帧=105帧，实际7333帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "九个技能，一套心法——普通人也能用好AI的完整指南",
           showCaptions: true,
         }}
       />

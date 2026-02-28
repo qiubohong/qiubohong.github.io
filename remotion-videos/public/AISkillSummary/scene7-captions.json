@@ -1,0 +1,37 @@
+[
+    {
+        "text": "场景五：个人终身学习——半年听完相当于 20 本书的内容",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，请私教：每天通勤路上，让 AI 生成 10 分钟每日一课，戴耳机边走边听",
+        "startMs": 4000,
+        "endMs": 9500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，会压缩：听到感兴趣的，让 AI 压缩成 500 字精华版，按主题分类存好",
+        "startMs": 9500,
+        "endMs": 15000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，懂审美：听得多了，知道哪种讲解风格适合自己，反馈 AI 用同样风格",
+        "startMs": 15000,
+        "endMs": 20500,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "半年下来，涉及 AI、理财、历史、心理学多个领域，同事都觉得他说话变有料了！",
+        "startMs": 20500,
+        "endMs": 26500,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

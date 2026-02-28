@@ -1,0 +1,44 @@
+[
+    {
+        "text": "第二步：把宝贝统一存成 PDF，跨平台通用",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "不同 AI 工具之间不互通，但有一个格式所有平台都认识——PDF",
+        "startMs": 3500,
+        "endMs": 8000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你的个人操作系统文档，存成我的 Personal OS 2025版 PDF",
+        "startMs": 8000,
+        "endMs": 12500,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你的通用规则，存成周报助手通用规则 PDF",
+        "startMs": 12500,
+        "endMs": 16000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "不管你用豆包、元宝还是 DeepSeek，都能直接上传 PDF，无缝切换",
+        "startMs": 16000,
+        "endMs": 21000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "一次整理，到处可用！",
+        "startMs": 21000,
+        "endMs": 24000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

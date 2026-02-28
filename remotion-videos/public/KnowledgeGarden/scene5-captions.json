@@ -1,0 +1,44 @@
+[
+    {
+        "text": "第三步：按部门分类存，让 AI 花园有清晰的功能分区",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "工作类：周报提示词、邮件助手、会议纪要模板",
+        "startMs": 4000,
+        "endMs": 8000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "生活类：故事创作、旅行策划、健康管理",
+        "startMs": 8000,
+        "endMs": 12000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "学习类：知识压缩库、技能学习计划、读书笔记模板",
+        "startMs": 12000,
+        "endMs": 16500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "团队用？建立共享文件夹，大家用同一套语言和 AI 沟通",
+        "startMs": 16500,
+        "endMs": 21000,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "想用什么，直奔那个区域就行！",
+        "startMs": 21000,
+        "endMs": 24000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

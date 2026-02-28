@@ -1,0 +1,37 @@
+[
+    {
+        "text": "场景四：团队统一 AI 用法——从野生变成家养",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，会立规矩：把周报、邮件、会议纪要等常用任务，生成系统提示词存成 PDF",
+        "startMs": 3500,
+        "endMs": 9000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，会交底：让大家每人做一份大师提示词，存成姓名加大师提示词的 PDF",
+        "startMs": 9000,
+        "endMs": 14500,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，会整理：在共享云盘建 AI 知识库，按市场部、运营部、通用模板、个人专区分类",
+        "startMs": 14500,
+        "endMs": 20500,
+        "timestampMs": 14500,
+        "confidence": 0.95
+    },
+    {
+        "text": "一周后，团队 AI 输出质量明显统一，新人入职直接去知识库看一遍就会用！",
+        "startMs": 20500,
+        "endMs": 26000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

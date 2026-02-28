@@ -1,0 +1,37 @@
+[
+    {
+        "text": "先来快速回顾：九个技能是什么？",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能一到二是基础沟通：会提问、懂审美，打好和 AI 对话的基础",
+        "startMs": 3000,
+        "endMs": 8000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能三到五是深度绑定：会交底、会迭代、会立规矩，让 AI 真正认识你",
+        "startMs": 8000,
+        "endMs": 14000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能六到九是高阶进阶：会听骂、会压缩、会整理、请私教，全面提升",
+        "startMs": 14000,
+        "endMs": 20000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "九个技能，就是一套完整的 AI 使用心法！接下来看真实场景怎么组合！",
+        "startMs": 20000,
+        "endMs": 26000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

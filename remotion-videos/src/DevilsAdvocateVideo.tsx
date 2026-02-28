@@ -21,14 +21,14 @@ export const DevilsAdvocateVideo: React.FC<DevilsAdvocateVideoProps> = ({
     title,
     showCaptions = true,
 }) => {
-    // 场景帧数配置（待音频生成后更新）
+    // 场景帧数配置（基于实际音频时长 @30fps + 30帧缓冲）
     const sceneDurations = {
-        scene1: 870,   // 占位，待更新
-        scene2: 750,   // 占位，待更新
-        scene3: 840,   // 占位，待更新
-        scene4: 810,   // 占位，待更新
-        scene5: 870,   // 占位，待更新
-        scene6: 780,   // 占位，待更新
+        scene1: 782,   // 25.056s * 30 + 30
+        scene2: 623,   // 19.776s * 30 + 30
+        scene3: 680,   // 21.672s * 30 + 30
+        scene4: 700,   // 22.320s * 30 + 30
+        scene5: 743,   // 23.760s * 30 + 30
+        scene6: 602,   // 19.056s * 30 + 30
     };
 
     const transitionDuration = 15;
@@ -108,11 +108,6 @@ export const DevilsAdvocateVideo: React.FC<DevilsAdvocateVideoProps> = ({
                     </React.Fragment>
                 ))}
 
-                {/* 转场到 EndingScene */}
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: transitionDuration })}
-                />
             </TransitionSeries>
         </AbsoluteFill>
     );

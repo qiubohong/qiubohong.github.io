@@ -1,0 +1,58 @@
+[
+    {
+        "text": "第二步：调整到最适合你的难度",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "有时候 AI 生成的初版，你可能觉得太浅或太深",
+        "startMs": 2500,
+        "endMs": 6000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这时候别凑合，直接用迭代技能告诉它调整",
+        "startMs": 6000,
+        "endMs": 9500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "能不能再浅一点？用初中生能听懂的语言",
+        "startMs": 9500,
+        "endMs": 13000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "能不能再深一点？多用一些专业术语，我想认真学",
+        "startMs": 13000,
+        "endMs": 17000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "小窍门：告诉 AI 用某个年级水平来讲",
+        "startMs": 17000,
+        "endMs": 20500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "用小学五年级的语言讲区块链，AI 就会用比喻让你秒懂",
+        "startMs": 20500,
+        "endMs": 25000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    },
+    {
+        "text": "几轮调整下来，你得到的就是完全为你量身打造的学习材料！",
+        "startMs": 25000,
+        "endMs": 30000,
+        "timestampMs": 25000,
+        "confidence": 0.95
+    }
+]

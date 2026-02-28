@@ -1,0 +1,37 @@
+[
+    {
+        "text": "场景一：职场人写周报——从两小时到五分钟",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，会交底：花半小时让 AI 生成大师提示词，写清楚你是谁、你的风格、你讨厌什么",
+        "startMs": 3500,
+        "endMs": 9500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，会立规矩：让 AI 生成周报系统提示词，存成 PDF 上传到 AI 助手里",
+        "startMs": 9500,
+        "endMs": 15000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，会迭代：每周五打开助手，说几句话，AI 秒出一版，不满意就一句话调整",
+        "startMs": 15000,
+        "endMs": 21000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "组合效果：从两小时到五分钟，从憋出来到写得好！",
+        "startMs": 21000,
+        "endMs": 25000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

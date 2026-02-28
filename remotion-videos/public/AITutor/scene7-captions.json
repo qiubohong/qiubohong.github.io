@@ -1,0 +1,51 @@
+[
+    {
+        "text": "九个技能，九个台阶，全部解锁！",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能一：会提问，用四步提问法，让 AI 秒懂你",
+        "startMs": 3000,
+        "endMs": 6500,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能二：懂审美，知道什么是好的，才能选出好的",
+        "startMs": 6500,
+        "endMs": 10000,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能三到六：会交底、会迭代、会立规矩、会听骂",
+        "startMs": 10000,
+        "endMs": 14000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "技能七到九：会压缩、会整理、请私教",
+        "startMs": 14000,
+        "endMs": 17500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这些技能不只是用来用 AI 的，也是用来成就你自己的",
+        "startMs": 17500,
+        "endMs": 22000,
+        "timestampMs": 17500,
+        "confidence": 0.95
+    },
+    {
+        "text": "恭喜你，九个技能全部解锁！未来已来，愿你和 AI 一起，走得更远！",
+        "startMs": 22000,
+        "endMs": 28000,
+        "timestampMs": 22000,
+        "confidence": 0.95
+    }
+]

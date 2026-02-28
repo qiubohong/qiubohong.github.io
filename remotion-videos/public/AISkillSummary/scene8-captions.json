@@ -1,0 +1,51 @@
+[
+    {
+        "text": "最后，送你一张技能组合卡，截图存手机，随时查！",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "遇到新任务：先用技能一提问打底，再用技能四迭代打磨",
+        "startMs": 4000,
+        "endMs": 8000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "需要稳定输出：先做技能三身份证，再立技能五规矩",
+        "startMs": 8000,
+        "endMs": 12000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "要做重要决策：先用技能七压缩整理信息，再用技能六批评找盲点",
+        "startMs": 12000,
+        "endMs": 17000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "想持续成长：用技能九私教随时学，用技能八花园随时用",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "不是 AI 变聪明了，是你变聪明了！不是 AI 懂你了，是你更懂 AI 了！",
+        "startMs": 21000,
+        "endMs": 26500,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    },
+    {
+        "text": "九个技能，一套心法，随时取用。现在，你已经拥有了驾驭 AI 的完整工具箱！",
+        "startMs": 26500,
+        "endMs": 33000,
+        "timestampMs": 26500,
+        "confidence": 0.95
+    }
+]

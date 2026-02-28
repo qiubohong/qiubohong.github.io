@@ -1,0 +1,58 @@
+[
+    {
+        "text": "为什么 AI 是未来最好的老师？",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "传统学习：报班买课贵，专门腾时间坐定了听，时间被撕成碎片学不了",
+        "startMs": 2500,
+        "endMs": 7500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "而 AI 私教完全不同！",
+        "startMs": 7500,
+        "endMs": 9500,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你想学什么，它就能教什么",
+        "startMs": 9500,
+        "endMs": 12000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你想学多深，它就能讲多深",
+        "startMs": 12000,
+        "endMs": 14500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你只有 5 分钟，它就能把内容压缩到 5 分钟",
+        "startMs": 14500,
+        "endMs": 18000,
+        "timestampMs": 14500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你想边走边听，它就能生成可以听的版本",
+        "startMs": 18000,
+        "endMs": 21500,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这不就是你梦寐以求的私人老师吗？",
+        "startMs": 21500,
+        "endMs": 25000,
+        "timestampMs": 21500,
+        "confidence": 0.95
+    }
+]

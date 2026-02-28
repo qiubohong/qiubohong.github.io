@@ -1,0 +1,44 @@
+[
+    {
+        "text": "花园不打理会长草，知识库不打理会发霉",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "建议每隔一两个月，花 10 分钟做一次园艺维护",
+        "startMs": 3500,
+        "endMs": 7500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一：删掉没用的，用过一次的、已经过时的对话记录，果断删掉",
+        "startMs": 7500,
+        "endMs": 12500,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二：更新过时的，工作变了、孩子大了，之前的个人操作系统该更新了",
+        "startMs": 12500,
+        "endMs": 18000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三：整理杂乱的，发现某个文件夹太乱，顺手归归类、改改名字",
+        "startMs": 18000,
+        "endMs": 23000,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "每次维护完，你会感觉 AI 工具又变顺手了！",
+        "startMs": 23000,
+        "endMs": 27000,
+        "timestampMs": 23000,
+        "confidence": 0.95
+    }
+]

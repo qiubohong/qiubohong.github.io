@@ -1,0 +1,44 @@
+[
+    {
+        "text": "现在你已经掌握了八个技能",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "会提问、懂审美、会交底、会迭代、会立规矩、会听骂、会压缩、会整理",
+        "startMs": 2500,
+        "endMs": 8500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "别人还在翻聊天记录找资料，你已经打开项目文件夹直接用了",
+        "startMs": 8500,
+        "endMs": 13500,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "别人换了个 AI 要重新调教，你上传 PDF 秒变老朋友",
+        "startMs": 13500,
+        "endMs": 18000,
+        "timestampMs": 13500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这差距，就是杂草丛生的花园和精心打理的花园之间的差距",
+        "startMs": 18000,
+        "endMs": 23000,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下期：让 AI 变成你的私人老师，随时随地教你任何东西！",
+        "startMs": 23000,
+        "endMs": 28000,
+        "timestampMs": 23000,
+        "confidence": 0.95
+    }
+]

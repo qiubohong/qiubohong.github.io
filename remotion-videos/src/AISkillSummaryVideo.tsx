@@ -3,34 +3,36 @@ import { AbsoluteFill, Audio, staticFile } from "remotion";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { slide } from "@remotion/transitions/slide";
 import { fade } from "@remotion/transitions/fade";
-import { CCScene1_Introduction } from "./scenes/contextcompression/Scene1_Introduction";
-import { CCScene2_WhyOverload } from "./scenes/contextcompression/Scene2_WhyOverload";
-import { CCScene3_WhatIsCompression } from "./scenes/contextcompression/Scene3_WhatIsCompression";
-import { CCScene4_ThreeSteps } from "./scenes/contextcompression/Scene4_ThreeSteps";
-import { CCScene5_Advanced } from "./scenes/contextcompression/Scene5_Advanced";
-import { CCScene6_UseCases } from "./scenes/contextcompression/Scene6_UseCases";
-import { CCScene7_Summary } from "./scenes/contextcompression/Scene7_Summary";
+import { ASSScene1_Intro } from "./scenes/aiskillsummary/Scene1_Intro";
+import { ASSScene2_NineSkills } from "./scenes/aiskillsummary/Scene2_NineSkills";
+import { ASSScene3_Case1_Weekly } from "./scenes/aiskillsummary/Scene3_Case1_Weekly";
+import { ASSScene4_Case2_Story } from "./scenes/aiskillsummary/Scene4_Case2_Story";
+import { ASSScene5_Case3_Decision } from "./scenes/aiskillsummary/Scene5_Case3_Decision";
+import { ASSScene6_Case4_Team } from "./scenes/aiskillsummary/Scene6_Case4_Team";
+import { ASSScene7_Case5_Learning } from "./scenes/aiskillsummary/Scene7_Case5_Learning";
+import { ASSScene8_ComboCard } from "./scenes/aiskillsummary/Scene8_ComboCard";
 import { EndingScene } from "./components/EndingScene";
 import { CaptionDisplay } from "./components/CaptionDisplay";
 
-interface ContextCompressionVideoProps {
+interface AISkillSummaryVideoProps {
     title?: string;
     showCaptions?: boolean;
 }
 
-export const ContextCompressionVideo: React.FC<ContextCompressionVideoProps> = ({
+export const AISkillSummaryVideo: React.FC<AISkillSummaryVideoProps> = ({
     title,
     showCaptions = true,
 }) => {
-    // 场景帧数配置（基于音频实际时长 @30fps + 30帧缓冲）
+    // 场景帧数配置（根据实际音频时长计算，30fps，+30帧缓冲）
     const sceneDurations = {
-        scene1: 696,   // 22.20s
-        scene2: 714,   // 22.82s
-        scene3: 729,   // 23.32s
-        scene4: 800,   // 25.70s
-        scene5: 590,   // 18.68s
-        scene6: 817,   // 26.25s
-        scene7: 672,   // 21.40s
+        scene1: 832,   // 开场对比，26.74s
+        scene2: 858,   // 九技能回顾，27.60s
+        scene3: 819,   // 职场周报案例，26.30s
+        scene4: 934,   // 编故事案例，30.14s
+        scene5: 1091,  // 决策案例，35.38s
+        scene6: 922,   // 团队案例，29.76s
+        scene7: 899,   // 学习案例，28.99s
+        scene8: 1083,  // 组合卡+金句，35.11s
     };
 
     const transitionDuration = 15;
@@ -38,58 +40,66 @@ export const ContextCompressionVideo: React.FC<ContextCompressionVideoProps> = (
     const scenes = [
         {
             id: "scene1",
-            Component: CCScene1_Introduction,
-            audioFile: "ContextCompression/scene1-audio.mp3",
-            captionFile: "ContextCompression/scene1-captions.json",
+            Component: ASSScene1_Intro,
+            audioFile: "AISkillSummary/scene1-audio.mp3",
+            captionFile: "AISkillSummary/scene1-captions.json",
             duration: sceneDurations.scene1,
             transition: fade(),
         },
         {
             id: "scene2",
-            Component: CCScene2_WhyOverload,
-            audioFile: "ContextCompression/scene2-audio.mp3",
-            captionFile: "ContextCompression/scene2-captions.json",
+            Component: ASSScene2_NineSkills,
+            audioFile: "AISkillSummary/scene2-audio.mp3",
+            captionFile: "AISkillSummary/scene2-captions.json",
             duration: sceneDurations.scene2,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene3",
-            Component: CCScene3_WhatIsCompression,
-            audioFile: "ContextCompression/scene3-audio.mp3",
-            captionFile: "ContextCompression/scene3-captions.json",
+            Component: ASSScene3_Case1_Weekly,
+            audioFile: "AISkillSummary/scene3-audio.mp3",
+            captionFile: "AISkillSummary/scene3-captions.json",
             duration: sceneDurations.scene3,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene4",
-            Component: CCScene4_ThreeSteps,
-            audioFile: "ContextCompression/scene4-audio.mp3",
-            captionFile: "ContextCompression/scene4-captions.json",
+            Component: ASSScene4_Case2_Story,
+            audioFile: "AISkillSummary/scene4-audio.mp3",
+            captionFile: "AISkillSummary/scene4-captions.json",
             duration: sceneDurations.scene4,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene5",
-            Component: CCScene5_Advanced,
-            audioFile: "ContextCompression/scene5-audio.mp3",
-            captionFile: "ContextCompression/scene5-captions.json",
+            Component: ASSScene5_Case3_Decision,
+            audioFile: "AISkillSummary/scene5-audio.mp3",
+            captionFile: "AISkillSummary/scene5-captions.json",
             duration: sceneDurations.scene5,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene6",
-            Component: CCScene6_UseCases,
-            audioFile: "ContextCompression/scene6-audio.mp3",
-            captionFile: "ContextCompression/scene6-captions.json",
+            Component: ASSScene6_Case4_Team,
+            audioFile: "AISkillSummary/scene6-audio.mp3",
+            captionFile: "AISkillSummary/scene6-captions.json",
             duration: sceneDurations.scene6,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene7",
-            Component: CCScene7_Summary,
-            audioFile: "ContextCompression/scene7-audio.mp3",
-            captionFile: "ContextCompression/scene7-captions.json",
+            Component: ASSScene7_Case5_Learning,
+            audioFile: "AISkillSummary/scene7-audio.mp3",
+            captionFile: "AISkillSummary/scene7-captions.json",
             duration: sceneDurations.scene7,
+            transition: slide({ direction: "from-left" }),
+        },
+        {
+            id: "scene8",
+            Component: ASSScene8_ComboCard,
+            audioFile: "AISkillSummary/scene8-audio.mp3",
+            captionFile: "AISkillSummary/scene8-captions.json",
+            duration: sceneDurations.scene8,
             transition: fade(),
         },
     ];

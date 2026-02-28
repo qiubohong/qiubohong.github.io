@@ -1,0 +1,44 @@
+[
+    {
+        "text": "让 AI 成为你的成长伙伴",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "以前想学一个新领域，门槛很高：要找书、要买课、要腾时间、要坚持",
+        "startMs": 2500,
+        "endMs": 7500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在呢？想了解什么，让 AI 给你讲 15 分钟，你就能知道个大概",
+        "startMs": 7500,
+        "endMs": 12500,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "有兴趣了，再让它讲深一点；没兴趣了，换下一个话题",
+        "startMs": 12500,
+        "endMs": 17000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "试错成本几乎为零！",
+        "startMs": 17000,
+        "endMs": 19500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI 不只是帮你省时间，而是帮你把时间变得更值钱",
+        "startMs": 19500,
+        "endMs": 24000,
+        "timestampMs": 19500,
+        "confidence": 0.95
+    }
+]

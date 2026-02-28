@@ -1,0 +1,51 @@
+[
+    {
+        "text": "第三步：点开播放键，边走边听",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "大多数国内 AI 应用都有语音朗读功能，就在对话界面里",
+        "startMs": 2500,
+        "endMs": 6500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "点击它，把手机放到口袋里，戴上耳机",
+        "startMs": 6500,
+        "endMs": 10000,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "做家务的时候听一门课，跑步的时候听一本书",
+        "startMs": 10000,
+        "endMs": 14000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "开车的时候听一个新领域，睡前躺床上听一个感兴趣的话题",
+        "startMs": 14000,
+        "endMs": 18500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "我自己的习惯：每天早上健身时，让 AI 生成一篇 15 分钟的小文章",
+        "startMs": 18500,
+        "endMs": 23500,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    },
+    {
+        "text": "原本白白流失的碎片时间，全变成了你的学习黄金时间！",
+        "startMs": 23500,
+        "endMs": 28000,
+        "timestampMs": 23500,
+        "confidence": 0.95
+    }
+]

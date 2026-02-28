@@ -1,0 +1,51 @@
+[
+    {
+        "text": "为什么你的 AI 会变成一团乱麻？",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "大师提示词躺在某个聊天记录里",
+        "startMs": 2500,
+        "endMs": 5000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "压缩资料散落在手机和电脑各个文件夹",
+        "startMs": 5000,
+        "endMs": 8000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "系统提示词存成了 111、新建文档、最终版",
+        "startMs": 8000,
+        "endMs": 11500,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "团队每人用自己的方式，输出天差地别",
+        "startMs": 11500,
+        "endMs": 15000,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就像一座没人打理的花园——杂草丛生",
+        "startMs": 15000,
+        "endMs": 18500,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "混乱的 AI 工作区，会让你不知不觉变得低效",
+        "startMs": 18500,
+        "endMs": 22500,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    }
+]

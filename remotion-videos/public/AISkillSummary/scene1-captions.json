@@ -1,0 +1,37 @@
+[
+    {
+        "text": "同样是 AI，有的人用它写封邮件都费劲，有的人却能靠它把工作效率翻倍",
+        "startMs": 0,
+        "endMs": 5500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "同样是提问，有的人得到的回答泛泛而谈，有的人却能挖出真金白银的洞见",
+        "startMs": 5500,
+        "endMs": 11000,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "同样是学习，有的人只会让 AI 说人话，有的人却能让它当自己的私人教授",
+        "startMs": 11000,
+        "endMs": 16500,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "差别在哪？不在于 AI 本身，而在于你手里有没有一套完整的心法",
+        "startMs": 16500,
+        "endMs": 21500,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天，我们把前面九个技能串起来，变成一套可以随时用的组合拳！",
+        "startMs": 21500,
+        "endMs": 27000,
+        "timestampMs": 21500,
+        "confidence": 0.95
+    }
+]

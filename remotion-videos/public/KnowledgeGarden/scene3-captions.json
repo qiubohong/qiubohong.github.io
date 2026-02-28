@@ -1,0 +1,44 @@
+[
+    {
+        "text": "第一步：按项目建文件夹，让资料有家可归",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "给每个需要反复跟 AI 合作的事情，建一个专属的项目文件夹",
+        "startMs": 3500,
+        "endMs": 8000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如：我的工作周报、孩子的睡前故事、团队培训材料",
+        "startMs": 8000,
+        "endMs": 12500,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "把跟这个项目有关的所有资料都放进去",
+        "startMs": 12500,
+        "endMs": 16000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    },
+    {
+        "text": "Personal OS 文档、压缩好的背景资料、通用规则 PDF",
+        "startMs": 16000,
+        "endMs": 20500,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "元宝、DeepSeek、豆包都支持项目文件夹功能！",
+        "startMs": 20500,
+        "endMs": 24500,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

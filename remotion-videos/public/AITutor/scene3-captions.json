@@ -1,0 +1,51 @@
+[
+    {
+        "text": "第一步：告诉 AI 你想学什么、有多长时间",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "打开 DeepSeek、豆包或元宝，输入你的学习需求",
+        "startMs": 3500,
+        "endMs": 7000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如：帮我写一份 10 分钟的演讲稿，主题是人工智能的发展简史",
+        "startMs": 7000,
+        "endMs": 12000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "语言通俗易懂，让完全不懂技术的人也能听懂",
+        "startMs": 12000,
+        "endMs": 15500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这里用到了之前学过的四步提问法：给角色、给背景、给指令、给格式",
+        "startMs": 15500,
+        "endMs": 21000,
+        "timestampMs": 15500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你也可以更随意：我最近对中医养生感兴趣，你给我讲个 15 分钟的小课",
+        "startMs": 21000,
+        "endMs": 26500,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI 就会立刻生成一篇专属于你的微课！",
+        "startMs": 26500,
+        "endMs": 30000,
+        "timestampMs": 26500,
+        "confidence": 0.95
+    }
+]

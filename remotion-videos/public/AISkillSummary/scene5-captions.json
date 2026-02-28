@@ -1,0 +1,44 @@
+[
+    {
+        "text": "场景三：创业者做决策——冲动的想法变成理性的决策",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，会压缩：把 8 万字的经营数据和调研报告，压缩到 5000 字精华版",
+        "startMs": 3500,
+        "endMs": 8500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，会听骂：让 AI 扮演魔鬼代言人，专门挑开分店这个想法的毛病",
+        "startMs": 8500,
+        "endMs": 14000,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI 指出：现金流只够撑 3 个月、核心店长只有一个、租金占比超过警戒线",
+        "startMs": 14000,
+        "endMs": 19500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，会迭代：追问最稳妥路径，AI 给出先招副店长、众筹资金、试水半年的方案",
+        "startMs": 19500,
+        "endMs": 25500,
+        "timestampMs": 19500,
+        "confidence": 0.95
+    },
+    {
+        "text": "组合效果：会压缩提炼信息，会听骂看见盲点，会迭代找到出路！",
+        "startMs": 25500,
+        "endMs": 30000,
+        "timestampMs": 25500,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "text": "你有没有这样的烦恼？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "上次调教好的周报 AI，这次怎么也找不到了",
+        "startMs": 2000,
+        "endMs": 5500,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "好用的提示词散落在各个角落，每次都要翻半天",
+        "startMs": 5500,
+        "endMs": 9500,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "压缩好的资料找不到，只能重新来一遍",
+        "startMs": 9500,
+        "endMs": 13000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天教你像打理花园一样打理你的 AI",
+        "startMs": 13000,
+        "endMs": 17000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "知识库园艺——让资料永远井井有条！",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    }
+]

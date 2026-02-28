@@ -3,34 +3,33 @@ import { AbsoluteFill, Audio, staticFile } from "remotion";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { slide } from "@remotion/transitions/slide";
 import { fade } from "@remotion/transitions/fade";
-import { CCScene1_Introduction } from "./scenes/contextcompression/Scene1_Introduction";
-import { CCScene2_WhyOverload } from "./scenes/contextcompression/Scene2_WhyOverload";
-import { CCScene3_WhatIsCompression } from "./scenes/contextcompression/Scene3_WhatIsCompression";
-import { CCScene4_ThreeSteps } from "./scenes/contextcompression/Scene4_ThreeSteps";
-import { CCScene5_Advanced } from "./scenes/contextcompression/Scene5_Advanced";
-import { CCScene6_UseCases } from "./scenes/contextcompression/Scene6_UseCases";
-import { CCScene7_Summary } from "./scenes/contextcompression/Scene7_Summary";
-import { EndingScene } from "./components/EndingScene";
+import { KGScene1_Introduction } from "./scenes/knowledgegarden/Scene1_Introduction";
+import { KGScene2_WhyMess } from "./scenes/knowledgegarden/Scene2_WhyMess";
+import { KGScene3_Step1_Folders } from "./scenes/knowledgegarden/Scene3_Step1_Folders";
+import { KGScene4_Step2_PDF } from "./scenes/knowledgegarden/Scene4_Step2_PDF";
+import { KGScene5_Step3_Dept } from "./scenes/knowledgegarden/Scene5_Step3_Dept";
+import { KGScene6_Maintenance } from "./scenes/knowledgegarden/Scene6_Maintenance";
+import { KGScene7_Summary } from "./scenes/knowledgegarden/Scene7_Summary";
 import { CaptionDisplay } from "./components/CaptionDisplay";
 
-interface ContextCompressionVideoProps {
+interface KnowledgeGardenVideoProps {
     title?: string;
     showCaptions?: boolean;
 }
 
-export const ContextCompressionVideo: React.FC<ContextCompressionVideoProps> = ({
+export const KnowledgeGardenVideo: React.FC<KnowledgeGardenVideoProps> = ({
     title,
     showCaptions = true,
 }) => {
     // 场景帧数配置（基于音频实际时长 @30fps + 30帧缓冲）
     const sceneDurations = {
-        scene1: 696,   // 22.20s
-        scene2: 714,   // 22.82s
-        scene3: 729,   // 23.32s
-        scene4: 800,   // 25.70s
-        scene5: 590,   // 18.68s
-        scene6: 817,   // 26.25s
-        scene7: 672,   // 21.40s
+        scene1: 597,   // 18.93s
+        scene2: 732,   // 23.40s
+        scene3: 734,   // 23.48s
+        scene4: 741,   // 23.72s
+        scene5: 776,   // 24.89s
+        scene6: 767,   // 24.58s
+        scene7: 813,   // 26.12s
     };
 
     const transitionDuration = 15;
@@ -38,57 +37,57 @@ export const ContextCompressionVideo: React.FC<ContextCompressionVideoProps> = (
     const scenes = [
         {
             id: "scene1",
-            Component: CCScene1_Introduction,
-            audioFile: "ContextCompression/scene1-audio.mp3",
-            captionFile: "ContextCompression/scene1-captions.json",
+            Component: KGScene1_Introduction,
+            audioFile: "KnowledgeGarden/scene1-audio.mp3",
+            captionFile: "KnowledgeGarden/scene1-captions.json",
             duration: sceneDurations.scene1,
             transition: fade(),
         },
         {
             id: "scene2",
-            Component: CCScene2_WhyOverload,
-            audioFile: "ContextCompression/scene2-audio.mp3",
-            captionFile: "ContextCompression/scene2-captions.json",
+            Component: KGScene2_WhyMess,
+            audioFile: "KnowledgeGarden/scene2-audio.mp3",
+            captionFile: "KnowledgeGarden/scene2-captions.json",
             duration: sceneDurations.scene2,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene3",
-            Component: CCScene3_WhatIsCompression,
-            audioFile: "ContextCompression/scene3-audio.mp3",
-            captionFile: "ContextCompression/scene3-captions.json",
+            Component: KGScene3_Step1_Folders,
+            audioFile: "KnowledgeGarden/scene3-audio.mp3",
+            captionFile: "KnowledgeGarden/scene3-captions.json",
             duration: sceneDurations.scene3,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene4",
-            Component: CCScene4_ThreeSteps,
-            audioFile: "ContextCompression/scene4-audio.mp3",
-            captionFile: "ContextCompression/scene4-captions.json",
+            Component: KGScene4_Step2_PDF,
+            audioFile: "KnowledgeGarden/scene4-audio.mp3",
+            captionFile: "KnowledgeGarden/scene4-captions.json",
             duration: sceneDurations.scene4,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene5",
-            Component: CCScene5_Advanced,
-            audioFile: "ContextCompression/scene5-audio.mp3",
-            captionFile: "ContextCompression/scene5-captions.json",
+            Component: KGScene5_Step3_Dept,
+            audioFile: "KnowledgeGarden/scene5-audio.mp3",
+            captionFile: "KnowledgeGarden/scene5-captions.json",
             duration: sceneDurations.scene5,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene6",
-            Component: CCScene6_UseCases,
-            audioFile: "ContextCompression/scene6-audio.mp3",
-            captionFile: "ContextCompression/scene6-captions.json",
+            Component: KGScene6_Maintenance,
+            audioFile: "KnowledgeGarden/scene6-audio.mp3",
+            captionFile: "KnowledgeGarden/scene6-captions.json",
             duration: sceneDurations.scene6,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene7",
-            Component: CCScene7_Summary,
-            audioFile: "ContextCompression/scene7-audio.mp3",
-            captionFile: "ContextCompression/scene7-captions.json",
+            Component: KGScene7_Summary,
+            audioFile: "KnowledgeGarden/scene7-audio.mp3",
+            captionFile: "KnowledgeGarden/scene7-captions.json",
             duration: sceneDurations.scene7,
             transition: fade(),
         },
@@ -117,12 +116,6 @@ export const ContextCompressionVideo: React.FC<ContextCompressionVideoProps> = (
                         )}
                     </React.Fragment>
                 ))}
-
-                {/* 转场到 EndingScene */}
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: transitionDuration })}
-                />
             </TransitionSeries>
         </AbsoluteFill>
     );
