@@ -1,0 +1,65 @@
+[
+    {
+        "text": "你有没有这样的经历？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "辛辛苦苦写了一份方案，自己觉得挺完美",
+        "startMs": 2000,
+        "endMs": 5000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "发给领导后却被问得哑口无言",
+        "startMs": 5000,
+        "endMs": 7500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "想了好久做了一个决定，跟朋友一说",
+        "startMs": 7500,
+        "endMs": 10500,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "对方一句话就点出了你从没想过的漏洞",
+        "startMs": 10500,
+        "endMs": 14000,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    },
+    {
+        "text": "为什么我们总是看不见自己的盲点？",
+        "startMs": 14000,
+        "endMs": 17000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "因为人天生很难跳出自己的思维框架",
+        "startMs": 17000,
+        "endMs": 20500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你需要一面能照出盲点的镜子",
+        "startMs": 20500,
+        "endMs": 23500,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就是今天的第六个核心技能：把 AI 当成批评家",
+        "startMs": 23500,
+        "endMs": 27500,
+        "timestampMs": 23500,
+        "confidence": 0.95
+    }
+]

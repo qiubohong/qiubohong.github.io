@@ -1,0 +1,58 @@
+[
+    {
+        "text": "说实话，没人喜欢被批评",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "但当你能主动让 AI 给自己挑毛病时",
+        "startMs": 2500,
+        "endMs": 5500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你就拥有了一个别人没有的优势",
+        "startMs": 5500,
+        "endMs": 8500,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "在错误真正发生之前，提前看见它",
+        "startMs": 8500,
+        "endMs": 11500,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "在你花几十万开店之前，AI 帮你发现风险",
+        "startMs": 11500,
+        "endMs": 15000,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "在你把方案发给领导之前，AI 帮你补上逻辑漏洞",
+        "startMs": 15000,
+        "endMs": 19000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "在你做出重要决定之前，AI 帮你看到另一个角度",
+        "startMs": 19000,
+        "endMs": 23000,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这哪是被骂，这分明是低成本试错、高效率成长！",
+        "startMs": 23000,
+        "endMs": 27500,
+        "timestampMs": 23000,
+        "confidence": 0.95
+    }
+]

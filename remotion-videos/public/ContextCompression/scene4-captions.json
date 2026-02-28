@@ -1,0 +1,51 @@
+[
+    {
+        "text": "三步搞定上下文压缩",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步：让 AI 当榨汁机，提炼精华",
+        "startMs": 2000,
+        "endMs": 5000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "把所有资料一次性发给 AI，让它压缩到原内容的 10%",
+        "startMs": 5000,
+        "endMs": 9000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步：问 AI 你删掉了什么，防止漏掉宝贝",
+        "startMs": 9000,
+        "endMs": 13000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "就像检查榨汁后的果渣，万一里面有果肉没榨干净",
+        "startMs": 13000,
+        "endMs": 17000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步：用压缩版开启新对话，轻装上阵",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "新建对话窗口，先发精华版，AI 轻松消化，质量大幅提升！",
+        "startMs": 21000,
+        "endMs": 26000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

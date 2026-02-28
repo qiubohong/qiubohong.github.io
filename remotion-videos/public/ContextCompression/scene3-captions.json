@@ -1,0 +1,51 @@
+[
+    {
+        "text": "上下文压缩，就是让 AI 先把海量信息榨干",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "只留下最精华的部分，然后再用这个精华版去干活",
+        "startMs": 3500,
+        "endMs": 7500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你可以把它想象成做浓缩果汁",
+        "startMs": 7500,
+        "endMs": 10000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "一大筐橙子没法直接喝，但榨成一小杯浓缩汁后",
+        "startMs": 10000,
+        "endMs": 14000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "随时可以兑水喝到原汁原味",
+        "startMs": 14000,
+        "endMs": 16500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "一份 10 万字的资料，让 AI 压缩成 5000 字的精华版",
+        "startMs": 16500,
+        "endMs": 21000,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "再拿这 5000 字去问问题，AI 就能轻松应对！",
+        "startMs": 21000,
+        "endMs": 25000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

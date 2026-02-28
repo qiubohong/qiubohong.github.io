@@ -1,0 +1,44 @@
+[
+    {
+        "text": "在 AI 时代，信息量只会越来越大",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "学会给信息瘦身，是每个 AI 高手的必备技能",
+        "startMs": 3000,
+        "endMs": 7000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在你已经掌握了七个技能",
+        "startMs": 7000,
+        "endMs": 10000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "会提问、懂审美、会交底、会迭代、会立规矩、会听骂、会压缩",
+        "startMs": 10000,
+        "endMs": 16000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "离成为真正的 AI 高手只差两步了！",
+        "startMs": 16000,
+        "endMs": 19500,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下期：怎么打理你的 AI 工作区，让所有资料井井有条",
+        "startMs": 19500,
+        "endMs": 24500,
+        "timestampMs": 19500,
+        "confidence": 0.95
+    }
+]

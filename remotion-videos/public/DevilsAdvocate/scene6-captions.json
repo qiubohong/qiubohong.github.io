@@ -1,0 +1,51 @@
+[
+    {
+        "text": "在 AI 时代，真正拉开差距的",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "不是谁用 AI 用得勤",
+        "startMs": 3000,
+        "endMs": 5500,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "而是谁能让 AI 说出别人不敢说的话",
+        "startMs": 5500,
+        "endMs": 9000,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在你已经学会了六个技能",
+        "startMs": 9000,
+        "endMs": 12000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "会提问、懂审美、会交底、会迭代、会立规矩、会听骂",
+        "startMs": 12000,
+        "endMs": 17000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你已经是 AI 高手了！",
+        "startMs": 17000,
+        "endMs": 20000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "下期：当信息太多时，怎么让 AI 帮你删繁就简",
+        "startMs": 20000,
+        "endMs": 24500,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

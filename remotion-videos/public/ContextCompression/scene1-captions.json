@@ -1,0 +1,58 @@
+[
+    {
+        "text": "你有没有遇到过这种情况？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "把公司三年的会议纪要全扔给 AI，让它总结核心问题",
+        "startMs": 2000,
+        "endMs": 5500,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "结果它答得前言不搭后语",
+        "startMs": 5500,
+        "endMs": 7500,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "明明准备了超多资料，AI 越往后越糊涂",
+        "startMs": 7500,
+        "endMs": 11000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "好像忘了前面说过什么……",
+        "startMs": 11000,
+        "endMs": 13500,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "AI 不是能处理海量信息吗？怎么还会撑着？",
+        "startMs": 13500,
+        "endMs": 17000,
+        "timestampMs": 13500,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天教你让 AI 自己帮自己瘦身",
+        "startMs": 17000,
+        "endMs": 20000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "上下文压缩——再也不用担心 AI 吃太撑！",
+        "startMs": 20000,
+        "endMs": 24000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

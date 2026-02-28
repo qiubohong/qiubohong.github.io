@@ -1,0 +1,44 @@
+[
+    {
+        "text": "如果手头的资料实在太庞大，比如几十万字",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "一次压到 10% 可能还是太多，没关系",
+        "startMs": 3500,
+        "endMs": 6500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "分多次压缩，每次都用同样的方法",
+        "startMs": 6500,
+        "endMs": 9500,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    },
+    {
+        "text": "100 万字，压缩到 20 万字",
+        "startMs": 9500,
+        "endMs": 12000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "再压缩到 4 万字，最后压缩到 8000 字",
+        "startMs": 12000,
+        "endMs": 15500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最后得到的几千字，基本上就是你最核心的知识库了",
+        "startMs": 15500,
+        "endMs": 20000,
+        "timestampMs": 15500,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "text": "有时候 AI 的批评可能浮于表面",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "这时候你可以让它再深挖一层",
+        "startMs": 3000,
+        "endMs": 6000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "用第一性原理，把批评拆解到最底层",
+        "startMs": 6000,
+        "endMs": 9500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "什么叫第一性原理？",
+        "startMs": 9500,
+        "endMs": 11500,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "就是把事情拆到最基础、最根本的层面去思考",
+        "startMs": 11500,
+        "endMs": 15500,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如开奶茶店，拆到底层就是：",
+        "startMs": 15500,
+        "endMs": 18500,
+        "timestampMs": 15500,
+        "confidence": 0.95
+    },
+    {
+        "text": "你真的了解用户为什么买奶茶吗？",
+        "startMs": 18500,
+        "endMs": 21500,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    },
+    {
+        "text": "这种拆到底的思考方式，能帮你从根上理清问题",
+        "startMs": 21500,
+        "endMs": 26000,
+        "timestampMs": 21500,
+        "confidence": 0.95
+    }
+]

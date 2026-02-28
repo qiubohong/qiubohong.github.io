@@ -1,0 +1,51 @@
+[
+    {
+        "text": "AI 其实挺怂的",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "你问它：我这个想法怎么样？",
+        "startMs": 2000,
+        "endMs": 4500,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "它通常会说：这个想法很不错，很有创意！",
+        "startMs": 4500,
+        "endMs": 8000,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "永远是先夸再建议，永远不会直接说你这想法不行",
+        "startMs": 8000,
+        "endMs": 12000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这是设计使然，AI 被训练成乐于助人的样子",
+        "startMs": 12000,
+        "endMs": 16000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "但对真正想进步的人来说，好好先生帮不了你",
+        "startMs": 16000,
+        "endMs": 20000,
+        "timestampMs": 16000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你需要的是那个敢跟你说不的 AI",
+        "startMs": 20000,
+        "endMs": 23500,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

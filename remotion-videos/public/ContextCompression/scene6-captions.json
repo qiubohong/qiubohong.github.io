@@ -1,0 +1,44 @@
+[
+    {
+        "text": "这个技能能用在哪？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "处理长文档：公司年报、学术论文、长篇采访记录",
+        "startMs": 2000,
+        "endMs": 6000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "整理聊天记录：把一整年的微信群精华整理成一本语录",
+        "startMs": 6000,
+        "endMs": 10500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "备份个人知识：把自己写的所有文章、日记压缩成个人思想集",
+        "startMs": 10500,
+        "endMs": 15500,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    },
+    {
+        "text": "喂给 AI 做背景：压缩后的内容更适合作为大师提示词的附件",
+        "startMs": 15500,
+        "endMs": 20500,
+        "timestampMs": 15500,
+        "confidence": 0.95
+    },
+    {
+        "text": "当你学会给信息瘦身，AI 就能更专注地帮你解决真正的问题",
+        "startMs": 20500,
+        "endMs": 25500,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

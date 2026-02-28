@@ -3,32 +3,32 @@ import { AbsoluteFill, Audio, staticFile } from "remotion";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { slide } from "@remotion/transitions/slide";
 import { fade } from "@remotion/transitions/fade";
-import { URScene1_Introduction } from "./scenes/universalrules/Scene1_Introduction";
-import { URScene2_WhatAreRules } from "./scenes/universalrules/Scene2_WhatAreRules";
-import { URScene3_WhyImportant } from "./scenes/universalrules/Scene3_WhyImportant";
-import { URScene4_ThreeSteps } from "./scenes/universalrules/Scene4_ThreeSteps";
-import { URScene5_Example } from "./scenes/universalrules/Scene5_Example";
-import { URScene6_Summary } from "./scenes/universalrules/Scene6_Summary";
+import { DAScene1_Introduction } from "./scenes/devilsadvocate/Scene1_Introduction";
+import { DAScene2_AIPersonality } from "./scenes/devilsadvocate/Scene2_AIPersonality";
+import { DAScene3_ThreeSteps } from "./scenes/devilsadvocate/Scene3_ThreeSteps";
+import { DAScene4_DeepDive } from "./scenes/devilsadvocate/Scene4_DeepDive";
+import { DAScene5_Benefits } from "./scenes/devilsadvocate/Scene5_Benefits";
+import { DAScene6_Summary } from "./scenes/devilsadvocate/Scene6_Summary";
 import { EndingScene } from "./components/EndingScene";
 import { CaptionDisplay } from "./components/CaptionDisplay";
 
-interface UniversalRulesVideoProps {
+interface DevilsAdvocateVideoProps {
     title?: string;
     showCaptions?: boolean;
 }
 
-export const UniversalRulesVideo: React.FC<UniversalRulesVideoProps> = ({
+export const DevilsAdvocateVideo: React.FC<DevilsAdvocateVideoProps> = ({
     title,
     showCaptions = true,
 }) => {
-    // 场景帧数配置（基于实际音频时长 + 30帧缓冲）
+    // 场景帧数配置（待音频生成后更新）
     const sceneDurations = {
-        scene1: 819,   // 26.30s
-        scene2: 896,   // 28.87s
-        scene3: 594,   // 18.82s
-        scene4: 922,   // 29.76s
-        scene5: 795,   // 25.51s
-        scene6: 694,   // 22.15s
+        scene1: 870,   // 占位，待更新
+        scene2: 750,   // 占位，待更新
+        scene3: 840,   // 占位，待更新
+        scene4: 810,   // 占位，待更新
+        scene5: 870,   // 占位，待更新
+        scene6: 780,   // 占位，待更新
     };
 
     const transitionDuration = 15;
@@ -36,49 +36,49 @@ export const UniversalRulesVideo: React.FC<UniversalRulesVideoProps> = ({
     const scenes = [
         {
             id: "scene1",
-            Component: URScene1_Introduction,
-            audioFile: "UniversalRules/scene1-audio.mp3",
-            captionFile: "UniversalRules/scene1-captions.json",
+            Component: DAScene1_Introduction,
+            audioFile: "DevilsAdvocate/scene1-audio.mp3",
+            captionFile: "DevilsAdvocate/scene1-captions.json",
             duration: sceneDurations.scene1,
             transition: fade(),
         },
         {
             id: "scene2",
-            Component: URScene2_WhatAreRules,
-            audioFile: "UniversalRules/scene2-audio.mp3",
-            captionFile: "UniversalRules/scene2-captions.json",
+            Component: DAScene2_AIPersonality,
+            audioFile: "DevilsAdvocate/scene2-audio.mp3",
+            captionFile: "DevilsAdvocate/scene2-captions.json",
             duration: sceneDurations.scene2,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene3",
-            Component: URScene3_WhyImportant,
-            audioFile: "UniversalRules/scene3-audio.mp3",
-            captionFile: "UniversalRules/scene3-captions.json",
+            Component: DAScene3_ThreeSteps,
+            audioFile: "DevilsAdvocate/scene3-audio.mp3",
+            captionFile: "DevilsAdvocate/scene3-captions.json",
             duration: sceneDurations.scene3,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene4",
-            Component: URScene4_ThreeSteps,
-            audioFile: "UniversalRules/scene4-audio.mp3",
-            captionFile: "UniversalRules/scene4-captions.json",
+            Component: DAScene4_DeepDive,
+            audioFile: "DevilsAdvocate/scene4-audio.mp3",
+            captionFile: "DevilsAdvocate/scene4-captions.json",
             duration: sceneDurations.scene4,
             transition: slide({ direction: "from-right" }),
         },
         {
             id: "scene5",
-            Component: URScene5_Example,
-            audioFile: "UniversalRules/scene5-audio.mp3",
-            captionFile: "UniversalRules/scene5-captions.json",
+            Component: DAScene5_Benefits,
+            audioFile: "DevilsAdvocate/scene5-audio.mp3",
+            captionFile: "DevilsAdvocate/scene5-captions.json",
             duration: sceneDurations.scene5,
             transition: slide({ direction: "from-left" }),
         },
         {
             id: "scene6",
-            Component: URScene6_Summary,
-            audioFile: "UniversalRules/scene6-audio.mp3",
-            captionFile: "UniversalRules/scene6-captions.json",
+            Component: DAScene6_Summary,
+            audioFile: "DevilsAdvocate/scene6-audio.mp3",
+            captionFile: "DevilsAdvocate/scene6-captions.json",
             duration: sceneDurations.scene6,
             transition: fade(),
         },

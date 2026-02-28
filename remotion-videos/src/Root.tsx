@@ -17,6 +17,8 @@ import { TasteCurationVideo } from "./TasteCurationVideo";
 import { MasterPromptVideo } from "./MasterPromptVideo";
 import { OutputIterationVideo } from "./OutputIterationVideo";
 import { UniversalRulesVideo } from "./UniversalRulesVideo";
+import { DevilsAdvocateVideo } from "./DevilsAdvocateVideo";
+import { ContextCompressionVideo } from "./ContextCompressionVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -251,12 +253,40 @@ export const RemotionRoot = () => {
       <Composition
         id="UniversalRulesVideo"
         component={UniversalRulesVideo}
-        durationInFrames={5280} // 870+930+720+960+900+810+180=5370帧，减去6个转场×15帧=90帧，实际5280帧（待音频生成后更新）
+        durationInFrames={4662} // 819+896+594+922+795+694+132=4852帧，减去6个转场×15帧=90帧，实际4762帧
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
           title: "给AI立个规矩——通用规则（Universal Rules）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* AI镜子视频（普通人也能用好AI系列·技能六） */}
+      <Composition
+        id="DevilsAdvocateVideo"
+        component={DevilsAdvocateVideo}
+        durationInFrames={5100} // 870+750+840+810+870+780+180=5100帧，减去6个转场×15帧=90帧，实际5010帧（待音频生成后更新）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "让AI当你的镜子——魔鬼代言人（Devil's Advocate）",
+          showCaptions: true,
+        }}
+      />
+
+      {/* 上下文压缩视频（普通人也能用好AI系列·技能七） */}
+      <Composition
+        id="ContextCompressionVideo"
+        component={ContextCompressionVideo}
+        durationInFrames={5790} // 780+810+810+840+660+810+780+180=5670帧，减去7个转场×15帧=105帧，实际5565帧（待音频生成后更新）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "别让AI吃太撑——上下文压缩（Context Compression）",
           showCaptions: true,
         }}
       />

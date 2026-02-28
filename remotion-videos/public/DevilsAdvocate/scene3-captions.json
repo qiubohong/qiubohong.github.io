@@ -1,0 +1,58 @@
+[
+    {
+        "text": "三步拥有一个敢说真话的 AI",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步：给 AI 一个坏人身份",
+        "startMs": 2500,
+        "endMs": 5500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "让它扮演魔鬼代言人，专门挑你的毛病",
+        "startMs": 5500,
+        "endMs": 9000,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步：让它拆到根上",
+        "startMs": 9000,
+        "endMs": 11500,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "用第一性原理，把批评拆解到最底层",
+        "startMs": 11500,
+        "endMs": 15000,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步：把有用的骂沉淀下来",
+        "startMs": 15000,
+        "endMs": 18000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "把洞见更新到大师提示词里，变成永久的思维习惯",
+        "startMs": 18000,
+        "endMs": 22500,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "被逼问的感觉，就是成长的感觉！",
+        "startMs": 22500,
+        "endMs": 26000,
+        "timestampMs": 22500,
+        "confidence": 0.95
+    }
+]
