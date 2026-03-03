@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-lowcode/use-rust" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/lowcode/use-rust.html" target="_blank">
-      低代码系列——Rust解决性能瓶颈
+	  <a class="article-title" href="/today/20230218.html" target="_blank">
+      实现一个JS引擎竟如此简单
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/lowcode/use-rust.html" class="archive-article-date">
-        <time datetime="2023-02-12T00:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+<a href="/today/20230218.html" class="archive-article-date">
+        <time datetime="2023-02-27T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
 </a>
 
   
@@ -393,104 +393,20 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这是很久之前的一个念想，当时为了加深自己对js的理解，明白js引擎是如何工作的。<br>于是从上网找了一个<a target="_blank" rel="noopener" href="https://github.com/webfansplz/giao-js">giao-js</a>，感觉还不错，因此想学习一下。</p>
+<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h1><p>之前有篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230117.html">理解React中Fiber架构(一)</a>中有讲到浏览器进程如何渲染网页和执行js代码的，我们再复习一遍。</p>
+<p>一个完整的web网页在浏览器显示和交互的进程（chrome为主），需要涉及到线程主要以下几个部分：</p>
+<ul>
+<li><code>GUI 渲染线程</code>，负责渲染浏览器界面HTML元素,当界面需要重绘(Repaint)或由于某种操作引发回流(reflow)时,该线程就会执行。</li>
+<li><code>JavaScript引擎线程</code>，JS内核，负责处理Javascript脚本程序。 一直等待着任务队列中任务的到来，然后解析Javascript脚本，运行代码。</li>
+<li><code>定时触发器线程</code>，定时器setInterval与setTimeout所在线程，为什么要单独弄个线程处理定时器？是因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确</li>
+<li><code>事件触发线程</code>，用来控制事件轮询，JS引擎自己忙不过来，需要浏览器另开线程协助</li>
+<li><code>异步http请求线程</code>，在<code>XMLHttpRequest</code>或<code>fetch</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。这里需要注意<code>XMLHttpRequest</code>和<code>fetch</code>的区别，<code>fetch</code>是w3c标准化后一个专门提供给开发调用发起http的API接口，XMLHttpRequest是一个非标准化的Http请求对象，主要是可以发起http请求获取XML数据。</li>
+</ul>
+<p>针对JS引擎，官方的定义是：</p>
     
+    <a class="article-more-a" href="/today/20230218.html#more">more >></a>
     
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/use-rust.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230305.html" target="_blank">
-      性能优化我们到底能做些什么东西
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230305.html" class="archive-article-date">
-        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZfIWKRbF3Yq7sNFG2TsQFw">性能优化经验分享</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -519,7 +435,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230305.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230218.html">展开全文 >></a>
     </p>
     
 
@@ -554,7 +470,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230304" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-framework/frontend-microapp-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -562,8 +478,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230304.html" target="_blank">
-      中秋佳节到了，来一起开发一个千里共婵娟XR小程序
+	  <a class="article-title" href="/framework/frontend-microapp-1.html" target="_blank">
+      前端架构成长之路——微前端架构理论篇
       
     </a>
   
@@ -573,8 +489,8 @@
 
   
   
-<a href="/today/20230304.html" class="archive-article-date">
-        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+<a href="/framework/frontend-microapp-1.html" class="archive-article-date">
+        <time datetime="2023-02-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-26</time>
 </a>
 
   
@@ -586,42 +502,224 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>掘金最近上了一个活动，用来庆祝中秋佳节，想薅羊毛获取奖品，因此突发奇想顺便给自己的技术领域扩展一下，之前对VR、AR技术感兴趣，干脆趁这这个机会去尝试开发一个XR小程序。</p>
-<p>涉及知识点：</p>
-<ol>
-<li>小程序XR-Frame框架</li>
-<li>小程序云函数</li>
-<li>天气 API</li>
-<li>地理位置 API</li>
-</ol>
-<h1 id="方案设计"><a href="#方案设计" class="headerlink" title="方案设计"></a>方案设计</h1><h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><ul>
-<li>目标用户：对AR技术感兴趣的开发同学</li>
-<li>作用：利用AR给大家营造一种中秋气氛感觉</li>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近项目开发中使用了<code>qiankun</code>框架去做微前端，我是属于半懂不懂的状态，大概了解过微前端是什么，可以解决什么问题，但是没有并系统的认识和从0实战过。</p>
+<p>所以希望通过几篇文章去重新认识<code>微前端</code>这一架构，主要会从几个方面：</p>
+<ul>
+<li>是什么，以及为什么会出现</li>
+<li>实现原理，以及主流框架</li>
+<li>项目实战</li>
 </ul>
-<p>整体功能设计如下：</p>
-<ol>
-<li>通过小程序进来后，获取当前位置坐标，转换成具体的地址，然后获取天气</li>
-<li>打开摄像头进行【千里共婵娟】，需要将手机对着月亮的位置，然后才出现3D月亮模型</li>
-<li>看到月亮后，可以点击月亮 查看一共有多少人与你一起赏月</li>
-<li>分享给家人或朋友，会在屏幕下面出现一排人与你一起赏月</li>
-<li>彩蛋，不同手势，会触发不同场景，比如：比心，会掉下很多爱心， 比6，会掉下很多666表情</li>
-</ol>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
-<li>核心功能：利用小程序<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">XR-FRAME框架</a>实现3d月亮展示</li>
-<li>开发框架直接用原生微信小程序开发即可，一共就3个页面</li>
-<li>后台数据保存直接用云函数即可，主要保存访问用户数据量</li>
-</ol>
-<h1 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h1><p>小程序原生开发基础知识，我这里就不详细说了，主要讲</p>
-<h2 id="XR-Frame学习"><a href="#XR-Frame学习" class="headerlink" title="XR-Frame学习"></a>XR-Frame学习</h2><p>是什么？ 官方介绍如下：</p>
+    
+    <a class="article-more-a" href="/framework/frontend-microapp-1.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/framework/frontend-microapp-1.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-framework/frontend-microapp-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/framework/frontend-microapp-3.html" target="_blank">
+      前端架构成长之路——Nest.js微服务架构实战
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/framework/frontend-microapp-3.html" class="archive-article-date">
+        <time datetime="2023-02-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/framework/frontend-microapp-3.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ideas/20230218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ideas/20230218.html" target="_blank">
+      好玩有趣收集系列（二）
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ideas/20230218.html" class="archive-article-date">
+        <time datetime="2023-02-18T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今日收集一些好玩有趣的开源api或框架或开源项目 </p>
+<h1 id="自动生成1000个性化视频"><a href="#自动生成1000个性化视频" class="headerlink" title="自动生成1000个性化视频"></a>自动生成1000个性化视频</h1><p>通过<a target="_blank" rel="noopener" href="https://shotstack.io/docs/guide/getting-started/core-concepts/">Shotstack</a>提供的API服务制作不同视频。</p>
 <blockquote>
-<p>xr-frame是一套小程序官方提供的XR/3D应用解决方案，基于混合方案实现，性能逼近原生、效果好、易用、强扩展、渐进式、遵循小程序开发标准。</p>
+<p>ShotStack是一个基于云的视频编辑API。与Adobe Premiere或After Effects等传统桌面视频编辑应用程序不同，ShotStack纯粹是基于代码的–您可以使用代码创建编辑。该API使用使用JSON的REST架构样式来描述应该如何编辑视频。有许多不同语言的SDK可用于与API交互并创建JSON请求。</p>
 </blockquote>
-<h2 id="云函数使用"><a href="#云函数使用" class="headerlink" title="云函数使用"></a>云函数使用</h2><h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="摄像头显示月亮"><a href="#摄像头显示月亮" class="headerlink" title="摄像头显示月亮"></a>摄像头显示月亮</h2><h2 id="调用云函数存储用户数据"><a href="#调用云函数存储用户数据" class="headerlink" title="调用云函数存储用户数据"></a>调用云函数存储用户数据</h2><h2 id="结合GitHub-Action持续集成交付"><a href="#结合GitHub-Action持续集成交付" class="headerlink" title="结合GitHub Action持续集成交付"></a>结合GitHub Action持续集成交付</h2><p>所有源码均以上传到Github</p>
-<h1 id="体验版"><a href="#体验版" class="headerlink" title="体验版"></a>体验版</h1><p>这里放个小程序二维码图片，大家感兴趣可以扫一下体验一版本。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">小程序XR-FRAME指南</a></li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<p>是否可以利用该api和小程序结合在一起做一些 生日祝福小视频定制服务。  </p>
+    
+    <a class="article-more-a" href="/ideas/20230218.html#more">more >></a>
+    
     
     
 
@@ -636,11 +734,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
         		</li>
       		
 		</ul>
@@ -650,7 +744,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230304.html">展开全文 >></a>
+      <a class="article-more-a" href="/ideas/20230218.html">展开全文 >></a>
     </p>
     
 
@@ -685,7 +779,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230319" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ideas/20230217" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -693,8 +787,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230319.html" target="_blank">
-      如何实现HTTP2.0
+	  <a class="article-title" href="/ideas/20230217.html" target="_blank">
+      创业idea —— 一个小程序利用一句话画一幅画
       
     </a>
   
@@ -704,8 +798,8 @@
 
   
   
-<a href="/today/20230319.html" class="archive-article-date">
-        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+<a href="/ideas/20230217.html" class="archive-article-date">
+        <time datetime="2023-02-17T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-17</time>
 </a>
 
   
@@ -717,222 +811,525 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/">盘点开源“Copilot”，do it yourself</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/gel1234/article/details/127050405">如何搭建免费的GitHub Copilot？</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230319.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230209" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230209.html" target="_blank">
-      前端安全-JS原型链污染是怎么回事
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230209.html" class="archive-article-date">
-        <time datetime="2023-02-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近从开源库看到一个很火的项目，就是用一句话画一幅画。</p>
+<p>这里虽然他们开源只识别英文，我们可以调用第三方的翻译API转成英文，然后再返回到开源库。</p>
+<p>小程序思路：</p>
 <ul>
-<li>XSS脚本攻击，利用网站漏洞，注入非法脚本</li>
-<li>CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求</li>
-<li>运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持</li>
+<li>一个人一天体验3次，转发可以获得次数</li>
+<li>允许转发下载，以及个人签名等</li>
+<li>提高用户量</li>
+<li>如果访问量爆发的话，可以继续尝试</li>
+<li>名字叫随意画</li>
 </ul>
-<p>但是在前端安全中，还有一个问题就是 ：<code>JS原型链污染</code>， 那么是原型链污染怎么回事，请看下面详细介绍。</p>
+<h1 id="AI生成图片开源项目"><a href="#AI生成图片开源项目" class="headerlink" title="AI生成图片开源项目"></a>AI生成图片开源项目</h1><p><a target="_blank" rel="noopener" href="https://github.com/cmdr2/stable-diffusion-ui?utm_source=gold_browser_extension">stable-diffusion-ui 一句话生成一幅画</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ideas/20230217.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230216" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230216.html" target="_blank">
+      可以从ChatGPT学到什么(一)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230216.html" class="archive-article-date">
+        <time datetime="2023-02-16T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近<code>chatgpt</code>智能对答火的一塌涂地，就是你找<code>chatgpt</code>咨询，它不仅能理解你的意思，还能给出准确的答案，而且能够从上下文理解你的意思。</p>
+<p>简单的说，就不再是之前的智能对答，如果遇到不理解的问题回复【我好像不太理解你的问题】。</p>
+<p>更有甚者，利用chatgpt完成论文编写，同时还有帮小孩子写作业、程序员利用它整理某个业务的实现思路，作者利用其帮忙写小说细节等等。</p>
+<p>我尝试问了一些常规问题，如下图所示，可以更好的理解<code>chatgpt</code>的能力。</p>
+<ol>
+<li><p>如何以<code>Nest.js</code>框架实现用户登录功能</p>
+    
+    <a class="article-more-a" href="/today/20230216.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230216.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230215.html" target="_blank">
+      前端自动化UI测试的完整方案
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230215.html" class="archive-article-date">
+        <time datetime="2023-02-15T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>开发公共平台项目，测试资源相对比较少，因此对开发者自身而言，为了维护项目的稳定性，需要对平台做各类测试，即使有测试环境，但是也很容易缺乏测试场景导致带着bug上线的情况。</p>
+<p>因此我们需要做完整自动化测试方案，来避免这类常规错误，提高平台的可用性和稳定性。</p>
+<p>这里先简单描述自动化测试的分类：</p>
+<ul>
+<li>单元测试，验证独立的单元模块代码或函数是否正常工作</li>
+<li>集成测试，验证多个单元模块间的协同工作</li>
+<li>UI 测试，只针对前端UI部分测试，后端数据采用mock方式</li>
+<li>端到端测试，从用户的角度，通过机器来模仿用户在真实浏览器中验证应用交互</li>
+<li>快照测试，验证程序的UI变化</li>
+</ul>
+<p>接下来我们将根据这些测试类如何在项目中落地完整方案。</p>
+    
+    <a class="article-more-a" href="/today/20230215.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230215.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ideas/20230214" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ideas/20230214.html" target="_blank">
+      创业idea——AI种植与花店
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ideas/20230214.html" class="archive-article-date">
+        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>此想法源于一个抖音视频，里面有个商业模式，通过摄像头+气味嗅觉捕捉器+液体分析器，可以识别当前植物的状态，且占地面积不大，可以直接树立到家里墙上。大概如下图所示：</p>
+<p><img src="/assets/img/idea-20230214-3.png" alt=""></p>
+    
+    <a class="article-more-a" href="/ideas/20230214.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ideas/20230214.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ideas/20230215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ideas/20230215.html" target="_blank">
+      数据可视化收集
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ideas/20230215.html" class="archive-article-date">
+        <time datetime="2023-02-14T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="数据可视化收集"><a href="#数据可视化收集" class="headerlink" title="数据可视化收集"></a>数据可视化收集</h1><p>收集数据可视化或报表开源系统，为了能够根据不同数据源展示可视化界面。</p>
+<h2 id="DataEase"><a href="#DataEase" class="headerlink" title="DataEase"></a>DataEase</h2><p>人人可用的开源数据可视化分析工具</p>
+<ul>
+<li>官网地址：<a target="_blank" rel="noopener" href="https://dataease.io/">https://dataease.io/</a><br>Github： <a target="_blank" rel="noopener" href="https://github.com/dataease/dataease/">https://github.com/dataease/dataease/</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ideas/20230215.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-translate/use-gpt3-auto-git-commit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/translate/use-gpt3-auto-git-commit.html" target="_blank">
+      有了GPT-3，再也不用手写commit message(翻译)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/translate/use-gpt3-auto-git-commit.html" class="archive-article-date">
+        <time datetime="2023-02-14T04:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>本文翻译的目的，主要想了解GPT3是什么，以及目前大家使用GPT3用来做什么，以及如何开发GPT3。</p>
+</blockquote>
+<h1 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h1><p>GPT-3是一个很多人或公司正在使用的协助开发的工具，比如：编写脚本、命令行等操作。</p>
 <blockquote>
-<p>这里插入一条新闻，新出一个很邪恶的js库叫<a target="_blank" rel="noopener" href="https://github.com/wll8/lodash-utils">Evil.js</a>，名字还取得很lodash，其中主要就是利用原型prototype进行重写项目中常用的方法，如：</p>
-<ul>
-<li>Array.map 有5%概率会丢失最后一个元素，</li>
-<li>当数组长度可以被7整除时，Array.includes 永远返回false。</li>
-</ul>
+<p>GPT-3指的是生成型预训练变换模型3（英语：Generative Pre-trained Transformer 3，简称GPT-3）是一个自回归语言模型，目的是为了使用深度学习生成人类可以理解的自然语言[1]。GPT-3是由在旧金山的人工智能公司OpenAI训练与开发，模型设计基于谷歌开发的变换语言模型。GPT-3的神经网路包含1750亿个参数，为有史以来参数最多的神经网路模型[2]。OpenAI于2020年5月发表GPT-3的论文，在次月为少量公司与开发人团释出应用程式介面的测试版。微软在2020年9月22日宣布取得了GPT-3的独家授权。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh/GPT-3">维基百科 GPT-3</a></p>
 </blockquote>
-<p>所以学会如何防御项目内被攻击，了解更多JS原型安全知识很重要，起码周末不用调试半天问题，才发现项目中代码被恶意写入。</p>
+<p>使用<code>gitcommit</code>,你将不需要花费时间去写git commit。 下面就让学习如何安装 <code>gptcommit</code>，以及享受一下GPT-3帮你写git commit。</p>
     
-    <a class="article-more-a" href="/today/20230209.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230209.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230208" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230208.html" target="_blank">
-      css变量了解到项目落地
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230208.html" class="archive-article-date">
-        <time datetime="2023-02-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
-<p><img src="/assets/img/20230208-1.png" alt=""></p>
-<p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
-<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt=""></p>
-    
-    <a class="article-more-a" href="/today/20230208.html#more">more >></a>
+    <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html#more">more >></a>
     
     
     
@@ -948,7 +1345,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">翻译文章</a>
         		</li>
       		
 		</ul>
@@ -958,440 +1355,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230208.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-lowcode/sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/lowcode/sandbox.html" target="_blank">
-      低代码系列——js沙箱设计
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/lowcode/sandbox.html" class="archive-article-date">
-        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
-<p>这里为什么会一开始介绍js沙箱设计呢？</p>
-<p>因为低代码平台，会运行用户本身自己编写的业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
-<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
-<ul>
-<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
-<li>插入，沙箱允许插入平台的内置对象</li>
-<li>容错，沙箱内代码即使有错误，也不影响整个平台执行</li>
-</ul>
-    
-    <a class="article-more-a" href="/lowcode/sandbox.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/sandbox.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230131.html" target="_blank">
-      hexo网站提高SEO优化方法
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230131.html" class="archive-article-date">
-        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
-<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
-<li>提交站点到搜索引擎(百度和谷歌)</li>
-<li>hexo针对搜索的优化</li>
-</ul>
-<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
-<li><p>添加hexo插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>_config.yml</code>配置</p>
-</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/today/20230131.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230131.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/face-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/face-test.html" target="_blank">
-      前端面试题目收集(持续更新)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/face-test.html" class="archive-article-date">
-        <time datetime="2023-01-30T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>主要以下几方面去收集？</p>
-<ul>
-<li>八股文，主要针对理论基础知识</li>
-<li>框架类，主要针对React/Vue等</li>
-<li>编程题，主要针对各种常用方法进行手动编写</li>
-<li>算法题，主要是各类算法题进行汇总</li>
-</ul>
-    
-    <a class="article-more-a" href="/study/face-test.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/face-test.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230129.html" target="_blank">
-      从null、undefined、NaN的区别了解JS的原型链
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230129.html" class="archive-article-date">
-        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
-<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
-<p>我们先简单认识三者：</p>
-<ul>
-<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
-<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
-<li><code>NaN</code> 是一个表示非数字的值</li>
-</ul>
-<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
-<ul>
-<li>数据类型 <code>typeof</code></li>
-<li><code>===</code> 判断</li>
-<li>原型 <code>prototype</code></li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
+      <a class="article-more-a" href="/translate/use-gpt3-auto-git-commit.html">展开全文 >></a>
     </p>
     
 
@@ -1423,7 +1387,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
     </nav>
   
 

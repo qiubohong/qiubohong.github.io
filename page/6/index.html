@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openai-dev-20231106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240814" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openai-dev-20231106.html" target="_blank">
-      AI春晚之 2023年openAI 开发者大会
+	  <a class="article-title" href="/today_2024/20240814.html" target="_blank">
+      翻译-服务器端请求伪造 (SSRF)
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/openai-dev-20231106.html" class="archive-article-date">
-        <time datetime="2023-11-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-08</time>
+<a href="/today_2024/20240814.html" class="archive-article-date">
+        <time datetime="2024-09-06T08:20:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-06</time>
 </a>
 
   
@@ -396,19 +396,10 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>2023-11-06，openAI公司在美国旧金山举办第一届开发者大会，大会内容总结如下：</p>
-<ul>
-<li>回顾过去一年发展</li>
-<li>推出新产品<ul>
-<li>GPT4 Turbo</li>
-<li>GPTs， GPT Store（GPT商店）</li>
-<li>GPT Builder GPT应用构建工具</li>
-<li>Assistants API 助手API </li>
-</ul>
-</li>
-</ul>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究SSR，发现很多服务都会用到SSRF，所以就顺便研究了一下SSRF。</p>
+<p>下面是一篇从网络上翻译过来的文章， 大家简单参考了解。</p>
     
-    <a class="article-more-a" href="/ailearn/openai-dev-20231106.html#more">more >></a>
+    <a class="article-more-a" href="/today_2024/20240814.html#more">more >></a>
     
     
     
@@ -428,7 +419,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI系列</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
       		
 		</ul>
@@ -438,7 +429,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openai-dev-20231106.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240814.html">展开全文 >></a>
     </p>
     
 
@@ -473,7 +464,7 @@
     height:800px
   }
   </style>
-<article id="post-study/2023-middle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240813" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -481,8 +472,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/study/2023-middle.html" target="_blank">
-      2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)
+	  <a class="article-title" href="/today_2024/20240813.html" target="_blank">
+      重新认识一下cookie —— samesite+secure解决跨域请求cookie问题
       
     </a>
   
@@ -492,8 +483,8 @@
 
   
   
-<a href="/study/2023-middle.html" class="archive-article-date">
-        <time datetime="2023-09-07T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-07</time>
+<a href="/today_2024/20240813.html" class="archive-article-date">
+        <time datetime="2024-08-13T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-13</time>
 </a>
 
   
@@ -508,10 +499,9 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从去年疫情还没解封开始，陆陆续续就传来各种裁员新闻，虽然去年没有波及到我，但是基本上身边的朋友多多少少都几个被牵扯到了，因此我这边很焦虑，从2023年1月1日起，开始重新踏起起点，不断学习，不断更新个人博客，这一篇算是对我今年半年的总结以及复盘。</p>
-<p>温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发微软的Teams应用，在开发过程中遇到了一个跨域请求cookie的问题，具体表现是，当我在Teams应用中登录后，然后通过iframe的方式打开一个第三方网站，第三方网站无法获取到cookie，导致无法登录。这个问题困扰了我很久，最后通过Google找到了解决方案，特此记录一下。</p>
     
-    <a class="article-more-a" href="/study/2023-middle.html#more">more >></a>
+    <a class="article-more-a" href="/today_2024/20240813.html#more">more >></a>
     
     
     
@@ -527,7 +517,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
       		
 		</ul>
@@ -537,7 +531,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/study/2023-middle.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240813.html">展开全文 >></a>
     </p>
     
 
@@ -572,7 +566,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/all-info" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240613" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -580,8 +574,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/all-info.html" target="_blank">
-      AI信息收集篇
+	  <a class="article-title" href="/today_2024/20240613.html" target="_blank">
+      如何优雅的修改依赖的第三方npm包代码 —— patch-package npm补丁工具
       
     </a>
   
@@ -591,8 +585,8 @@
 
   
   
-<a href="/ailearn/all-info.html" class="archive-article-date">
-        <time datetime="2023-09-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-06</time>
+<a href="/today_2024/20240613.html" class="archive-article-date">
+        <time datetime="2024-06-13T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-13</time>
 </a>
 
   
@@ -604,115 +598,31 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="./logo-1.png" alt=""></p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在项目开发中遇到一个 npm包的一些 bug，但是这个 npm包的作者并没有修复，联系不上作者。 相信大家在开发中或多或少遇到过，我们正常的解决方案是修改这个 npm包的代码，然后重新发布一个 npm包，但是这样会带来一些问题，比如：</p>
+<ul>
+<li>重新发布npm包，后续这个 npm包所有更新我们都无法获取，因为 npm包变成是我们自己私有的</li>
+</ul>
+<p>经过网络搜索，发现了一个 npm包，叫做 <code>patch-package</code>，可以更加优雅的解决这个问题，所以记录一下。</p>
+<h1 id="patch-package-解决方案"><a href="#patch-package-解决方案" class="headerlink" title="patch-package 解决方案"></a>patch-package 解决方案</h1><p>我们先简单了解一下这个<code>patch-package</code>的主要作用：</p>
 <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p>立刻修复 npm 包的 bug，而无需修改其源代码 - <a target="_blank" rel="noopener" href="https://github.com/ds300/patch-package">patch-package</a></p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="大模型篇"><a href="#大模型篇" class="headerlink" title="大模型篇"></a>大模型篇</h1><h1 id="AIGC篇"><a href="#AIGC篇" class="headerlink" title="AIGC篇"></a>AIGC篇</h1><h1 id="开源工具篇"><a href="#开源工具篇" class="headerlink" title="开源工具篇"></a>开源工具篇</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2420057">使用RAG-GPT和Ollama搭建智能客服原创</a></p>
+<p>使用步骤如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fix a bug in one of your dependencies</span></span><br><span class="line">vim node_modules/some-package/brokenFile.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># run patch-package to create a .patch file</span></span><br><span class="line">npx patch-package some-package</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit the patch file to share the fix with your team</span></span><br><span class="line">git add patches/some-package+3.14.15.patch</span><br><span class="line">git commit -m <span class="string">&quot;fix brokenFile.js in some-package&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>同时需要修改 package.json，添加如下配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;postinstall&quot;</span><span class="punctuation">:</span> <span class="string">&quot;patch-package&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>还需要安装<code>patch-package</code>依赖，方便使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i patch-package --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>后续安装依赖时，会自动执行<code>patch-package</code>，将<code>node_modules</code>中的文件替换为<code>patches</code>中的文件。</p>
+<h1 id="背后原理"><a href="#背后原理" class="headerlink" title="背后原理"></a>背后原理</h1><p>既然解决了问题，那么<code>patch-package</code>是如何实现的呢？</p>
+<p>其实原理相对简单，npm的有个机制叫做</p>
+<h2 id="npm的postinstall"><a href="#npm的postinstall" class="headerlink" title="npm的postinstall"></a>npm的postinstall</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/operate/p/16363590.html">使用 patch-package 修改第三方模块</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/all-info.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-lowcode/async-component-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/lowcode/async-component-2.html" target="_blank">
-      低代码平台加载远端组件解决方案(2)——项目实战
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/lowcode/async-component-2.html" class="archive-article-date">
-        <time datetime="2023-09-04T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前阵子搞了一下如何在Vue项目中加载远程的组件，文章为<a target="_blank" rel="noopener" href="https://qborfy.com/lowcode/async-component.html">【低代码平台加载远端组件解决方案(1)——defineAsyncComponent】</a>，遗留一些问题，就是如何在项目中实际应用，因为所有的问题都来源自实际项目，所以本文会继续把这个坑填完。</p>
-<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>涉及到项目实战了，解决方案是需要通过<code>wepack</code>或<code>vite</code>构建工具将资源进行打包，然后通过解析文件，进行模拟封装成可以加载的 js函数即可，下面我们以 vite为构建工具进行编译组件文件<code>async/Async.vue</code></p>
-    
-    <a class="article-more-a" href="/lowcode/async-component-2.html#more">more >></a>
-    
     
     
 
@@ -733,10 +643,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -745,7 +651,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component-2.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240613.html">展开全文 >></a>
     </p>
     
 
@@ -780,7 +686,7 @@
     height:800px
   }
   </style>
-<article id="post-lowcode/async-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-study/think-fast-slow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -788,8 +694,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/lowcode/async-component.html" target="_blank">
-      低代码平台加载远端组件解决方案(1)——defineAsyncComponent
+	  <a class="article-title" href="/study/think-fast-slow.html" target="_blank">
+      《思考，快与慢》，人类到底有多理性？
       
     </a>
   
@@ -799,8 +705,8 @@
 
   
   
-<a href="/lowcode/async-component.html" class="archive-article-date">
-        <time datetime="2023-08-29T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-29</time>
+<a href="/study/think-fast-slow.html" class="archive-article-date">
+        <time datetime="2024-06-10T05:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-10</time>
 </a>
 
   
@@ -815,538 +721,472 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在做低代码平台项目中遇到一个很容易遇到的问题，具体描述如下：</p>
-<ul>
-<li>问题描述：低代码平台依赖的组件库，如果将一个组件库进行融合打包到平台项目中的就会导致平台在渲染页面的时候需要加载完整的组件库，从而导致页面加载了一些大部分页面不需要的组件文件</li>
-<li>希望方案：页面使用到哪些组件就去动态加载组件</li>
-<li>解决方案：<ul>
-<li>Vue的异步加载组件，<code>Suspense</code>和<code>defineAsyncComponent</code></li>
-<li>React的异步加载组件， <code>Suspense</code>和<code>import()</code></li>
+<h1 id="思考，快与慢"><a href="#思考，快与慢" class="headerlink" title="思考，快与慢"></a>思考，快与慢</h1><p>在书中，卡尼曼会带领我们体验一次思维的终极之旅。他认为，我们的大脑有快与慢两种作决定的方式。常用的无意识的“系统1”依赖情感、记忆和经验迅速作出判断，它见闻广博，使我们能够迅速对眼前的情况作出反应。</p>
+<p>举个例子： 肚子饿了去点菜，我们点很多余点菜，然后吃了一阵子就后悔了，如果我们慢慢规划去点，发现别人都已经吃完走了。</p>
+<p>温馨提醒：本书涉及N多经济学和心理学的专业术语，需要不断查资料去理解其术语的意思，这对经济学、心理学入门有极大的作用。</p>
+    
+    <a class="article-more-a" href="/study/think-fast-slow.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/study/think-fast-slow.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today_2024/20240531" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today_2024/20240531.html" target="_blank">
+      好工具推荐Automa —— 可视化配置+工作流+自动化执行浏览器插件
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today_2024/20240531.html" class="archive-article-date">
+        <time datetime="2024-05-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><blockquote>
+<p>Automa是通过可视化配置，工作流连接实现浏览器自动化的插件。能完成自动填写表格、重复任务、截屏到抓取网站数据等，想做什么取决于你自己。</p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/infppggnoaenmfagbfknfkancpbljcca">Automa插件官方下载安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/AutomaApp/automa">Automa Github</a></li>
 </ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today_2024/20240531.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today_2024/20240604" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today_2024/20240604.html" target="_blank">
+      如何优化chrome web页面开了很久卡顿
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today_2024/20240604.html" class="archive-article-date">
+        <time datetime="2024-05-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><h1 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h1><h2 id="利用chrome性能解析工具"><a href="#利用chrome性能解析工具" class="headerlink" title="利用chrome性能解析工具"></a>利用chrome性能解析工具</h2><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/LuckyWinty/blog/blob/master/markdown/Q%26A/Chrome%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%88%86%E6%9E%90.md">Chorme 浏览器中的垃圾回收和内存泄漏</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today_2024/20240604.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today_2024/20240523" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today_2024/20240523.html" target="_blank">
+      Vue2老项目优化打包逻辑
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today_2024/20240523.html" class="archive-article-date">
+        <time datetime="2024-05-23T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于最近接手一个老的Vue2项目，其打包编译速度，每次发布都需要等待30分钟以上，实在受不了，故此在互联网上收集了</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/JZevin/article/details/108478555">使用可视化的Vue项目管理器Vue UI </a></li>
+<li><a target="_blank" rel="noopener" href="https://tiven.cn/p/edae9a97/">Vue 打包优化之 externals 抽离公共的第三方库</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today_2024/20240523.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today_2024/20240429" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today_2024/20240429.html" target="_blank">
+      VSCode远程连接服务器开发
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today_2024/20240429.html" class="archive-article-date">
+        <time datetime="2024-04-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>VScode是前端开发最受欢迎的IDE工具之一， 里面的插件市场十分丰富，插件有个插件叫<a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/remote/ssh">Remote - SSH</a>，其主要功能介绍如下：</p>
+<blockquote>
+<p>Visual Studio Code 远程 - SSH 扩展允许你在任何远程计算机、虚拟机或具有正在运行的 SSH 服务器的容器上打开远程文件夹，并充分利用 VS Code 的功能集。连接到服务器后，您可以与远程文件系统上任何位置的文件和文件夹进行交互。</p>
+</blockquote>
+<p>因此，我们可以直接连接远程服务器去做很多事情：</p>
+<ul>
+<li>搭建云端个人开发机， 从而使得所有无论更换本地环境，都不会影响个人开发进度</li>
+<li>更加友好的可视化文件管理，包括一些简单的文件编辑等等</li>
+<li>使用SSH登录，能更好更安全的避免密码泄漏</li>
+</ul>
+<p>下面还是以【如何搭建个人远程开发机】作为案例去学习</p>
+<h1 id="如何搭建个人远程开发机"><a href="#如何搭建个人远程开发机" class="headerlink" title="如何搭建个人远程开发机"></a>如何搭建个人远程开发机</h1><h2 id="步骤一-安装-Remote-SSH插件"><a href="#步骤一-安装-Remote-SSH插件" class="headerlink" title="步骤一 安装 Remote-SSH插件"></a>步骤一 安装 Remote-SSH插件</h2><p>在VSCode的插件市场中，查询【Remote-SSH】，然后进行安装，具体如下图：</p>
+<p><img src="/assets/img/20240429-1.png" alt=""></p>
+<h2 id="步骤二-配置远程服务器"><a href="#步骤二-配置远程服务器" class="headerlink" title="步骤二 配置远程服务器"></a>步骤二 配置远程服务器</h2><ol>
+<li><p>打开SSH配置界面，具体如下图：<br><img src="/assets/img/20240429-2.png" alt=""><br><img src="/assets/img/20240429-3.png" alt=""><br><img src="/assets/img/20240429-4.png" alt=""></p>
 </li>
+<li><p>编辑SSH配置文件<code>~/.ssh/config</code>，路径和上述文件路径保持一致，具体代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## Host 远程连接名称</span><br><span class="line">## HostName 主机IP</span><br><span class="line">## User 连接帐号</span><br><span class="line">## Port 连接SSH端口</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Host self_remote_host</span><br><span class="line">    HostName 10.11.67.18</span><br><span class="line">    User root</span><br><span class="line">    Port 22</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>完成步骤一，基本上就可以连接远端服务器，不过每次都要输入密码有点麻烦，所以可以通过SSH密钥认证去解决，具体如下步骤</p>
+<h2 id="步骤二-本地生成SSH密钥，进行免密登录"><a href="#步骤二-本地生成SSH密钥，进行免密登录" class="headerlink" title="步骤二 本地生成SSH密钥，进行免密登录"></a>步骤二 本地生成SSH密钥，进行免密登录</h2><p>不同操作系统，执行命令不太一样，具体如下。</p>
+<ol>
+<li>Mac | Linux操作系统<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认会在相应路径下（~/.ssh/）生成id_rsa和id_rsa.pub两个文件，如下面代码所示</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><code>id_rsa</code> SSH私钥文件，用来解密公钥，一般存在本地使用</li>
+<li><code>id_rsa.pub</code> SSH公钥文件，用来传输信息的时候加密用， 一般存在远端服务器</li>
 </ul>
-<p>由于低代码项目本身使用的 Vue3 框架，而且 Vue和  React的异步加载组件方案其实差异不多，所以下面以 Vue为主进行介绍。</p>
-    
-    <a class="article-more-a" href="/lowcode/async-component.html#more">more >></a>
-    
-    
-    
+<ol start="2">
+<li>Windows操作系统<br>安装Git Bash，执行如下命令即可：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认会在相应路径下（C:\Users\yourname\.ssh）生成id_rsa和id_rsa.pub两个文件，如下面代码所示</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+接下来就是将公钥<code>id_rsa.pub</code>复制到远端服务器上<code>~/.ssh/</code>目录下即可</li>
+</ol>
+<ol start="3">
+<li>将公钥<code>id_rsa.pub</code>添加到远端服务器中可信任文件中<code>authorized_keys</code>，具体命令如下：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 
-    
+<p>验证登录：<code>ssh &lt;user&gt;:10.1.1.1</code></p>
+<ol start="4">
+<li>配置VSCode SSH config文件，具体如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## Host 远程连接名称</span><br><span class="line">## HostName 主机IP</span><br><span class="line">## User 连接帐号</span><br><span class="line">## Port 连接SSH端口</span><br><span class="line">## IdentityFile 认证登录的SSH密钥文件</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Host self_remote_host</span><br><span class="line">    HostName 10.11.67.18</span><br><span class="line">    User root</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-framework/framework-k8s-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/framework/framework-k8s-study.html" target="_blank">
-      前端架构—— 学习k8s集群管理
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/framework/framework-k8s-study.html" class="archive-article-date">
-        <time datetime="2023-08-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li>k8s学习资料 <a target="_blank" rel="noopener" href="https://kuboard.cn/learning/">https://kuboard.cn/learning/</a></li>
-<li>k8s管理界面 <a target="_blank" rel="noopener" href="https://github.com/eip-work/kuboard-press">https://github.com/eip-work/kuboard-press</a></li>
+</li>
+</ol>
+<h1 id="SSH免密码登录原理"><a href="#SSH免密码登录原理" class="headerlink" title="SSH免密码登录原理"></a>SSH免密码登录原理</h1><ul>
+<li>SSH远端服务会发送【公钥(remote)】信息</li>
+<li>本地SSH客户端会验证远端传输来的【公钥(remote)】和 本地【公钥(local)】对比是否一致，如果一致，发送【随机字符串（challenge）】给到远端服务器</li>
+<li>远端服务器接受到随机字符串（challenge）信息后，继续用【公钥(remote)】加密传输信息-随机字符串（challenge）给回到客户端</li>
+<li>本地SSH客户端用本地【私钥(local)】去解密【公钥(remote)】加密传输信息-随机字符串（challenge），如果与之前一致，则建立连接</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2175073">使用VS Code插件远程连接Linux服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/brf-test/p/16036703.html">Windows下生成SSH密钥</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/framework/framework-k8s-study.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/think-framework" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/think-framework.html" target="_blank">
-      《思考的框架》，如何做出更好的决策？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/think-framework.html" class="archive-article-date">
-        <time datetime="2023-08-15T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="思考的框架"><a href="#思考的框架" class="headerlink" title="思考的框架"></a>思考的框架</h1><p>我们绝大部分行为都是建立在我们所理解的知识领域基础之上，所以我们大部分决策都是都是存在盲区，为了做出更好的决策，本书讲述了不同的思维模型，用来让你的大脑在做出决策之前可以通过不同的思维角度去思考。</p>
-    
-    <a class="article-more-a" href="/study/think-framework.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/think-framework.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/8-lazy-load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/8-lazy-load.html" target="_blank">
-      前端面试100道手写题（8）—— 懒加载
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/8-lazy-load.html" class="archive-article-date">
-        <time datetime="2023-08-12T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/face100/8-lazy-load.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/7-loop-pic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（7）—— 循环轮播图
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-07-31T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
-<p>手写难度：⭐️⭐️</p>
-<p>涉及知识点：</p>
-<ul>
-<li>循环播放的思路</li>
-<li>CSS 动画，transtion和 transform</li>
-<li>Web Component 自定义组件</li>
-</ul>
-    
-    <a class="article-more-a" href="/face100/7-loop-pic.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/face100/7-loop-pic.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230301" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230301.html" target="_blank">
-      一次性完整学完搭建PWA项目
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230301.html" class="archive-article-date">
-        <time datetime="2023-07-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。</p>
-<p>本文涉及知识点如下：</p>
-<ul>
-<li>PWA 的概念</li>
-<li>Service Worker使用</li>
-<li>用构建工具搭建 PWA 应用</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230301.html#more">more >></a>
-    
     
     
 
@@ -1375,7 +1215,205 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230301.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240429.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ai-learn00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ai-learn00.html" target="_blank">
+      00篇 AI从零开始 - 前准备知识
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ai-learn00.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="为什么要学习AI知识"><a href="#为什么要学习AI知识" class="headerlink" title="为什么要学习AI知识"></a>为什么要学习AI知识</h1><p>去年年中总结写过一篇文章 <a target="_blank" rel="noopener" href="https://qborfy.com/study/2023-middle.html">《2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)》</a>，AI发展是必不可缺的，如同马车和汽车的更新迭代一样，作为互联网的程序员，我们有点类似之前的马夫，现在有新的工具，我们也需要跟上时代的脚步，学习AI知识，可以让我们在互联网裁员浪潮中继续前进。</p>
+    
+    <a class="article-more-a" href="/ailearn/ai-learn00.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ai-learn00.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/cursor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/cursor.html" target="_blank">
+      AI技术应用 - Cursor使用全解
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/cursor.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/cursor.html">展开全文 >></a>
     </p>
     
 
@@ -1407,7 +1445,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
