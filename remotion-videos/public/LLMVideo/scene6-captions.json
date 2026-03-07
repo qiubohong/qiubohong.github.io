@@ -1,0 +1,30 @@
+[
+    {
+        "text": "最后分享几个冷知识。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一个，能耗对比。训练GPT-3耗电约等于纽约到旧金山航班200次，但单次推理仅需0.005度电，约等于手机充电1分钟。",
+        "startMs": 2000,
+        "endMs": 12000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二个，中文优势。DeepSeek模型古文生成超GPT-4，因为训练数据含《四库全书》。",
+        "startMs": 12000,
+        "endMs": 19000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三个，幻觉防御。金融LLM通过规则约束加概率阈值限制虚构数据，错误率小于0.1%。",
+        "startMs": 19000,
+        "endMs": 27000,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "text": "Token计算等于提问给大模型的输入加大模型的输出。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "关键机制有：中英文差异，1个中文字符约等于0.6个token，1个英文字符约等于0.3个token。",
+        "startMs": 4000,
+        "endMs": 12000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "上下文窗口，模型单次处理Token上限，比如GPT-4 Turbo支持128K Token，约6.5万汉字。",
+        "startMs": 12000,
+        "endMs": 20000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "为什么要学会Token知识点呢？因为Token约等于Money，调用所有付费大模型API都是基于Token数计费模式。",
+        "startMs": 20000,
+        "endMs": 29000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

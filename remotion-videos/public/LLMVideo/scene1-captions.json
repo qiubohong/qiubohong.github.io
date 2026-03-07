@@ -1,0 +1,30 @@
+[
+    {
+        "text": "5分钟AI知识点学到LLM大模型，其实基本上对AI知识点有大概的认知了。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "对于目前大多数接触AI的人，第一个接触的肯定是LLM大模型，知道怎么用，但是不知道它是怎么来的。",
+        "startMs": 4000,
+        "endMs": 9000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "LLM大模型，全称Large Language Model，是基于Transformer架构的海量参数模型。",
+        "startMs": 9000,
+        "endMs": 14000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "通过万亿级文本训练，将人类语言规律压缩为数学表示，实现理解、生成、推理三位一体的通用智能。",
+        "startMs": 14000,
+        "endMs": 21000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    }
+]

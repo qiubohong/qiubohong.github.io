@@ -1,0 +1,58 @@
+[
+    {
+        "text": "为什么LLM大模型能实现通用智能？主要有四个原因。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一，规模效应。量变引发质变，模型性能随参数规模、数据量和算力呈幂律提升。",
+        "startMs": 3500,
+        "endMs": 9000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二，Transformer自注意力机制的革新性。突破了RNN局限，能理解上下文。",
+        "startMs": 9000,
+        "endMs": 14000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "多任务适配性实现同一个模型处理翻译、摘要、代码生成等任务。",
+        "startMs": 14000,
+        "endMs": 18000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三，训练范式调整。从死记硬背到举一反三。",
+        "startMs": 18000,
+        "endMs": 22000,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "包括预训练的通识教育阶段、指令微调的任务泛化能力、人类对齐的价值观校准。",
+        "startMs": 22000,
+        "endMs": 28000,
+        "timestampMs": 22000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第四，不可预知能力。当规模突破阈值，LLM展现出不可预测的新能力。",
+        "startMs": 28000,
+        "endMs": 33000,
+        "timestampMs": 28000,
+        "confidence": 0.95
+    },
+    {
+        "text": "如上下文学习、思维链推理、工具调用。",
+        "startMs": 33000,
+        "endMs": 37000,
+        "timestampMs": 33000,
+        "confidence": 0.95
+    }
+]

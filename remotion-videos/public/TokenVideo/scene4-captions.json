@@ -1,0 +1,44 @@
+[
+    {
+        "text": "我们来看一个实际场景。用户提问\"订单号DD20240815何时发货？\"。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，使用DeepSeek分词器拆分为7个Token：\"订单号\"、\"DD\"、\"2024\"、\"08\"、\"15\"、\"何时\"、\"发货\"。",
+        "startMs": 5000,
+        "endMs": 15000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，模型回复\"订单已发货，物流单号SF123456\"，拆分为6个Token。",
+        "startMs": 15000,
+        "endMs": 23000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，计算成本。输入7 Token加输出6 Token等于总13 Token。",
+        "startMs": 23000,
+        "endMs": 29000,
+        "timestampMs": 23000,
+        "confidence": 0.95
+    },
+    {
+        "text": "按DeepSeek-V3定价，输入每百万Token收费0.1元，成本等于13乘以0.0000001等于0.0000013元。",
+        "startMs": 29000,
+        "endMs": 40000,
+        "timestampMs": 29000,
+        "confidence": 0.95
+    },
+    {
+        "text": "行业真相：客服系统月耗千万Token，优化分词规则可降本20%。",
+        "startMs": 40000,
+        "endMs": 47000,
+        "timestampMs": 40000,
+        "confidence": 0.95
+    }
+]

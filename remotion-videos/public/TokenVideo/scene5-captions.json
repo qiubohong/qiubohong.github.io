@@ -1,0 +1,44 @@
+[
+    {
+        "text": "不同模型采用不同的分词策略。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "ChatGPT使用BPE算法，长词拆分准，\"人工智能\"拆为2个Token。",
+        "startMs": 2000,
+        "endMs": 9000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "DeepSeek使用WordPiece算法，词缀捕捉强，\"学习能力\"拆为\"学习\"加\"能力\"。",
+        "startMs": 9000,
+        "endMs": 17000,
+        "timestampMs": 9000,
+        "confidence": 0.95
+    },
+    {
+        "text": "阿里Qwen使用SentencePiece算法，生僻词支持优，\"氪金\"保留为1个Token。",
+        "startMs": 17000,
+        "endMs": 25000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "选择建议：64K选Qwen2-7B开源免费或GPT-4 Turbo多模态；",
+        "startMs": 25000,
+        "endMs": 32000,
+        "timestampMs": 25000,
+        "confidence": 0.95
+    },
+    {
+        "text": "64K到200K用Claude 3.7长文本理解强；大于200K选Gemini 1.5 Pro需要高预算。",
+        "startMs": 32000,
+        "endMs": 40000,
+        "timestampMs": 32000,
+        "confidence": 0.95
+    }
+]

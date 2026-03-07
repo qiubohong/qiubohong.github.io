@@ -1,0 +1,30 @@
+[
+    {
+        "text": "Embedding有三大核心特性。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一，语义保留。向量距离反映内容相关性，余弦相似度大于0.8表示强关联。",
+        "startMs": 2500,
+        "endMs": 8000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二，可计算性。支持向量运算，比如\"国王\"减\"男\"加\"女\"，约等于\"女王\"。",
+        "startMs": 8000,
+        "endMs": 14000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三，降维高效。可以将GB级文本压缩为KB级向量。",
+        "startMs": 14000,
+        "endMs": 18000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    }
+]

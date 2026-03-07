@@ -1,0 +1,37 @@
+[
+    {
+        "text": "LLM大模型有两个核心突破。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一是规模效应，百亿至万亿参数，比如GPT-4有1.8万亿参数，突破了性能瓶颈。",
+        "startMs": 2000,
+        "endMs": 8000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二是零样本学习，无需微调就能直接处理新任务，比如翻译、摘要、代码生成。",
+        "startMs": 8000,
+        "endMs": 14000,
+        "timestampMs": 8000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最重要的一点，是利用Transformer架构的并行处理能力，可以使用非常大规模的模型。",
+        "startMs": 14000,
+        "endMs": 20000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "其中通常具有数千亿个参数，甚至上万亿的参数去完成模型训练。",
+        "startMs": 20000,
+        "endMs": 25000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

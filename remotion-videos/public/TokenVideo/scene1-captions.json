@@ -1,0 +1,30 @@
+[
+    {
+        "text": "5分钟AI知识点学到Token，这是大模型最基础也最重要的概念。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "Token就是大模型处理文本的最小单元，如同原子构成物质，Token构成语言模型理解的文本世界。",
+        "startMs": 4000,
+        "endMs": 10000,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "它可以是单词、子词、汉字或标点。",
+        "startMs": 10000,
+        "endMs": 13000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "掌握Token，就握住了LLM的算力方向盘——精准控制输入、预测成本、优化生成效果。",
+        "startMs": 13000,
+        "endMs": 21000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    }
+]

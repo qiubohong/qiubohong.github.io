@@ -1,0 +1,30 @@
+[
+    {
+        "text": "Token有三个核心特性。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一，非固定长度。1个Token不等于1个字，比如中文\"人工智能\"可能拆为2个Token\"人工\"\"智能\"，也可能是4个Token\"人\"\"工\"\"智\"\"能\"。",
+        "startMs": 2000,
+        "endMs": 12000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二，数值化表示。每个Token映射唯一ID，如\"AI\"对应数字31924，再转为向量输入神经网络。",
+        "startMs": 12000,
+        "endMs": 20000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三，计费基准。API调用按输入输出Token量收费，比如每百万Token收费1元。",
+        "startMs": 20000,
+        "endMs": 28000,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

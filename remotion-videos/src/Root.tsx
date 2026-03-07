@@ -22,6 +22,8 @@ import { ContextCompressionVideo } from "./ContextCompressionVideo";
 import { KnowledgeGardenVideo } from "./KnowledgeGardenVideo";
 import { AITutorVideo } from "./AITutorVideo";
 import { AISkillSummaryVideo } from "./AISkillSummaryVideo";
+import { LLMVideo } from "./LLMVideo";
+import { EmbeddingVideo } from "./EmbeddingVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -333,6 +335,36 @@ export const RemotionRoot = () => {
         defaultProps={{
           title: "九个技能，一套心法——普通人也能用好AI的完整指南",
           showCaptions: true,
+        }}
+      />
+
+      {/* LLM大模型视频（5分钟AI系列·第11期） */}
+      <Composition
+        id="LLMVideo"
+        component={LLMVideo}
+        durationInFrames={5951} // 902+805+1230+1016+1076+894+118=6041帧，减去6个转场×15帧=90帧，实际5951帧，约198.37秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "LLM大模型 - AI技术的通用智能革命",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* Embedding视频（5分钟AI系列·第13期） */}
+      <Composition
+        id="EmbeddingVideo"
+        component={EmbeddingVideo}
+        durationInFrames={4568} // 总帧数：649+618+752+524+622+754+634+120=4673帧，减去7个转场×15帧=105帧，实际4568帧
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Embedding - AI理解世界的语义密码本",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
         }}
       />
     </>

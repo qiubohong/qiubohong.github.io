@@ -1,0 +1,37 @@
+[
+    {
+        "text": "最后分享几个冷知识。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一，训练数据规模。GPT-3吃下3000亿Token，约等于人类300万年阅读量。",
+        "startMs": 2000,
+        "endMs": 10000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二，128K上下文威力。可一次性处理整本《三体》，约6.5万汉字。",
+        "startMs": 10000,
+        "endMs": 18000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三，中文的Token税。同一段信息，中文消耗Token数比英文多40%到100%。",
+        "startMs": 18000,
+        "endMs": 26000,
+        "timestampMs": 18000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第四，Emoji的拆解诅咒。爱心表情被拆为心脏符号加修饰符，共2个Token，若用于情感分析可能被误判。",
+        "startMs": 26000,
+        "endMs": 38000,
+        "timestampMs": 26000,
+        "confidence": 0.95
+    }
+]

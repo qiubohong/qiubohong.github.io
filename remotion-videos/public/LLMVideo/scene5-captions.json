@@ -1,0 +1,37 @@
+[
+    {
+        "text": "LLM有三大架构类型。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一是Decoder-Only，代表模型有GPT和LLaMA，特性是自回归生成流畅，最佳场景是创作和对话，比如ChatGPT。",
+        "startMs": 2000,
+        "endMs": 10000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二是Encoder-Only，代表模型是BERT，特性是双向语义理解强，最佳场景是文本分类和情感分析。",
+        "startMs": 10000,
+        "endMs": 17000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三是Encoder-Decoder，代表模型是T5，特性是输入输出转换灵活，最佳场景是翻译和摘要。",
+        "startMs": 17000,
+        "endMs": 24000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "简单总结就是：要生成选Decoder，重理解用Encoder，复杂转换需双全。",
+        "startMs": 24000,
+        "endMs": 29000,
+        "timestampMs": 24000,
+        "confidence": 0.95
+    }
+]

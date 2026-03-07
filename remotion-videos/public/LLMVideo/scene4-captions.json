@@ -1,0 +1,37 @@
+[
+    {
+        "text": "LLM是如何工作的呢？完整过程是：数据压缩到规律学习再到智能涌现。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "首先是分词Tokenization，使用BPE算法拆解文本变成Token序列，比如\"AI学习\"拆解成\"AI\"、\"学\"、\"习\"。",
+        "startMs": 5000,
+        "endMs": 13000,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "然后是嵌入表示Embedding，将分词Token映射为高维向量，捕获语义关联。",
+        "startMs": 13000,
+        "endMs": 19000,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "接着是多层Transformer堆叠。自注意力机制动态计算词间权重，前馈网络提炼特征。",
+        "startMs": 19000,
+        "endMs": 26000,
+        "timestampMs": 19000,
+        "confidence": 0.95
+    },
+    {
+        "text": "最后是概率预测Next Token，输出下一个Token的概率分布。",
+        "startMs": 26000,
+        "endMs": 31000,
+        "timestampMs": 26000,
+        "confidence": 0.95
+    }
+]
