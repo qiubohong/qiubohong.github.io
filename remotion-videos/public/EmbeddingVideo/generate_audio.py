@@ -31,6 +31,7 @@ SCENES = {
     "scene5": {"name": "实战案例",              "caption_file": "scene5-captions.json", "output_file": "scene5-audio.mp3"},
     "scene6": {"name": "模型推荐",              "caption_file": "scene6-captions.json", "output_file": "scene6-audio.mp3"},
     "scene7": {"name": "代码实战",              "caption_file": "scene7-captions.json", "output_file": "scene7-audio.mp3"},
+    "scene8": {"name": "冷知识",               "caption_file": "scene8-captions.json", "output_file": "scene8-audio.mp3"},
     "ending": {"name": "结尾",                  "caption_file": "ending-captions.json", "output_file": "ending-audio.mp3"},
 }
 

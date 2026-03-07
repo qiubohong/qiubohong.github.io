@@ -10,6 +10,7 @@ import { Scene4_Ecosystem } from "./scenes/embedding/Scene4_Ecosystem";
 import { Scene5_UseCase } from "./scenes/embedding/Scene5_UseCase";
 import { Scene6_Models } from "./scenes/embedding/Scene6_Models";
 import { Scene7_CodeExample } from "./scenes/embedding/Scene7_CodeExample";
+import { Scene8_FunFacts } from "./scenes/embedding/Scene8_FunFacts";
 import { EndingScene } from "./components/EndingScene";
 import { CaptionDisplay } from "./components/CaptionDisplay";
 
@@ -33,6 +34,7 @@ export const EmbeddingVideo: React.FC<EmbeddingVideoProps> = ({
         scene5: 622,  // 19.75秒音频 + 30帧缓冲
         scene6: 754,  // 24.14秒音频 + 30帧缓冲
         scene7: 634,  // 20.16秒音频 + 30帧缓冲
+        scene8: 1170,  // 38秒音频 + 30帧缓冲（待音频生成后更新）
         ending: 120,  // 3.02秒音频 + 30帧缓冲
     };
 
@@ -95,6 +97,14 @@ export const EmbeddingVideo: React.FC<EmbeddingVideoProps> = ({
             captionFile: 'EmbeddingVideo/scene7-captions.json',
             duration: sceneDurations.scene7,
             transition: slide({ direction: "from-left" }),
+        },
+        {
+            id: 'scene8',
+            Component: Scene8_FunFacts,
+            audioFile: 'EmbeddingVideo/scene8-audio.mp3',
+            captionFile: 'EmbeddingVideo/scene8-captions.json',
+            duration: sceneDurations.scene8,
+            transition: fade(),
         },
     ];
 

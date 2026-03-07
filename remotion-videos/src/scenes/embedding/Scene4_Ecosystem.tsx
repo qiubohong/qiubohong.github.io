@@ -25,16 +25,18 @@ export const Scene4_Ecosystem: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
             fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
-            padding: 48,
+            padding: "48px 80px",
+            overflow: "hidden",
         }}>
             <h1
                 style={{
-                    fontSize: 64,
+                    fontSize: 52,
                     fontWeight: "bold",
                     color: "white",
-                    marginBottom: 40,
+                    marginBottom: 32,
+                    marginTop: 0,
+                    flexShrink: 0,
                     opacity: titleOpacity,
                     background: "linear-gradient(45deg, #58a6ff, #79c0ff)",
                     WebkitBackgroundClip: "text",
@@ -45,19 +47,27 @@ export const Scene4_Ecosystem: React.FC = () => {
             </h1>
 
             <div style={{
-                opacity: imageOpacity,
-                transform: `scale(${imageScale})`,
+                flex: 1,
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
+                alignItems: "center",
+                overflow: "hidden",
+                minHeight: 0,
             }}>
                 <Img
                     src={staticFile("EmbeddingVideo/scene4-image.png")}
                     style={{
-                        width: "75%",
-                        maxWidth: 900,
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        width: "auto",
+                        height: "auto",
+                        objectFit: "contain",
                         borderRadius: 16,
                         boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                        opacity: imageOpacity,
+                        transform: `scale(${imageScale})`,
+                        transformOrigin: "center center",
                     }}
                 />
             </div>

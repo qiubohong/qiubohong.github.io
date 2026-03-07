@@ -30,16 +30,16 @@ export const Scene5_UseCase: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
             fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
-            padding: 48,
+            padding: "40px 80px",
+            overflow: "hidden",
         }}>
             <h1
                 style={{
-                    fontSize: 64,
+                    fontSize: 52,
                     fontWeight: "bold",
                     color: "white",
-                    marginBottom: 40,
+                    marginBottom: 24,
                     opacity: titleOpacity,
                     background: "linear-gradient(45deg, #58a6ff, #79c0ff)",
                     WebkitBackgroundClip: "text",
@@ -49,13 +49,13 @@ export const Scene5_UseCase: React.FC = () => {
                 实战案例：电商客服意图过滤
             </h1>
 
-            <div style={{ width: "100%", maxWidth: 900 }}>
+            <div style={{ width: "100%", maxWidth: 900, display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
                 {/* 问题卡片 */}
                 <div style={{
                     background: "rgba(255,255,255,0.06)",
                     borderRadius: 16,
                     padding: 24,
-                    marginBottom: 30,
+                    marginBottom: 20,
                     opacity: problemOpacity,
                     border: "1px solid rgba(255,255,255,0.1)",
                 }}>
@@ -72,7 +72,7 @@ export const Scene5_UseCase: React.FC = () => {
                 <div style={{
                     display: "flex",
                     gap: 20,
-                    marginBottom: 30,
+                    marginBottom: 20,
                     opacity: resultOpacity,
                 }}>
                     <div style={{
@@ -104,12 +104,16 @@ export const Scene5_UseCase: React.FC = () => {
                     opacity: imageOpacity,
                     display: "flex",
                     justifyContent: "center",
+                    flex: 1,
+                    minHeight: 0,
+                    overflow: "hidden",
                 }}>
                     <Img
                         src={staticFile("EmbeddingVideo/scene5-image.png")}
                         style={{
-                            width: "100%",
-                            maxWidth: 800,
+                            maxWidth: "100%",
+                            maxHeight: "100%",
+                            objectFit: "contain",
                             borderRadius: 16,
                             boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
                         }}

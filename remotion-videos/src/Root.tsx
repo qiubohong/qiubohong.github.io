@@ -24,6 +24,7 @@ import { AITutorVideo } from "./AITutorVideo";
 import { AISkillSummaryVideo } from "./AISkillSummaryVideo";
 import { LLMVideo } from "./LLMVideo";
 import { EmbeddingVideo } from "./EmbeddingVideo";
+import { TokenVideoVideo } from "./scenes/tokenvideo/TokenVideoVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -363,6 +364,21 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "Embedding - AI理解世界的语义密码本",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* TokenVideo视频（5分钟AI系列·第14期） */}
+      <Composition
+        id="TokenVideoVideo"
+        component={TokenVideoVideo}
+        durationInFrames={6247} // 总帧数：769+939+886+1256+1198+1078+121=6247帧，约208.23秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "大模型 Token 是什么？3 分钟搞懂 AI 计费秘密！",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}
