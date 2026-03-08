@@ -2,71 +2,71 @@
     {
         "text": "最后来几个有趣的冷知识。",
         "startMs": 0,
-        "endMs": 2500,
+        "endMs": 2800,
         "timestampMs": 0,
         "confidence": 0.95
     },
     {
         "text": "第一，中文的Token税。",
-        "startMs": 2500,
-        "endMs": 4500,
-        "timestampMs": 2500,
+        "startMs": 2800,
+        "endMs": 5000,
+        "timestampMs": 2800,
         "confidence": 0.95
     },
     {
         "text": "相同信息，中文比英文多消耗40%的Token，因为中文分词更细。",
-        "startMs": 4500,
-        "endMs": 9000,
-        "timestampMs": 4500,
+        "startMs": 5000,
+        "endMs": 10000,
+        "timestampMs": 5000,
         "confidence": 0.95
     },
     {
         "text": "比如\"人工智能\"，英文AI只需1个Token，中文却需要2到4个。",
-        "startMs": 9000,
-        "endMs": 14000,
-        "timestampMs": 9000,
+        "startMs": 10000,
+        "endMs": 15000,
+        "timestampMs": 10000,
         "confidence": 0.95
     },
     {
         "text": "第二，医疗Embedding的生死权重。",
-        "startMs": 14000,
-        "endMs": 17000,
-        "timestampMs": 14000,
+        "startMs": 15000,
+        "endMs": 18500,
+        "timestampMs": 15000,
         "confidence": 0.95
     },
     {
         "text": "\"心肌梗死\"与\"胸痛\"的向量相似度高达0.93，与\"胃炎\"仅0.12。",
-        "startMs": 17000,
-        "endMs": 22000,
-        "timestampMs": 17000,
+        "startMs": 18500,
+        "endMs": 24000,
+        "timestampMs": 18500,
         "confidence": 0.95
     },
     {
         "text": "医生借此特性可以快速定位疑似误诊病例。",
-        "startMs": 22000,
-        "endMs": 25500,
-        "timestampMs": 22000,
+        "startMs": 24000,
+        "endMs": 28000,
+        "timestampMs": 24000,
         "confidence": 0.95
     },
     {
         "text": "第三，多模态幻象。",
-        "startMs": 25500,
-        "endMs": 27500,
-        "timestampMs": 25500,
+        "startMs": 28000,
+        "endMs": 30500,
+        "timestampMs": 28000,
         "confidence": 0.95
     },
     {
         "text": "CLIP模型把\"熊猫吃竹子\"图片与文本向量对齐，跨模态相似度超0.9。",
-        "startMs": 27500,
-        "endMs": 33000,
-        "timestampMs": 27500,
+        "startMs": 30500,
+        "endMs": 36000,
+        "timestampMs": 30500,
         "confidence": 0.95
     },
     {
         "text": "却把\"竹子手机支架\"误判为关联对象，这就是多模态的幻象。",
-        "startMs": 33000,
-        "endMs": 38000,
-        "timestampMs": 33000,
+        "startMs": 36000,
+        "endMs": 39760,
+        "timestampMs": 36000,
         "confidence": 0.95
     }
 ]

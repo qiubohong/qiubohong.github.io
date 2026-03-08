@@ -2,36 +2,36 @@
     {
         "text": "2025年最新Embedding模型推荐。",
         "startMs": 0,
-        "endMs": 2500,
+        "endMs": 2800,
         "timestampMs": 0,
         "confidence": 0.95
     },
     {
         "text": "Qwen3-Embedding，MTEB多语言榜第一名，适合多语言检索和代码理解。",
-        "startMs": 2500,
-        "endMs": 7500,
-        "timestampMs": 2500,
+        "startMs": 2800,
+        "endMs": 8500,
+        "timestampMs": 2800,
         "confidence": 0.95
     },
     {
         "text": "BGE-M3，支持混合检索，适合法律金融等精准匹配场景。",
-        "startMs": 7500,
-        "endMs": 12000,
-        "timestampMs": 7500,
+        "startMs": 8500,
+        "endMs": 13500,
+        "timestampMs": 8500,
         "confidence": 0.95
     },
     {
         "text": "text-embedding-3，与OpenAI生态无缝集成。",
-        "startMs": 12000,
-        "endMs": 15000,
-        "timestampMs": 12000,
+        "startMs": 13500,
+        "endMs": 17000,
+        "timestampMs": 13500,
         "confidence": 0.95
     },
     {
         "text": "NV-Embed，支持32K长文本，适合论文合同分析。",
-        "startMs": 15000,
-        "endMs": 19000,
-        "timestampMs": 15000,
+        "startMs": 17000,
+        "endMs": 24095,
+        "timestampMs": 17000,
         "confidence": 0.95
     }
 ]

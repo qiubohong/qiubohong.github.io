@@ -358,7 +358,7 @@ export const RemotionRoot = () => {
       <Composition
         id="EmbeddingVideo"
         component={EmbeddingVideo}
-        durationInFrames={4568} // 总帧数：649+618+752+524+622+754+634+120=4673帧，减去7个转场×15帧=105帧，实际4568帧
+        durationInFrames={5776} // 总帧数：648+616+751+522+620+752+632+1222+118=5881帧，减去7个转场×15帧=105帧，实际5776帧
         fps={30}
         width={1920}
         height={1080}
@@ -373,7 +373,7 @@ export const RemotionRoot = () => {
       <Composition
         id="TokenVideoVideo"
         component={TokenVideoVideo}
-        durationInFrames={6247} // 总帧数：769+939+886+1256+1198+1078+121=6247帧，约208.23秒
+        durationInFrames={6227} // 总帧数：770+940+887+1230+1199+1079+122=6227帧，约207.57秒
         fps={30}
         width={1920}
         height={1080}

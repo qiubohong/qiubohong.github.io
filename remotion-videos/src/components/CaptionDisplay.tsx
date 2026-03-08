@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig, Sequence } from "remotion";
+import React, { useState, useEffect } from "react";
+import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 
 interface CaptionToken {
     text: string;
@@ -22,7 +22,6 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    // 加载字幕文件
     useEffect(() => {
         const loadCaptions = async () => {
             try {
@@ -36,21 +35,17 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
         loadCaptions();
     }, [captionFile]);
 
-    if (!captions) {
-        return null;
-    }
+    if (!captions) return null;
 
     // 计算当前时间（毫秒）
     const currentTimeMs = ((frame + startFrom) / fps) * 1000;
 
-    // 找到当前应该显示的字幕
+    // 找到当前字幕条目，完整显示一句话
     const currentCaption = captions.find(
         (caption) => currentTimeMs >= caption.startMs && currentTimeMs < caption.endMs
     );
 
-    if (!currentCaption) {
-        return null;
-    }
+    if (!currentCaption) return null;
 
     return (
         <AbsoluteFill
@@ -59,15 +54,14 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
                 alignItems: "center",
                 paddingBottom: 100,
                 pointerEvents: "none",
-                display: "none",
             }}
         >
             <div
                 style={{
                     backgroundColor: "rgba(0, 0, 0, 0.7)",
-                    padding: "16px 32px",
+                    padding: "16px 40px",
                     borderRadius: 12,
-                    maxWidth: "80%",
+                    maxWidth: "85%",
                     backdropFilter: "blur(10px)",
                 }}
             >
@@ -77,8 +71,9 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
                         fontWeight: 600,
                         color: "white",
                         textAlign: "center",
-                        lineHeight: 1.4,
-                        whiteSpace: "pre-wrap",
+                        lineHeight: 1.5,
+                        wordBreak: "break-all",
+                        whiteSpace: "normal",
                     }}
                 >
                     {currentCaption.text}

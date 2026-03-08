@@ -2,29 +2,29 @@
     {
         "text": "来看一个实战案例。",
         "startMs": 0,
-        "endMs": 1500,
+        "endMs": 1800,
         "timestampMs": 0,
         "confidence": 0.95
     },
     {
         "text": "某电商平台发现，70%的用户提问与业务无关，比如\"今天天气怎么样\"。",
-        "startMs": 1500,
-        "endMs": 6500,
-        "timestampMs": 1500,
+        "startMs": 1800,
+        "endMs": 7200,
+        "timestampMs": 1800,
         "confidence": 0.95
     },
     {
         "text": "通过Embedding技术，可以快速识别用户意图，过滤无效问题。",
-        "startMs": 6500,
-        "endMs": 11000,
-        "timestampMs": 6500,
+        "startMs": 7200,
+        "endMs": 12500,
+        "timestampMs": 7200,
         "confidence": 0.95
     },
     {
         "text": "效果显著：减少无效LLM调用，成本降低40%，响应速度提升3倍。",
-        "startMs": 11000,
-        "endMs": 17000,
-        "timestampMs": 11000,
+        "startMs": 12500,
+        "endMs": 19698,
+        "timestampMs": 12500,
         "confidence": 0.95
     }
 ]

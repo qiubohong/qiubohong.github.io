@@ -2,36 +2,36 @@
     {
         "text": "Embedding的工作流程分为四步。",
         "startMs": 0,
-        "endMs": 2500,
+        "endMs": 2800,
         "timestampMs": 0,
         "confidence": 0.95
     },
     {
         "text": "第一步，输入处理。文本拆分为词或子词，图像分割为像素块。",
-        "startMs": 2500,
-        "endMs": 7000,
-        "timestampMs": 2500,
+        "startMs": 2800,
+        "endMs": 7500,
+        "timestampMs": 2800,
         "confidence": 0.95
     },
     {
         "text": "第二步，语义编码。通过自注意力机制计算上下文关联。",
-        "startMs": 7000,
-        "endMs": 11000,
-        "timestampMs": 7000,
+        "startMs": 7500,
+        "endMs": 12000,
+        "timestampMs": 7500,
         "confidence": 0.95
     },
     {
         "text": "第三步，池化压缩。将多维向量压缩为一维，常用平均池化或CLS向量。",
-        "startMs": 11000,
-        "endMs": 16000,
-        "timestampMs": 11000,
+        "startMs": 12000,
+        "endMs": 17500,
+        "timestampMs": 12000,
         "confidence": 0.95
     },
     {
         "text": "第四步，归一化输出。将向量模长归一化为1，简化相似度计算。",
-        "startMs": 16000,
-        "endMs": 21000,
-        "timestampMs": 16000,
+        "startMs": 17500,
+        "endMs": 24042,
+        "timestampMs": 17500,
         "confidence": 0.95
     }
 ]

@@ -2,36 +2,36 @@
     {
         "text": "我们用代码实战一下。",
         "startMs": 0,
-        "endMs": 2000,
+        "endMs": 2200,
         "timestampMs": 0,
         "confidence": 0.95
     },
     {
         "text": "使用FlagEmbedding模型计算文本相似度。",
-        "startMs": 2000,
-        "endMs": 5000,
-        "timestampMs": 2000,
+        "startMs": 2200,
+        "endMs": 5500,
+        "timestampMs": 2200,
         "confidence": 0.95
     },
     {
         "text": "加载中文模型，输入\"深度学习\"和\"神经网络\"两个词。",
-        "startMs": 5000,
-        "endMs": 9000,
-        "timestampMs": 5000,
+        "startMs": 5500,
+        "endMs": 9500,
+        "timestampMs": 5500,
         "confidence": 0.95
     },
     {
         "text": "生成向量后，计算余弦相似度，结果为0.92，说明这两个概念高度相关。",
-        "startMs": 9000,
-        "endMs": 15000,
-        "timestampMs": 9000,
+        "startMs": 9500,
+        "endMs": 15500,
+        "timestampMs": 9500,
         "confidence": 0.95
     },
     {
         "text": "掌握Embedding，就握住了AI理解现实世界的语义密码本！",
-        "startMs": 15000,
-        "endMs": 20000,
-        "timestampMs": 15000,
+        "startMs": 15500,
+        "endMs": 20098,
+        "timestampMs": 15500,
         "confidence": 0.95
     }
 ]
