@@ -25,6 +25,8 @@ import { AISkillSummaryVideo } from "./AISkillSummaryVideo";
 import { LLMVideo } from "./LLMVideo";
 import { EmbeddingVideo } from "./EmbeddingVideo";
 import { TokenVideoVideo } from "./scenes/tokenvideo/TokenVideoVideo";
+import { FunctionCallingVideo } from "./FunctionCallingVideo";
+import { MCPVideo } from "./MCPVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -379,6 +381,36 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "大模型 Token 是什么？3 分钟搞懂 AI 计费秘密！",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* FunctionCallingVideo视频（5分钟AI系列·第15期） */}
+      <Composition
+        id="FunctionCallingVideo"
+        component={FunctionCallingVideo}
+        durationInFrames={6466} // 总帧数：932+980+937+1059+1254+1184+120=6466帧，约215.5秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "AI 函数调用 Function Calling - 让大模型真正动起来！",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* MCPVideo视频（5分钟AI系列·第16期） */}
+      <Composition
+        id="MCPVideo"
+        component={MCPVideo}
+        durationInFrames={6358} // 总帧数：932+1098+978+1007+1000+1223+120=6358帧，约211.9秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "MCP 协议 - AI 世界的 USB-C 接口",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}

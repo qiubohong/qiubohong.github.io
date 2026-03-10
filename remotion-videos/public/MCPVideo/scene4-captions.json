@@ -1,0 +1,51 @@
+[
+  {
+    "text": "有了服务器，再来看看如何调用 MCP 工具。",
+    "startMs": 0,
+    "endMs": 4653,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "使用 FastMCP 的 Client，传入服务器地址即可创建客户端。",
+    "startMs": 4653,
+    "endMs": 9306,
+    "timestampMs": 4653,
+    "confidence": 0.95
+  },
+  {
+    "text": "通过 client.list_tools 可以列出服务器上所有可用的工具。",
+    "startMs": 9306,
+    "endMs": 13959,
+    "timestampMs": 9306,
+    "confidence": 0.95
+  },
+  {
+    "text": "通过 client.call_tool 调用具体工具，传入工具名和参数。",
+    "startMs": 13959,
+    "endMs": 18612,
+    "timestampMs": 13959,
+    "confidence": 0.95
+  },
+  {
+    "text": "OpenAI 也支持 MCP，只需在 tools 参数中指定 MCP 服务器信息。",
+    "startMs": 18612,
+    "endMs": 23265,
+    "timestampMs": 18612,
+    "confidence": 0.95
+  },
+  {
+    "text": "大模型调用 MCP 的完整流程分为五步：",
+    "startMs": 23265,
+    "endMs": 27918,
+    "timestampMs": 23265,
+    "confidence": 0.95
+  },
+  {
+    "text": "列出工具、筛选工具、构造请求、处理结果、继续对话。",
+    "startMs": 27918,
+    "endMs": 32572,
+    "timestampMs": 27918,
+    "confidence": 0.95
+  }
+]

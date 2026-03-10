@@ -1,0 +1,51 @@
+[
+  {
+    "text": "MCP 遵循经典的客户端-服务器架构。",
+    "startMs": 0,
+    "endMs": 5087,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "核心组件分为四个部分：Host、Client、Server 和 Protocol。",
+    "startMs": 5087,
+    "endMs": 10174,
+    "timestampMs": 5087,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP Host 是用户直接交互的 AI 应用，比如 Cursor IDE、Claude Desktop。",
+    "startMs": 10174,
+    "endMs": 15261,
+    "timestampMs": 10174,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP Client 内嵌于 Host 内部，充当协议的翻译官。",
+    "startMs": 15261,
+    "endMs": 20349,
+    "timestampMs": 15261,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP Server 是提供具体能力的轻量级服务程序，",
+    "startMs": 20349,
+    "endMs": 25436,
+    "timestampMs": 20349,
+    "confidence": 0.95
+  },
+  {
+    "text": "它向外暴露三种核心能力：工具 Tool、资源 Resource 和提示模板 Prompt。",
+    "startMs": 25436,
+    "endMs": 30523,
+    "timestampMs": 25436,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP Protocol 基于 JSON-RPC 2.0，支持本地和远程两种传输方式。",
+    "startMs": 30523,
+    "endMs": 35611,
+    "timestampMs": 30523,
+    "confidence": 0.95
+  }
+]

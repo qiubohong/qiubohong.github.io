@@ -30,11 +30,12 @@ nvm use ai
 **任务**：
 
 1. 读取用户输入的文案文件
-2. **检测文案中的图片资源**：
+2. **检测文案中的图片和流程图资源**：
    - 扫描 Markdown 文件中的图片引用（格式：`![alt](path)` 或 `<img src="path">`）
-   - 判断图片是否与教学内容相关（如：流程图、架构图、示例图、对比图等）
-   - 确定哪些图片需要在视频中展示
-   - 记录图片路径和建议展示的场景位置
+   - 扫描 Markdown 文件中的 Mermaid 代码块（格式：` ```mermaid ... ``` `）
+   - 判断图片/流程图是否与教学内容相关（如：流程图、架构图、示例图、对比图等）
+   - 确定哪些图片/流程图需要在视频中展示
+   - 记录图片路径和 Mermaid 代码，以及建议展示的场景位置
 3. 以抖音教学运营专家角色优化文案，输出：
    - 视频标题（吸引眼球、适合短视频平台）
    - **抖音短视频标题**（15-20 字，吸引眼球，可带数字、疑问句、感叹号）
@@ -43,11 +44,12 @@ nvm use ai
    - 分场景文案（每个场景对应一个知识点，时长控制在 15-45 秒）
    - **图片使用计划**（标注哪些场景需要展示图片）
 
-**图片判断标准**：
+**图片/流程图判断标准**：
 
 - ✅ **需要引入**：流程图、架构图、代码示例截图、对比图表、关键概念示意图
+- ✅ **Mermaid 流程图**：文案中的 mermaid 代码块，优先使用 MermaidDiagram 组件渲染
 - ❌ **不需要引入**：装饰性图片、无关配图、低质量图片
-- 📝 **展示方式**：图片应在讲解相关内容时出现，可作为背景或叠加层展示
+- 📝 **展示方式**：图片/流程图应在讲解相关内容时出现，可作为背景或叠加层展示
 
 **输出格式**：
 
@@ -87,10 +89,11 @@ AI 提示词写不好？这个技巧让你秒变高手！🔥
 
 ## 图片资源清单
 
-| 图片路径           | 用途说明 | 建议展示场景 | 是否使用 |
-| ------------------ | -------- | ------------ | -------- |
-| assets/img/xxx.png | 流程图   | Scene 2      | ✓        |
-| assets/img/yyy.png | 架构图   | Scene 3      | ✓        |
+| 图片路径           | 用途说明       | 建议展示场景 | 是否使用          |
+| ------------------ | -------------- | ------------ | ----------------- |
+| assets/img/xxx.png | 流程图         | Scene 2      | ✓                 |
+| assets/img/yyy.png | 架构图         | Scene 3      | ✓                 |
+| mermaid:flow.mmd   | Mermaid 流程图 | Scene 4      | ✓（预渲染为 SVG） |
 
 ## 分场景文案
 
@@ -111,6 +114,12 @@ AI 提示词写不好？这个技巧让你秒变高手！🔥
 [文案内容]
 
 **图片**：`assets/img/yyy.png` - 架构图展示
+
+### Scene 4: [场景名称]
+
+[文案内容]
+
+**Mermaid 流程图**：`diagrams/flow.svg`（由 flow.mmd 预渲染生成）
 ...
 ```
 
@@ -259,6 +268,7 @@ export const SceneName: React.FC<SceneProps> = ({ title }) => {
 - 时长需与音频同步
 - 参考 [[memory:3g4lzqdy]] 字幕规则
 - **图片文件命名**：建议使用 `sceneX-image.png` 或描述性名称
+- **Mermaid 流程图**：若场景需要展示流程图，使用 `MermaidDiagram` 组件，SVG 文件放在 `public/diagrams/` 目录下
 
 ### 步骤 3：音频文件生成
 
@@ -435,16 +445,21 @@ npm run build -- --id=<VideoId>
 ## 文件结构
 
 ```
-remotion-videos/
+remotionvideos/
 ├── src/
 │   ├── Root.tsx                    # 视频组合入口
 │   ├── <VideoName>Video.tsx        # 视频主组件
+│   ├── components/
+│   │   └── MermaidDiagram.tsx      # Mermaid 流程图组件
 │   └── scenes/
 │       └── <videoTopic>/
 │           ├── Scene1_xxx.tsx
 │           ├── Scene2_xxx.tsx
 │           └── ...
 ├── public/
+│   ├── diagrams/                   # Mermaid 预渲染 SVG 目录
+│   │   ├── example.mmd             # Mermaid 源文件
+│   │   └── example.svg             # 预渲染生成的 SVG
 │   └── <VideoName>/
 │       ├── scene1-audio.mp3
 │       ├── scene1-captions.json
@@ -454,7 +469,8 @@ remotion-videos/
 │       ├── scene2-image.png        # 场景2的图片（如需要）
 │       └── ...
 └── scripts/
-    └── generate_audio_from_captions.py
+    ├── generate_audio_from_captions.py
+    └── render-mermaid.mjs          # Mermaid 预渲染脚本
 ```
 
 **图片资源管理**：
@@ -463,6 +479,12 @@ remotion-videos/
 - 图片命名建议：`sceneX-image.png` 或 `sceneX-diagram.png`
 - 支持格式：PNG、JPG、SVG
 - 建议尺寸：宽度 1080px（匹配视频宽度）
+
+**Mermaid 流程图资源管理**：
+
+- Mermaid 源文件（`.mmd`）和预渲染 SVG 统一放在 `public/diagrams/` 目录下
+- 渲染命令：`npm run render-mermaid`（需要 Node.js 18+，已配置为 `~/.nvm/versions/node/v20.19.0/bin/node`）
+- 生成的 SVG 文件在场景组件中通过 `MermaidDiagram` 组件引用
 
 ## 常用依赖
 
@@ -787,6 +809,191 @@ const highlight = 0.7 + Math.sin(frame * 0.15) * 0.3;
    - 必须生成对应的音频和字幕文件
 9. **AI 对话动画**：当场景涉及 AI 对话交互时，必须启用「AI 对话动画方案」章节中的标准方案，右侧对话框宽度必须从 0 动画展开，不得直接设置固定宽度
 10. **小动画增强**：每个场景可适当添加 2-3 个小动画（浮动、脉冲、计数、进度条等），提升视频趣味性，参考「小动画增强方案」章节
+11. **Mermaid 流程图**：
+    - 文案中含有 mermaid 代码块时，先将其保存为 `public/diagrams/xxx.mmd` 文件
+    - 运行 `npm run render-mermaid` 预渲染为 SVG（需要 Node.js 18+）
+    - 在场景组件中使用 `MermaidDiagram` 组件展示，参考「Mermaid 流程图方案」章节
+
+## Mermaid 流程图方案
+
+当场景内容涉及**流程图、架构图、状态图**等可用 Mermaid 语法描述的图表时，使用以下标准方案。
+
+### 工作流程
+
+1. **提取 Mermaid 代码**：从文案 Markdown 中提取 mermaid 代码块
+2. **保存为 `.mmd` 文件**：保存到 `public/diagrams/xxx.mmd`
+3. **预渲染为 SVG**：运行 `npm run render-mermaid` 生成 SVG
+4. **在场景中使用**：通过 `MermaidDiagram` 组件展示
+
+### 预渲染命令
+
+```bash
+# 渲染 public/diagrams/ 目录下所有 .mmd 文件
+npm run render-mermaid
+
+# 渲染单个文件
+~/.nvm/versions/node/v20.19.0/bin/node scripts/render-mermaid.mjs public/diagrams/my-flow.mmd
+```
+
+> ⚠️ **注意**：`npm run render-mermaid` 内部使用 Node.js 20，无需手动切换版本。
+
+### MermaidDiagram 组件使用
+
+**组件位置**：`src/components/MermaidDiagram.tsx`
+
+```typescript
+import { MermaidDiagram } from "../components/MermaidDiagram";
+
+// 基础用法（居中展示，带淡入动画）
+<MermaidDiagram
+  svgFile="diagrams/my-flow.svg"
+  width="80%"
+  fadeInDuration={20}
+  scaleIn={true}
+/>
+
+// 全宽展示（适合复杂流程图）
+<MermaidDiagram
+  svgFile="diagrams/architecture.svg"
+  width="100%"
+  fadeInDuration={15}
+  scaleIn={false}
+/>
+
+// 带背景卡片
+<MermaidDiagram
+  svgFile="diagrams/flow.svg"
+  width="85%"
+  backgroundColor="rgba(255,255,255,0.06)"
+  padding={24}
+  borderRadius={16}
+/>
+```
+
+### MermaidDiagram 组件参数
+
+| 参数              | 类型             | 默认值          | 说明                             |
+| ----------------- | ---------------- | --------------- | -------------------------------- |
+| `svgFile`         | `string`         | 必填            | SVG 文件路径（相对 public 目录） |
+| `width`           | `string\|number` | `"100%"`        | 组件宽度                         |
+| `height`          | `string\|number` | `"auto"`        | 组件高度                         |
+| `maxWidth`        | `string\|number` | `"100%"`        | 最大宽度                         |
+| `fadeInDuration`  | `number`         | `20`            | 淡入动画帧数                     |
+| `scaleIn`         | `boolean`        | `true`          | 是否启用缩放动画                 |
+| `backgroundColor` | `string`         | `"transparent"` | 背景色                           |
+| `padding`         | `string\|number` | `0`             | 内边距                           |
+| `borderRadius`    | `string\|number` | `12`            | 圆角                             |
+| `style`           | `CSSProperties`  | -               | 自定义样式                       |
+
+### 在场景组件中集成
+
+```typescript
+import React from "react";
+import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+import { MermaidDiagram } from "../../components/MermaidDiagram";
+
+export const SceneWithDiagram: React.FC = () => {
+  const frame = useCurrentFrame();
+
+  // 文字内容先出现，流程图后出现
+  const DIAGRAM_START = 60; // 第60帧开始显示流程图
+
+  return (
+    <AbsoluteFill
+      style={{
+        background:
+          "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)",
+      }}
+    >
+      {/* 标题区域 */}
+      <div style={{ padding: "60px 40px 20px" }}>
+        <h2 style={{ color: "#58a6ff", fontSize: 48 }}>流程说明</h2>
+      </div>
+
+      {/* Mermaid 流程图（延迟出现） */}
+      {frame >= DIAGRAM_START && (
+        <div style={{ padding: "0 40px", flex: 1 }}>
+          <MermaidDiagram
+            svgFile="diagrams/my-flow.svg"
+            width="100%"
+            fadeInDuration={20}
+            scaleIn={true}
+            backgroundColor="rgba(255,255,255,0.04)"
+            padding={20}
+            borderRadius={12}
+          />
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+```
+
+### 布局模式
+
+**模式 1：全屏流程图**（适合复杂架构图）
+
+```typescript
+<AbsoluteFill
+  style={{ padding: "80px 40px", display: "flex", flexDirection: "column" }}
+>
+  <h2>标题</h2>
+  <MermaidDiagram
+    svgFile="diagrams/arch.svg"
+    width="100%"
+    style={{ flex: 1 }}
+  />
+</AbsoluteFill>
+```
+
+**模式 2：上文字下流程图**（适合讲解型场景）
+
+```typescript
+<AbsoluteFill
+  style={{
+    padding: "60px 40px",
+    display: "flex",
+    flexDirection: "column",
+    gap: 30,
+  }}
+>
+  <div>{/* 文字说明 */}</div>
+  <MermaidDiagram
+    svgFile="diagrams/flow.svg"
+    width="90%"
+    style={{ alignSelf: "center" }}
+  />
+</AbsoluteFill>
+```
+
+**模式 3：左文字右流程图**（适合对比型场景）
+
+```typescript
+<AbsoluteFill
+  style={{ display: "flex", flexDirection: "row", padding: "60px 30px" }}
+>
+  <div style={{ flex: 1 }}>{/* 左侧文字 */}</div>
+  <div style={{ flex: 1 }}>
+    <MermaidDiagram svgFile="diagrams/flow.svg" width="100%" />
+  </div>
+</AbsoluteFill>
+```
+
+### Mermaid 源文件示例
+
+```
+# public/diagrams/ai-flow.mmd
+flowchart TD
+    A[用户输入] --> B[AI 模型]
+    B --> C{判断意图}
+    C -->|工具调用| D[调用外部工具]
+    C -->|直接回答| E[生成回复]
+    D --> F[获取结果]
+    F --> B
+    E --> G[输出给用户]
+```
+
+---
 
 ## 相关 Skills
 

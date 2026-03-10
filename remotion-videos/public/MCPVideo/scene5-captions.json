@@ -1,0 +1,51 @@
+[
+  {
+    "text": "MCP 的生态正在快速发展。",
+    "startMs": 0,
+    "endMs": 4623,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "主流的 MCP Host 应用有 Cursor IDE、Claude Desktop 和 OpenWebUI。",
+    "startMs": 4623,
+    "endMs": 9246,
+    "timestampMs": 4623,
+    "confidence": 0.95
+  },
+  {
+    "text": "只需在设置中添加 MCP Server，就能即插即用地扩展 AI 能力。",
+    "startMs": 9246,
+    "endMs": 13869,
+    "timestampMs": 9246,
+    "confidence": 0.95
+  },
+  {
+    "text": "想找现成的 MCP Server？",
+    "startMs": 13869,
+    "endMs": 18492,
+    "timestampMs": 13869,
+    "confidence": 0.95
+  },
+  {
+    "text": "可以访问官方仓库 github.com/modelcontextprotocol/servers，",
+    "startMs": 18492,
+    "endMs": 23115,
+    "timestampMs": 18492,
+    "confidence": 0.95
+  },
+  {
+    "text": "或者社区目录 cursor.directory，里面有丰富的工具资源。",
+    "startMs": 23115,
+    "endMs": 27738,
+    "timestampMs": 23115,
+    "confidence": 0.95
+  },
+  {
+    "text": "Anthropic 还提供了官方的 Python 和 TypeScript SDK，极大简化开发流程。",
+    "startMs": 27738,
+    "endMs": 32361,
+    "timestampMs": 27738,
+    "confidence": 0.95
+  }
+]

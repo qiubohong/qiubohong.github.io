@@ -1,0 +1,44 @@
+[
+    {
+        "text": "Function Calling 的工作原理，核心在于大模型被调用了两次。",
+        "startMs": 0,
+        "endMs": 5541,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一次调用：用户提问，模型分析意图，决定调用哪个函数，并生成调用参数。",
+        "startMs": 5541,
+        "endMs": 10783,
+        "timestampMs": 5541,
+        "confidence": 0.95
+    },
+    {
+        "text": "比如用户问「北京天气怎么样」，模型返回：调用 get_weather，参数 location 等于北京。",
+        "startMs": 10783,
+        "endMs": 18571,
+        "timestampMs": 10783,
+        "confidence": 0.95
+    },
+    {
+        "text": "注意！模型本身并不直接执行函数，它只负责生成调用的指令。",
+        "startMs": 18571,
+        "endMs": 22764,
+        "timestampMs": 18571,
+        "confidence": 0.95
+    },
+    {
+        "text": "真正的执行工作由你的程序来完成，程序拿到结果后传回给模型。",
+        "startMs": 22764,
+        "endMs": 27107,
+        "timestampMs": 22764,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二次调用：模型将函数执行结果整合成对人类友好的自然语言回复。",
+        "startMs": 27107,
+        "endMs": 31752,
+        "timestampMs": 27107,
+        "confidence": 0.95
+    }
+]

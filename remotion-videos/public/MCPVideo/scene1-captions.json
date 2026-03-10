@@ -1,0 +1,51 @@
+[
+  {
+    "text": "今天我们来学习 MCP 协议。",
+    "startMs": 0,
+    "endMs": 4299,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP，全称模型上下文协议，由 Anthropic 公司推出。",
+    "startMs": 4299,
+    "endMs": 8598,
+    "timestampMs": 4299,
+    "confidence": 0.95
+  },
+  {
+    "text": "它是一个开源协议，专门为大型语言模型与外部工具之间建立连接通道。",
+    "startMs": 8598,
+    "endMs": 12897,
+    "timestampMs": 8598,
+    "confidence": 0.95
+  },
+  {
+    "text": "通俗地说，MCP 就像 AI 世界的 USB-C 接口。",
+    "startMs": 12897,
+    "endMs": 17196,
+    "timestampMs": 12897,
+    "confidence": 0.95
+  },
+  {
+    "text": "它定义了一套通用标准，让任何支持 MCP 的 AI 应用，",
+    "startMs": 17196,
+    "endMs": 21495,
+    "timestampMs": 17196,
+    "confidence": 0.95
+  },
+  {
+    "text": "都能通过统一的插口，即插即用地连接各种外部工具。",
+    "startMs": 21495,
+    "endMs": 25794,
+    "timestampMs": 21495,
+    "confidence": 0.95
+  },
+  {
+    "text": "无需为每个工具单独开发适配器，彻底解决碎片化集成问题。",
+    "startMs": 25794,
+    "endMs": 30093,
+    "timestampMs": 25794,
+    "confidence": 0.95
+  }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "text": "欢迎来到5分钟AI，每天搞懂一个知识点！",
+        "startMs": 0,
+        "endMs": 2870,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天我们来学习 AI 函数调用——Function Calling。",
+        "startMs": 2870,
+        "endMs": 7750,
+        "timestampMs": 2870,
+        "confidence": 0.95
+    },
+    {
+        "text": "一句话核心：Function Calling 是大模型在对话中，根据用户需求调用外部函数的能力。",
+        "startMs": 7750,
+        "endMs": 14640,
+        "timestampMs": 7750,
+        "confidence": 0.95
+    },
+    {
+        "text": "通俗地讲，它让大模型从「能说会道」的参谋，变成了「能动手做事」的助手。",
+        "startMs": 14640,
+        "endMs": 19664,
+        "timestampMs": 14640,
+        "confidence": 0.95
+    },
+    {
+        "text": "当模型遇到无法直接解决的问题，比如查询实时信息、进行复杂计算，",
+        "startMs": 19664,
+        "endMs": 24113,
+        "timestampMs": 19664,
+        "confidence": 0.95
+    },
+    {
+        "text": "它不再说「我做不到」，而是告诉你的程序：嘿，调用那个 get_weather 函数！",
+        "startMs": 24113,
+        "endMs": 30144,
+        "timestampMs": 24113,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "text": "最后来看4个关于 Function Calling 的冷知识！",
+        "startMs": 0,
+        "endMs": 4760,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "冷知识一：模型没有手。大模型只是超级大脑，只生成调用计划，不执行代码。",
+        "startMs": 4760,
+        "endMs": 10134,
+        "timestampMs": 4760,
+        "confidence": 0.95
+    },
+    {
+        "text": "冷知识二：描述决定一切。函数的 description 写得越清晰，模型调用越准确。",
+        "startMs": 10134,
+        "endMs": 16583,
+        "timestampMs": 10134,
+        "confidence": 0.95
+    },
+    {
+        "text": "冷知识三：思考过程可控。用 tool_choice 参数可以强制调用或禁止调用某个函数。",
+        "startMs": 16583,
+        "endMs": 23339,
+        "timestampMs": 16583,
+        "confidence": 0.95
+    },
+    {
+        "text": "冷知识四：与 MCP 的关系。Function Calling 是基础版，MCP 是企业级工具箱协议，两者互补！",
+        "startMs": 23339,
+        "endMs": 31938,
+        "timestampMs": 23339,
+        "confidence": 0.95
+    },
+    {
+        "text": "掌握 Function Calling，让你的 AI 助手突破边界，完成更复杂的任务！",
+        "startMs": 31938,
+        "endMs": 38544,
+        "timestampMs": 31938,
+        "confidence": 0.95
+    }
+]

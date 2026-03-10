@@ -4,13 +4,14 @@
   "description": "监督学习概念讲解动画视频",
   "type": "module",
   "scripts": {
-    "start": "remotion preview src/index.ts",
+    "start": "remotion preview src/index.ts --port 3030",
     "build": "remotion render src/index.ts SupervisedLearningVideo out/video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
     "build:unsupervised": "remotion render src/index.ts UnsupervisedLearningVideo out/unsupervised-learning.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
     "build:cnn": "remotion render src/index.ts CNNVideo out/cnn-video.mp4 --codec=h264 --audio-codec=aac --pixel-format=yuv420p --gl=angle",
     "upgrade": "remotion upgrade",
     "install-deps": "npm install",
-    "generate-captions": "node generate-captions.js"
+    "generate-captions": "node generate-captions.js",
+    "render-mermaid": "~/.nvm/versions/node/v20.19.0/bin/node scripts/render-mermaid.mjs"
   },
   "dependencies": {
     "@remotion/animation-utils": "^4.0.132",
@@ -32,6 +33,9 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.24",
+    "mermaid": "^11.12.3",
+    "mermaid-isomorphic": "^3.1.0",
+    "playwright": "^1.58.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.0.0"

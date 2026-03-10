@@ -1,0 +1,44 @@
+[
+    {
+        "text": "Function Calling 还支持进阶技巧：并行查询！",
+        "startMs": 0,
+        "endMs": 4281,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "当用户问「同时查询北京和上海的天气」，开启 parallel_tool_calls 参数，",
+        "startMs": 4281,
+        "endMs": 10702,
+        "timestampMs": 4281,
+        "confidence": 0.95
+    },
+    {
+        "text": "模型可以同时生成两个函数调用请求，你的程序并行执行，大幅提升效率！",
+        "startMs": 10702,
+        "endMs": 15411,
+        "timestampMs": 10702,
+        "confidence": 0.95
+    },
+    {
+        "text": "另一个案例：股票查询系统。定义 get_stock_price 函数，参数是股票代码。",
+        "startMs": 15411,
+        "endMs": 21547,
+        "timestampMs": 15411,
+        "confidence": 0.95
+    },
+    {
+        "text": "用户问「青岛啤酒的股价是多少」，模型调用函数，程序连接金融数据 API 获取实时信息。",
+        "startMs": 21547,
+        "endMs": 27683,
+        "timestampMs": 21547,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就是 Function Calling 的核心价值：将语言理解能力与外部工具执行能力相结合！",
+        "startMs": 27683,
+        "endMs": 34392,
+        "timestampMs": 27683,
+        "confidence": 0.95
+    }
+]

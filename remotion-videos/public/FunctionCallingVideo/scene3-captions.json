@@ -1,0 +1,44 @@
+[
+    {
+        "text": "来看最经典的案例：智能天气查询助手。",
+        "startMs": 0,
+        "endMs": 2701,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "首先，我们定义工具列表，告诉模型你有哪些函数可以调用。",
+        "startMs": 2701,
+        "endMs": 6752,
+        "timestampMs": 2701,
+        "confidence": 0.95
+    },
+    {
+        "text": "函数名 get_current_weather，描述：获取指定城市的当前天气，参数：城市名称。",
+        "startMs": 6752,
+        "endMs": 13804,
+        "timestampMs": 6752,
+        "confidence": 0.95
+    },
+    {
+        "text": "关键点：description 描述决定一切！模型靠它判断何时该调用这个函数。",
+        "startMs": 13804,
+        "endMs": 19656,
+        "timestampMs": 13804,
+        "confidence": 0.95
+    },
+    {
+        "text": "用户问「北京天气怎么样」，模型第一次调用后返回函数调用指令。",
+        "startMs": 19656,
+        "endMs": 24157,
+        "timestampMs": 19656,
+        "confidence": 0.95
+    },
+    {
+        "text": "你的程序执行真实的天气 API，拿到结果，再传给模型进行第二次调用，生成最终回复。",
+        "startMs": 24157,
+        "endMs": 30312,
+        "timestampMs": 24157,
+        "confidence": 0.95
+    }
+]

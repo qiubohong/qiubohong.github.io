@@ -1,0 +1,51 @@
+[
+  {
+    "text": "最后来聊几个关于 MCP 的冷知识。",
+    "startMs": 0,
+    "endMs": 5681,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "MCP 的设计深受语言服务器协议 LSP 的启发。",
+    "startMs": 5681,
+    "endMs": 11362,
+    "timestampMs": 5681,
+    "confidence": 0.95
+  },
+  {
+    "text": "LSP 统一了 IDE 对不同编程语言的支持，而 MCP 旨在统一 AI 对不同工具的访问。",
+    "startMs": 11362,
+    "endMs": 17044,
+    "timestampMs": 11362,
+    "confidence": 0.95
+  },
+  {
+    "text": "在权限控制上，工具由模型控制调用，而数据的访问权完全由用户控制。",
+    "startMs": 17044,
+    "endMs": 22725,
+    "timestampMs": 17044,
+    "confidence": 0.95
+  },
+  {
+    "text": "Server 所有者无需将 API 密钥等敏感信息暴露给 LLM 提供商，安全性大幅提升。",
+    "startMs": 22725,
+    "endMs": 28407,
+    "timestampMs": 22725,
+    "confidence": 0.95
+  },
+  {
+    "text": "在商业前景上，MCP 在 To C 领域有广阔前景，",
+    "startMs": 28407,
+    "endMs": 34088,
+    "timestampMs": 28407,
+    "confidence": 0.95
+  },
+  {
+    "text": "但在 To B 企业领域可能面临挑战，因为企业更倾向于成为用户入口。",
+    "startMs": 34088,
+    "endMs": 39770,
+    "timestampMs": 34088,
+    "confidence": 0.95
+  }
+]

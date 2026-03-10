@@ -1,0 +1,51 @@
+[
+    {
+        "text": "来看实战代码！使用 OpenAI Python SDK 实现天气查询。",
+        "startMs": 0,
+        "endMs": 5398,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步：定义 tools 列表，告诉模型有哪些函数可以调用。",
+        "startMs": 5398,
+        "endMs": 10025,
+        "timestampMs": 5398,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步：第一次调用模型，模型返回函数调用指令，包含函数名和参数。",
+        "startMs": 10025,
+        "endMs": 14960,
+        "timestampMs": 10025,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步：你的程序执行真实函数，比如调用天气 API 获取北京天气数据。",
+        "startMs": 14960,
+        "endMs": 20358,
+        "timestampMs": 14960,
+        "confidence": 0.95
+    },
+    {
+        "text": "第四步：将函数执行结果添加回输入列表，类型为 function_call_output。",
+        "startMs": 20358,
+        "endMs": 27144,
+        "timestampMs": 20358,
+        "confidence": 0.95
+    },
+    {
+        "text": "第五步：第二次调用模型，模型整合结果，生成友好的自然语言回复！",
+        "startMs": 27144,
+        "endMs": 31925,
+        "timestampMs": 27144,
+        "confidence": 0.95
+    },
+    {
+        "text": "好消息：国产大模型如通义千问、DeepSeek 都兼容 OpenAI API 格式，换个 base_url 就能用！",
+        "startMs": 31925,
+        "endMs": 40872,
+        "timestampMs": 31925,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "text": "接下来看看怎么搭建一个 MCP 服务器。",
+    "startMs": 0,
+    "endMs": 4516,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "使用 Python 的 FastMCP 库，只需几行代码就能创建一个 MCP 服务器。",
+    "startMs": 4516,
+    "endMs": 9032,
+    "timestampMs": 4516,
+    "confidence": 0.95
+  },
+  {
+    "text": "首先导入 FastMCP，创建一个服务器实例。",
+    "startMs": 9032,
+    "endMs": 13548,
+    "timestampMs": 9032,
+    "confidence": 0.95
+  },
+  {
+    "text": "然后用 @mcp.tool 装饰器定义一个工具函数。",
+    "startMs": 13548,
+    "endMs": 18064,
+    "timestampMs": 13548,
+    "confidence": 0.95
+  },
+  {
+    "text": "这里我们定义了一个 greet 函数，接收名字参数，返回问候语。",
+    "startMs": 18064,
+    "endMs": 22580,
+    "timestampMs": 18064,
+    "confidence": 0.95
+  },
+  {
+    "text": "最后调用 mcp.run 启动服务，指定 HTTP 传输方式和端口。",
+    "startMs": 22580,
+    "endMs": 27096,
+    "timestampMs": 22580,
+    "confidence": 0.95
+  },
+  {
+    "text": "就这么简单！一个完整的 MCP 服务器就搭建好了。",
+    "startMs": 27096,
+    "endMs": 31613,
+    "timestampMs": 27096,
+    "confidence": 0.95
+  }
+]
