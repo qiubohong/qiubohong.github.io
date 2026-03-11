@@ -1,0 +1,51 @@
+[
+    {
+        "text": "很多人觉得 AI 工具很难上手，但 OpenClaw 已经有了非常友好的入门方式。",
+        "startMs": 0,
+        "endMs": 5104,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一种：QQ 机器人，就像加一个 QQ 好友，直接发消息指挥干活，零门槛！",
+        "startMs": 5104,
+        "endMs": 10437,
+        "timestampMs": 5104,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二种：飞书机器人，企业用户首选，10 分钟搭建，和团队协作无缝融合。",
+        "startMs": 10437,
+        "endMs": 15882,
+        "timestampMs": 10437,
+        "confidence": 0.95
+    },
+    {
+        "text": "OpenClaw 本身是个大脑壳，负责干活，但需要你给它装一个大脑。",
+        "startMs": 15882,
+        "endMs": 20993,
+        "timestampMs": 15882,
+        "confidence": 0.95
+    },
+    {
+        "text": "好消息是，国内有大量免费的大脑可以用！",
+        "startMs": 20993,
+        "endMs": 24397,
+        "timestampMs": 20993,
+        "confidence": 0.95
+    },
+    {
+        "text": "DeepSeek、通义千问、豆包、智谱 GLM、MiniMax，全都免费！",
+        "startMs": 24397,
+        "endMs": 29503,
+        "timestampMs": 24397,
+        "confidence": 0.95
+    },
+    {
+        "text": "核心逻辑很简单：你说目标，它来执行！",
+        "startMs": 29503,
+        "endMs": 32892,
+        "timestampMs": 29503,
+        "confidence": 0.95
+    }
+]

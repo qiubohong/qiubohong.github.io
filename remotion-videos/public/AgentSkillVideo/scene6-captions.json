@@ -1,0 +1,58 @@
+[
+  {
+    "text": "最后来总结 Agent Skill 的四个关键点。",
+    "startMs": 0,
+    "endMs": 6240,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一：它不是超级提示词，关键区别在于脚本执行能力，AI 能真正动手运行代码。",
+    "startMs": 6240,
+    "endMs": 12480,
+    "timestampMs": 6240,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二：触发取决于描述，90% 取决于 SKILL.md 顶部的 description 字段。",
+    "startMs": 12480,
+    "endMs": 18720,
+    "timestampMs": 12480,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三：三种技能位置：个人技能对所有项目有效，项目技能仅针对当前项目，插件技能功能更强大。",
+    "startMs": 18720,
+    "endMs": 24960,
+    "timestampMs": 18720,
+    "confidence": 0.95
+  },
+  {
+    "text": "第四：避免技能肥胖症，一个 Skill 只做一件事，拆分为多个小技能，Claude 可自动组合使用。",
+    "startMs": 24960,
+    "endMs": 31200,
+    "timestampMs": 24960,
+    "confidence": 0.95
+  },
+  {
+    "text": "在 Anthropic 官方解释中，MCP 是连接大模型与世界的桥梁，而 Agent Skill 是大模型操作世界的手。",
+    "startMs": 31200,
+    "endMs": 37440,
+    "timestampMs": 31200,
+    "confidence": 0.95
+  },
+  {
+    "text": "你觉得 Agent Skill 会如何改变你日常使用 AI 的方式？",
+    "startMs": 37440,
+    "endMs": 43680,
+    "timestampMs": 37440,
+    "confidence": 0.95
+  },
+  {
+    "text": "欢迎在评论区分享你的想法，我们下期见！",
+    "startMs": 43680,
+    "endMs": 49920,
+    "timestampMs": 43680,
+    "confidence": 0.95
+  }
+]

@@ -44,6 +44,27 @@ nvm use ai
    - 分场景文案（每个场景对应一个知识点，时长控制在 15-45 秒）
    - **图片使用计划**（标注哪些场景需要展示图片）
 
+**文案内容强制规则**（必须遵守）：
+
+1. **前置核心价值（钩子）**：开场白之后，必须立即抛出该技术/概念能为用户带来的**具体好处**，用利益驱动抓住用户注意力。
+
+   - 格式：`"学会[主题]，[具体好处]！"` 或 `"[主题]让你的[工具/工作流]像[通俗比喻]一样简单！"`
+   - 示例：`"学会MCP，让你的AI工具像搭积木一样简单！"` / `"掌握Agent Skill，AI再也不用重复解释工作流程！"`
+
+2. **案例演示场景（必须包含）**：讲解完核心理论后，**必须安排至少一个贴近生活的实际应用案例场景**，让抽象技术具体可感。
+
+   - 案例要具体可操作，展示完整的使用步骤
+   - 优先选择日常生活场景（天气查询、日程管理、文件处理等）
+
+3. **呼吸点设计（必须包含）**：讲解完复杂知识点后，**必须插入一个简短的总结或通俗类比**，给观众消化信息的时间。
+
+   - 时长约 10-15 秒
+   - 格式：`"简单来说，[主题]就像[通俗类比]"` 或 `"记住这个关键点：[一句话总结]"`
+
+4. **结尾互动引导（必须包含）**：视频结尾除总结外，**必须提出一个开放性问题**，引导观众在评论区互动。
+   - 格式：`"你觉得[主题]会如何改变[某个场景]？欢迎在评论区分享你的想法！"`
+   - 示例：`"你觉得MCP协议会如何改变我们与AI的交互方式？欢迎在评论区讨论！"`
+
 **图片/流程图判断标准**：
 
 - ✅ **需要引入**：流程图、架构图、代码示例截图、对比图表、关键概念示意图
@@ -208,6 +229,104 @@ export const SceneName: React.FC<SceneProps> = ({ title }) => {
   );
 };
 ```
+
+**视觉增强强制规则**（必须遵守）：
+
+1. **动态高亮引导**：讲解代码或关键概念时，**必须为关键词/关键行添加动态高亮效果**，引导观众视线聚焦重点。
+
+   ```typescript
+   // 关键词高亮闪烁
+   const highlight = 0.7 + Math.sin(frame * 0.15) * 0.3;
+   <span
+     style={{ color: `rgba(240, 136, 62, ${highlight})`, fontWeight: "bold" }}
+   >
+     关键词
+   </span>;
+
+   // 代码行高亮（背景色渐变）
+   const lineHighlight = interpolate(
+     frame,
+     [startFrame, startFrame + 20],
+     [0, 1],
+     {
+       extrapolateLeft: "clamp",
+       extrapolateRight: "clamp",
+     }
+   );
+   <div
+     style={{
+       background: `rgba(88,166,255,${lineHighlight * 0.2})`,
+       borderLeft: `3px solid rgba(88,166,255,${lineHighlight})`,
+     }}
+   >
+     {codeLine}
+   </div>;
+   ```
+
+2. **对比场景分屏布局**：当场景内容涉及**两个概念对比、前后对比、有无对比**时，**必须使用分屏布局**展示差异。
+
+   ```typescript
+   // 左右分屏对比
+   <div style={{ display: "flex", width: "100%", height: "100%", gap: 20 }}>
+     <div
+       style={{
+         flex: 1,
+         background: "rgba(255,80,80,0.1)",
+         borderRadius: 12,
+         padding: 20,
+       }}
+     >
+       <div style={{ color: "#ff5555", fontSize: 24, marginBottom: 12 }}>
+         ❌ 没有 MCP
+       </div>
+       {/* 左侧内容 */}
+     </div>
+     <div
+       style={{
+         flex: 1,
+         background: "rgba(88,166,255,0.1)",
+         borderRadius: 12,
+         padding: 20,
+       }}
+     >
+       <div style={{ color: "#58a6ff", fontSize: 24, marginBottom: 12 }}>
+         ✅ 使用 MCP
+       </div>
+       {/* 右侧内容 */}
+     </div>
+   </div>
+   ```
+
+3. **数据流动动画**：当场景涉及**数据传输、信息流转、协议通信**等概念时，**必须添加流动动画**模拟数据流动过程。
+
+   ```typescript
+   // 流动点动画（沿路径移动）
+   const flowProgress = (frame * 2) % 100; // 0-100 循环
+   const dotX = interpolate(flowProgress, [0, 100], [startX, endX]);
+   const dotY = interpolate(flowProgress, [0, 100], [startY, endY]);
+   <div
+     style={{
+       position: "absolute",
+       left: dotX,
+       top: dotY,
+       width: 8,
+       height: 8,
+       borderRadius: "50%",
+       background: "#58a6ff",
+       boxShadow: "0 0 8px #58a6ff",
+     }}
+   />;
+
+   // 连接线上的流动效果
+   const dashOffset = -(frame * 2) % 20;
+   <svg>
+     <line
+       strokeDasharray="10 10"
+       strokeDashoffset={dashOffset}
+       stroke="#58a6ff"
+     />
+   </svg>;
+   ```
 
 **图片集成要点**：
 
@@ -809,7 +928,17 @@ const highlight = 0.7 + Math.sin(frame * 0.15) * 0.3;
    - 必须生成对应的音频和字幕文件
 9. **AI 对话动画**：当场景涉及 AI 对话交互时，必须启用「AI 对话动画方案」章节中的标准方案，右侧对话框宽度必须从 0 动画展开，不得直接设置固定宽度
 10. **小动画增强**：每个场景可适当添加 2-3 个小动画（浮动、脉冲、计数、进度条等），提升视频趣味性，参考「小动画增强方案」章节
-11. **Mermaid 流程图**：
+11. **视觉引导强制要求**：
+    - 讲解代码或关键概念时，必须为关键词添加动态高亮效果
+    - 对比类场景必须使用分屏布局，不得用单一列表展示对比内容
+    - 涉及数据流转的场景必须添加流动动画
+12. **内容结构强制要求**：
+    - 开场必须包含核心价值钩子（具体好处）
+    - 必须包含至少一个实际应用案例场景
+    - 复杂知识点后必须插入呼吸点（总结或类比）
+    - 结尾必须包含开放性互动问题
+    - 参考 [references/content-writer-guide.md](references/content-writer-guide.md) 中的必须遵守规则
+13. **Mermaid 流程图**：
     - 文案中含有 mermaid 代码块时，先将其保存为 `public/diagrams/xxx.mmd` 文件
     - 运行 `npm run render-mermaid` 预渲染为 SVG（需要 Node.js 18+）
     - 在场景组件中使用 `MermaidDiagram` 组件展示，参考「Mermaid 流程图方案」章节

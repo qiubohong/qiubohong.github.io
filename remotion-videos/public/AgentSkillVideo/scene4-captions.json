@@ -1,0 +1,44 @@
+[
+  {
+    "text": "来看一个贴近生活的案例：天气助手 Skill。",
+    "startMs": 0,
+    "endMs": 6040,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "通过 Agent Skill，让 AI 自动查询今日天气，并整理成出行建议报告。",
+    "startMs": 6040,
+    "endMs": 12080,
+    "timestampMs": 6040,
+    "confidence": 0.95
+  },
+  {
+    "text": "SKILL.md 描述字段写明：查询指定城市天气，生成包含穿衣建议和出行提示的报告。",
+    "startMs": 12080,
+    "endMs": 18120,
+    "timestampMs": 12080,
+    "confidence": 0.95
+  },
+  {
+    "text": "scripts 目录下的 weather_report.py 脚本自动调用天气 API，获取实时数据。",
+    "startMs": 18120,
+    "endMs": 24160,
+    "timestampMs": 18120,
+    "confidence": 0.95
+  },
+  {
+    "text": "AI 拿到数据后，按照 Skill 中预设的模板，自动生成一份完整的出行建议报告。",
+    "startMs": 24160,
+    "endMs": 30200,
+    "timestampMs": 24160,
+    "confidence": 0.95
+  },
+  {
+    "text": "这就是 Skill 的魔力：从查询到整理，全程自动化，你只需要说一句话！",
+    "startMs": 30200,
+    "endMs": 36240,
+    "timestampMs": 30200,
+    "confidence": 0.95
+  }
+]

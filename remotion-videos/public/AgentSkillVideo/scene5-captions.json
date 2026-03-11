@@ -1,0 +1,44 @@
+[
+  {
+    "text": "Claude 官方给出了编写好 Skill 的三大原则。",
+    "startMs": 0,
+    "endMs": 5256,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一：简洁是关键，描述必须清晰说明做什么和何时触发。",
+    "startMs": 5256,
+    "endMs": 10513,
+    "timestampMs": 5256,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二：设定适当的自由度，指定方向但不要限制死走哪条路。",
+    "startMs": 10513,
+    "endMs": 15770,
+    "timestampMs": 10513,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三：完整的测试，需要在对应 AI 模型进行完整测试。",
+    "startMs": 15770,
+    "endMs": 21026,
+    "timestampMs": 15770,
+    "confidence": 0.95
+  },
+  {
+    "text": "好的 Skill 还应该结合工作流和反馈循环：运行验证器、修复错误、重复。",
+    "startMs": 21026,
+    "endMs": 26283,
+    "timestampMs": 21026,
+    "confidence": 0.95
+  },
+  {
+    "text": "把复杂逻辑拆分成一个个步骤，每步完成后打勾确认，确保输出质量。",
+    "startMs": 26283,
+    "endMs": 31540,
+    "timestampMs": 26283,
+    "confidence": 0.95
+  }
+]

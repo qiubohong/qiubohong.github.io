@@ -1,0 +1,51 @@
+[
+    {
+        "text": "这个系列分为两大板块：基础入门篇和实战场景篇。",
+        "startMs": 0,
+        "endMs": 4789,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "基础入门篇，从零到跑起来，6 篇文章手把手带你安装配置。",
+        "startMs": 4789,
+        "endMs": 10083,
+        "timestampMs": 4789,
+        "confidence": 0.95
+    },
+    {
+        "text": "初级场景篇，装好就能用，立竿见影，比如每日信息助手。",
+        "startMs": 10083,
+        "endMs": 15124,
+        "timestampMs": 10083,
+        "confidence": 0.95
+    },
+    {
+        "text": "中级场景篇，解放双手，效率翻倍，文档处理、多步骤自动化。",
+        "startMs": 15124,
+        "endMs": 20797,
+        "timestampMs": 15124,
+        "confidence": 0.95
+    },
+    {
+        "text": "高级场景篇，打造专属 AI 工作流，多 Agent 协作，24 小时在线！",
+        "startMs": 20797,
+        "endMs": 26468,
+        "timestampMs": 20797,
+        "confidence": 0.95
+    },
+    {
+        "text": "每篇文章都有真实的使用场景和可以直接复制的指令模板。",
+        "startMs": 26468,
+        "endMs": 31509,
+        "timestampMs": 26468,
+        "confidence": 0.95
+    },
+    {
+        "text": "看完就能用，不需要任何编程基础！",
+        "startMs": 31509,
+        "endMs": 35291,
+        "timestampMs": 31509,
+        "confidence": 0.95
+    }
+]

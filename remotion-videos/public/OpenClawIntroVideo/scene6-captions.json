@@ -1,0 +1,44 @@
+[
+    {
+        "text": "OpenClaw 刚刚开源，生态正在快速成长。",
+        "startMs": 0,
+        "endMs": 3200,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在入场，你能以最低的成本学会一套未来几年都会用到的技能。",
+        "startMs": 3200,
+        "endMs": 7800,
+        "timestampMs": 3200,
+        "confidence": 0.95
+    },
+    {
+        "text": "等到所有人都会用的时候，你已经是那个用得最好的人了！",
+        "startMs": 7800,
+        "endMs": 12000,
+        "timestampMs": 7800,
+        "confidence": 0.95
+    },
+    {
+        "text": "现在就可以行动：收藏本系列，注册一个智谱 AI 账号，领取免费额度。",
+        "startMs": 12000,
+        "endMs": 17000,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "你觉得 OpenClaw 会如何改变你的日常工作方式？",
+        "startMs": 17000,
+        "endMs": 20500,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    },
+    {
+        "text": "欢迎在评论区分享你最想用龙虾解决的问题！",
+        "startMs": 20500,
+        "endMs": 24000,
+        "timestampMs": 20500,
+        "confidence": 0.95
+    }
+]

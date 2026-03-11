@@ -1,0 +1,58 @@
+[
+  {
+    "text": "掌握 Agent Skill，AI 再也不用重复解释工作流程，一次配置，永久复用！",
+    "startMs": 0,
+    "endMs": 5132,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "今天我们来学习 Agent Skill。",
+    "startMs": 5132,
+    "endMs": 10265,
+    "timestampMs": 5132,
+    "confidence": 0.95
+  },
+  {
+    "text": "Agent Skill 是一个可复用的知识包。",
+    "startMs": 10265,
+    "endMs": 15397,
+    "timestampMs": 10265,
+    "confidence": 0.95
+  },
+  {
+    "text": "它是 Anthropic 在 Claude 内部使用的规范，后来扩展成 AI 代码 Agent 的通用标准。",
+    "startMs": 15397,
+    "endMs": 20530,
+    "timestampMs": 15397,
+    "confidence": 0.95
+  },
+  {
+    "text": "Skill 基于文件系统，为 Claude 提供特定领域的专业知识：工作流程、上下文和最佳实践。",
+    "startMs": 20530,
+    "endMs": 25662,
+    "timestampMs": 20530,
+    "confidence": 0.95
+  },
+  {
+    "text": "通俗来讲，Skill 就像为 Agent 准备的一份份专门的工作说明书或操作手册。",
+    "startMs": 25662,
+    "endMs": 30795,
+    "timestampMs": 25662,
+    "confidence": 0.95
+  },
+  {
+    "text": "当 AI Agent 识别到你的任务与某个 Skill 描述相匹配时，",
+    "startMs": 30795,
+    "endMs": 35927,
+    "timestampMs": 30795,
+    "confidence": 0.95
+  },
+  {
+    "text": "它会自动按需加载并运用该 Skill 中的知识来帮助你。",
+    "startMs": 35927,
+    "endMs": 41060,
+    "timestampMs": 35927,
+    "confidence": 0.95
+  }
+]

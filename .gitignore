@@ -4,3 +4,6 @@
 **/__snapshots__
 depoly1.sh
 .gitnexus
+**__pycache__**
+example_generate_image.py
+generate_image.json

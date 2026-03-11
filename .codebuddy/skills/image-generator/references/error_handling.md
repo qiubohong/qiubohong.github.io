@@ -206,14 +206,15 @@ mkdir -p /path/to/output
 **原因：**
 
 - API 返回格式与预期不符
-- 服务商 API 变更
-- 图片数据解析错误
+- 服务商 API 变更（如使用 /chat/completions 而非 /images/generations）
+- 图片数据解析错误（如 venus_multimodal_url 格式）
 
 **解决方案：**
 
-1. 检查 API 响应格式
-2. 更新脚本适配新格式
-3. 联系服务商确认 API 规范
+1. 检查 API 响应格式，确认是否使用 result.json 格式
+2. 更新脚本适配 venus_multimodal_url 格式
+3. 检查 API 端点是否正确（当前使用 /chat/completions）
+4. 查看服务商最新 API 文档确认格式规范
 
 ## 调试技巧
 
@@ -235,19 +236,26 @@ print(f"请求体: {payload}")
 使用 curl 命令测试 API 连通性：
 
 ```bash
-# 测试API端点
-curl -X GET "$LLM_BASE_URL/models" \
-  -H "Authorization: Bearer $LLM_API_KEY"
-
-# 测试图片生成API
-curl -X POST "$LLM_BASE_URL/images/generations" \
+# 测试图片生成API（使用聊天补全端点）
+curl -X POST "$LLM_BASE_URL/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $LLM_API_KEY" \
   -d '{
     "model": "'$LLM_MODEL'",
-    "prompt": "测试图片",
-    "size": "1024x1024",
-    "n": 1
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是一个图像生成助手，根据用户的描述生成高质量的图片。"
+      },
+      {
+        "role": "user",
+        "content": "一只可爱的橘猫在花园里晒太阳"
+      }
+    ],
+    "image_config": {
+      "aspect_ratio": "16:9",
+      "image_size": "1K"
+    }
   }'
 ```
 

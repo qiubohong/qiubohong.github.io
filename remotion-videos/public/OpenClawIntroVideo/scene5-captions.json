@@ -1,0 +1,58 @@
+[
+    {
+        "text": "来看一个真实的案例：让龙虾帮你整理这周的邮件。",
+        "startMs": 0,
+        "endMs": 3946,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "普通 AI：你说帮我整理一下这周的邮件，",
+        "startMs": 3946,
+        "endMs": 7062,
+        "timestampMs": 3946,
+        "confidence": 0.95
+    },
+    {
+        "text": "它给你一段文字描述怎么整理。",
+        "startMs": 7062,
+        "endMs": 9554,
+        "timestampMs": 7062,
+        "confidence": 0.95
+    },
+    {
+        "text": "OpenClaw：你说同样的话，它真的去打开你的邮箱！",
+        "startMs": 9554,
+        "endMs": 13293,
+        "timestampMs": 9554,
+        "confidence": 0.95
+    },
+    {
+        "text": "按优先级分类，把摘要发给你，顺便把垃圾邮件移到回收站。",
+        "startMs": 13293,
+        "endMs": 17655,
+        "timestampMs": 13293,
+        "confidence": 0.95
+    },
+    {
+        "text": "这就是行动型 AI 和问答型 AI 的本质区别！",
+        "startMs": 17655,
+        "endMs": 21293,
+        "timestampMs": 17655,
+        "confidence": 0.95
+    },
+    {
+        "text": "一个给你建议，一个帮你执行。",
+        "startMs": 21293,
+        "endMs": 23886,
+        "timestampMs": 21293,
+        "confidence": 0.95
+    },
+    {
+        "text": "你觉得哪种更有用？答案不言而喻！",
+        "startMs": 23886,
+        "endMs": 27002,
+        "timestampMs": 23886,
+        "confidence": 0.95
+    }
+]

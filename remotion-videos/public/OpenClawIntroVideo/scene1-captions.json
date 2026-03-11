@@ -1,0 +1,58 @@
+[
+    {
+        "text": "2026年初，一款叫 OpenClaw 的 AI 工具突然火遍全网！",
+        "startMs": 0,
+        "endMs": 3872,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "因为图标是一只红色龙虾，大家都叫它龙虾 AI。",
+        "startMs": 3872,
+        "endMs": 7864,
+        "timestampMs": 3872,
+        "confidence": 0.95
+    },
+    {
+        "text": "上线短短几天，全球超过 24 万开发者收藏了它！",
+        "startMs": 7864,
+        "endMs": 11856,
+        "timestampMs": 7864,
+        "confidence": 0.95
+    },
+    {
+        "text": "打破了 GitHub 有史以来最快增长记录。",
+        "startMs": 11856,
+        "endMs": 15122,
+        "timestampMs": 11856,
+        "confidence": 0.95
+    },
+    {
+        "text": "学会 OpenClaw，让 AI 真正帮你干活，而不只是聊天！",
+        "startMs": 15122,
+        "endMs": 19960,
+        "timestampMs": 15122,
+        "confidence": 0.95
+    },
+    {
+        "text": "但你可能发现了：很多人都说龙虾很厉害，",
+        "startMs": 19960,
+        "endMs": 23590,
+        "timestampMs": 19960,
+        "confidence": 0.95
+    },
+    {
+        "text": "却没几个人真的用起来了。",
+        "startMs": 23590,
+        "endMs": 26374,
+        "timestampMs": 23590,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天这个系列，就是专门为普通人写的 OpenClaw 实战教程！",
+        "startMs": 26374,
+        "endMs": 31452,
+        "timestampMs": 26374,
+        "confidence": 0.95
+    }
+]

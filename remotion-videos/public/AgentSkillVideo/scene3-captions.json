@@ -1,0 +1,58 @@
+[
+  {
+    "text": "Skill 的运行分为四个阶段：触发、加载、执行、输出。",
+    "startMs": 0,
+    "endMs": 5648,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "触发阶段：你提出任务，AI Agent 将其与所有 Skill 的描述字段进行匹配。",
+    "startMs": 5648,
+    "endMs": 11297,
+    "timestampMs": 5648,
+    "confidence": 0.95
+  },
+  {
+    "text": "加载阶段：匹配成功后，AI Agent 先加载核心指令 SKILL.md，这是渐进式加载。",
+    "startMs": 11297,
+    "endMs": 16946,
+    "timestampMs": 11297,
+    "confidence": 0.95
+  },
+  {
+    "text": "执行阶段：AI Agent 按照说明书中的步骤工作，必要时调用 scripts 目录下的脚本。",
+    "startMs": 16946,
+    "endMs": 22595,
+    "timestampMs": 16946,
+    "confidence": 0.95
+  },
+  {
+    "text": "输出阶段：最终交付一个符合预设标准的高质量结果。",
+    "startMs": 22595,
+    "endMs": 28243,
+    "timestampMs": 22595,
+    "confidence": 0.95
+  },
+  {
+    "text": "这里有两张官方流程图，清晰展示了 Skill 的核心原理。",
+    "startMs": 28243,
+    "endMs": 33892,
+    "timestampMs": 28243,
+    "confidence": 0.95
+  },
+  {
+    "text": "简单来说，Agent Skill 就像给 AI 配了一本专属操作手册——",
+    "startMs": 33892,
+    "endMs": 39541,
+    "timestampMs": 33892,
+    "confidence": 0.95
+  },
+  {
+    "text": "你只需要写一次，AI 每次遇到相关任务就会自动翻出来用。",
+    "startMs": 39541,
+    "endMs": 45190,
+    "timestampMs": 39541,
+    "confidence": 0.95
+  }
+]

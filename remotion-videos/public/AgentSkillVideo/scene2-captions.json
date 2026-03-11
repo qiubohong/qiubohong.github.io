@@ -1,0 +1,51 @@
+[
+  {
+    "text": "一个完整的 Skill 由三个部分组成。",
+    "startMs": 0,
+    "endMs": 5135,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "核心文件是 SKILL.md，它定义了整个技能的内容。",
+    "startMs": 5135,
+    "endMs": 10271,
+    "timestampMs": 5135,
+    "confidence": 0.95
+  },
+  {
+    "text": "SKILL.md 包含两部分：Metadata 元数据和 Instructions 指令。",
+    "startMs": 10271,
+    "endMs": 15407,
+    "timestampMs": 10271,
+    "confidence": 0.95
+  },
+  {
+    "text": "元数据始终加载在对话内，提供技能的发现信息。",
+    "startMs": 15407,
+    "endMs": 20542,
+    "timestampMs": 15407,
+    "confidence": 0.95
+  },
+  {
+    "text": "scripts 目录存放可执行的辅助脚本，让 AI 真正动手执行操作。",
+    "startMs": 20542,
+    "endMs": 25678,
+    "timestampMs": 20542,
+    "confidence": 0.95
+  },
+  {
+    "text": "references 目录存放参考资料，例如数据库模式、API 文档和模板示例。",
+    "startMs": 25678,
+    "endMs": 30814,
+    "timestampMs": 25678,
+    "confidence": 0.95
+  },
+  {
+    "text": "这三者共同构成了一个完整的、可复用的 AI 专家知识包。",
+    "startMs": 30814,
+    "endMs": 35950,
+    "timestampMs": 30814,
+    "confidence": 0.95
+  }
+]

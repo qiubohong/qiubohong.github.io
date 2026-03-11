@@ -8,14 +8,28 @@
 
 ### 必需变量
 
-- `LLM_BASE_URL`: 大模型 API 的基础 URL
-- `LLM_MODEL`: 使用的模型名称
+- `LLM_BASE_URL`: 大模型 API 的基础 URL（如：http://dev.fit-ai.woa.com/api/llmproxy）
+- `LLM_MODEL`: 使用的模型名称（如：gemini-3-pro-image）
 
 ### 可选变量
 
 - `LLM_API_KEY`: API 密钥（如果服务商需要认证）
 
 ## 主流大模型配置示例
+
+### Gemini 3 Pro Image（当前推荐）
+
+```bash
+export LLM_BASE_URL="http://dev.fit-ai.woa.com/api/llmproxy"
+export LLM_MODEL="gemini-3-pro-image"
+export LLM_API_KEY="your-api-key"
+```
+
+**特点：**
+
+- 支持高质量图片生成
+- 支持多种宽高比和尺寸配置
+- 使用聊天补全端点进行图片生成
 
 ### DeepSeek
 
@@ -91,21 +105,31 @@ export LLM_API_KEY="your-doubao-api-key"
 
 ### 图片生成端点
 
-所有支持图片生成的大模型都使用类似的 API 端点：
+当前实现使用聊天补全端点进行图片生成：
 
 ```
-POST {base_url}/images/generations
+POST {base_url}/chat/completions
 ```
 
 **请求体格式：**
 
 ```json
 {
-  "model": "模型名称",
-  "prompt": "图片生成提示词",
-  "size": "图片尺寸（如1024x1024）",
-  "quality": "图片质量（standard/hd）",
-  "n": 1
+  "model": "模型名称（如gemini-3-pro-image）",
+  "messages": [
+    {
+      "role": "system",
+      "content": "你是一个图像生成助手，根据用户的描述生成高质量的图片。"
+    },
+    {
+      "role": "user",
+      "content": "图片生成提示词"
+    }
+  ],
+  "image_config": {
+    "aspect_ratio": "宽高比（如16:9）",
+    "image_size": "图片尺寸（如1K）"
+  }
 }
 ```
 
@@ -113,10 +137,18 @@ POST {base_url}/images/generations
 
 ```json
 {
-  "data": [
+  "choices": [
     {
-      "url": "图片URL",
-      "b64_json": "base64编码的图片数据"
+      "message": {
+        "content": [
+          {
+            "type": "venus_multimodal_url",
+            "venus_multimodal_url": {
+              "url": "data:image/png;base64,..."
+            }
+          }
+        ]
+      }
     }
   ]
 }

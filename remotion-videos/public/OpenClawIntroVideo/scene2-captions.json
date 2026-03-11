@@ -1,0 +1,58 @@
+[
+    {
+        "text": "用一句话说：OpenClaw 是一个会主动干活的 AI 助手。",
+        "startMs": 0,
+        "endMs": 3800,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "普通的 AI 工具，比如 DeepSeek、豆包，是问答型的。",
+        "startMs": 3800,
+        "endMs": 7200,
+        "timestampMs": 3800,
+        "confidence": 0.95
+    },
+    {
+        "text": "你问一句，它答一句，每次都要你来推动。",
+        "startMs": 7200,
+        "endMs": 10200,
+        "timestampMs": 7200,
+        "confidence": 0.95
+    },
+    {
+        "text": "OpenClaw 不一样，它是行动型的！",
+        "startMs": 10200,
+        "endMs": 13000,
+        "timestampMs": 10200,
+        "confidence": 0.95
+    },
+    {
+        "text": "你告诉它一个目标，它会自己拆解任务、调用工具、一步步执行。",
+        "startMs": 13000,
+        "endMs": 17500,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "直到把事情做完！",
+        "startMs": 17500,
+        "endMs": 19200,
+        "timestampMs": 17500,
+        "confidence": 0.95
+    },
+    {
+        "text": "简单来说，OpenClaw 就像一个真正的员工，而不是一个顾问。",
+        "startMs": 19200,
+        "endMs": 23500,
+        "timestampMs": 19200,
+        "confidence": 0.95
+    },
+    {
+        "text": "它的口号是：The AI that actually does things！",
+        "startMs": 23500,
+        "endMs": 27000,
+        "timestampMs": 23500,
+        "confidence": 0.95
+    }
+]

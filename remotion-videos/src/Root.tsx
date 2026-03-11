@@ -27,6 +27,8 @@ import { EmbeddingVideo } from "./EmbeddingVideo";
 import { TokenVideoVideo } from "./scenes/tokenvideo/TokenVideoVideo";
 import { FunctionCallingVideo } from "./FunctionCallingVideo";
 import { MCPVideo } from "./MCPVideo";
+import { AgentSkillVideo } from "./AgentSkillVideo";
+import { OpenClawIntroVideo } from "./OpenClawIntroVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -401,7 +403,7 @@ export const RemotionRoot = () => {
         }}
       />
 
-      {/* MCPVideo视频（5分钟AI系列·第16期） */}
+      {/* MCPVideo视频（5分钟AI系列·第15期） */}
       <Composition
         id="MCPVideo"
         component={MCPVideo}
@@ -411,6 +413,36 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "MCP 协议 - AI 世界的 USB-C 接口",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* AgentSkillVideo视频（5分钟AI系列·第16期） */}
+      <Composition
+        id="AgentSkillVideo"
+        component={AgentSkillVideo}
+        durationInFrames={7491} // 总帧数：1261+1108+1385+1117+976+1527+117=7491帧，约249.7秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Agent Skill - 给 AI 准备专属工作说明书",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* OpenClawIntroVideo视频（普通人也能用好OpenClaw系列·第0期） */}
+      <Composition
+        id="OpenClawIntroVideo"
+        component={OpenClawIntroVideo}
+        durationInFrames={5699} // 总帧数：973+842+1016+1088+840+760+180=5699帧，约189.97秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "普通人也能用好 OpenClaw（龙虾）—— 系列介绍",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}
