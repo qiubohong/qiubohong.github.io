@@ -74,16 +74,16 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                padding: "40px 52px",
+                padding: "60px 80px",
                 boxSizing: "border-box",
-                gap: "20px",
+                gap: "32px",
             }}
         >
             {/* 背景装饰 */}
             <div style={{
                 position: "absolute", top: "-200px", left: "50%",
-                width: "600px", height: "600px", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%)",
+                width: "700px", height: "700px", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(88,166,255,0.07) 0%, transparent 70%)",
                 transform: "translateX(-50%)",
                 pointerEvents: "none",
             }} />
@@ -96,9 +96,9 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                 flexShrink: 0,
             }}>
                 <h1 style={{
-                    fontSize: "60px",
+                    fontSize: "72px",
                     fontWeight: "bold",
-                    margin: "0 0 8px 0",
+                    margin: "0 0 12px 0",
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -106,7 +106,7 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                 }}>
                     OpenClaw 到底有什么不同？
                 </h1>
-                <p style={{ fontSize: "26px", color: THEME.textSecondary, margin: 0 }}>
+                <p style={{ fontSize: "30px", color: THEME.textSecondary, margin: 0 }}>
                     一个给建议，一个真的帮你<span style={{ color: `rgba(240,136,62,${highlight})`, fontWeight: "bold" }}>执行</span>
                 </p>
             </div>
@@ -114,7 +114,7 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
             {/* 分屏对比 */}
             <div style={{
                 display: "flex",
-                gap: "24px",
+                gap: "32px",
                 flex: 1,
                 minHeight: 0,
             }}>
@@ -124,45 +124,45 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                     opacity: leftCardOpacity,
                     transform: `translateX(${leftCardSlide}px)`,
                     background: "rgba(139,148,158,0.08)",
-                    borderRadius: "20px",
-                    padding: "28px",
+                    borderRadius: "24px",
+                    padding: "36px",
                     border: "1px solid rgba(139,148,158,0.2)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "16px",
+                    gap: "20px",
                 }}>
                     <div style={{ textAlign: "center" }}>
-                        <div style={{ fontSize: "48px", marginBottom: "8px" }}>💬</div>
-                        <h2 style={{ fontSize: "32px", color: THEME.textSecondary, fontWeight: "bold", margin: 0 }}>
+                        <div style={{ fontSize: "56px", marginBottom: "12px" }}>💬</div>
+                        <h2 style={{ fontSize: "38px", color: THEME.textSecondary, fontWeight: "bold", margin: 0 }}>
                             ❌ 普通 AI
                         </h2>
-                        <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: "6px 0 0 0" }}>
+                        <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: "8px 0 0 0" }}>
                             问答型 · 每次都要你推动
                         </p>
                     </div>
                     <div style={{
                         background: "rgba(139,148,158,0.1)",
-                        borderRadius: "12px",
-                        padding: "16px",
+                        borderRadius: "16px",
+                        padding: "20px",
                         flex: 1,
                     }}>
-                        <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: "0 0 12px 0", fontWeight: "bold" }}>
+                        <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: "0 0 16px 0", fontWeight: "bold" }}>
                             你说：帮我整理这周的邮件
                         </p>
                         <div style={{
                             background: "rgba(139,148,158,0.15)",
-                            borderRadius: "8px",
-                            padding: "12px",
-                            borderLeft: "3px solid rgba(139,148,158,0.4)",
+                            borderRadius: "12px",
+                            padding: "16px",
+                            borderLeft: "4px solid rgba(139,148,158,0.4)",
                         }}>
-                            <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0, lineHeight: 1.6 }}>
+                            <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, lineHeight: 1.7 }}>
                                 "您可以按照以下步骤整理邮件：<br />
                                 1. 先按发件人分类<br />
                                 2. 再按重要程度排序<br />
                                 3. 删除垃圾邮件..."
                             </p>
                         </div>
-                        <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: "12px 0 0 0", textAlign: "center" }}>
+                        <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: "16px 0 0 0", textAlign: "center" }}>
                             📝 给你一段建议文字
                         </p>
                     </div>
@@ -177,14 +177,14 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                     flexShrink: 0,
                 }}>
                     <div style={{
-                        fontSize: "36px",
+                        fontSize: "40px",
                         fontWeight: "bold",
                         color: THEME.accent,
                         transform: `scale(${pulse})`,
                         background: "rgba(240,136,62,0.1)",
                         borderRadius: "50%",
-                        width: "60px",
-                        height: "60px",
+                        width: "72px",
+                        height: "72px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -198,32 +198,32 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                     opacity: rightCardOpacity,
                     transform: `translateX(${rightCardSlide}px)`,
                     background: "rgba(88,166,255,0.08)",
-                    borderRadius: "20px",
-                    padding: "28px",
+                    borderRadius: "24px",
+                    padding: "36px",
                     border: "1px solid rgba(88,166,255,0.25)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "16px",
+                    gap: "20px",
                 }}>
                     <div style={{ textAlign: "center" }}>
-                        <div style={{ fontSize: "48px", marginBottom: "8px" }}>🦞</div>
-                        <h2 style={{ fontSize: "32px", color: "#58a6ff", fontWeight: "bold", margin: 0 }}>
+                        <div style={{ fontSize: "56px", marginBottom: "12px" }}>🦞</div>
+                        <h2 style={{ fontSize: "38px", color: "#58a6ff", fontWeight: "bold", margin: 0 }}>
                             ✅ OpenClaw
                         </h2>
-                        <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: "6px 0 0 0" }}>
+                        <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: "8px 0 0 0" }}>
                             行动型 · 自主执行到完成
                         </p>
                     </div>
                     <div style={{
                         background: "rgba(88,166,255,0.08)",
-                        borderRadius: "12px",
-                        padding: "16px",
+                        borderRadius: "16px",
+                        padding: "20px",
                         flex: 1,
                     }}>
-                        <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: "0 0 12px 0", fontWeight: "bold" }}>
+                        <p style={{ fontSize: "22px", color: THEME.textPrimary, margin: "0 0 16px 0", fontWeight: "bold" }}>
                             你说：帮我整理这周的邮件
                         </p>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                             {[
                                 { icon: "📬", text: "打开你的邮箱" },
                                 { icon: "📊", text: "按优先级自动分类" },
@@ -238,16 +238,16 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                                     <div key={i} style={{
                                         display: "flex",
                                         alignItems: "center",
-                                        gap: "10px",
+                                        gap: "12px",
                                         background: "rgba(88,166,255,0.1)",
-                                        borderRadius: "8px",
-                                        padding: "8px 12px",
+                                        borderRadius: "10px",
+                                        padding: "12px 16px",
                                         opacity: itemOpacity,
-                                        borderLeft: "3px solid rgba(88,166,255,0.5)",
+                                        borderLeft: "4px solid rgba(88,166,255,0.5)",
                                     }}>
-                                        <span style={{ fontSize: "20px" }}>{item.icon}</span>
-                                        <span style={{ fontSize: "18px", color: THEME.textPrimary }}>{item.text}</span>
-                                        <span style={{ marginLeft: "auto", fontSize: "16px", color: "#3fb950" }}>✓</span>
+                                        <span style={{ fontSize: "24px" }}>{item.icon}</span>
+                                        <span style={{ fontSize: "20px", color: THEME.textPrimary }}>{item.text}</span>
+                                        <span style={{ marginLeft: "auto", fontSize: "20px", color: "#3fb950" }}>✓</span>
                                     </div>
                                 );
                             })}
@@ -266,13 +266,13 @@ export const OpenClaw_Scene2_Comparison: React.FC = () => {
                 <div style={{
                     display: "inline-block",
                     background: "linear-gradient(135deg, rgba(88,166,255,0.1) 0%, rgba(240,136,62,0.1) 100%)",
-                    borderRadius: "12px",
-                    padding: "14px 32px",
+                    borderRadius: "16px",
+                    padding: "18px 40px",
                     border: "1px solid rgba(88,166,255,0.2)",
                 }}>
-                    <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
+                    <p style={{ fontSize: "28px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
                         🎯 口号：<span style={{ color: "#58a6ff" }}>The AI that actually does things</span>
-                        <span style={{ color: THEME.textSecondary, fontSize: "20px" }}> — 真正干活的 AI</span>
+                        <span style={{ color: THEME.textSecondary, fontSize: "22px" }}> — 真正干活的 AI</span>
                     </p>
                 </div>
             </div>

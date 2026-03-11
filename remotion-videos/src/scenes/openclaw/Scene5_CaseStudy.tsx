@@ -90,16 +90,16 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                padding: "36px 52px",
+                padding: "60px 80px",
                 boxSizing: "border-box",
-                gap: "16px",
+                gap: "24px",
             }}
         >
             {/* 背景装饰 */}
             <div style={{
                 position: "absolute", top: "-150px", left: "-150px",
-                width: "500px", height: "500px", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(88,166,255,0.07) 0%, transparent 70%)",
+                width: "550px", height: "550px", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%)",
                 pointerEvents: "none",
             }} />
 
@@ -111,9 +111,9 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                 flexShrink: 0,
             }}>
                 <h1 style={{
-                    fontSize: "56px",
+                    fontSize: "68px",
                     fontWeight: "bold",
-                    margin: "0 0 6px 0",
+                    margin: "0 0 10px 0",
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -121,7 +121,7 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                 }}>
                     真实案例：整理邮件
                 </h1>
-                <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>
+                <p style={{ fontSize: "26px", color: THEME.textSecondary, margin: 0 }}>
                     同样的需求，<span style={{ color: `rgba(240,136,62,${highlight})`, fontWeight: "bold" }}>行动型 AI</span> 和问答型 AI 的差距
                 </p>
             </div>
@@ -129,7 +129,7 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
             {/* 主体：左侧说明 + 右侧对话框 */}
             <div style={{
                 display: "flex",
-                gap: "24px",
+                gap: "32px",
                 flex: 1,
                 minHeight: 0,
                 alignItems: "stretch",
@@ -141,35 +141,35 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                     transform: `translateY(${leftSlide}px)`,
                     display: "flex",
                     flexDirection: "column",
-                    gap: "14px",
+                    gap: "18px",
                     minWidth: 0,
                 }}>
                     {/* 普通 AI 结果 */}
                     <div style={{
                         background: "rgba(139,148,158,0.08)",
-                        borderRadius: "14px",
-                        padding: "16px 20px",
+                        borderRadius: "18px",
+                        padding: "22px 28px",
                         border: "1px solid rgba(139,148,158,0.2)",
                         flex: 1,
                     }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-                            <span style={{ fontSize: "24px" }}>💬</span>
-                            <span style={{ fontSize: "20px", fontWeight: "bold", color: THEME.textSecondary }}>普通 AI 的回答</span>
+                        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
+                            <span style={{ fontSize: "28px" }}>💬</span>
+                            <span style={{ fontSize: "24px", fontWeight: "bold", color: THEME.textSecondary }}>普通 AI 的回答</span>
                         </div>
                         <div style={{
                             background: "rgba(139,148,158,0.1)",
-                            borderRadius: "8px",
-                            padding: "12px",
-                            borderLeft: "3px solid rgba(139,148,158,0.4)",
+                            borderRadius: "12px",
+                            padding: "16px",
+                            borderLeft: "4px solid rgba(139,148,158,0.4)",
                         }}>
-                            <p style={{ fontSize: "17px", color: THEME.textSecondary, margin: 0, lineHeight: 1.7 }}>
+                            <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, lineHeight: 1.8 }}>
                                 "您可以按以下步骤整理邮件：<br />
                                 1. 先按发件人分类<br />
                                 2. 再按重要程度排序<br />
                                 3. 删除垃圾邮件..."
                             </p>
                         </div>
-                        <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: "10px 0 0 0", textAlign: "center" }}>
+                        <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: "12px 0 0 0", textAlign: "center" }}>
                             📝 给你建议，你自己去做
                         </p>
                     </div>
@@ -177,15 +177,15 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                     {/* 结论 */}
                     <div style={{
                         background: "linear-gradient(135deg, rgba(88,166,255,0.08) 0%, rgba(240,136,62,0.08) 100%)",
-                        borderRadius: "14px",
-                        padding: "14px 20px",
+                        borderRadius: "18px",
+                        padding: "18px 28px",
                         border: "1px solid rgba(88,166,255,0.2)",
                         textAlign: "center",
                     }}>
-                        <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
+                        <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
                             🎯 一个给建议，一个帮执行
                         </p>
-                        <p style={{ fontSize: "17px", color: THEME.textSecondary, margin: "6px 0 0 0" }}>
+                        <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: "8px 0 0 0" }}>
                             这就是"行动型 AI"的本质区别
                         </p>
                     </div>
@@ -202,7 +202,7 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                 }}>
                     <div style={{
                         background: "rgba(88,166,255,0.06)",
-                        borderRadius: "16px",
+                        borderRadius: "20px",
                         border: "1px solid rgba(88,166,255,0.2)",
                         display: "flex",
                         flexDirection: "column",
@@ -212,26 +212,26 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                         {/* macOS 风格标题栏 */}
                         <div style={{
                             background: "rgba(255,255,255,0.06)",
-                            borderRadius: "16px 16px 0 0",
-                            padding: "10px 16px",
+                            borderRadius: "20px 20px 0 0",
+                            padding: "14px 20px",
                             display: "flex",
                             alignItems: "center",
                             gap: "8px",
                             flexShrink: 0,
                         }}>
-                            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57" }} />
-                            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e" }} />
-                            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840" }} />
-                            <span style={{ marginLeft: 8, color: THEME.textSecondary, fontSize: 14 }}>🦞 OpenClaw 对话</span>
+                            <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#ff5f57" }} />
+                            <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#febc2e" }} />
+                            <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#28c840" }} />
+                            <span style={{ marginLeft: 10, color: THEME.textSecondary, fontSize: 16 }}>🦞 OpenClaw 对话</span>
                         </div>
 
                         {/* 对话内容 */}
                         <div style={{
                             flex: 1,
-                            padding: "14px",
+                            padding: "18px",
                             display: "flex",
                             flexDirection: "column",
-                            gap: "10px",
+                            gap: "12px",
                             overflowY: "hidden",
                         }}>
                             {chatMessages.map((msg, i) => {
@@ -254,10 +254,10 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                                             transform: `translateY(${bubbleSlide}px)`,
                                             background: THEME.accent,
                                             color: "#fff",
-                                            borderRadius: "12px 12px 2px 12px",
-                                            padding: "10px 14px",
+                                            borderRadius: "14px 14px 2px 14px",
+                                            padding: "12px 18px",
                                             maxWidth: "85%",
-                                            fontSize: "16px",
+                                            fontSize: "18px",
                                         }}>
                                             {getTypingText(msg.text, msg.frame)}
                                         </div>
@@ -271,10 +271,10 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                                             background: "rgba(63,185,80,0.1)",
                                             border: "1px solid rgba(63,185,80,0.3)",
                                             color: "#3fb950",
-                                            borderRadius: "8px",
-                                            padding: "8px 14px",
+                                            borderRadius: "10px",
+                                            padding: "10px 18px",
                                             maxWidth: "90%",
-                                            fontSize: "15px",
+                                            fontSize: "17px",
                                             fontFamily: "monospace",
                                         }}>
                                             {getTypingText(msg.text, msg.frame)}
@@ -289,10 +289,10 @@ export const OpenClaw_Scene5_CaseStudy: React.FC = () => {
                                             background: "rgba(88,166,255,0.12)",
                                             border: "1px solid rgba(88,166,255,0.25)",
                                             color: THEME.textPrimary,
-                                            borderRadius: "12px 12px 12px 2px",
-                                            padding: "10px 14px",
+                                            borderRadius: "14px 14px 14px 2px",
+                                            padding: "12px 18px",
                                             maxWidth: "90%",
-                                            fontSize: "16px",
+                                            fontSize: "18px",
                                         }}>
                                             {getTypingText(msg.text, msg.frame)}
                                         </div>

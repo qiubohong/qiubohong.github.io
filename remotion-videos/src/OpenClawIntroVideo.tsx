@@ -6,19 +6,17 @@ import { OpenClaw_Scene3_HowToStart } from "./scenes/openclaw/Scene3_HowToStart"
 import { OpenClaw_Scene4_Roadmap } from "./scenes/openclaw/Scene4_Roadmap";
 import { OpenClaw_Scene5_CaseStudy } from "./scenes/openclaw/Scene5_CaseStudy";
 import { OpenClaw_Scene6_Summary } from "./scenes/openclaw/Scene6_Summary";
-import { EndingScene } from "./components/EndingScene";
 import { CaptionDisplay } from "./components/CaptionDisplay";
 
 // 场景时长配置（单位：帧，30fps）
 // 基于实际音频时长 + 30帧缓冲
 const SCENE_DURATIONS = {
-    scene1: 973,  // 31.45s + 30帧缓冲
-    scene2: 842,  // 27.08s + 30帧缓冲
-    scene3: 1016, // 32.89s + 30帧缓冲
-    scene4: 1088, // 35.29s + 30帧缓冲
-    scene5: 840,  // 27.00s + 30帧缓冲
-    scene6: 760,  // 24.36s + 30帧缓冲
-    ending: 180,  // 固定6秒
+    scene1: 975,  // 31.51s + 30帧缓冲
+    scene2: 844,  // 27.14s + 30帧缓冲
+    scene3: 1018, // 32.95s + 30帧缓冲
+    scene4: 1090, // 35.35s + 30帧缓冲
+    scene5: 842,  // 27.07s + 30帧缓冲
+    scene6: 762,  // 24.43s + 30帧缓冲
 };
 
 const TOTAL_DURATION = Object.values(SCENE_DURATIONS).reduce((a, b) => a + b, 0);
@@ -146,33 +144,7 @@ export const OpenClawIntroVideo: React.FC<OpenClawIntroVideoProps> = ({
                 </AbsoluteFill>
             </Sequence>
 
-            {/* 结束场景 */}
-            <Sequence
-                from={
-                    SCENE_DURATIONS.scene1 +
-                    SCENE_DURATIONS.scene2 +
-                    SCENE_DURATIONS.scene3 +
-                    SCENE_DURATIONS.scene4 +
-                    SCENE_DURATIONS.scene5 +
-                    SCENE_DURATIONS.scene6
-                }
-                durationInFrames={SCENE_DURATIONS.ending}
-            >
-                <AbsoluteFill>
-                    <EndingScene
-                        mainTitle="5分钟 AI"
-                        subtitle="每天搞懂一个知识点！"
-                        description="普通人也能用好 OpenClaw（龙虾）"
-                    />
-                    <Audio
-                        src={staticFile("OpenClawIntroVideo/ending-audio.mp3")}
-                        volume={0.8}
-                    />
-                    {showCaptions && (
-                        <CaptionDisplay captionFile="OpenClawIntroVideo/ending-captions.json" />
-                    )}
-                </AbsoluteFill>
-            </Sequence>
+
         </AbsoluteFill>
     );
 };

@@ -82,22 +82,22 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                padding: "40px 52px",
+                padding: "60px 80px",
                 boxSizing: "border-box",
-                gap: "16px",
+                gap: "28px",
             }}
         >
             {/* 背景装饰光晕 */}
             <div style={{
                 position: "absolute", top: "-180px", right: "-180px",
-                width: "550px", height: "550px", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(88,166,255,0.1) 0%, transparent 70%)",
+                width: "600px", height: "600px", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(88,166,255,0.12) 0%, transparent 70%)",
                 pointerEvents: "none",
             }} />
             <div style={{
                 position: "absolute", bottom: "-120px", left: "-120px",
-                width: "450px", height: "450px", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(240,136,62,0.08) 0%, transparent 70%)",
+                width: "500px", height: "500px", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(240,136,62,0.1) 0%, transparent 70%)",
                 pointerEvents: "none",
             }} />
 
@@ -111,14 +111,14 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
                 <div style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "10px",
+                    gap: "12px",
                     background: "rgba(88,166,255,0.1)",
                     border: "1px solid rgba(88,166,255,0.3)",
                     borderRadius: "999px",
-                    padding: "8px 24px",
+                    padding: "10px 32px",
                 }}>
-                    <span style={{ fontSize: "28px" }}>🦞</span>
-                    <span style={{ fontSize: "22px", color: "#58a6ff", fontWeight: "bold" }}>
+                    <span style={{ fontSize: "32px" }}>🦞</span>
+                    <span style={{ fontSize: "26px", color: "#58a6ff", fontWeight: "bold" }}>
                         普通人也能用好 OpenClaw 系列
                     </span>
                 </div>
@@ -132,9 +132,9 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
                 flexShrink: 0,
             }}>
                 <h1 style={{
-                    fontSize: "80px",
+                    fontSize: "96px",
                     fontWeight: "bold",
-                    margin: "0 0 8px 0",
+                    margin: "0 0 16px 0",
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -144,7 +144,7 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
                     龙虾 AI 来了！
                 </h1>
                 <p style={{
-                    fontSize: "30px",
+                    fontSize: "36px",
                     color: THEME.textPrimary,
                     margin: 0,
                 }}>
@@ -160,30 +160,30 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
             }}>
                 <div style={{
                     background: "rgba(88,166,255,0.08)",
-                    borderRadius: "16px",
-                    padding: "20px 28px",
+                    borderRadius: "20px",
+                    padding: "28px 36px",
                     border: "1px solid rgba(88,166,255,0.2)",
                     display: "flex",
                     alignItems: "center",
-                    gap: "24px",
+                    gap: "32px",
                 }}>
                     <div style={{
-                        fontSize: "56px",
+                        fontSize: "72px",
                         transform: `translateY(${floatY}px)`,
                         flexShrink: 0,
                     }}>🦞</div>
                     <div style={{ flex: 1 }}>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "6px" }}>
+                        <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "8px" }}>
                             <span style={{
-                                fontSize: "56px",
+                                fontSize: "72px",
                                 fontWeight: "bold",
                                 color: "#58a6ff",
                                 lineHeight: 1,
                             }}>{countNum}</span>
-                            <span style={{ fontSize: "32px", color: "#58a6ff", fontWeight: "bold" }}>万+</span>
-                            <span style={{ fontSize: "26px", color: THEME.textPrimary }}>开发者收藏</span>
+                            <span style={{ fontSize: "40px", color: "#58a6ff", fontWeight: "bold" }}>万+</span>
+                            <span style={{ fontSize: "32px", color: THEME.textPrimary }}>开发者收藏</span>
                         </div>
-                        <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>
+                        <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                             打破 GitHub 有史以来最快增长记录 · 登上全国两会讨论议题
                         </p>
                     </div>
@@ -198,19 +198,19 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
             }}>
                 <div style={{
                     background: THEME.cardBg,
-                    borderRadius: "16px",
-                    padding: "18px 28px",
+                    borderRadius: "20px",
+                    padding: "24px 36px",
                     border: "1px solid rgba(255,255,255,0.08)",
                     display: "flex",
                     alignItems: "center",
-                    gap: "20px",
+                    gap: "24px",
                 }}>
-                    <div style={{ fontSize: "40px", flexShrink: 0 }}>🤔</div>
+                    <div style={{ fontSize: "48px", flexShrink: 0 }}>🤔</div>
                     <div>
-                        <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: "0 0 6px 0" }}>
+                        <p style={{ fontSize: "28px", color: THEME.textPrimary, margin: "0 0 8px 0" }}>
                             很多人都说"龙虾很厉害"，却没几个人真的用起来了
                         </p>
-                        <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0 }}>
+                        <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>
                             因为 OpenClaw 和你用过的 AI 聊天工具不一样——它需要你换一套思路
                         </p>
                     </div>
@@ -225,13 +225,13 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
             }}>
                 <div style={{
                     background: "linear-gradient(135deg, rgba(240,136,62,0.15) 0%, rgba(255,210,0,0.1) 100%)",
-                    borderRadius: "16px",
-                    padding: "18px 28px",
+                    borderRadius: "20px",
+                    padding: "24px 36px",
                     border: "1px solid rgba(240,136,62,0.3)",
                     textAlign: "center",
                 }}>
                     <p style={{
-                        fontSize: "26px",
+                        fontSize: "30px",
                         color: THEME.accent,
                         fontWeight: "bold",
                         margin: 0,
@@ -239,9 +239,9 @@ export const OpenClaw_Scene1_Introduction: React.FC = () => {
                         🎯 这个系列，专门为普通人写的 OpenClaw 实战教程
                     </p>
                     <p style={{
-                        fontSize: "22px",
+                        fontSize: "24px",
                         color: THEME.textPrimary,
-                        margin: "8px 0 0 0",
+                        margin: "10px 0 0 0",
                     }}>
                         不讲技术原理，不堆砌术语，只讲你能立刻用上的方法
                     </p>
