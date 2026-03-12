@@ -24,7 +24,7 @@ export const Scene3_WhySmart: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+            fontFamily: 'Noto Sans SC, Arial, sans-serif',
             padding: 60,
         }}>
             {/* 标题 */}

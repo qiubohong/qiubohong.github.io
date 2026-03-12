@@ -79,7 +79,7 @@ export const Scene6_Conclusion: React.FC<SceneProps> = ({ title }) => {
   return (
     <AbsoluteFill style={{
       background: "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)",
-      fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+      fontFamily: 'Noto Sans SC, Arial, sans-serif',
       overflow: "hidden",
       display: "flex",
       flexDirection: "column",

@@ -38,7 +38,7 @@ print(f"相似度：{similarity:.2f}")  # 输出：0.92`;
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+            fontFamily: 'Noto Sans SC, Arial, sans-serif',
             padding: 48,
         }}>
             <h1

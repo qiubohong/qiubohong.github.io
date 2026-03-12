@@ -3,7 +3,7 @@ import { interpolate, useCurrentFrame, Easing, spring, useVideoConfig } from "re
 
 const THEME = {
     bg: "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)",
-    fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+    fontFamily: 'Noto Sans SC, Arial, sans-serif',
     titleGradient: "linear-gradient(45deg, #58a6ff, #79c0ff)",
     accent: "#f0883e",
     accentSub: "#ffd200",

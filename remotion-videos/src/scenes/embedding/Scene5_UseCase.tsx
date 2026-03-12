@@ -30,7 +30,7 @@ export const Scene5_UseCase: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+            fontFamily: 'Noto Sans SC, Arial, sans-serif',
             padding: "40px 80px",
             overflow: "hidden",
         }}>

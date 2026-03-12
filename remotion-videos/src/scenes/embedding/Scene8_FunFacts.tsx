@@ -3,7 +3,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 
 const THEME = {
     bg: "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)",
-    font: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+    font: 'Noto Sans SC, Arial, sans-serif',
     titleGradient: "linear-gradient(45deg, #58a6ff, #79c0ff)",
     cardBg: "rgba(255,255,255,0.06)",
     textPrimary: "#c9d1d9",

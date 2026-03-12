@@ -30,7 +30,7 @@ export const Scene1_Introduction: React.FC = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+            fontFamily: 'Noto Sans SC, Arial, sans-serif',
         }}>
             <div style={{ textAlign: "center", paddingLeft: 48, paddingRight: 48, width: "100%" }}>
                 <h1

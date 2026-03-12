@@ -41,7 +41,7 @@ export const Scene6_FunFacts: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+            fontFamily: 'Noto Sans SC, Arial, sans-serif',
             padding: 50,
         }}>
             {/* 标题 */}
