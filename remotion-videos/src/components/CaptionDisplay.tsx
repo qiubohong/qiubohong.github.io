@@ -3,10 +3,8 @@ import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig } from "remot
 
 interface CaptionToken {
     text: string;
-    startMs: number;
-    endMs: number;
-    timestampMs: number;
-    confidence: number;
+    startFrame: number;
+    endFrame: number;
 }
 
 interface CaptionDisplayProps {
@@ -27,7 +25,14 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
             try {
                 const response = await fetch(staticFile(captionFile));
                 const data = await response.json();
-                setCaptions(data);
+                console.log("Loaded captions data:", data);
+                console.log("Data type:", typeof data);
+                console.log("Is array?", Array.isArray(data));
+                if (Array.isArray(data)) {
+                    setCaptions(data);
+                } else {
+                    console.error("Captions data is not an array:", data);
+                }
             } catch (error) {
                 console.error("Failed to load captions:", error);
             }
@@ -37,12 +42,12 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
 
     if (!captions) return null;
 
-    // 计算当前时间（毫秒）
-    const currentTimeMs = ((frame + startFrom) / fps) * 1000;
+    // 计算当前帧数（考虑起始偏移）
+    const currentFrame = frame + startFrom;
 
     // 找到当前字幕条目，完整显示一句话
     const currentCaption = captions.find(
-        (caption) => currentTimeMs >= caption.startMs && currentTimeMs < caption.endMs
+        (caption) => currentFrame >= caption.startFrame && currentFrame < caption.endFrame
     );
 
     if (!currentCaption) return null;

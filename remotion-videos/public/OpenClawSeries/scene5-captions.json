@@ -1,0 +1,77 @@
+[
+    {
+        "startFrame": 0,
+        "endFrame": 70,
+        "text": "想让AI学会新技能？装上技能包就行！"
+    },
+    {
+        "startFrame": 71,
+        "endFrame": 140,
+        "text": "Skills概念：像给手机装App一样简单！"
+    },
+    {
+        "startFrame": 141,
+        "endFrame": 210,
+        "text": "每个Skill都有特定功能，一键安装就能使用。"
+    },
+    {
+        "startFrame": 211,
+        "endFrame": 280,
+        "text": "必备技能推荐：天气查询，实时天气信息，多城市支持。"
+    },
+    {
+        "startFrame": 281,
+        "endFrame": 350,
+        "text": "必备技能推荐：日历管理，日程安排，提醒设置，会议管理。"
+    },
+    {
+        "startFrame": 351,
+        "endFrame": 420,
+        "text": "必备技能推荐：新闻推送，热点新闻，定制主题，定时推送。"
+    },
+    {
+        "startFrame": 421,
+        "endFrame": 490,
+        "text": "必备技能推荐：邮件处理，自动分类，智能回复，垃圾过滤。"
+    },
+    {
+        "startFrame": 491,
+        "endFrame": 560,
+        "text": "必备技能推荐：文档整理，PDF阅读，内容摘要，格式转换。"
+    },
+    {
+        "startFrame": 561,
+        "endFrame": 630,
+        "text": "必备技能推荐：多语言翻译，多语种支持，实时翻译，专业术语。"
+    },
+    {
+        "startFrame": 631,
+        "endFrame": 700,
+        "text": "一键安装，无需技术基础！"
+    },
+    {
+        "startFrame": 701,
+        "endFrame": 770,
+        "text": "命令行安装：openclaw install skill-name"
+    },
+    {
+        "startFrame": 771,
+        "endFrame": 840,
+        "text": "图形界面安装：点击安装按钮，自动完成配置。"
+    },
+    {
+        "startFrame": 841,
+        "endFrame": 910,
+        "text": "装上技能包，你的AI助手就能处理更多任务！"
+    },
+    {
+        "startFrame": 911,
+        "endFrame": 980,
+        "text": "根据你的需求选择合适的技能，提升工作效率。"
+    },
+    {
+        "startFrame": 981,
+        "endFrame": 1050,
+        "text": "技能越多，AI能力越强，工作越轻松！"
+    }
+]

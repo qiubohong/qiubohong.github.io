@@ -1,0 +1,62 @@
+[
+    {
+        "startFrame": 0,
+        "endFrame": 70,
+        "text": "指令写不好，AI就听不懂！教你正确的指令格式。"
+    },
+    {
+        "startFrame": 71,
+        "endFrame": 140,
+        "text": "角色设定：明确AI角色，设定专业领域，提高理解准确度。"
+    },
+    {
+        "startFrame": 141,
+        "endFrame": 210,
+        "text": "背景补充：提供足够上下文，说明使用场景，描述期望结果。"
+    },
+    {
+        "startFrame": 211,
+        "endFrame": 280,
+        "text": "任务明确：说清楚具体做什么，设定明确目标，避免模糊描述。"
+    },
+    {
+        "startFrame": 281,
+        "endFrame": 350,
+        "text": "正确示例：邮件助手角色，分类收件箱任务，按优先级排序目标。"
+    },
+    {
+        "startFrame": 351,
+        "endFrame": 420,
+        "text": "正确示例：文档专家角色，整理PDF任务，生成摘要目标。"
+    },
+    {
+        "startFrame": 421,
+        "endFrame": 490,
+        "text": "错误示例：模糊指令'帮我处理邮件'，应改为'分类收件箱邮件'。"
+    },
+    {
+        "startFrame": 491,
+        "endFrame": 560,
+        "text": "错误示例：缺少上下文'整理文档'，应改为'整理PDF文档并生成摘要'。"
+    },
+    {
+        "startFrame": 561,
+        "endFrame": 630,
+        "text": "使用技巧：角色、背景、任务三要素缺一不可。"
+    },
+    {
+        "startFrame": 631,
+        "endFrame": 700,
+        "text": "记住这三招，你的AI对话效率提升10倍！"
+    },
+    {
+        "startFrame": 701,
+        "endFrame": 770,
+        "text": "好的指令让AI真正理解你的需求，避免误解和返工。"
+    },
+    {
+        "startFrame": 771,
+        "endFrame": 840,
+        "text": "多练习几次，你就能写出让AI秒懂的完美指令！"
+    }
+]

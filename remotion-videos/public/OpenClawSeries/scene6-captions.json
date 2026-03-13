@@ -1,0 +1,77 @@
+[
+    {
+        "startFrame": 0,
+        "endFrame": 70,
+        "text": "实战演练：看OpenClaw如何工作！从指令到结果，完整流程演示。"
+    },
+    {
+        "startFrame": 71,
+        "endFrame": 140,
+        "text": "OpenClaw工作流程：接收指令、选择技能、执行任务、返回结果。"
+    },
+    {
+        "startFrame": 141,
+        "endFrame": 210,
+        "text": "步骤1：接收指令，解析用户指令，理解任务需求。"
+    },
+    {
+        "startFrame": 211,
+        "endFrame": 280,
+        "text": "步骤2：选择技能，匹配合适技能，调用对应功能。"
+    },
+    {
+        "startFrame": 281,
+        "endFrame": 350,
+        "text": "步骤3：执行任务，处理数据，调用API，完成操作。"
+    },
+    {
+        "startFrame": 351,
+        "endFrame": 420,
+        "text": "步骤4：返回结果，格式化输出，清晰展示处理成果。"
+    },
+    {
+        "startFrame": 421,
+        "endFrame": 490,
+        "text": "示例1：邮件自动分类，角色：邮件助手，任务：分类收件箱。"
+    },
+    {
+        "startFrame": 491,
+        "endFrame": 560,
+        "text": "邮件分类结果：紧急邮件3封，重要邮件12封，普通邮件45封，垃圾邮件8封。"
+    },
+    {
+        "startFrame": 561,
+        "endFrame": 630,
+        "text": "示例2：文档智能摘要，角色：文档专家，任务：整理PDF文档。"
+    },
+    {
+        "startFrame": 631,
+        "endFrame": 700,
+        "text": "文档摘要结果：15页文档，提取5个核心要点，12个关键词，阅读时间8分钟。"
+    },
+    {
+        "startFrame": 701,
+        "endFrame": 770,
+        "text": "效果对比：传统方式手动操作耗时费力，容易出错效率低下。"
+    },
+    {
+        "startFrame": 771,
+        "endFrame": 840,
+        "text": "OpenClaw方式：自动处理快速高效，准确无误提升10倍效率。"
+    },
+    {
+        "startFrame": 841,
+        "endFrame": 910,
+        "text": "恭喜！你已经掌握了OpenClaw的核心用法！"
+    },
+    {
+        "startFrame": 911,
+        "endFrame": 980,
+        "text": "现在就去试试吧，让你的AI助手真正帮你干活！"
+    },
+    {
+        "startFrame": 981,
+        "endFrame": 1050,
+        "text": "记住：好的指令+合适的技能=高效的工作助手！"
+    }
+]
