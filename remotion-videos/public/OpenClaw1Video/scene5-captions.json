@@ -1,0 +1,9 @@
+[
+  { "text": "三个让普通人秒懂的场景。", "startMs": 0, "endMs": 2000, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "场景一：早上不用刷手机了。", "startMs": 2000, "endMs": 4000, "timestampMs": 2000, "confidence": 0.95 },
+  { "text": "设置一次，每天 8 点自动发早报，节省 15 到 20 分钟。", "startMs": 4000, "endMs": 8000, "timestampMs": 4000, "confidence": 0.95 },
+  { "text": "场景二：出门在外也能处理文件。", "startMs": 8000, "endMs": 10500, "timestampMs": 8000, "confidence": 0.95 },
+  { "text": "发消息让龙虾把文件发到邮箱，你的电脑变成随时可远程操控的云电脑。", "startMs": 10500, "endMs": 15500, "timestampMs": 10500, "confidence": 0.95 },
+  { "text": "场景三：会议结束后自动出纪要。", "startMs": 15500, "endMs": 18000, "timestampMs": 15500, "confidence": 0.95 },
+  { "text": "发录音给龙虾，自动生成纪要写入飞书，每次节省 30 到 60 分钟！", "startMs": 18000, "endMs": 23000, "timestampMs": 18000, "confidence": 0.95 }
+]

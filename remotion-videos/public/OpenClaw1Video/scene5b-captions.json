@@ -1,0 +1,7 @@
+[
+  { "text": "这张图展示了 AI 的发展历程。", "startMs": 0, "endMs": 2500, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "从最早只能回答问题的工具 AI，到 ChatGPT 时代的对话 AI，", "startMs": 2500, "endMs": 6500, "timestampMs": 2500, "confidence": 0.95 },
+  { "text": "再到能帮你写代码写文章的助手 AI，", "startMs": 6500, "endMs": 9500, "timestampMs": 6500, "confidence": 0.95 },
+  { "text": "现在我们进入了智能体 AI 时代。", "startMs": 9500, "endMs": 12000, "timestampMs": 9500, "confidence": 0.95 },
+  { "text": "OpenClaw 就是这个时代的代表，它不只是聊天，而是真正帮你把事情做完。", "startMs": 12000, "endMs": 17000, "timestampMs": 12000, "confidence": 0.95 }
+]

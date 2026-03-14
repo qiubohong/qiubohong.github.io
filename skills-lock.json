@@ -5,6 +5,11 @@
       "source": "youmind-openlab/nano-banana-pro-prompts-recommend-skill",
       "sourceType": "github",
       "computedHash": "17c2d5c14f941c8b8267feca3ad1976d1f30445680f563fa624e18d469e8341a"
+    },
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "computedHash": "1ec42c9b918b315d8e5c6c856b78c3c4725fc93dea30b9b7e9975c69848fcce6"
     }
   }
 }

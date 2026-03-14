@@ -1,0 +1,8 @@
+[
+  { "text": "OpenClaw 是什么？", "startMs": 0, "endMs": 1500, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "一句话：运行在你本地电脑上的 AI 智能体。", "startMs": 1500, "endMs": 4000, "timestampMs": 1500, "confidence": 0.95 },
+  { "text": "通过 QQ、飞书等聊天工具操控，真正帮你干活。", "startMs": 4000, "endMs": 7000, "timestampMs": 4000, "confidence": 0.95 },
+  { "text": "第一个特点：本地运行，数据不出门。", "startMs": 7000, "endMs": 10000, "timestampMs": 7000, "confidence": 0.95 },
+  { "text": "第二个特点：通过聊天工具操控，在 QQ 或飞书里发消息就能用。", "startMs": 10000, "endMs": 14500, "timestampMs": 10000, "confidence": 0.95 },
+  { "text": "第三个特点：真正执行，而不只是建议。", "startMs": 14500, "endMs": 18000, "timestampMs": 14500, "confidence": 0.95 }
+]

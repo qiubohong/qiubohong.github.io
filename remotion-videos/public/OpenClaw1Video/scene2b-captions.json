@@ -1,0 +1,7 @@
+[
+  { "text": "来看一下 OpenClaw 的完整工作流程图。", "startMs": 0, "endMs": 2500, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "整个流程非常清晰：你在聊天工具里发一条消息，", "startMs": 2500, "endMs": 5500, "timestampMs": 2500, "confidence": 0.95 },
+  { "text": "OpenClaw 理解你的意图之后，调用对应的工具真实执行任务，", "startMs": 5500, "endMs": 9000, "timestampMs": 5500, "confidence": 0.95 },
+  { "text": "最后把结果反馈给你。", "startMs": 9000, "endMs": 11000, "timestampMs": 9000, "confidence": 0.95 },
+  { "text": "整个过程就像你有一个随时待命的数字助手，你说话，它干活。", "startMs": 11000, "endMs": 15500, "timestampMs": 11000, "confidence": 0.95 }
+]

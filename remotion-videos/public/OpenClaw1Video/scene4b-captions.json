@@ -1,0 +1,7 @@
+[
+  { "text": "这是一个真实的邮件自动处理案例。", "startMs": 0, "endMs": 2500, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "龙虾会实时监听你的邮箱，收到新邮件后自动分析内容，", "startMs": 2500, "endMs": 6000, "timestampMs": 2500, "confidence": 0.95 },
+  { "text": "判断需要做什么操作，然后自动回复、归档或者转发，", "startMs": 6000, "endMs": 9500, "timestampMs": 6000, "confidence": 0.95 },
+  { "text": "最后把处理结果记录到飞书或者发消息通知你。", "startMs": 9500, "endMs": 13000, "timestampMs": 9500, "confidence": 0.95 },
+  { "text": "全程无需人工干预，这就是真正的数字员工。", "startMs": 13000, "endMs": 16500, "timestampMs": 13000, "confidence": 0.95 }
+]

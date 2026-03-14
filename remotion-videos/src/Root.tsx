@@ -29,6 +29,7 @@ import { FunctionCallingVideo } from "./FunctionCallingVideo";
 import { MCPVideo } from "./MCPVideo";
 import { AgentSkillVideo } from "./AgentSkillVideo";
 import { OpenClawIntroVideo } from "./OpenClawIntroVideo";
+import { OpenClaw1Video, OPENCLAW1_TOTAL_DURATION } from "./OpenClaw1Video";
 
 export const RemotionRoot = () => {
   return (
@@ -445,6 +446,19 @@ export const RemotionRoot = () => {
           title: "普通人也能用好 OpenClaw（龙虾）—— 系列介绍",
           showCaptions: true,
           backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* OpenClaw1Video视频（普通人也能用好OpenClaw系列·第1期·认识龙虾） */}
+      <Composition
+        id="OpenClaw1Video"
+        component={OpenClaw1Video}
+        durationInFrames={6127} // 总帧数：454+637+606+699+800+615+889+637+730=6047帧，约201.57秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          showCaptions: true,
         }}
       />
     </>

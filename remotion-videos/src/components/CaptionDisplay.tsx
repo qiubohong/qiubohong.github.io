@@ -3,8 +3,14 @@ import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig } from "remot
 
 interface CaptionToken {
     text: string;
-    startFrame: number;
-    endFrame: number;
+    // 支持帧数格式
+    startFrame?: number;
+    endFrame?: number;
+    // 支持毫秒格式
+    startMs?: number;
+    endMs?: number;
+    timestampMs?: number;
+    confidence?: number;
 }
 
 interface CaptionDisplayProps {
@@ -25,9 +31,6 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
             try {
                 const response = await fetch(staticFile(captionFile));
                 const data = await response.json();
-                console.log("Loaded captions data:", data);
-                console.log("Data type:", typeof data);
-                console.log("Is array?", Array.isArray(data));
                 if (Array.isArray(data)) {
                     setCaptions(data);
                 } else {
@@ -44,11 +47,21 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
 
     // 计算当前帧数（考虑起始偏移）
     const currentFrame = frame + startFrom;
+    // 当前时间（毫秒）
+    const currentMs = (currentFrame / fps) * 1000;
 
-    // 找到当前字幕条目，完整显示一句话
-    const currentCaption = captions.find(
-        (caption) => currentFrame >= caption.startFrame && currentFrame < caption.endFrame
-    );
+    // 找到当前字幕条目，兼容 startFrame/endFrame 和 startMs/endMs 两种格式
+    const currentCaption = captions.find((caption) => {
+        // 优先使用帧数格式
+        if (caption.startFrame !== undefined && caption.endFrame !== undefined) {
+            return currentFrame >= caption.startFrame && currentFrame < caption.endFrame;
+        }
+        // 回退到毫秒格式
+        if (caption.startMs !== undefined && caption.endMs !== undefined) {
+            return currentMs >= caption.startMs && currentMs < caption.endMs;
+        }
+        return false;
+    });
 
     if (!currentCaption) return null;
 
@@ -68,6 +81,7 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
                     borderRadius: 12,
                     maxWidth: "85%",
                     backdropFilter: "blur(10px)",
+                    display: "none",
                 }}
             >
                 <div

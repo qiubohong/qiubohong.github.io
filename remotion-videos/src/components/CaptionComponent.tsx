@@ -86,7 +86,7 @@ export const CaptionComponent: React.FC<CaptionComponentProps> = ({
       <div style={{
         fontSize: 48,
         fontWeight: "800",
-        fontFamily: "'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', Arial, sans-serif",
+        fontFamily: "'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', Arial, sans-serif",
         textAlign: "center",
         color: "#1f2937",
         textShadow: "0 1px 2px rgba(255,255,255,0.8)",

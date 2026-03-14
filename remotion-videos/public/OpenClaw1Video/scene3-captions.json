@@ -1,0 +1,8 @@
+[
+  { "text": "龙虾有四大组成部分。", "startMs": 0, "endMs": 2000, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "龙虾等于消息入口加大脑加技能加记忆。", "startMs": 2000, "endMs": 5000, "timestampMs": 2000, "confidence": 0.95 },
+  { "text": "消息入口是你和龙虾沟通的门，支持 QQ、飞书、微信。", "startMs": 5000, "endMs": 9000, "timestampMs": 5000, "confidence": 0.95 },
+  { "text": "大脑就是大模型，负责理解指令、制定计划。", "startMs": 9000, "endMs": 12500, "timestampMs": 9000, "confidence": 0.95 },
+  { "text": "技能就像手机 App，每装一个，龙虾就多一种能力。", "startMs": 12500, "endMs": 16500, "timestampMs": 12500, "confidence": 0.95 },
+  { "text": "记忆让龙虾越用越懂你，下次聊天还记得你的习惯。", "startMs": 16500, "endMs": 21000, "timestampMs": 16500, "confidence": 0.95 }
+]

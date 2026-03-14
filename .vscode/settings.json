@@ -44,5 +44,7 @@
   "javascript.validate.enable": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.importModuleSpecifierEnding": "auto",
-  "typescript.suggest.includeCompletionsForImportStatements": true
+  "typescript.suggest.includeCompletionsForImportStatements": true,
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda"
 }

@@ -1,0 +1,8 @@
+[
+  { "text": "普通 AI 和 OpenClaw 有什么本质区别？", "startMs": 0, "endMs": 1744, "timestampMs": 0, "confidence": 0.95 },
+  { "text": "普通 AI 是聪明的顾问，只出主意不动手。", "startMs": 1744, "endMs": 3585, "timestampMs": 1744, "confidence": 0.95 },
+  { "text": "OpenClaw 是聪明的员工，出主意还动手！", "startMs": 3585, "endMs": 5426, "timestampMs": 3585, "confidence": 0.95 },
+  { "text": "你说帮我整理桌面文件，普通 AI 给你一段操作建议。", "startMs": 5426, "endMs": 7848, "timestampMs": 5426, "confidence": 0.95 },
+  { "text": "OpenClaw 真的打开文件夹，按类型分好，告诉你整理完了！", "startMs": 7848, "endMs": 10463, "timestampMs": 7848, "confidence": 0.95 },
+  { "text": "简单来说，OpenClaw 就像一个 7 乘 24 小时在线的 AI 数字员工。", "startMs": 10463, "endMs": 13368, "timestampMs": 10463, "confidence": 0.95 }
+]

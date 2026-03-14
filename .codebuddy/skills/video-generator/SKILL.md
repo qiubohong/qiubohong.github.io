@@ -1,6 +1,6 @@
 ---
 name: video-generator
-description: 自动化Remotion视频生成工作流。当用户需要创建技术教学视频时使用此skill。支持从文案输入到视频构建的完整流程：(1)文案优化与标题生成（含抖音短视频标题和文案）(2)场景文件与字幕生成 (3)音频文件生成 (4)帧数计算与Root.tsx更新 (5)视频构建验证 (6)封面图生成（16:9和9:16两种比例）。适用于AI教学、技术讲解类视频制作。输出包含适配抖音平台的短视频标题和文案，以及两种比例的封面图。
+description: 自动化Remotion视频生成工作流。当用户需要创建技术教学视频时使用此skill。支持从文案输入到视频构建的完整流程：(1)文案优化与标题生成（含抖音短视频标题和文案）(1.5)抖音文案写入文档 (1.8)场景视觉规范设计（电影级构图+Remotion最佳实践）(2)场景文件与字幕生成 (3)音频文件生成 (4)帧数计算与Root.tsx更新 (5)视频构建验证 (6)封面图生成（16:9和9:16两种比例）。适用于AI教学、技术讲解类视频制作。输出包含适配抖音平台的短视频标题和文案，以及两种比例的封面图。
 ---
 
 # Remotion 视频生成工作流
@@ -21,7 +21,7 @@ nvm use ai
 
 所有命令均在 `remotion-videos` 目录下执行。
 
-## 完整工作流程（7 个步骤）
+## 完整工作流程（8 个步骤）
 
 ### 步骤 1：文案优化（抖音教学运营专家角色）
 
@@ -121,17 +121,14 @@ public/<VideoName>/douyin-copy.md
   **文案内容强制规则**（必须遵守）：
 
 1. **前置核心价值（钩子）**：开场白之后，必须立即抛出该技术/概念能为用户带来的**具体好处**，用利益驱动抓住用户注意力。
-
    - 格式：`"学会[主题]，[具体好处]！"` 或 `"[主题]让你的[工具/工作流]像[通俗比喻]一样简单！"`
    - 示例：`"学会MCP，让你的AI工具像搭积木一样简单！"` / `"掌握Agent Skill，AI再也不用重复解释工作流程！"`
 
 2. **案例演示场景（必须包含）**：讲解完核心理论后，**必须安排至少一个贴近生活的实际应用案例场景**，让抽象技术具体可感。
-
    - 案例要具体可操作，展示完整的使用步骤
    - 优先选择日常生活场景（天气查询、日程管理、文件处理等）
 
 3. **呼吸点设计（必须包含）**：讲解完复杂知识点后，**必须插入一个简短的总结或通俗类比**，给观众消化信息的时间。
-
    - 时长约 10-15 秒
    - 格式：`"简单来说，[主题]就像[通俗类比]"` 或 `"记住这个关键点：[一句话总结]"`
 
@@ -244,7 +241,124 @@ public/<VideoName>/douyin-copy.md
 [100-200 字文案，含互动引导和标签]
 ```
 
-**执行时机**：在步骤 1 完成文案优化后，立即创建该文档文件，再继续执行步骤 2。
+**执行时机**：在步骤 1 完成文案优化后，立即创建该文档文件，再继续执行步骤 1.8。
+
+### 步骤 1.8：场景视觉规范设计（电影级构图 + Remotion 最佳实践）
+
+**输入**：步骤 1 生成的分场景文案
+
+**任务**：在正式编写场景组件代码之前，结合 `remotion-best-practices` 技能和以下电影级视觉规范，为每个场景制定详细的视觉设计方案，输出场景设计文档。
+
+---
+
+#### 🎞️ Remotion 高级视觉与布局系统规范（强制遵守）
+
+##### 一、📐 电影级构图与布局
+
+- **黄金留白（The 80px Rule）**：核心内容必须保持 `p-20`（80px）以上的安全边距，严禁文字或 UI 元素贴近屏幕边缘。
+- **三分法构图（Rule of Thirds）**：避免死板的完全居中。主视觉对象（如 Mockup）占据画面 1/3，文字信息占据 2/3，形成视觉张力。
+- **纵深层级（Z-Axis Depth）**：通过三层架构营造立体感：
+  - **背景（BG）**：低对比度渐变 + `blur(40px)` 动态光斑 + 极慢微缩放
+  - **主体（Subject）**：高清晰度，使用 `drop-shadow-2xl` 产生悬浮感
+  - **前景（FG）**：点缀性装饰（如模糊的粒子或光晕），以 1.5x 速度飞过，制造视差
+- **动态非对称（Asymmetry）**：使用 `rotate-[-2deg]` 或 `skew-x-[-1deg]` 给背景装饰块，打破矩形容器的沉闷感。
+
+##### 二、🏎️ 物理动效规范
+
+- **拒绝线性（No Linear）**：严禁使用默认线性插值（除旋转背景外）。
+- **弹簧驱动（Spring-Driven）**：所有位移、缩放、旋转必须使用 `spring` 函数：
+  ```typescript
+  spring({
+    frame,
+    fps,
+    config: {
+      stiffness: 100,
+      damping: 20,
+      mass: 1.2,
+      overshootClamping: false,
+    },
+  });
+  ```
+- **丝滑错位（Staggering）**：多个列表项或文字行入场必须使用 `i * 3` 帧的 delay，制造如流水般的律动。
+- **模糊过渡（Motion Blur）**：在元素高速移动时，手动叠加 `filter: blur()`，模拟摄影机的运动模糊。
+
+##### 三、💎 光影与质感
+
+- **弥散光背景（Mesh Gradient）**：使用多个 `absolute` 定位的 `rounded-full` 渐变球，配合 `filter: blur(100px)` 缓慢移动。
+  ```typescript
+  // 弥散光球示例
+  <div style={{
+    position: "absolute", width: 400, height: 400, borderRadius: "50%",
+    background: "radial-gradient(circle, rgba(88,166,255,0.3) 0%, transparent 70%)",
+    filter: "blur(80px)",
+    left: `${50 + Math.sin(frame * 0.01) * 10}%`,
+    top: `${30 + Math.cos(frame * 0.008) * 8}%`,
+    transform: "translate(-50%, -50%)",
+  }} />
+  ```
+- **高级毛玻璃（Glassmorphism）**：容器必须使用 `bg-white/5` 配合 `backdrop-filter: blur(16px)` 和 `border: 1px solid rgba(255,255,255,0.1)`。
+- **噪点颗粒（Film Grain）**：在最高层叠加透明度 `0.02` 的静态噪点层，消除数字平滑感，增加胶片质感。
+
+##### 四、✍️ 文字排版规范
+
+- **字间距压缩（Tracking）**：大标题强制设置 `tracking-tighter`（`-0.05em`），正文使用 `tracking-tight`。
+- **行高呼吸（Leading）**：正文行高保持在 `1.6` 以上，确保文字块不显拥挤。
+- **对比法则（Contrast）**：标题用 `font-black`（900），副标题用 `font-light`（300）或 `opacity-60`。
+
+##### 五、🛠️ 技术实现约束
+
+- **Tailwind 优先**：样式逻辑尽可能写在 `className` 中。
+- **逻辑解耦**：将复杂的 Spring 动画计算逻辑封装在变量中，保持 JSX 简洁：
+  ```typescript
+  const titleSpring = spring({
+    frame,
+    fps,
+    config: { stiffness: 100, damping: 20, mass: 1.2 },
+  });
+  const titleY = interpolate(titleSpring, [0, 1], [60, 0]);
+  const titleOpacity = interpolate(titleSpring, [0, 1], [0, 1]);
+  ```
+- **Sequence 组织**：使用 `<Sequence>` 严格控制时间轴，每个场景布局独立解耦。
+
+---
+
+#### 场景设计文档输出格式
+
+对每个场景，输出以下设计方案：
+
+```markdown
+### Scene X: [场景名称]
+
+**构图方案**：[三分法/居中/分屏/全屏] + [具体布局描述]
+
+**背景层（BG）**：
+
+- 渐变色：[具体颜色值]
+- 弥散光球：[颜色、位置、动画描述]
+- 装饰元素：[旋转块/粒子/网格等]
+
+**主体层（Subject）**：
+
+- 主要内容：[标题/卡片/代码块/图表等]
+- 入场动画：[spring 参数 + 方向]
+- 高亮效果：[关键词/行高亮方案]
+
+**前景层（FG）**：
+
+- 装饰元素：[粒子/光晕/浮动图标等]
+- 视差速度：[1.5x 或其他]
+
+**动效时间线**：
+| 帧范围 | 动画内容 |
+|--------|---------|
+| 0~30 | 背景弥散光淡入 |
+| 10~40 | 标题 spring 滑入 |
+| ... | ... |
+
+**特殊效果**：[对比分屏/数据流动/AI对话/Mermaid图表等]
+```
+
+**执行时机**：步骤 1.5 完成后立即执行，输出场景设计文档后再继续执行步骤 2。
 
 ### 步骤 2：场景文件与字幕生成
 
@@ -560,7 +674,6 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
 **校验流程**：
 
 1. **第一次校验**：读取视频主组件（如 `XXXVideo.tsx`）
-
    - 提取所有 `<TransitionSeries.Sequence durationInFrames={xxx}>` 的帧数
    - **验证 EndingScene 存在**：检查最后一个场景是否为 EndingScene
    - **验证 EndingScene 帧数**：确认 EndingScene 帧数为 180 帧（6 秒）
@@ -569,7 +682,6 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
    - 计算预期总帧数：`预期总帧数 = 场景总帧数 + 转场总帧数`
 
 2. **第二次校验**：读取 Root.tsx
-
    - 找到对应视频的 `<Composition>` 定义
    - 提取 `durationInFrames` 属性值
    - 对比：`Root.tsx中的durationInFrames === 预期总帧数`
@@ -667,7 +779,6 @@ python scripts/generate_cover_images.py \
 **封面图要求**：
 
 - **16:9 横版封面图**：
-
   - 尺寸：1920×1080 像素
   - 适合电脑端和 YouTube 等平台
   - 标题位置：居中或左侧
@@ -930,7 +1041,7 @@ const chatPanelOpacity = interpolate(
 const getTypingText = (
   text: string,
   startFrame: number,
-  charsPerFrame = 1.2
+  charsPerFrame = 1.2,
 ) => {
   const elapsed = Math.max(0, frame - startFrame);
   const charsToShow = Math.floor(elapsed * charsPerFrame);
@@ -1020,7 +1131,7 @@ const countUp = (target: number, startFrame: number, duration = 60) => {
       easing: Easing.out(Easing.cubic),
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
-    })
+    }),
   );
 };
 ```
