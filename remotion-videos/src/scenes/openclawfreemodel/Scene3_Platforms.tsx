@@ -5,6 +5,7 @@ import {
     useCurrentFrame,
     spring,
     useVideoConfig,
+    Img,
 } from "remotion";
 
 const THEME = {
@@ -143,6 +144,81 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
                 <p style={{ fontSize: "24px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
                     🎉 全部注册，总额度数亿 tokens，足够免费使用好几年！
                 </p>
+            </div>
+        </AbsoluteFill>
+    );
+};
+
+// 场景 3.5：平台对比图
+export const OpenClawFreeModel_Scene3_5_PlatformChart: React.FC = () => {
+    const frame = useCurrentFrame();
+    const { fps } = useVideoConfig();
+
+    const titleSpring = spring({ frame, fps, config: { stiffness: 100, damping: 20, mass: 1.2 } });
+    const titleOpacity = interpolate(titleSpring, [0, 1], [0, 1]);
+
+    const imgSpring = spring({ frame: Math.max(0, frame - 30), fps, config: { stiffness: 100, damping: 20, mass: 1.2 } });
+    const imgScale = interpolate(imgSpring, [0, 1], [0.9, 1]);
+    const imgOpacity = interpolate(imgSpring, [0, 1], [0, 1]);
+
+    // 弥散光
+    const lightX = 50 + Math.sin(frame * 0.007) * 8;
+    const lightY = 50 + Math.cos(frame * 0.009) * 6;
+
+    return (
+        <AbsoluteFill
+            style={{
+                background: THEME.bg,
+                fontFamily: THEME.fontFamily,
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                padding: "40px 60px",
+                boxSizing: "border-box",
+                gap: "20px",
+            }}
+        >
+            {/* 弥散光 */}
+            <div style={{
+                position: "absolute", left: `${lightX}%`, top: `${lightY}%`,
+                width: 600, height: 600, borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(88,166,255,0.1) 0%, transparent 70%)",
+                filter: "blur(100px)", transform: "translate(-50%, -50%)", pointerEvents: "none",
+            }} />
+
+            {/* 标题 */}
+            <div style={{ opacity: titleOpacity, flexShrink: 0, textAlign: "center" }}>
+                <h2 style={{
+                    fontSize: "48px", fontWeight: 900, margin: "0 0 8px 0",
+                    background: THEME.titleGradient,
+                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                    backgroundClip: "text", letterSpacing: "-0.05em",
+                }}>
+                    大模型平台对比
+                </h2>
+                <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0 }}>
+                    国内主流免费大模型平台的详细对比信息
+                </p>
+            </div>
+
+            {/* 平台对比图 */}
+            <div style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                opacity: imgOpacity,
+                transform: `scale(${imgScale})`,
+            }}>
+                <Img
+                    src="/assets/img/ailearn/openclaw/02/platform_comparison.png"
+                    style={{
+                        maxWidth: "90%",
+                        maxHeight: "80%",
+                        borderRadius: "16px",
+                        boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
+                    }}
+                />
             </div>
         </AbsoluteFill>
     );

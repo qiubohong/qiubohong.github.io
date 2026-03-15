@@ -199,7 +199,7 @@ export const OpenClawFreeModel_Scene8_Summary: React.FC = () => {
                         fontSize: "26px", color: THEME.accent, fontWeight: "bold", margin: "0 0 8px 0",
                         transform: `scale(${pulse})`,
                     }}>
-                        💬 你觉得龙虾会用哪些大模型？
+                        💬 你的龙虾会去用哪些大模型？
                     </p>
                     <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: 0 }}>
                         欢迎在评论区分享！点赞收藏，下期教你安装龙虾 ～
