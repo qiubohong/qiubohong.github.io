@@ -30,6 +30,7 @@ import { MCPVideo } from "./MCPVideo";
 import { AgentSkillVideo } from "./AgentSkillVideo";
 import { OpenClawIntroVideo } from "./OpenClawIntroVideo";
 import { OpenClaw1Video, OPENCLAW1_TOTAL_DURATION } from "./OpenClaw1Video";
+import { OpenClawFreeModelVideo, OPENCLAWFREEMODEL_TOTAL_DURATION } from "./OpenClawFreeModelVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -454,6 +455,19 @@ export const RemotionRoot = () => {
         id="OpenClaw1Video"
         component={OpenClaw1Video}
         durationInFrames={6127} // 总帧数：454+637+606+699+800+615+889+637+730=6047帧，约201.57秒
+        fps={30}
+        width={1920}
+        height={1080}
+defaultProps={{
+          showCaptions: true,
+        }}
+      />
+
+      {/* OpenClawFreeModelVideo视频（普通人也能用好OpenClaw系列·第2期·白嫖大模型） */}
+      <Composition
+        id="OpenClawFreeModelVideo"
+        component={OpenClawFreeModelVideo}
+durationInFrames={5648} // 总帧数：443+616+803+834+824+575+659+894=5648帧，约188秒
         fps={30}
         width={1920}
         height={1080}

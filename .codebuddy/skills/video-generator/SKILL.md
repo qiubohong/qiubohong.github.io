@@ -360,6 +360,122 @@ public/<VideoName>/douyin-copy.md
 
 **执行时机**：步骤 1.5 完成后立即执行，输出场景设计文档后再继续执行步骤 2。
 
+---
+
+#### 📋 图片展示场景布局规范（含时间轴标签行）
+
+当场景同时包含**标签行/时间轴行**和**图片展示区域**时，必须遵守以下规范，防止标签行被挤出屏幕外。
+
+##### 布局优先级原则
+
+```
+标签行（flexShrink: 0，固定高度）
+    ↓
+图片展示区域（flex: 1，自适应剩余空间）
+```
+
+**强制规则**：
+
+- 标签行必须在图片展示区域**上方**渲染，`flexShrink: 0` 防止被压缩
+- 图片容器必须设置 `flex: 1` + `minHeight: 0`，防止撑破父容器
+- 图片使用 `width: "100%"` + `objectFit: "contain"` 自适应缩放
+
+```typescript
+// ✅ 正确布局：标签行在上，图片在下
+<div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px" }}>
+  {/* ① 标签行（先渲染，确保可见） */}
+  <div style={{ flexShrink: 0 }}>
+    {/* 时间轴标签内容 */}
+  </div>
+
+  {/* ② 图片展示区域（后渲染，自适应剩余空间） */}
+  <div style={{ flex: 1, minHeight: 0, display: "flex", alignItems: "center" }}>
+    <Img style={{ width: "100%", objectFit: "contain" }} />
+  </div>
+</div>
+
+// ❌ 错误布局：图片在上，标签行在下（标签行会被挤出屏幕）
+<div>
+  <div>{/* 图片区域 */}</div>
+  <div>{/* 标签行 ← 危险！可能超出屏幕 */}</div>
+</div>
+```
+
+##### 时间轴标签行视觉规范
+
+当标签行需要以**时间轴方式**展示多个时代/阶段时，使用以下规范：
+
+**字体大小规范**：
+
+| 元素       | 最小字号 | 推荐字号                             |
+| ---------- | -------- | ------------------------------------ |
+| 图标 emoji | 28px     | **36px**                             |
+| 年份/序号  | 16px     | **20px**，各阶段专属色，bold         |
+| 标签名称   | 20px     | **26px**，`#c9d1d9`，font-weight 900 |
+| 描述文字   | 14px     | **18px**，`#8b949e`                  |
+
+**时间轴箭头**（卡片之间添加 SVG 箭头连接）：
+
+```typescript
+// 使用 React.Fragment 包裹卡片 + 箭头，形成时间轴流向
+{items.map((item, i) => {
+  const isLast = i === items.length - 1;
+  return (
+    <React.Fragment key={i}>
+      <div style={{ flex: 1, /* 卡片样式 */ }}>
+        {/* 标签卡片内容 */}
+      </div>
+      {!isLast && (
+        <div style={{ flexShrink: 0, width: "40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <svg width="36" height="20" viewBox="0 0 36 20">
+            <line x1="0" y1="10" x2="28" y2="10" stroke="#8b949e" strokeWidth="2" />
+            <polygon points="28,4 36,10 28,16" fill="#8b949e" />
+          </svg>
+        </div>
+      )}
+    </React.Fragment>
+  );
+})}
+```
+
+**入场动画**（错位弹入，符合 spring 规范）：
+
+```typescript
+const tagSpring = spring({
+  frame: Math.max(0, frame - 30 - i * 10), // 每张错位 10 帧
+  fps,
+  config: { stiffness: 100, damping: 20, mass: 1.2 },
+});
+const tagY = interpolate(tagSpring, [0, 1], [30, 0]);
+const tagOpacity = interpolate(tagSpring, [0, 1], [0, 1]);
+```
+
+**当前高亮时代**（脉冲动画）：
+
+```typescript
+// 最后一个/当前时代使用脉冲高亮
+const highlightPulse = 0.7 + Math.sin(frame * 0.1) * 0.3;
+const isCurrentEra = i === items.length - 1;
+
+// 卡片样式
+background: isCurrentEra
+  ? `rgba(63,185,80,${highlightPulse * 0.15})`
+  : `${item.color}10`,
+border: isCurrentEra
+  ? `2px solid rgba(63,185,80,${highlightPulse * 0.7})`
+  : `1px solid ${item.color}35`,
+boxShadow: isCurrentEra
+  ? `0 0 24px rgba(63,185,80,${highlightPulse * 0.35})`
+  : "none",
+```
+
+##### 简洁原则
+
+- **去掉冗余图标**：若标签卡片已有年份+名称+描述，可去掉 emoji 图标，保持简洁
+- **三要素原则**：每个标签卡片只保留「年份 → 标签名称 → 描述文字」三行信息即可
+
+---
+
 ### 步骤 2：场景文件与字幕生成
 
 **输入**：步骤 1 生成的分场景文案（含图片使用计划）
