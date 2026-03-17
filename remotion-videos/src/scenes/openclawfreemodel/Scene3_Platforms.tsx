@@ -6,6 +6,7 @@ import {
     spring,
     useVideoConfig,
     Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -82,10 +83,10 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
             </div>
 
             {/* 平台卡片网格 - 4列布局 */}
-            <div style={{ 
-                display: "grid", 
-                gridTemplateColumns: "repeat(4, 1fr)", 
-                gap: "10px", 
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "10px",
                 flex: 1,
                 alignContent: "start",
             }}>
@@ -111,17 +112,17 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
                             flexDirection: "column",
                             gap: "6px",
                         }}>
-                            <div style={{ fontSize: "42px", textAlign: "center" }}>{p.icon}</div>
+                            <div style={{ fontSize: "46px", textAlign: "center" }}>{p.icon}</div>
                             <div style={{ textAlign: "center" }}>
-                                <p style={{ fontSize: "24px", fontWeight: 900, color: p.color, margin: "0 0 4px 0" }}>{p.name}</p>
-                                <p style={{ fontSize: "18px", color: THEME.textPrimary, margin: "0 0 4px 0", fontWeight: "bold" }}>{p.tokens}</p>
-                                <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0 }}>{p.desc}</p>
+                                <p style={{ fontSize: "32px", fontWeight: 900, color: p.color, margin: "0 0 4px 0" }}>{p.name}</p>
+                                <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: "0 0 4px 0", fontWeight: "bold" }}>{p.tokens}</p>
+                                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>{p.desc}</p>
                             </div>
                             <div style={{
                                 background: `${p.color}20`,
                                 borderRadius: "8px",
                                 padding: "5px 10px",
-                                fontSize: "16px",
+                                fontSize: "24px",
                                 color: p.color,
                                 fontWeight: "bold",
                                 textAlign: "center",
@@ -211,7 +212,7 @@ export const OpenClawFreeModel_Scene3_5_PlatformChart: React.FC = () => {
                 transform: `scale(${imgScale})`,
             }}>
                 <Img
-                    src="/assets/img/ailearn/openclaw/02/platform_comparison.png"
+                    src={staticFile("OpenClawFreeModelVideo/platform_comparison.png")}
                     style={{
                         maxWidth: "90%",
                         maxHeight: "80%",

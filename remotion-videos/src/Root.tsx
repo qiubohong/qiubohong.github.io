@@ -458,7 +458,7 @@ export const RemotionRoot = () => {
         fps={30}
         width={1920}
         height={1080}
-defaultProps={{
+        defaultProps={{
           showCaptions: true,
         }}
       />
@@ -467,7 +467,7 @@ defaultProps={{
       <Composition
         id="OpenClawFreeModelVideo"
         component={OpenClawFreeModelVideo}
-durationInFrames={5648} // 总帧数：443+616+803+834+824+575+659+894=5648帧，约188秒
+        durationInFrames={7459} // 总帧数：443+616+475+803+518+834+824+575+593+659+585+894=7459帧，约249秒（基于实际音频时长）
         fps={30}
         width={1920}
         height={1080}

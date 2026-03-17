@@ -24,16 +24,20 @@ OUTPUT_DIR = SCRIPT_DIR
 SCENES = {
     "scene1": {"name": "开场钩子",   "caption_file": "scene1-captions.json", "output_file": "scene1-audio.mp3"},
     "scene2": {"name": "为什么需要大模型", "caption_file": "scene2-captions.json", "output_file": "scene2-audio.mp3"},
+    "scene2_5": {"name": "大模型注册和配置流程图", "caption_file": "scene2_5-captions.json", "output_file": "scene2_5-audio.mp3"},
     "scene3": {"name": "免费平台大盘点", "caption_file": "scene3-captions.json", "output_file": "scene3-audio.mp3"},
+    "scene3_5": {"name": "大模型平台对比图", "caption_file": "scene3_5-captions.json", "output_file": "scene3_5-audio.mp3"},
     "scene4": {"name": "智谱AI注册教程", "caption_file": "scene4-captions.json", "output_file": "scene4-audio.mp3"},
     "scene5": {"name": "第三方平台薅羊毛", "caption_file": "scene5-captions.json", "output_file": "scene5-audio.mp3"},
     "scene6": {"name": "不同模型怎么选", "caption_file": "scene6-captions.json", "output_file": "scene6-audio.mp3"},
+    "scene6_5": {"name": "大模型选择指南图", "caption_file": "scene6_5-captions.json", "output_file": "scene6_5-audio.mp3"},
     "scene7": {"name": "tokens是什么", "caption_file": "scene7-captions.json", "output_file": "scene7-audio.mp3"},
+    "scene7_5": {"name": "tokens用量估算图", "caption_file": "scene7_5-captions.json", "output_file": "scene7_5-audio.mp3"},
     "scene8": {"name": "结尾互动", "caption_file": "scene8-captions.json", "output_file": "scene8-audio.mp3"},
 }
 
 # 需要强制重新生成的场景（字幕已更新时使用）
-FORCE_REGENERATE = set()
+FORCE_REGENERATE = {"scene2_5", "scene3_5", "scene6_5", "scene7_5"}
 
 # Qwen3-TTS模型实例（单例）
 _qwen_model = None

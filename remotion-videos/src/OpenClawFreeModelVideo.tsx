@@ -14,28 +14,28 @@ import { CaptionDisplay } from "./components/CaptionDisplay";
 // 基于实际音频时长 + 30帧缓冲
 // scene1: 13.76秒 → 413帧 + 30 = 443帧
 // scene2: 19.52秒 → 586帧 + 30 = 616帧
-// scene2.5: 图片展示场景 → 90帧（3秒）
+// scene2.5: 大模型注册流程图 → 14.86秒 → 445帧 + 30 = 475帧
 // scene3: 25.76秒 → 773帧 + 30 = 803帧
-// scene3.5: 图片展示场景 → 90帧（3秒）
+// scene3.5: 大模型平台对比图 → 16.30秒 → 488帧 + 30 = 518帧
 // scene4: 26.80秒 → 804帧 + 30 = 834帧
 // scene5: 26.48秒 → 794帧 + 30 = 824帧
 // scene6: 18.16秒 → 545帧 + 30 = 575帧
-// scene6.5: 图片展示场景 → 90帧（3秒）
+// scene6.5: 大模型选择指南图 → 18.77秒 → 563帧 + 30 = 593帧
 // scene7: 20.96秒 → 629帧 + 30 = 659帧
-// scene7.5: 图片展示场景 → 90帧（3秒）
+// scene7.5: tokens用量估算图 → 18.53秒 → 555帧 + 30 = 585帧
 // scene8: 28.80秒 → 864帧 + 30 = 894帧
 const SCENE_DURATIONS = {
     scene1: 443,   // 13.76秒 + 30帧缓冲
     scene2: 616,   // 19.52秒 + 30帧缓冲
-    scene2_5: 90,  // 图片展示场景（3秒）
+    scene2_5: 475, // 大模型注册流程图（14.86秒 + 30帧缓冲）
     scene3: 803,   // 25.76秒 + 30帧缓冲
-    scene3_5: 90,  // 图片展示场景（3秒）
+    scene3_5: 518, // 大模型平台对比图（16.30秒 + 30帧缓冲）
     scene4: 834,   // 26.80秒 + 30帧缓冲
     scene5: 824,   // 26.48秒 + 30帧缓冲
     scene6: 575,   // 18.16秒 + 30帧缓冲
-    scene6_5: 90,  // 图片展示场景（3秒）
+    scene6_5: 593, // 大模型选择指南图（18.77秒 + 30帧缓冲）
     scene7: 659,   // 20.96秒 + 30帧缓冲
-    scene7_5: 90,  // 图片展示场景（3秒）
+    scene7_5: 585, // tokens用量估算图（18.53秒 + 30帧缓冲）
     scene8: 894,   // 28.80秒 + 30帧缓冲
 };
 
@@ -102,6 +102,10 @@ export const OpenClawFreeModelVideo: React.FC<OpenClawFreeModelVideoProps> = ({
             <Sequence from={s2_5Start} durationInFrames={SCENE_DURATIONS.scene2_5}>
                 <AbsoluteFill>
                     <OpenClawFreeModel_Scene2_5_RegistrationFlow />
+                    <Audio src={staticFile("OpenClawFreeModelVideo/scene2_5-audio.mp3")} volume={0.8} />
+                    {showCaptions && (
+                        <CaptionDisplay captionFile="OpenClawFreeModelVideo/scene2_5-captions.json" />
+                    )}
                 </AbsoluteFill>
             </Sequence>
 
@@ -120,6 +124,10 @@ export const OpenClawFreeModelVideo: React.FC<OpenClawFreeModelVideoProps> = ({
             <Sequence from={s3_5Start} durationInFrames={SCENE_DURATIONS.scene3_5}>
                 <AbsoluteFill>
                     <OpenClawFreeModel_Scene3_5_PlatformChart />
+                    <Audio src={staticFile("OpenClawFreeModelVideo/scene3_5-audio.mp3")} volume={0.8} />
+                    {showCaptions && (
+                        <CaptionDisplay captionFile="OpenClawFreeModelVideo/scene3_5-captions.json" />
+                    )}
                 </AbsoluteFill>
             </Sequence>
 
@@ -160,6 +168,10 @@ export const OpenClawFreeModelVideo: React.FC<OpenClawFreeModelVideoProps> = ({
             <Sequence from={s6_5Start} durationInFrames={SCENE_DURATIONS.scene6_5}>
                 <AbsoluteFill>
                     <OpenClawFreeModel_Scene6_5_SelectionGuide />
+                    <Audio src={staticFile("OpenClawFreeModelVideo/scene6_5-audio.mp3")} volume={0.8} />
+                    {showCaptions && (
+                        <CaptionDisplay captionFile="OpenClawFreeModelVideo/scene6_5-captions.json" />
+                    )}
                 </AbsoluteFill>
             </Sequence>
 
@@ -178,6 +190,10 @@ export const OpenClawFreeModelVideo: React.FC<OpenClawFreeModelVideoProps> = ({
             <Sequence from={s7_5Start} durationInFrames={SCENE_DURATIONS.scene7_5}>
                 <AbsoluteFill>
                     <OpenClawFreeModel_Scene7_5_TokensChart />
+                    <Audio src={staticFile("OpenClawFreeModelVideo/scene7_5-audio.mp3")} volume={0.8} />
+                    {showCaptions && (
+                        <CaptionDisplay captionFile="OpenClawFreeModelVideo/scene7_5-captions.json" />
+                    )}
                 </AbsoluteFill>
             </Sequence>
 

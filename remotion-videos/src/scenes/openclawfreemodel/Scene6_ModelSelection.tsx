@@ -6,6 +6,7 @@ import {
     spring,
     useVideoConfig,
     Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -82,10 +83,10 @@ export const OpenClawFreeModel_Scene6_ModelSelection: React.FC = () => {
             </div>
 
             {/* 模型卡片 - 两列布局 */}
-            <div style={{ 
-                display: "grid", 
-                gridTemplateColumns: "repeat(2, 1fr)", 
-                gap: "12px", 
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "12px",
                 flex: 1,
                 alignContent: "start",
             }}>
@@ -121,15 +122,15 @@ export const OpenClawFreeModel_Scene6_ModelSelection: React.FC = () => {
                                 fontWeight: "bold",
                                 flexShrink: 0,
                             }}>{m.platform}</div>
-                            
+
                             {/* 模型名称 */}
-                            <div style={{ 
-                                fontSize: "22px", 
-                                fontWeight: 900, 
+                            <div style={{
+                                fontSize: "22px",
+                                fontWeight: 900,
                                 color: m.color,
                                 flexShrink: 0,
                             }}>{m.name}</div>
-                            
+
                             {/* 描述 */}
                             <div style={{ flex: 1, fontSize: "18px", color: THEME.textPrimary }}>
                                 {m.desc}
@@ -234,7 +235,7 @@ export const OpenClawFreeModel_Scene6_5_SelectionGuide: React.FC = () => {
                 transform: `scale(${imgScale})`,
             }}>
                 <Img
-                    src="/assets/img/ailearn/openclaw/02/model_selection.png"
+                    src={staticFile("OpenClawFreeModelVideo/model_selection.png")}
                     style={{
                         maxWidth: "90%",
                         maxHeight: "80%",

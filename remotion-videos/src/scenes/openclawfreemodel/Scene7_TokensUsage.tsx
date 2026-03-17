@@ -6,6 +6,7 @@ import {
     spring,
     useVideoConfig,
     Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -51,9 +52,9 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                padding: "40px 60px",
+                padding: "30px 50px",
                 boxSizing: "border-box",
-                gap: "14px",
+                gap: "18px",
             }}
         >
             {/* 弥散光 */}
@@ -67,15 +68,15 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
             {/* 标题 */}
             <div style={{ opacity: titleOpacity, transform: `translateY(${titleY}px)`, flexShrink: 0 }}>
                 <h2 style={{
-                    fontSize: "48px", fontWeight: 900, margin: "0 0 4px 0",
+                    fontSize: "58px", fontWeight: 900, margin: "0 0 6px 0",
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                     backgroundClip: "text", letterSpacing: "-0.05em",
                 }}>
                     tokens 是什么？能用多久？
                 </h2>
-                <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>
-                    很多人看到"2000万tokens"不知道是多还是少
+                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
+                    很多人看到                    很多人看到"2000万tokens"不知道是多还是少
                 </p>
             </div>
 
@@ -84,48 +85,48 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
                 opacity: explainOpacity,
                 background: "rgba(88,166,255,0.08)",
                 borderRadius: "16px",
-                padding: "16px 24px",
+                padding: "20px 32px",
                 border: "1px solid rgba(88,166,255,0.3)",
                 flexShrink: 0,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                gap: "32px",
+                gap: "40px",
             }}>
                 <div style={{ textAlign: "center" }}>
-                    <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: 0 }}>
+                    <p style={{ fontSize: "26px", color: THEME.textPrimary, margin: 0 }}>
                         <span style={{ color: "#58a6ff", fontWeight: "bold" }}>tokens</span> = "字数"
                     </p>
                 </div>
-                <div style={{ width: "1px", height: "30px", background: "rgba(88,166,255,0.3)" }} />
+                <div style={{ width: "1px", height: "40px", background: "rgba(88,166,255,0.3)" }} />
                 <div style={{ textAlign: "center" }}>
-                    <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>
+                    <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                         1万tokens ≈ 7000汉字
                     </p>
                 </div>
-                <div style={{ width: "1px", height: "30px", background: "rgba(88,166,255,0.3)" }} />
+                <div style={{ width: "1px", height: "40px", background: "rgba(88,166,255,0.3)" }} />
                 <div style={{ textAlign: "center" }}>
-                    <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>
+                    <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                         2000万tokens ≈ 1400万字
                     </p>
                 </div>
             </div>
 
             {/* 用户类型表格 */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "10px" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {/* 表头 */}
                 <div style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1.2fr 1fr 1.5fr",
-                    gap: "12px",
-                    padding: "10px 16px",
+                    gap: "16px",
+                    padding: "14px 20px",
                     background: "rgba(255,255,255,0.04)",
-                    borderRadius: "10px",
+                    borderRadius: "12px",
                 }}>
-                    <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>用户类型</p>
-                    <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>月消耗 tokens</p>
-                    <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>等效月成本</p>
-                    <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>典型场景</p>
+                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>用户类型</p>
+                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>月消耗 tokens</p>
+                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>等效月成本</p>
+                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0, fontWeight: "bold" }}>典型场景</p>
                 </div>
 
                 {/* 用户类型行 */}
@@ -144,20 +145,20 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
                             transform: `translateX(${rowX}px)`,
                             display: "grid",
                             gridTemplateColumns: "1fr 1.2fr 1fr 1.5fr",
-                            gap: "12px",
-                            padding: "14px 16px",
+                            gap: "16px",
+                            padding: "18px 20px",
                             background: `${u.color}08`,
-                            borderRadius: "12px",
+                            borderRadius: "14px",
                             border: `1px solid ${u.color}25`,
                             alignItems: "center",
                         }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                <span style={{ fontSize: "22px" }}>{u.icon}</span>
-                                <p style={{ fontSize: "20px", fontWeight: "bold", color: u.color, margin: 0 }}>{u.type}</p>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <span style={{ fontSize: "30px" }}>{u.icon}</span>
+                                <p style={{ fontSize: "26px", fontWeight: 900, color: u.color, margin: 0 }}>{u.type}</p>
                             </div>
-                            <p style={{ fontSize: "20px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>{u.tokens}</p>
-                            <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>{u.cost}</p>
-                            <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>{u.scene}</p>
+                            <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>{u.tokens}</p>
+                            <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>{u.cost}</p>
+                            <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>{u.scene}</p>
                         </div>
                     );
                 })}
@@ -167,12 +168,12 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
             <div style={{
                 background: "linear-gradient(135deg, rgba(63,185,80,0.15) 0%, rgba(88,166,255,0.1) 100%)",
                 borderRadius: "14px",
-                padding: "14px 20px",
+                padding: "18px 24px",
                 border: "1px solid rgba(63,185,80,0.3)",
                 textAlign: "center",
                 flexShrink: 0,
             }}>
-                <p style={{ fontSize: "20px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
+                <p style={{ fontSize: "26px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
                     🎉 免费额度2000万tokens，轻度用户够用好几个月！
                 </p>
             </div>
@@ -242,7 +243,7 @@ export const OpenClawFreeModel_Scene7_5_TokensChart: React.FC = () => {
                 transform: `scale(${imgScale})`,
             }}>
                 <Img
-                    src="/assets/img/ailearn/openclaw/02/tokens_usage.png"
+                    src={staticFile("OpenClawFreeModelVideo/tokens_usage.png")}
                     style={{
                         maxWidth: "90%",
                         maxHeight: "80%",

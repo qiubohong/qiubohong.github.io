@@ -6,6 +6,7 @@ import {
     spring,
     useVideoConfig,
     Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -75,21 +76,21 @@ export const OpenClawFreeModel_Scene2_WhyNeed: React.FC = () => {
             </div>
 
             {/* 两张卡片并排 */}
-            <div style={{ display: "flex", gap: "24px", flex: 1, alignItems: "stretch" }}>
+            <div style={{ display: "flex", gap: "40px", flex: 1, alignItems: "stretch" }}>
                 {/* 手脚卡片 */}
                 <div style={{
                     flex: 1,
                     opacity: card1Opacity,
                     background: "rgba(240,136,62,0.08)",
                     borderRadius: "24px",
-                    padding: "32px 24px",
+                    padding: "40px 32px",
                     border: "1px solid rgba(240,136,62,0.3)",
                     backdropFilter: "blur(16px)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "16px",
+                    gap: "24px",
                 }}>
                     <div style={{ fontSize: "90px" }}>🦞</div>
                     <p style={{
@@ -99,12 +100,12 @@ export const OpenClawFreeModel_Scene2_WhyNeed: React.FC = () => {
                     <div style={{
                         background: "rgba(240,136,62,0.1)",
                         borderRadius: "16px",
-                        padding: "18px 22px",
+                        padding: "24px 28px",
                         width: "100%",
                         boxSizing: "border-box",
                     }}>
                         <p style={{ fontSize: "30px", color: THEME.textPrimary, margin: 0, textAlign: "center", lineHeight: 1.6 }}>
-                            接收指令<br/>调用工具<br/>执行任务
+                            接收指令<br />调用工具<br />执行任务
                         </p>
                     </div>
                 </div>
@@ -115,14 +116,14 @@ export const OpenClawFreeModel_Scene2_WhyNeed: React.FC = () => {
                     opacity: card2Opacity,
                     background: "rgba(88,166,255,0.08)",
                     borderRadius: "24px",
-                    padding: "32px 24px",
+                    padding: "40px 32px",
                     border: "1px solid rgba(88,166,255,0.3)",
                     backdropFilter: "blur(16px)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "16px",
+                    gap: "24px",
                 }}>
                     <div style={{ fontSize: "90px" }}>🧠</div>
                     <p style={{
@@ -132,12 +133,12 @@ export const OpenClawFreeModel_Scene2_WhyNeed: React.FC = () => {
                     <div style={{
                         background: "rgba(88,166,255,0.1)",
                         borderRadius: "16px",
-                        padding: "18px 22px",
+                        padding: "24px 28px",
                         width: "100%",
                         boxSizing: "border-box",
                     }}>
                         <p style={{ fontSize: "30px", color: THEME.textPrimary, margin: 0, textAlign: "center", lineHeight: 1.6 }}>
-                            理解你的话<br/>制定计划<br/>决定下一步
+                            理解你的话<br />制定计划<br />决定下一步
                         </p>
                     </div>
                 </div>
@@ -149,16 +150,17 @@ export const OpenClawFreeModel_Scene2_WhyNeed: React.FC = () => {
                 transform: `translateY(${equationY}px)`,
                 background: THEME.cardBg,
                 borderRadius: "18px",
-                padding: "20px 32px",
+                padding: "28px 40px",
                 border: "1px solid rgba(255,255,255,0.1)",
                 flexShrink: 0,
+                marginTop: "30px",
             }}>
                 <p style={{
                     fontSize: "36px", color: THEME.textPrimary,
                     margin: 0, textAlign: "center", fontFamily: "monospace",
                 }}>
-                    <span style={{ color: THEME.accent }}>龙虾</span> = 
-                    <span style={{ color: THEME.accent }}> 勤快的手脚</span> + 
+                    <span style={{ color: THEME.accent }}>龙虾</span> =
+                    <span style={{ color: THEME.accent }}> 勤快的手脚</span> +
                     <span style={{ color: "#58a6ff" }}> 借来的大脑</span>
                 </p>
                 <p style={{
@@ -234,7 +236,7 @@ export const OpenClawFreeModel_Scene2_5_RegistrationFlow: React.FC = () => {
                 transform: `scale(${imgScale})`,
             }}>
                 <Img
-                    src="/assets/img/ailearn/openclaw/02/registration_flow.png"
+                    src={staticFile("OpenClawFreeModelVideo/registration_flow.png")}
                     style={{
                         maxWidth: "90%",
                         maxHeight: "80%",
