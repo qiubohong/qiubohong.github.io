@@ -174,7 +174,7 @@ export const OpenClawFreeModel_Scene7_TokensUsage: React.FC = () => {
                 flexShrink: 0,
             }}>
                 <p style={{ fontSize: "26px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
-                    🎉 免费额度2000万tokens，轻度用户够用好几个月！
+                    🎉 免费额度2000万tokens，轻度用户足够日常学习使用！
                 </p>
             </div>
         </AbsoluteFill>

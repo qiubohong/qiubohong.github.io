@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-OpenClawFreeModelVideo 音频生成脚本（普通人也能用好 OpenClaw（龙虾）—— 白嫖大模型）
+OpenClawFreeModelVideo 音频生成脚本（普通人也能用好 OpenClaw（龙虾）—— 免费获取大模型）
 使用Qwen3-TTS模型从字幕文件生成音频
 """
 
@@ -28,7 +28,7 @@ SCENES = {
     "scene3": {"name": "免费平台大盘点", "caption_file": "scene3-captions.json", "output_file": "scene3-audio.mp3"},
     "scene3_5": {"name": "大模型平台对比图", "caption_file": "scene3_5-captions.json", "output_file": "scene3_5-audio.mp3"},
     "scene4": {"name": "智谱AI注册教程", "caption_file": "scene4-captions.json", "output_file": "scene4-audio.mp3"},
-    "scene5": {"name": "第三方平台薅羊毛", "caption_file": "scene5-captions.json", "output_file": "scene5-audio.mp3"},
+    "scene5": {"name": "第三方平台推荐详解", "caption_file": "scene5-captions.json", "output_file": "scene5-audio.mp3"},
     "scene6": {"name": "不同模型怎么选", "caption_file": "scene6-captions.json", "output_file": "scene6-audio.mp3"},
     "scene6_5": {"name": "大模型选择指南图", "caption_file": "scene6_5-captions.json", "output_file": "scene6_5-audio.mp3"},
     "scene7": {"name": "tokens是什么", "caption_file": "scene7-captions.json", "output_file": "scene7-audio.mp3"},
@@ -113,7 +113,7 @@ def generate_audio(text: str, output_path: Path, max_retries: int = 3) -> bool:
 
 def main():
     print("=" * 60)
-    print("OpenClawFreeModelVideo 音频生成（普通人也能用好 OpenClaw（龙虾）—— 白嫖大模型）")
+    print("OpenClawFreeModelVideo 音频生成（普通人也能用好 OpenClaw（龙虾）—— 免费获取大模型）")
     print("=" * 60)
 
     success_count = 0

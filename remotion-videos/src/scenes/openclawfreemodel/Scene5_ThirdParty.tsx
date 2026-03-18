@@ -178,7 +178,7 @@ export const OpenClawFreeModel_Scene5_ThirdParty: React.FC = () => {
                 flexShrink: 0,
             }}>
                 <p style={{ fontSize: "18px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
-                    💡 小贴士：全部注册，总额度数亿 tokens，足够免费使用好几年！
+                    💡 小贴士：全部注册，总额度数亿 tokens，足够日常学习和开发使用！
                 </p>
             </div>
         </AbsoluteFill>

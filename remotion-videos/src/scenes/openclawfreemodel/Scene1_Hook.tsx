@@ -117,7 +117,7 @@ export const OpenClawFreeModel_Scene1_Hook: React.FC = () => {
                     backgroundClip: "text", lineHeight: 1.1,
                     letterSpacing: "-0.05em",
                 }}>
-                    白嫖大模型 API
+                    免费获取大模型 API
                 </h1>
                 <p style={{ fontSize: "34px", color: THEME.textPrimary, margin: 0, letterSpacing: "-0.02em" }}>
                     龙虾需要<span style={{ color: `rgba(240,136,62,${highlight})`, fontWeight: "bold" }}>大模型大脑</span>才能思考，但这个大脑要花钱吗？
@@ -140,7 +140,7 @@ export const OpenClawFreeModel_Scene1_Hook: React.FC = () => {
                             <span style={{ fontSize: "28px", color: THEME.textPrimary }}>tokens 免费额度</span>
                         </div>
                         <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>
-                            三个平台都注册，总额度够用好几年！
+                            三个平台都注册，总额度足够日常学习使用！
                         </p>
                     </div>
                 </div>

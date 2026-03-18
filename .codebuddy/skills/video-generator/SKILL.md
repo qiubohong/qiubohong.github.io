@@ -40,6 +40,7 @@ nvm use ai
    - 视频标题（吸引眼球、适合短视频平台）
    - **抖音短视频标题**（15-20 字，吸引眼球，可带数字、疑问句、感叹号）
    - **抖音短视频文案**（100-200 字，包含：视频亮点概述、互动引导、相关标签）
+   - **抖音合规自检**：文案生成后，必须对照 [references/douyin-policy.md](references/douyin-policy.md) 中的合规清单逐项检查，确保无违规词汇和夸大宣传
    - 视频主题和核心要点
    - 分场景文案（每个场景对应一个知识点，时长控制在 15-45 秒）
    - **图片使用计划**（标注哪些场景需要展示图片）
@@ -121,14 +122,17 @@ public/<VideoName>/douyin-copy.md
   **文案内容强制规则**（必须遵守）：
 
 1. **前置核心价值（钩子）**：开场白之后，必须立即抛出该技术/概念能为用户带来的**具体好处**，用利益驱动抓住用户注意力。
+
    - 格式：`"学会[主题]，[具体好处]！"` 或 `"[主题]让你的[工具/工作流]像[通俗比喻]一样简单！"`
    - 示例：`"学会MCP，让你的AI工具像搭积木一样简单！"` / `"掌握Agent Skill，AI再也不用重复解释工作流程！"`
 
 2. **案例演示场景（必须包含）**：讲解完核心理论后，**必须安排至少一个贴近生活的实际应用案例场景**，让抽象技术具体可感。
+
    - 案例要具体可操作，展示完整的使用步骤
    - 优先选择日常生活场景（天气查询、日程管理、文件处理等）
 
 3. **呼吸点设计（必须包含）**：讲解完复杂知识点后，**必须插入一个简短的总结或通俗类比**，给观众消化信息的时间。
+
    - 时长约 10-15 秒
    - 格式：`"简单来说，[主题]就像[通俗类比]"` 或 `"记住这个关键点：[一句话总结]"`
 
@@ -221,6 +225,19 @@ AI 提示词写不好？这个技巧让你秒变高手！🔥
 
 **强制要求**：步骤 1 生成的抖音短视频标题和文案，必须同步写入对应的文档文件中保存，不能只在对话中输出。
 
+**抖音合规要求**（写入文档前必须完成）：
+
+对照 [references/douyin-policy.md](references/douyin-policy.md) 完成以下合规自检，不合规的内容必须修改后再写入：
+
+```
+□ 标题/文案中是否含有低俗词汇（白嫖、薅羊毛等）？→ 替换为：免费获取/零成本/领取福利
+□ 是否有夸大宣传（够用好几年、永久免费、100%有效等）？→ 替换为客观描述
+□ 数据和功能描述是否真实准确？
+□ 标签是否含有违规词汇（#白嫖指南 等）？→ 替换为：#免费教程/#AI学习
+□ 是否有诱导性承诺（快速赚钱、稳赚不赔等）？
+□ 内容是否传递积极正向的价值观？
+```
+
 **输出路径规则**：
 
 ```
@@ -287,14 +304,20 @@ public/<VideoName>/douyin-copy.md
 - **弥散光背景（Mesh Gradient）**：使用多个 `absolute` 定位的 `rounded-full` 渐变球，配合 `filter: blur(100px)` 缓慢移动。
   ```typescript
   // 弥散光球示例
-  <div style={{
-    position: "absolute", width: 400, height: 400, borderRadius: "50%",
-    background: "radial-gradient(circle, rgba(88,166,255,0.3) 0%, transparent 70%)",
-    filter: "blur(80px)",
-    left: `${50 + Math.sin(frame * 0.01) * 10}%`,
-    top: `${30 + Math.cos(frame * 0.008) * 8}%`,
-    transform: "translate(-50%, -50%)",
-  }} />
+  <div
+    style={{
+      position: "absolute",
+      width: 400,
+      height: 400,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle, rgba(88,166,255,0.3) 0%, transparent 70%)",
+      filter: "blur(80px)",
+      left: `${50 + Math.sin(frame * 0.01) * 10}%`,
+      top: `${30 + Math.cos(frame * 0.008) * 8}%`,
+      transform: "translate(-50%, -50%)",
+    }}
+  />
   ```
 - **高级毛玻璃（Glassmorphism）**：容器必须使用 `bg-white/5` 配合 `backdrop-filter: blur(16px)` 和 `border: 1px solid rgba(255,255,255,0.1)`。
 - **噪点颗粒（Film Grain）**：在最高层叠加透明度 `0.02` 的静态噪点层，消除数字平滑感，增加胶片质感。
@@ -355,7 +378,7 @@ public/<VideoName>/douyin-copy.md
 | 10~40 | 标题 spring 滑入 |
 | ... | ... |
 
-**特殊效果**：[对比分屏/数据流动/AI对话/Mermaid图表等]
+**特殊效果**：[对比分屏/数据流动/AI 对话/Mermaid 图表等]
 ```
 
 **执行时机**：步骤 1.5 完成后立即执行，输出场景设计文档后再继续执行步骤 2。
@@ -418,24 +441,39 @@ public/<VideoName>/douyin-copy.md
 
 ```typescript
 // 使用 React.Fragment 包裹卡片 + 箭头，形成时间轴流向
-{items.map((item, i) => {
-  const isLast = i === items.length - 1;
-  return (
-    <React.Fragment key={i}>
-      <div style={{ flex: 1, /* 卡片样式 */ }}>
-        {/* 标签卡片内容 */}
-      </div>
-      {!isLast && (
-        <div style={{ flexShrink: 0, width: "40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <svg width="36" height="20" viewBox="0 0 36 20">
-            <line x1="0" y1="10" x2="28" y2="10" stroke="#8b949e" strokeWidth="2" />
-            <polygon points="28,4 36,10 28,16" fill="#8b949e" />
-          </svg>
-        </div>
-      )}
-    </React.Fragment>
-  );
-})}
+{
+  items.map((item, i) => {
+    const isLast = i === items.length - 1;
+    return (
+      <React.Fragment key={i}>
+        <div style={{ flex: 1 /* 卡片样式 */ }}>{/* 标签卡片内容 */}</div>
+        {!isLast && (
+          <div
+            style={{
+              flexShrink: 0,
+              width: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg width="36" height="20" viewBox="0 0 36 20">
+              <line
+                x1="0"
+                y1="10"
+                x2="28"
+                y2="10"
+                stroke="#8b949e"
+                strokeWidth="2"
+              />
+              <polygon points="28,4 36,10 28,16" fill="#8b949e" />
+            </svg>
+          </div>
+        )}
+      </React.Fragment>
+    );
+  });
+}
 ```
 
 **入场动画**（错位弹入，符合 spring 规范）：
@@ -790,6 +828,7 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
 **校验流程**：
 
 1. **第一次校验**：读取视频主组件（如 `XXXVideo.tsx`）
+
    - 提取所有 `<TransitionSeries.Sequence durationInFrames={xxx}>` 的帧数
    - **验证 EndingScene 存在**：检查最后一个场景是否为 EndingScene
    - **验证 EndingScene 帧数**：确认 EndingScene 帧数为 180 帧（6 秒）
@@ -798,6 +837,7 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
    - 计算预期总帧数：`预期总帧数 = 场景总帧数 + 转场总帧数`
 
 2. **第二次校验**：读取 Root.tsx
+
    - 找到对应视频的 `<Composition>` 定义
    - 提取 `durationInFrames` 属性值
    - 对比：`Root.tsx中的durationInFrames === 预期总帧数`
@@ -895,6 +935,7 @@ python scripts/generate_cover_images.py \
 **封面图要求**：
 
 - **16:9 横版封面图**：
+
   - 尺寸：1920×1080 像素
   - 适合电脑端和 YouTube 等平台
   - 标题位置：居中或左侧
@@ -1157,7 +1198,7 @@ const chatPanelOpacity = interpolate(
 const getTypingText = (
   text: string,
   startFrame: number,
-  charsPerFrame = 1.2,
+  charsPerFrame = 1.2
 ) => {
   const elapsed = Math.max(0, frame - startFrame);
   const charsToShow = Math.floor(elapsed * charsPerFrame);
@@ -1247,7 +1288,7 @@ const countUp = (target: number, startFrame: number, duration = 60) => {
       easing: Easing.out(Easing.cubic),
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
-    }),
+    })
   );
 };
 ```
@@ -1525,3 +1566,7 @@ flowchart TD
 
 - [audio-duration-calculator](../audio-duration-calculator/SKILL.md) - 音频时长计算
 - [remotion-best-practices](../remotion-best-practices/SKILL.md) - Remotion 最佳实践
+
+## 抖音合规参考
+
+- [references/douyin-policy.md](references/douyin-policy.md) - 抖音社区自律公约核心规则（文案合规自检清单、禁用词汇、夸大宣传判断标准）

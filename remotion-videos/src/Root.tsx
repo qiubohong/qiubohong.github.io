@@ -463,11 +463,11 @@ export const RemotionRoot = () => {
         }}
       />
 
-      {/* OpenClawFreeModelVideo视频（普通人也能用好OpenClaw系列·第2期·白嫖大模型） */}
+      {/* OpenClawFreeModelVideo视频（普通人也能用好OpenClaw系列·第2期·免费获取大模型） */}
       <Composition
         id="OpenClawFreeModelVideo"
         component={OpenClawFreeModelVideo}
-        durationInFrames={7459} // 总帧数：443+616+475+803+518+834+824+575+593+659+585+894=7459帧，约249秒（基于实际音频时长）
+        durationInFrames={7866} // 总帧数：456+639+454+859+528+837+783+636+603+646+588+837=7866帧，约262秒（基于实际音频时长+30帧缓冲）
         fps={30}
         width={1920}
         height={1080}
