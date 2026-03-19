@@ -31,6 +31,7 @@ import { AgentSkillVideo } from "./AgentSkillVideo";
 import { OpenClawIntroVideo } from "./OpenClawIntroVideo";
 import { OpenClaw1Video, OPENCLAW1_TOTAL_DURATION } from "./OpenClaw1Video";
 import { OpenClawFreeModelVideo, OPENCLAWFREEMODEL_TOTAL_DURATION } from "./OpenClawFreeModelVideo";
+import { OpenClawInstallVideo, OPENCLAWINSTALL_TOTAL_DURATION } from "./OpenClawInstallVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -468,6 +469,19 @@ export const RemotionRoot = () => {
         id="OpenClawFreeModelVideo"
         component={OpenClawFreeModelVideo}
         durationInFrames={7866} // 总帧数：456+639+454+859+528+837+783+636+603+646+588+837=7866帧，约262秒（基于实际音频时长+30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          showCaptions: true,
+        }}
+      />
+
+      {/* OpenClawInstallVideo视频（普通人也能用好OpenClaw系列·第3期·安装龙虾） */}
+      <Composition
+        id="OpenClawInstallVideo"
+        component={OpenClawInstallVideo}
+        durationInFrames={5460} // 总帧数：434+703+943+778+495+689+612+545+261=5460帧，约182秒（基于实际音频时长+30帧缓冲）
         fps={30}
         width={1920}
         height={1080}

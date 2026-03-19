@@ -1,0 +1,37 @@
+[
+    {
+        "text": "装好之后，马上就能用！",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "在QQ或飞书里给龙虾发一条消息：",
+        "startMs": 2500,
+        "endMs": 5000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "\"每天早上8点，把今天的天气、3条重要新闻、今日日程发给我。\"",
+        "startMs": 5000,
+        "endMs": 9500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "龙虾会自动查天气、抓新闻、读日历，整理成早报格式发给你。",
+        "startMs": 9500,
+        "endMs": 14000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "从此每天早上不用刷手机，直接看龙虾整理的早报！",
+        "startMs": 14000,
+        "endMs": 18000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    }
+]

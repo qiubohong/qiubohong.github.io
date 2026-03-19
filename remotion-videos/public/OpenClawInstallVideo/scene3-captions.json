@@ -1,0 +1,44 @@
+[
+    {
+        "text": "安装前先打开终端——Windows按Win+R输入cmd，",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "Mac按Cmd+空格搜索终端。",
+        "startMs": 3500,
+        "endMs": 5500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "然后复制这条命令：curl -fsSL https://openclaw.ai/install.sh | bash，",
+        "startMs": 5500,
+        "endMs": 10000,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "粘贴回车，等待5到10分钟，脚本会自动完成所有配置。",
+        "startMs": 10000,
+        "endMs": 14000,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "安装完成后，输入你的智谱AI的API Key，",
+        "startMs": 14000,
+        "endMs": 17500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "就是上一篇拿到的那把\"大脑钥匙\"。",
+        "startMs": 17500,
+        "endMs": 21000,
+        "timestampMs": 17500,
+        "confidence": 0.95
+    }
+]

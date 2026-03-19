@@ -1,0 +1,30 @@
+[
+    {
+        "text": "简单来说，安装龙虾就像装一个智能管家：",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "一键脚本是\"拎包入住\"，npm是\"自己装修\"，",
+        "startMs": 3500,
+        "endMs": 7000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "客户端是\"精装房\"，云服务器是\"24小时物业\"。",
+        "startMs": 7000,
+        "endMs": 10500,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "记住这个关键点：选适合自己的方式，新手就用一键脚本！",
+        "startMs": 10500,
+        "endMs": 14500,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    }
+]

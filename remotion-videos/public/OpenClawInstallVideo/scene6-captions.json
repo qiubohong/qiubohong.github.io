@@ -1,0 +1,37 @@
+[
+    {
+        "text": "安装遇到问题别慌！",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "OpenClaw有个强大的诊断工具：运行 openclaw doctor --fix，",
+        "startMs": 2000,
+        "endMs": 6000,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "它会自动检查环境、验证API Key、修复配置、重启服务。",
+        "startMs": 6000,
+        "endMs": 10000,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "90%的问题都能自动修复。",
+        "startMs": 10000,
+        "endMs": 12500,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "如果还解决不了，在评论区留言，告诉我你的操作系统、安装方式和错误提示，我来帮你！",
+        "startMs": 12500,
+        "endMs": 18000,
+        "timestampMs": 12500,
+        "confidence": 0.95
+    }
+]

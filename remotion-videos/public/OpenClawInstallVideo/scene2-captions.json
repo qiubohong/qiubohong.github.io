@@ -1,0 +1,44 @@
+[
+    {
+        "text": "OpenClaw提供了5种安装方式，就像买手机有不同套餐。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "新手首选一键脚本，5分钟搞定；",
+        "startMs": 3500,
+        "endMs": 6000,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "有技术基础的用npm，最灵活；",
+        "startMs": 6000,
+        "endMs": 8500,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "苹果用户可以下载客户端，图形界面操作；",
+        "startMs": 8500,
+        "endMs": 11500,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "想24小时运行的，选腾讯云或阿里云一键部署。",
+        "startMs": 11500,
+        "endMs": 15000,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天重点讲新手最快上手的——一键脚本安装。",
+        "startMs": 15000,
+        "endMs": 19000,
+        "timestampMs": 15000,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "text": "安装完成后，三步启动龙虾：",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，运行配置向导 openclaw onboard，按提示选择大模型和消息渠道；",
+        "startMs": 2500,
+        "endMs": 7000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二步，启动网关服务 openclaw gateway start；",
+        "startMs": 7000,
+        "endMs": 10500,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三步，打开Web管理界面 openclaw dashboard，",
+        "startMs": 10500,
+        "endMs": 14000,
+        "timestampMs": 10500,
+        "confidence": 0.95
+    },
+    {
+        "text": "浏览器会自动打开 127.0.0.1:18789。",
+        "startMs": 14000,
+        "endMs": 17000,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "看到这个界面，说明龙虾已经在你电脑上跑起来了！",
+        "startMs": 17000,
+        "endMs": 21000,
+        "timestampMs": 17000,
+        "confidence": 0.95
+    }
+]

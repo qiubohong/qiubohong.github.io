@@ -1,0 +1,30 @@
+[
+    {
+        "text": "5分钟AI，每天搞懂一个知识点！",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "今天我们学习，安装龙虾——OpenClaw。",
+        "startMs": 2500,
+        "endMs": 5500,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "学会安装，你就能让AI助手每天自动给你推送早报、提醒睡觉、查天气，",
+        "startMs": 5500,
+        "endMs": 9500,
+        "timestampMs": 5500,
+        "confidence": 0.95
+    },
+    {
+        "text": "真正帮你干活！",
+        "startMs": 9500,
+        "endMs": 11500,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    }
+]
