@@ -24,10 +24,13 @@ OUTPUT_DIR = SCRIPT_DIR
 SCENES = {
     "scene1":   {"name": "开场钩子",       "caption_file": "scene1-captions.json",   "output_file": "scene1-audio.mp3"},
     "scene2":   {"name": "五种安装方式",   "caption_file": "scene2-captions.json",   "output_file": "scene2-audio.mp3"},
+    "scene2b":  {"name": "Node.js安装",    "caption_file": "scene2b-captions.json",  "output_file": "scene2b-audio.mp3"},
     "scene3":   {"name": "一键脚本安装",   "caption_file": "scene3-captions.json",   "output_file": "scene3-audio.mp3"},
     "scene4":   {"name": "三步启动龙虾",   "caption_file": "scene4-captions.json",   "output_file": "scene4-audio.mp3"},
     "scene4_5": {"name": "呼吸点",         "caption_file": "scene4_5-captions.json", "output_file": "scene4_5-audio.mp3"},
+    "scene4b":  {"name": "配置消息渠道",   "caption_file": "scene4b-captions.json",  "output_file": "scene4b-audio.mp3"},
     "scene5":   {"name": "实际应用案例",   "caption_file": "scene5-captions.json",   "output_file": "scene5-audio.mp3"},
+    "scene5b":  {"name": "国内替代方案",   "caption_file": "scene5b-captions.json",  "output_file": "scene5b-audio.mp3"},
     "scene6":   {"name": "常见问题",       "caption_file": "scene6-captions.json",   "output_file": "scene6-audio.mp3"},
     "scene7":   {"name": "结尾总结",       "caption_file": "scene7-captions.json",   "output_file": "scene7-audio.mp3"},
     "ending":   {"name": "结尾",           "caption_file": "ending-captions.json",   "output_file": "ending-audio.mp3"},

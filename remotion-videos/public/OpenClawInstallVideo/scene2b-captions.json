@@ -1,0 +1,44 @@
+[
+    {
+        "text": "如果你选择 npm 安装方式，需要先安装 Node.js 环境。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "先检查是否已安装：在终端输入 node -v，看到版本号就可以跳过。",
+        "startMs": 3500,
+        "endMs": 7500,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "Windows 用户：访问 nodejs.org 下载 LTS 版本，双击安装包一路点下一步。",
+        "startMs": 7500,
+        "endMs": 12000,
+        "timestampMs": 7500,
+        "confidence": 0.95
+    },
+    {
+        "text": "macOS 用户推荐用 Homebrew：brew install node，一条命令搞定。",
+        "startMs": 12000,
+        "endMs": 16500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    },
+    {
+        "text": "Linux 用户：Ubuntu 执行 sudo apt install nodejs npm 即可。",
+        "startMs": 16500,
+        "endMs": 21000,
+        "timestampMs": 16500,
+        "confidence": 0.95
+    },
+    {
+        "text": "安装完成后，重新打开终端，输入 node -v，看到 v18 或更高版本就成功了！",
+        "startMs": 21000,
+        "endMs": 26000,
+        "timestampMs": 21000,
+        "confidence": 0.95
+    }
+]

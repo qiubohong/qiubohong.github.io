@@ -1,0 +1,51 @@
+[
+    {
+        "text": "除了官方 OpenClaw，国内也有 5 个基于开源的替代方案，更符合国人使用习惯。",
+        "startMs": 0,
+        "endMs": 5000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "腾讯 WorkBuddy 深度集成企业微信，适合企业办公和团队协作。",
+        "startMs": 5000,
+        "endMs": 9500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "Kimi Claw 支持微博接入，适合社交媒体运营和内容创作。",
+        "startMs": 9500,
+        "endMs": 14000,
+        "timestampMs": 9500,
+        "confidence": 0.95
+    },
+    {
+        "text": "智谱 AutoClaw 中文理解能力强，适合文档处理和知识问答。",
+        "startMs": 14000,
+        "endMs": 18500,
+        "timestampMs": 14000,
+        "confidence": 0.95
+    },
+    {
+        "text": "MiniMax MaxClaw 支持多模态，可以处理图片和语音。",
+        "startMs": 18500,
+        "endMs": 22500,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    },
+    {
+        "text": "字节 Moltbook 深度集成飞书，适合笔记管理和知识库构建。",
+        "startMs": 22500,
+        "endMs": 27000,
+        "timestampMs": 22500,
+        "confidence": 0.95
+    },
+    {
+        "text": "个人用户选官方或 Kimi Claw，企业用户选 WorkBuddy 或 Moltbook，技术爱好者推荐官方深度定制。",
+        "startMs": 27000,
+        "endMs": 33000,
+        "timestampMs": 27000,
+        "confidence": 0.95
+    }
+]

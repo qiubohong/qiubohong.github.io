@@ -1,0 +1,37 @@
+[
+    {
+        "text": "安装完成后，还需要配置消息渠道，让龙虾能接收你的消息。",
+        "startMs": 0,
+        "endMs": 4000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "QQ Bot 配置分三步：先安装插件，再绑定 Token，最后重启服务。",
+        "startMs": 4000,
+        "endMs": 8500,
+        "timestampMs": 4000,
+        "confidence": 0.95
+    },
+    {
+        "text": "Token 格式是 AppID 冒号 AppSecret，在 QQ 机器人申请页面获取。",
+        "startMs": 8500,
+        "endMs": 13000,
+        "timestampMs": 8500,
+        "confidence": 0.95
+    },
+    {
+        "text": "飞书配置更简单：一条命令安装官方插件，扫码创建机器人，点击打开就能对话。",
+        "startMs": 13000,
+        "endMs": 18500,
+        "timestampMs": 13000,
+        "confidence": 0.95
+    },
+    {
+        "text": "配置完成后，在 QQ 或飞书给机器人发消息，龙虾就能回复你了！",
+        "startMs": 18500,
+        "endMs": 23000,
+        "timestampMs": 18500,
+        "confidence": 0.95
+    }
+]
