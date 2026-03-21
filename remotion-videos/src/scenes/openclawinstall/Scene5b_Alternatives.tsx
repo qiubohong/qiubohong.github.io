@@ -124,7 +124,7 @@ export const OpenClawInstall_Scene5b_Alternatives: React.FC = () => {
             </div>
 
             {/* 5个替代方案卡片 */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", flex: 1 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px", flex: 1 }}>
                 {ALTERNATIVES.map((alt, i) => {
                     const cardSpring = spring({ frame: Math.max(0, frame - 15 - i * 10), fps, config: { stiffness: 100, damping: 20, mass: 1.2 } });
                     const cardX = interpolate(cardSpring, [0, 1], [-40, 0]);
@@ -143,25 +143,25 @@ export const OpenClawInstall_Scene5b_Alternatives: React.FC = () => {
                             backdropFilter: "blur(16px)",
                         }}>
                             {/* 图标 */}
-                            <span style={{ fontSize: "32px", flexShrink: 0 }}>{alt.icon}</span>
+                            <span style={{ fontSize: "36px", flexShrink: 0 }}>{alt.icon}</span>
 
                             {/* 名称 + 公司 */}
                             <div style={{ width: "220px", flexShrink: 0 }}>
-                                <div style={{ fontSize: "22px", color: alt.color, fontWeight: "bold" }}>{alt.name}</div>
-                                <div style={{ fontSize: "16px", color: THEME.textSecondary }}>{alt.company}</div>
+                                <div style={{ fontSize: "36px", color: alt.color, fontWeight: "bold" }}>{alt.name}</div>
+                                <div style={{ fontSize: "24px", color: THEME.textSecondary }}>{alt.company}</div>
                             </div>
 
                             {/* 特点 */}
                             <div style={{ flex: 1 }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
                                     <span style={{
-                                        fontSize: "14px", color: alt.color,
+                                        fontSize: "16px", color: alt.color,
                                         background: `${alt.color}15`,
                                         border: `1px solid ${alt.color}30`,
                                         borderRadius: "999px", padding: "2px 10px",
                                     }}>✨ {alt.feature}</span>
                                 </div>
-                                <div style={{ fontSize: "16px", color: THEME.textSecondary }}>
+                                <div style={{ fontSize: "24px", color: THEME.textSecondary }}>
                                     📌 {alt.scene}
                                 </div>
                             </div>
@@ -172,10 +172,11 @@ export const OpenClawInstall_Scene5b_Alternatives: React.FC = () => {
                                 background: `${alt.color}10`,
                                 borderRadius: "8px", padding: "8px 14px",
                                 border: `1px solid ${alt.color}20`,
-                                maxWidth: "200px",
+                                width: "300px",
+                                textAlign: "center",
                             }}>
-                                <div style={{ fontSize: "14px", color: THEME.textSecondary, marginBottom: "2px" }}>获取方式</div>
-                                <div style={{ fontSize: "15px", color: alt.color }}>{alt.how}</div>
+                                <div style={{ fontSize: "16px", color: THEME.textSecondary, marginBottom: "2px" }}>获取方式</div>
+                                <div style={{ fontSize: "24px", color: alt.color }}>{alt.how}</div>
                             </div>
                         </div>
                     );

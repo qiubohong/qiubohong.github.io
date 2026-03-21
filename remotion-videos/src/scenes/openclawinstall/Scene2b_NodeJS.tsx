@@ -138,7 +138,7 @@ export const OpenClawInstall_Scene2b_NodeJS: React.FC = () => {
                             {/* 平台标题 */}
                             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                                 <span style={{ fontSize: "40px" }}>{platform.icon}</span>
-                                <span style={{ fontSize: "28px", color: platform.color, fontWeight: "bold" }}>{platform.name}</span>
+                                <span style={{ fontSize: "48px", color: platform.color, fontWeight: "bold" }}>{platform.name}</span>
                             </div>
 
                             {/* 终端提示 */}
@@ -147,7 +147,7 @@ export const OpenClawInstall_Scene2b_NodeJS: React.FC = () => {
                                 padding: "8px 14px",
                                 border: `1px solid ${platform.color}20`,
                             }}>
-                                <span style={{ fontSize: "16px", color: THEME.textSecondary }}>💡 {platform.tip}</span>
+                                <span style={{ fontSize: "24px", color: THEME.textSecondary }}>💡 {platform.tip}</span>
                             </div>
 
                             {/* 安装步骤 */}
@@ -171,7 +171,7 @@ export const OpenClawInstall_Scene2b_NodeJS: React.FC = () => {
                                                 display: "flex", alignItems: "center", justifyContent: "center",
                                                 flexShrink: 0, marginTop: "2px",
                                             }}>{j + 1}</span>
-                                            <span style={{ fontSize: "18px", color: THEME.textPrimary, lineHeight: 1.5 }}>{step}</span>
+                                            <span style={{ fontSize: "24px", color: THEME.textPrimary, lineHeight: 2 }}>{step}</span>
                                         </div>
                                     );
                                 })}
@@ -193,13 +193,13 @@ export const OpenClawInstall_Scene2b_NodeJS: React.FC = () => {
             }}>
                 <span style={{ fontSize: "28px" }}>✅</span>
                 <div>
-                    <span style={{ fontSize: "20px", color: "#3fb950", fontWeight: "bold" }}>安装验证：</span>
+                    <span style={{ fontSize: "24px", color: "#3fb950", fontWeight: "bold" }}>安装验证：</span>
                     <code style={{
-                        fontSize: "20px", color: `rgba(63,185,80,${cmdHighlight})`,
+                        fontSize: "24px", color: `rgba(63,185,80,${cmdHighlight})`,
                         fontFamily: "monospace", marginLeft: "12px",
                         background: "rgba(63,185,80,0.1)", padding: "2px 12px", borderRadius: "6px",
                     }}>node -v</code>
-                    <span style={{ fontSize: "18px", color: THEME.textSecondary, marginLeft: "12px" }}>
+                    <span style={{ fontSize: "24px", color: THEME.textSecondary, marginLeft: "12px" }}>
                         看到 v18.x.x 或更高版本，就可以开始安装 OpenClaw 了！
                     </span>
                 </div>

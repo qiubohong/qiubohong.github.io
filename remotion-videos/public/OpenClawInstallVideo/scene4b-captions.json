@@ -14,7 +14,7 @@
         "confidence": 0.95
     },
     {
-        "text": "Token 格式是 AppID 冒号 AppSecret，在 QQ 机器人申请页面获取。",
+        "text": "Token 格式是 AppID:AppSecret，在 QQ 机器人申请页面获取。",
         "startMs": 8500,
         "endMs": 13000,
         "timestampMs": 8500,

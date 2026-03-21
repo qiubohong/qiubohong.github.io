@@ -158,9 +158,10 @@ export const OpenClawInstall_Scene5_Case: React.FC = () => {
                             padding: "16px 24px",
                             border: "1px solid rgba(255,255,255,0.08)",
                             backdropFilter: "blur(16px)",
+                            rowGap: "16px",
                         }}>
-                            <span style={{ fontSize: "32px", flexShrink: 0 }}>{item.icon}</span>
-                            <p style={{ fontSize: "22px", color: THEME.textPrimary, margin: 0 }}>{item.text}</p>
+                            <span style={{ fontSize: "36px", flexShrink: 0 }}>{item.icon}</span>
+                            <p style={{ fontSize: "36px", color: THEME.textPrimary, margin: 0 }}>{item.text}</p>
                         </div>
                     );
                 })}

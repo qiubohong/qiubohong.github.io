@@ -131,7 +131,7 @@ export const OpenClawInstall_Scene4_Launch: React.FC = () => {
                             }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
                                     <span style={{ fontSize: "28px" }}>{step.icon}</span>
-                                    <span style={{ fontSize: "24px", color: step.color, fontWeight: "bold" }}>
+                                    <span style={{ fontSize: "36px", color: step.color, fontWeight: "bold" }}>
                                         第{i + 1}步：{step.title}
                                     </span>
                                 </div>

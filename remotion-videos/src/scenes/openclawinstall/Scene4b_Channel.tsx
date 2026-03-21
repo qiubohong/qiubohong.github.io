@@ -114,8 +114,8 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
                         <span style={{ fontSize: "36px" }}>🐧</span>
                         <div>
-                            <div style={{ fontSize: "26px", color: "#58a6ff", fontWeight: "bold" }}>QQ Bot 配置</div>
-                            <div style={{ fontSize: "16px", color: THEME.textSecondary }}>需要申请 QQ 机器人账号</div>
+                            <div style={{ fontSize: "36px", color: "#58a6ff", fontWeight: "bold" }}>QQ Bot 配置</div>
+                            <div style={{ fontSize: "24px", color: THEME.textSecondary }}>需要申请 QQ 机器人账号</div>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
 
                             return (
                                 <div key={i} style={{ opacity: stepOpacity, transform: `translateY(${stepY}px)` }}>
-                                    <div style={{ fontSize: "16px", color: THEME.textSecondary, marginBottom: "4px" }}>
+                                    <div style={{ fontSize: "24px", color: THEME.textSecondary, marginBottom: "4px" }}>
                                         第{i + 1}步：{step.desc}
                                     </div>
                                     <div style={{
@@ -137,8 +137,9 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                                         border: `1px solid rgba(88,166,255,${cmdHighlight * 0.3})`,
                                     }}>
                                         <code style={{
-                                            fontSize: "14px", color: "#58a6ff",
+                                            fontSize: "24px", color: "#58a6ff",
                                             fontFamily: "monospace", wordBreak: "break-all",
+                                            lineHeight: 2,
                                         }}>{step.cmd}</code>
                                     </div>
                                 </div>
@@ -152,10 +153,10 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                         padding: "12px 16px", border: "1px solid rgba(88,166,255,0.2)",
                         flexShrink: 0,
                     }}>
-                        <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0 }}>
+                        <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                             💡 Token 格式：<code style={{ color: "#58a6ff" }}>AppID:AppSecret</code>
                         </p>
-                        <p style={{ fontSize: "14px", color: THEME.textSecondary, margin: "4px 0 0 0" }}>
+                        <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: "4px 0 0 0" }}>
                             申请地址：q.qq.com/qqbot/openclaw/login.html
                         </p>
                     </div>
@@ -177,8 +178,8 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
                         <span style={{ fontSize: "36px" }}>🪁</span>
                         <div>
-                            <div style={{ fontSize: "26px", color: "#f0883e", fontWeight: "bold" }}>飞书配置</div>
-                            <div style={{ fontSize: "16px", color: THEME.textSecondary }}>官方插件，操作更简单</div>
+                            <div style={{ fontSize: "36px", color: "#f0883e", fontWeight: "bold" }}>飞书配置</div>
+                            <div style={{ fontSize: "24px", color: THEME.textSecondary }}>官方插件，操作更简单</div>
                         </div>
                     </div>
 
@@ -211,12 +212,12 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                                                     border: `1px solid rgba(240,136,62,${cmdHighlight * 0.3})`,
                                                 }}>
                                                     <code style={{
-                                                        fontSize: "14px", color: "#f0883e",
+                                                        fontSize: "24px", color: "#f0883e",
                                                         fontFamily: "monospace", wordBreak: "break-all",
                                                     }}>{(step as any).cmd}</code>
                                                 </div>
                                             ) : (
-                                                <p style={{ fontSize: "18px", color: THEME.textPrimary, margin: 0, lineHeight: 1.5 }}>
+                                                <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: 0, lineHeight: 2 }}>
                                                     {step.desc}
                                                 </p>
                                             )}
@@ -233,7 +234,7 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                         padding: "12px 16px", border: "1px solid rgba(240,136,62,0.2)",
                         flexShrink: 0,
                     }}>
-                        <p style={{ fontSize: "16px", color: THEME.textSecondary, margin: 0 }}>
+                        <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                             📖 详细指南：bytedance.larkoffice.com 飞书官方文档
                         </p>
                     </div>
@@ -250,8 +251,8 @@ export const OpenClawInstall_Scene4b_Channel: React.FC = () => {
                 border: "1px solid rgba(63,185,80,0.3)",
                 display: "flex", alignItems: "center", gap: "16px",
             }}>
-                <span style={{ fontSize: "28px" }}>🎉</span>
-                <p style={{ fontSize: "20px", color: "#3fb950", margin: 0, fontWeight: "bold" }}>
+                <span style={{ fontSize: "36px" }}>🎉</span>
+                <p style={{ fontSize: "24px", color: "#3fb950", margin: 0, fontWeight: "bold" }}>
                     配置完成后，在 QQ 或飞书给机器人发消息，龙虾就能回复你了！
                 </p>
             </div>

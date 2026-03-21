@@ -70,14 +70,14 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
             {/* 标题 */}
             <div style={{ opacity: titleOpacity, transform: `translateY(${titleY}px)`, flexShrink: 0 }}>
                 <h2 style={{
-                    fontSize: "52px", fontWeight: 900, margin: "0 0 4px 0",
+                    fontSize: "48px", fontWeight: 900, margin: "0 0 8px 0",
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                     backgroundClip: "text", letterSpacing: "-0.05em",
                 }}>
                     免费平台大盘点
                 </h2>
-                <p style={{ fontSize: "22px", color: THEME.textSecondary, margin: 0 }}>
+                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0, lineHeight: 2 }}>
                     国内主流免费大模型平台一览（按推荐程度排序）
                 </p>
             </div>
@@ -110,13 +110,13 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
                             backdropFilter: "blur(16px)",
                             display: "flex",
                             flexDirection: "column",
-                            gap: "6px",
+                            gap: "8px",
                         }}>
                             <div style={{ fontSize: "46px", textAlign: "center" }}>{p.icon}</div>
                             <div style={{ textAlign: "center" }}>
-                                <p style={{ fontSize: "32px", fontWeight: 900, color: p.color, margin: "0 0 4px 0" }}>{p.name}</p>
-                                <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: "0 0 4px 0", fontWeight: "bold" }}>{p.tokens}</p>
-                                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>{p.desc}</p>
+                                <p style={{ fontSize: "28px", fontWeight: 900, color: p.color, margin: "0 0 6px 0", lineHeight: 1.6 }}>{p.name}</p>
+                                <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: "0 0 6px 0", fontWeight: "bold", lineHeight: 1.8 }}>{p.tokens}</p>
+                                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0, lineHeight: 1.8 }}>{p.desc}</p>
                             </div>
                             <div style={{
                                 background: `${p.color}20`,
@@ -142,7 +142,7 @@ export const OpenClawFreeModel_Scene3_Platforms: React.FC = () => {
                 textAlign: "center",
                 flexShrink: 0,
             }}>
-                <p style={{ fontSize: "24px", color: "#3fb950", fontWeight: "bold", margin: 0 }}>
+                <p style={{ fontSize: "24px", color: "#3fb950", fontWeight: "bold", margin: 0, lineHeight: 1.8 }}>
                     🎉 全部注册，总额度数亿 tokens，足够免费使用好几年！
                 </p>
             </div>

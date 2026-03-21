@@ -201,20 +201,7 @@ export const OpenClawInstallVideo: React.FC<OpenClawInstallVideoProps> = ({
                 </AbsoluteFill>
             </Sequence>
 
-            {/* EndingScene：固定结尾（6秒/180帧） */}
-            <Sequence from={endingStart} durationInFrames={SCENE_DURATIONS.ending}>
-                <AbsoluteFill>
-                    <EndingScene
-                        mainTitle="感谢观看"
-                        subtitle="若喜欢请关注"
-                        description="每天5分钟，轻松学AI"
-                    />
-                    <Audio src={staticFile("OpenClawInstallVideo/ending-audio.mp3")} volume={0.8} />
-                    {showCaptions && (
-                        <CaptionDisplay captionFile="OpenClawInstallVideo/ending-captions.json" />
-                    )}
-                </AbsoluteFill>
-            </Sequence>
+            
         </AbsoluteFill>
     );
 };

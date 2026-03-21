@@ -95,7 +95,7 @@ export const OpenClawInstall_Scene7_Summary: React.FC = () => {
                             backdropFilter: "blur(16px)",
                         }}>
                             <span style={{ fontSize: "36px", flexShrink: 0 }}>{point.icon}</span>
-                            <p style={{ fontSize: "24px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
+                            <p style={{ fontSize: "36px", color: THEME.textPrimary, margin: 0, fontWeight: "bold" }}>
                                 {point.text}
                             </p>
                         </div>
@@ -111,10 +111,10 @@ export const OpenClawInstall_Scene7_Summary: React.FC = () => {
                     padding: "20px 28px", border: "1px solid rgba(88,166,255,0.2)",
                     flexShrink: 0,
                 }}>
-                    <p style={{ fontSize: "22px", color: "#58a6ff", fontWeight: "bold", margin: "0 0 6px 0" }}>
+                    <p style={{ fontSize: "36px", color: "#58a6ff", fontWeight: "bold", margin: "0 0 6px 0" }}>
                         📌 下一篇：学会给龙虾下指令
                     </p>
-                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0 }}>
+                    <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
                         同样的需求，不同的说法，效果天差地别！
                     </p>
                 </div>
@@ -129,11 +129,11 @@ export const OpenClawInstall_Scene7_Summary: React.FC = () => {
                     border: "1px solid rgba(240,136,62,0.3)",
                     flexShrink: 0,
                 }}>
-                    <p style={{ fontSize: "24px", color: `rgba(240,136,62,${highlight})`, fontWeight: "bold", margin: "0 0 8px 0" }}>
+                    <p style={{ fontSize: "36px", color: `rgba(240,136,62,${highlight})`, fontWeight: "bold", margin: "0 0 8px 0" }}>
                         💬 你装好龙虾之后，最想让它帮你做什么？
                     </p>
-                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0 }}>
-                        欢迎在评论区分享！感谢观看，若喜欢请关注，每天5分钟，轻松学AI。
+                    <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0 }}>
+                        欢迎在评论区分享！感谢观看，若喜欢请关注我们！
                     </p>
                 </div>
             )}

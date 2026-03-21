@@ -85,14 +85,14 @@ export const OpenClawInstall_Scene3_Script: React.FC = () => {
             {/* 标题 */}
             <div style={{ opacity: titleOpacity, transform: `translateY(${titleY}px)`, flexShrink: 0 }}>
                 <h2 style={{
-                    fontSize: "56px", fontWeight: 900, margin: 0,
+                    fontSize: "48px", fontWeight: 900, margin: 0,
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                     backgroundClip: "text", letterSpacing: "-0.04em",
                 }}>
                     一键脚本安装：3步搞定
                 </h2>
-                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: "8px 0 0 0" }}>
+                <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: "8px 0 0 0", lineHeight: 1.8 }}>
                     全程只需复制粘贴一条命令，新手也能轻松完成
                 </p>
             </div>
@@ -122,13 +122,13 @@ export const OpenClawInstall_Scene3_Script: React.FC = () => {
                                 display: "flex", alignItems: "center", justifyContent: "center",
                                 flexShrink: 0,
                             }}>
-                                <span style={{ fontSize: "28px", color: step.color, fontWeight: 900 }}>{step.num}</span>
+                                <span style={{ fontSize: "48px", color: step.color, fontWeight: 900 }}>{step.num}</span>
                             </div>
 
                             <div style={{ flex: 1 }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
-                                    <span style={{ fontSize: "28px" }}>{step.icon}</span>
-                                    <span style={{ fontSize: "28px", color: step.color, fontWeight: "bold" }}>{step.title}</span>
+                                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                                    <span style={{ fontSize: "48px" }}>{step.icon}</span>
+                                    <span style={{ fontSize: "26px", color: step.color, fontWeight: "bold" }}>{step.title}</span>
                                 </div>
 
                                 {step.code && (
@@ -136,11 +136,11 @@ export const OpenClawInstall_Scene3_Script: React.FC = () => {
                                         background: "rgba(0,0,0,0.4)",
                                         borderRadius: "10px", padding: "14px 20px",
                                         border: `1px solid rgba(63,185,80,${cmdHighlight * 0.5})`,
-                                        marginBottom: "10px",
+                                        marginBottom: "12px",
                                         boxShadow: `0 0 16px rgba(63,185,80,${cmdHighlight * 0.2})`,
                                     }}>
                                         <code style={{
-                                            fontSize: "20px",
+                                            fontSize: "18px",
                                             color: `rgba(63,185,80,${cmdHighlight})`,
                                             fontFamily: "monospace",
                                             wordBreak: "break-all",
@@ -151,8 +151,8 @@ export const OpenClawInstall_Scene3_Script: React.FC = () => {
                                 )}
 
                                 <p style={{
-                                    fontSize: "22px", color: THEME.textSecondary, margin: 0,
-                                    whiteSpace: "pre-line", lineHeight: 1.6,
+                                    fontSize: "24px", color: THEME.textSecondary, margin: 0,
+                                    whiteSpace: "pre-line", lineHeight: 1.8,
                                 }}>
                                     {step.desc}
                                 </p>
@@ -170,7 +170,7 @@ export const OpenClawInstall_Scene3_Script: React.FC = () => {
                     padding: "14px 24px", border: "1px solid rgba(88,166,255,0.2)",
                     flexShrink: 0,
                 }}>
-                    <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: 0 }}>
+                    <p style={{ fontSize: "24px", color: THEME.textSecondary, margin: 0, lineHeight: 1.8 }}>
                         🔒 安全提示：安装脚本来自 OpenClaw 官方，可以放心使用
                     </p>
                 </div>

@@ -98,7 +98,7 @@ export const OpenClawInstall_Scene4_5_Breath: React.FC = () => {
                             textAlign: "center",
                         }}>
                             <div style={{ fontSize: "40px", marginBottom: "10px" }}>{item.icon}</div>
-                            <p style={{ fontSize: "20px", color: item.color, fontWeight: "bold", margin: "0 0 6px 0" }}>
+                            <p style={{ fontSize: "36px", color: item.color, fontWeight: "bold", margin: "0 0 6px 0" }}>
                                 {item.method}
                             </p>
                             <p style={{ fontSize: "18px", color: THEME.textSecondary, margin: 0 }}>

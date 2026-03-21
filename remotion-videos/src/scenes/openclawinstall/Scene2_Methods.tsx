@@ -73,7 +73,7 @@ export const OpenClawInstall_Scene2_Methods: React.FC = () => {
             {/* 标题 */}
             <div style={{ opacity: titleOpacity, transform: `translateY(${titleY}px)`, flexShrink: 0 }}>
                 <h2 style={{
-                    fontSize: "56px", fontWeight: 900, margin: 0,
+                    fontSize: "48px", fontWeight: 900, margin: 0,
                     background: THEME.titleGradient,
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                     backgroundClip: "text", letterSpacing: "-0.04em",
@@ -85,61 +85,50 @@ export const OpenClawInstall_Scene2_Methods: React.FC = () => {
                 </p>
             </div>
 
-            {/* 5种方式卡片 */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px", flex: 1 }}>
+            {/* 图片展示区 - 主要内容 */}
+            <div style={{ opacity: imgOpacity, flex: 1, display: "flex", justifyContent: "center", alignItems: "center", minHeight: 0 }}>
+                <div style={{
+                    background: THEME.cardBg, borderRadius: "16px",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    padding: "16px", maxWidth: "1200px", width: "100%",
+                    maxHeight: "100%",
+                }}>
+                    <Img
+                        src={staticFile("OpenClawInstallVideo/installation_comparison.png")}
+                        style={{ width: "100%", height: "auto", objectFit: "contain", borderRadius: "12px" }}
+                    />
+                </div>
+            </div>
+
+            {/* 5种方式卡片 - 底部简要展示 */}
+            <div style={{ display: "flex", gap: "16px", flexShrink: 0 }}>
                 {INSTALL_METHODS.map((method, i) => {
                     const cardSpring = spring({ frame: Math.max(0, frame - 20 - i * 10), fps, config: { stiffness: 100, damping: 20, mass: 1.2 } });
-                    const cardY = interpolate(cardSpring, [0, 1], [30, 0]);
                     const cardOpacity = interpolate(cardSpring, [0, 1], [0, 1]);
-                    // 一键脚本高亮脉冲
                     const pulse = i === 0 ? 0.7 + Math.sin(frame * 0.1) * 0.3 : 1;
 
                     return (
                         <div key={i} style={{
                             opacity: cardOpacity,
-                            transform: `translateY(${cardY}px)`,
-                            display: "flex", alignItems: "center", gap: "20px",
+                            flex: 1,
+                            display: "flex", flexDirection: "column", alignItems: "center", gap: "8px",
                             background: i === 0 ? `rgba(63,185,80,${pulse * 0.1})` : THEME.cardBg,
-                            borderRadius: "16px", padding: "18px 28px",
+                            borderRadius: "12px", padding: "12px 16px",
                             border: i === 0 ? `1px solid rgba(63,185,80,${pulse * 0.5})` : "1px solid rgba(255,255,255,0.08)",
                             backdropFilter: "blur(16px)",
-                            boxShadow: i === 0 ? `0 0 20px rgba(63,185,80,${pulse * 0.2})` : "none",
                         }}>
-                            <span style={{ fontSize: "36px", flexShrink: 0 }}>{method.icon}</span>
-                            <div style={{ flex: 1 }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                                    <span style={{ fontSize: "26px", color: method.color, fontWeight: "bold" }}>{method.name}</span>
-                                    {method.tag && (
-                                        <span style={{
-                                            fontSize: "16px", color: "#3fb950",
-                                            background: "rgba(63,185,80,0.15)",
-                                            border: "1px solid rgba(63,185,80,0.4)",
-                                            borderRadius: "999px", padding: "2px 12px",
-                                        }}>{method.tag}</span>
-                                    )}
-                                </div>
-                                <p style={{ fontSize: "20px", color: THEME.textSecondary, margin: "4px 0 0 0" }}>{method.desc}</p>
-                            </div>
-                            {i === 0 && (
-                                <span style={{ fontSize: "22px", color: "#3fb950", fontWeight: "bold" }}>← 今天重点讲这个</span>
+                            <span style={{ fontSize: "36px" }}>{method.icon}</span>
+                            <span style={{ fontSize: "36px", color: method.color, fontWeight: "bold", textAlign: "center" }}>{method.name}</span>
+                            {method.tag && (
+                                <span style={{
+                                    fontSize: "12px", color: "#3fb950",
+                                    background: "rgba(63,185,80,0.15)",
+                                    borderRadius: "999px", padding: "2px 8px",
+                                }}>{method.tag}</span>
                             )}
                         </div>
                     );
                 })}
-            </div>
-
-            {/* 图片展示区 */}
-            <div style={{ opacity: imgOpacity, flexShrink: 0, display: "flex", justifyContent: "center" }}>
-                <div style={{
-                    background: THEME.cardBg, borderRadius: "12px",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    padding: "12px", maxWidth: "600px",
-                }}>
-                    <Img
-                        src={staticFile("OpenClawInstallVideo/installation_comparison.png")}
-                        style={{ width: "100%", objectFit: "contain", borderRadius: "8px" }}
-                    />
-                </div>
             </div>
         </AbsoluteFill>
     );

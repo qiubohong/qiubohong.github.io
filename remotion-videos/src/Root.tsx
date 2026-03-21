@@ -481,7 +481,7 @@ export const RemotionRoot = () => {
       <Composition
         id="OpenClawInstallVideo"
         component={OpenClawInstallVideo}
-        durationInFrames={8573} // 总帧数：434+703+1021+943+778+495+882+689+1210+612+545+261=8573帧，约285.8秒（含NodeJS/Channel/Alternatives三个新场景）
+        durationInFrames={8390} // 总帧数：434+703+1021+943+778+495+882+689+1210+612+545+261=8573帧，约285.8秒（含NodeJS/Channel/Alternatives三个新场景）
         fps={30}
         width={1920}
         height={1080}
