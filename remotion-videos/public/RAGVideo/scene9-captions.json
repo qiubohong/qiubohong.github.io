@@ -1,0 +1,23 @@
+[
+    {
+        "text": "今天我们学习了RAG完整技术栈。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "包括知识库构建、语义检索和大模型生成。",
+        "startMs": 3000,
+        "endMs": 5333,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "RAG等于大模型的超级搜索技能，让AI拥有永不过期的记忆。",
+        "startMs": 5333,
+        "endMs": 9167,
+        "timestampMs": 5333,
+        "confidence": 0.95
+    }
+]

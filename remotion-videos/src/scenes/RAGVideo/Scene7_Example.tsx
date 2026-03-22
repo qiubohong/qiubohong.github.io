@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -107,7 +107,7 @@ export const Scene7_Example: React.FC = () => {
           {/* Knowledge Base Image */}
           <div style={{ flex: '0 0 45%' }}>
             <Img
-              src="/RAGVideo/knowledge-base.png"
+src={staticFile("RAGVideo/knowledge-base.png")}
               style={{
                 width: '100%',
                 maxHeight: '70vh',

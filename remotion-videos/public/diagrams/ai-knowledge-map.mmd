@@ -1,0 +1,40 @@
+---
+config:
+  layout: elk
+  look: neo
+---
+flowchart TB
+ subgraph a["神经网络"]
+        a1["激活函数"]
+        a2["损失函数"]
+        a3["神经元计算"]
+  end
+ subgraph D["Transformer"]
+        d1["Encoder"]
+        d2["Self-Attendtion"]
+        d3["Decoder"]
+  end
+    0["人工智能"] --> 1["算法"] & 2["应用"]
+    1 --> a & b["机器学习"]
+    b --> b1["监督学习"] & b2["无监督学习"] & b3["强化学习"]
+    a --> A["深度学习"]
+    A --> B["卷积网络 CNN"] & C["循环网络 RNN"] & D
+    D --> E["LLM大模型"]
+    E --> e1["Token分词"] & e2["Embedding嵌入编码"] & e3["Transformer 层叠处理"] & e4["Out Token"] & F["Function Calling"] & F1["MCP协议"]
+    e1 --> e11["Tokenizer分词策略"] & e12["Token计费规则"]
+    e2 --> e21["词嵌入（Word Embeddings）"] & e22["嵌入层（Embedding Layer）"] & e23["Transformer编码器"] & e24["池化层"] & e25["归一化输出"]
+    F1 --> f11["MCP Server"] & f12["MCP Protocol"] & f13["MCP Client"]
+    2 --> 20["AI Agent"] & 21["场景&产品"] & 22["开发框架"]
+    20 --> 201["单向无记忆工作流"] & 202["循环可中断记忆"] & 203["通用多模态Agent"]
+    21 --> 211["AI编程"] & 212["AI智能客服|助手"]
+    211 --> 211a["Claude"] & 211b["Cursor"] & 211c["Codex"] & 211d["CodeBuddy(腾讯)"] & 211e["Qwen Code(阿里)"] & 221f["Gemini CLI"] & 221g["Trae(抖音)"]
+    211a --> 211a1["SKILL技能"] --> 211a11["SKILL.md"] & 211a12["resource & scripts"]
+    212 --> 212a["意图识别"] & 212b["ReQuery"] & 212c["RAG"] & 212d["Embedding"] & 212e["Reranker"]
+    b1 --> b11["Fine-tuning"]
+    22 --> 221["Dify(可视化)"] & 222["Coze(可视化)"] & 223["n8n(可视化)"] & 224["Langchain"] & 225["CrewAI"] & 226["LlamaIndex"]
+
+    0@{ shape: rounded}
+     b11:::orange
+    classDef orange fill:#F9B572,stroke:#FF772E,color:#FFF
+    classDef blue fill:#e3f2fd,stroke:#1976d2
+    classDef highlight fill:#fff3e0,stroke:#f57c00

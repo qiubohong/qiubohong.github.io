@@ -1,0 +1,23 @@
+[
+    {
+        "text": "RAG系统架构分为两个阶段。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "离线阶段构建知识库，在线阶段实时检索回答。",
+        "startMs": 2500,
+        "endMs": 5850,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "两个流程协同工作。",
+        "startMs": 5850,
+        "endMs": 8367,
+        "timestampMs": 5850,
+        "confidence": 0.95
+    }
+]

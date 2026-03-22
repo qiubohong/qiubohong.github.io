@@ -1,0 +1,23 @@
+[
+  {
+    "text": "今天我们学习了 Fine-tuning 的核心原理、工作流程和实际应用。",
+    "startMs": 0,
+    "endMs": 5000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "你觉得 Fine-tuning 会如何改变 AI 在行业中的应用方式？欢迎在评论区分享你的想法！",
+    "startMs": 5000,
+    "endMs": 10000,
+    "timestampMs": 5000,
+    "confidence": 0.95
+  },
+  {
+    "text": "感谢观看，若喜欢请关注，每天 5 分钟，轻松学AI。",
+    "startMs": 10000,
+    "endMs": 14000,
+    "timestampMs": 10000,
+    "confidence": 0.95
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "text": "今天我们一起学习了 Code Agent 的核心要点。",
+    "startFrame": 30,
+    "endFrame": 100
+  },
+  {
+    "text": "它拥有代码理解、生成、优化、调试、审查五大核心能力。",
+    "startFrame": 105,
+    "endFrame": 190
+  },
+  {
+    "text": "主流产品包括 GitHub Copilot、Claude Code、Cursor 等。",
+    "startFrame": 195,
+    "endFrame": 270
+  },
+  {
+    "text": "让我们拥抱AI编程新时代，让Code Agent成为你的得力助手！",
+    "startFrame": 275,
+    "endFrame": 370
+  }
+]

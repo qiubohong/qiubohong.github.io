@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -61,7 +61,7 @@ export const Scene4_Flow: React.FC = () => {
           }}
         >
           <Img
-            src="/RAGVideo/rag-flow.svg"
+src={staticFile("RAGVideo/rag-flow.svg")}
             style={{
               maxWidth: '90%',
               maxHeight: '90%',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -74,7 +74,7 @@ export const Scene5_Embedding: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
             <Img
-              src="/RAGVideo/text-embedding.png"
+src={staticFile("RAGVideo/text-embedding.png")}
               style={{
                 maxWidth: '60%',
                 maxHeight: '75vh',

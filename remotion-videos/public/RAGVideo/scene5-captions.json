@@ -1,0 +1,23 @@
+[
+    {
+        "text": "知识库构建的核心是文本向量化。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "将文档切分成固定长度的文本块。",
+        "startMs": 2500,
+        "endMs": 4333,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "使用嵌入模型转换为高维向量，存储到向量数据库中。",
+        "startMs": 4333,
+        "endMs": 8100,
+        "timestampMs": 4333,
+        "confidence": 0.95
+    }
+]

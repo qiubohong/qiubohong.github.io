@@ -1,0 +1,27 @@
+[
+  {
+    "text": "市场上主流的 Code Agent 产品各有特色。",
+    "startFrame": 30,
+    "endFrame": 90
+  },
+  {
+    "text": "GitHub Copilot 由OpenAI Codex驱动，是最受欢迎的代码补全工具。",
+    "startFrame": 95,
+    "endFrame": 180
+  },
+  {
+    "text": "Claude Code 出自Anthropic，拥有强大的代码生成和对话能力。",
+    "startFrame": 185,
+    "endFrame": 270
+  },
+  {
+    "text": "Cursor 是AI-first代码编辑器，基于GPT-4深度集成。",
+    "startFrame": 275,
+    "endFrame": 350
+  },
+  {
+    "text": "Tabnine 则是本地优先的个人代码助手，支持多种IDE。",
+    "startFrame": 355,
+    "endFrame": 430
+  }
+]

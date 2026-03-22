@@ -1,0 +1,37 @@
+[
+  {
+    "text": "最后对比一下 Fine-tuning 和其他方法的差异：",
+    "startMs": 0,
+    "endMs": 2500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "提示工程成本低、门槛低，但效果不稳定，适合简单任务。",
+    "startMs": 2500,
+    "endMs": 6500,
+    "timestampMs": 2500,
+    "confidence": 0.95
+  },
+  {
+    "text": "RAG 能实时更新知识，适合知识密集型任务，但推理较慢。",
+    "startMs": 6500,
+    "endMs": 10500,
+    "timestampMs": 6500,
+    "confidence": 0.95
+  },
+  {
+    "text": "Fine-tuning 成本中高、门槛高，但效果稳定，适合需要特定格式和风格的任务，推理速度快。",
+    "startMs": 10500,
+    "endMs": 16000,
+    "timestampMs": 10500,
+    "confidence": 0.95
+  },
+  {
+    "text": "三者可以结合使用，发挥各自优势。",
+    "startMs": 16000,
+    "endMs": 17500,
+    "timestampMs": 16000,
+    "confidence": 0.95
+  }
+]

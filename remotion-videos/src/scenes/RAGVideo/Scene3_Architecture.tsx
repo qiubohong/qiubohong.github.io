@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -62,7 +62,7 @@ export const Scene3_Architecture: React.FC = () => {
           }}
         >
           <Img
-            src="/RAGVideo/rag-architecture.png"
+src={staticFile("RAGVideo/rag-architecture.png")}
             style={{
               maxWidth: '95%',
               maxHeight: '95%',

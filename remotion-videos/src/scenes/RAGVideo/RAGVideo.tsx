@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo } from 'react';
-import { AbsoluteFill, Audio, Sequence, useCurrentFrame, useVideoConfig, interpolate, staticFile } from 'remotion';
+import React from 'react';
+import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
 
 import { CaptionDisplay } from '../../components/CaptionDisplay';
 import { Scene1_Intro } from './Scene1_Intro';
@@ -12,28 +12,17 @@ import { Scene7_Example } from './Scene7_Example';
 import { Scene8_Comparison } from './Scene8_Comparison';
 import { Scene9_Ending } from './Scene9_Ending';
 
-import subtitlesData from '../../subtitles/RAGVideo/subtitles.json';
-
-interface SubtitleItem {
-  scene: string;
-  startTime: number;
-  endTime: number;
-  text: string;
-}
-
-const SUBTITLES: SubtitleItem[] = subtitlesData.subtitles;
-
-// 视频片段配置（根据音频时长计算）
+// 视频片段配置（需要根据实际音频时长调整）
 const SCENE_CONFIG = [
-  { id: 'intro', component: Scene1_Intro, duration: 499, audio: 'scene1.aiff' },
-  { id: 'value', component: Scene2_Value, duration: 458, audio: 'scene2.aiff' },
-  { id: 'architecture', component: Scene3_Architecture, duration: 361, audio: 'scene3.aiff' },
-  { id: 'flow', component: Scene4_Flow, duration: 420, audio: 'scene4.aiff' },
-  { id: 'embedding', component: Scene5_Embedding, duration: 405, audio: 'scene5.aiff' },
-  { id: 'search', component: Scene6_Search, duration: 414, audio: 'scene6.aiff' },
-  { id: 'example', component: Scene7_Example, duration: 467, audio: 'scene7.aiff' },
-  { id: 'comparison', component: Scene8_Comparison, duration: 514, audio: 'scene8.aiff' },
-  { id: 'ending', component: Scene9_Ending, duration: 439, audio: 'scene9.aiff' },
+  { id: 'intro', component: Scene1_Intro, duration: 499, audio: 'RAGVideo/audios/scene1.mp3', caption: 'RAGVideo/scene1-captions.json' },
+  { id: 'value', component: Scene2_Value, duration: 458, audio: 'RAGVideo/audios/scene2.mp3', caption: 'RAGVideo/scene2-captions.json' },
+  { id: 'architecture', component: Scene3_Architecture, duration: 361, audio: 'RAGVideo/audios/scene3.mp3', caption: 'RAGVideo/scene3-captions.json' },
+  { id: 'flow', component: Scene4_Flow, duration: 420, audio: 'RAGVideo/audios/scene4.mp3', caption: 'RAGVideo/scene4-captions.json' },
+  { id: 'embedding', component: Scene5_Embedding, duration: 405, audio: 'RAGVideo/audios/scene5.mp3', caption: 'RAGVideo/scene5-captions.json' },
+  { id: 'search', component: Scene6_Search, duration: 414, audio: 'RAGVideo/audios/scene6.mp3', caption: 'RAGVideo/scene6-captions.json' },
+  { id: 'example', component: Scene7_Example, duration: 467, audio: 'RAGVideo/audios/scene7.mp3', caption: 'RAGVideo/scene7-captions.json' },
+  { id: 'comparison', component: Scene8_Comparison, duration: 514, audio: 'RAGVideo/audios/scene8.mp3', caption: 'RAGVideo/scene8-captions.json' },
+  { id: 'ending', component: Scene9_Ending, duration: 439, audio: 'RAGVideo/audios/scene9.mp3', caption: 'RAGVideo/scene9-captions.json' },
 ];
 
 // 计算每个片段的开始帧
@@ -49,84 +38,24 @@ const calculateSceneStartFrames = () => {
   return startFrames;
 };
 
-export const RAGVideo = () => {
-  const frame = useCurrentFrame();
-  const { fps, width, height } = useVideoConfig();
-  
-  const startFrames = useMemo(() => calculateSceneStartFrames(), []);
-  
-  const getCurrentSceneIndex = useCallback(() => {
-    for (let i = startFrames.length - 1; i >= 0; i--) {
-      if (frame >= startFrames[i]) {
-        return i;
-      }
-    }
-    return 0;
-  }, [frame, startFrames]);
-  
-  const currentSceneIndex = getCurrentSceneIndex();
-  const currentSceneId = SCENE_CONFIG[currentSceneIndex].id;
-  
-  // 获取当前场景内的帧位置
-  const getCurrentSceneFrame = useCallback(() => {
-    return frame - startFrames[currentSceneIndex];
-  }, [frame, startFrames, currentSceneIndex]);
-  
-  const currentSceneFrame = getCurrentSceneFrame();
-  
-  // 获取当前字幕
-  const getCurrentSubtitle = useCallback(() => {
-    const sceneFrame = currentSceneFrame;
-    
-    const sceneSubtitles = SUBTITLES.filter(
-      (sub) => sub.scene === `Scene${currentSceneIndex + 1}_${currentSceneId.charAt(0).toUpperCase() + currentSceneId.slice(1)}`
-    );
-    
-    for (const subtitle of sceneSubtitles) {
-      if (sceneFrame >= subtitle.startTime && sceneFrame < subtitle.endTime) {
-        return subtitle.text;
-      }
-    }
-    
-    return '';
-  }, [currentSceneFrame, currentSceneIndex, currentSceneId]);
-  
-  const currentSubtitle = getCurrentSubtitle();
-  
-  // 计算总帧数
-  const totalFrames = useMemo(() => {
-    return SCENE_CONFIG.reduce((acc, config) => acc + config.duration, 0);
-  }, []);
+const startFrames = calculateSceneStartFrames();
+const totalFrames = SCENE_CONFIG.reduce((acc, config) => acc + config.duration, 0);
 
-  // 进度条动画
-  const progress = useMemo(() => {
-    return interpolate(frame, [0, totalFrames], [0, 100], {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    });
-  }, [frame, totalFrames]);
+interface RAGVideoProps {
+  showCaptions?: boolean;
+  volume?: number;
+}
 
+export const RAGVideo: React.FC<RAGVideoProps> = ({
+  showCaptions = true,
+  volume = 0.8
+}) => {
   return (
     <AbsoluteFill
       style={{
         background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
-        width,
-        height,
       }}
     >
-      {/* 进度条 */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: `${progress}%`,
-          height: '4px',
-          background: 'linear-gradient(90deg, #58a6ff, #79c0ff)',
-          zIndex: 1000,
-        }}
-      />
-
       {/* 场景序列 */}
       {SCENE_CONFIG.map((config, index) => {
         const Component = config.component;
@@ -136,59 +65,21 @@ export const RAGVideo = () => {
             from={startFrames[index]}
             durationInFrames={config.duration}
           >
-            <Component />
-            {/* 音频 */}
-            <Audio
-              src={staticFile(`RAGVideo/audios/${config.audio}`)}
-              startFrom={0}
-              endAt={config.duration}
-            />
+            <AbsoluteFill>
+              <Component />
+              {/* 音频 */}
+              <Audio
+                src={staticFile(config.audio)}
+                volume={volume}
+              />
+              {/* 字幕 */}
+              {showCaptions && (
+                <CaptionDisplay captionFile={config.caption} />
+              )}
+            </AbsoluteFill>
           </Sequence>
         );
       })}
-
-      {/* 字幕组件 */}
-      <AbsoluteFill
-        style={{
-          pointerEvents: 'none',
-          zIndex: 100,
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 80,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '85%',
-            maxWidth: '1000px',
-            background: 'rgba(0,0,0,0.75)',
-            padding: '24px 40px',
-            borderRadius: 16,
-            border: '1px solid rgba(255,255,255,0.1)',
-          }}
-        >
-          <CaptionDisplay text={currentSubtitle} />
-        </div>
-      </AbsoluteFill>
-
-      {/* 当前场景指示器 */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 24,
-          right: 24,
-          background: 'rgba(0,0,0,0.6)',
-          padding: '12px 20px',
-          borderRadius: 24,
-          fontSize: 16,
-          fontFamily: '"PingFang SC", "Microsoft YaHei", sans-serif',
-          color: '#8b949e',
-          zIndex: 100,
-        }}
-      >
-        {currentSceneIndex + 1} / {SCENE_CONFIG.length}
-      </div>
     </AbsoluteFill>
   );
 };
@@ -197,7 +88,7 @@ export const RAGVideo = () => {
 export const RAGVideoConfig = {
   id: 'RAGVideo',
   component: RAGVideo,
-  durationInFrames: 3977, // 所有场景帧数总和
+  durationInFrames: totalFrames,
   width: 1280,
   height: 720,
   fps: 30,

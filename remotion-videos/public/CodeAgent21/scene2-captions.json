@@ -1,0 +1,17 @@
+[
+  {
+    "text": "传统的代码工具就像一个简单的计算器，你需要明确告诉它每一步该怎么做。",
+    "startFrame": 30,
+    "endFrame": 120
+  },
+  {
+    "text": "而Code Agent更像是一个真正的编程搭档，它能够理解上下文，主动提供智能建议。",
+    "startFrame": 125,
+    "endFrame": 220
+  },
+  {
+    "text": "从简单的代码补全到复杂的架构设计，Code Agent都能帮上大忙！",
+    "startFrame": 225,
+    "endFrame": 300
+  }
+]

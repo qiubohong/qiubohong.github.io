@@ -1,0 +1,23 @@
+[
+    {
+        "text": "检索系统使用语义搜索技术。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "将用户查询向量化，利用余弦相似度在向量数据库中搜索。",
+        "startMs": 2500,
+        "endMs": 5833,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "返回最相关的Top-K个文本块。",
+        "startMs": 5833,
+        "endMs": 8267,
+        "timestampMs": 5833,
+        "confidence": 0.95
+    }
+]

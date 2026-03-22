@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#1c2333"/>
+    </linearGradient>
+    
+    <!-- 标题渐变 -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#79c0ff"/>
+    </linearGradient>
+    
+    <!-- 装饰线渐变 -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#f0883e"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    
+    <!-- 底部渐变条 -->
+    <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0883e"/>
+      <stop offset="50%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    
+    <!-- 光球滤镜 -->
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- 背景网格 -->
+  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  
+  <!-- 光球装饰 - 左上 -->
+  <circle cx="280" cy="220" r="300" fill="rgba(88,166,255,0.25)" filter="url(#blur1)"/>
+  
+  <!-- 光球装饰 - 右下 -->
+  <circle cx="1720" cy="880" r="250" fill="rgba(240,136,62,0.2)" filter="url(#blur2)"/>
+  
+  <!-- 光球装饰 - 右中 -->
+  <circle cx="1620" cy="540" r="200" fill="rgba(63,185,80,0.15)" filter="url(#blur2)"/>
+  
+  <!-- 系列徽章 -->
+  <g transform="translate(960, 200)">
+    <rect x="-110" y="-24" width="220" height="48" rx="24" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <circle cx="-85" cy="0" r="5" fill="#3fb950"/>
+    <text x="0" y="8" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="500" fill="#8b949e">5分钟 AI · 第19期</text>
+  </g>
+  
+  <!-- 主标题 Fine-tuning -->
+  <text x="960" y="400" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="120" font-weight="900" fill="url(#titleGradient)" letter-spacing="-2">Fine-tuning</text>
+  
+  <!-- 副标题 -->
+  <text x="960" y="490" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="56" font-weight="600" fill="#c9d1d9" letter-spacing="4">模型微调技术</text>
+  
+  <!-- 标语 -->
+  <text x="960" y="600" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="36" font-weight="500" fill="#f0883e">让通用AI成为你的领域专家</text>
+  
+  <!-- 装饰线 -->
+  <rect x="840" y="660" width="240" height="4" rx="2" fill="url(#lineGradient)"/>
+  
+  <!-- 关键词标签 -->
+  <g transform="translate(660, 740)">
+    <!-- 预训练 -->
+    <rect x="0" y="0" width="120" height="48" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="60" y="32" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="600" fill="#f0883e">预训练</text>
+    
+    <!-- 微调 -->
+    <rect x="140" y="0" width="100" height="48" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="190" y="32" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="600" fill="#58a6ff">微调</text>
+    
+    <!-- PEFT -->
+    <rect x="260" y="0" width="100" height="48" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="310" y="32" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="600" fill="#3fb950">PEFT</text>
+    
+    <!-- LoRA -->
+    <rect x="380" y="0" width="100" height="48" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="430" y="32" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="600" fill="#ffd200">LoRA</text>
+  </g>
+  
+  <!-- 底部渐变条 -->
+  <rect x="0" y="1074" width="1920" height="6" fill="url(#bottomGradient)"/>
+</svg>

@@ -1,0 +1,23 @@
+[
+    {
+        "text": "来看实战案例。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "企业知识库问答系统，使用LangChain框架。",
+        "startMs": 2000,
+        "endMs": 4333,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "只需几步代码就能构建完整的RAG应用。",
+        "startMs": 4333,
+        "endMs": 7767,
+        "timestampMs": 4333,
+        "confidence": 0.95
+    }
+]

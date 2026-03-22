@@ -1,0 +1,227 @@
+import { useEffect, useState } from "react";
+import { AbsoluteFill, Audio, Sequence, useVideoConfig, staticFile } from "remotion";
+import { Scene1_Opening } from "./scenes/codeagent/Scene1_Opening";
+import { Scene2_VisualComparison } from "./scenes/codeagent/Scene2_VisualComparison";
+import { Scene3_Architecture } from "./scenes/codeagent/Scene3_Architecture";
+import { Scene4_Workflow } from "./scenes/codeagent/Scene4_Workflow";
+import { Scene5_CodeExample } from "./scenes/codeagent/Scene5_CodeExample";
+import { Scene6_Products } from "./scenes/codeagent/Scene6_Products";
+import { Scene7_Summary } from "./scenes/codeagent/Scene7_Summary";
+import { EndingScene } from "./components/EndingScene";
+
+// Scene durations calculated from audio (with 30fps + 30 frames buffer)
+const INITIAL_SCENE_DURATIONS = {
+  scene1: 250,  // 约7.3s → 220 + 30 buffer
+  scene2: 400,  // 约12.3s → 370 + 30 buffer
+  scene3: 420,  // 约13s → 390 + 30 buffer
+  scene4: 450,  // 约14s → 420 + 30 buffer
+  scene5: 480,  // 约15s → 450 + 30 buffer
+  scene6: 560,  // 约17.7s → 530 + 30 buffer
+  scene7: 550,  // 约17.3s → 520 + 30 buffer
+  ending: 180,  // EndingScene fixed 6s
+};
+
+// Code example for scene 5
+const CODE_EXAMPLE = `from github_agent import CodeAgent
+
+# 初始化 AI 代码助手
+agent = CodeAgent(api_key="your-key")
+
+# 发送需求，自动生成代码
+result = agent.generate_code(
+    prompt="实现一个用户认证系统，添加登录和注册功能",
+    language="python"
+)
+
+# 获取生成的代码
+print(result.code)
+# 获取优化建议
+print(result.suggestions)`;
+
+export const CodeAgentVideo: React.FC = () => {
+  const { fps } = useVideoConfig();
+  const [durations, setDurations] = useState(INITIAL_SCENE_DURATIONS);
+
+  // Load subtitles
+  const [scene2Subtitles, setScene2Subtitles] = useState([]);
+  const [scene3Subtitles, setScene3Subtitles] = useState([]);
+  const [scene4Subtitles, setScene4Subtitles] = useState([]);
+  const [scene5Subtitles, setScene5Subtitles] = useState([]);
+  const [scene6Subtitles, setScene6Subtitles] = useState([]);
+  const [scene7Subtitles, setScene7Subtitles] = useState([]);
+
+  useEffect(() => {
+    // Load audio durations from file if available
+    const loadDurations = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:3000/CodeAgent21/durations.json"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setDurations(data);
+        }
+      } catch {
+        // Use initial durations if file not available
+      }
+    };
+    loadDurations();
+
+    // Load subtitles
+    const loadSubtitles = async () => {
+      try {
+        const scenes = [2, 3, 4, 5, 6, 7];
+        const setters = [
+          setScene2Subtitles,
+          setScene3Subtitles,
+          setScene4Subtitles,
+          setScene5Subtitles,
+          setScene6Subtitles,
+          setScene7Subtitles,
+        ];
+        
+        for (let i = 0; i < scenes.length; i++) {
+          try {
+            const response = await fetch(
+              `http://localhost:3000/CodeAgent21/scene${scenes[i]}-captions.json`
+            );
+            if (response.ok) {
+              const data = await response.json();
+              setters[i](data);
+            }
+          } catch (e) {
+            // Ignore errors
+          }
+        }
+      } catch (e) {
+        // Ignore errors
+      }
+    };
+    loadSubtitles();
+  }, []);
+
+  const seq = (sceneNumber: number): number => {
+    const keys = Object.keys(durations) as Array<keyof typeof durations>;
+    let total = 0;
+    for (let i = 1; i < sceneNumber; i++) {
+      total += durations[`scene${i}` as keyof typeof durations] || 0;
+    }
+    return total;
+  };
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#0d1117" }}>
+      {/* Background music */}
+      <Audio
+        src="http://localhost:3000/background-music.mp3"
+        startFrom={0}
+        endAt={(seq(8) + durations.ending) * fps}
+        volume={0.15}
+      />
+
+      {/* Scene 1: Opening */}
+      <Sequence
+        from={seq(1)}
+        durationInFrames={durations.scene1}
+        name="Scene1_Opening"
+      >
+        <Scene1_Opening />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene1.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 2: Visual Comparison */}
+      <Sequence
+        from={seq(2)}
+        durationInFrames={durations.scene2}
+        name="Scene2_VisualComparison"
+      >
+        <Scene2_VisualComparison subtitles={scene2Subtitles} />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene2.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 3: Architecture */}
+      <Sequence
+        from={seq(3)}
+        durationInFrames={durations.scene3}
+        name="Scene3_Architecture"
+      >
+        <Scene3_Architecture subtitles={scene3Subtitles} />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene3.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 4: Workflow */}
+      <Sequence
+        from={seq(4)}
+        durationInFrames={durations.scene4}
+        name="Scene4_Workflow"
+      >
+        <Scene4_Workflow subtitles={scene4Subtitles} />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene4.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 5: Code Example */}
+      <Sequence
+        from={seq(5)}
+        durationInFrames={durations.scene5}
+        name="Scene5_CodeExample"
+      >
+        <Scene5_CodeExample subtitles={scene5Subtitles} code={CODE_EXAMPLE} />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene5.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 6: Products */}
+      <Sequence
+        from={seq(6)}
+        durationInFrames={durations.scene6}
+        name="Scene6_Products"
+      >
+        <Scene6_Products subtitles={scene6Subtitles} />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene6.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Scene 7: Summary */}
+      <Sequence
+        from={seq(7)}
+        durationInFrames={durations.scene7}
+        name="Scene7_Summary"
+      >
+        <Scene7_Summary />
+        <Audio
+          src="http://localhost:3000/CodeAgent21/scene7.mp3"
+          volume={1}
+        />
+      </Sequence>
+
+      {/* Ending Scene */}
+      <Sequence
+        from={seq(8)}
+        durationInFrames={durations.ending}
+        name="EndingScene"
+      >
+        <EndingScene
+          title="Code Agent"
+          subtitle="AI程序员助手"
+          description="让AI成为你的编程搭档，从此告别996！"
+        />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};

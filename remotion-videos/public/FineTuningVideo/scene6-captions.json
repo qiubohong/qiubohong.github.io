@@ -1,0 +1,44 @@
+[
+  {
+    "text": "来看一个实际案例：客服对话风格微调。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "假设公司有特定的话术和回答风格，需要 AI 保持专业、友好的语气。",
+    "startMs": 3000,
+    "endMs": 7500,
+    "timestampMs": 3000,
+    "confidence": 0.95
+  },
+  {
+    "text": "通过 Fine-tuning，我们可以让模型学习标准化的回答模板。",
+    "startMs": 7500,
+    "endMs": 10500,
+    "timestampMs": 7500,
+    "confidence": 0.95
+  },
+  {
+    "text": "数据准备时，需要收集客服对话数据，格式像这样：系统角色定义加用户问题加标准回答。",
+    "startMs": 10500,
+    "endMs": 16500,
+    "timestampMs": 10500,
+    "confidence": 0.95
+  },
+  {
+    "text": "可以用 OpenAI API、Hugging Face 等工具进行微调。设置训练轮数、批次大小、学习率，",
+    "startMs": 16500,
+    "endMs": 21500,
+    "timestampMs": 16500,
+    "confidence": 0.95
+  },
+  {
+    "text": "训练完成后就能得到专属的客服模型。",
+    "startMs": 21500,
+    "endMs": 23500,
+    "timestampMs": 21500,
+    "confidence": 0.95
+  }
+]

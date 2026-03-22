@@ -1,0 +1,30 @@
+[
+    {
+        "text": "为什么需要RAG？",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "大模型有知识截止的局限。",
+        "startMs": 2000,
+        "endMs": 4167,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "也不了解企业私有数据。",
+        "startMs": 4167,
+        "endMs": 5833,
+        "timestampMs": 4167,
+        "confidence": 0.95
+    },
+    {
+        "text": "RAG通过实时从外部知识库检索信息，与模型能力结合，完美解决了这些问题。",
+        "startMs": 5833,
+        "endMs": 11633,
+        "timestampMs": 5833,
+        "confidence": 0.95
+    }
+]

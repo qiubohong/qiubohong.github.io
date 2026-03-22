@@ -1,0 +1,37 @@
+[
+  {
+    "text": "什么是 Fine-tuning？简单来说，就是在预训练好的 AI 模型基础上，用你特定领域的数据进行二次训练。",
+    "startMs": 0,
+    "endMs": 7500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "打个比方：预训练模型就像刚毕业的通才大学生，而 Fine-tuning 就像是让他去你的公司实习，",
+    "startMs": 7500,
+    "endMs": 14000,
+    "timestampMs": 7500,
+    "confidence": 0.95
+  },
+  {
+    "text": "通过实际工作训练，成为这个领域的专业人才。",
+    "startMs": 14000,
+    "endMs": 16500,
+    "timestampMs": 14000,
+    "confidence": 0.95
+  },
+  {
+    "text": "它不是从零开始训练，而是在已有能力上做精进。",
+    "startMs": 16500,
+    "endMs": 19500,
+    "timestampMs": 16500,
+    "confidence": 0.95
+  },
+  {
+    "text": "就像你不需要重新学习语言，只需要学习行业术语和工作方式。",
+    "startMs": 19500,
+    "endMs": 23000,
+    "timestampMs": 19500,
+    "confidence": 0.95
+  }
+]

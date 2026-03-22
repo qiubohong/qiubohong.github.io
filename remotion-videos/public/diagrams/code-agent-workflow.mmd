@@ -1,0 +1,22 @@
+flowchart TD
+    A[需求分析<br/>理解开发需求和技术要求] --> B[架构设计<br/>设计代码结构和模块划分]
+    B --> C[代码生成<br/>根据设计自动编写代码]
+    C --> D[代码测试<br/>验证代码功能和正确性]
+    D --> E[代码优化<br/>改进性能和可读性]
+    E --> F[代码审查<br/>检查质量和安全性]
+    F --> G[部署集成<br/>将代码集成到项目中]
+
+    D -->|测试失败| H[问题诊断<br/>分析错误原因]
+    H --> I[修复方案<br/>制定修复策略]
+    I --> C
+
+    F -->|审查不通过| J[重构优化<br/>改进代码质量]
+    J --> C
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#ffebee
+    style F fill:#fce4ec
+    style G fill:#e0f2f1

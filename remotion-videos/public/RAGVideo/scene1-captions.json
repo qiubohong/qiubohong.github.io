@@ -1,0 +1,30 @@
+[
+    {
+        "text": "今天我们来学习检索增强生成，简称RAG。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "想象一下，大模型参加开卷考试。",
+        "startMs": 3000,
+        "endMs": 5000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "RAG就是它的知识库。",
+        "startMs": 5000,
+        "endMs": 6500,
+        "timestampMs": 5000,
+        "confidence": 0.95
+    },
+    {
+        "text": "让AI既懂推理又能查资料，知识永远不会过期。",
+        "startMs": 6500,
+        "endMs": 10633,
+        "timestampMs": 6500,
+        "confidence": 0.95
+    }
+]

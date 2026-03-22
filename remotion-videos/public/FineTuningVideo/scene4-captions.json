@@ -1,0 +1,16 @@
+[
+  {
+    "text": "简单来说，Fine-tuning 就是给 AI 做"专业培训"，让它在你的领域更专业、更准确。",
+    "startMs": 0,
+    "endMs": 6000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "核心收益是提高特定任务的准确率，学习领域知识，适应特定的输出格式，同时降低推理成本。",
+    "startMs": 6000,
+    "endMs": 12500,
+    "timestampMs": 6000,
+    "confidence": 0.95
+  }
+]

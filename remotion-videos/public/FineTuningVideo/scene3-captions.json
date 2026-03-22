@@ -1,0 +1,44 @@
+[
+  {
+    "text": "Fine-tuning 的工作流程分为三个阶段：",
+    "startMs": 0,
+    "endMs": 2500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一阶段是预训练，使用海量通用数据训练基础模型，学习语言规律和常识。",
+    "startMs": 2500,
+    "endMs": 7500,
+    "timestampMs": 2500,
+    "confidence": 0.95
+  },
+  {
+    "text": "这个阶段成本极高，通常由大公司完成。",
+    "startMs": 7500,
+    "endMs": 9500,
+    "timestampMs": 7500,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二阶段是微调，使用特定领域的标注数据，冻结模型的大部分参数，只训练顶层参数来学习专业知识。",
+    "startMs": 9500,
+    "endMs": 16500,
+    "timestampMs": 9500,
+    "confidence": 0.95
+  },
+  {
+    "text": "成本相对较低，普通团队也能完成。",
+    "startMs": 16500,
+    "endMs": 18500,
+    "timestampMs": 16500,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三阶段是应用，模型同时具备通用能力和专业能力，在特定任务上表现更好，推理速度可能更快更便宜。",
+    "startMs": 18500,
+    "endMs": 25000,
+    "timestampMs": 18500,
+    "confidence": 0.95
+  }
+]

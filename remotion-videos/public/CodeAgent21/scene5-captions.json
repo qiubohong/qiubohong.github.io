@@ -1,0 +1,22 @@
+[
+  {
+    "text": "下面我们来看一个实际的代码示例。",
+    "startFrame": 30,
+    "endFrame": 80
+  },
+  {
+    "text": "这段代码展示了如何使用Python结合GitHub Copilot API进行代码分析。",
+    "startFrame": 85,
+    "endFrame": 170
+  },
+  {
+    "text": "首先导入必要的库，然后初始化Copilot分析器对象。",
+    "startFrame": 175,
+    "endFrame": 250
+  },
+  {
+    "text": "接着可以调用分析函数，传入代码和需求，Copilot就会返回优化建议。",
+    "startFrame": 255,
+    "endFrame": 350
+  }
+]

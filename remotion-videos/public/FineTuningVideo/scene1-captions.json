@@ -1,0 +1,23 @@
+[
+  {
+    "text": "5分钟 AI，每天搞懂一个知识点！今天我们学习，Fine-tuning 模型微调。",
+    "startMs": 0,
+    "endMs": 5500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "掌握 Fine-tuning，你就能让通用的AI大模型，变成精通你业务的专业助手！",
+    "startMs": 5500,
+    "endMs": 10500,
+    "timestampMs": 5500,
+    "confidence": 0.95
+  },
+  {
+    "text": "这是让 AI 真正落地的核心技术之一。",
+    "startMs": 10500,
+    "endMs": 12500,
+    "timestampMs": 10500,
+    "confidence": 0.95
+  }
+]

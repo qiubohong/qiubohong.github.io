@@ -34,6 +34,10 @@ import { OpenClaw1Video, OPENCLAW1_TOTAL_DURATION } from "./OpenClaw1Video";
 import { OpenClawFreeModelVideo, OPENCLAWFREEMODEL_TOTAL_DURATION } from "./OpenClawFreeModelVideo";
 import { OpenClawInstallVideo, OPENCLAWINSTALL_TOTAL_DURATION } from "./OpenClawInstallVideo";
 import { AIAgentVideo } from "./AIAgentVideo";
+import { FineTuningVideo } from "./FineTuningVideo";
+import { CoverImage_16x9 } from "./scenes/finetuning/CoverImage_16x9";
+import { CoverImage_9x16 } from "./scenes/finetuning/CoverImage_9x16";
+import { CodeAgentVideo } from "./CodeAgentVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -521,7 +525,58 @@ export const RemotionRoot = () => {
           backgroundMusicVolume: 0.15
         }}
       />
-    </>  );
+
+      {/* FineTuningVideo视频（5分钟AI系列·第19期） */}
+      <Composition
+        id="FineTuningVideo"
+        component={FineTuningVideo}
+        durationInFrames={1520} // 预估总帧数：180+230+250+125+185+235+175+140=1520帧，约50.67秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Fine-tuning 模型微调 - 让AI成为领域专家",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* FineTuningVideo封面图 - 16:9横版 */}
+      <Composition
+        id="FineTuningVideo_Cover_16x9"
+        component={CoverImage_16x9}
+        durationInFrames={1}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      {/* FineTuningVideo封面图 - 9:16竖版 */}
+      <Composition
+        id="FineTuningVideo_Cover_9x16"
+        component={CoverImage_9x16}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* CodeAgentVideo视频（5分钟AI系列·第20期） */}
+      <Composition
+        id="CodeAgentVideo"
+        component={CodeAgentVideo}
+        durationInFrames={3290} // 预估总帧数：250+400+420+450+480+560+550+180=3290帧，约109.67秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Code Agent - AI程序员助手",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+    </>
+  );
 };
 
 // 简单的音频测试组件

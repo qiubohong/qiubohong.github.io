@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Code Agent 的工作流程分为七个阶段。",
+    "startFrame": 30,
+    "endFrame": 90
+  },
+  {
+    "text": "首先是需求分析，然后是架构设计、代码生成、测试验证。",
+    "startFrame": 95,
+    "endFrame": 180
+  },
+  {
+    "text": "如果测试失败，它会自动诊断问题并重新生成代码。",
+    "startFrame": 185,
+    "endFrame": 260
+  },
+  {
+    "text": "经过代码优化和审查后，最终就能部署集成了！",
+    "startFrame": 265,
+    "endFrame": 330
+  }
+]

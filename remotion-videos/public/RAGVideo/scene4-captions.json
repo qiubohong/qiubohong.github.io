@@ -1,0 +1,23 @@
+[
+    {
+        "text": "离线阶段包括文本分割、向量化和存储。",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "在线阶段包括查询向量化、相似度检索和增强生成。",
+        "startMs": 3000,
+        "endMs": 7000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    },
+    {
+        "text": "流程清晰，分工明确。",
+        "startMs": 7000,
+        "endMs": 9133,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    }
+]

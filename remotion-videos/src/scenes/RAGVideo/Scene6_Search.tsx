@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -75,7 +75,7 @@ export const Scene6_Search: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
             <Img
-              src="/RAGVideo/semantic-search.png"
+src={staticFile("RAGVideo/semantic-search.png")}
               style={{
                 maxWidth: '60%',
                 maxHeight: '75vh',

@@ -1,0 +1,30 @@
+[
+    {
+        "text": "RAG与微调方法应该如何选择？",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "RAG适合实时准确的知识问答，成本低且可追溯。",
+        "startMs": 2500,
+        "endMs": 6000,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "微调适合提升深层能力，但成本高且知识静态。",
+        "startMs": 6000,
+        "endMs": 8833,
+        "timestampMs": 6000,
+        "confidence": 0.95
+    },
+    {
+        "text": "两者可以结合使用。",
+        "startMs": 8833,
+        "endMs": 10133,
+        "timestampMs": 8833,
+        "confidence": 0.95
+    }
+]

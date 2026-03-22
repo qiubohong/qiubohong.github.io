@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 const THEME = {
   background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)',
@@ -75,7 +75,7 @@ export const Scene8_Comparison: React.FC = () => {
             }}
           >
             <Img
-              src="/RAGVideo/rag-vs-others.svg"
+src={staticFile("RAGVideo/rag-vs-others.svg")}
               style={{
                 maxWidth: '100%',
                 maxHeight: '100%',
