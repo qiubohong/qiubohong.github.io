@@ -36,47 +36,38 @@ SCENES = {
 # Qwen3-TTS模型实例（单例）
 _qwen_model = None
 
-def get_tts_model():
-    """获取或初始化 Qwen3-TTS 模型"""
-    global _tts_model
-    if _tts_model is None:
-        try:
-            print("🔧 加载 Qwen3-TTS 模型...")
-            model_kwargs = {
-                "pretrained_model_name_or_path": str(PROJECT_ROOT / "Qwen3-TTS-12Hz-1.7B-Base"),
-                "device_map": "auto",
-                "torch_dtype": torch.bfloat16,
-                "low_cpu_mem_usage": True,
-            }
-            _tts_model = Qwen3TTSModel.from_pretrained(**model_kwargs)
-            print("✅ Qwen3-TTS 模型加载完成")
-        except Exception as e:
-            print(f"❌ Qwen3-TTS 模型加载失败: {e}")
-            print("💡 建议检查模型路径和网络连接")
-            return None
-    return _tts_model
+def get_qwen_model():
+    """获取或初始化Qwen3-TTS模型"""
+    global _qwen_model
+    if _qwen_model is None:
+        model_path = str(PROJECT_ROOT / "Qwen3-TTS-12Hz-1.7B-Base")
+        print(f"🔧 加载Qwen3-TTS模型: {model_path}")
+        _qwen_model = Qwen3TTSModel.from_pretrained(
+            pretrained_model_name_or_path=model_path,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+        )
+        print("✅ 模型加载完成")
+    return _qwen_model
 
-def extract_text_from_captions(captions_file):
-    """从字幕文件中提取完整文本"""
-    with open(captions_file, 'r', encoding='utf-8') as f:
+def load_captions_text(caption_file: Path) -> str:
+    """从字幕文件读取并拼接所有文本"""
+    with open(caption_file, "r", encoding="utf-8") as f:
         captions = json.load(f)
-    sorted_captions = sorted(captions, key=lambda x: x.get('startMs', 0))
-    text = ''.join([c['text'] for c in sorted_captions])
-    return text
+    return "".join(item["text"] for item in captions)
 
-def generate_audio_with_tts(text, output_path, max_retries=3):
-    """使用 Qwen3-TTS 生成音频"""
+def generate_audio(text: str, output_path: Path, max_retries: int = 3) -> bool:
+    """使用Qwen3-TTS生成音频"""
+    ref_audio = str(PROJECT_ROOT / "borfy.mp3")
+
     for attempt in range(max_retries):
-        model = get_tts_model()
-        if model is None:
-            return False
-        
-        print(f"🔄 尝试生成语音 (第{attempt + 1}次)...")
-        
         try:
+            print(f"  🔄 生成语音 (第{attempt + 1}次)...")
+            model = get_qwen_model()
             wavs, sr = model.generate_voice_clone(
-                ref_audio=REFERENCE_AUDIO,
-                ref_text=REFERENCE_TEXT,
+                ref_audio=ref_audio,
+                ref_text="5分钟 AI，每天搞懂一个知识点！今天我们学习， 监督学习。",
                 text=text,
                 language="chinese",
                 max_new_tokens=512,
@@ -90,135 +81,75 @@ def generate_audio_with_tts(text, output_path, max_retries=3):
                 subtalker_top_p=0.7,
                 subtalker_temperature=0.3,
             )
-            
-            # 保存原始音频
-            sf.write(output_path, wavs[0], sr)
-            
-            # 音频后处理
-            try:
-                audio, sr_loaded = librosa.load(output_path, sr=None)
-                audio_duration = len(audio) / sr_loaded
-                print(f"📊 音频时长: {audio_duration:.2f}秒")
-                
-                # 音频过长时裁剪
-                if audio_duration > 45:
-                    print("⚠️ 音频过长，进行裁剪...")
-                    max_samples = int(45 * sr_loaded)
-                    audio = audio[:max_samples]
-                    print(f"✓ 裁剪后时长: {len(audio) / sr_loaded:.2f}秒")
-                
-                # 音量标准化
-                audio_normalized = librosa.util.normalize(audio) * 0.7
-                audio_filtered = librosa.effects.preemphasis(audio_normalized, coef=0.97)
-                sf.write(output_path, audio_filtered, sr_loaded)
-                print(f"✓ 音频后处理完成")
-                
-                if audio_duration < 1.0:
-                    print("⚠️ 音频过短，可能生成失败")
-                    continue
-                    
-            except Exception as e:
-                print(f"⚠️ 音频后处理失败，但原始音频已保存: {e}")
-            
-            print(f"✓ 生成音频: {output_path}")
+            sf.write(str(output_path), wavs[0], sr)
+
+            # 后处理：音量标准化
+            audio, sr_loaded = librosa.load(str(output_path), sr=None)
+            duration = len(audio) / sr_loaded
+            print(f"  📊 音频时长: {duration:.2f}秒")
+
+            if duration < 1.0:
+                print("  ⚠️  音频过短，重试...")
+                continue
+
+            if duration > 40:
+                print("  ⚠️  音频过长，裁剪至40秒...")
+                audio = audio[:int(40 * sr_loaded)]
+
+            audio = librosa.util.normalize(audio) * 0.7
+            audio = librosa.effects.preemphasis(audio, coef=0.97)
+            sf.write(str(output_path), audio, sr_loaded)
+            print(f"  ✅ 已保存: {output_path.name}")
             return True
-            
+
         except Exception as e:
-            print(f"❌ 第{attempt + 1}次生成失败: {e}")
-            if attempt < max_retries - 1:
-                print("🔄 等待2秒后重试...")
-                import time
-                time.sleep(2)
-    
+            print(f"  ❌ 第{attempt + 1}次失败: {e}")
+            import time
+            time.sleep(2)
+
     return False
 
-def generate_all_audios():
-    """生成所有场景的音频文件"""
-    current_dir = Path(__file__).parent
-    
-    # 查找所有字幕文件
-    caption_files = sorted(list(current_dir.glob("scene*-captions.json")))
-    
+def main():
     print("=" * 60)
-    print("🎵 DeepSeekVideo - Qwen3-TTS 音频生成工具")
+    print("DeepSeekVideo - 音频生成")
     print("=" * 60)
-    print(f"📋 找到 {len(caption_files)} 个字幕文件\n")
-    
+
     success_count = 0
-    
-    for caption_file in tqdm(caption_files, desc="生成音频"):
-        scene_name = caption_file.stem.replace("-captions", "")
-        audio_file = current_dir / f"{scene_name}-audio.mp3"
-        
-        # 提取文本
-        text = extract_text_from_captions(caption_file)
-        
-        print(f"\n📝 {scene_name}:")
-        print(f"   文本: {text[:60]}...")
-        
-        # 检查文本长度
-        if len(text) > 300:
-            print("⚠️ 文本较长，可能影响音频质量")
-        
-        # 生成音频
-        if generate_audio_with_tts(text, audio_file):
-            print(f"✅ 已生成: {audio_file.name}\n")
+    skipped_count = 0
+    failed_count = 0
+
+    for scene_id, scene in SCENES.items():
+        caption_file = OUTPUT_DIR / scene["caption_file"]
+        output_file = OUTPUT_DIR / scene["output_file"]
+
+        print(f"\n📝 [{scene_id}] {scene['name']}")
+
+        # 跳过已存在的音频
+        if output_file.exists():
+            print(f"  ⏭️  已存在，跳过: {output_file.name}")
+            skipped_count += 1
+            continue
+
+        # 读取字幕文本
+        if not caption_file.exists():
+            print(f"  ❌ 字幕文件不存在: {caption_file}")
+            failed_count += 1
+            continue
+
+        text = load_captions_text(caption_file)
+        print(f"  📄 文本: {text[:60]}{'...' if len(text) > 60 else ''}")
+
+        if generate_audio(text, output_file):
             success_count += 1
         else:
-            print(f"❌ 生成失败: {scene_name}\n")
-    
-    print("=" * 60)
-    print(f"📊 生成结果: {success_count}/{len(caption_files)} 成功")
-    if success_count == len(caption_files):
-        print("🎉 所有音频生成完成！")
-    else:
-        print(f"⚠️ {len(caption_files) - success_count} 个音频生成失败")
-    print("=" * 60)
-    
-    return success_count == len(caption_files)
+            failed_count += 1
 
-def check_dependencies():
-    """检查依赖是否安装"""
-    required_packages = ["torch", "qwen_tts", "soundfile", "librosa", "numpy", "tqdm"]
-    
-    print("🔍 检查依赖包...")
-    missing_packages = []
-    
-    for package in required_packages:
-        try:
-            __import__(package)
-            print(f"✓ {package}")
-        except ImportError:
-            missing_packages.append(package)
-            print(f"✗ {package}")
-    
-    if missing_packages:
-        print(f"\n❌ 缺少依赖包: {', '.join(missing_packages)}")
-        print("💡 请运行: pip install -r requirement.txt")
-        return False
-    
-    print("✅ 所有依赖包已安装")
-    
-    if torch.cuda.is_available():
-        print(f"🎮 GPU可用: {torch.cuda.get_device_name(0)}")
-    else:
-        print("⚠️ GPU不可用，将使用CPU运行（速度较慢）")
-    
-    # 检查参考音频是否存在
-    ref_path = Path(REFERENCE_AUDIO)
-    if ref_path.is_absolute() or (Path(__file__).parent / REFERENCE_AUDIO).exists():
-        print(f"✓ 参考音频: {REFERENCE_AUDIO}")
-    else:
-        print(f"⚠️ 参考音频可能不存在: {REFERENCE_AUDIO}")
-    
-    return True
+    print("\n" + "=" * 60)
+    print("音频生成完成！")
+    print(f"✅ 成功: {success_count}")
+    print(f"⏭️  跳过: {skipped_count}")
+    print(f"❌ 失败: {failed_count}")
+    print("=" * 60)
 
 if __name__ == "__main__":
-    # 检查依赖
-    if not check_dependencies():
-        sys.exit(1)
-    
-    # 生成音频
-    success = generate_all_audios()
-    
-    sys.exit(0 if success else 1)
+    main()

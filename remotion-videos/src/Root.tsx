@@ -531,7 +531,7 @@ export const RemotionRoot = () => {
       <Composition
         id="FineTuningVideo"
         component={FineTuningVideo}
-        durationInFrames={4970} // 总帧数：481+894+937+447+766+966+733+466+180=4970帧，约165.7秒（基于实际音频时长+30帧缓冲/ending固定180帧）
+        durationInFrames={5870} // 总帧数：481+894+937+447+766+966+733+466+180=4970帧，约165.7秒（基于实际音频时长+30帧缓冲/ending固定180帧）
         fps={30}
         width={1920}
         height={1080}
@@ -546,7 +546,7 @@ export const RemotionRoot = () => {
       <Composition
         id="CodeAgentVideo"
         component={CodeAgentVideo}
-        durationInFrames={3290} // 预估总帧数：250+400+420+450+480+560+550+180=3290帧，约109.67秒
+        durationInFrames={4090} // 预估总帧数：250+400+420+450+480+560+550+180=3290帧，约109.67秒
         fps={30}
         width={1920}
         height={1080}

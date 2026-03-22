@@ -1,103 +1,120 @@
-import React, { useState, useEffect } from "react";
-import { AbsoluteFill, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-
-interface CaptionToken {
-    text: string;
-    // 支持帧数格式
-    startFrame?: number;
-    endFrame?: number;
-    // 支持毫秒格式
-    startMs?: number;
-    endMs?: number;
-    timestampMs?: number;
-    confidence?: number;
-}
+import React, { useMemo } from "react";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, staticFile } from "remotion";
+import { createTikTokStyleCaptions } from "@remotion/captions";
+import type { Caption, TikTokPage } from "@remotion/captions";
 
 interface CaptionDisplayProps {
-    captionFile: string;
-    startFrom?: number;
+  captions: Caption[];
+  bottomOffset?: number;
+  fontSize?: number;
+  highlightColor?: string;
+  normalColor?: string;
+  combineTokensWithinMilliseconds?: number;
 }
 
+const SWITCH_CAPTIONS_EVERY_MS = 1200;
+
 export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
-    captionFile,
-    startFrom = 0
+  captions,
+  bottomOffset = 100,
+  fontSize = 40,
+  highlightColor = "#ffd200",
+  normalColor = "#c9d1d9",
+  combineTokensWithinMilliseconds = SWITCH_CAPTIONS_EVERY_MS,
 }) => {
-    const [captions, setCaptions] = useState<CaptionToken[] | null>(null);
-    const frame = useCurrentFrame();
-    const { fps } = useVideoConfig();
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-    useEffect(() => {
-        const loadCaptions = async () => {
-            try {
-                const response = await fetch(staticFile(captionFile));
-                const data = await response.json();
-                if (Array.isArray(data)) {
-                    setCaptions(data);
-                } else {
-                    console.error("Captions data is not an array:", data);
-                }
-            } catch (error) {
-                console.error("Failed to load captions:", error);
-            }
-        };
-        loadCaptions();
-    }, [captionFile]);
-
-    if (!captions) return null;
-
-    // 计算当前帧数（考虑起始偏移）
-    const currentFrame = frame + startFrom;
-    // 当前时间（毫秒）
-    const currentMs = (currentFrame / fps) * 1000;
-
-    // 找到当前字幕条目，兼容 startFrame/endFrame 和 startMs/endMs 两种格式
-    const currentCaption = captions.find((caption) => {
-        // 优先使用帧数格式
-        if (caption.startFrame !== undefined && caption.endFrame !== undefined) {
-            return currentFrame >= caption.startFrame && currentFrame < caption.endFrame;
-        }
-        // 回退到毫秒格式
-        if (caption.startMs !== undefined && caption.endMs !== undefined) {
-            return currentMs >= caption.startMs && currentMs < caption.endMs;
-        }
-        return false;
+  // 创建页面
+  const { pages } = useMemo(() => {
+    return createTikTokStyleCaptions({
+      captions,
+      combineTokensWithinMilliseconds,
     });
+  }, [captions, combineTokensWithinMilliseconds]);
 
-    if (!currentCaption) return null;
+  // 找到当前应该显示的页面
+  const currentTimeMs = (frame / fps) * 1000;
+  const currentPage = pages.find((page, index) => {
+    const nextPage = pages[index + 1];
+    const pageEndMs = nextPage ? nextPage.startMs : page.startMs + combineTokensWithinMilliseconds;
+    return currentTimeMs >= page.startMs / 1000 && currentTimeMs < pageEndMs / 1000;
+  });
 
-    return (
-        <AbsoluteFill
-            style={{
-                justifyContent: "flex-end",
-                alignItems: "center",
-                paddingBottom: 100,
-                pointerEvents: "none",
-            }}
-        >
-            <div
-                style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.7)",
-                    padding: "16px 40px",
-                    borderRadius: 12,
-                    maxWidth: "85%",
-                    backdropFilter: "blur(10px)",
-                    display: "none",
-                }}
+  if (!currentPage) {
+    return null;
+  }
+
+  // 计算当前时间（相对页面开始）
+  const pageStartMs = currentPage.startMs;
+  const relativeTimeMs = currentTimeMs * 1000 - pageStartMs;
+
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: "flex-end",
+        alignItems: "center",
+        paddingBottom: bottomOffset,
+        pointerEvents: "none",
+      }}
+    >
+      <div
+        style={{
+          fontSize,
+          fontWeight: "bold",
+          whiteSpace: "pre-wrap",
+          textAlign: "center",
+          maxWidth: "90%",
+          lineHeight: 1.5,
+          textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+        }}
+      >
+        {currentPage.tokens.map((token, index) => {
+          const isActive =
+            token.fromMs - pageStartMs <= relativeTimeMs &&
+            token.toMs - pageStartMs > relativeTimeMs;
+
+          return (
+            <span
+              key={`${token.fromMs}-${index}`}
+              style={{
+                color: isActive ? highlightColor : normalColor,
+                transition: "color 0.1s ease",
+              }}
             >
-                <div
-                    style={{
-                        fontSize: 42,
-                        fontWeight: 600,
-                        color: "white",
-                        textAlign: "center",
-                        lineHeight: 1.5,
-                        wordBreak: "break-all",
-                        whiteSpace: "normal",
-                    }}
-                >
-                    {currentCaption.text}
-                </div>
-            </div>
-        </AbsoluteFill>
-    );
+              {token.text}
+            </span>
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// 带加载状态的字幕显示组件
+export const CaptionDisplayWithLoader: React.FC<
+  Omit<CaptionDisplayProps, "captions"> & { captionsPath: string }
+> = ({ captionsPath, ...props }) => {
+  const [captions, setCaptions] = React.useState<Caption[] | null>(null);
+
+  React.useEffect(() => {
+    const loadCaptions = async () => {
+      try {
+        const response = await fetch(staticFile(captionsPath));
+        if (response.ok) {
+          const data = await response.json();
+          setCaptions(data);
+        }
+      } catch (e) {
+        console.error("Failed to load captions:", e);
+      }
+    };
+    loadCaptions();
+  }, [captionsPath]);
+
+  if (!captions) {
+    return null;
+  }
+
+  return <CaptionDisplay captions={captions} {...props} />;
 };

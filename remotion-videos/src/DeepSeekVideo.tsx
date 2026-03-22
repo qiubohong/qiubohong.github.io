@@ -11,16 +11,16 @@ const Scene5_Ethics = React.lazy(() => import("./scenes/deepseek/Scene5_Ethics")
 const Scene6_Architecture = React.lazy(() => import("./scenes/deepseek/Scene6_Architecture").then(m => ({ default: m.Scene6_Architecture })));
 const Scene7_Ending = React.lazy(() => import("./scenes/deepseek/Scene7_Ending").then(m => ({ default: m.Scene7_Ending })));
 
-// Scene durations (初始估算，将根据音频时长更新)
-// 30fps: 秒数 * 30 + 30帧缓冲
+// Scene durations (基于音频时长计算)
+// 30fps: 音频秒数 * 30 + 30帧缓冲
 const INITIAL_SCENE_DURATIONS = {
-  scene1: 690,  // 22秒 + 30帧
-  scene2: 780,  // 25秒 + 30帧  
-  scene3: 870,  // 28秒 + 30帧
-  scene4: 930,  // 30秒 + 30帧
-  scene5: 870,  // 28秒 + 30帧
-  scene6: 810,  // 26秒 + 30帧
-  scene7: 780,  // 25秒 + 30帧
+  scene1: 658,  // 20.96s + 30帧缓冲
+  scene2: 666,  // 21.20s + 30帧缓冲
+  scene3: 610,  // 19.36s + 30帧缓冲
+  scene4: 754,  // 24.16s + 30帧缓冲
+  scene5: 668,  // 21.28s + 30帧缓冲
+  scene6: 649,  // 20.64s + 30帧缓冲
+  scene7: 870,  // 26s（整合第五、六、七轮辩论+尾声）
   ending: 180,  // EndingScene 6秒固定
 };
 
@@ -86,7 +86,8 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene1}
         name="Scene1_Opening"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>        <Scene1_Opening />
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
+          <Scene1_Opening />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene1-audio.mp3")} volume={1} />
       </Sequence>
@@ -97,7 +98,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene2}
         name="Scene2_Background"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene2_Background />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene2-audio.mp3")} volume={1} />
@@ -109,7 +110,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene3}
         name="Scene3_SweetSpot"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene3_SweetSpot />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene3-audio.mp3")} volume={1} />
@@ -121,7 +122,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene4}
         name="Scene4_Computing"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene4_Computing />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene4-audio.mp3")} volume={1} />
@@ -133,7 +134,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene5}
         name="Scene5_Ethics"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene5_Ethics />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene5-audio.mp3")} volume={1} />
@@ -145,7 +146,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene6}
         name="Scene6_Architecture"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene6_Architecture />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene6-audio.mp3")} volume={1} />
@@ -157,7 +158,7 @@ export const DeepSeekVideo: React.FC = () => {
         durationInFrames={durations.scene7}
         name="Scene7_Ending"
       >
-        <React.Suspense fallback={<div style={{ backgroundColor: "#0d1117" }} />}>
+<React.Suspense fallback={<AbsoluteFill style={{ backgroundColor: "#0d1117" }} />}>
           <Scene7_Ending />
         </React.Suspense>
         <Audio src={staticFile("DeepSeekVideo/scene7-audio.mp3")} volume={1} />

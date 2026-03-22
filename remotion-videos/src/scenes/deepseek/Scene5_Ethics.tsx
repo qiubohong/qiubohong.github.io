@@ -1,155 +1,224 @@
-import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, Img, staticFile } from "remotion";
+import React, { useEffect, useState } from "react";
+import { AbsoluteFill, interpolate, useCurrentFrame, staticFile, spring, useVideoConfig } from "remotion";
+import { createTikTokStyleCaptions } from "@remotion/captions";
+import type { Caption } from "@remotion/captions";
+
+const THEME = {
+  background: "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2333 100%)",
+  fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+  primary: "#58a6ff",
+  secondary: "#79c0ff",
+  accent: "#f0883e",
+  highlight: "#f778ba",
+  textPrimary: "#c9d1d9",
+  textSecondary: "#8b949e",
+};
 
 export const Scene5_Ethics: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-  // 背景图淡入
-  const bgOpacity = interpolate(frame, [0, 20], [0, 1], {
+  // 标题栏
+  const headerOpacity = interpolate(frame, [0, 15], [0, 1], {
     extrapolateRight: "clamp",
   });
 
-  // 叠加层淡入
-  const overlayOpacity = interpolate(frame, [10, 25], [0, 0.6], {
+  // 图表区域
+  const chartOpacity = interpolate(frame, [15, 35], [0, 1], {
     extrapolateRight: "clamp",
   });
 
-  // 警示图标脉冲
-  const pulseOpacity = interpolate(
+  // 曲线绘制动画
+  const curveProgress = interpolate(frame, [30, 70], [0, 1], {
+    extrapolateRight: "clamp",
+  });
+
+  // 甜点区脉冲高亮
+  const sweetSpotPulse = interpolate(
     frame,
-    [20, 40, 60],
-    [0.5, 1, 0.5],
+    [60, 80, 100],
+    [0.4, 1, 0.4],
     { extrapolateRight: "clamp" }
   );
 
-  // 标题淡入
-  const titleOpacity = interpolate(frame, [25, 40], [0, 1], {
-    extrapolateRight: "clamp",
+  // 辩论卡片
+  const leftCard = spring({
+    frame: frame - 50,
+    fps,
+    config: { stiffness: 100, damping: 20 },
   });
 
-  // 文字逐条淡入
-  const textOpacity = (delay: number) =>
-    interpolate(frame, [40 + delay, 55 + delay], [0, 1], {
-      extrapolateRight: "clamp",
-    });
+  const rightCard = spring({
+    frame: frame - 60,
+    fps,
+    config: { stiffness: 100, damping: 20 },
+  });
 
   return (
     <AbsoluteFill
       style={{
-        position: "relative",
-        fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
-        overflow: "hidden",
+        background: THEME.background,
+        fontFamily: THEME.fontFamily,
+        display: "flex",
+        flexDirection: "column",
+        padding: "48px",
       }}
     >
-      {/* 背景图片 */}
+      {/* 标题栏 */}
       <div
         style={{
-          position: "absolute",
-          inset: 0,
-          opacity: bgOpacity,
-        }}
-      >
-        <Img
-          src={staticFile("assets/img/ailearn/deepseek/ethical-dark-matter.png")}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </div>
-
-      {/* 暗色叠加层 */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(135deg, rgba(13,17,23,0.7) 0%, rgba(22,27,34,0.8) 100%)",
-          opacity: overlayOpacity,
-        }}
-      />
-
-      {/* 内容区域 */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          padding: "60px",
           textAlign: "center",
+          marginBottom: 24,
+          opacity: headerOpacity,
         }}
       >
-        {/* 警示图标 */}
         <div
           style={{
-            fontSize: 80,
-            marginBottom: 24,
-            opacity: pulseOpacity,
+            display: "inline-block",
+            background: "rgba(247,120,186,0.15)",
+            border: `1px solid ${THEME.highlight}40`,
+            borderRadius: 20,
+            padding: "8px 24px",
+            marginBottom: 16,
           }}
         >
-          ⚠️
+          <span style={{ fontSize: 18, color: THEME.highlight }}>第三轮辩论</span>
         </div>
-
-        {/* 标题 */}
         <h2
           style={{
-            fontSize: 48,
+            fontSize: 40,
+            color: THEME.textPrimary,
             fontWeight: "bold",
-            color: "#f778ba",
-            marginBottom: 16,
-            opacity: titleOpacity,
-            textShadow: "0 0 40px rgba(247,120,186,0.5)",
+            margin: 0,
           }}
         >
-          伦理暗物质
+          R1的"推理甜点区"悖论
         </h2>
-        <p
+      </div>
+
+      {/* 图表区域 */}
+      <div
+        style={{
+          height: 280,
+          background: "rgba(255,255,255,0.03)",
+          borderRadius: 16,
+          padding: 20,
+          marginBottom: 24,
+          opacity: chartOpacity,
+        }}
+      >
+        <svg viewBox="0 0 700 240" style={{ width: "100%", height: "100%" }}>
+          {/* 坐标轴 */}
+          <line x1="60" y1="200" x2="640" y2="200" stroke="#8b949e" strokeWidth="2" />
+          <line x1="60" y1="200" x2="60" y2="30" stroke="#8b949e" strokeWidth="2" />
+
+          {/* 坐标标签 */}
+          <text x="350" y="235" fill="#8b949e" fontSize="16" textAnchor="middle">
+            思维链长度
+          </text>
+          <text x="20" y="115" fill="#8b949e" fontSize="16" textAnchor="middle" transform="rotate(-90, 20, 115)">
+            推理性能
+          </text>
+
+          {/* 抛物线路径 - 推理甜点区 */}
+          <path
+            d="M 100 180 Q 350 30 600 170"
+            fill="none"
+            stroke={THEME.highlight}
+            strokeWidth="4"
+            strokeDasharray="700"
+            strokeDashoffset={700 * (1 - curveProgress)}
+            strokeLinecap="round"
+          />
+
+          {/* 甜点区标注 */}
+          <circle cx="350" cy="30" r="12" fill={THEME.highlight} opacity={sweetSpotPulse} />
+          <circle cx="350" cy="30" r="20" fill="none" stroke={THEME.highlight} strokeWidth="2" opacity={sweetSpotPulse * 0.5} />
+
+          {/* 甜点区文字 */}
+          <text x="350" y="65" fill={THEME.highlight} fontSize="20" fontWeight="bold" textAnchor="middle">
+            甜点区
+          </text>
+          <text x="350" y="88" fill="#8b949e" fontSize="14" textAnchor="middle">
+            超过此长度，性能反而下降
+          </text>
+
+          {/* 区域标注 */}
+          <text x="120" y="150" fill="#8b949e" fontSize="14" opacity={0.7}>
+            思考不足
+          </text>
+          <text x="520" y="150" fill="#8b949e" fontSize="14" opacity={0.7}>
+            反刍式思考
+          </text>
+
+          {/* 研究机构标注 */}
+          <text x="600" y="50" fill={THEME.textSecondary} fontSize="14" textAnchor="end">
+            魁北克研究所 142页论文
+          </text>
+        </svg>
+      </div>
+
+      {/* 辩论观点 */}
+      <div style={{ display: "flex", gap: 16, flex: 1 }}>
+        {/* 观点一：探索终极形态 */}
+        <div
           style={{
-            fontSize: 28,
-            color: "#c9d1d9",
-            marginBottom: 48,
-            opacity: titleOpacity,
+            flex: 1,
+            background: "rgba(88,166,255,0.08)",
+            borderRadius: 16,
+            padding: 20,
+            border: `2px solid ${THEME.primary}40`,
+            transform: `translateX(${(1 - leftCard) * -50}px)`,
           }}
         >
-          大模型隐藏的安全隐患
-        </p>
+          <div style={{ display: "flex", alignItems: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 24, marginRight: 8 }}>🎯</span>
+            <span style={{ fontSize: 20, fontWeight: "bold", color: THEME.primary }}>
+              观点一：攻克终极难题
+            </span>
+          </div>
+          <p
+            style={{
+              fontSize: 18,
+              color: THEME.textPrimary,
+              lineHeight: 1.6,
+              margin: 0,
+            }}
+          >
+            R2迟迟不发，恰恰说明DeepSeek在攻克难题——
+            <strong style={{ color: THEME.primary }}>如何让模型知道什么时候该停止思考</strong>。
+            这不是技术瓶颈，是在探索推理模型的终极形态。
+          </p>
+        </div>
 
-        {/* 说明文字 */}
-        <div style={{ maxWidth: 800 }}>
+        {/* 观点二：遇上天花板 */}
+        <div
+          style={{
+            flex: 1,
+            background: "rgba(247,120,186,0.08)",
+            borderRadius: 16,
+            padding: 20,
+            border: `2px solid ${THEME.highlight}40`,
+            transform: `translateX(${(1 - rightCard) * 50}px)`,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 24, marginRight: 8 }}>📉</span>
+            <span style={{ fontSize: 20, fontWeight: "bold", color: THEME.highlight }}>
+              观点二：暴露天花板
+            </span>
+          </div>
           <p
             style={{
-              fontSize: 26,
-              color: "#c9d1d9",
-              marginBottom: 20,
+              fontSize: 18,
+              color: THEME.textPrimary,
               lineHeight: 1.6,
-              opacity: textOpacity(0),
+              margin: 0,
             }}
           >
-            最新研究发现：预训练时嵌入的
-            <strong style={{ color: "#f778ba" }}>有害知识可能永久存留</strong>
-          </p>
-          <p
-            style={{
-              fontSize: 24,
-              color: "#8b949e",
-              marginBottom: 20,
-              lineHeight: 1.6,
-              opacity: textOpacity(10),
-            }}
-          >
-            如果 R2 推理能力比 R1 强 10 倍，
-            <br />
-            安全风险也可能强 10 倍
-          </p>
-          <p
-            style={{
-              fontSize: 26,
-              color: "#ffd200",
-              fontWeight: 600,
-              opacity: textOpacity(20),
-            }}
-          >
-            延迟发布，也许是在做更深入的安全加固
+            "甜点区"恰恰暴露了R1的天花板。R1会
+            <strong style={{ color: THEME.highlight }}>反复沉溺在已探索过的方案中</strong>，
+            形成低效循环。R2如果延续这路线，永远无法超越R1。
           </p>
         </div>
       </div>

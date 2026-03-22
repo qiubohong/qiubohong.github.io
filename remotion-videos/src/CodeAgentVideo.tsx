@@ -11,13 +11,13 @@ import { EndingScene } from "./components/EndingScene";
 
 // Scene durations calculated from audio (with 30fps + 30 frames buffer)
 const INITIAL_SCENE_DURATIONS = {
-  scene1: 250,  // 约7.3s → 220 + 30 buffer
-  scene2: 400,  // 约12.3s → 370 + 30 buffer
-  scene3: 420,  // 约13s → 390 + 30 buffer
-  scene4: 450,  // 约14s → 420 + 30 buffer
-  scene5: 480,  // 约15s → 450 + 30 buffer
-  scene6: 560,  // 约17.7s → 530 + 30 buffer
-  scene7: 550,  // 约17.3s → 520 + 30 buffer
+  scene1: 246,  // 7.20s → 216 + 30 buffer
+  scene2: 543,  // 17.12s → 513 + 30 buffer
+  scene3: 598,  // 18.96s → 568 + 30 buffer
+  scene4: 507,  // 15.92s → 477 + 30 buffer
+  scene5: 579,  // 18.32s → 549 + 30 buffer
+  scene6: 800,  // 25.68s → 770 + 30 buffer
+  scene7: 598,  // 18.96s → 568 + 30 buffer
   ending: 180,  // EndingScene fixed 6s
 };
 
