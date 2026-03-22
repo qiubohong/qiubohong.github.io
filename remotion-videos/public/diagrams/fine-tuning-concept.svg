@@ -1,0 +1,114 @@
+<svg width="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="50%" style="stop-color:#161b22"/>
+      <stop offset="100%" style="stop-color:#1c2333"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#79c0ff"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0883e"/>
+      <stop offset="100%" style="stop-color:#ffd200"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" fill="#c9d1d9" font-size="24" font-weight="bold" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">Fine-tuning 微调原理</text>
+
+  <!-- 左侧：预训练模型 -->
+  <g transform="translate(120, 100)">
+    <!-- 外框 -->
+    <rect x="0" y="0" width="160" height="200" rx="12" fill="rgba(88, 166, 255, 0.1)" stroke="#58a6ff" stroke-width="2"/>
+    <!-- 标题 -->
+    <text x="80" y="35" text-anchor="middle" fill="#58a6ff" font-size="18" font-weight="bold" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">预训练模型</text>
+    <text x="80" y="55" text-anchor="middle" fill="#8b949e" font-size="12" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">(通用 AI)</text>
+    <!-- 神经网络示意图 -->
+    <g transform="translate(30, 80)">
+      <!-- 节点 -->
+      <circle cx="20" cy="20" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="50" cy="20" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="80" cy="20" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="20" cy="50" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="80" cy="50" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="20" cy="80" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="50" cy="80" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <circle cx="80" cy="80" r="6" fill="#58a6ff" filter="url(#glow)"/>
+      <!-- 连接线 -->
+      <line x1="20" y1="20" x2="50" y2="50" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="20" x2="20" y2="50" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="20" x2="80" y2="50" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="80" y1="20" x2="50" y2="50" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="20" y1="50" x2="50" y2="80" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="50" x2="20" y2="80" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="50" x2="80" y2="80" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+      <line x1="80" y1="50" x2="50" y2="80" stroke="#58a6ff" stroke-width="1" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- 中间箭头 + 领域数据 -->
+  <g transform="translate(300, 150)">
+    <!-- 箭头 -->
+    <path d="M0,20 L120,20 L110,10 M120,20 L110,30" stroke="url(#orangeGrad)" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <!-- 领域数据标签 -->
+    <rect x="25" y="-30" width="70" height="28" rx="6" fill="rgba(240, 136, 62, 0.2)" stroke="#f0883e" stroke-width="1.5"/>
+    <text x="60" y="-12" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="bold" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">领域数据</text>
+    <!-- 微调过程标注 -->
+    <text x="60" y="55" text-anchor="middle" fill="#8b949e" font-size="11" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">二次训练</text>
+  </g>
+
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f0883e"/>
+    </marker>
+  </defs>
+
+  <!-- 右侧：微调后模型 -->
+  <g transform="translate(520, 100)">
+    <!-- 外框 -->
+    <rect x="0" y="0" width="160" height="200" rx="12" fill="rgba(63, 185, 80, 0.1)" stroke="#3fb950" stroke-width="2"/>
+    <!-- 标题 -->
+    <text x="80" y="35" text-anchor="middle" fill="#3fb950" font-size="18" font-weight="bold" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">微调后模型</text>
+    <text x="80" y="55" text-anchor="middle" fill="#8b949e" font-size="12" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">(专业 AI)</text>
+    <!-- 神经网络示意图 -->
+    <g transform="translate(30, 80)">
+      <!-- 节点 - 更聚焦 -->
+      <circle cx="35" cy="20" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="65" cy="20" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="20" cy="50" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="7" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="80" cy="50" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="35" cy="80" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <circle cx="65" cy="80" r="6" fill="#3fb950" filter="url(#glow)"/>
+      <!-- 连接线 - 更密集 -->
+      <line x1="35" y1="20" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+      <line x1="65" y1="20" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+      <line x1="20" y1="50" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+      <line x1="80" y1="50" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+      <line x1="35" y1="80" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+      <line x1="65" y1="80" x2="50" y2="50" stroke="#3fb950" stroke-width="1.5" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="400" y="350" text-anchor="middle" fill="#8b949e" font-size="14" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">在预训练模型基础上，用特定领域数据进行二次训练</text>
+  <text x="400" y="375" text-anchor="middle" fill="#c9d1d9" font-size="14" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif">使 AI 从"通才"变成特定领域的"专家"</text>
+
+  <!-- 装饰性元素 -->
+  <circle cx="60" cy="350" r="3" fill="#58a6ff" opacity="0.5"/>
+  <circle cx="740" cy="350" r="3" fill="#3fb950" opacity="0.5"/>
+</svg>

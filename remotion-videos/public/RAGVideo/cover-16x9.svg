@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#1c2333"/>
+    </linearGradient>
+
+    <!-- 标题渐变 -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#79c0ff"/>
+    </linearGradient>
+
+    <!-- 装饰线渐变 -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#f0883e"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+
+    <!-- 底部渐变条 -->
+    <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0883e"/>
+      <stop offset="33%" stop-color="#58a6ff"/>
+      <stop offset="66%" stop-color="#a371f7"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+
+    <!-- RAG流程连接线渐变 -->
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#a371f7"/>
+    </linearGradient>
+
+    <!-- 光球滤镜 -->
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
+    </filter>
+    <filter id="blur3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="40"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- 背景网格 -->
+  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- 光球装饰 - 左上蓝色 -->
+  <circle cx="300" cy="200" r="320" fill="rgba(88,166,255,0.22)" filter="url(#blur1)"/>
+
+  <!-- 光球装饰 - 右下橙色 -->
+  <circle cx="1720" cy="900" r="280" fill="rgba(240,136,62,0.18)" filter="url(#blur2)"/>
+
+  <!-- 光球装饰 - 右上紫色 -->
+  <circle cx="1620" cy="250" r="220" fill="rgba(163,113,247,0.15)" filter="url(#blur2)"/>
+
+  <!-- 光球装饰 - 左下绿色 -->
+  <circle cx="200" cy="880" r="200" fill="rgba(63,185,80,0.12)" filter="url(#blur3)"/>
+
+  <!-- 系列徽章 -->
+  <g transform="translate(960, 200)">
+    <rect x="-130" y="-26" width="260" height="52" rx="26" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="-100" cy="0" r="6" fill="#3fb950"/>
+    <text x="0" y="9" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" font-weight="500" fill="#8b949e">5分钟 AI · 第18期</text>
+  </g>
+
+  <!-- 主标题 RAG -->
+  <text x="960" y="390" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="160" font-weight="900" fill="url(#titleGradient)" letter-spacing="8">RAG</text>
+
+  <!-- 副标题 -->
+  <text x="960" y="490" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="52" font-weight="600" fill="#c9d1d9" letter-spacing="6">检索增强生成</text>
+
+  <!-- 英文全称 -->
+  <text x="960" y="560" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="400" fill="#8b949e" letter-spacing="2">Retrieval-Augmented Generation</text>
+
+  <!-- 标语 -->
+  <text x="960" y="650" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="36" font-weight="500" fill="#f0883e">让AI既懂推理，又能查资料</text>
+
+  <!-- 装饰线 -->
+  <rect x="820" y="700" width="280" height="4" rx="2" fill="url(#lineGradient)"/>
+
+  <!-- RAG 流程图示 - 三个节点 -->
+  <g transform="translate(580, 760)">
+    <!-- 知识库节点 -->
+    <rect x="0" y="0" width="180" height="72" rx="12" fill="rgba(88,166,255,0.12)" stroke="rgba(88,166,255,0.4)" stroke-width="1.5"/>
+    <text x="90" y="28" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#58a6ff">📚</text>
+    <text x="90" y="56" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="600" fill="#c9d1d9">知识库</text>
+
+    <!-- 箭头 -->
+    <line x1="190" y1="36" x2="230" y2="36" stroke="url(#flowGradient)" stroke-width="2.5"/>
+    <polygon points="230,30 244,36 230,42" fill="#a371f7"/>
+
+    <!-- 向量检索节点 -->
+    <rect x="250" y="0" width="200" height="72" rx="12" fill="rgba(163,113,247,0.12)" stroke="rgba(163,113,247,0.4)" stroke-width="1.5"/>
+    <text x="350" y="28" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#a371f7">🔍</text>
+    <text x="350" y="56" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="600" fill="#c9d1d9">语义检索</text>
+
+    <!-- 箭头 -->
+    <line x1="460" y1="36" x2="500" y2="36" stroke="url(#flowGradient)" stroke-width="2.5"/>
+    <polygon points="500,30 514,36 500,42" fill="#f0883e"/>
+
+    <!-- 生成回答节点 -->
+    <rect x="520" y="0" width="200" height="72" rx="12" fill="rgba(240,136,62,0.12)" stroke="rgba(240,136,62,0.4)" stroke-width="1.5"/>
+    <text x="620" y="28" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#f0883e">🤖</text>
+    <text x="620" y="56" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="600" fill="#c9d1d9">生成回答</text>
+  </g>
+
+  <!-- 底部渐变条 -->
+  <rect x="0" y="1074" width="1920" height="6" fill="url(#bottomGradient)"/>
+</svg>

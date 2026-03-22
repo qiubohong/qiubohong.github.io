@@ -70,7 +70,7 @@ export const Scene1_Intro: React.FC = () => {
             opacity: titleOpacity,
           }}
         >
-          检索增强生成
+          检索增强生成(RAG)
         </h1>
 
         {/* Subtitle */}

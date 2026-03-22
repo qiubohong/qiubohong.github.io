@@ -6,6 +6,7 @@ import {
   interpolate,
   spring,
   Img,
+  staticFile,
 } from "remotion";
 import { CaptionDisplay } from "../../components/CaptionDisplay";
 
@@ -16,17 +17,7 @@ const THEME = {
   accentOrange: "#f0883e",
 };
 
-interface Subtitle {
-  text: string;
-  startFrame: number;
-  endFrame: number;
-}
-
-interface Scene2Props {
-  subtitles: Subtitle[];
-}
-
-export const Scene2_VisualComparison: React.FC<Scene2Props> = ({ subtitles }) => {
+export const Scene2_VisualComparison: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -84,7 +75,7 @@ export const Scene2_VisualComparison: React.FC<Scene2Props> = ({ subtitles }) =>
         }}
       >
         <Img
-          src="/CodeAgent21/code-agent-vs-traditional.png"
+          src={staticFile("CodeAgent21/code-agent-vs-traditional.png")}
           style={{
             width: "100%",
             height: "auto",
@@ -105,7 +96,7 @@ export const Scene2_VisualComparison: React.FC<Scene2Props> = ({ subtitles }) =>
           padding: "0 64px",
         }}
       >
-<CaptionDisplay captionFile="codeagent/scene2-captions.json" />
+<CaptionDisplay captionFile="CodeAgent21/scene2-captions.json" />
       </div>
     </AbsoluteFill>
   );

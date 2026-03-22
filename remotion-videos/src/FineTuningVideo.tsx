@@ -57,12 +57,6 @@ export const FineTuningVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#0d1117" }}>
       {/* Background music */}
-      <Audio
-        src="http://localhost:3000/background-music.mp3"
-        startFrom={0}
-        endAt={seq(9) * fps}
-        volume={0.25}
-      />
 
       {/* Scene 1: Opening */}
       <Sequence

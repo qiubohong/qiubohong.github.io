@@ -42,14 +42,6 @@ export const CodeAgentVideo: React.FC = () => {
   const { fps } = useVideoConfig();
   const [durations, setDurations] = useState(INITIAL_SCENE_DURATIONS);
 
-  // Load subtitles
-  const [scene2Subtitles, setScene2Subtitles] = useState([]);
-  const [scene3Subtitles, setScene3Subtitles] = useState([]);
-  const [scene4Subtitles, setScene4Subtitles] = useState([]);
-  const [scene5Subtitles, setScene5Subtitles] = useState([]);
-  const [scene6Subtitles, setScene6Subtitles] = useState([]);
-  const [scene7Subtitles, setScene7Subtitles] = useState([]);
-
   useEffect(() => {
     // Load audio durations from file if available
     const loadDurations = async () => {
@@ -66,38 +58,6 @@ export const CodeAgentVideo: React.FC = () => {
       }
     };
     loadDurations();
-
-    // Load subtitles
-    const loadSubtitles = async () => {
-      try {
-        const scenes = [2, 3, 4, 5, 6, 7];
-        const setters = [
-          setScene2Subtitles,
-          setScene3Subtitles,
-          setScene4Subtitles,
-          setScene5Subtitles,
-          setScene6Subtitles,
-          setScene7Subtitles,
-        ];
-        
-        for (let i = 0; i < scenes.length; i++) {
-          try {
-            const response = await fetch(
-              `http://localhost:3000/CodeAgent21/scene${scenes[i]}-captions.json`
-            );
-            if (response.ok) {
-              const data = await response.json();
-              setters[i](data);
-            }
-          } catch (e) {
-            // Ignore errors
-          }
-        }
-      } catch (e) {
-        // Ignore errors
-      }
-    };
-    loadSubtitles();
   }, []);
 
   const seq = (sceneNumber: number): number => {
@@ -113,7 +73,7 @@ export const CodeAgentVideo: React.FC = () => {
     <AbsoluteFill style={{ backgroundColor: "#0d1117" }}>
       {/* Background music */}
       <Audio
-        src="http://localhost:3000/background-music.mp3"
+src={staticFile("background-music.mp3")}
         startFrom={0}
         endAt={(seq(8) + durations.ending) * fps}
         volume={0.15}
@@ -127,7 +87,7 @@ export const CodeAgentVideo: React.FC = () => {
       >
         <Scene1_Opening />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene1.mp3"
+src={staticFile("CodeAgent21/scene1.mp3")}
           volume={1}
         />
       </Sequence>
@@ -138,9 +98,9 @@ export const CodeAgentVideo: React.FC = () => {
         durationInFrames={durations.scene2}
         name="Scene2_VisualComparison"
       >
-        <Scene2_VisualComparison subtitles={scene2Subtitles} />
+        <Scene2_VisualComparison />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene2.mp3"
+src={staticFile("CodeAgent21/scene2.mp3")}
           volume={1}
         />
       </Sequence>
@@ -151,9 +111,9 @@ export const CodeAgentVideo: React.FC = () => {
         durationInFrames={durations.scene3}
         name="Scene3_Architecture"
       >
-        <Scene3_Architecture subtitles={scene3Subtitles} />
+        <Scene3_Architecture />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene3.mp3"
+src={staticFile("CodeAgent21/scene3.mp3")}
           volume={1}
         />
       </Sequence>
@@ -164,9 +124,9 @@ export const CodeAgentVideo: React.FC = () => {
         durationInFrames={durations.scene4}
         name="Scene4_Workflow"
       >
-        <Scene4_Workflow subtitles={scene4Subtitles} />
+        <Scene4_Workflow />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene4.mp3"
+src={staticFile("CodeAgent21/scene4.mp3")}
           volume={1}
         />
       </Sequence>
@@ -177,9 +137,9 @@ export const CodeAgentVideo: React.FC = () => {
         durationInFrames={durations.scene5}
         name="Scene5_CodeExample"
       >
-        <Scene5_CodeExample subtitles={scene5Subtitles} code={CODE_EXAMPLE} />
+        <Scene5_CodeExample code={CODE_EXAMPLE} />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene5.mp3"
+src={staticFile("CodeAgent21/scene5.mp3")}
           volume={1}
         />
       </Sequence>
@@ -190,9 +150,9 @@ export const CodeAgentVideo: React.FC = () => {
         durationInFrames={durations.scene6}
         name="Scene6_Products"
       >
-        <Scene6_Products subtitles={scene6Subtitles} />
+        <Scene6_Products />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene6.mp3"
+src={staticFile("CodeAgent21/scene6.mp3")}
           volume={1}
         />
       </Sequence>
@@ -205,7 +165,7 @@ export const CodeAgentVideo: React.FC = () => {
       >
         <Scene7_Summary />
         <Audio
-          src="http://localhost:3000/CodeAgent21/scene7.mp3"
+src={staticFile("CodeAgent21/scene7.mp3")}
           volume={1}
         />
       </Sequence>
@@ -217,7 +177,7 @@ export const CodeAgentVideo: React.FC = () => {
         name="EndingScene"
       >
         <EndingScene
-          title="Code Agent"
+          mainTitle="Code Agent"
           subtitle="AI程序员助手"
           description="让AI成为你的编程搭档，从此告别996！"
         />

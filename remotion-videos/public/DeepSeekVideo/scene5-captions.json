@@ -1,0 +1,44 @@
+[
+  {
+    "text": "还有一个被忽视的重要因素：安全研究。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "最新研究发现，所有大模型都存在伦理暗物质，",
+    "startMs": 3000,
+    "endMs": 7000,
+    "timestampMs": 3000,
+    "confidence": 0.95
+  },
+  {
+    "text": "预训练时嵌入的有害知识可能永久存留。",
+    "startMs": 7000,
+    "endMs": 10500,
+    "timestampMs": 7000,
+    "confidence": 0.95
+  },
+  {
+    "text": "如果 R2 的推理能力比 R1 强十倍，",
+    "startMs": 10500,
+    "endMs": 14000,
+    "timestampMs": 10500,
+    "confidence": 0.95
+  },
+  {
+    "text": "它的安全风险也可能强十倍。",
+    "startMs": 14000,
+    "endMs": 17000,
+    "timestampMs": 14000,
+    "confidence": 0.95
+  },
+  {
+    "text": "延迟发布，也许是在做更深入的安全加固。",
+    "startMs": 17000,
+    "endMs": 21500,
+    "timestampMs": 17000,
+    "confidence": 0.95
+  }
+]

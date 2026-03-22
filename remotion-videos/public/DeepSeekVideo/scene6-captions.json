@@ -1,0 +1,65 @@
+[
+  {
+    "text": "最后，从更深层的角度看，",
+    "startMs": 0,
+    "endMs": 2500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "这可能是战略级架构升级。",
+    "startMs": 2500,
+    "endMs": 5000,
+    "timestampMs": 2500,
+    "confidence": 0.95
+  },
+  {
+    "text": "梁文锋署名的两篇论文，",
+    "startMs": 5000,
+    "endMs": 7500,
+    "timestampMs": 5000,
+    "confidence": 0.95
+  },
+  {
+    "text": "指向解决 Transformer 的记忆瓶颈。",
+    "startMs": 7500,
+    "endMs": 10500,
+    "timestampMs": 7500,
+    "confidence": 0.95
+  },
+  {
+    "text": "GPT-5 性能不及预期，",
+    "startMs": 10500,
+    "endMs": 13000,
+    "timestampMs": 10500,
+    "confidence": 0.95
+  },
+  {
+    "text": "说明参数堆叠路线已到极限。",
+    "startMs": 13000,
+    "endMs": 16000,
+    "timestampMs": 13000,
+    "confidence": 0.95
+  },
+  {
+    "text": "下一波 AI 竞争，拼的是架构创新，",
+    "startMs": 16000,
+    "endMs": 19500,
+    "timestampMs": 16000,
+    "confidence": 0.95
+  },
+  {
+    "text": "而不是比谁参数多。",
+    "startMs": 19500,
+    "endMs": 22000,
+    "timestampMs": 19500,
+    "confidence": 0.95
+  },
+  {
+    "text": "DeepSeek 可能在憋大招！",
+    "startMs": 22000,
+    "endMs": 25500,
+    "timestampMs": 22000,
+    "confidence": 0.95
+  }
+]

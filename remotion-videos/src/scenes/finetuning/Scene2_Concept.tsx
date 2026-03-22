@@ -140,6 +140,30 @@ export const Scene2_Concept: React.FC = () => {
         </div>
       </div>
 
+      {/* Main Diagram - Large */}
+      <div
+        style={{
+          opacity: diagramOpacity,
+          transform: `scale(${diagramScale})`,
+          flex: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 24,
+          marginBottom: 24,
+        }}
+      >
+        <Img
+          src={staticFile("diagrams/fine-tuning-concept.svg")}
+          style={{
+            width: "100%",
+            height: "100%",
+            maxWidth: 1100,
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
       {/* Analogy text */}
       <div
         style={{
@@ -155,38 +179,14 @@ export const Scene2_Concept: React.FC = () => {
           )}px)`,
           fontSize: 24,
           color: THEME.textSecondary,
-          marginTop: 16,
+          textAlign: "center",
           maxWidth: 900,
           lineHeight: 1.8,
+          marginBottom: 16,
         }}
       >
         打个比方：预训练模型就像刚毕业的<span style={{ color: THEME.accentOrange, fontWeight: 600 }}>通才大学生</span>，
         而 Fine-tuning 就像是让他去你的公司实习，通过实际工作训练，成为这个领域的<span style={{ color: THEME.accentOrange, fontWeight: 600 }}>专业人才</span>。
-      </div>
-
-      {/* Mermaid Diagram */}
-      <div
-        style={{
-          opacity: diagramOpacity,
-          transform: `scale(${diagramScale})`,
-          marginTop: "auto",
-          background: "rgba(255,255,255,0.04)",
-          borderRadius: 12,
-          padding: 16,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          maxHeight: 280,
-        }}
-      >
-        <Img
-          src={staticFile("diagrams/ai-knowledge-map.svg")}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-          }}
-        />
       </div>
     </AbsoluteFill>
   );

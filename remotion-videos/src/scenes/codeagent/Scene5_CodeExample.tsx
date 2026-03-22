@@ -15,18 +15,11 @@ const THEME = {
   accentOrange: "#f0883e",
 };
 
-interface Subtitle {
-  text: string;
-  startFrame: number;
-  endFrame: number;
-}
-
 interface Scene5Props {
-  subtitles: Subtitle[];
   code: string;
 }
 
-export const Scene5_CodeExample: React.FC<Scene5Props> = ({ subtitles, code }) => {
+export const Scene5_CodeExample: React.FC<Scene5Props> = ({ code }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -94,7 +87,7 @@ export const Scene5_CodeExample: React.FC<Scene5Props> = ({ subtitles, code }) =
           padding: "0 64px",
         }}
       >
-<CaptionDisplay captionFile="codeagent/scene5-captions.json" />
+<CaptionDisplay captionFile="CodeAgent21/scene5-captions.json" />
       </div>
     </AbsoluteFill>
   );

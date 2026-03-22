@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#1c2333"/>
+    </linearGradient>
+
+    <!-- 标题渐变 -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#79c0ff"/>
+    </linearGradient>
+
+    <!-- 装饰线渐变 -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#f0883e"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+
+    <!-- 底部渐变条 -->
+    <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0883e"/>
+      <stop offset="33%" stop-color="#58a6ff"/>
+      <stop offset="66%" stop-color="#a371f7"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+
+    <!-- 光球滤镜 -->
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="100"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+    </filter>
+    <filter id="blur3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1080" height="1920" fill="url(#bgGradient)"/>
+
+  <!-- 背景网格 -->
+  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1080" height="1920" fill="url(#grid)"/>
+
+  <!-- 装饰圆环 -->
+  <circle cx="100" cy="350" r="120" fill="none" stroke="rgba(88,166,255,0.08)" stroke-width="2"/>
+  <circle cx="1000" cy="1470" r="90" fill="none" stroke="rgba(240,136,62,0.08)" stroke-width="2"/>
+
+  <!-- 光球装饰 - 中上蓝色 -->
+  <circle cx="540" cy="400" r="380" fill="rgba(88,166,255,0.28)" filter="url(#blur1)"/>
+
+  <!-- 光球装饰 - 左下橙色 -->
+  <circle cx="180" cy="1570" r="320" fill="rgba(240,136,62,0.22)" filter="url(#blur2)"/>
+
+  <!-- 光球装饰 - 右中紫色 -->
+  <circle cx="930" cy="960" r="260" fill="rgba(163,113,247,0.16)" filter="url(#blur2)"/>
+
+  <!-- 光球装饰 - 左中绿色 -->
+  <circle cx="120" cy="1160" r="200" fill="rgba(63,185,80,0.12)" filter="url(#blur3)"/>
+
+  <!-- 系列徽章 -->
+  <g transform="translate(540, 340)">
+    <rect x="-145" y="-30" width="290" height="60" rx="30" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="-110" cy="0" r="7" fill="#3fb950"/>
+    <text x="0" y="11" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="500" fill="#8b949e">5分钟 AI · 第18期</text>
+  </g>
+
+  <!-- 主标题 RAG -->
+  <text x="540" y="600" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="180" font-weight="900" fill="url(#titleGradient)" letter-spacing="12">RAG</text>
+
+  <!-- 副标题 -->
+  <text x="540" y="710" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="72" font-weight="600" fill="#c9d1d9" letter-spacing="8">检索增强生成</text>
+
+  <!-- 英文全称 -->
+  <text x="540" y="790" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="400" fill="#8b949e" letter-spacing="1">Retrieval-Augmented Generation</text>
+
+  <!-- 标语 -->
+  <text x="540" y="910" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="44" font-weight="600" fill="#f0883e">让AI既懂推理</text>
+  <text x="540" y="970" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="44" font-weight="600" fill="#f0883e">又能查资料</text>
+
+  <!-- 装饰线 -->
+  <rect x="420" y="1040" width="240" height="4" rx="2" fill="url(#lineGradient)"/>
+
+  <!-- RAG 流程图示 - 竖向三节点 -->
+  <g transform="translate(540, 1120)">
+    <!-- 知识库节点 -->
+    <rect x="-160" y="0" width="320" height="80" rx="16" fill="rgba(88,166,255,0.12)" stroke="rgba(88,166,255,0.4)" stroke-width="1.5"/>
+    <text x="-80" y="50" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="32" fill="#58a6ff">📚</text>
+    <text x="30" y="50" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="600" fill="#c9d1d9">知识库构建</text>
+
+    <!-- 向下箭头 -->
+    <line x1="0" y1="90" x2="0" y2="130" stroke="#a371f7" stroke-width="2.5"/>
+    <polygon points="-8,130 8,130 0,148" fill="#a371f7"/>
+
+    <!-- 语义检索节点 -->
+    <rect x="-160" y="155" width="320" height="80" rx="16" fill="rgba(163,113,247,0.12)" stroke="rgba(163,113,247,0.4)" stroke-width="1.5"/>
+    <text x="-80" y="205" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="32" fill="#a371f7">🔍</text>
+    <text x="30" y="205" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="600" fill="#c9d1d9">语义检索</text>
+
+    <!-- 向下箭头 -->
+    <line x1="0" y1="245" x2="0" y2="285" stroke="#f0883e" stroke-width="2.5"/>
+    <polygon points="-8,285 8,285 0,303" fill="#f0883e"/>
+
+    <!-- 生成回答节点 -->
+    <rect x="-160" y="310" width="320" height="80" rx="16" fill="rgba(240,136,62,0.12)" stroke="rgba(240,136,62,0.4)" stroke-width="1.5"/>
+    <text x="-80" y="360" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="32" fill="#f0883e">🤖</text>
+    <text x="30" y="360" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="600" fill="#c9d1d9">生成回答</text>
+  </g>
+
+  <!-- 关键词标签 -->
+  <g transform="translate(540, 1660)">
+    <rect x="-200" y="0" width="400" height="60" rx="30" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="0" y="38" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="600" fill="#58a6ff">向量数据库 · LLM · Embedding</text>
+  </g>
+
+  <!-- 底部渐变条 -->
+  <rect x="0" y="1912" width="1080" height="8" fill="url(#bottomGradient)"/>
+
+  <!-- 账号信息 -->
+  <text x="540" y="1890" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="500" fill="rgba(255,255,255,0.4)">@5分钟AI</text>
+</svg>

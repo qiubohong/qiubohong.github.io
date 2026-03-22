@@ -14,32 +14,23 @@ const THEME = {
   codeComment: '#8b949e',
 };
 
-const codeSnippet = `from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+// 流程图步骤定义
+const flowSteps = [
+  { id: 1, title: '加载文档', icon: '📄', desc: '读取PDF、Word等文档', color: '#58a6ff' },
+  { id: 2, title: '文档分割', icon: '✂️', desc: '将长文档切分成小块', color: '#3fb950' },
+  { id: 3, title: '向量化', icon: '🔢', desc: '将文本转换为向量', color: '#f0883e' },
+  { id: 4, title: '存储索引', icon: '🗄️', desc: '存入向量数据库', color: '#a371f7' },
+  { id: 5, title: '用户提问', icon: '❓', desc: '输入问题', color: '#79c0ff' },
+  { id: 6, title: '相似度检索', icon: '🔍', desc: '找出最相关的文档块', color: '#ffa657' },
+  { id: 7, title: '生成回答', icon: '💬', desc: '结合上下文生成答案', color: '#56d364' },
+];
 
-# 1. 加载文档并分割
-loader = TextLoader("docs.txt")
-docs = loader.load()
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=50
-)
-chunks = text_splitter.split_documents(docs)
-
-# 2. 创建向量数据库
-vectorstore = FAISS.from_documents(
-    chunks,
-    OpenAIEmbeddings()
-)
-
-# 3. 检索和生成
-retriever = vectorstore.as_retriever(
-    search_kwargs={"k": 3}
-)
-qa_chain = RetrievalQA.from_chain_type(
-    llm=ChatOpenAI(),
-    retriever=retriever
-)`;
+// Scene7 总帧数（与 RAGVideo.tsx 中 scene7 duration 保持一致）
+const SCENE_DURATION = 337;
+// 滚动开始帧（等待内容出现动画完成后再开始滚动）
+const SCROLL_START_FRAME = 80;
+// 滚动结束帧（留出最后30帧停留在底部）
+const SCROLL_END_FRAME = SCENE_DURATION - 30;
 
 export const Scene7_Example: React.FC = () => {
   const frame = useCurrentFrame();
@@ -120,101 +111,234 @@ src={staticFile("RAGVideo/knowledge-base.png")}
             />
           </div>
 
-          {/* Code Block */}
+          {/* 伪代码流程图 */}
           <div
             style={{
-              flex: '0 0 50%',
+              flex: '0 0 52%',
               background: THEME.codeBackground,
-              borderRadius: '12px',
-              padding: '24px',
-              overflow: 'hidden',
+              borderRadius: '16px',
+              padding: '32px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
               transform: `translateX(${codeX}px)`,
               opacity: codeOpacity,
+              display: 'flex',
+              flexDirection: 'column',
+              // 固定高度，确保不超出屏幕（视频高度720px，减去上下padding和标题区域）
+              height: '560px',
+              overflow: 'hidden',
             }}
           >
+            {/* 标题 - 固定不滚动 */}
+            <h3
+              style={{
+                fontSize: '24px',
+                fontWeight: 'bold',
+                color: THEME.textPrimary,
+                margin: '0 0 16px 0',
+                textAlign: 'center',
+                fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                flexShrink: 0,
+              }}
+            >
+              🔄 RAG系统工作流程
+            </h3>
+
+            {/* 流程图滚动区域 - overflow:hidden 裁剪超出内容 */}
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                marginBottom: '16px',
-                paddingBottom: '12px',
-                borderBottom: '1px solid rgba(255,255,255,0.1)',
+                flex: 1,
+                overflow: 'hidden',
+                position: 'relative',
               }}
             >
+              {/* 可滚动内容 - 通过 translateY 实现帧驱动滚动 */}
               <div
                 style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#ff5f56',
-                }}
-              />
-              <div
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#ffbd2e',
-                }}
-              />
-              <div
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#27c93f',
-                }}
-              />
-              <span
-                style={{
-                  marginLeft: 'auto',
-                  fontSize: '14px',
-                  fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
-                  color: THEME.textSecondary,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                  transform: `translateY(${interpolate(
+                    frame,
+                    [SCROLL_START_FRAME, SCROLL_END_FRAME],
+                    [0, -320],
+                    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
+                  )}px)`,
                 }}
               >
-                rag_example.py
-              </span>
-            </div>
-            <pre
-              style={{
-                fontSize: '16px',
-                fontFamily: 'Consolas, Monaco, "Courier New", monospace',
-                lineHeight: 1.5,
-                color: THEME.codeText,
-                margin: 0,
-                whiteSpace: 'pre-wrap',
-                overflow: 'auto',
-              }}
-            >
-              {codeSnippet.split('\n').map((line, idx) => (
-                <div key={idx} style={{ paddingLeft: '8px' }}>
-                  {line.includes('#') ? (
-                    <span>
-                      <span style={{ color: THEME.codeComment }}>{line.substring(0, line.indexOf('#'))}</span>
-                      <span style={{ color: THEME.codeComment }}>{line.substring(line.indexOf('#'))}</span>
-                    </span>
-                  ) : line.includes('from') || line.includes('import') ? (
-                    <span>
-                      <span style={{ color: THEME.codeKeyword }}>from </span>
-                      <span style={{ color: THEME.codeString }}>{line.split(' ')[1]} </span>
-                      <span style={{ color: THEME.codeKeyword }}>import </span>
-                      <span>{line.split('import ')[1]}</span>
-                    </span>
-                  ) : line.includes('=') && line.includes('(') ? (
-                    <span>
-                      <span>{line.split('=')[0]}</span>
-                      <span style={{ color: THEME.codeKeyword }}> = </span>
-                      <span>{line.split('=')[1]}</span>
-                    </span>
-                  ) : (
-                    line
-                  )}
+                {/* 第一部分：预处理阶段 */}
+                <div
+                  style={{
+                    background: 'rgba(88, 166, 255, 0.1)',
+                    borderRadius: '12px',
+                    padding: '16px',
+                    border: '1px solid rgba(88, 166, 255, 0.3)',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '14px',
+                      color: '#58a6ff',
+                      fontWeight: 'bold',
+                      marginBottom: '12px',
+                      fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                    }}
+                  >
+                    📚 预处理阶段（离线执行）
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {flowSteps.slice(0, 4).map((step, idx) => (
+                      <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div
+                          style={{
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '10px',
+                            background: `rgba(${step.color === '#58a6ff' ? '88, 166, 255' : step.color === '#3fb950' ? '63, 185, 80' : step.color === '#f0883e' ? '240, 136, 62' : '163, 113, 247'}, 0.2)`,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '18px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          {step.icon}
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div
+                            style={{
+                              fontSize: '15px',
+                              fontWeight: 'bold',
+                              color: THEME.textPrimary,
+                              fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                            }}
+                          >
+                            {step.title}
+                          </div>
+                          <div
+                            style={{
+                              fontSize: '13px',
+                              color: THEME.textSecondary,
+                              fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                            }}
+                          >
+                            {step.desc}
+                          </div>
+                        </div>
+                        {idx < 3 && (
+                          <div style={{ fontSize: '16px', color: step.color }}>↓</div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </pre>
+
+                {/* 分隔线 */}
+                <div
+                  style={{
+                    height: '2px',
+                    background: 'linear-gradient(90deg, transparent, #58a6ff, transparent)',
+                    margin: '4px 0',
+                  }}
+                />
+
+                {/* 第二部分：查询阶段 */}
+                <div
+                  style={{
+                    background: 'rgba(240, 136, 62, 0.1)',
+                    borderRadius: '12px',
+                    padding: '16px',
+                    border: '1px solid rgba(240, 136, 62, 0.3)',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '14px',
+                      color: '#f0883e',
+                      fontWeight: 'bold',
+                      marginBottom: '12px',
+                      fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                    }}
+                  >
+                    ⚡ 查询阶段（实时执行）
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {flowSteps.slice(4, 7).map((step, idx) => (
+                      <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div
+                          style={{
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '10px',
+                            background: `rgba(${step.color === '#79c0ff' ? '121, 192, 255' : step.color === '#ffa657' ? '255, 166, 87' : '86, 211, 100'}, 0.2)`,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '18px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          {step.icon}
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div
+                            style={{
+                              fontSize: '15px',
+                              fontWeight: 'bold',
+                              color: THEME.textPrimary,
+                              fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                            }}
+                          >
+                            {step.title}
+                          </div>
+                          <div
+                            style={{
+                              fontSize: '13px',
+                              color: THEME.textSecondary,
+                              fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                            }}
+                          >
+                            {step.desc}
+                          </div>
+                        </div>
+                        {idx < 2 && (
+                          <div style={{ fontSize: '16px', color: step.color }}>↓</div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 核心技术栈 - 放在滚动内容末尾 */}
+                <div
+                  style={{
+                    padding: '12px 16px',
+                    background: 'rgba(0,0,0,0.2)',
+                    borderRadius: '8px',
+                    borderLeft: '3px solid #58a6ff',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: THEME.textSecondary,
+                      fontFamily: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    核心技术栈
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '13px',
+                      color: THEME.textPrimary,
+                      fontFamily: 'Consolas, Monaco, monospace',
+                    }}
+                  >
+                    LangChain + OpenAI + FAISS 向量库
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -105,7 +105,7 @@ export const Scene3_Workflow: React.FC = () => {
         </div>
 
         {/* Stage cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1 }}>
           {stages.map((stage, i) => {
             const cardSpring = spring({
               frame: Math.max(0, frame - 15 - i * 15),
@@ -134,18 +134,22 @@ export const Scene3_Workflow: React.FC = () => {
                     ? `2px solid ${stage.color}60`
                     : `1px solid ${THEME.cardBorder}`,
                   borderRadius: 12,
-                  padding: "16px 20px",
+                  padding: "24px 28px",
                   borderLeft: `4px solid ${stage.color}`,
                   boxShadow: isHighlighted
                     ? `0 0 20px ${stage.color}30`
                     : "none",
                   transition: "all 0.3s ease",
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
                   <div
                     style={{
-                      fontSize: 28,
+                      fontSize: 48,
                       fontWeight: 900,
                       color: stage.color,
                       opacity: 0.6,
@@ -156,7 +160,7 @@ export const Scene3_Workflow: React.FC = () => {
                   <div>
                     <div
                       style={{
-                        fontSize: 22,
+                        fontSize: 32,
                         fontWeight: 700,
                         color: isHighlighted ? stage.color : THEME.textPrimary,
                       }}
@@ -165,18 +169,18 @@ export const Scene3_Workflow: React.FC = () => {
                     </div>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 24,
                         color: THEME.textSecondary,
-                        marginTop: 2,
+                        marginTop: 8,
                       }}
                     >
                       {stage.subtitle}
                     </div>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 20,
                         color: THEME.textSecondary,
-                        marginTop: 4,
+                        marginTop: 8,
                       }}
                     >
                       {stage.desc}

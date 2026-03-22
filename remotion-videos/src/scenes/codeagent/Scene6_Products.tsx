@@ -17,16 +17,6 @@ const THEME = {
   borderColor: "rgba(255,255,255,0.1)",
 };
 
-interface Subtitle {
-  text: string;
-  startFrame: number;
-  endFrame: number;
-}
-
-interface Scene6Props {
-  subtitles: Subtitle[];
-}
-
 const products = [
   {
     name: "GitHub Copilot",
@@ -50,7 +40,7 @@ const products = [
   },
 ];
 
-export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
+export const Scene6_Products: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -76,7 +66,7 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
           fontSize: 40,
           fontWeight: 700,
           color: THEME.textPrimary,
-          marginBottom: 40,
+          marginBottom: 24,
           marginTop: 16,
         }}
       >
@@ -88,9 +78,11 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: 24,
-          maxWidth: 1000,
+          gridTemplateRows: "1fr 1fr",
+          gap: 32,
+          flex: 1,
           width: "100%",
+          maxHeight: "calc(100% - 120px)",
         }}
       >
         {products.map((product, index) => {
@@ -110,17 +102,19 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
                 transform: `scale(${cardScale})`,
                 opacity: cardOpacity,
                 background: THEME.cardBg,
-                border: `1px solid ${THEME.borderColor}`,
-                borderRadius: 16,
-                padding: 32,
+                border: `2px solid ${THEME.borderColor}`,
+                borderRadius: 24,
+                padding: "40px 48px",
                 display: "flex",
                 flexDirection: "column",
-                gap: 12,
+                justifyContent: "center",
+                gap: 16,
+                minHeight: 0,
               }}
             >
               <div
                 style={{
-                  fontSize: 48,
+                  fontSize: 64,
                   marginBottom: 8,
                 }}
               >
@@ -128,7 +122,7 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
               </div>
               <div
                 style={{
-                  fontSize: 28,
+                  fontSize: 32,
                   fontWeight: 700,
                   color: THEME.accentOrange,
                 }}
@@ -137,9 +131,9 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
               </div>
               <div
                 style={{
-                  fontSize: 20,
+                  fontSize: 24,
                   color: THEME.textSecondary,
-                  lineHeight: 1.5,
+                  lineHeight: 1.6,
                 }}
               >
                 {product.desc}
@@ -160,7 +154,7 @@ export const Scene6_Products: React.FC<Scene6Props> = ({ subtitles }) => {
           padding: "0 64px",
         }}
       >
-<CaptionDisplay captionFile="codeagent/scene6-captions.json" />
+<CaptionDisplay captionFile="CodeAgent21/scene6-captions.json" />
       </div>
     </AbsoluteFill>
   );

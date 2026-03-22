@@ -17,7 +17,7 @@ import librosa
 import numpy as np
 
 # 脚本所在目录（public/FineTuningVideo）
-SCRIPT_DIR = Path(os.path.dirname(os.path.abspath(__file__))).parent / "FineTuningVideo"
+SCRIPT_DIR = Path(os.path.dirname(os.path.abspath(__file__))).parent / "public/FineTuningVideo"
 # 项目根目录（remotion-videos）
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 OUTPUT_DIR = SCRIPT_DIR

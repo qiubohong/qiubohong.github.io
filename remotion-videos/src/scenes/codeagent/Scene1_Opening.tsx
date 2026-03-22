@@ -126,7 +126,10 @@ export const Scene1_Opening: React.FC = () => {
         }}
       >
         <div style={{ marginBottom: 16 }}>
-          5分钟 AI，每天搞懂一个知识点！今天我们学习，Code Agent。
+          5分钟 AI，每天搞懂一个知识点！
+        </div>
+        <div style={{ marginBottom: 16 }}>
+          今天我们学习，Code Agent。
         </div>
         <div style={{ color: THEME.accentOrange, fontWeight: 600 }}>
           让AI成为你的编程搭档，从此告别996！

@@ -6,6 +6,7 @@ import {
   interpolate,
   spring,
   Img,
+  staticFile,
 } from "remotion";
 import { CaptionDisplay } from "../../components/CaptionDisplay";
 
@@ -16,17 +17,7 @@ const THEME = {
   accentOrange: "#f0883e",
 };
 
-interface Subtitle {
-  text: string;
-  startFrame: number;
-  endFrame: number;
-}
-
-interface Scene3Props {
-  subtitles: Subtitle[];
-}
-
-export const Scene3_Architecture: React.FC<Scene3Props> = ({ subtitles }) => {
+export const Scene3_Architecture: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -84,7 +75,7 @@ export const Scene3_Architecture: React.FC<Scene3Props> = ({ subtitles }) => {
         }}
       >
         <Img
-          src="/CodeAgent21/code-agent-architecture.png"
+          src={staticFile("CodeAgent21/code-agent-architecture.png")}
           style={{
             width: "100%",
             height: "auto",
@@ -105,7 +96,7 @@ export const Scene3_Architecture: React.FC<Scene3Props> = ({ subtitles }) => {
           padding: "0 64px",
         }}
       >
-<CaptionDisplay captionFile="codeagent/scene3-captions.json" />
+<CaptionDisplay captionFile="CodeAgent21/scene3-captions.json" />
       </div>
     </AbsoluteFill>
   );

@@ -38,6 +38,7 @@ import { FineTuningVideo } from "./FineTuningVideo";
 import { CoverImage_16x9 } from "./scenes/finetuning/CoverImage_16x9";
 import { CoverImage_9x16 } from "./scenes/finetuning/CoverImage_9x16";
 import { CodeAgentVideo } from "./CodeAgentVideo";
+import { DeepSeekVideo } from "./DeepSeekVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -515,7 +516,7 @@ export const RemotionRoot = () => {
       <Composition
         id="RAGVideo"
         component={RAGVideo}
-        durationInFrames={3977} // 总帧数：499+458+361+420+405+414+467+514+439=3977帧（9个场景基于实际音频时长，约132.5秒）
+        durationInFrames={3577} // 总帧数：499+458+361+420+405+414+467+514+439=3977帧（9个场景基于实际音频时长，约132.5秒）
         fps={30}
         width={1280}
         height={720}
@@ -526,11 +527,11 @@ export const RemotionRoot = () => {
         }}
       />
 
-      {/* FineTuningVideo视频（5分钟AI系列·第19期） */}
+{/* FineTuningVideo视频（5分钟AI系列·第19期） */}
       <Composition
         id="FineTuningVideo"
         component={FineTuningVideo}
-        durationInFrames={1520} // 预估总帧数：180+230+250+125+185+235+175+140=1520帧，约50.67秒
+        durationInFrames={4970} // 总帧数：481+894+937+447+766+966+733+466+180=4970帧，约165.7秒（基于实际音频时长+30帧缓冲/ending固定180帧）
         fps={30}
         width={1920}
         height={1080}
@@ -539,26 +540,6 @@ export const RemotionRoot = () => {
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}
-      />
-
-      {/* FineTuningVideo封面图 - 16:9横版 */}
-      <Composition
-        id="FineTuningVideo_Cover_16x9"
-        component={CoverImage_16x9}
-        durationInFrames={1}
-        fps={30}
-        width={1920}
-        height={1080}
-      />
-
-      {/* FineTuningVideo封面图 - 9:16竖版 */}
-      <Composition
-        id="FineTuningVideo_Cover_9x16"
-        component={CoverImage_9x16}
-        durationInFrames={1}
-        fps={30}
-        width={1080}
-        height={1920}
       />
 
       {/* CodeAgentVideo视频（5分钟AI系列·第20期） */}
@@ -571,6 +552,21 @@ export const RemotionRoot = () => {
         height={1080}
         defaultProps={{
           title: "Code Agent - AI程序员助手",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* DeepSeekVideo视频 - DeepSeek V4/R2 发展观察 */}
+      <Composition
+        id="DeepSeekVideo"
+        component={DeepSeekVideo}
+        durationInFrames={5790} // 预估: 690+780+870+930+870+810+780+180=5790帧，约193秒
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          title: "DeepSeek V4/R2 为何双双难产？七轮辩论揭开真相",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}

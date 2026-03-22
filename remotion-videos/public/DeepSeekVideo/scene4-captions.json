@@ -1,0 +1,58 @@
+[
+  {
+    "text": "第二个关键因素是国产算力生态。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "DeepSeek 正在做一件前无古人的事：",
+    "startMs": 3000,
+    "endMs": 6000,
+    "timestampMs": 3000,
+    "confidence": 0.95
+  },
+  {
+    "text": "让 V4 完全跑在国产芯片上。",
+    "startMs": 6000,
+    "endMs": 9000,
+    "timestampMs": 6000,
+    "confidence": 0.95
+  },
+  {
+    "text": "华为昇腾 Atlas 950 集群，",
+    "startMs": 9000,
+    "endMs": 12000,
+    "timestampMs": 9000,
+    "confidence": 0.95
+  },
+  {
+    "text": "8192 张卡，8E FLOPS 算力。",
+    "startMs": 12000,
+    "endMs": 15500,
+    "timestampMs": 12000,
+    "confidence": 0.95
+  },
+  {
+    "text": "一旦跑通，成本直接降到对手的 1/50，",
+    "startMs": 15500,
+    "endMs": 19500,
+    "timestampMs": 15500,
+    "confidence": 0.95
+  },
+  {
+    "text": "彻底摆脱英伟达依赖。",
+    "startMs": 19500,
+    "endMs": 22500,
+    "timestampMs": 19500,
+    "confidence": 0.95
+  },
+  {
+    "text": "这是挑战，更是机遇！",
+    "startMs": 22500,
+    "endMs": 26000,
+    "timestampMs": 22500,
+    "confidence": 0.95
+  }
+]

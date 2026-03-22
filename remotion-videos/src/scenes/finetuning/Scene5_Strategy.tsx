@@ -98,209 +98,244 @@ export const Scene5_Strategy: React.FC = () => {
         Fine-tuning 训练策略对比
       </div>
 
-      {/* Split screen panels */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 24,
-          flex: 1,
-        }}
-      >
-        {/* Left - Full Fine-tuning */}
+      {/* Main content - Image as primary focus with text overlays */}
+      <div style={{ display: "flex", flexDirection: "row", gap: 32, flex: 1 }}>
+        {/* Left - Full Fine-tuning Badge */}
         <div
           style={{
-            flex: 1,
+            width: 200,
             transform: `translateX(${leftX}px)`,
             opacity: leftOpacity,
-            background: `${THEME.accentRed}08`,
-            backdropFilter: "blur(16px)",
-            border: `2px solid ${THEME.accentRed}40`,
-            borderRadius: 16,
-            padding: 28,
             display: "flex",
             flexDirection: "column",
+            justifyContent: "center",
+            gap: 16,
           }}
         >
           <div
             style={{
-              fontSize: 28,
-              fontWeight: 700,
-              color: THEME.accentRed,
-              marginBottom: 4,
+              background: `${THEME.accentRed}15`,
+              backdropFilter: "blur(16px)",
+              border: `2px solid ${THEME.accentRed}50`,
+              borderRadius: 16,
+              padding: 24,
+              transform: `translateY(${interpolate(frame, [25, 45], [20, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px)`,
+              opacity: interpolate(frame, [25, 45], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
             }}
           >
-            {strategies[0].title}
-          </div>
-          <div
-            style={{
-              fontSize: 16,
-              color: THEME.textSecondary,
-              marginBottom: 20,
-            }}
-          >
-            {strategies[0].subtitle}
-          </div>
-
-          {strategies[0].features.map((feature, i) => (
             <div
-              key={i}
               style={{
-                opacity: interpolate(frame, [25 + i * 5, 40 + i * 5], [0, 1], {
-                  extrapolateLeft: "clamp",
-                  extrapolateRight: "clamp",
-                }),
-                transform: `translateY(${interpolate(
-                  frame,
-                  [25 + i * 5, 40 + i * 5],
-                  [10, 0],
-                  { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-                )}px)`,
-                padding: "10px 12px",
-                background: `${THEME.accentRed}15`,
-                borderRadius: 8,
+                fontSize: 32,
+                fontWeight: 700,
+                color: THEME.accentRed,
                 marginBottom: 8,
-                fontSize: 18,
-                color: THEME.textPrimary,
               }}
             >
-              {feature}
+              {strategies[0].title}
             </div>
-          ))}
-
-          <div style={{ marginTop: "auto" }}>
             <div
               style={{
-                background: `${THEME.accentRed}20`,
-                padding: "8px 16px",
+                fontSize: 18,
+                color: THEME.textSecondary,
+                marginBottom: 16,
+              }}
+            >
+              {strategies[0].subtitle}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              {strategies[0].features.slice(0, 2).map((feature, i) => (
+                <div
+                  key={i}
+                  style={{
+                    fontSize: 16,
+                    color: THEME.textPrimary,
+                    padding: "8px 12px",
+                    background: `${THEME.accentRed}10`,
+                    borderRadius: 8,
+                  }}
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
+            <div
+              style={{
+                marginTop: 16,
+                background: `${THEME.accentRed}25`,
+                padding: "10px 16px",
                 borderRadius: 20,
-                display: "inline-block",
-                fontSize: 14,
+                textAlign: "center",
+                fontSize: 16,
+                fontWeight: 600,
                 color: THEME.accentRed,
               }}
             >
-              成本: {strategies[0].cost}
+              成本高 · 全参数更新
             </div>
           </div>
         </div>
 
-        {/* Right - LoRA */}
+        {/* Center - Large Image */}
         <div
           style={{
             flex: 1,
-            transform: `translateX(${rightX}px)`,
-            opacity: rightOpacity,
-            background: `${THEME.accentGreen}10`,
-            backdropFilter: "blur(16px)",
-            border: `2px solid ${THEME.accentGreen}60`,
-            borderRadius: 16,
-            padding: 28,
             display: "flex",
-            flexDirection: "column",
-            boxShadow: `0 0 30px ${THEME.accentGreen}20`,
+            alignItems: "center",
+            justifyContent: "center",
+            opacity: imageOpacity,
+            transform: `scale(${imageScale})`,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: THEME.cardBg,
+              borderRadius: 20,
+              padding: 24,
+              border: `1px solid ${THEME.cardBorder}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Img
+              src={staticFile("FineTuningVideo/lora-peft.png")}
               style={{
-                fontSize: 28,
-                fontWeight: 700,
-                color: THEME.accentGreen,
-                marginBottom: 4,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                borderRadius: 12,
               }}
-            >
-              {strategies[1].title}
-            </div>
-            {strategies[1].recommended && (
+            />
+          </div>
+        </div>
+
+        {/* Right - LoRA Badge */}
+        <div
+          style={{
+            width: 200,
+            transform: `translateX(${rightX}px)`,
+            opacity: rightOpacity,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: 16,
+          }}
+        >
+          <div
+            style={{
+              background: `${THEME.accentGreen}15`,
+              backdropFilter: "blur(16px)",
+              border: `2px solid ${THEME.accentGreen}60`,
+              borderRadius: 16,
+              padding: 24,
+              boxShadow: `0 0 30px ${THEME.accentGreen}20`,
+              transform: `translateY(${interpolate(frame, [40, 60], [20, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px)`,
+              opacity: interpolate(frame, [40, 60], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+              <div
+                style={{
+                  fontSize: 32,
+                  fontWeight: 700,
+                  color: THEME.accentGreen,
+                }}
+              >
+                {strategies[1].title}
+              </div>
               <div
                 style={{
                   background: `rgba(255,210,0,${badgePulse})`,
                   color: "#000",
-                  padding: "4px 12px",
+                  padding: "4px 10px",
                   borderRadius: 12,
                   fontSize: 12,
                   fontWeight: 700,
-                  marginBottom: 4,
                 }}
               >
                 推荐
               </div>
-            )}
-          </div>
-          <div
-            style={{
-              fontSize: 16,
-              color: THEME.textSecondary,
-              marginBottom: 20,
-            }}
-          >
-            {strategies[1].subtitle}
-          </div>
-
-          {strategies[1].features.map((feature, i) => (
+            </div>
             <div
-              key={i}
               style={{
-                opacity: interpolate(frame, [40 + i * 5, 55 + i * 5], [0, 1], {
-                  extrapolateLeft: "clamp",
-                  extrapolateRight: "clamp",
-                }),
-                transform: `translateY(${interpolate(
-                  frame,
-                  [40 + i * 5, 55 + i * 5],
-                  [10, 0],
-                  { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-                )}px)`,
-                padding: "10px 12px",
-                background: `${THEME.accentGreen}20`,
-                borderRadius: 8,
-                marginBottom: 8,
                 fontSize: 18,
-                color: THEME.textPrimary,
+                color: THEME.textSecondary,
+                marginBottom: 16,
               }}
             >
-              {feature}
+              {strategies[1].subtitle}
             </div>
-          ))}
-
-          <div style={{ marginTop: "auto" }}>
             <div
               style={{
-                background: `${THEME.accentGreen}30`,
-                padding: "8px 16px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              {strategies[1].features.slice(0, 2).map((feature, i) => (
+                <div
+                  key={i}
+                  style={{
+                    fontSize: 16,
+                    color: THEME.textPrimary,
+                    padding: "8px 12px",
+                    background: `${THEME.accentGreen}10`,
+                    borderRadius: 8,
+                  }}
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
+            <div
+              style={{
+                marginTop: 16,
+                background: `${THEME.accentGreen}25`,
+                padding: "10px 16px",
                 borderRadius: 20,
-                display: "inline-block",
-                fontSize: 14,
+                textAlign: "center",
+                fontSize: 16,
+                fontWeight: 600,
                 color: THEME.accentGreen,
               }}
             >
-              成本: {strategies[1].cost} · 性价比高
+              成本低 · 高效微调
             </div>
           </div>
         </div>
       </div>
 
-      {/* LoRA comparison image */}
+      {/* Bottom summary text */}
       <div
         style={{
-          opacity: imageOpacity,
-          transform: `scale(${imageScale})`,
           marginTop: 20,
-          background: THEME.cardBg,
-          borderRadius: 12,
-          padding: 16,
-          border: `1px solid ${THEME.cardBorder}`,
+          textAlign: "center",
+          opacity: interpolate(frame, [80, 100], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+          transform: `translateY(${interpolate(frame, [80, 100], [20, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px)`,
         }}
       >
-        <Img
-          src={staticFile("FineTuningVideo/lora-peft.png")}
+        <div
           style={{
-            width: "100%",
-            height: 180,
-            objectFit: "contain",
-            borderRadius: 8,
+            display: "inline-block",
+            background: `${THEME.cardBg}`,
+            padding: "16px 32px",
+            borderRadius: 12,
+            border: `1px solid ${THEME.cardBorder}`,
           }}
-        />
+        >
+          <span style={{ fontSize: 20, color: THEME.textPrimary }}>
+            <span style={{ color: THEME.accentGreen, fontWeight: 700 }}>LoRA</span>
+            {" "}在保持高性能的同时，大幅降低训练成本，是企业的首选方案
+          </span>
+        </div>
       </div>
     </AbsoluteFill>
   );

@@ -1,0 +1,58 @@
+[
+  {
+    "text": "先来理清几个关键概念。",
+    "startMs": 0,
+    "endMs": 2000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "DeepSeek-V3 是基座模型，",
+    "startMs": 2000,
+    "endMs": 4500,
+    "timestampMs": 2000,
+    "confidence": 0.95
+  },
+  {
+    "text": "R1 是基于 V3 训练的推理模型。",
+    "startMs": 4500,
+    "endMs": 7000,
+    "timestampMs": 4500,
+    "confidence": 0.95
+  },
+  {
+    "text": "V4 是 V3 的下一代升级版，",
+    "startMs": 7000,
+    "endMs": 9500,
+    "timestampMs": 7000,
+    "confidence": 0.95
+  },
+  {
+    "text": "主打多模态与长期记忆。",
+    "startMs": 9500,
+    "endMs": 12000,
+    "timestampMs": 9500,
+    "confidence": 0.95
+  },
+  {
+    "text": "R2 则是 R1 的下一代推理模型。",
+    "startMs": 12000,
+    "endMs": 15000,
+    "timestampMs": 12000,
+    "confidence": 0.95
+  },
+  {
+    "text": "核心逻辑是：R2 必须基于 V4 训练，",
+    "startMs": 15000,
+    "endMs": 18500,
+    "timestampMs": 15000,
+    "confidence": 0.95
+  },
+  {
+    "text": "V4 不出，R2 就出不来！",
+    "startMs": 18500,
+    "endMs": 22000,
+    "timestampMs": 18500,
+    "confidence": 0.95
+  }
+]

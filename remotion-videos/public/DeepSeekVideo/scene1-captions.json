@@ -1,0 +1,51 @@
+[
+  {
+    "text": "5 分钟 AI，每天搞懂一个知识点！",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "今天我们聊聊 DeepSeek 的发展谜题。",
+    "startMs": 3000,
+    "endMs": 5500,
+    "timestampMs": 3000,
+    "confidence": 0.95
+  },
+  {
+    "text": "2025 年 1 月，DeepSeek R1 横空出世，",
+    "startMs": 5500,
+    "endMs": 9000,
+    "timestampMs": 5500,
+    "confidence": 0.95
+  },
+  {
+    "text": "凭借思维链技术震惊全球。",
+    "startMs": 9000,
+    "endMs": 11500,
+    "timestampMs": 9000,
+    "confidence": 0.95
+  },
+  {
+    "text": "然而将近一年过去，",
+    "startMs": 11500,
+    "endMs": 13500,
+    "timestampMs": 11500,
+    "confidence": 0.95
+  },
+  {
+    "text": "传闻中的 V4 和 R2 却迟迟不见踪影。",
+    "startMs": 13500,
+    "endMs": 17000,
+    "timestampMs": 13500,
+    "confidence": 0.95
+  },
+  {
+    "text": "这背后到底是战略定力，还是方向迷失？",
+    "startMs": 17000,
+    "endMs": 21000,
+    "timestampMs": 17000,
+    "confidence": 0.95
+  }
+]

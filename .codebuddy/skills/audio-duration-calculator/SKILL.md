@@ -9,11 +9,22 @@ description: Calculate the duration of audio files (MP3, WAV, M4A, etc.) in seco
 
 This skill provides a Python script to calculate audio file durations using the pydub library. It's particularly useful for video editing workflows where you need to synchronize audio with video frames, calculate subtitle timings, or determine the exact duration of audio segments.
 
+## Environment Setup
+
+> ⚠️ **重要**: 运行脚本前，请先激活包含 `pydub` 的 conda 环境：
+>
+> ```bash
+> conda activate qwen3-tts
+> ```
+
 ## Quick Start
 
 Use the `get_audio_duration.py` script to calculate audio duration:
 
 ```bash
+# 先激活 conda 环境
+conda activate qwen3-tts
+
 # Basic usage - get duration in seconds
 python scripts/get_audio_duration.py path/to/audio.mp3
 
@@ -120,3 +131,55 @@ The `scripts/get_audio_duration.py` script provides:
 - **format_time(seconds)**: Formats seconds as HH:MM:SS.mmm
 
 Supported audio formats: MP3, WAV, M4A, AAC, FLAC, OGG, and any format supported by ffmpeg.
+
+---
+
+## Batch Update Scene Frames (Remotion)
+
+Use `update_scene_frames.py` to **automatically calculate audio durations and update the TSX config file** in one step.
+
+### Usage
+
+```bash
+# 1. 激活 conda 环境
+conda activate qwen3-tts
+
+# 2. 在项目根目录执行（自动更新 RAGVideo.tsx 帧数）
+python .codebuddy/skills/audio-duration-calculator/scripts/update_scene_frames.py \
+    --audio-dir remotion-videos/public/RAGVideo/audios \
+    --tsx-file remotion-videos/src/scenes/RAGVideo/RAGVideo.tsx
+
+# 3. 预览模式（不写入文件）
+python .codebuddy/skills/audio-duration-calculator/scripts/update_scene_frames.py \
+    --audio-dir remotion-videos/public/RAGVideo/audios \
+    --tsx-file remotion-videos/src/scenes/RAGVideo/RAGVideo.tsx \
+    --dry-run
+```
+
+### Parameters
+
+| 参数          | 说明                                       | 默认值  |
+| ------------- | ------------------------------------------ | ------- |
+| `--audio-dir` | 音频文件目录（含 scene1.mp3 ~ sceneN.mp3） | 必填    |
+| `--tsx-file`  | 要更新的 TSX 配置文件路径                  | 必填    |
+| `--scenes`    | 场景数量                                   | `9`     |
+| `--fps`       | 帧率                                       | `30`    |
+| `--buffer`    | 缓冲帧数                                   | `30`    |
+| `--dry-run`   | 仅预览，不写入文件                         | `false` |
+
+### Output Example
+
+```
+🎵 正在计算音频时长...
+   音频目录: remotion-videos/public/RAGVideo/audios
+   场景数量: 9
+   帧率: 30 fps，缓冲: 30 帧
+
+  scene1: 7.22s → 246 帧 (@ 30fps + 30帧缓冲)
+  scene2: 6.80s → 234 帧 (@ 30fps + 30帧缓冲)
+  ...
+  scene9: 6.65s → 229 帧 (@ 30fps + 30帧缓冲)
+
+📊 汇总: 共 9 个场景，总时长 65.3s，总帧数 1959
+✅ 已更新: remotion-videos/src/scenes/RAGVideo/RAGVideo.tsx
+```

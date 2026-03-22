@@ -12,17 +12,26 @@ import { Scene7_Example } from './Scene7_Example';
 import { Scene8_Comparison } from './Scene8_Comparison';
 import { Scene9_Ending } from './Scene9_Ending';
 
-// 视频片段配置（需要根据实际音频时长调整）
+// 视频片段配置（基于实际音频时长计算，112kbps @ 30fps，缓冲30帧）
+// scene1: 13.68s → 440 frames
+// scene2: 13.28s → 428 frames
+// scene3: 9.12s → 303 frames
+// scene4: 12.00s → 390 frames
+// scene5: 11.68s → 380 frames
+// scene6: 12.40s → 402 frames
+// scene7: 10.24s → 337 frames
+// scene8: 14.88s → 476 frames
+// scene9: 12.88s → 416 frames
 const SCENE_CONFIG = [
-  { id: 'intro', component: Scene1_Intro, duration: 499, audio: 'RAGVideo/audios/scene1.mp3', caption: 'RAGVideo/scene1-captions.json' },
-  { id: 'value', component: Scene2_Value, duration: 458, audio: 'RAGVideo/audios/scene2.mp3', caption: 'RAGVideo/scene2-captions.json' },
-  { id: 'architecture', component: Scene3_Architecture, duration: 361, audio: 'RAGVideo/audios/scene3.mp3', caption: 'RAGVideo/scene3-captions.json' },
-  { id: 'flow', component: Scene4_Flow, duration: 420, audio: 'RAGVideo/audios/scene4.mp3', caption: 'RAGVideo/scene4-captions.json' },
-  { id: 'embedding', component: Scene5_Embedding, duration: 405, audio: 'RAGVideo/audios/scene5.mp3', caption: 'RAGVideo/scene5-captions.json' },
-  { id: 'search', component: Scene6_Search, duration: 414, audio: 'RAGVideo/audios/scene6.mp3', caption: 'RAGVideo/scene6-captions.json' },
-  { id: 'example', component: Scene7_Example, duration: 467, audio: 'RAGVideo/audios/scene7.mp3', caption: 'RAGVideo/scene7-captions.json' },
-  { id: 'comparison', component: Scene8_Comparison, duration: 514, audio: 'RAGVideo/audios/scene8.mp3', caption: 'RAGVideo/scene8-captions.json' },
-  { id: 'ending', component: Scene9_Ending, duration: 439, audio: 'RAGVideo/audios/scene9.mp3', caption: 'RAGVideo/scene9-captions.json' },
+  { id: 'intro', component: Scene1_Intro, duration: 440, audio: 'RAGVideo/audios/scene1.mp3', caption: 'RAGVideo/scene1-captions.json' },
+  { id: 'value', component: Scene2_Value, duration: 428, audio: 'RAGVideo/audios/scene2.mp3', caption: 'RAGVideo/scene2-captions.json' },
+  { id: 'architecture', component: Scene3_Architecture, duration: 303, audio: 'RAGVideo/audios/scene3.mp3', caption: 'RAGVideo/scene3-captions.json' },
+  { id: 'flow', component: Scene4_Flow, duration: 390, audio: 'RAGVideo/audios/scene4.mp3', caption: 'RAGVideo/scene4-captions.json' },
+  { id: 'embedding', component: Scene5_Embedding, duration: 380, audio: 'RAGVideo/audios/scene5.mp3', caption: 'RAGVideo/scene5-captions.json' },
+  { id: 'search', component: Scene6_Search, duration: 402, audio: 'RAGVideo/audios/scene6.mp3', caption: 'RAGVideo/scene6-captions.json' },
+  { id: 'example', component: Scene7_Example, duration: 337, audio: 'RAGVideo/audios/scene7.mp3', caption: 'RAGVideo/scene7-captions.json' },
+  { id: 'comparison', component: Scene8_Comparison, duration: 476, audio: 'RAGVideo/audios/scene8.mp3', caption: 'RAGVideo/scene8-captions.json' },
+  { id: 'ending', component: Scene9_Ending, duration: 416, audio: 'RAGVideo/audios/scene9.mp3', caption: 'RAGVideo/scene9-captions.json' },
 ];
 
 // 计算每个片段的开始帧

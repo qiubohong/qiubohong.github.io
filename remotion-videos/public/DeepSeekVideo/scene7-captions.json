@@ -1,0 +1,58 @@
+[
+  {
+    "text": "说到底，V4 和 R2 为何迟迟不发，",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "可能根本没有单一答案。",
+    "startMs": 3000,
+    "endMs": 5500,
+    "timestampMs": 3000,
+    "confidence": 0.95
+  },
+  {
+    "text": "国产算力磨合、推理技术突破、安全加固、架构升级，",
+    "startMs": 5500,
+    "endMs": 10000,
+    "timestampMs": 5500,
+    "confidence": 0.95
+  },
+  {
+    "text": "每件事都需要时间。",
+    "startMs": 10000,
+    "endMs": 12000,
+    "timestampMs": 10000,
+    "confidence": 0.95
+  },
+  {
+    "text": "R1 改变了世界，V4 和 R2，会改变什么？",
+    "startMs": 12000,
+    "endMs": 16500,
+    "timestampMs": 12000,
+    "confidence": 0.95
+  },
+  {
+    "text": "答案，也许就在下一次，",
+    "startMs": 16500,
+    "endMs": 19000,
+    "timestampMs": 16500,
+    "confidence": 0.95
+  },
+  {
+    "text": "你打开对话窗口的那个瞬间。",
+    "startMs": 19000,
+    "endMs": 22000,
+    "timestampMs": 19000,
+    "confidence": 0.95
+  },
+  {
+    "text": "好的东西，值得等待。",
+    "startMs": 22000,
+    "endMs": 26000,
+    "timestampMs": 22000,
+    "confidence": 0.95
+  }
+]
