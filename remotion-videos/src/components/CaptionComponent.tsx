@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { AbsoluteFill, staticFile, useDelayRender, useCurrentFrame, useVideoConfig, Sequence } from "remotion";
-import { Audio } from "@remotion/media";
 import type { Caption } from "@remotion/captions";
 
 interface CaptionComponentProps {

@@ -1,0 +1,58 @@
+[
+  {
+    "text": "AI Agent的工作流程可以概括为感知、规划、行动、学习的循环。",
+    "startMs": 0,
+    "endMs": 4000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一步，环境感知：接收用户指令和环境信息。",
+    "startMs": 4200,
+    "endMs": 7500,
+    "timestampMs": 4200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二步，目标解析：理解用户意图和期望结果。",
+    "startMs": 7700,
+    "endMs": 10500,
+    "timestampMs": 7700,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三步，任务分解：将复杂目标拆解为可执行步骤。",
+    "startMs": 10700,
+    "endMs": 14000,
+    "timestampMs": 10700,
+    "confidence": 0.95
+  },
+  {
+    "text": "第四步，工具选择：确定完成任务所需的方法和资源。",
+    "startMs": 14200,
+    "endMs": 17500,
+    "timestampMs": 14200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第五步，行动执行：按计划执行具体操作。",
+    "startMs": 17700,
+    "endMs": 20500,
+    "timestampMs": 17700,
+    "confidence": 0.95
+  },
+  {
+    "text": "第六步，结果评估：检查是否达成目标。",
+    "startMs": 20700,
+    "endMs": 23500,
+    "timestampMs": 20700,
+    "confidence": 0.95
+  },
+  {
+    "text": "第七步，经验学习：优化未来的决策策略。",
+    "startMs": 23700,
+    "endMs": 27000,
+    "timestampMs": 23700,
+    "confidence": 0.95
+  }
+]

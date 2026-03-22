@@ -1,0 +1,44 @@
+[
+  {
+    "text": "最后，我们来总结AI Agent的关键要点。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "核心转变：从回答问题到完成任务，这是AI Agent与传统AI模型最大的区别。",
+    "startMs": 3200,
+    "endMs": 8000,
+    "timestampMs": 3200,
+    "confidence": 0.95
+  },
+  {
+    "text": "架构关键：感知、规划、行动、学习的完整循环，构成AI Agent的核心能力。",
+    "startMs": 8200,
+    "endMs": 14000,
+    "timestampMs": 8200,
+    "confidence": 0.95
+  },
+  {
+    "text": "价值所在：自动化复杂工作流程，提升效率，减少错误，提供24小时不间断服务。",
+    "startMs": 14200,
+    "endMs": 20000,
+    "timestampMs": 14200,
+    "confidence": 0.95
+  },
+  {
+    "text": "发展趋势：多模态、长期记忆、专业化工具使用，以及群体智能协作。",
+    "startMs": 20200,
+    "endMs": 25000,
+    "timestampMs": 20200,
+    "confidence": 0.95
+  },
+  {
+    "text": "你觉得AI Agent会如何改变你的工作方式？欢迎在评论区分享你的想法！",
+    "startMs": 25200,
+    "endMs": 31000,
+    "timestampMs": 25200,
+    "confidence": 0.95
+  }
+]

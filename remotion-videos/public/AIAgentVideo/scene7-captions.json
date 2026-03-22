@@ -1,0 +1,37 @@
+[
+  {
+    "text": "AI Agent的发展呈现出四大趋势。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一，多模态能力增强：整合视觉、听觉、触觉等多模态感知，更全面的环境理解和交互能力。",
+    "startMs": 3200,
+    "endMs": 10000,
+    "timestampMs": 3200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二，长期记忆和上下文理解：建立长期记忆机制，实现持续学习能力，提供个性化服务。",
+    "startMs": 10200,
+    "endMs": 17000,
+    "timestampMs": 10200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三，工具使用专业化：从通用工具调用到专业领域工具深度集成，如医疗诊断工具、法律分析工具。",
+    "startMs": 17200,
+    "endMs": 24000,
+    "timestampMs": 17200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第四，协作和群体智能：从单个Agent到多Agent协作，分工合作解决复杂问题，应用于大型项目管理。",
+    "startMs": 24200,
+    "endMs": 31000,
+    "timestampMs": 24200,
+    "confidence": 0.95
+  }
+]

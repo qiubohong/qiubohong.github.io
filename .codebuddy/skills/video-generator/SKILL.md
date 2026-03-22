@@ -122,17 +122,14 @@ public/<VideoName>/douyin-copy.md
   **文案内容强制规则**（必须遵守）：
 
 1. **前置核心价值（钩子）**：开场白之后，必须立即抛出该技术/概念能为用户带来的**具体好处**，用利益驱动抓住用户注意力。
-
    - 格式：`"学会[主题]，[具体好处]！"` 或 `"[主题]让你的[工具/工作流]像[通俗比喻]一样简单！"`
    - 示例：`"学会MCP，让你的AI工具像搭积木一样简单！"` / `"掌握Agent Skill，AI再也不用重复解释工作流程！"`
 
 2. **案例演示场景（必须包含）**：讲解完核心理论后，**必须安排至少一个贴近生活的实际应用案例场景**，让抽象技术具体可感。
-
    - 案例要具体可操作，展示完整的使用步骤
    - 优先选择日常生活场景（天气查询、日程管理、文件处理等）
 
 3. **呼吸点设计（必须包含）**：讲解完复杂知识点后，**必须插入一个简短的总结或通俗类比**，给观众消化信息的时间。
-
    - 时长约 10-15 秒
    - 格式：`"简单来说，[主题]就像[通俗类比]"` 或 `"记住这个关键点：[一句话总结]"`
 
@@ -324,6 +321,7 @@ public/<VideoName>/douyin-copy.md
 
 ##### 四、✍️ 文字排版规范
 
+- **字体大小规范（强制）**：字体大小必须为 **8 的倍数**，如：16px, 24px, 32px, 40px, 48px, 56px, 64px 等。**最小字号为 16px**。禁止使用非 8 倍数的字号（如 14px, 18px, 20px, 22px, 26px, 28px 等）。这是为了保持视觉一致性和更好的排版效果。
 - **字间距压缩（Tracking）**：大标题强制设置 `tracking-tighter`（`-0.05em`），正文使用 `tracking-tight`。
 - **行高呼吸（Leading）**：正文行高保持在 `1.6` 以上，确保文字块不显拥挤。
 - **对比法则（Contrast）**：标题用 `font-black`（900），副标题用 `font-light`（300）或 `opacity-60`。
@@ -828,7 +826,6 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
 **校验流程**：
 
 1. **第一次校验**：读取视频主组件（如 `XXXVideo.tsx`）
-
    - 提取所有 `<TransitionSeries.Sequence durationInFrames={xxx}>` 的帧数
    - **验证 EndingScene 存在**：检查最后一个场景是否为 EndingScene
    - **验证 EndingScene 帧数**：确认 EndingScene 帧数为 180 帧（6 秒）
@@ -837,7 +834,6 @@ python .codebuddy/skills/audio-duration-calculator/scripts/get_audio_duration.py
    - 计算预期总帧数：`预期总帧数 = 场景总帧数 + 转场总帧数`
 
 2. **第二次校验**：读取 Root.tsx
-
    - 找到对应视频的 `<Composition>` 定义
    - 提取 `durationInFrames` 属性值
    - 对比：`Root.tsx中的durationInFrames === 预期总帧数`
@@ -935,7 +931,6 @@ python scripts/generate_cover_images.py \
 **封面图要求**：
 
 - **16:9 横版封面图**：
-
   - 尺寸：1920×1080 像素
   - 适合电脑端和 YouTube 等平台
   - 标题位置：居中或左侧
@@ -1198,7 +1193,7 @@ const chatPanelOpacity = interpolate(
 const getTypingText = (
   text: string,
   startFrame: number,
-  charsPerFrame = 1.2
+  charsPerFrame = 1.2,
 ) => {
   const elapsed = Math.max(0, frame - startFrame);
   const charsToShow = Math.floor(elapsed * charsPerFrame);
@@ -1288,7 +1283,7 @@ const countUp = (target: number, startFrame: number, duration = 60) => {
       easing: Easing.out(Easing.cubic),
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
-    })
+    }),
   );
 };
 ```

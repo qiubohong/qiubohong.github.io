@@ -29,9 +29,11 @@ import { FunctionCallingVideo } from "./FunctionCallingVideo";
 import { MCPVideo } from "./MCPVideo";
 import { AgentSkillVideo } from "./AgentSkillVideo";
 import { OpenClawIntroVideo } from "./OpenClawIntroVideo";
+import { RAGVideo } from "./scenes/RAGVideo/RAGVideo";
 import { OpenClaw1Video, OPENCLAW1_TOTAL_DURATION } from "./OpenClaw1Video";
 import { OpenClawFreeModelVideo, OPENCLAWFREEMODEL_TOTAL_DURATION } from "./OpenClawFreeModelVideo";
 import { OpenClawInstallVideo, OPENCLAWINSTALL_TOTAL_DURATION } from "./OpenClawInstallVideo";
+import { AIAgentVideo } from "./AIAgentVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -489,8 +491,37 @@ export const RemotionRoot = () => {
           showCaptions: true,
         }}
       />
-    </>
-  );
+
+      {/* AIAgentVideo视频（5分钟AI系列·第17期） */}
+      <Composition
+        id="AIAgentVideo"
+        component={AIAgentVideo}
+        durationInFrames={8385} // 总帧数：854+844+1058+789+1242+1067+1254+1091+126=8325帧，减去8个转场×15帧=120帧，实际8205帧，约273.5秒（基于实际音频时长+30帧缓冲）
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "AI Agent - 从答题机器到会思考的执行者",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* RAGVideo视频（5分钟AI系列·第18期） */}
+      <Composition
+        id="RAGVideo"
+        component={RAGVideo}
+        durationInFrames={3977} // 总帧数：499+458+361+420+405+414+467+514+439=3977帧（9个场景基于实际音频时长，约132.5秒）
+        fps={30}
+        width={1280}
+        height={720}
+        defaultProps={{
+          title: "RAG - 检索增强生成",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+    </>  );
 };
 
 // 简单的音频测试组件

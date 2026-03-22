@@ -1,0 +1,37 @@
+[
+  {
+    "text": "AI Agent在实际应用中有四大典型场景。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "第一，智能代码助手：自动编写、调试、优化代码，代表产品有Codebuddy、QwenCode。",
+    "startMs": 3200,
+    "endMs": 9000,
+    "timestampMs": 3200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第二，数据分析Agent：自动分析数据、生成报告、提供洞察，应用于商业智能、市场分析。",
+    "startMs": 9200,
+    "endMs": 15500,
+    "timestampMs": 9200,
+    "confidence": 0.95
+  },
+  {
+    "text": "第三，内容创作Agent：自动生成文章、设计图像、制作视频，代表工具有通义千问、可灵AI。",
+    "startMs": 15700,
+    "endMs": 22000,
+    "timestampMs": 15700,
+    "confidence": 0.95
+  },
+  {
+    "text": "第四，客户服务Agent：24小时自动客服、问题解决、订单处理，提高响应速度降低成本。",
+    "startMs": 22200,
+    "endMs": 28500,
+    "timestampMs": 22200,
+    "confidence": 0.95
+  }
+]

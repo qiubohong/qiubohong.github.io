@@ -1,0 +1,37 @@
+[
+  {
+    "text": "AI Agent的核心价值在于自动化复杂工作流程。",
+    "startMs": 0,
+    "endMs": 3500,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "效率提升：自动完成重复性任务，让人从繁琐工作中解放出来。",
+    "startMs": 3700,
+    "endMs": 8000,
+    "timestampMs": 3700,
+    "confidence": 0.95
+  },
+  {
+    "text": "智能决策：基于数据分析做出最优选择，提高决策质量。",
+    "startMs": 8200,
+    "endMs": 12000,
+    "timestampMs": 8200,
+    "confidence": 0.95
+  },
+  {
+    "text": "24小时服务：不间断的智能助手服务，随时响应需求。",
+    "startMs": 12200,
+    "endMs": 16000,
+    "timestampMs": 12200,
+    "confidence": 0.95
+  },
+  {
+    "text": "错误减少：标准化流程降低人为失误，提高工作质量。",
+    "startMs": 16200,
+    "endMs": 20000,
+    "timestampMs": 16200,
+    "confidence": 0.95
+  }
+]

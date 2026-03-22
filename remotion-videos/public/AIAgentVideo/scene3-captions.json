@@ -1,0 +1,37 @@
+[
+  {
+    "text": "一个完整的AI Agent通常包含四大核心模块。",
+    "startMs": 0,
+    "endMs": 3000,
+    "timestampMs": 0,
+    "confidence": 0.95
+  },
+  {
+    "text": "感知模块负责理解环境和用户需求，包括自然语言理解、上下文感知、多模态输入处理。",
+    "startMs": 3200,
+    "endMs": 9000,
+    "timestampMs": 3200,
+    "confidence": 0.95
+  },
+  {
+    "text": "规划模块负责制定行动计划和策略，包括目标导向规划、约束条件处理、风险评估。",
+    "startMs": 9200,
+    "endMs": 15000,
+    "timestampMs": 9200,
+    "confidence": 0.95
+  },
+  {
+    "text": "行动模块负责执行具体操作和工具调用，包括工具调用能力、多步骤协调、错误处理。",
+    "startMs": 15200,
+    "endMs": 21000,
+    "timestampMs": 15200,
+    "confidence": 0.95
+  },
+  {
+    "text": "学习模块负责从经验中优化行为策略，包括经验积累、策略调整、适应性改进。",
+    "startMs": 21200,
+    "endMs": 26000,
+    "timestampMs": 21200,
+    "confidence": 0.95
+  }
+]
