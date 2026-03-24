@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "humanize-ai-text": {
+      "source": "alphaonedev/openclaw-graph",
+      "sourceType": "github",
+      "computedHash": "445373b98df0186358aa03cc2d53739e734cea8b301e6ea3ccf8abbf4c29c7e7"
+    },
     "nano-banana-pro-prompts-recommend-skill": {
       "source": "youmind-openlab/nano-banana-pro-prompts-recommend-skill",
       "sourceType": "github",
