@@ -99,11 +99,6 @@ export const TransformerVideo: React.FC<TransformerVideoProps> = ({
     return (
         <AbsoluteFill style={{ backgroundColor: "#000000" }}>
             {/* 背景音乐（如果存在） */}
-            {/* <Audio 
-                src={staticFile("background-music.mp3")} 
-                volume={backgroundMusicVolume}
-                loop
-            /> */}
 
             <TransitionSeries>
                 {scenes.map((scene, index) => (

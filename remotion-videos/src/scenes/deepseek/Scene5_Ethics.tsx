@@ -14,9 +14,42 @@ const THEME = {
   textSecondary: "#8b949e",
 };
 
+const SWITCH_CAPTIONS_EVERY_MS = 1200;
+
 export const Scene5_Ethics: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const [captions, setCaptions] = useState<Caption[]>([]);
+
+  useEffect(() => {
+    const loadCaptions = async () => {
+      try {
+        const response = await fetch(staticFile("DeepSeekVideo/scene5-captions.json"));
+        if (response.ok) {
+          const data = await response.json();
+          setCaptions(data);
+        }
+      } catch (e) {
+        console.error("Failed to load captions:", e);
+      }
+    };
+    loadCaptions();
+  }, []);
+
+  const pages = React.useMemo(() => {
+    if (captions.length === 0) return [];
+    return createTikTokStyleCaptions({
+      captions,
+      combineTokensWithinMilliseconds: SWITCH_CAPTIONS_EVERY_MS,
+    }).pages;
+  }, [captions]);
+
+  const currentTimeMs = (frame / fps) * 1000;
+  const currentPage = pages.find((page, index) => {
+    const nextPage = pages[index + 1];
+    const pageEndMs = nextPage ? nextPage.startMs : page.startMs + SWITCH_CAPTIONS_EVERY_MS;
+    return currentTimeMs * 1000 >= page.startMs && currentTimeMs * 1000 < pageEndMs;
+  });
 
   // 标题栏
   const headerOpacity = interpolate(frame, [0, 15], [0, 1], {
@@ -222,6 +255,49 @@ export const Scene5_Ethics: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* 字幕显示 */}
+      {currentPage && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: 30,
+            left: 0,
+            right: 0,
+            zIndex: 10,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 32,
+              fontWeight: "bold",
+              whiteSpace: "pre-wrap",
+              textAlign: "center",
+              maxWidth: "90%",
+              lineHeight: 1.5,
+              textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+            }}
+          >
+            {currentPage.tokens.map((token, index) => {
+              const isActive =
+                token.fromMs <= currentTimeMs * 1000 && token.toMs > currentTimeMs * 1000;
+
+              return (
+                <span
+                  key={`${token.fromMs}-${index}`}
+                  style={{
+                    color: isActive ? "#ffd200" : "#c9d1d9",
+                  }}
+                >
+                  {token.text}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </AbsoluteFill>
   );
 };

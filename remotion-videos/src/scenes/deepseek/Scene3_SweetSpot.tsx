@@ -306,7 +306,6 @@ export const Scene3_SweetSpot: React.FC = () => {
             </div>
           </div>
         )}
-      </div>
     </AbsoluteFill>
   );
 };

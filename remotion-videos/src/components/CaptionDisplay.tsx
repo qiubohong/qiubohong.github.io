@@ -1,10 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, staticFile } from "remotion";
 import { createTikTokStyleCaptions } from "@remotion/captions";
 import type { Caption, TikTokPage } from "@remotion/captions";
 
 interface CaptionDisplayProps {
-  captions: Caption[];
+  captions?: Caption[];
+  captionFile?: string;
   bottomOffset?: number;
   fontSize?: number;
   highlightColor?: string;
@@ -15,7 +16,8 @@ interface CaptionDisplayProps {
 const SWITCH_CAPTIONS_EVERY_MS = 1200;
 
 export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
-  captions,
+  captions: captionsProp,
+  captionFile,
   bottomOffset = 100,
   fontSize = 40,
   highlightColor = "#ffd200",
@@ -24,9 +26,35 @@ export const CaptionDisplay: React.FC<CaptionDisplayProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const [loadedCaptions, setLoadedCaptions] = useState<Caption[]>([]);
+
+  // 如果从文件加载字幕
+  useEffect(() => {
+    if (captionFile) {
+      const loadCaptions = async () => {
+        try {
+          const response = await fetch(staticFile(captionFile));
+          if (response.ok) {
+            const data = await response.json();
+            setLoadedCaptions(Array.isArray(data) ? data : []);
+          }
+        } catch (e) {
+          console.error("Failed to load captions:", e);
+          setLoadedCaptions([]);
+        }
+      };
+      loadCaptions();
+    }
+  }, [captionFile]);
+
+  // 优先使用传入的captions，其次使用从文件加载的
+  const captions = captionsProp || loadedCaptions;
 
   // 创建页面
   const { pages } = useMemo(() => {
+    if (!captions || captions.length === 0) {
+      return { pages: [] };
+    }
     return createTikTokStyleCaptions({
       captions,
       combineTokensWithinMilliseconds,

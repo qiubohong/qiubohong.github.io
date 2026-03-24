@@ -72,12 +72,6 @@ export const CodeAgentVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#0d1117" }}>
       {/* Background music */}
-      <Audio
-src={staticFile("background-music.mp3")}
-        startFrom={0}
-        endAt={(seq(8) + durations.ending) * fps}
-        volume={0.15}
-      />
 
       {/* Scene 1: Opening */}
       <Sequence

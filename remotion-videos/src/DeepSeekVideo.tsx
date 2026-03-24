@@ -73,12 +73,6 @@ export const DeepSeekVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#0d1117" }}>
       {/* 背景音乐 */}
-      <Audio
-        src={staticFile("background-music.mp3")}
-        startFrom={0}
-        endAt={(seq(8) + durations.ending) * fps}
-        volume={0.15}
-      />
 
       {/* Scene 1: 开场引入 */}
       <Sequence
