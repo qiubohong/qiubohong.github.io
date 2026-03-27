@@ -195,46 +195,60 @@ export const Scene1_Hook: React.FC = () => {
                 </div>
             </div>
 
-            {/* 第二层：正确的ReAct介绍 */}
+            {/* 第二层：正确的ReAct介绍 - 覆盖层卡片 */}
             <div style={{
                 opacity: react2Opacity,
                 transform: `translateY(${react2Slide}px)`,
                 textAlign: "center",
-                marginTop: "40px",
-                zIndex: 2,
+                zIndex: 10,
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: `translate(-50%, -50%) translateY(${react2Slide}px)`,
             } as React.CSSProperties}>
+                {/* 半透明白色背景卡片 */}
                 <div style={{
-                    display: "inline-block",
-                    background: "rgba(240,136,62,0.1)",
-                    border: "1px solid rgba(240,136,62,0.3)",
-                    borderRadius: "999px",
-                    padding: "8px 24px",
-                    marginBottom: "20px",
+                    background: "rgba(255,255,255,0.15)",
+                    border: "3px solid rgba(255,255,255,0.4)",
+                    borderRadius: "32px",
+                    padding: "80px 120px",
+                    backdropFilter: "blur(20px)",
+                    boxShadow: "0 25px 80px rgba(0,0,0,0.4)",
                 }}>
-                    <span style={{ fontSize: "24px", color: THEME.accent, fontWeight: "bold" }}>
-                        不是前端框架！
-                    </span>
-                </div>
+                    <div style={{
+                        display: "inline-block",
+                        background: "rgba(240,136,62,0.2)",
+                        border: "2px solid rgba(240,136,62,0.5)",
+                        borderRadius: "999px",
+                        padding: "16px 48px",
+                        marginBottom: "40px",
+                    }}>
+                        <span style={{ fontSize: "40px", color: "#f0883e", fontWeight: "bold" }}>
+                            不是前端框架！
+                        </span>
+                    </div>
 
-                <div style={{
-                    fontSize: "88px",
-                    fontWeight: "bold",
-                    background: THEME.titleGradient,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    letterSpacing: "-0.02em",
-                }}>
-                    ReAct
-                </div>
+                    <div style={{
+                        fontSize: "176px",
+                        fontWeight: "bold",
+                        background: "linear-gradient(45deg, #58a6ff, #79c0ff)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.1,
+                    }}>
+                        ReAct
+                    </div>
 
-                <div style={{
-                    fontSize: "36px",
-                    color: THEME.textPrimary,
-                    marginTop: "16px",
-                    opacity: subtitleOpacity,
-                }}>
-                    AI Agent 的<span style={{ color: THEME.accent, fontWeight: "bold" }}>核心设计模式</span>
+                    <div style={{
+                        fontSize: "48px",
+                        color: THEME.textPrimary,
+                        marginTop: "32px",
+                        opacity: subtitleOpacity,
+                    }}>
+                        AI Agent 的<span style={{ color: "#f0883e", fontWeight: "bold" }}>核心设计模式</span>
+                    </div>
                 </div>
             </div>
         </AbsoluteFill>
