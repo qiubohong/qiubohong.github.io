@@ -1,0 +1,30 @@
+[
+    {
+        "text": "ReAct 其实是让大模型边想边做的设计模式。",
+        "startMs": 0,
+        "endMs": 2800,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "它让 AI 像侦探破案一样：看到线索，动动脑子，采取行动，再分析结果。",
+        "startMs": 2800,
+        "endMs": 6800,
+        "timestampMs": 2800,
+        "confidence": 0.95
+    },
+    {
+        "text": "传统大模型是你问一句它答一句，但 ReAct 不一样，它会让模型停下来思考：接下来该做什么？用什么工具？",
+        "startMs": 6800,
+        "endMs": 12000,
+        "timestampMs": 6800,
+        "confidence": 0.95
+    },
+    {
+        "text": "简单说，就是把 AI 从只会说的参谋，变成真的能办事的助手。",
+        "startMs": 12000,
+        "endMs": 15500,
+        "timestampMs": 12000,
+        "confidence": 0.95
+    }
+]

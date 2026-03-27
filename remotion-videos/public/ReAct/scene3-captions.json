@@ -1,0 +1,44 @@
+[
+    {
+        "text": "来看这张 ReAct 工作循环图。",
+        "startMs": 0,
+        "endMs": 2000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "整个流程就三个词：思考、行动、观察。",
+        "startMs": 2000,
+        "endMs": 4500,
+        "timestampMs": 2000,
+        "confidence": 0.95
+    },
+    {
+        "text": "思考，就是模型分析当前情况，想想接下来该做什么。",
+        "startMs": 4500,
+        "endMs": 7200,
+        "timestampMs": 4500,
+        "confidence": 0.95
+    },
+    {
+        "text": "行动，根据思考结果决定调用什么工具、采取什么行动。",
+        "startMs": 7200,
+        "endMs": 10000,
+        "timestampMs": 7200,
+        "confidence": 0.95
+    },
+    {
+        "text": "观察，拿到行动的结果，作为下一次思考的依据。",
+        "startMs": 10000,
+        "endMs": 12600,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "这三个步骤循环往复，直到问题解决。",
+        "startMs": 12600,
+        "endMs": 15000,
+        "timestampMs": 12600,
+        "confidence": 0.95
+    }
+]

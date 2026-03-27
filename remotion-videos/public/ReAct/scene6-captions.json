@@ -1,0 +1,44 @@
+[
+    {
+        "text": "最后分享几个关于 ReAct 的冷知识。",
+        "startMs": 0,
+        "endMs": 2200,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一，ReAct 跟 React 真的没关系。一个是 AI Agent 思路，一个是前端框架，纯粹名字像而已。",
+        "startMs": 2200,
+        "endMs": 7000,
+        "timestampMs": 2200,
+        "confidence": 0.95
+    },
+    {
+        "text": "第二，ReAct 是 2022 年 Google Research 提出的，全名叫 Reasoning plus Acting。",
+        "startMs": 7000,
+        "endMs": 11000,
+        "timestampMs": 7000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第三，如果你用过 LangChain 的 AgentExecutor，底层其实就是 ReAct 模式封装好的。",
+        "startMs": 11000,
+        "endMs": 15300,
+        "timestampMs": 11000,
+        "confidence": 0.95
+    },
+    {
+        "text": "第四，现在的实现通常用 Function Calling 让模型输出结构化的工具调用指令，比纯文本解析更稳定。",
+        "startMs": 15300,
+        "endMs": 20000,
+        "timestampMs": 15300,
+        "confidence": 0.95
+    },
+    {
+        "text": "第五，除了 ReAct，还有反思模式 Reflexion、先规划再执行的 Plan-and-Solve 等，不同场景可以选不同的。",
+        "startMs": 20000,
+        "endMs": 25500,
+        "timestampMs": 20000,
+        "confidence": 0.95
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "text": "看到 React，你是不是想到了前端框架？",
+        "startMs": 0,
+        "endMs": 2300,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "错！今天说的是另一种 ReAct！",
+        "startMs": 2300,
+        "endMs": 4100,
+        "timestampMs": 2300,
+        "confidence": 0.95
+    }
+]

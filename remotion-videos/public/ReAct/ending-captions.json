@@ -1,0 +1,16 @@
+[
+    {
+        "text": "5分钟AI，每天搞懂一个知识点！",
+        "startMs": 0,
+        "endMs": 3000,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "你觉得 ReAct 会如何改变我们与 AI 的交互方式？欢迎在评论区分享你的想法！",
+        "startMs": 3000,
+        "endMs": 8000,
+        "timestampMs": 3000,
+        "confidence": 0.95
+    }
+]

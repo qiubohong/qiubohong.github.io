@@ -1,0 +1,37 @@
+[
+    {
+        "text": "再看这张图，这是 ReAct Agent 的核心架构。",
+        "startMs": 0,
+        "endMs": 2500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "整个系统就几个核心部分：大模型 LLM、工具集、还有记忆模块。",
+        "startMs": 2500,
+        "endMs": 5800,
+        "timestampMs": 2500,
+        "confidence": 0.95
+    },
+    {
+        "text": "代码实现的核心就是一个 while 循环，不断让模型想、做、观察，直到拿到最终答案。",
+        "startMs": 5800,
+        "endMs": 10000,
+        "timestampMs": 5800,
+        "confidence": 0.95
+    },
+    {
+        "text": "提示词设计也很关键，要告诉模型按什么格式回复，什么时候调用工具，什么时候给出最终答案。",
+        "startMs": 10000,
+        "endMs": 14500,
+        "timestampMs": 10000,
+        "confidence": 0.95
+    },
+    {
+        "text": "提示词写清楚了，模型行为才可控，不然它会各种放飞自我。",
+        "startMs": 14500,
+        "endMs": 17800,
+        "timestampMs": 14500,
+        "confidence": 0.95
+    }
+]

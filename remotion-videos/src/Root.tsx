@@ -39,6 +39,7 @@ import { CoverImage_16x9 } from "./scenes/finetuning/CoverImage_16x9";
 import { CoverImage_9x16 } from "./scenes/finetuning/CoverImage_9x16";
 import { CodeAgentVideo } from "./CodeAgentVideo";
 import { DeepSeekVideo } from "./DeepSeekVideo";
+import { ReAct } from "./scenes/react/ReAct";
 
 export const RemotionRoot = () => {
   return (
@@ -527,7 +528,7 @@ export const RemotionRoot = () => {
         }}
       />
 
-{/* FineTuningVideo视频（5分钟AI系列·第19期） */}
+      {/* FineTuningVideo视频（5分钟AI系列·第19期） */}
       <Composition
         id="FineTuningVideo"
         component={FineTuningVideo}
@@ -567,6 +568,21 @@ export const RemotionRoot = () => {
         height={1920}
         defaultProps={{
           title: "DeepSeek V4/R2 为何双双难产？七轮辩论揭开真相",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* ReAct视频 - ReAct AI Agent核心设计模式 */}
+      <Composition
+        id="ReAct"
+        component={ReAct}
+        durationInFrames={3274} // 135+465+450+645+534+765+240=3274帧，约109.1秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "ReAct - AI Agent 核心设计模式",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}

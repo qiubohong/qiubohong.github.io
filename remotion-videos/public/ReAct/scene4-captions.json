@@ -1,0 +1,44 @@
+[
+    {
+        "text": "来看一个实际例子：查询特斯拉股价乘以十是多少。",
+        "startMs": 0,
+        "endMs": 3500,
+        "timestampMs": 0,
+        "confidence": 0.95
+    },
+    {
+        "text": "第一步，模型思考：我要算股价乘以十，但不知道现在股价是多少，得先查一下。",
+        "startMs": 3500,
+        "endMs": 8200,
+        "timestampMs": 3500,
+        "confidence": 0.95
+    },
+    {
+        "text": "然后调用搜索工具，查到当前特斯拉股价是250美元。",
+        "startMs": 8200,
+        "endMs": 11500,
+        "timestampMs": 8200,
+        "confidence": 0.95
+    },
+    {
+        "text": "接着再次思考：拿到股价了，250乘以10等于2500。",
+        "startMs": 11500,
+        "endMs": 14300,
+        "timestampMs": 11500,
+        "confidence": 0.95
+    },
+    {
+        "text": "调用计算工具，得到结果2500。最后告诉用户答案。",
+        "startMs": 14300,
+        "endMs": 17300,
+        "timestampMs": 14300,
+        "confidence": 0.95
+    },
+    {
+        "text": "整个过程是不是很像我认真办事的样子？遇到问题不瞎猜，想好了再动手。",
+        "startMs": 17300,
+        "endMs": 21500,
+        "timestampMs": 17300,
+        "confidence": 0.95
+    }
+]
