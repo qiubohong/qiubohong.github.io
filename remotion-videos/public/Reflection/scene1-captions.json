@@ -1,0 +1,21 @@
+{
+  "text": "之前我们学了 ReAct，让 AI 边想边做。今天学另一个神奇模式：Reflection！让 AI 学会自我检讨，做完任务回头看看哪里可以改进。",
+  "duration": 8.5,
+  "captions": [
+    {
+      "start": 0.0,
+      "end": 3.5,
+      "text": "之前我们学了 ReAct，让 AI 边想边做。"
+    },
+    {
+      "start": 3.5,
+      "end": 6.0,
+      "text": "今天学另一个神奇模式：Reflection！"
+    },
+    {
+      "start": 6.0,
+      "end": 8.5,
+      "text": "让 AI 学会自我检讨，做完任务回头看看哪里可以改进。"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ const THEME = {
     observe: "#f778ba",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene4_CaseStudy: React.FC = () => {
@@ -47,46 +47,47 @@ export const Scene4_CaseStudy: React.FC = () => {
         extrapolateRight: "clamp",
     });
 
+    // 985帧 ≈ 31.84秒，每步约5秒
     // 步骤动画配置
     const steps = [
         {
-            offset: 40,
+            offset: 120,    // 4秒
             type: "thought",
             content: "我要算特斯拉股价乘以10，但不知道现在股价是多少，得先查一下",
         },
         {
-            offset: 80,
+            offset: 210,    // 7秒
             type: "action",
             content: "调用搜索工具 → 查询特斯拉当前股价",
         },
         {
-            offset: 120,
+            offset: 300,    // 10秒
             type: "observe",
             content: "搜索结果：当前特斯拉股价 250 美元",
         },
         {
-            offset: 160,
+            offset: 420,    // 14秒
             type: "thought",
             content: "拿到股价了，250 乘以 10 等于 2500",
         },
         {
-            offset: 200,
+            offset: 540,    // 18秒
             type: "action",
             content: "调用计算工具 → 计算 250 × 10",
         },
         {
-            offset: 240,
+            offset: 660,    // 22秒
             type: "observe",
             content: "计算结果：2500 美元",
         },
     ];
 
-    // 最终答案动画
-    const answerOpacity = interpolate(frame, [280, 310], [0, 1], {
+    // 最终答案动画 (27秒)
+    const answerOpacity = interpolate(frame, [810, 840], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const answerScale = interpolate(frame, [280, 310], [0.9, 1], {
+    const answerScale = interpolate(frame, [810, 840], [0.9, 1], {
         easing: Easing.out(Easing.back(1.5)),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",

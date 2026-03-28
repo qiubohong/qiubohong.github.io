@@ -17,7 +17,7 @@ const THEME = {
     act: "#3fb950",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene5_Architecture: React.FC = () => {
@@ -46,19 +46,20 @@ export const Scene5_Architecture: React.FC = () => {
         extrapolateRight: "clamp",
     });
 
-    // 核心模块说明动画
+    // 975帧 ≈ 31.52秒
+    // 核心模块说明动画 (12秒、16秒、20秒)
     const modules = [
-        { offset: 60, label: "大模型 LLM", desc: "负责思考和决策", color: THEME.think },
-        { offset: 90, label: "工具集 Tools", desc: "搜索、计算、API等", color: THEME.act },
-        { offset: 120, label: "记忆模块 Memory", desc: "存储历史记录", color: THEME.accent },
+        { offset: 240, label: "大模型 LLM", desc: "负责思考和决策", color: THEME.think },
+        { offset: 360, label: "工具集 Tools", desc: "搜索、计算、API等", color: THEME.act },
+        { offset: 480, label: "记忆模块 Memory", desc: "存储历史记录", color: THEME.accent },
     ];
 
-    // 代码逻辑动画
-    const codeOpacity = interpolate(frame, [150, 180], [0, 1], {
+    // 代码逻辑动画 (26秒)
+    const codeOpacity = interpolate(frame, [780, 810], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const codeSlide = interpolate(frame, [150, 180], [30, 0], {
+    const codeSlide = interpolate(frame, [780, 810], [30, 0], {
         easing: Easing.out(Easing.cubic),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",

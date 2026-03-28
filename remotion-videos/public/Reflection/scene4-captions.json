@@ -1,0 +1,21 @@
+{
+  "text": "来看实战案例：用 Reflection 模式让 AI 写代码。先生成一版，然后自我审查找出问题，最后重写优化。看，AI 正在给自己的代码做 code review！",
+  "duration": 11.5,
+  "captions": [
+    {
+      "start": 0.0,
+      "end": 3.5,
+      "text": "来看实战案例：用 Reflection 模式让 AI 写代码。"
+    },
+    {
+      "start": 3.5,
+      "end": 7.0,
+      "text": "先生成一版，然后自我审查找出问题，最后重写优化。"
+    },
+    {
+      "start": 7.0,
+      "end": 11.5,
+      "text": "看，AI 正在给自己的代码做 code review！"
+    }
+  ]
+}

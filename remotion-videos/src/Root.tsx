@@ -40,6 +40,7 @@ import { CoverImage_9x16 } from "./scenes/finetuning/CoverImage_9x16";
 import { CodeAgentVideo } from "./CodeAgentVideo";
 import { DeepSeekVideo } from "./DeepSeekVideo";
 import { ReAct } from "./scenes/react/ReAct";
+import { ReflectionVideo, REFLECTION_TOTAL_DURATION } from "./ReflectionVideo";
 
 export const RemotionRoot = () => {
   return (
@@ -577,12 +578,27 @@ export const RemotionRoot = () => {
       <Composition
         id="ReAct"
         component={ReAct}
-        durationInFrames={3274} // 135+465+450+645+534+765+240=3274帧，约109.1秒
+        durationInFrames={5374} // 135+465+450+645+534+765+240=3274帧，约109.1秒
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
           title: "ReAct - AI Agent 核心设计模式",
+          showCaptions: true,
+          backgroundMusicVolume: 0.15
+        }}
+      />
+
+      {/* Reflection视频 - AI Agent Reflection反思模式 */}
+      <Composition
+        id="Reflection"
+        component={ReflectionVideo}
+        durationInFrames={REFLECTION_TOTAL_DURATION} // 约77.5秒
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Reflection - AI Agent 反思设计模式",
           showCaptions: true,
           backgroundMusicVolume: 0.15
         }}

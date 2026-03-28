@@ -18,7 +18,7 @@ const THEME = {
     observe: "#f778ba",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene3_LoopDiagram: React.FC = () => {
@@ -52,8 +52,9 @@ export const Scene3_LoopDiagram: React.FC = () => {
         extrapolateRight: "clamp",
     });
 
-    // 三个阶段卡片动画
-    const cardOffsets = [40, 65, 90];
+    // 786帧 ≈ 25.20秒
+    // 三个阶段卡片动画 (12秒、16秒、20秒出现)
+    const cardOffsets = [240, 360, 480];
     const cards = [
         { name: "思考", color: THEME.think, desc: "分析当前情况\n想想接下来做什么", icon: "🤔" },
         { name: "行动", color: THEME.act, desc: "决定调用什么工具\n采取什么行动", icon: "🚀" },

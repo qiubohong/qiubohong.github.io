@@ -19,7 +19,7 @@ const THEME = {
     observe: "#f778ba",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene2_Concept: React.FC = () => {
@@ -31,45 +31,46 @@ export const Scene2_Concept: React.FC = () => {
         extrapolateRight: "clamp",
     });
 
-    // 标题动画
-    const titleOpacity = interpolate(frame, [0, 25], [0, 1], {
+    // 793帧 ≈ 25.44秒，动画时间均匀分布
+    // 标题动画 (0-1秒)
+    const titleOpacity = interpolate(frame, [0, 30], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const titleSlide = interpolate(frame, [0, 30], [40, 0], {
+    const titleSlide = interpolate(frame, [0, 35], [40, 0], {
         easing: Easing.out(Easing.back(1.5)),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // 核心定义卡片动画
-    const cardOpacity = interpolate(frame, [30, 55], [0, 1], {
+    // 核心定义卡片动画 (3-6秒)
+    const cardOpacity = interpolate(frame, [90, 120], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const cardSlide = interpolate(frame, [30, 55], [30, 0], {
+    const cardSlide = interpolate(frame, [90, 120], [30, 0], {
         easing: Easing.out(Easing.cubic),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // 侦探图标动画
-    const iconOpacity = interpolate(frame, [50, 75], [0, 1], {
+    // 侦探图标动画 (9-12秒)
+    const iconOpacity = interpolate(frame, [180, 210], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const iconScale = interpolate(frame, [50, 75], [0.8, 1], {
+    const iconScale = interpolate(frame, [180, 210], [0.8, 1], {
         easing: Easing.out(Easing.back(1.5)),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // 对比卡片动画
-    const compareOpacity = interpolate(frame, [70, 95], [0, 1], {
+    // 对比卡片动画 (16-19秒)
+    const compareOpacity = interpolate(frame, [300, 330], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const compareSlide = interpolate(frame, [70, 95], [40, 0], {
+    const compareSlide = interpolate(frame, [300, 330], [40, 0], {
         easing: Easing.out(Easing.cubic),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
@@ -276,11 +277,11 @@ export const Scene2_Concept: React.FC = () => {
                 </div>
             </div>
 
-            {/* 底部总结 */}
+            {/* 底部总结 (22-25秒) */}
             <div style={{
                 marginTop: "auto",
                 textAlign: "center",
-                opacity: interpolate(frame, [90, 115], [0, 1], {
+                opacity: interpolate(frame, [420, 450], [0, 1], {
                     extrapolateLeft: "clamp",
                     extrapolateRight: "clamp",
                 }),

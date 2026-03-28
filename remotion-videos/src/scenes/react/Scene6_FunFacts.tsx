@@ -16,7 +16,7 @@ const THEME = {
     accentAlt: "#ffd200",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene6_FunFacts: React.FC = () => {
@@ -34,34 +34,35 @@ export const Scene6_FunFacts: React.FC = () => {
         extrapolateRight: "clamp",
     });
 
+    // 1311帧 ≈ 42.72秒，每条约8秒
     // 冷知识列表
     const facts = [
         {
-            offset: 30,
+            offset: 60,      // 2秒
             icon: "🚫",
             title: "与 React 没关系",
             content: "一个是 AI Agent 思路，一个是前端框架，纯粹名字像而已",
         },
         {
-            offset: 80,
+            offset: 210,     // 7秒
             icon: "🏢",
             title: "Google Research 提出",
             content: "2022 年提出，全名叫 Reasoning plus Acting",
         },
         {
-            offset: 130,
+            offset: 420,     // 14秒
             icon: "🔗",
             title: "LangChain 封装",
             content: "AgentExecutor 底层就是 ReAct 模式封装好的",
         },
         {
-            offset: 180,
+            offset: 630,     // 21秒
             icon: "🔧",
             title: "Function Calling",
             content: "现代实现用 Function Calling 输出结构化工具调用指令，更稳定",
         },
         {
-            offset: 230,
+            offset: 840,     // 28秒
             icon: "🌐",
             title: "还有其他模式",
             content: "还有反思模式 Reflexion、Plan-and-Solve 等，不同场景选不同模式",

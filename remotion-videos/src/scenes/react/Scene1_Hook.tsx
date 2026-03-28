@@ -16,53 +16,54 @@ const THEME = {
     accentAlt: "#ffd200",
     textPrimary: "#c9d1d9",
     textSecondary: "#8b949e",
-    cardBg: "rgba(255,255,255,0.06)",
+    cardBg: "rgba(0,0,0,0.45)",
 };
 
 export const Scene1_Hook: React.FC = () => {
     const frame = useCurrentFrame();
 
+    // 202帧 ≈ 5.76秒，紧凑动画节奏
     // 背景图淡入动画
-    const bgOpacity = interpolate(frame, [0, 30], [0, 1], {
+    const bgOpacity = interpolate(frame, [0, 20], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // React文字动画
-    const reactOpacity = interpolate(frame, [0, 20], [0, 1], {
+    // React文字动画 (0-1秒)
+    const reactOpacity = interpolate(frame, [0, 15], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const reactScale = interpolate(frame, [0, 30], [0.5, 1], {
+    const reactScale = interpolate(frame, [0, 20], [0.5, 1], {
         easing: Easing.out(Easing.back(1.7)),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // 错误标记动画
-    const wrongOpacity = interpolate(frame, [30, 50], [0, 1], {
+    // 错误标记动画 (1-2秒)
+    const wrongOpacity = interpolate(frame, [30, 45], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const wrongScale = interpolate(frame, [30, 50], [0.8, 1], {
+    const wrongScale = interpolate(frame, [30, 45], [0.8, 1], {
         easing: Easing.out(Easing.back(2)),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // ReAct正确介绍动画
-    const react2Opacity = interpolate(frame, [60, 80], [0, 1], {
+    // ReAct正确介绍动画 (2.5-3.5秒)
+    const react2Opacity = interpolate(frame, [60, 75], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
-    const react2Slide = interpolate(frame, [60, 85], [40, 0], {
+    const react2Slide = interpolate(frame, [60, 80], [40, 0], {
         easing: Easing.out(Easing.cubic),
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
 
-    // 副标题动画
-    const subtitleOpacity = interpolate(frame, [85, 105], [0, 1], {
+    // 副标题动画 (4-5秒)
+    const subtitleOpacity = interpolate(frame, [90, 105], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
     });
