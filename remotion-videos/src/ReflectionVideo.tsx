@@ -1,6 +1,5 @@
 import React from "react";
-import { Series, TransitionSeries } from "@remotion/transitions";
-import { linear } from "@remotion/transitions";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { AbsoluteFill } from "remotion";
 import { Scene1_Hook } from "./scenes/reflection/Scene1_Hook";
 import { Scene2_Flow } from "./scenes/reflection/Scene2_Flow";
@@ -49,8 +48,7 @@ export const ReflectionVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          timing={linear}
-          durationInFrames={30}
+          timing={linearTiming({ durationInFrames: 30 })}
         />
 
         {/* Scene 2: 流程图 (10.5s) */}
@@ -62,8 +60,7 @@ export const ReflectionVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          timing={linear}
-          durationInFrames={30}
+          timing={linearTiming({ durationInFrames: 30 })}
         />
 
         {/* Scene 3: 基础实现 (11s) */}
@@ -75,8 +72,7 @@ export const ReflectionVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          timing={linear}
-          durationInFrames={30}
+          timing={linearTiming({ durationInFrames: 30 })}
         />
 
         {/* Scene 4: 实战案例 (11.5s) */}
@@ -88,8 +84,7 @@ export const ReflectionVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          timing={linear}
-          durationInFrames={30}
+          timing={linearTiming({ durationInFrames: 30 })}
         />
 
         {/* Scene 5: 冷知识 (20s) */}
@@ -101,8 +96,7 @@ export const ReflectionVideo: React.FC = () => {
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition
-          timing={linear}
-          durationInFrames={30}
+          timing={linearTiming({ durationInFrames: 30 })}
         />
 
         {/* Ending 结尾 (6s) */}
