@@ -89,7 +89,7 @@ export const Scene4_Case: React.FC = () => {
     const scanY = interpolate(
         frame,
         [50, 150],
-        [0, CODE_V1.length * 28],
+        [0, CODE_V1.length * 36],
         { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
     );
 
@@ -163,7 +163,7 @@ export const Scene4_Case: React.FC = () => {
                     实战：代码生成与优化
                 </div>
                 <div style={{
-                    fontSize: "24px",
+                    fontSize: "36x",
                     color: THEME.textSecondary,
                     marginTop: "8px",
                 }}>
@@ -197,7 +197,7 @@ export const Scene4_Case: React.FC = () => {
                     }}>
                         <span>{state.icon}</span>
                         <span style={{
-                            fontSize: "18px",
+                            fontSize: "36px",
                             fontWeight: i === stateIndex ? "bold" : "normal",
                             color: i === stateIndex ? state.color : THEME.textSecondary,
                         }}>
@@ -219,7 +219,7 @@ export const Scene4_Case: React.FC = () => {
                 <div style={{
                     transform: `scale(${editorScale})`,
                     opacity: editorOpacity,
-                    width: "700px",
+                    width: "80%",
                     height: "100%",
                     maxHeight: "500px",
                     background: "#0d1117",
@@ -259,7 +259,7 @@ export const Scene4_Case: React.FC = () => {
                         }} />
                         <span style={{
                             marginLeft: "auto",
-                            fontSize: "14px",
+                            fontSize: "36px",
                             color: THEME.textSecondary,
                             fontFamily: '"JetBrains Mono", monospace',
                         }}>
@@ -286,8 +286,8 @@ export const Scene4_Case: React.FC = () => {
                                     <div key={i} style={{
                                         display: "flex",
                                         fontFamily: '"JetBrains Mono", "Fira Code", monospace',
-                                        fontSize: "16px",
-                                        lineHeight: "28px",
+                                        fontSize: "24px",
+                                        lineHeight: "36px",
                                         position: "relative",
                                     }}>
                                         {/* 行号 */}
@@ -365,8 +365,8 @@ export const Scene4_Case: React.FC = () => {
                                     <div key={i} style={{
                                         display: "flex",
                                         fontFamily: '"JetBrains Mono", "Fira Code", monospace',
-                                        fontSize: "16px",
-                                        lineHeight: "28px",
+                                        fontSize: "24px",
+                                        lineHeight: "36px",
                                     }}>
                                         <span style={{
                                             width: "32px",
@@ -406,12 +406,11 @@ export const Scene4_Case: React.FC = () => {
                                     top: scanY,
                                     left: 0,
                                     right: 0,
-                                    height: "28px",
+                                    height: "36px",
                                     background: "linear-gradient(90deg, transparent, rgba(88,166,255,0.15), transparent)",
                                     pointerEvents: "none",
                                 }} />
-                            )}
-                        </div>
+                            )}                        </div>
                     </div>
 
                     {/* 底部状态栏 */}

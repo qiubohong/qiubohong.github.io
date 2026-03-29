@@ -29,6 +29,12 @@ tqdm>=4.65.0
 # 可选：备用TTS方案（如果Qwen3-TTS不可用）
 gtts>=2.3.0
 
+# MP3 转字幕工具依赖（transcribe.py）
+# 注意：whisper-timestamped 依赖 ffmpeg，请先安装：
+#   Mac:     brew install ffmpeg
+#   Windows: choco install ffmpeg
+whisper-timestamped>=1.12.0
+
 # 安装说明：
 # 1. 如果flash-attn安装失败，可以注释掉该行
 # 2. 或者使用预编译版本：pip install flash-attn --no-build-isolation
