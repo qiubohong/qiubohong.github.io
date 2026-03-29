@@ -4,6 +4,8 @@ import {
     interpolate,
     useCurrentFrame,
     spring,
+    Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -101,17 +103,34 @@ export const Scene5_Tips: React.FC = () => {
                 boxSizing: "border-box",
             }}
         >
-            {/* 背景遮罩 */}
+            {/* 背景图 */}
             <div style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 width: "100%",
                 height: "100%",
-                background: THEME.bg,
                 opacity: bgOpacity,
                 zIndex: 0,
-            }} />
+            }}>
+                <Img
+                    src={staticFile("Reflection/backgrounds/scene5-bg.png")}
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                    }}
+                />
+                {/* 半透明遮罩 */}
+                <div style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    background: "rgba(13,17,23,0.75)",
+                }} />
+            </div>
 
             {/* 弥散光装饰 */}
             <div style={{

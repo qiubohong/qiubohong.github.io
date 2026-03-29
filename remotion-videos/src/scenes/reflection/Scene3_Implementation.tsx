@@ -4,6 +4,8 @@ import {
     interpolate,
     useCurrentFrame,
     spring,
+    Img,
+    staticFile,
 } from "remotion";
 
 const THEME = {
@@ -116,17 +118,34 @@ export const Scene3_Implementation: React.FC = () => {
                 boxSizing: "border-box",
             }}
         >
-            {/* 背景遮罩 */}
+            {/* 背景图 */}
             <div style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 width: "100%",
                 height: "100%",
-                background: THEME.bg,
                 opacity: bgOpacity,
                 zIndex: 0,
-            }} />
+            }}>
+                <Img
+                    src={staticFile("Reflection/backgrounds/scene3-bg.png")}
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                    }}
+                />
+                {/* 半透明遮罩 */}
+                <div style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    background: "rgba(13,17,23,0.75)",
+                }} />
+            </div>
 
             {/* 标题 */}
             <div style={{
@@ -165,8 +184,7 @@ export const Scene3_Implementation: React.FC = () => {
             }}>
                 {/* 左侧步骤说明 */}
                 <div style={{
-                    width: "320px",
-                    flexShrink: 0,
+                    flex: 3,
                     display: "flex",
                     flexDirection: "column",
                     gap: "20px",
@@ -228,7 +246,7 @@ export const Scene3_Implementation: React.FC = () => {
 
                 {/* 右侧AI对话区 */}
                 <div style={{
-                    flex: 1,
+                    flex: 4,
                     background: "rgba(0,0,0,0.2)",
                     borderRadius: "20px",
                     padding: "24px",
@@ -258,19 +276,19 @@ export const Scene3_Implementation: React.FC = () => {
                             🤖
                         </div>
                         <div>
-                            <div style={{
-                                fontSize: "20px",
-                                fontWeight: "bold",
-                                color: THEME.textPrimary,
-                            }}>
-                                AI Assistant
-                            </div>
-                            <div style={{
-                                fontSize: "16px",
-                                color: THEME.textSecondary,
-                            }}>
-                                Reflection Mode
-                            </div>
+                        <div style={{
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                            color: THEME.textPrimary,
+                        }}>
+                            AI Assistant
+                        </div>
+                        <div style={{
+                            fontSize: "20px",
+                            color: THEME.textSecondary,
+                        }}>
+                            Reflection Mode
+                        </div>
                         </div>
                     </div>
 
@@ -297,7 +315,7 @@ export const Scene3_Implementation: React.FC = () => {
                             maxWidth: "80%",
                         }}>
                             <div style={{
-                                fontSize: "18px",
+                                fontSize: "24px",
                                 color: THEME.textPrimary,
                             }}>
                                 {CONVERSATIONS[0].content}
@@ -313,7 +331,7 @@ export const Scene3_Implementation: React.FC = () => {
                             maxWidth: "95%",
                         }}>
                             <div style={{
-                                fontSize: "14px",
+                                fontSize: "20px",
                                 color: THEME.textSecondary,
                                 marginBottom: "8px",
                                 borderBottom: "1px solid rgba(255,255,255,0.1)",
@@ -324,7 +342,7 @@ export const Scene3_Implementation: React.FC = () => {
                             <pre style={{
                                 margin: 0,
                                 fontFamily: '"JetBrains Mono", "Fira Code", monospace',
-                                fontSize: "14px",
+                                fontSize: "18px",
                                 lineHeight: 1.6,
                                 color: THEME.textPrimary,
                                 overflow: "hidden",
