@@ -12,21 +12,21 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  这期聊一个参数少到离谱的微调方法 —— Prompt Tuning（提示微调）。  一句话概括：Prompt Tuning 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。  说实话，我第一次理解 Prompt Tuning 的时候，觉得这方法简直”作弊” —— 别的微调方法好歹还改改模型参数，它倒好，就加几个向量，模">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天聊一个参数少到离谱的微调方法 —— Prompt Tuning（提示微调）。  一句话核心：Prompt Tuning 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。   1234567891011121314151617181920graph TB    subgraph 输入层[&quot;📝 输入层&amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟AI，每天搞懂一个知识点(32) - Prompt Tuning 提示微调">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/daily/32.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  这期聊一个参数少到离谱的微调方法 —— Prompt Tuning（提示微调）。  一句话概括：Prompt Tuning 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。  说实话，我第一次理解 Prompt Tuning 的时候，觉得这方法简直”作弊” —— 别的微调方法好歹还改改模型参数，它倒好，就加几个向量，模">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天聊一个参数少到离谱的微调方法 —— Prompt Tuning（提示微调）。  一句话核心：Prompt Tuning 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。   1234567891011121314151617181920graph TB    subgraph 输入层[&quot;📝 输入层&amp;qu">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/32/prompt-tuning-workflow.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/32/prompt-tuning-concept.png">
 <meta property="article:published_time" content="2026-04-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-24T11:02:45.077Z">
+<meta property="article:modified_time" content="2026-03-27T14:25:24.777Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="5分钟AI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/daily/32/prompt-tuning-workflow.png">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/daily/32/prompt-tuning-concept.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -394,7 +394,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">6k字</span>
+      <span class="post-count">952字</span>
     </span>
   </span>
 
@@ -403,7 +403,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">25分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -417,119 +417,14 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>这期聊一个<strong>参数少到离谱</strong>的微调方法 —— <strong>Prompt Tuning（提示微调）</strong>。</p>
+<p>今天聊一个<strong>参数少到离谱</strong>的微调方法 —— <strong>Prompt Tuning（提示微调）</strong>。</p>
 <blockquote>
-<p>一句话概括：<strong>Prompt Tuning</strong> 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。</p>
+<p>一句话核心：<strong>Prompt Tuning</strong> 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。</p>
 </blockquote>
-<p>说实话，我第一次理解 Prompt Tuning 的时候，觉得这方法简直”作弊” —— 别的微调方法好歹还改改模型参数，它倒好，就加几个向量，模型权重完全不动，效果居然还不错？</p>
-<p>打个比方你就明白了。如果把预训练模型比作一个学识渊博的老教授，Prompt Tuning 就像是给教授戴一副<strong>特殊眼镜</strong>。教授还是那个教授，知识结构一点没变，但戴上眼镜后，他看问题的角度就不一样了。不同的任务换不同的眼镜就行，不用重新训练一个新教授。</p>
-<p>最夸张的是它的<strong>参数效率</strong>。传统 Fine-tuning 要动几十亿参数，Prompt Tuning 只需要训练几百到几千个参数，是的，你没看错，就差了<strong>几万倍</strong>！但效果却能接近传统微调。这对于资源有限的朋友来说，简直就是福音。</p>
-<p>特别适合什么场景呢？<strong>多任务服务</strong>。一个基础模型 + N 个软提示词，每个任务几十 KB，切换起来嗖嗖的。</p>
-<span id="more"></span>
+<p><img src="/assets/img/ailearn/daily/32/prompt-tuning-concept.png" alt="Prompt Tuning 软提示词概念图"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 输入层[&quot;📝 输入层&quot;]</span><br><span class="line">        A1[&quot;任务描述&lt;br/&gt;&#x27;翻译&#x27;&quot;] --&gt; A2[&quot;软提示词&lt;br/&gt;Soft Prompt&lt;br/&gt;可训练参数&quot;]</span><br><span class="line">        A3[&quot;用户输入&lt;br/&gt;&#x27;Hello&#x27;&quot;] --&gt; A4[&quot;输入拼接&quot;]</span><br><span class="line">        A2 --&gt; A4</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 模型层[&quot;🧠 预训练模型层&lt;br/&gt;🔒 参数完全冻结&quot;]</span><br><span class="line">        A4 --&gt; B1[&quot;Embedding层&quot;]</span><br><span class="line">        B1 --&gt; B2[&quot;Transformer&quot;]</span><br><span class="line">        B2 --&gt; B3[&quot;输出&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 输出层[&quot;✅ 输出&quot;]</span><br><span class="line">        B3 --&gt; C1[&quot;&#x27;你好&#x27;&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A2 fill:#fff3e0,stroke:#f57c00</span><br><span class="line">    style B2 fill:#e3f2fd,stroke:#1976d2</span><br><span class="line">    style 输出层 fill:#e8f5e9,stroke:#388e3c</span><br></pre></td></tr></table></figure>
 
-<h1 id="先从原理说起"><a href="#先从原理说起" class="headerlink" title="先从原理说起"></a>先从原理说起</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">config:</span><br><span class="line">  layout: elk</span><br><span class="line">  look: neo</span><br><span class="line">---</span><br><span class="line">flowchart TB</span><br><span class="line"> subgraph a[&quot;神经网络&quot;]</span><br><span class="line">        a1[&quot;激活函数&quot;]</span><br><span class="line">        a2[&quot;损失函数&quot;]</span><br><span class="line">        a3[&quot;神经元计算&quot;]</span><br><span class="line">  end</span><br><span class="line"> subgraph D[&quot;Transformer&quot;]</span><br><span class="line">        d1[&quot;Encoder&quot;]</span><br><span class="line">        d2[&quot;Self-Attendtion&quot;]</span><br><span class="line">        d3[&quot;Decoder&quot;]</span><br><span class="line">  end</span><br><span class="line">    0[&quot;人工智能&quot;] --&gt; 1[&quot;算法&quot;] &amp; 2[&quot;应用&quot;]</span><br><span class="line">    1 --&gt; a &amp; b[&quot;机器学习&quot;]</span><br><span class="line">    b --&gt; b1[&quot;监督学习&quot;] &amp; b2[&quot;无监督学习&quot;] &amp; b3[&quot;强化学习&quot;]</span><br><span class="line">    a --&gt; A[&quot;深度学习&quot;]</span><br><span class="line">    A --&gt; B[&quot;卷积网络 CNN&quot;] &amp; C[&quot;循环网络 RNN&quot;] &amp; D</span><br><span class="line">    D --&gt; E[&quot;LLM大模型&quot;]</span><br><span class="line">    E --&gt; e1[&quot;Token分词&quot;] &amp; e2[&quot;Embedding嵌入编码&quot;] &amp; e3[&quot;Transformer 层叠处理&quot;] &amp; e4[&quot;Out Token&quot;] &amp; F[&quot;Function Calling&quot;] &amp; F1[&quot;MCP协议&quot;]</span><br><span class="line">    e1 --&gt; e11[&quot;Tokenizer分词策略&quot;] &amp; e12[&quot;Token计费规则&quot;]</span><br><span class="line">    e2 --&gt; e21[&quot;词嵌入（Word Embeddings）&quot;] &amp; e22[&quot;嵌入层（Embedding Layer）&quot;] &amp; e23[&quot;Transformer编码器&quot;] &amp; e24[&quot;池化层&quot;] &amp; e25[&quot;归一化输出&quot;]</span><br><span class="line">    F1 --&gt; f11[&quot;MCP Server&quot;] &amp; f12[&quot;MCP Protocol&quot;] &amp; f13[&quot;MCP Client&quot;]</span><br><span class="line">    2 --&gt; 20[&quot;AI Agent&quot;] &amp; 21[&quot;场景&amp;产品&quot;] &amp; 22[&quot;开发框架&quot;]</span><br><span class="line">    20 --&gt; 201[&quot;单向无记忆工作流&quot;] &amp; 202[&quot;循环可中断记忆&quot;] &amp; 203[&quot;通用多模态Agent&quot;]</span><br><span class="line">    21 --&gt; 211[&quot;AI编程&quot;] &amp; 212[&quot;AI智能客服|助手&quot;]</span><br><span class="line">    211 --&gt; 211a[&quot;Claude&quot;] &amp; 211b[&quot;Cursor&quot;] &amp; 211c[&quot;Codex&quot;] &amp; 211d[&quot;CodeBuddy(腾讯)&quot;] &amp; 211e[&quot;Qwen Code(阿里)&quot;] &amp; 221f[&quot;Gemini CLI&quot;] &amp; 221g[&quot;Trae(抖音)&quot;]</span><br><span class="line">    211a --&gt; 211a1[&quot;SKILL技能&quot;] --&gt; 211a11[&quot;SKILL.md&quot;] &amp; 211a12[&quot;resource &amp; scripts&quot;]</span><br><span class="line">    212 --&gt; 212a[&quot;意图识别&quot;] &amp; 212b[&quot;ReQuery&quot;] &amp; 212c[&quot;RAG&quot;] &amp; 212d[&quot;Embedding&quot;] &amp; 212e[&quot;Reranker&quot;]</span><br><span class="line">    b1 --&gt; b11[&quot;Fine-tuning&quot;]</span><br><span class="line">    b11 --&gt; b111[&quot;Full Fine-tuning&quot;] &amp; b112[&quot;LoRA&quot;] &amp; b113[&quot;Prompt Tuning&quot;]</span><br><span class="line">    22 --&gt; 221[&quot;Dify(可视化)&quot;] &amp; 222[&quot;Coze(可视化)&quot;] &amp; 223[&quot;n8n(可视化)&quot;] &amp; 224[&quot;Langchain&quot;] &amp; 225[&quot;CrewAI&quot;] &amp; 226[&quot;LlamaIndex&quot;]</span><br><span class="line"></span><br><span class="line">    0@&#123; shape: rounded&#125;</span><br><span class="line">     b113:::orange</span><br><span class="line">    classDef orange fill:#F9B572,stroke:#FF772E</span><br></pre></td></tr></table></figure>
-
-<p>通过一张图来理解 Prompt Tuning 的工作原理：</p>
-<p><img src="/assets/img/ailearn/daily/32/prompt-tuning-workflow.png" alt="Prompt Tuning 工作原理图"><br><em>图：Prompt Tuning 工作流程 —— 通过训练软提示词向量来引导模型输出</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 输入层[&quot;📝 输入层&quot;]</span><br><span class="line">        A1[&quot;任务描述&lt;br/&gt;&#x27;将英文翻译成中文&#x27;&quot;] --&gt; A2[&quot;软提示词&lt;br/&gt;Soft Prompt&lt;br/&gt;可训练参数&quot;]</span><br><span class="line">        A3[&quot;用户输入&lt;br/&gt;&#x27;Hello World&#x27;&quot;] --&gt; A4[&quot;输入拼接&quot;]</span><br><span class="line">        A2 --&gt; A4</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 模型层[&quot;🧠 预训练模型层&lt;br/&gt;参数完全冻结&quot;]</span><br><span class="line">        A4 --&gt; B1[&quot;Embedding&lt;br/&gt;嵌入层&quot;]</span><br><span class="line">        B1 --&gt; B2[&quot;Transformer&lt;br/&gt;多层注意力&quot;]</span><br><span class="line">        B2 --&gt; B3[&quot;输出层&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 输出层[&quot;✅ 输出层&quot;]</span><br><span class="line">        B3 --&gt; C1[&quot;模型输出&lt;br/&gt;&#x27;你好世界&#x27;&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A2 fill:#fff3e0,stroke:#f57c00</span><br><span class="line">    style B2 fill:#e3f2fd,stroke:#1976d2</span><br><span class="line">    style C1 fill:#e8f5e9,stroke:#388e3c</span><br><span class="line">    style 输入层 fill:#f5f5f5,stroke:#9e9e9e</span><br><span class="line">    style 模型层 fill:#fff8e1,stroke:#f57f17</span><br><span class="line">    style 输出层 fill:#fafafa,stroke:#616161</span><br></pre></td></tr></table></figure>
-
-<p><strong>Prompt Tuning 到底咋工作的？</strong></p>
-<p>说白了就三步：</p>
-<p><strong>第一步：输入层</strong></p>
-<p>这里最关键的是<strong>软提示词（Soft Prompt）</strong>。注意，它不是普通的文字提示词，而是一组<strong>连续的向量</strong>（简单说就是一堆浮点数）。</p>
-<ul>
-<li>软提示词：20-100 个可训练的向量</li>
-<li>用户输入：你要问的实际问题</li>
-<li>怎么拼接：软提示词放在前面，加上用户输入，一起送进模型</li>
-</ul>
-<p><strong>第二步：模型层</strong></p>
-<p>这里是 Prompt Tuning 最”偷懒”的地方 —— <strong>模型参数完全不动</strong>！</p>
-<ul>
-<li>预训练模型的所有权重都锁死</li>
-<li>不改任何参数，只靠软提示词引导</li>
-<li>模型的通用知识原封不动保留</li>
-</ul>
-<p><strong>第三步：输出层</strong></p>
-<p>模型读了软提示词的”暗示”，就按照特定方式回答了。同一个模型，换不同的软提示词，就能干不同的活。</p>
-<p><strong>举个更形象的例子</strong></p>
-<p>想象你有个万能助手，Prompt Tuning 就像是教助手一个<strong>开场暗号</strong>。</p>
-<p>你先说”暗号 A”，助手就知道：哦，这是翻译任务。<br>你先说”暗号 B”，助手就知道：这是写作任务。</p>
-<p>助手本身还是同一个助手，只是开场暗号让他切换了思维模式。而且学这些暗号特别简单，几分钟就能学会一个新暗号。</p>
-<h2 id="Prompt-Tuning-的几个核心概念"><a href="#Prompt-Tuning-的几个核心概念" class="headerlink" title="Prompt Tuning 的几个核心概念"></a>Prompt Tuning 的几个核心概念</h2><p>这些东西刚开始看可能会有点晕，我来一个个解释清楚。</p>
-<h3 id="1-Soft-Prompt（软提示词）"><a href="#1-Soft-Prompt（软提示词）" class="headerlink" title="1. Soft Prompt（软提示词）"></a>1. Soft Prompt（软提示词）</h3><p><strong>它到底是什么？</strong></p>
-<p>简单说就是：<strong>不是文字，是数字</strong>。</p>
-<ul>
-<li>不是你能看懂的中文或英文，是一堆浮点数（比如 0.23, -0.56, 0.89…）</li>
-<li>长度一般是 20-100 个”虚拟 token”（token 你可以理解为最小的语义单元）</li>
-<li>每个虚拟 token 的维度和模型嵌入维度一样（768、1024、4096 这些）</li>
-</ul>
-<p><strong>硬提示词 vs 软提示词</strong></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>例子</th>
-<th>谁能看懂</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>硬提示词</td>
-<td>“请将以下内容翻译成中文：”</td>
-<td>人和机器都能懂</td>
-</tr>
-<tr>
-<td>软提示词</td>
-<td>[0.23, -0.56, 0.89, …, 0.12]</td>
-<td>只有机器能”感受”到</td>
-</tr>
-</tbody></table>
-<p>你可以把软提示词想象成 AI 的”第六感” —— 人类无法感知，但 AI 收到这些向量信号后，就知道该怎么干活了。</p>
-<h3 id="2-Prompt-Encoder（提示编码器）"><a href="#2-Prompt-Encoder（提示编码器）" class="headerlink" title="2. Prompt Encoder（提示编码器）"></a>2. Prompt Encoder（提示编码器）</h3><p>在一些高级变体中（如 Prefix Tuning），使用一个小型神经网络来生成软提示词：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;任务ID&lt;br/&gt;或描述&quot;] --&gt; B[&quot;Prompt Encoder&lt;br/&gt;小型神经网络&quot;]</span><br><span class="line">    B --&gt; C[&quot;软提示词向量&quot;]</span><br><span class="line">    C --&gt; D[&quot;预训练模型&quot;]</span><br><span class="line"></span><br><span class="line">    style B fill:#fff3e0,stroke:#f57c00</span><br></pre></td></tr></table></figure>
-
-<p><strong>优势</strong>：</p>
-<ul>
-<li>可以用更少的参数表达更复杂的提示模式</li>
-<li>支持多任务共享编码器</li>
-</ul>
-<h3 id="3-Prefix-Tuning（前缀微调）"><a href="#3-Prefix-Tuning（前缀微调）" class="headerlink" title="3. Prefix Tuning（前缀微调）"></a>3. Prefix Tuning（前缀微调）</h3><p>Prefix Tuning 你可以理解为 Prompt Tuning 的”升级版”。</p>
-<p><strong>两者的区别</strong></p>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>Prompt Tuning</th>
-<th>Prefix Tuning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>插入位置</td>
-<td>只在输入层</td>
-<td>每一层 Transformer 都插</td>
-</tr>
-<tr>
-<td>参数量</td>
-<td>少</td>
-<td>稍多一点</td>
-</tr>
-<tr>
-<td>效果</td>
-<td>还行</td>
-<td>通常更好</td>
-</tr>
-<tr>
-<td>复杂度</td>
-<td>简单</td>
-<td>稍微麻烦点</td>
-</tr>
-</tbody></table>
-<p><strong>我还是用教授的例子</strong></p>
-<ul>
-<li>Prompt Tuning = 给教授一副眼镜，让他换种角度看问题</li>
-<li>Prefix Tuning = 不但给眼镜，还给助听器、翻译器，全方位辅助</li>
-</ul>
-<p>虽然 Prefix Tuning 效果更好，但也更复杂。大部分情况下，Prompt Tuning 就够用了。</p>
-<h2 id="Prompt-Tuning-和其他方法比，到底行不行？"><a href="#Prompt-Tuning-和其他方法比，到底行不行？" class="headerlink" title="Prompt Tuning 和其他方法比，到底行不行？"></a>Prompt Tuning 和其他方法比，到底行不行？</h2><p>我整理了一张对比表，让你一眼看清楚：</p>
+<p>我整理了一张对比表，让你一眼看清楚：</p>
 <table>
 <thead>
 <tr>
@@ -604,247 +499,28 @@
 <li><strong>不差钱、追求极致效果</strong> → Full Fine-tuning，效果最好但最贵</li>
 <li><strong>要平衡效果和成本</strong> → LoRA（上一期讲的），目前最主流的方案</li>
 </ul>
-<p><strong>Prompt Tuning 的尴尬位置</strong></p>
-<p>说实话，Prompt Tuning 现在有点尴尬。效果不如 LoRA，方便程度又不如直接写提示词。但它的<strong>多任务切换</strong>确实很方便，一个基础模型 + N 个几十 KB 的软提示词，存储和切换成本极低。</p>
-<p>如果你做的是<strong>多租户服务</strong>（一个模型服务很多客户，每个客户不同任务），Prompt Tuning 还是很有优势的。</p>
-<h1 id="动手实战"><a href="#动手实战" class="headerlink" title="动手实战"></a>动手实战</h1><p>理论讲完了，咱们来点实际的。我准备了三个案例：</p>
+<h1 id="动手试试"><a href="#动手试试" class="headerlink" title="动手试试"></a>动手试试</h1><p>用 OpenPrompt 训练一个情感分析模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openprompt.data_utils <span class="keyword">import</span> InputExample</span><br><span class="line"><span class="keyword">from</span> openprompt.plms <span class="keyword">import</span> load_plm</span><br><span class="line"><span class="keyword">from</span> openprompt.prompts <span class="keyword">import</span> SoftTemplate, SoftVerbalizer</span><br><span class="line"><span class="keyword">from</span> openprompt <span class="keyword">import</span> PromptForClassification, PromptDataLoader</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AdamW</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">dataset = &#123;</span><br><span class="line">    <span class="string">&#x27;train&#x27;</span>: [</span><br><span class="line">        InputExample(guid=<span class="number">0</span>, text_a=<span class="string">&quot;这部电影太精彩了！&quot;</span>, label=<span class="number">1</span>),</span><br><span class="line">        InputExample(guid=<span class="number">1</span>, text_a=<span class="string">&quot;完全浪费时间&quot;</span>, label=<span class="number">0</span>),</span><br><span class="line">        <span class="comment"># ...更多数据</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 加载预训练模型</span></span><br><span class="line">plm, tokenizer, model_config, WrapperClass = load_plm(<span class="string">&quot;bert&quot;</span>, <span class="string">&quot;bert-base-chinese&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 定义软提示词 (soft 标签 = 可训练)</span></span><br><span class="line">soft_template = SoftTemplate(</span><br><span class="line">    model=plm,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    text=<span class="string">&#x27;&#123;&quot;soft&quot;: &quot;情感分析任务&quot;&#125; &#123;&quot;placeholder&quot;: &quot;text_a&quot;&#125; 这条评论的情感是&#123;&quot;mask&quot;&#125;。&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 只冻结模型，只训练软提示词</span></span><br><span class="line">prompt_model = PromptForClassification(</span><br><span class="line">    plm=plm,</span><br><span class="line">    template=soft_template,</span><br><span class="line">    verbalizer=SoftVerbalizer(tokenizer, plm, [<span class="string">&#x27;负面&#x27;</span>, <span class="string">&#x27;正面&#x27;</span>]),</span><br><span class="line">    freeze_plm=<span class="literal">True</span>,  <span class="comment"># 🔑 关键：冻结模型参数！</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 只优化软提示词 (约 60KB 参数)</span></span><br><span class="line">optimizer = AdamW(prompt_model.template.soft_embeds.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 训练</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> train_dataloader:</span><br><span class="line">        logits = prompt_model(batch)</span><br><span class="line">        loss = torch.nn.functional.cross_entropy(logits, batch[<span class="string">&#x27;label&#x27;</span>])</span><br><span class="line">        loss.backward()  <span class="comment"># 只更新软提示词</span></span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 保存软提示词 (只有 60KB)</span></span><br><span class="line">torch.save(prompt_model.template.soft_embeds.state_dict(), <span class="string">&quot;soft_prompt.pt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>freeze_plm=True</code> 这行代码是核心 —— 模型完全不动，只训那几千个参数的软提示词。</p>
+<h1 id="❄️-冷知识"><a href="#❄️-冷知识" class="headerlink" title="❄️ 冷知识"></a>❄️ 冷知识</h1><p>Prompt Tuning 效果不如 LoRA，方便程度又不如直接写提示词。但它的<strong>多任务切换</strong>确实很方便，一个模型 + N 个几十 KB 的软提示词，存储成本极低。</p>
+<p><strong>核心要点快速回顾：</strong></p>
 <ol>
-<li><strong>案例 1</strong>：用 OpenPrompt 做情感分析 —— 最经典的方式</li>
-<li><strong>案例 2</strong>：用 Hugging Face PEFT 做新闻分类 —— 现在最主流的方式</li>
-<li><strong>案例 3</strong>：多任务切换 —— Prompt Tuning 最擅长的事</li>
+<li><strong>是什么</strong>：只训练软提示词向量（几百个参数），冻结整个模型</li>
+<li><strong>适用场景</strong>：多任务、资源受限、快速验证</li>
+<li><strong>核心优势</strong>：参数极少（KB 级）、训练极快、多任务切换方便</li>
 </ol>
-<p>三个案例都给了完整代码，你可以直接拿去跑。</p>
-<h2 id="案例-1：用-OpenPrompt-做情感分析"><a href="#案例-1：用-OpenPrompt-做情感分析" class="headerlink" title="案例 1：用 OpenPrompt 做情感分析"></a>案例 1：用 OpenPrompt 做情感分析</h2><p><strong>我们要干啥？</strong></p>
-<p>训练一个模型，让它能自动判断电影评论是正面还是负面。只用 Prompt Tuning，不改动模型参数。</p>
-<p><strong>完整代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># prompt_tuning_sentiment.py</span></span><br><span class="line"><span class="comment"># 使用 OpenPrompt 框架进行 Prompt Tuning</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> openprompt.data_utils <span class="keyword">import</span> InputExample</span><br><span class="line"><span class="keyword">from</span> openprompt.plms <span class="keyword">import</span> load_plm</span><br><span class="line"><span class="keyword">from</span> openprompt.prompts <span class="keyword">import</span> SoftTemplate, SoftVerbalizer</span><br><span class="line"><span class="keyword">from</span> openprompt <span class="keyword">import</span> PromptForClassification, PromptDataLoader</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AdamW</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 1. 准备数据 ==========</span></span><br><span class="line"><span class="comment"># 创建训练样本</span></span><br><span class="line">dataset = &#123;</span><br><span class="line">    <span class="string">&#x27;train&#x27;</span>: [</span><br><span class="line">        InputExample(guid=<span class="number">0</span>, text_a=<span class="string">&quot;这部电影太精彩了！&quot;</span>, label=<span class="number">1</span>),  <span class="comment"># 正面</span></span><br><span class="line">        InputExample(guid=<span class="number">1</span>, text_a=<span class="string">&quot;完全浪费时间，剧情很烂&quot;</span>, label=<span class="number">0</span>),  <span class="comment"># 负面</span></span><br><span class="line">        InputExample(guid=<span class="number">2</span>, text_a=<span class="string">&quot;演员演技出色，推荐观看&quot;</span>, label=<span class="number">1</span>),</span><br><span class="line">        InputExample(guid=<span class="number">3</span>, text_a=<span class="string">&quot;特效很差，故事毫无逻辑&quot;</span>, label=<span class="number">0</span>),</span><br><span class="line">        InputExample(guid=<span class="number">4</span>, text_a=<span class="string">&quot;年度最佳电影之一&quot;</span>, label=<span class="number">1</span>),</span><br><span class="line">        InputExample(guid=<span class="number">5</span>, text_a=<span class="string">&quot;后悔买票，太失望了&quot;</span>, label=<span class="number">0</span>),</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;validation&#x27;</span>: [</span><br><span class="line">        InputExample(guid=<span class="number">6</span>, text_a=<span class="string">&quot;故事情节引人入胜&quot;</span>, label=<span class="number">1</span>),</span><br><span class="line">        InputExample(guid=<span class="number">7</span>, text_a=<span class="string">&quot;制作粗糙，不值得看&quot;</span>, label=<span class="number">0</span>),</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签映射</span></span><br><span class="line">class_labels = [</span><br><span class="line">    <span class="string">&#x27;负面&#x27;</span>,  <span class="comment"># 0</span></span><br><span class="line">    <span class="string">&#x27;正面&#x27;</span>,  <span class="comment"># 1</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 2. 加载预训练模型 ==========</span></span><br><span class="line"><span class="comment"># 使用中文 BERT 作为基础模型</span></span><br><span class="line">plm, tokenizer, model_config, WrapperClass = load_plm(</span><br><span class="line">    <span class="string">&quot;bert&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bert-base-chinese&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 3. 定义软提示词模板 ==========</span></span><br><span class="line"><span class="comment"># soft 标签表示这部分是可训练的软提示词</span></span><br><span class="line">soft_template = SoftTemplate(</span><br><span class="line">    model=plm,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    text=<span class="string">&#x27;&#123;&quot;soft&quot;: &quot;情感分析任务&quot;&#125; &#123;&quot;soft&quot;: &quot;判断以下评论&quot;&#125; &#123;&quot;placeholder&quot;: &quot;text_a&quot;&#125; 这条评论的情感是&#123;&quot;mask&quot;&#125;。&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印模板信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;软提示词数量: <span class="subst">&#123;soft_template.num_soft_tokens&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;可训练参数: <span class="subst">&#123;<span class="built_in">sum</span>(p.numel() <span class="keyword">for</span> p <span class="keyword">in</span> soft_template.soft_embeds.parameters())&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 输出示例: 可训练参数: 15360 (约 60KB)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 4. 定义 verbalizer（标签词映射） ==========</span></span><br><span class="line"><span class="comment"># 将模型输出映射到标签</span></span><br><span class="line">soft_verbalizer = SoftVerbalizer(</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    plm=plm,</span><br><span class="line">    classes=class_labels,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 5. 创建 Prompt 模型 ==========</span></span><br><span class="line">prompt_model = PromptForClassification(</span><br><span class="line">    plm=plm,</span><br><span class="line">    template=soft_template,</span><br><span class="line">    verbalizer=soft_verbalizer,</span><br><span class="line">    freeze_plm=<span class="literal">True</span>,  <span class="comment"># 关键：冻结预训练模型参数！</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动到 GPU（如果有）</span></span><br><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br><span class="line">prompt_model = prompt_model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 6. 创建数据加载器 ==========</span></span><br><span class="line">train_dataloader = PromptDataLoader(</span><br><span class="line">    dataset=dataset[<span class="string">&quot;train&quot;</span>],</span><br><span class="line">    template=soft_template,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    tokenizer_wrapper_class=WrapperClass,</span><br><span class="line">    max_seq_length=<span class="number">128</span>,</span><br><span class="line">    batch_size=<span class="number">2</span>,</span><br><span class="line">    shuffle=<span class="literal">True</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">validation_dataloader = PromptDataLoader(</span><br><span class="line">    dataset=dataset[<span class="string">&quot;validation&quot;</span>],</span><br><span class="line">    template=soft_template,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    tokenizer_wrapper_class=WrapperClass,</span><br><span class="line">    max_seq_length=<span class="number">128</span>,</span><br><span class="line">    batch_size=<span class="number">2</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 7. 训练软提示词 ==========</span></span><br><span class="line"><span class="comment"># 只优化软提示词参数</span></span><br><span class="line">optimizer = AdamW(prompt_model.template.soft_embeds.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开始训练软提示词...&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):  <span class="comment"># 训练 10 轮</span></span><br><span class="line">    prompt_model.train()</span><br><span class="line">    total_loss = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> train_dataloader:</span><br><span class="line">        batch = &#123;k: v.to(device) <span class="keyword">for</span> k, v <span class="keyword">in</span> batch.items()&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 前向传播</span></span><br><span class="line">        logits = prompt_model(batch)</span><br><span class="line">        labels = batch[<span class="string">&#x27;label&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算损失</span></span><br><span class="line">        loss = torch.nn.functional.cross_entropy(logits, labels)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 反向传播（只更新软提示词）</span></span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">        total_loss += loss.item()</span><br><span class="line"></span><br><span class="line">    avg_loss = total_loss / <span class="built_in">len</span>(train_dataloader)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Epoch <span class="subst">&#123;epoch + <span class="number">1</span>&#125;</span>/10, 平均损失: <span class="subst">&#123;avg_loss:<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;训练完成！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 8. 保存软提示词 ==========</span></span><br><span class="line">torch.save(prompt_model.template.soft_embeds.state_dict(), <span class="string">&quot;soft_prompt_sentiment.pt&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;软提示词已保存到 soft_prompt_sentiment.pt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 9. 测试模型 ==========</span></span><br><span class="line">prompt_model.<span class="built_in">eval</span>()</span><br><span class="line">test_text = <span class="string">&quot;这部电影的视觉效果令人惊叹&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建测试样本</span></span><br><span class="line">test_example = InputExample(guid=<span class="number">999</span>, text_a=test_text)</span><br><span class="line">test_dataloader = PromptDataLoader(</span><br><span class="line">    dataset=[test_example],</span><br><span class="line">    template=soft_template,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    tokenizer_wrapper_class=WrapperClass,</span><br><span class="line">    max_seq_length=<span class="number">128</span>,</span><br><span class="line">    batch_size=<span class="number">1</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> test_dataloader:</span><br><span class="line">        batch = &#123;k: v.to(device) <span class="keyword">for</span> k, v <span class="keyword">in</span> batch.items()&#125;</span><br><span class="line">        logits = prompt_model(batch)</span><br><span class="line">        pred = torch.argmax(logits, dim=-<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;\n测试文本: <span class="subst">&#123;test_text&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;预测结果: <span class="subst">&#123;class_labels[pred.item()]&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>代码关键点解析</strong>：</p>
-<ol>
-<li><strong><code>freeze_plm=True</code></strong>：这是 Prompt Tuning 的核心，冻结预训练模型所有参数</li>
-<li><strong><code>soft_embeds</code></strong>：只训练这部分软提示词嵌入，参数量极小</li>
-<li><strong><code>AdamW(...)</code></strong>：优化器只传入软提示词参数，确保不更新模型权重</li>
-</ol>
-<h2 id="案例-2：用-Hugging-Face-PEFT-做新闻分类"><a href="#案例-2：用-Hugging-Face-PEFT-做新闻分类" class="headerlink" title="案例 2：用 Hugging Face PEFT 做新闻分类"></a>案例 2：用 Hugging Face PEFT 做新闻分类</h2><p><strong>我们要干啥？</strong></p>
-<p>用 Hugging Face 的 PEFT 库来实现 Prompt Tuning，让模型自动给新闻分类（财经、体育、科技等）。</p>
-<p>这个案例比案例 1 更简洁，是现在最主流的实现方式。</p>
-<p><strong>完整代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># peft_prompt_tuning.py</span></span><br><span class="line"><span class="comment"># 使用 Hugging Face PEFT 库进行 Prompt Tuning</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> (</span><br><span class="line">    AutoModelForCausalLM,</span><br><span class="line">    AutoTokenizer,</span><br><span class="line">    TrainingArguments,</span><br><span class="line">    Trainer,</span><br><span class="line">    DataCollatorForLanguageModeling</span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> PromptTuningConfig, PromptTuningInit, get_peft_model, TaskType</span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> Dataset</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 1. 准备数据 ==========</span></span><br><span class="line"><span class="comment"># 新闻主题分类数据集（简化示例）</span></span><br><span class="line">train_data = [</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;股市今日大涨，科技股领涨&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;财经&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;国家队在世界杯中取得胜利&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;体育&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;新款智能手机发布，配置强悍&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;科技&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;央行宣布降息政策&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;财经&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;篮球总决赛即将开打&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;体育&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;人工智能技术在医疗领域的新应用&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;科技&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;GDP增长数据公布&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;财经&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;足球转会市场动态&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;体育&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;text&quot;</span>: <span class="string">&quot;量子计算取得重大突破&quot;</span>, <span class="string">&quot;label&quot;</span>: <span class="string">&quot;科技&quot;</span>&#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将数据转换为适合 CausalLM 的格式</span></span><br><span class="line"><span class="comment"># 格式: &quot;分类任务：&#123;文本&#125; -&gt; 主题是：&#123;标签&#125;&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">format_example</span>(<span class="params">example</span>):</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&quot;text&quot;</span>: <span class="string">f&quot;分类任务：<span class="subst">&#123;example[<span class="string">&#x27;text&#x27;</span>]&#125;</span> -&gt; 主题是：<span class="subst">&#123;example[<span class="string">&#x27;label&#x27;</span>]&#125;</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">formatted_data = [format_example(ex) <span class="keyword">for</span> ex <span class="keyword">in</span> train_data]</span><br><span class="line">dataset = Dataset.from_list(formatted_data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 2. 加载模型和分词器 ==========</span></span><br><span class="line">model_name = <span class="string">&quot;gpt2&quot;</span>  <span class="comment"># 使用 GPT-2 作为示例</span></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model_name)</span><br><span class="line">tokenizer.pad_token = tokenizer.eos_token</span><br><span class="line"></span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    model_name,</span><br><span class="line">    torch_dtype=torch.float32,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 3. 配置 Prompt Tuning ==========</span></span><br><span class="line"><span class="comment"># 定义软提示词配置</span></span><br><span class="line">peft_config = PromptTuningConfig(</span><br><span class="line">    task_type=TaskType.CAUSAL_LM,  <span class="comment"># 因果语言模型任务</span></span><br><span class="line">    prompt_tuning_init=PromptTuningInit.TEXT,  <span class="comment"># 使用文本初始化</span></span><br><span class="line">    prompt_tuning_init_text=<span class="string">&quot;新闻主题分类任务：&quot;</span>,  <span class="comment"># 初始化文本</span></span><br><span class="line">    num_virtual_tokens=<span class="number">20</span>,  <span class="comment"># 软提示词长度（20个虚拟token）</span></span><br><span class="line">    tokenizer_name_or_path=model_name,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用 PEFT 配置</span></span><br><span class="line">model = get_peft_model(model, peft_config)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看可训练参数</span></span><br><span class="line">model.print_trainable_parameters()</span><br><span class="line"><span class="comment"># 输出示例:</span></span><br><span class="line"><span class="comment"># trainable params: 15,360 || all params: 124,738,560 || trainable%: 0.0123</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 4. 数据预处理 ==========</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tokenize_function</span>(<span class="params">examples</span>):</span><br><span class="line">    <span class="keyword">return</span> tokenizer(</span><br><span class="line">        examples[<span class="string">&quot;text&quot;</span>],</span><br><span class="line">        padding=<span class="string">&quot;max_length&quot;</span>,</span><br><span class="line">        truncation=<span class="literal">True</span>,</span><br><span class="line">        max_length=<span class="number">128</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">tokenized_dataset = dataset.<span class="built_in">map</span>(tokenize_function, batched=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 5. 配置训练参数 ==========</span></span><br><span class="line">training_args = TrainingArguments(</span><br><span class="line">    output_dir=<span class="string">&quot;./prompt_tuning_output&quot;</span>,</span><br><span class="line">    num_train_epochs=<span class="number">50</span>,  <span class="comment"># Prompt Tuning 通常需要更多轮数</span></span><br><span class="line">    per_device_train_batch_size=<span class="number">4</span>,</span><br><span class="line">    learning_rate=<span class="number">1e-2</span>,  <span class="comment"># 学习率可以设置得稍高</span></span><br><span class="line">    logging_steps=<span class="number">10</span>,</span><br><span class="line">    save_steps=<span class="number">100</span>,</span><br><span class="line">    warmup_steps=<span class="number">50</span>,</span><br><span class="line">    weight_decay=<span class="number">0.01</span>,</span><br><span class="line">    <span class="comment"># 关键：只保存适配器参数，不保存完整模型</span></span><br><span class="line">    save_total_limit=<span class="number">2</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 6. 创建 Trainer 并开始训练 ==========</span></span><br><span class="line">data_collator = DataCollatorForLanguageModeling(</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    mlm=<span class="literal">False</span>,  <span class="comment"># 不是掩码语言模型</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">trainer = Trainer(</span><br><span class="line">    model=model,</span><br><span class="line">    args=training_args,</span><br><span class="line">    train_dataset=tokenized_dataset,</span><br><span class="line">    data_collator=data_collator,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;开始训练软提示词...&quot;</span>)</span><br><span class="line">trainer.train()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;训练完成！&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 7. 保存模型 ==========</span></span><br><span class="line">model.save_pretrained(<span class="string">&quot;./prompt_tuning_news_classifier&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;软提示词已保存到 ./prompt_tuning_news_classifier&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 8. 测试模型 ==========</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n===== 测试结果 =====&quot;</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">test_inputs = [</span><br><span class="line">    <span class="string">&quot;分类任务：比特币价格创新高 -&gt; 主题是：&quot;</span>,</span><br><span class="line">    <span class="string">&quot;分类任务：NBA季后赛精彩回顾 -&gt; 主题是：&quot;</span>,</span><br><span class="line">    <span class="string">&quot;分类任务：5G网络技术解析 -&gt; 主题是：&quot;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> test_input <span class="keyword">in</span> test_inputs:</span><br><span class="line">    inputs = tokenizer(test_input, return_tensors=<span class="string">&quot;pt&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        outputs = model.generate(</span><br><span class="line">            **inputs,</span><br><span class="line">            max_new_tokens=<span class="number">10</span>,</span><br><span class="line">            do_sample=<span class="literal">False</span>,</span><br><span class="line">            pad_token_id=tokenizer.eos_token_id,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    generated_text = tokenizer.decode(outputs[<span class="number">0</span>], skip_special_tokens=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 提取生成的标签部分</span></span><br><span class="line">    prediction = generated_text[<span class="built_in">len</span>(test_input):].strip().split()[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;输入: <span class="subst">&#123;test_input&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;预测: <span class="subst">&#123;prediction&#125;</span>\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ========== 9. 加载已训练的软提示词进行推理 ==========</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;===== 加载保存的软提示词 =====&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> PeftModel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载基础模型</span></span><br><span class="line">base_model = AutoModelForCausalLM.from_pretrained(model_name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载软提示词</span></span><br><span class="line">inference_model = PeftModel.from_pretrained(</span><br><span class="line">    base_model,</span><br><span class="line">    <span class="string">&quot;./prompt_tuning_news_classifier&quot;</span>,</span><br><span class="line">)</span><br><span class="line">inference_model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;软提示词加载完成，可以进行推理！&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>代码关键点解析</strong>：</p>
-<ol>
-<li><p><strong><code>PromptTuningConfig</code></strong>：配置软提示词的各种参数</p>
-<ul>
-<li><code>num_virtual_tokens</code>：软提示词长度，影响表达能力和训练成本</li>
-<li><code>prompt_tuning_init</code>：初始化方式（TEXT/RANDOM）</li>
-</ul>
-</li>
-<li><p><strong><code>get_peft_model</code></strong>：将普通模型转换为支持 PEFT 的模型</p>
-</li>
-<li><p><strong>训练特点</strong>：</p>
-<ul>
-<li>学习率可以设置得比 Fine-tuning 更高（1e-2 vs 1e-5）</li>
-<li>训练轮数通常需要更多（50+ vs 3-5）</li>
-</ul>
-</li>
-</ol>
-<h2 id="案例-3：多任务切换-——-Prompt-Tuning-的强项"><a href="#案例-3：多任务切换-——-Prompt-Tuning-的强项" class="headerlink" title="案例 3：多任务切换 —— Prompt Tuning 的强项"></a>案例 3：多任务切换 —— Prompt Tuning 的强项</h2><p><strong>我们要干啥？</strong></p>
-<p>展示 Prompt Tuning 最擅长的事：一个基础模型 + 多个软提示词，换来换去就能干不同的活。</p>
-<p><strong>完整代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># multi_task_prompt_tuning.py</span></span><br><span class="line"><span class="comment"># 多任务软提示词切换示例</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoModelForCausalLM, AutoTokenizer</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> PromptTuningConfig, get_peft_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载基础模型</span></span><br><span class="line">model_name = <span class="string">&quot;gpt2&quot;</span></span><br><span class="line">base_model = AutoModelForCausalLM.from_pretrained(model_name)</span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model_name)</span><br><span class="line">tokenizer.pad_token = tokenizer.eos_token</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义多个任务的软提示词配置</span></span><br><span class="line">tasks = &#123;</span><br><span class="line">    <span class="string">&quot;translation&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;init_text&quot;</span>: <span class="string">&quot;将中文翻译成英文：&quot;</span>,</span><br><span class="line">        <span class="string">&quot;num_tokens&quot;</span>: <span class="number">15</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;summarization&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;init_text&quot;</span>: <span class="string">&quot;总结以下文本的主要内容：&quot;</span>,</span><br><span class="line">        <span class="string">&quot;num_tokens&quot;</span>: <span class="number">15</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;qa&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;init_text&quot;</span>: <span class="string">&quot;根据上下文回答问题：&quot;</span>,</span><br><span class="line">        <span class="string">&quot;num_tokens&quot;</span>: <span class="number">15</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为每个任务创建并训练软提示词（训练代码省略）</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行时切换不同任务的软提示词</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">switch_task</span>(<span class="params">model, task_name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;切换到指定任务的软提示词&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 加载对应任务的软提示词权重</span></span><br><span class="line">    adapter_path = <span class="string">f&quot;./prompt_tuning_<span class="subst">&#123;task_name&#125;</span>&quot;</span></span><br><span class="line">    model.load_adapter(adapter_path, adapter_name=task_name)</span><br><span class="line">    model.set_adapter(task_name)</span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;切换到翻译任务...&quot;</span>)</span><br><span class="line">model = switch_task(base_model, <span class="string">&quot;translation&quot;</span>)</span><br><span class="line"><span class="comment"># 执行翻译...</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;切换到摘要任务...&quot;</span>)</span><br><span class="line">model = switch_task(base_model, <span class="string">&quot;summarization&quot;</span>)</span><br><span class="line"><span class="comment"># 执行摘要...</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>优势</strong>：</p>
-<ul>
-<li>一个基础模型 + N 个软提示词（每个仅几十 KB）</li>
-<li>存储成本极低，切换任务只需加载不同的软提示词</li>
-<li>适合多租户、多任务的服务场景</li>
-</ul>
-<h1 id="一些实战经验"><a href="#一些实战经验" class="headerlink" title="一些实战经验"></a>一些实战经验</h1><p>调了不少 Prompt Tuning 的模型，我总结了一些实用经验。</p>
-<h2 id="1-软提示词设多长？"><a href="#1-软提示词设多长？" class="headerlink" title="1. 软提示词设多长？"></a>1. 软提示词设多长？</h2><p><strong>num_virtual_tokens 选多大？</strong></p>
-<table>
-<thead>
-<tr>
-<th>任务复杂度</th>
-<th>建议长度</th>
-<th>举例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简单任务</td>
-<td>10-20</td>
-<td>情感分析、分类</td>
-</tr>
-<tr>
-<td>中等任务</td>
-<td>20-50</td>
-<td>摘要、简单翻译</td>
-</tr>
-<tr>
-<td>复杂任务</td>
-<td>50-100</td>
-<td>多轮对话、推理</td>
-</tr>
-</tbody></table>
-<p><strong>我的经验</strong></p>
-<ul>
-<li><strong>从短开始</strong>：先设 20 个，效果不好再往上加</li>
-<li><strong>收益递减</strong>：超过 100 个 token 后，效果提升很小，但训练成本会继续增加</li>
-<li><strong>简单任务别设太长</strong>：情感分析这种简单任务，设 20 就够了，设 100 反而容易过拟合</li>
-</ul>
-<h2 id="2-初始化策略"><a href="#2-初始化策略" class="headerlink" title="2. 初始化策略"></a>2. 初始化策略</h2><p><strong>三种初始化方式对比</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>初始化方式</th>
-<th>怎么做的</th>
-<th>优点</th>
-<th>缺点</th>
-<th>什么时候用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>随机初始化</strong></td>
-<td>随机生成一堆数字</td>
-<td>简单</td>
-<td>收敛慢</td>
-<td>实验阶段随便试试</td>
-</tr>
-<tr>
-<td><strong>词汇表采样</strong></td>
-<td>从模型的词表里随机选词</td>
-<td>有点语义基础</td>
-<td>可能引入噪声</td>
-<td>通用任务</td>
-</tr>
-<tr>
-<td><strong>任务描述初始化</strong></td>
-<td>用任务描述文本来初始化</td>
-<td>收敛快、效果好</td>
-<td>依赖你写的描述质量</td>
-<td>生产环境</td>
-</tr>
-</tbody></table>
-<p><strong>我的建议</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生产环境：用任务描述初始化，效果最好</span></span><br><span class="line">peft_config = PromptTuningConfig(</span><br><span class="line">    prompt_tuning_init=PromptTuningInit.TEXT,</span><br><span class="line">    prompt_tuning_init_text=<span class="string">&quot;情感分析任务：判断评论是正面还是负面&quot;</span>,</span><br><span class="line">    num_virtual_tokens=<span class="number">30</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速实验：随机初始化也行，反正训得快</span></span><br><span class="line">peft_config = PromptTuningConfig(</span><br><span class="line">    prompt_tuning_init=PromptTuningInit.RANDOM,</span><br><span class="line">    num_virtual_tokens=<span class="number">20</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键经验</strong>：任务描述写得越清楚，初始化效果越好。别写太笼统，比如”分类任务”就不如”新闻主题分类任务”效果好。</p>
-<h2 id="3-训练技巧"><a href="#3-训练技巧" class="headerlink" title="3. 训练技巧"></a>3. 训练技巧</h2><h3 id="学习率要多大？"><a href="#学习率要多大？" class="headerlink" title="学习率要多大？"></a>学习率要多大？</h3><p>Prompt Tuning 有个特点：<strong>学习率可以设得比 Fine-tuning 高很多</strong>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Prompt Tuning 的学习率</span></span><br><span class="line">learning_rate = <span class="number">1e-2</span>  <span class="comment"># 比 Fine-tuning 的 1e-5 高 1000 倍</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最好加上预热，前 100 步慢慢把学习率升上去</span></span><br><span class="line">warmup_steps = <span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>为啥能这么高？</strong></p>
-<p>因为 Prompt Tuning 只调几千个参数，不像 Fine-tuning 要动几十亿参数。参数少，梯度更新可以更激进一点。</p>
-<h3 id="防止过拟合"><a href="#防止过拟合" class="headerlink" title="防止过拟合"></a>防止过拟合</h3><p>软提示词容易过拟合，特别是数据少的时候。建议加上早停：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 监控验证集损失，连续 5 轮不降就停</span></span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> EarlyStoppingCallback</span><br><span class="line"></span><br><span class="line">trainer = Trainer(</span><br><span class="line">    <span class="comment"># ... 其他参数</span></span><br><span class="line">    callbacks=[EarlyStoppingCallback(early_stopping_patience=<span class="number">5</span>)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p><strong>我的经验</strong>：Prompt Tuning 收敛很快，一般 20-50 轮就够了，别训太久。</p>
-<h2 id="4-常见陷阱与解决方案"><a href="#4-常见陷阱与解决方案" class="headerlink" title="4. 常见陷阱与解决方案"></a>4. 常见陷阱与解决方案</h2><table>
-<thead>
-<tr>
-<th>问题</th>
-<th>现象</th>
-<th>原因</th>
-<th>解决方案</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>收敛慢</strong></td>
-<td>训练多轮损失仍高</td>
-<td>学习率太低或初始化差</td>
-<td>提高学习率到 1e-2，使用 TEXT 初始化</td>
-</tr>
-<tr>
-<td><strong>过拟合</strong></td>
-<td>训练集好，验证集差</td>
-<td>软提示词太长或数据少</td>
-<td>减少 num_virtual_tokens，增加数据</td>
-</tr>
-<tr>
-<td><strong>效果差</strong></td>
-<td>不如预期</td>
-<td>任务太复杂</td>
-<td>改用 LoRA 或 Full Fine-tuning</td>
-</tr>
-<tr>
-<td><strong>灾难性遗忘</strong></td>
-<td>通用能力下降</td>
-<td>软提示词干扰</td>
-<td>混合通用数据一起训练</td>
-</tr>
-<tr>
-<td><strong>不稳定</strong></td>
-<td>每次训练结果差异大</td>
-<td>随机初始化导致</td>
-<td>固定随机种子，使用 TEXT 初始化</td>
-</tr>
-</tbody></table>
-<h2 id="5-与其他方法的组合使用"><a href="#5-与其他方法的组合使用" class="headerlink" title="5. 与其他方法的组合使用"></a>5. 与其他方法的组合使用</h2><h3 id="Prompt-Tuning-LoRA"><a href="#Prompt-Tuning-LoRA" class="headerlink" title="Prompt Tuning + LoRA"></a>Prompt Tuning + LoRA</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> PromptTuningConfig, LoraConfig, get_peft_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时使用软提示词和 LoRA</span></span><br><span class="line">prompt_config = PromptTuningConfig(</span><br><span class="line">    num_virtual_tokens=<span class="number">20</span>,</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">lora_config = LoraConfig(</span><br><span class="line">    r=<span class="number">8</span>,</span><br><span class="line">    lora_alpha=<span class="number">16</span>,</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先应用 Prompt Tuning，再应用 LoRA</span></span><br><span class="line">model = get_peft_model(model, prompt_config)</span><br><span class="line">model = get_peft_model(model, lora_config)</span><br></pre></td></tr></table></figure>
-
-<p><strong>适用场景</strong>：任务复杂，单独 Prompt Tuning 效果不够时</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Prompt Tuning 是让大模型适应特定任务的<strong>参数高效方法</strong>。</p>
-<h2 id="核心要点回顾"><a href="#核心要点回顾" class="headerlink" title="核心要点回顾"></a>核心要点回顾</h2><ol>
-<li><strong>是什么</strong>：通过训练少量”软提示词”向量来引导模型，不修改模型参数</li>
-<li><strong>核心优势</strong>：<ul>
-<li>参数效率：只训练 0.001%-0.01% 的参数</li>
-<li>存储极小：每个任务仅需几十 KB</li>
-<li>切换灵活：一个模型 + 多个软提示词 = 多个专家</li>
-</ul>
-</li>
-<li><strong>关键概念</strong>：<ul>
-<li>Soft Prompt：可训练的连续向量</li>
-<li>Prefix Tuning：在每层 Transformer 添加软提示词</li>
-<li>Prompt Encoder：用小型网络生成软提示词</li>
-</ul>
-</li>
-<li><strong>适用场景</strong>：中等复杂度任务、多任务服务、资源受限环境</li>
-</ol>
-<h2 id="快速上手建议"><a href="#快速上手建议" class="headerlink" title="快速上手建议"></a>快速上手建议</h2><table>
-<thead>
-<tr>
-<th>需求</th>
-<th>推荐方案</th>
-<th>预计成本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>快速验证想法</td>
-<td>Prompt Engineering</td>
-<td>免费</td>
-</tr>
-<tr>
-<td>资源受限、多任务</td>
-<td><strong>Prompt Tuning</strong></td>
-<td>1 张显卡即可</td>
-</tr>
-<tr>
-<td>追求效果、中等资源</td>
-<td>LoRA</td>
-<td>1-2 张显卡</td>
-</tr>
-<tr>
-<td>极致效果、充足资源</td>
-<td>Full Fine-tuning</td>
-<td>GPU 集群</td>
-</tr>
-</tbody></table>
-<p><strong>Prompt Tuning 最佳切入点</strong>：</p>
-<ol>
-<li>已有预训练模型服务</li>
-<li>需要支持多个细分任务</li>
-<li>显存/存储资源有限</li>
-<li>任务复杂度中等（分类、简单生成）</li>
-</ol>
-<h2 id="学习资源推荐"><a href="#学习资源推荐" class="headerlink" title="学习资源推荐"></a>学习资源推荐</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://thunlp.github.io/OpenPrompt/">OpenPrompt 官方文档</a> - 丰富的 Prompt Learning 实现</li>
-<li><a target="_blank" rel="noopener" href="https://huggingface.co/docs/peft">Hugging Face PEFT 库</a> - 最便捷的 Prompt Tuning 工具</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08691">Prompt Tuning 原论文</a> - Google 提出的原始方法</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.00190">Prefix Tuning 论文</a> - Stanford 的改进版本</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08691">The Power of Scale for Parameter-Efficient Prompt Tuning</a> - 规模效应分析</li>
-</ul>
 <blockquote>
-<p>💡 <strong>一句话总结</strong>：Prompt Tuning 就像是”给 AI 戴上一副特殊眼镜”——不改变 AI 本身，只改变它看待任务的方式，用极小的成本获得专业能力的提升。</p>
+<p>💡 <strong>一句话总结</strong>：Prompt Tuning 就像是给模型戴副特殊眼镜 —— 不改模型本身，只换个眼镜，看世界的方式就完全不同了。</p>
 </blockquote>
 <hr>
-<p><strong>感谢阅读！如果你觉得今天的内容对你有帮助，欢迎分享给你的朋友，一起学习成长！</strong> 🚀</p>
+<p><strong>参考资源</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://thunlp.github.io/OpenPrompt/">OpenPrompt 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/docs/peft">Hugging Face PEFT 库</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08691">Prompt Tuning 原论文</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -1027,7 +703,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%88%E4%BB%8E%E5%8E%9F%E7%90%86%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">先从原理说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prompt-Tuning-%E7%9A%84%E5%87%A0%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">Prompt Tuning 的几个核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Soft-Prompt%EF%BC%88%E8%BD%AF%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. Soft Prompt（软提示词）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Prompt-Encoder%EF%BC%88%E6%8F%90%E7%A4%BA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. Prompt Encoder（提示编码器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Prefix-Tuning%EF%BC%88%E5%89%8D%E7%BC%80%E5%BE%AE%E8%B0%83%EF%BC%89"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. Prefix Tuning（前缀微调）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prompt-Tuning-%E5%92%8C%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E6%AF%94%EF%BC%8C%E5%88%B0%E5%BA%95%E8%A1%8C%E4%B8%8D%E8%A1%8C%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">Prompt Tuning 和其他方法比，到底行不行？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E6%88%98"><span class="toc-number">2.</span> <span class="toc-text">动手实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E7%94%A8-OpenPrompt-%E5%81%9A%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">案例 1：用 OpenPrompt 做情感分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E7%94%A8-Hugging-Face-PEFT-%E5%81%9A%E6%96%B0%E9%97%BB%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">案例 2：用 Hugging Face PEFT 做新闻分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-3%EF%BC%9A%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%88%87%E6%8D%A2-%E2%80%94%E2%80%94-Prompt-Tuning-%E7%9A%84%E5%BC%BA%E9%A1%B9"><span class="toc-number">2.3.</span> <span class="toc-text">案例 3：多任务切换 —— Prompt Tuning 的强项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">一些实战经验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%AE%BE%E5%A4%9A%E9%95%BF%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">1. 软提示词设多长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">3.2.</span> <span class="toc-text">2. 初始化策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7"><span class="toc-number">3.3.</span> <span class="toc-text">3. 训练技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%A6%81%E5%A4%9A%E5%A4%A7%EF%BC%9F"><span class="toc-number">3.3.1.</span> <span class="toc-text">学习率要多大？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">3.3.2.</span> <span class="toc-text">防止过拟合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.4.</span> <span class="toc-text">4. 常见陷阱与解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%8E%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">3.5.</span> <span class="toc-text">5. 与其他方法的组合使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt-Tuning-LoRA"><span class="toc-number">3.5.1.</span> <span class="toc-text">Prompt Tuning + LoRA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9%E5%9B%9E%E9%A1%BE"><span class="toc-number">4.1.</span> <span class="toc-text">核心要点回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.2.</span> <span class="toc-text">快速上手建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90"><span class="toc-number">4.3.</span> <span class="toc-text">学习资源推荐</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E8%AF%95%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">动手试试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9D%84%EF%B8%8F-%E5%86%B7%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">❄️ 冷知识</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1295,6 +971,34 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OpenClaw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Harness Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AI Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Build & Verify</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Context Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Multi-Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">未来展望</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
               </li>
             
             <div class="clearfix"></div>

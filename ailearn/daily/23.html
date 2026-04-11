@@ -8,23 +8,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>5分钟AI，每天搞懂一个知识点(23) - OpenClaw Agent | Qborfy知识库</title>
+  <title>5分钟AI，每天搞懂一个知识点 - ReAct | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 OpenClaw。  OpenClaw（曾用名 Clawdbot）是一款开源的个人 AI 智能体（Agent），由奥地利开发者 Peter Steinberger 于 2025 年底创建，能够通过 WhatsApp、Telegram 等聊天工具远程操控本地电脑，自主完成邮件处理、代码开发、日程管理等复杂任务，是真正意义上的">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 AI Agent 的核心设计模式 —— ReAct  一句话核心：ReAct 就是让大模型”边想边做”——先思考再行动，循环往复，直到把事搞定。  说实话，我第一次看到 ReAct 这个名字的时候，还以为是某个前端框架（毕竟 React 太出名了）。后来深入研究才发现，这玩意儿跟前端框架八竿子打不着，但却是做大模型 Age">
 <meta property="og:type" content="article">
-<meta property="og:title" content="5分钟AI，每天搞懂一个知识点(23) - OpenClaw Agent">
+<meta property="og:title" content="5分钟AI，每天搞懂一个知识点 - ReAct">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/daily/23.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 OpenClaw。  OpenClaw（曾用名 Clawdbot）是一款开源的个人 AI 智能体（Agent），由奥地利开发者 Peter Steinberger 于 2025 年底创建，能够通过 WhatsApp、Telegram 等聊天工具远程操控本地电脑，自主完成邮件处理、代码开发、日程管理等复杂任务，是真正意义上的">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天我们来学习 AI Agent 的核心设计模式 —— ReAct  一句话核心：ReAct 就是让大模型”边想边做”——先思考再行动，循环往复，直到把事搞定。  说实话，我第一次看到 ReAct 这个名字的时候，还以为是某个前端框架（毕竟 React 太出名了）。后来深入研究才发现，这玩意儿跟前端框架八竿子打不着，但却是做大模型 Age">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-09T07:53:14.507Z">
-<meta property="article:modified_time" content="2026-03-09T08:07:00.534Z">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/23/23_react_loop.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/23/23_agent_architecture.png">
+<meta property="article:published_time" content="2026-03-24T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-27T14:25:24.769Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="5分钟AI">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/daily/23/23_react_loop.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -365,7 +368,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      5分钟AI，每天搞懂一个知识点(23) - OpenClaw Agent
+      5分钟AI，每天搞懂一个知识点 - ReAct
       
     </h1>
   
@@ -379,7 +382,7 @@
         </span>
 
 <a href="/ailearn/daily/23.html" class="archive-article-date">
-        <time datetime="2026-03-09T07:53:14.507Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+        <time datetime="2026-03-24T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-24</time>
 </a>
 
   
@@ -392,7 +395,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4k字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -401,7 +404,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">15分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -415,289 +418,74 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>今天我们来学习 <strong>OpenClaw</strong>。</p>
+<p>今天我们来学习 <strong>AI Agent 的核心设计模式 —— ReAct</strong></p>
 <blockquote>
-<p><strong>OpenClaw</strong>（曾用名 Clawdbot）是一款<strong>开源的个人 AI 智能体（Agent）</strong>，由奥地利开发者 Peter Steinberger 于 2025 年底创建，能够通过 WhatsApp、Telegram 等聊天工具<strong>远程操控本地电脑</strong>，自主完成邮件处理、代码开发、日程管理等复杂任务，是真正意义上的”<strong>7×24 小时 AI 数字员工</strong>“。</p>
+<p>一句话核心：<strong>ReAct</strong> 就是让大模型”边想边做”——先思考再行动，循环往复，直到把事搞定。</p>
 </blockquote>
-<p>对比其他 AI 编程工具，OpenClaw 就像从”专业程序员助手”升级为”全能私人助理”——它不只会写代码，还能帮你处理邮件、管理日程、监控股票，甚至控制智能家居，而且全程运行在你自己的设备上，数据完全私有。</p>
+<p>说实话，我第一次看到 ReAct 这个名字的时候，还以为是某个前端框架（毕竟 React 太出名了）。后来深入研究才发现，这玩意儿跟前端框架八竿子打不着，但却是做大模型 Agent 必须掌握的核心套路。</p>
+<p>它的核心思想特别朴素：让 AI 像侦探破案那样，看到线索 → 动动脑子 → 采取行动获取新线索 → 再分析……就这样一直循环，直到问题被彻底解决。</p>
+<p>传统的大模型就是你问一句、它答一句，完事儿。但 ReAct 不一样，它让模型在执行任务过程中不断”停下来想想”：”我现在该做什么？用什么工具？下一步怎么安排？”想好了就去执行，拿到结果回来再接着想。</p>
+<p>说白了，就是把 AI 从”只会说的参谋”变成了”真的能办事的助手”。</p>
 <span id="more"></span>
 
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[用户指令&lt;br/&gt;WhatsApp/Telegram/微信] --&gt; B[Gateway 网关]</span><br><span class="line">    B --&gt; C[Agent 智能体]</span><br><span class="line">    C --&gt; D[Skills 技能系统]</span><br><span class="line">    C --&gt; E[Memory 记忆系统]</span><br><span class="line"></span><br><span class="line">    D --&gt; D1[文件操作]</span><br><span class="line">    D --&gt; D2[浏览器自动化]</span><br><span class="line">    D --&gt; D3[代码执行]</span><br><span class="line">    D --&gt; D4[API 调用]</span><br><span class="line">    D --&gt; D5[邮件/日程管理]</span><br><span class="line"></span><br><span class="line">    E --&gt; E1[SOUL 核心指令]</span><br><span class="line">    E --&gt; E2[TOOLS 工具注册表]</span><br><span class="line">    E --&gt; E3[USER 用户长期记忆]</span><br><span class="line">    E --&gt; E4[SESSION 会话上下文]</span><br><span class="line"></span><br><span class="line">    C --&gt; F[LLM 大语言模型]</span><br><span class="line">    F --&gt; F1[Claude Opus 4.5]</span><br><span class="line">    F --&gt; F2[GPT-5.2]</span><br><span class="line">    F --&gt; F3[Gemini / 国产模型]</span><br><span class="line"></span><br><span class="line">    style A fill:#e1f5fe</span><br><span class="line">    style B fill:#f3e5f5</span><br><span class="line">    style C fill:#e8f5e8</span><br><span class="line">    style D fill:#fff3e0</span><br><span class="line">    style E fill:#ffebee</span><br><span class="line">    style F fill:#fce4ec</span><br></pre></td></tr></table></figure>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>先通过一张图来理解 ReAct 是怎么工作的：</p>
+<p><img src="/assets/img/ailearn/daily/23/23_react_loop.png" alt="ReAct 工作循环"></p>
+<p>其实 ReAct 就三个词的循环：<strong>思考 → 行动 → 观察 → 再思考……</strong></p>
+<p>具体来说就是：</p>
+<ul>
+<li><strong>思考（Thought）</strong>：模型分析当前情况，想想接下来需要做什么</li>
+<li><strong>行动（Action）</strong>：根据思考结果，决定调用啥工具、采取什么行动</li>
+<li><strong>观察（Observation）</strong>：拿到行动的结果，作为下一次思考的依据</li>
+</ul>
+<p>举个我自己折腾过的例子，我想让 AI 查询”特斯拉股价乘以 10 是多少”。</p>
+<p>它的思考过程大概是这样的：</p>
+<ul>
+<li>Thought：我要算特斯拉股价乘以 10，但不知道现在股价是多少，得先查一下</li>
+<li>Action：调用搜索工具查”特斯拉当前股价”</li>
+<li>Observation：返回”当前特斯拉股价 250 美元”</li>
+<li>Thought：拿到股价了，250 乘以 10 等于 2500</li>
+<li>Action：调用计算工具算 250*10</li>
+<li>Observation：返回 2500</li>
+<li>Thought：现在知道答案了，可以回复用户了</li>
+<li>Action：告诉用户答案是 2500 美元</li>
+</ul>
+<p>整个过程特别像一个认真办事的人，遇到问题不瞎猜，而是想好了再动手，动手回来再复盘。</p>
+<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>光说不练假把式，下面看怎么实现一个简单的 ReAct Agent。</p>
+<h2 id="核心逻辑"><a href="#核心逻辑" class="headerlink" title="核心逻辑"></a>核心逻辑</h2><p>我当初学这个的时候，先写了个最简版来理解原理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ReActAgent</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, llm, tools</span>):</span><br><span class="line">        <span class="variable language_">self</span>.llm = llm  <span class="comment"># 大模型</span></span><br><span class="line">        <span class="variable language_">self</span>.tools = tools  <span class="comment"># 工具集</span></span><br><span class="line">        <span class="variable language_">self</span>.memory = []  <span class="comment"># 记忆</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self, query</span>):</span><br><span class="line">        <span class="variable language_">self</span>.memory = [&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: query&#125;]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:  <span class="comment"># 开始思考-行动循环</span></span><br><span class="line">            <span class="comment"># 1. 让模型想想下一步干啥</span></span><br><span class="line">            response = <span class="variable language_">self</span>.llm.chat(<span class="variable language_">self</span>.memory)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 如果出现最终答案，任务结束</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;final_answer&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">                <span class="keyword">return</span> response[<span class="string">&quot;final_answer&quot;</span>]</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 如果需要调用工具</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;action&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">                tool_name = response[<span class="string">&quot;action&quot;</span>][<span class="string">&quot;name&quot;</span>]</span><br><span class="line">                tool_input = response[<span class="string">&quot;action&quot;</span>][<span class="string">&quot;input&quot;</span>]</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 2. 执行工具</span></span><br><span class="line">                result = <span class="variable language_">self</span>.tools[tool_name].run(tool_input)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 3. 记录结果，下次循环再用</span></span><br><span class="line">                <span class="variable language_">self</span>.memory.append(&#123;</span><br><span class="line">                    <span class="string">&quot;role&quot;</span>: <span class="string">&quot;observation&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;content&quot;</span>: result</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="OpenClaw-的核心定义"><a href="#OpenClaw-的核心定义" class="headerlink" title="OpenClaw 的核心定义"></a>OpenClaw 的核心定义</h2><p><strong>OpenClaw</strong> 是一款<strong>本地优先、开源、多模型</strong>的个人 AI 智能体，其核心特点是：</p>
-<ul>
-<li><strong>本地运行</strong>：部署在用户自己的设备（笔记本、Mac Mini、VPS）上，数据不上传云端</li>
-<li><strong>多渠道交互</strong>：通过 WhatsApp、Telegram、Slack、企业微信等聊天工具发送指令</li>
-<li><strong>自主执行</strong>：能够操作文件系统、运行命令、控制浏览器、调用 API</li>
-<li><strong>可扩展技能</strong>：通过 Skills 插件系统无限扩展能力，社区已有 5700+ 技能</li>
-<li><strong>主动行为</strong>：支持定时任务、事件触发，无需用户主动发起即可自主执行</li>
-</ul>
-<p>与其他 AI 工具最大的区别在于：</p>
-<ul>
-<li><strong>其他 AI 工具</strong>：你问它，它回答你，你自己去执行</li>
-<li><strong>OpenClaw</strong>：你告诉它目标，它自主规划并执行，结果直接推送给你</li>
-</ul>
-<h2 id="关键特征对比"><a href="#关键特征对比" class="headerlink" title="关键特征对比"></a>关键特征对比</h2><table>
-<thead>
-<tr>
-<th><strong>能力</strong></th>
-<th>传统 AI 助手</th>
-<th>Claude Code</th>
-<th>OpenClaw</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>交互方式</td>
-<td>网页/IDE</td>
-<td>终端命令行</td>
-<td>聊天应用（手机/PC）</td>
-</tr>
-<tr>
-<td>执行范围</td>
-<td>代码相关</td>
-<td>代码相关</td>
-<td>全系统（代码+生活）</td>
-</tr>
-<tr>
-<td>数据隐私</td>
-<td>云端处理</td>
-<td>云端处理</td>
-<td>本地运行，数据私有</td>
-</tr>
-<tr>
-<td>主动行为</td>
-<td>无</td>
-<td>无</td>
-<td>支持定时/事件触发</td>
-</tr>
-<tr>
-<td>模型支持</td>
-<td>单一模型</td>
-<td>仅 Claude</td>
-<td>多模型（自由切换）</td>
-</tr>
-<tr>
-<td>开源程度</td>
-<td>闭源</td>
-<td>闭源</td>
-<td>完全开源</td>
-</tr>
-</tbody></table>
-<h2 id="OpenClaw-的四大核心架构"><a href="#OpenClaw-的四大核心架构" class="headerlink" title="OpenClaw 的四大核心架构"></a>OpenClaw 的四大核心架构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OpenClaw = Gateway（网关）+ Agent（智能体）+ Skills（技能）+ Memory（记忆）</span><br></pre></td></tr></table></figure>
+<p>你看，核心就是一个 while 循环，不断让模型”想 → 做 → 观察”，直到拿到最终答案。</p>
+<h2 id="提示词设计"><a href="#提示词设计" class="headerlink" title="提示词设计"></a>提示词设计</h2><p>ReAct 能不能跑起来，关键看提示词怎么写。我总结了一个模板：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">你是一个智能助手，解决问题请按照以下步骤：</span><br><span class="line"></span><br><span class="line">1. 先想想现在是什么情况，还需要什么信息</span><br><span class="line">2. 如果需要工具，按这个格式回复：</span><br><span class="line">   Thought: [你在想什么]</span><br><span class="line">   Action: [工具名]</span><br><span class="line">   Action Input: [工具参数]</span><br><span class="line"></span><br><span class="line">3. 如果信息够用了，直接给答案：</span><br><span class="line">   Thought: [你在想什么]</span><br><span class="line">   Final Answer: [最终答案]</span><br><span class="line"></span><br><span class="line">可用工具：</span><br><span class="line">- search(query): 搜索信息</span><br><span class="line">- calculator(expression): 计算</span><br><span class="line">- read_file(path): 读文件</span><br></pre></td></tr></table></figure>
 
-<h3 id="Gateway（网关）"><a href="#Gateway（网关）" class="headerlink" title="Gateway（网关）"></a>Gateway（网关）</h3><p>负责连接各类聊天平台，处理用户指令的接收与结果推送：</p>
-<ul>
-<li>支持 WhatsApp、Telegram、Discord、Slack、iMessage、Signal 等</li>
-<li>支持语音输入（通过 Whisper 转录）</li>
-<li>支持多模态输出（文本、语音、文件）</li>
-</ul>
-<h3 id="Agent（智能体）"><a href="#Agent（智能体）" class="headerlink" title="Agent（智能体）"></a>Agent（智能体）</h3><p>驱动推理和决策的核心引擎：</p>
-<ul>
-<li>调用大语言模型（Claude、GPT、Gemini、国产模型等）</li>
-<li>基于 <strong>ReAct（推理 + 行动）</strong> 模式进行任务规划</li>
-<li>支持子智能体并行执行复杂任务</li>
-</ul>
-<h3 id="Skills（技能）"><a href="#Skills（技能）" class="headerlink" title="Skills（技能）"></a>Skills（技能）</h3><p>模块化的功能扩展插件系统：</p>
-<ul>
-<li>每个 Skill 是一个独立的功能模块（Python/Node.js/Shell 脚本）</li>
-<li>社区驱动的 <strong>ClawHub</strong> 技能市场，提供 5700+ 预置技能</li>
-<li>支持 AI 自主编写新技能（自我进化）</li>
-</ul>
-<h3 id="Memory（记忆）"><a href="#Memory（记忆）" class="headerlink" title="Memory（记忆）"></a>Memory（记忆）</h3><p>四层持久化记忆架构：</p>
-<ul>
-<li><strong>SOUL</strong>：核心不可变指令（AI 的”人格”）</li>
-<li><strong>TOOLS</strong>：动态工具注册表</li>
-<li><strong>USER</strong>：用户长期偏好记忆（习惯、编码风格等）</li>
-<li><strong>SESSION</strong>：实时会话上下文</li>
-</ul>
-<h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[用户发送指令&lt;br/&gt;通过聊天应用] --&gt; B[Gateway 接收&lt;br/&gt;解析指令类型]</span><br><span class="line">    B --&gt; C&#123;任务类型判断&#125;</span><br><span class="line">    C --&gt;|简单任务| D[直接调用 LLM&lt;br/&gt;生成回复]</span><br><span class="line">    C --&gt;|复杂任务| E[Agent 规划&lt;br/&gt;分解任务步骤]</span><br><span class="line">    E --&gt; F[调用 Skills&lt;br/&gt;执行具体操作]</span><br><span class="line">    F --&gt; G[观察执行结果&lt;br/&gt;更新任务状态]</span><br><span class="line">    G --&gt; H&#123;任务完成?&#125;</span><br><span class="line">    H --&gt;|否| E</span><br><span class="line">    H --&gt;|是| I[推送结果&lt;br/&gt;到聊天应用]</span><br><span class="line">    D --&gt; I</span><br><span class="line"></span><br><span class="line">    F --&gt; F1[文件读写]</span><br><span class="line">    F --&gt; F2[运行命令]</span><br><span class="line">    F --&gt; F3[浏览器操作]</span><br><span class="line">    F --&gt; F4[API 请求]</span><br><span class="line"></span><br><span class="line">    style A fill:#e1f5fe</span><br><span class="line">    style B fill:#f3e5f5</span><br><span class="line">    style C fill:#e8f5e8</span><br><span class="line">    style D fill:#fff3e0</span><br><span class="line">    style E fill:#ffebee</span><br><span class="line">    style F fill:#fce4ec</span><br><span class="line">    style G fill:#e0f2f1</span><br><span class="line">    style H fill:#fff8e1</span><br><span class="line">    style I fill:#e8eaf6</span><br></pre></td></tr></table></figure>
+<p>提示词写得越清楚，模型行为越可控。我第一次写的时候没把格式约束好，模型就各种放飞自我，要么格式不对，要么死循环。</p>
+<h2 id="完整实战"><a href="#完整实战" class="headerlink" title="完整实战"></a>完整实战</h2><p>来看一个能跑起来的完整例子，下图展示了 ReAct Agent 的核心架构：</p>
+<p><img src="/assets/img/ailearn/daily/23/23_agent_architecture.png" alt="ReAct Agent 架构"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"></span><br><span class="line">client = OpenAI()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义工具</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tools</span>:</span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">query</span>):</span><br><span class="line">        <span class="comment"># 模拟搜索功能</span></span><br><span class="line">        mock_db = &#123;</span><br><span class="line">            <span class="string">&quot;特斯拉股价&quot;</span>: <span class="string">&quot;当前特斯拉股价 250 美元&quot;</span>,</span><br><span class="line">            <span class="string">&quot;马斯克&quot;</span>: <span class="string">&quot;埃隆·马斯克是 Tesla、SpaceX 创始人&quot;</span>,</span><br><span class="line">            <span class="string">&quot;openai&quot;</span>: <span class="string">&quot;OpenAI 是 ChatGPT 的开发商&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mock_db.get(query, <span class="string">f&quot;没有找到关于：<span class="subst">&#123;query&#125;</span> 的信息&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">calculate</span>(<span class="params">expression</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">str</span>(<span class="built_in">eval</span>(expression))</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;计算出错&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ReAct 核心逻辑</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">react_agent</span>(<span class="params">user_query, max_iterations=<span class="number">5</span></span>):</span><br><span class="line">    tools = Tools()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 系统提示词 - 这是关键！</span></span><br><span class="line">    system_prompt = <span class="string">&quot;&quot;&quot;你是一个 ReAct 智能助手。</span></span><br><span class="line"><span class="string">按照 &quot;思考 → 行动 → 观察&quot; 的循环来解决问题。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">每次只输出三个阶段的内容，格式如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Thought: [你现在掌握什么信息？还需要什么？打算怎么做？]</span></span><br><span class="line"><span class="string">Action: [要调用的工具名]</span></span><br><span class="line"><span class="string">Action Input: [传给工具的参数]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">当信息足够回答用户问题时，输出：</span></span><br><span class="line"><span class="string">Thought: [思考过程]</span></span><br><span class="line"><span class="string">Final Answer: [给用户的最终回答]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">可用工具：</span></span><br><span class="line"><span class="string">- search(query): 搜索信息</span></span><br><span class="line"><span class="string">- calculate(expression): 数学计算</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    messages = [</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;system&quot;</span>, <span class="string">&quot;content&quot;</span>: system_prompt&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: user_query&#125;</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_iterations):  <span class="comment"># 防止死循环</span></span><br><span class="line">        <span class="comment"># 调用模型</span></span><br><span class="line">        response = client.chat.completions.create(</span><br><span class="line">            model=<span class="string">&quot;gpt-4&quot;</span>,</span><br><span class="line">            messages=messages</span><br><span class="line">        )</span><br><span class="line">        content = response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;\n=== 第 <span class="subst">&#123;i+<span class="number">1</span>&#125;</span> 轮 ===&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(content)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 拿到最终答案就结束</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Final Answer:&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">            <span class="keyword">return</span> content.split(<span class="string">&quot;Final Answer:&quot;</span>)[<span class="number">1</span>].strip()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 解析工具调用</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Action:&quot;</span> <span class="keyword">in</span> content <span class="keyword">and</span> <span class="string">&quot;Action Input:&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">            action = content.split(<span class="string">&quot;Action:&quot;</span>)[<span class="number">1</span>].split(<span class="string">&quot;\n&quot;</span>)[<span class="number">0</span>].strip()</span><br><span class="line">            action_input = content.split(<span class="string">&quot;Action Input:&quot;</span>)[<span class="number">1</span>].strip()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 执行工具</span></span><br><span class="line">            <span class="keyword">if</span> action == <span class="string">&quot;search&quot;</span>:</span><br><span class="line">                observation = tools.search(action_input)</span><br><span class="line">            <span class="keyword">elif</span> action == <span class="string">&quot;calculate&quot;</span>:</span><br><span class="line">                observation = tools.calculate(action_input)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                observation = <span class="string">&quot;未知工具&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 记录结果</span></span><br><span class="line">            messages.append(&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;assistant&quot;</span>, <span class="string">&quot;content&quot;</span>: content&#125;)</span><br><span class="line">            messages.append(&#123;</span><br><span class="line">                <span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>,</span><br><span class="line">                <span class="string">&quot;content&quot;</span>: <span class="string">f&quot;Observation: <span class="subst">&#123;observation&#125;</span>&quot;</span></span><br><span class="line">            &#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;达到最大循环次数，未找到答案&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试一下</span></span><br><span class="line">query = <span class="string">&quot;特斯拉股价乘以10是多少？&quot;</span></span><br><span class="line">result = react_agent(query)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;\n✅ 最终答案: <span class="subst">&#123;result&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="OpenClaw-的工作原理"><a href="#OpenClaw-的工作原理" class="headerlink" title="OpenClaw 的工作原理"></a>OpenClaw 的工作原理</h2><p>OpenClaw 的工作流程遵循经典的 <strong>ReAct（Reasoning + Acting）</strong> 模式：</p>
-<ol>
-<li><strong>接收指令</strong>：通过聊天应用接收用户的自然语言指令</li>
-<li><strong>任务规划</strong>：调用 LLM 分析任务，制定执行计划</li>
-<li><strong>技能调用</strong>：选择合适的 Skills 执行具体操作</li>
-<li><strong>结果观察</strong>：获取执行结果，判断是否达成目标</li>
-<li><strong>迭代执行</strong>：如未完成，调整策略继续执行</li>
-<li><strong>结果推送</strong>：将最终结果推送回聊天应用</li>
+<p>运行这个代码，你会看到模型一步步思考、调用工具、拿到结果，最后给出答案。</p>
+<p>有几个坑我踩过，跟你提个醒：</p>
+<ul>
+<li><strong>必须设最大循环次数</strong>：不然遇到复杂问题可能死循环</li>
+<li><strong>提示词要约束格式</strong>：不然模型输出格式不固定，不好解析</li>
+<li><strong>工具返回要清晰</strong>：模糊的结果会让模型搞不清状况</li>
+</ul>
+<h1 id="❄️-冷知识"><a href="#❄️-冷知识" class="headerlink" title="❄️ 冷知识"></a>❄️ 冷知识</h1><ol>
+<li><p><strong>ReAct 跟 React 没关系</strong>：一个是 AI Agent 思路（Reasoning + Acting），一个是前端框架，纯粹名字像而已。</p>
+</li>
+<li><p><strong>出自 Google 之手</strong>：ReAct 是 2022 年 Google Research 的论文提出的，学名叫”ReAct: Synergizing Reasoning and Acting in Language Models”。</p>
+</li>
+<li><p><strong>LangChain 默认就是这个</strong>：如果你用过 LangChain 的 <code>AgentExecutor</code>，底层其实就是 ReAct 模式封装好的。</p>
+</li>
+<li><p><strong>可以跟 Function Calling 结合</strong>：现在的实现通常用 Function Calling 让模型输出结构化的工具调用指令，比纯文本 parsing 更稳定。</p>
+</li>
+<li><p><strong>不是唯一模式</strong>：除了 ReAct，还有 Reflexion（反思模式）、Plan-and-Solve（先规划再执行）等，不同场景选不同的。</p>
+</li>
 </ol>
-<h2 id="关键组件深度解析"><a href="#关键组件深度解析" class="headerlink" title="关键组件深度解析"></a>关键组件深度解析</h2><h3 id="Skills-系统：OpenClaw-的超能力来源"><a href="#Skills-系统：OpenClaw-的超能力来源" class="headerlink" title="Skills 系统：OpenClaw 的超能力来源"></a>Skills 系统：OpenClaw 的超能力来源</h3><p>Skills 是 OpenClaw 最核心的扩展机制，每个 Skill 本质上是一份”AI 操作手册”：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Skills 目录结构：</span><br><span class="line">weather-query/</span><br><span class="line">├── SKILL.md          # 核心文件：元数据 + 执行说明</span><br><span class="line">├── scripts/          # 可执行脚本（Python/Shell/Node.js）</span><br><span class="line">│   └── query.py</span><br><span class="line">├── references/       # 参考文档</span><br><span class="line">└── assets/           # 模板、图片等资源</span><br></pre></td></tr></table></figure>
-
-<p><strong>SKILL.md 示例</strong>（天气查询技能）：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">name: weather-query</span><br><span class="line">description: 实时天气查询，支持多城市和未来预报</span><br><span class="line">metadata:</span><br><span class="line">  openclaw:</span><br><span class="line"><span class="code">    emoji: &quot;🌤️&quot;</span></span><br><span class="line"><span class="code">    requires:</span></span><br><span class="line"><span class="code">      env: [&quot;WEATHER_API_KEY&quot;]</span></span><br><span class="line"><span class="code">---</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="section">## 使用说明</span></span><br><span class="line"></span><br><span class="line">当用户询问天气时，调用此技能：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 解析用户提到的城市名称</span><br><span class="line"><span class="bullet">2.</span> 调用 scripts/query.py 获取天气数据</span><br><span class="line"><span class="bullet">3.</span> 以友好的格式返回结果</span><br><span class="line"></span><br><span class="line"><span class="section">## 示例指令</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> &quot;北京今天天气怎么样？&quot;</span><br><span class="line"><span class="bullet">-</span> &quot;上海未来三天的天气预报&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="记忆系统：让-AI-真正”认识”你"><a href="#记忆系统：让-AI-真正”认识”你" class="headerlink" title="记忆系统：让 AI 真正”认识”你"></a>记忆系统：让 AI 真正”认识”你</h3><p>OpenClaw 的四层记忆架构让 AI 能够跨会话记住用户偏好：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记忆系统示意（简化版）</span></span><br><span class="line">memory_layers = &#123;</span><br><span class="line">    <span class="string">&quot;SOUL&quot;</span>: <span class="string">&quot;你是一个专业的个人助理，风格简洁高效...&quot;</span>,  <span class="comment"># 不可变</span></span><br><span class="line">    <span class="string">&quot;TOOLS&quot;</span>: &#123;  <span class="comment"># 动态更新</span></span><br><span class="line">        <span class="string">&quot;weather&quot;</span>: <span class="string">&quot;调用 OpenMeteo API&quot;</span>,</span><br><span class="line">        <span class="string">&quot;email&quot;</span>: <span class="string">&quot;使用 Gmail API&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;USER&quot;</span>: &#123;  <span class="comment"># 长期学习</span></span><br><span class="line">        <span class="string">&quot;coding_style&quot;</span>: <span class="string">&quot;偏好 TypeScript，使用 4 空格缩进&quot;</span>,</span><br><span class="line">        <span class="string">&quot;wake_time&quot;</span>: <span class="string">&quot;每天 7:30 发送早报&quot;</span>,</span><br><span class="line">        <span class="string">&quot;preferred_language&quot;</span>: <span class="string">&quot;中文回复&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;SESSION&quot;</span>: [...]  <span class="comment"># 当前会话历史</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="主动行为机制：从被动响应到主动执行"><a href="#主动行为机制：从被动响应到主动执行" class="headerlink" title="主动行为机制：从被动响应到主动执行"></a>主动行为机制：从被动响应到主动执行</h3><p>OpenClaw 支持三种主动触发方式：</p>
-<ul>
-<li><strong>心跳系统（Heartbeat）</strong>：定期检查任务状态，如每小时检查邮件</li>
-<li><strong>定时任务（Cron）</strong>：按计划执行，如每天 8:00 发送日程摘要</li>
-<li><strong>事件驱动（Webhooks）</strong>：响应外部事件，如股票价格变动时发送提醒</li>
-</ul>
-<h2 id="OpenClaw-的部署方式"><a href="#OpenClaw-的部署方式" class="headerlink" title="OpenClaw 的部署方式"></a>OpenClaw 的部署方式</h2><h3 id="Docker-部署（推荐）"><a href="#Docker-部署（推荐）" class="headerlink" title="Docker 部署（推荐）"></a>Docker 部署（推荐）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/openclaw/openclaw.git</span><br><span class="line"><span class="built_in">cd</span> openclaw</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span></span><br><span class="line"><span class="comment"># 编辑 .env 文件，填入 API Key 和聊天平台配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问管理界面</span></span><br><span class="line">open http://localhost:18789</span><br></pre></td></tr></table></figure>
-
-<h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .env 配置示例</span></span><br><span class="line">ANTHROPIC_API_KEY=your-claude-api-key</span><br><span class="line">TELEGRAM_BOT_TOKEN=your-telegram-bot-token</span><br><span class="line">WHATSAPP_PHONE_NUMBER=your-phone-number</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：其他模型</span></span><br><span class="line">OPENAI_API_KEY=your-openai-key</span><br><span class="line">GEMINI_API_KEY=your-gemini-key</span><br></pre></td></tr></table></figure>
-
-<h1 id="经典案例"><a href="#经典案例" class="headerlink" title="经典案例"></a>经典案例</h1><h2 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h2><h3 id="1-个人效率助理"><a href="#1-个人效率助理" class="headerlink" title="1. 个人效率助理"></a>1. 个人效率助理</h3><p><strong>场景</strong>：每天早上自动整理当日日程和重要邮件</p>
-<p><strong>OpenClaw 执行过程</strong>：</p>
-<ol>
-<li>定时任务在每天 7:30 触发</li>
-<li>读取 Google Calendar 获取当日日程</li>
-<li>扫描邮箱，筛选重要邮件（AI 判断优先级）</li>
-<li>生成简洁的早报摘要</li>
-<li>通过 WhatsApp 推送给用户</li>
-</ol>
-<p><strong>价值</strong>：每天节省 15-20 分钟的信息整理时间</p>
-<h3 id="2-自动化代码开发"><a href="#2-自动化代码开发" class="headerlink" title="2. 自动化代码开发"></a>2. 自动化代码开发</h3><p><strong>场景</strong>：开发者通过手机发送需求，AI 自动完成代码开发</p>
-<p><strong>OpenClaw 执行过程</strong>：</p>
-<ol>
-<li>用户在 Telegram 发送：”帮我在 user-service 里加一个获取用户列表的接口，支持分页”</li>
-<li>OpenClaw 读取项目代码，理解现有架构</li>
-<li>生成符合项目风格的代码</li>
-<li>运行测试，修复问题</li>
-<li>提交 Git，推送 PR</li>
-<li>通过 Telegram 回复完成情况</li>
-</ol>
-<p><strong>价值</strong>：开发者无需打开电脑，随时随地推进项目</p>
-<h3 id="3-智能家居控制"><a href="#3-智能家居控制" class="headerlink" title="3. 智能家居控制"></a>3. 智能家居控制</h3><p><strong>场景</strong>：通过自然语言控制智能家居设备</p>
-<p><strong>OpenClaw 执行过程</strong>：</p>
-<ol>
-<li>用户发送：”我要睡觉了，帮我关灯、调低空调温度到 26 度”</li>
-<li>OpenClaw 调用 Home Assistant 集成技能</li>
-<li>执行关灯和调温操作</li>
-<li>确认执行结果并回复</li>
-</ol>
-<p><strong>价值</strong>：将智能家居控制融入日常聊天，无需专属 App</p>
-<h3 id="4-商业自动化监控"><a href="#4-商业自动化监控" class="headerlink" title="4. 商业自动化监控"></a>4. 商业自动化监控</h3><p><strong>场景</strong>：电商运营者监控竞品价格和库存</p>
-<p><strong>OpenClaw 执行过程</strong>：</p>
-<ol>
-<li>定时任务每小时触发浏览器自动化技能</li>
-<li>访问竞品页面，抓取价格和库存数据</li>
-<li>与历史数据对比，检测异常变化</li>
-<li>发现价格下降超过 10% 时，立即推送告警</li>
-<li>自动生成价格趋势报告</li>
-</ol>
-<p><strong>价值</strong>：7×24 小时自动监控，及时响应市场变化</p>
-<h2 id="OpenClaw-与同类工具对比"><a href="#OpenClaw-与同类工具对比" class="headerlink" title="OpenClaw 与同类工具对比"></a>OpenClaw 与同类工具对比</h2><table>
-<thead>
-<tr>
-<th><strong>工具</strong></th>
-<th>定位</th>
-<th>交互方式</th>
-<th>数据隐私</th>
-<th>开源</th>
-<th>适用人群</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>OpenClaw</strong></td>
-<td>全能个人助理</td>
-<td>聊天应用</td>
-<td>本地私有</td>
-<td>✅</td>
-<td>所有人</td>
-</tr>
-<tr>
-<td>Claude Code</td>
-<td>编程协作助手</td>
-<td>终端 CLI</td>
-<td>云端处理</td>
-<td>❌</td>
-<td>开发者</td>
-</tr>
-<tr>
-<td>Devin</td>
-<td>AI 全栈程序员</td>
-<td>Web/Slack</td>
-<td>云端处理</td>
-<td>❌</td>
-<td>企业开发团队</td>
-</tr>
-<tr>
-<td>GitHub Copilot</td>
-<td>代码补全</td>
-<td>IDE 插件</td>
-<td>云端处理</td>
-<td>❌</td>
-<td>开发者</td>
-</tr>
-<tr>
-<td>Cursor AI</td>
-<td>AI 代码编辑器</td>
-<td>桌面应用</td>
-<td>云端处理</td>
-<td>❌</td>
-<td>开发者</td>
-</tr>
-</tbody></table>
-<h1 id="动手试试！"><a href="#动手试试！" class="headerlink" title="动手试试！"></a>动手试试！</h1><h2 id="体验-OpenClaw-能力"><a href="#体验-OpenClaw-能力" class="headerlink" title="体验 OpenClaw 能力"></a>体验 OpenClaw 能力</h2><h3 id="1-快速部署-OpenClaw"><a href="#1-快速部署-OpenClaw" class="headerlink" title="1. 快速部署 OpenClaw"></a>1. 快速部署 OpenClaw</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前提：安装 Docker 和 Docker Compose</span></span><br><span class="line"><span class="comment"># 访问 https://github.com/openclaw/openclaw 获取最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/openclaw/openclaw.git</span><br><span class="line"><span class="built_in">cd</span> openclaw</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一键启动（使用默认配置）</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看运行状态</span></span><br><span class="line">docker-compose ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问 Web 管理界面</span></span><br><span class="line">open http://localhost:18789</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-配置-Telegram-Bot（最简单的接入方式）"><a href="#2-配置-Telegram-Bot（最简单的接入方式）" class="headerlink" title="2. 配置 Telegram Bot（最简单的接入方式）"></a>2. 配置 Telegram Bot（最简单的接入方式）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 在 Telegram 中找到 @BotFather，创建新 Bot</span></span><br><span class="line"><span class="comment"># 2. 获取 Bot Token</span></span><br><span class="line"><span class="comment"># 3. 在 .env 文件中配置</span></span><br><span class="line">TELEGRAM_BOT_TOKEN=1234567890:ABCdefGHIjklMNOpqrsTUVwxyz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 重启服务</span></span><br><span class="line">docker-compose restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 在 Telegram 中找到你的 Bot，发送 /start</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-安装你的第一个-Skill"><a href="#3-安装你的第一个-Skill" class="headerlink" title="3. 安装你的第一个 Skill"></a>3. 安装你的第一个 Skill</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一：通过 ClawHub 安装社区技能</span></span><br><span class="line"><span class="comment"># 在聊天中发送：</span></span><br><span class="line">&gt; 帮我安装天气查询技能</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：手动安装</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.openclaw/workspace/skills/my-skill</span><br><span class="line"><span class="built_in">cd</span> ~/.openclaw/workspace/skills/my-skill</span><br><span class="line"><span class="built_in">touch</span> SKILL.md</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-编写一个极简-Skill"><a href="#4-编写一个极简-Skill" class="headerlink" title="4. 编写一个极简 Skill"></a>4. 编写一个极简 Skill</h3><p>创建文件 <code>~/.openclaw/workspace/skills/hello-world/SKILL.md</code>：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">name: hello-world</span><br><span class="line">description: 一个简单的问候技能，用于演示 Skill 开发</span><br><span class="line">metadata:</span><br><span class="line">  openclaw:</span><br><span class="line"><span class="section">    emoji: &quot;👋&quot;</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 使用说明</span></span><br><span class="line"></span><br><span class="line">当用户说&quot;你好&quot;或&quot;Hello&quot;时，用热情的方式回应，</span><br><span class="line">并告诉用户当前时间和今天是星期几。</span><br><span class="line"></span><br><span class="line"><span class="section">## 示例</span></span><br><span class="line"></span><br><span class="line">用户：你好</span><br><span class="line">助手：👋 你好！现在是 2026 年 3 月 9 日，星期一，下午 3 点。</span><br><span class="line">今天有什么我可以帮你的吗？</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-尝试常用指令"><a href="#5-尝试常用指令" class="headerlink" title="5. 尝试常用指令"></a>5. 尝试常用指令</h3><p>在聊天应用中发送以下指令体验 OpenClaw：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 任务管理</span><br><span class="line">&gt; 帮我列出今天需要完成的任务</span><br><span class="line"></span><br><span class="line"># 代码开发</span><br><span class="line">&gt; 帮我查看项目 ~/my-project 的目录结构，并分析主要模块</span><br><span class="line"></span><br><span class="line"># 文件操作</span><br><span class="line">&gt; 把桌面上所有的截图文件整理到 ~/Pictures/Screenshots 文件夹</span><br><span class="line"></span><br><span class="line"># 信息查询</span><br><span class="line">&gt; 搜索最近关于 AI Agent 的新闻，总结三条最重要的</span><br><span class="line"></span><br><span class="line"># 定时任务</span><br><span class="line">&gt; 每天早上 8 点提醒我喝水，并发送今日天气</span><br></pre></td></tr></table></figure>
-
-<h1 id="进阶知识"><a href="#进阶知识" class="headerlink" title="进阶知识"></a>进阶知识</h1><h2 id="OpenClaw-的技术亮点"><a href="#OpenClaw-的技术亮点" class="headerlink" title="OpenClaw 的技术亮点"></a>OpenClaw 的技术亮点</h2><h3 id="1-子智能体并行执行"><a href="#1-子智能体并行执行" class="headerlink" title="1. 子智能体并行执行"></a>1. 子智能体并行执行</h3><p>OpenClaw 支持<strong>子 Agent 模式</strong>，将复杂任务分解后并行处理：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主 Agent 接收任务</span><br><span class="line">    ├── 子 Agent 1：爬取竞品 A 的价格数据</span><br><span class="line">    ├── 子 Agent 2：爬取竞品 B 的价格数据</span><br><span class="line">    └── 子 Agent 3：爬取竞品 C 的价格数据</span><br><span class="line">主 Agent 汇总结果，生成对比报告</span><br></pre></td></tr></table></figure>
-
-<p>每个子 Agent 在隔离环境中运行，互不干扰，大幅提升复杂任务的执行效率。</p>
-<h3 id="2-浏览器自动化的创新实现"><a href="#2-浏览器自动化的创新实现" class="headerlink" title="2. 浏览器自动化的创新实现"></a>2. 浏览器自动化的创新实现</h3><p>OpenClaw 采用 <strong>Playwright 语义快照技术</strong>，相比传统截图方式：</p>
-<ul>
-<li><strong>传统方式</strong>：截图 → 发送给 LLM → 消耗大量 Token</li>
-<li><strong>语义快照</strong>：提取页面语义结构 → 发送给 LLM → Token 消耗降低 80%</li>
-</ul>
-<p>这使得浏览器自动化任务的成本大幅降低，可以持续运行而不担心 API 费用爆炸。</p>
-<h3 id="3-自我进化的-Skills-系统"><a href="#3-自我进化的-Skills-系统" class="headerlink" title="3. 自我进化的 Skills 系统"></a>3. 自我进化的 Skills 系统</h3><p>OpenClaw 最独特的能力之一是<strong>自主编写新技能</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户：帮我创建一个自动整理每日邮件的技能</span><br><span class="line"></span><br><span class="line">OpenClaw 执行过程：</span><br><span class="line">1. 分析需求，设计技能架构</span><br><span class="line">2. 编写 SKILL.md 和相关脚本</span><br><span class="line">3. 测试技能是否正常工作</span><br><span class="line">4. 保存为可复用的技能模块</span><br><span class="line">5. 下次遇到类似需求时直接调用</span><br></pre></td></tr></table></figure>
-
-<p>这意味着 OpenClaw 会随着使用时间的增长变得越来越”聪明”，越来越了解用户的需求。</p>
-<h3 id="4-多模型动态切换"><a href="#4-多模型动态切换" class="headerlink" title="4. 多模型动态切换"></a>4. 多模型动态切换</h3><p>OpenClaw 支持根据任务类型自动选择最优模型：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模型路由配置示例</span></span><br><span class="line"><span class="attr">model_routing:</span></span><br><span class="line">  <span class="attr">code_tasks:</span> <span class="string">&quot;claude-opus-4-5&quot;</span> <span class="comment"># 代码任务用 Claude</span></span><br><span class="line">  <span class="attr">quick_queries:</span> <span class="string">&quot;gpt-4o-mini&quot;</span> <span class="comment"># 快速查询用轻量模型</span></span><br><span class="line">  <span class="attr">image_analysis:</span> <span class="string">&quot;gemini-pro-vision&quot;</span> <span class="comment"># 图像分析用 Gemini</span></span><br><span class="line">  <span class="attr">local_tasks:</span> <span class="string">&quot;ollama/llama3&quot;</span> <span class="comment"># 隐私任务用本地模型</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="技术挑战和未来展望"><a href="#技术挑战和未来展望" class="headerlink" title="技术挑战和未来展望"></a>技术挑战和未来展望</h2><h3 id="当前挑战"><a href="#当前挑战" class="headerlink" title="当前挑战"></a>当前挑战</h3><ol>
-<li><strong>安全风险</strong>：OS 级权限可能导致误操作，需谨慎配置</li>
-<li><strong>提示词注入</strong>：恶意指令可能诱导 AI 执行未授权操作</li>
-<li><strong>成本控制</strong>：复杂任务的多轮 LLM 调用成本较高</li>
-<li><strong>稳定性</strong>：长时间运行的自动化任务可能因网络或 API 问题中断</li>
-</ol>
-<h3 id="未来发展方向"><a href="#未来发展方向" class="headerlink" title="未来发展方向"></a>未来发展方向</h3><ul>
-<li><strong>多 Agent 协作</strong>：多个 OpenClaw 实例协同完成企业级任务</li>
-<li><strong>更强的规划能力</strong>：更准确地分解和执行超长任务链</li>
-<li><strong>企业版功能</strong>：权限管理、审计日志、团队协作</li>
-<li><strong>边缘计算</strong>：在树莓派等低功耗设备上运行，实现真正的本地 AI</li>
-<li><strong>Skills 生态繁荣</strong>：ClawHub 技能市场持续扩展，覆盖更多垂直场景</li>
-</ul>
-<h2 id="OpenClaw-在-AI-Agent-生态中的位置"><a href="#OpenClaw-在-AI-Agent-生态中的位置" class="headerlink" title="OpenClaw 在 AI Agent 生态中的位置"></a>OpenClaw 在 AI Agent 生态中的位置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[代码补全&lt;br/&gt;GitHub Copilot] --&gt; B[AI 编辑器&lt;br/&gt;Cursor / Windsurf]</span><br><span class="line">    B --&gt; C[终端 Agent&lt;br/&gt;Claude Code]</span><br><span class="line">    C --&gt; D[全能 Agent&lt;br/&gt;OpenClaw]</span><br><span class="line">    D --&gt; E[企业 Agent&lt;br/&gt;Devin]</span><br><span class="line"></span><br><span class="line">    style A fill:#e3f2fd</span><br><span class="line">    style B fill:#e8f5e9</span><br><span class="line">    style C fill:#fff3e0</span><br><span class="line">    style D fill:#f3e5f5</span><br><span class="line">    style E fill:#fce4ec</span><br></pre></td></tr></table></figure>
-
-<p>OpenClaw 处于”全能 Agent”这一层级，是目前<strong>覆盖范围最广、隐私保护最好</strong>的开源 AI Agent：</p>
-<ul>
-<li>比 Claude Code 更全面（不只是编程，还有生活自动化）</li>
-<li>比 Devin 更开放（完全开源，支持本地部署）</li>
-<li>比传统 AI 助手更自主（主动执行，而非被动响应）</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>OpenClaw 代表了 AI Agent 从”专业工具”到”全能助理”的进化方向。关键要点：</p>
-<ol>
-<li><strong>核心定位</strong>：开源、本地优先的全能个人 AI 智能体，通过聊天应用远程操控</li>
-<li><strong>技术架构</strong>：Gateway + Agent + Skills + Memory 四层架构，模块化设计</li>
-<li><strong>核心能力</strong>：文件操作、代码开发、浏览器自动化、主动行为、自我进化</li>
-<li><strong>应用场景</strong>：个人效率、代码开发、智能家居、商业自动化等全场景覆盖</li>
-<li><strong>独特优势</strong>：完全开源、数据本地私有、多模型支持、Skills 生态丰富</li>
-</ol>
-<p>掌握 OpenClaw 的使用方式和工作原理，将帮助你打造一个真正属于自己的 AI 数字员工，实现 7×24 小时的智能自动化。</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">OpenClaw GitHub 仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai">OpenClaw 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://hub.openclaw.ai">ClawHub 技能市场</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cloud.tencent.com/developer/article/2627190">OpenClaw 架构深度解析 - 腾讯云</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/suiyingy/article/details/158012338">OpenClaw Skills 开发指南 - CSDN</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.03629">ReAct 论文原文</a></li>
+<li><a target="_blank" rel="noopener" href="https://python.langchain.com/docs/modules/agents/agent_types/react">LangChain ReAct Agent 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/function-calling">OpenAI Function Calling 文档</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -755,7 +543,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/daily/23.html" title="5分钟AI，每天搞懂一个知识点(23) - OpenClaw Agent" target="_blank">https://www.qborfy.com/ailearn/daily/23.html</a>
+          <a href="https://www.qborfy.com/ailearn/daily/23.html" title="5分钟AI，每天搞懂一个知识点 - ReAct" target="_blank">https://www.qborfy.com/ailearn/daily/23.html</a>
         </li>
         
         <li>
@@ -852,18 +640,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/openclaw/00.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ailearn/daily/24.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          普通人也能用好 OpenClaw（龙虾）(0) —— 系列介绍
+          5分钟AI，每天搞懂一个知识点(24) - Reflection
         
       </div>
     </a>
   
   
-    <a href="/ailearn/daily/22.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(22) - Claude Code</div>
+    <a href="/ailearn/daily/21.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(21) - Code Agent</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -890,7 +678,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">OpenClaw 的核心定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%89%B9%E5%BE%81%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.</span> <span class="toc-text">关键特征对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E7%9A%84%E5%9B%9B%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">OpenClaw 的四大核心架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gateway%EF%BC%88%E7%BD%91%E5%85%B3%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">Gateway（网关）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Agent%EF%BC%88%E6%99%BA%E8%83%BD%E4%BD%93%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">Agent（智能体）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Skills%EF%BC%88%E6%8A%80%E8%83%BD%EF%BC%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">Skills（技能）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory%EF%BC%88%E8%AE%B0%E5%BF%86%EF%BC%89"><span class="toc-number">1.3.4.</span> <span class="toc-text">Memory（记忆）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A"><span class="toc-number">2.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">OpenClaw 的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%84%E4%BB%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">关键组件深度解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Skills-%E7%B3%BB%E7%BB%9F%EF%BC%9AOpenClaw-%E7%9A%84%E8%B6%85%E8%83%BD%E5%8A%9B%E6%9D%A5%E6%BA%90"><span class="toc-number">2.2.1.</span> <span class="toc-text">Skills 系统：OpenClaw 的超能力来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%EF%BC%9A%E8%AE%A9-AI-%E7%9C%9F%E6%AD%A3%E2%80%9D%E8%AE%A4%E8%AF%86%E2%80%9D%E4%BD%A0"><span class="toc-number">2.2.2.</span> <span class="toc-text">记忆系统：让 AI 真正”认识”你</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%8A%A8%E8%A1%8C%E4%B8%BA%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%BB%8E%E8%A2%AB%E5%8A%A8%E5%93%8D%E5%BA%94%E5%88%B0%E4%B8%BB%E5%8A%A8%E6%89%A7%E8%A1%8C"><span class="toc-number">2.2.3.</span> <span class="toc-text">主动行为机制：从被动响应到主动执行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">OpenClaw 的部署方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-%E9%83%A8%E7%BD%B2%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">Docker 部署（推荐）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.2.</span> <span class="toc-text">环境变量配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">经典案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.1.</span> <span class="toc-text">实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%AA%E4%BA%BA%E6%95%88%E7%8E%87%E5%8A%A9%E7%90%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">1. 个人效率助理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">3.1.2.</span> <span class="toc-text">2. 自动化代码开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6"><span class="toc-number">3.1.3.</span> <span class="toc-text">3. 智能家居控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%95%86%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9B%91%E6%8E%A7"><span class="toc-number">3.1.4.</span> <span class="toc-text">4. 商业自动化监控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E4%B8%8E%E5%90%8C%E7%B1%BB%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94"><span class="toc-number">3.2.</span> <span class="toc-text">OpenClaw 与同类工具对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E8%AF%95%E8%AF%95%EF%BC%81"><span class="toc-number">4.</span> <span class="toc-text">动手试试！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C-OpenClaw-%E8%83%BD%E5%8A%9B"><span class="toc-number">4.1.</span> <span class="toc-text">体验 OpenClaw 能力</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2-OpenClaw"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. 快速部署 OpenClaw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE-Telegram-Bot%EF%BC%88%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%8E%A5%E5%85%A5%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 配置 Telegram Bot（最简单的接入方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA-Skill"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. 安装你的第一个 Skill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E6%9E%81%E7%AE%80-Skill"><span class="toc-number">4.1.4.</span> <span class="toc-text">4. 编写一个极简 Skill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B0%9D%E8%AF%95%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">4.1.5.</span> <span class="toc-text">5. 尝试常用指令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E7%9F%A5%E8%AF%86"><span class="toc-number">5.</span> <span class="toc-text">进阶知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%AE%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">OpenClaw 的技术亮点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93%E5%B9%B6%E8%A1%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">5.1.1.</span> <span class="toc-text">1. 子智能体并行执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9A%84%E5%88%9B%E6%96%B0%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.1.2.</span> <span class="toc-text">2. 浏览器自动化的创新实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%87%AA%E6%88%91%E8%BF%9B%E5%8C%96%E7%9A%84-Skills-%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.1.3.</span> <span class="toc-text">3. 自我进化的 Skills 系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%9A%E6%A8%A1%E5%9E%8B%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2"><span class="toc-number">5.1.4.</span> <span class="toc-text">4. 多模型动态切换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%8C%91%E6%88%98%E5%92%8C%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">5.2.</span> <span class="toc-text">技术挑战和未来展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%8C%91%E6%88%98"><span class="toc-number">5.2.1.</span> <span class="toc-text">当前挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-number">5.2.2.</span> <span class="toc-text">未来发展方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenClaw-%E5%9C%A8-AI-Agent-%E7%94%9F%E6%80%81%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">5.3.</span> <span class="toc-text">OpenClaw 在 AI Agent 生态中的位置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A"><span class="toc-number">2.</span> <span class="toc-text">怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91"><span class="toc-number">2.1.</span> <span class="toc-text">核心逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.2.</span> <span class="toc-text">提示词设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98"><span class="toc-number">2.3.</span> <span class="toc-text">完整实战</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9D%84%EF%B8%8F-%E5%86%B7%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">❄️ 冷知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -921,7 +709,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Mon Mar 09 2026 15:53:14 GMT+0800',
+  	id: 'Tue Mar 24 2026 20:00:00 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })
@@ -1158,6 +946,34 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OpenClaw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Harness Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AI Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Build & Verify</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Context Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Multi-Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">未来展望</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
               </li>
             
             <div class="clearfix"></div>

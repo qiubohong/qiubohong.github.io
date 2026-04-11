@@ -12,21 +12,21 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  这期聊一个在微调圈子里救命级的技术 —— PEFT（Parameter-Efficient Fine-Tuning）。  一句话概括：PEFT 就是那种”花小钱办大事”的技术 —— 只动一小部分参数，效果却能接近全量微调。  说实话，我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 409">
+  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天聊一个在微调圈子里救命级的技术 —— PEFT（Parameter-Efficient Fine-Tuning）。  一句话核心：PEFT 就是那种”花小钱办大事”的技术 —— 只动一小部分参数（&lt;1%），效果却能接近全量微调。  图：PEFT 核心概念 —— 冻结大部分参数，只训练少量适配器参数（&lt;1%） 我刚开始接触大">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟AI，每天搞懂一个知识点(31) - PEFT 参数高效微调">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/daily/31.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  这期聊一个在微调圈子里救命级的技术 —— PEFT（Parameter-Efficient Fine-Tuning）。  一句话概括：PEFT 就是那种”花小钱办大事”的技术 —— 只动一小部分参数，效果却能接近全量微调。  说实话，我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 409">
+<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  今天聊一个在微调圈子里救命级的技术 —— PEFT（Parameter-Efficient Fine-Tuning）。  一句话核心：PEFT 就是那种”花小钱办大事”的技术 —— 只动一小部分参数（&lt;1%），效果却能接近全量微调。  图：PEFT 核心概念 —— 冻结大部分参数，只训练少量适配器参数（&lt;1%） 我刚开始接触大">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/31/peft-architecture.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/daily/31/peft-concept.png">
 <meta property="article:published_time" content="2026-03-31T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-24T06:50:19.510Z">
+<meta property="article:modified_time" content="2026-03-27T14:25:24.775Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="5分钟AI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/daily/31/peft-architecture.png">
+<meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/daily/31/peft-concept.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -394,7 +394,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">6.1k字</span>
+      <span class="post-count">2k字</span>
     </span>
   </span>
 
@@ -403,7 +403,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">25分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -417,72 +417,35 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>这期聊一个在微调圈子里<strong>救命级</strong>的技术 —— <strong>PEFT（Parameter-Efficient Fine-Tuning）</strong>。</p>
+<p>今天聊一个在微调圈子里<strong>救命级</strong>的技术 —— <strong>PEFT（Parameter-Efficient Fine-Tuning）</strong>。</p>
 <blockquote>
-<p>一句话概括：<strong>PEFT</strong> 就是那种”花小钱办大事”的技术 —— 只动一小部分参数，效果却能接近全量微调。</p>
+<p>一句话核心：<strong>PEFT</strong> 就是那种”花小钱办大事”的技术 —— 只动一小部分参数（&lt;1%），效果却能接近全量微调。</p>
 </blockquote>
-<p>说实话，我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 4090 都咬牙买的，你让我去哪搞 140GB？</p>
-<p>直到发现了 PEFT，就像发现了新大陆。它就像是给运动员<strong>戴了个特制手套</strong>，而不是重新训练整个身体 —— 成本低得多，但打比赛一样好使。</p>
-<p>最实在的好处是啥？显存从几百 GB 降到二三十 GB，训练时间从几天变成几小时，甚至你手里的 4090 都能跑 70 亿参数的模型。个人开发者终于不用看着大厂流眼泪了。</p>
-<p>说白了，<strong>PEFT 让每个人都有机会玩转大模型微调</strong>。</p>
+<p><img src="/assets/img/ailearn/daily/31/peft-concept.png" alt="PEFT 参数高效微调概念图"><br><em>图：PEFT 核心概念 —— 冻结大部分参数，只训练少量适配器参数（&lt;1%）</em></p>
+<p>我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 4090 都是咬牙买的。直到发现了 PEFT，就像是给自行车<strong>装个辅助轮</strong> —— 不用重新训练整个身体，成本低得多，但一样能骑得稳。</p>
+<p>最实在的好处是啥？显存从几百 GB 降到二三十 GB，训练时间从几天变成几小时，你手里的 4090 都能跑 70 亿参数的模型。个人开发者终于不用看着大厂流眼泪了。</p>
 <span id="more"></span>
 
-<h1 id="先从原理说起"><a href="#先从原理说起" class="headerlink" title="先从原理说起"></a>先从原理说起</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">config:</span><br><span class="line">  layout: elk</span><br><span class="line">  look: neo</span><br><span class="line">---</span><br><span class="line">flowchart TB</span><br><span class="line"> subgraph a[&quot;神经网络&quot;]</span><br><span class="line">        a1[&quot;激活函数&quot;]</span><br><span class="line">        a2[&quot;损失函数&quot;]</span><br><span class="line">        a3[&quot;神经元计算&quot;]</span><br><span class="line">  end</span><br><span class="line"> subgraph D[&quot;Transformer&quot;]</span><br><span class="line">        d1[&quot;Encoder&quot;]</span><br><span class="line">        d2[&quot;Self-Attendtion&quot;]</span><br><span class="line">        d3[&quot;Decoder&quot;]</span><br><span class="line">  end</span><br><span class="line">    0[&quot;人工智能&quot;] --&gt; 1[&quot;算法&quot;] &amp; 2[&quot;应用&quot;]</span><br><span class="line">    1 --&gt; a &amp; b[&quot;机器学习&quot;]</span><br><span class="line">    b --&gt; b1[&quot;监督学习&quot;] &amp; b2[&quot;无监督学习&quot;] &amp; b3[&quot;强化学习&quot;]</span><br><span class="line">    a --&gt; A[&quot;深度学习&quot;]</span><br><span class="line">    A --&gt; B[&quot;卷积网络 CNN&quot;] &amp; C[&quot;循环网络 RNN&quot;] &amp; D</span><br><span class="line">    D --&gt; E[&quot;LLM大模型&quot;]</span><br><span class="line">    E --&gt; e1[&quot;Token分词&quot;] &amp; e2[&quot;Embedding嵌入编码&quot;] &amp; e3[&quot;Transformer 层叠处理&quot;] &amp; e4[&quot;Out Token&quot;] &amp; F[&quot;Function Calling&quot;] &amp; F1[&quot;MCP协议&quot;]</span><br><span class="line">    e1 --&gt; e11[&quot;Tokenizer分词策略&quot;] &amp; e12[&quot;Token计费规则&quot;]</span><br><span class="line">    e2 --&gt; e21[&quot;词嵌入（Word Embeddings）&quot;] &amp; e22[&quot;嵌入层（Embedding Layer）&quot;] &amp; e23[&quot;Transformer编码器&quot;] &amp; e24[&quot;池化层&quot;] &amp; e25[&quot;归一化输出&quot;]</span><br><span class="line">    F1 --&gt; f11[&quot;MCP Server&quot;] &amp; f12[&quot;MCP Protocol&quot;] &amp; f13[&quot;MCP Client&quot;]</span><br><span class="line">    2 --&gt; 20[&quot;AI Agent&quot;] &amp; 21[&quot;场景&amp;产品&quot;] &amp; 22[&quot;开发框架&quot;]</span><br><span class="line">    20 --&gt; 201[&quot;单向无记忆工作流&quot;] &amp; 202[&quot;循环可中断记忆&quot;] &amp; 203[&quot;通用多模态Agent&quot;]</span><br><span class="line">    21 --&gt; 211[&quot;AI编程&quot;] &amp; 212[&quot;AI智能客服|助手&quot;]</span><br><span class="line">    211 --&gt; 211a[&quot;Claude&quot;] &amp; 211b[&quot;Cursor&quot;] &amp; 211c[&quot;Codex&quot;] &amp; 211d[&quot;CodeBuddy(腾讯)&quot;] &amp; 211e[&quot;Qwen Code(阿里)&quot;] &amp; 221f[&quot;Gemini CLI&quot;] &amp; 221g[&quot;Trae(抖音)&quot;]</span><br><span class="line">    211a --&gt; 211a1[&quot;SKILL技能&quot;] --&gt; 211a11[&quot;SKILL.md&quot;] &amp; 211a12[&quot;resource &amp; scripts&quot;]</span><br><span class="line">    212 --&gt; 212a[&quot;意图识别&quot;] &amp; 212b[&quot;ReQuery&quot;] &amp; 212c[&quot;RAG&quot;] &amp; 212d[&quot;Embedding&quot;] &amp; 212e[&quot;Reranker&quot;]</span><br><span class="line">    b1 --&gt; b11[&quot;Fine-tuning&quot;] --&gt; b111[&quot;全量微调&quot;] &amp; b112[&quot;PEFT参数高效微调&quot;]</span><br><span class="line">    b112 --&gt; b1121[&quot;LoRA&quot;] &amp; b1122[&quot;Adapter&quot;] &amp; b1123[&quot;Prefix Tuning&quot;] &amp; b1124[&quot;Prompt Tuning&quot;]</span><br><span class="line">    22 --&gt; 221[&quot;Dify(可视化)&quot;] &amp; 222[&quot;Coze(可视化)&quot;] &amp; 223[&quot;n8n(可视化)&quot;] &amp; 224[&quot;Langchain&quot;] &amp; 225[&quot;CrewAI&quot;] &amp; 226[&quot;LlamaIndex&quot;]</span><br><span class="line"></span><br><span class="line">    0@&#123; shape: rounded&#125;</span><br><span class="line">     b112:::orange</span><br><span class="line">    classDef orange fill:#F9B572,stroke:#FF772E</span><br></pre></td></tr></table></figure>
+<h1 id="它到底是什么"><a href="#它到底是什么" class="headerlink" title="它到底是什么"></a>它到底是什么</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 全量微调[&quot;🔴 全量微调：更新所有参数&quot;]</span><br><span class="line">        A1[&quot;预训练模型&lt;br/&gt;70亿参数&quot;] --&gt; A2[&quot;训练数据&quot;]</span><br><span class="line">        A2 --&gt; A3[&quot;更新全部参数&lt;br/&gt;70亿参数&quot;]</span><br><span class="line">        A3 --&gt; A4[&quot;微调后模型&lt;br/&gt;70亿参数&quot;]</span><br><span class="line">        A5[&quot;显存需求: 140GB+&quot;] -.-&gt; A3</span><br><span class="line">        A6[&quot;训练时间: 几天&quot;] -.-&gt; A3</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph PEFT微调[&quot;🟢 PEFT微调：只训练少量参数&quot;]</span><br><span class="line">        B1[&quot;预训练模型&lt;br/&gt;70亿参数&lt;br/&gt;🔒 冻结&quot;] --&gt; B2[&quot;训练数据&quot;]</span><br><span class="line">        B2 --&gt; B3[&quot;训练适配器&lt;br/&gt;数百万参数&lt;br/&gt;🔥 可训练&quot;]</span><br><span class="line">        B3 --&gt; B4[&quot;微调后模型&lt;br/&gt;70亿 + 数百万&lt;br/&gt;合并使用&quot;]</span><br><span class="line">        B5[&quot;显存需求: 20GB&quot;] -.-&gt; B3</span><br><span class="line">        B6[&quot;训练时间: 几小时&quot;] -.-&gt; B3</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A3 fill:#ffcdd2,stroke:#d32f2f</span><br><span class="line">    style B3 fill:#c8e6c9,stroke:#388e3c</span><br><span class="line">    style 全量微调 fill:#ffebee,stroke:#c62828</span><br><span class="line">    style PEFT微调 fill:#e8f5e9,stroke:#2e7d32</span><br></pre></td></tr></table></figure>
 
-<p>通过一张图来理解 PEFT 的工作原理：</p>
-<p><img src="/assets/img/ailearn/daily/31/peft-architecture.png" alt="PEFT 工作原理对比图"><br><em>图：全量微调 vs PEFT 参数对比 —— PEFT 只训练少量参数适配器，大幅降低资源消耗</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 全量微调[&quot;🔴 全量微调：更新所有参数&quot;]</span><br><span class="line">        A1[&quot;预训练模型&lt;br/&gt;70亿参数&quot;] --&gt; A2[&quot;训练数据&quot;]</span><br><span class="line">        A2 --&gt; A3[&quot;更新全部参数&lt;br/&gt;70亿参数&quot;]</span><br><span class="line">        A3 --&gt; A4[&quot;微调后模型&lt;br/&gt;70亿参数&quot;]</span><br><span class="line">        A5[&quot;显存需求: 140GB+&quot;] -.-&gt; A3</span><br><span class="line">        A6[&quot;训练时间: 几天&quot;] -.-&gt; A3</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph PEFT微调[&quot;🟢 PEFT微调：只训练少量参数&quot;]</span><br><span class="line">        B1[&quot;预训练模型&lt;br/&gt;70亿参数&lt;br/&gt;🔒 冻结&quot;] --&gt; B2[&quot;训练数据&quot;]</span><br><span class="line">        B2 --&gt; B3[&quot;训练适配器&lt;br/&gt;数百万参数&lt;br/&gt;🔥 可训练&quot;]</span><br><span class="line">        B3 --&gt; B4[&quot;微调后模型&lt;br/&gt;70亿 + 数百万&lt;br/&gt;合并使用&quot;]</span><br><span class="line">        B5[&quot;显存需求: 20GB&quot;] -.-&gt; B3</span><br><span class="line">        B6[&quot;训练时间: 几小时&quot;] -.-&gt; B3</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A3 fill:#ffcdd2,stroke:#d32f2f</span><br><span class="line">    style B3 fill:#c8e6c9,stroke:#388e3c</span><br><span class="line">    style 全量微调 fill:#ffebee,stroke:#c62828</span><br><span class="line">    style PEFT微调 fill:#e8f5e9,stroke:#2e7d32</span><br></pre></td></tr></table></figure>
-
-<p><strong>PEFT 到底咋工作的？</strong></p>
-<p>说白了就一句话：<strong>大部分参数锁死不动，只训练一小部分新加的参数</strong>。</p>
-<p>来对比一下两种方案：</p>
-<p><strong>全量微调（Full Fine-tuning）</strong></p>
-<p>这个大家都知道了，就是把模型所有参数都重新训练一遍。效果确实最好，但代价也大：</p>
+<p>说白了就一句话：<strong>大部分参数锁死不动，只在里面插入一些小小的”适配器”参数来训练</strong>。</p>
 <ul>
-<li>需要专业 GPU 集群（A100 80GB 至少 4-8 张）</li>
-<li>容易把模型原来的通用能力忘光（灾难性遗忘）</li>
-<li>训练一次动辄几天，还很容易训崩</li>
+<li><strong>全量微调</strong>：把模型 70 亿参数全改了，需要 140GB+ 显存，动不动就训崩</li>
+<li><strong>PEFT</strong>：只训几百万参数（&lt;1%），显存降到 20GB，4090 都能跑</li>
 </ul>
-<p><strong>PEFT 微调</strong></p>
-<p>这个就聪明多了：</p>
-<ul>
-<li>预训练模型的大部分参数保持原样（冻结）</li>
-<li>只在里面插入一些小小的”适配器”参数来训练</li>
-<li>显存占用直接砍掉 80% 以上</li>
-<li>原来的通用能力还保留着</li>
-<li>最关键的是，这些适配器可以单独保存、单独加载、还能多个任务换来换去用</li>
-</ul>
-<p><strong>举个生活中的例子</strong></p>
-<p>全量微调就像你为了学骑自行车，把整个身体重新训练一遍。PEFT 呢？就像是给自行车装个辅助轮 —— 自行车还是那辆自行车，你只需要学会怎么用辅助轮保持平衡就行了。辅助轮可以装可以拆，还能根据不同场景换不同款式。</p>
-<h2 id="PEFT-有哪些具体方法？"><a href="#PEFT-有哪些具体方法？" class="headerlink" title="PEFT 有哪些具体方法？"></a>PEFT 有哪些具体方法？</h2><p>目前主流的 PEFT 方法有好几种，用的最多的就是 LoRA。我来逐个说说：</p>
-<h3 id="1-LoRA（Low-Rank-Adaptation）—-最常用"><a href="#1-LoRA（Low-Rank-Adaptation）—-最常用" class="headerlink" title="1. LoRA（Low-Rank Adaptation）— 最常用"></a>1. LoRA（Low-Rank Adaptation）— 最常用</h3><p><strong>原理其实很简单</strong></p>
-<p>想象原始模型里有个权重矩阵 W（可以理解成模型做决策的核心部件）。LoRA 的做法是：不把 W 改了，而是在旁边加两个小的矩阵 A 和 B。</p>
+<p>最关键的是，这些适配器可以单独保存、单独加载、多个任务换来换去用 —— 就像给自行车装可拆卸的辅助轮。</p>
+<h2 id="四种主流方法"><a href="#四种主流方法" class="headerlink" title="四种主流方法"></a>四种主流方法</h2><p>目前主流的 PEFT 方法有好几种，用的最多的就是 LoRA。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    subgraph LoRA原理[&quot;LoRA 低秩适配原理&quot;]</span><br><span class="line">        A[&quot;输入 x&quot;] --&gt; B[&quot;原始权重 W&lt;br/&gt;🔒 冻结&quot;]</span><br><span class="line">        A --&gt; C[&quot;低秩矩阵 A&lt;br/&gt;🔥 可训练&quot;]</span><br><span class="line">        C --&gt; D[&quot;低秩矩阵 B&lt;br/&gt;🔥 可训练&quot;]</span><br><span class="line">        B --&gt; E[&quot;输出 h&quot;]</span><br><span class="line">        D --&gt; E</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style B fill:#ffcdd2,stroke:#d32f2f</span><br><span class="line">    style C fill:#c8e6c9,stroke:#388e3c</span><br><span class="line">    style D fill:#c8e6c9,stroke:#388e3c</span><br></pre></td></tr></table></figure>
 
-<p><strong>公式</strong>：<code>h = Wx + BAx</code></p>
-<ul>
-<li>W：原来的大矩阵（保持不变）</li>
-<li>A、B：新加的两个小矩阵（这才是要训练的）</li>
-<li>r：控制 A、B 大小的参数，一般设 8-64</li>
-</ul>
-<p><strong>为啥这样设计？</strong></p>
-<p>假设 W 是 4096×4096 的矩阵，那它有 1600 多万个参数。如果 LoRA 的 r=16，那 A 是 4096×16，B 是 16×4096，加起来只有 13 万个参数 —— <strong>直接少了 99%</strong>！</p>
-<p>而且实践证明，这两个小矩阵就能捕捉到任务所需的大部分信息，效果跟全量微调差不了多少。</p>
-<h3 id="2-Adapter-—-适合多任务"><a href="#2-Adapter-—-适合多任务" class="headerlink" title="2. Adapter — 适合多任务"></a>2. Adapter — 适合多任务</h3><p><strong>原理</strong></p>
-<p>Adapter 是在 Transformer 的每一层中间加一个小型神经网络。你可以把它理解成”插件”，插进去就能用，拔出来也不影响原模型。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph Adapter结构[&quot;Adapter 结构&quot;]</span><br><span class="line">        A[&quot;输入&quot;] --&gt; B[&quot;原始Transformer层&lt;br/&gt;🔒 冻结&quot;]</span><br><span class="line">        B --&gt; C[&quot;Adapter模块&lt;br/&gt;🔥 可训练&lt;br/&gt;下投影 → 激活 → 上投影&quot;]</span><br><span class="line">        C --&gt; D[&quot;残差连接&quot;]</span><br><span class="line">        B --&gt; D</span><br><span class="line">        D --&gt; E[&quot;输出&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style B fill:#ffcdd2,stroke:#d32f2f</span><br><span class="line">    style C fill:#c8e6c9,stroke:#388e3c</span><br></pre></td></tr></table></figure>
-
-<p><strong>适合什么场景？</strong></p>
-<p>如果你有多个任务要处理，Adapter 特别方便。一个基础模型 + 多个 Adapter，换来换去就行了，不用每次都重新训。</p>
-<h3 id="3-Prefix-Tuning-—-适合生成任务"><a href="#3-Prefix-Tuning-—-适合生成任务" class="headerlink" title="3. Prefix Tuning — 适合生成任务"></a>3. Prefix Tuning — 适合生成任务</h3><p><strong>原理</strong></p>
-<p>这个更巧妙 —— 不动模型参数，而是在每层输入前面加一段可训练的”前缀向量”。</p>
-<p>就像是你写作文的时候，先写个开头定调子，后面的内容就跟着这个调子走了。Prefix Tuning 就是让模型学一个”好开头”，引导它生成特定风格的输出。</p>
-<h3 id="4-Prompt-Tuning-—-最简单"><a href="#4-Prompt-Tuning-—-最简单" class="headerlink" title="4. Prompt Tuning — 最简单"></a>4. Prompt Tuning — 最简单</h3><p><strong>原理</strong></p>
-<p>这个最简单粗暴，只训练输入提示词的那部分嵌入向量。</p>
-<p>比如原来你输入”翻译这句话：Hello world”，Prompt Tuning 就是训练模型理解”翻译这句话”这几个字的特殊含义，但模型本身完全不动。</p>
-<p><strong>缺点也很明显</strong>：效果一般，只能做简单的任务调整。好处是训练成本极低，几分钟就能跑完。</p>
-<h2 id="PEFT-vs-全量微调：差在哪？"><a href="#PEFT-vs-全量微调：差在哪？" class="headerlink" title="PEFT vs 全量微调：差在哪？"></a>PEFT vs 全量微调：差在哪？</h2><p>我整理了一张对比表，让你一眼看清楚：</p>
-<table>
+<p><strong>1. LoRA（最常用）</strong></p>
+<p>在原始权重矩阵旁边加两个小的低秩矩阵 A 和 B（<code>h = Wx + BAx</code>）。假设原矩阵 1600 万参数，r=16 时 LoRA 只有 13 万参数 —— <strong>少了 99%</strong>！效果却能接近全量微调。</p>
+<p><strong>2. Adapter（适合多任务）</strong></p>
+<p>在 Transformer 每层中间加一个小型神经网络，像”插件”一样可插拔。一个基础模型 + 多个 Adapter，换着用就行。</p>
+<p><strong>3. Prefix Tuning（适合生成）</strong></p>
+<p>在输入前面加可训练的”前缀向量”，让模型学一个”好开头”，引导生成特定风格。</p>
+<p><strong>4. Prompt Tuning（最简单）</strong></p>
+<p>只训练输入提示词的嵌入向量，训练成本极低，但效果也最一般。</p>
+<h2 id="PEFT-vs-全量微调"><a href="#PEFT-vs-全量微调" class="headerlink" title="PEFT vs 全量微调"></a>PEFT vs 全量微调</h2><table>
 <thead>
 <tr>
 <th><strong>维度</strong></th>
@@ -531,31 +494,14 @@
 <td>资源受限、快速迭代</td>
 </tr>
 </tbody></table>
-<p><strong>说人话就是</strong>：</p>
-<p>全量微调就像重新装修房子 —— 效果好但费时费力费钱；PEFT 就像是换家具、刷墙漆 —— 成本低得多，但也能让房子焕然一新。</p>
-<p>对于我这种个人开发者来说，PEFT 几乎是唯一的选择。我哪有 8 张 A100 啊？但一张 4090 跑 LoRA，照样能把自己的小模型调得服服帖帖的。| 适用场景 | 追求极致效果 | 资源受限、快速迭代 |</p>
-<h1 id="动手实战"><a href="#动手实战" class="headerlink" title="动手实战"></a>动手实战</h1><p>理论讲完了，咱们来点实际的。我准备了两个案例：</p>
-<ol>
-<li><strong>案例 1</strong>：用 LoRA 微调一个医疗问答模型 —— 适合入门，单卡就能跑</li>
-<li><strong>案例 2</strong>：用 QLoRA 在 4090 上微调大模型 —— 显存优化的终极方案</li>
-</ol>
-<p>两个案例都给了完整的代码，你可以直接拿去跑。</p>
-<h2 id="案例-1：用-LoRA-微调医疗问答模型"><a href="#案例-1：用-LoRA-微调医疗问答模型" class="headerlink" title="案例 1：用 LoRA 微调医疗问答模型"></a>案例 1：用 LoRA 微调医疗问答模型</h2><p><strong>我们要干啥？</strong></p>
-<p>拿 Llama-2-7B 模型，用 LoRA 微调一个专门回答医疗问题的助手。给它一个症状描述，它能给出专业的医疗建议（当然，实际使用还是要加免责声明哈）。</p>
-<p><strong>上代码</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1: 安装依赖</span></span><br><span class="line"><span class="comment"># pip install transformers datasets peft accelerate</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> (</span><br><span class="line">    AutoModelForCausalLM,</span><br><span class="line">    AutoTokenizer,</span><br><span class="line">    TrainingArguments,</span><br><span class="line">    Trainer</span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> LoraConfig, get_peft_model, TaskType</span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> Dataset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2: 加载预训练模型和分词器</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🔄 加载基础模型...&quot;</span>)</span><br><span class="line">model_name = <span class="string">&quot;meta-llama/Llama-2-7b-hf&quot;</span>  <span class="comment"># 或其他开源模型</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用4bit量化加载，进一步节省显存</span></span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    model_name,</span><br><span class="line">    torch_dtype=torch.float16,</span><br><span class="line">    device_map=<span class="string">&quot;auto&quot;</span>,  <span class="comment"># 自动分配层到GPU/CPU</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model_name)</span><br><span class="line">tokenizer.pad_token = tokenizer.eos_token  <span class="comment"># 设置填充token</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤3: 配置 LoRA</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;⚙️ 配置 LoRA...&quot;</span>)</span><br><span class="line">lora_config = LoraConfig(</span><br><span class="line">    r=<span class="number">16</span>,                    <span class="comment"># LoRA秩，控制低秩矩阵大小（8-64常用）</span></span><br><span class="line">    lora_alpha=<span class="number">32</span>,          <span class="comment"># 缩放系数，通常设为 2*r</span></span><br><span class="line">    target_modules=[        <span class="comment"># 应用LoRA的层</span></span><br><span class="line">        <span class="string">&quot;q_proj&quot;</span>,           <span class="comment"># Query投影层</span></span><br><span class="line">        <span class="string">&quot;v_proj&quot;</span>,           <span class="comment"># Value投影层</span></span><br><span class="line">        <span class="comment"># 可选: &quot;k_proj&quot;, &quot;o_proj&quot;, &quot;gate_proj&quot;, &quot;up_proj&quot;, &quot;down_proj&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    lora_dropout=<span class="number">0.05</span>,      <span class="comment"># Dropout率，防止过拟合</span></span><br><span class="line">    bias=<span class="string">&quot;none&quot;</span>,            <span class="comment"># 是否训练偏置项</span></span><br><span class="line">    task_type=TaskType.CAUSAL_LM,  <span class="comment"># 任务类型：因果语言模型</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用 LoRA 配置到模型</span></span><br><span class="line">model = get_peft_model(model, lora_config)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看可训练参数</span></span><br><span class="line">model.print_trainable_parameters()</span><br><span class="line"><span class="comment"># 输出示例:</span></span><br><span class="line"><span class="comment"># trainable params: 8,388,608 || all params: 6,771,970,048 || trainable%: 0.1238</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤4: 准备训练数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📊 准备训练数据...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 医疗问答示例数据</span></span><br><span class="line">train_data = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;instruction&quot;</span>: <span class="string">&quot;请回答以下医疗问题&quot;</span>,</span><br><span class="line">        <span class="string">&quot;input&quot;</span>: <span class="string">&quot;头痛伴随恶心是什么原因？&quot;</span>,</span><br><span class="line">        <span class="string">&quot;output&quot;</span>: <span class="string">&quot;头痛伴随恶心可能由多种原因引起：\n1. 偏头痛：常见症状包括单侧头痛、恶心、畏光\n2. 紧张性头痛：压力或疲劳引起\n3. 颅内压增高：需要警惕，建议就医\n4. 感冒或流感：病毒感染\n\n建议：如果症状持续或加重，请及时就医检查。&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;instruction&quot;</span>: <span class="string">&quot;请回答以下医疗问题&quot;</span>,</span><br><span class="line">        <span class="string">&quot;input&quot;</span>: <span class="string">&quot;高血压患者饮食需要注意什么？&quot;</span>,</span><br><span class="line">        <span class="string">&quot;output&quot;</span>: <span class="string">&quot;高血压患者饮食建议：\n1. 低盐饮食：每日盐摄入&lt;6克\n2. 多吃蔬果：富含钾，有助于降压\n3. 限制饮酒：男性&lt;25克/天，女性&lt;15克/天\n4. 减少饱和脂肪：少吃肥肉、油炸食品\n5. 控制体重：BMI保持在18.5-24\n\n请咨询医生制定个性化方案。&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment"># 更多数据...</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">format_prompt</span>(<span class="params">example</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将数据格式化为对话形式&quot;&quot;&quot;</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;### 指令:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;instruction&#x27;</span>]&#125;</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 输入:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;input&#x27;</span>]&#125;</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 回答:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;output&#x27;</span>]&#125;</span>&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;text&quot;</span>: prompt&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据集</span></span><br><span class="line">dataset = Dataset.from_list(train_data)</span><br><span class="line">dataset = dataset.<span class="built_in">map</span>(format_prompt)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤5: 配置训练参数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🎯 配置训练参数...&quot;</span>)</span><br><span class="line">training_args = TrainingArguments(</span><br><span class="line">    output_dir=<span class="string">&quot;./medical_lora_model&quot;</span>,  <span class="comment"># 输出目录</span></span><br><span class="line">    num_train_epochs=<span class="number">3</span>,                 <span class="comment"># 训练轮数</span></span><br><span class="line">    per_device_train_batch_size=<span class="number">4</span>,      <span class="comment"># 每设备批次大小</span></span><br><span class="line">    gradient_accumulation_steps=<span class="number">4</span>,      <span class="comment"># 梯度累积步数（有效批次=4×4=16）</span></span><br><span class="line">    learning_rate=<span class="number">2e-4</span>,                 <span class="comment"># 学习率（LoRA通常用1e-4到2e-4）</span></span><br><span class="line">    warmup_steps=<span class="number">100</span>,                   <span class="comment"># 预热步数</span></span><br><span class="line">    logging_steps=<span class="number">10</span>,                   <span class="comment"># 日志记录频率</span></span><br><span class="line">    save_steps=<span class="number">500</span>,                     <span class="comment"># 保存检查点频率</span></span><br><span class="line">    fp16=<span class="literal">True</span>,                          <span class="comment"># 使用混合精度训练</span></span><br><span class="line">    optim=<span class="string">&quot;adamw_torch&quot;</span>,                <span class="comment"># 优化器</span></span><br><span class="line">    report_to=<span class="string">&quot;none&quot;</span>,                   <span class="comment"># 不使用wandb等报告工具</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤6: 创建训练器并训练</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🚀 开始训练...&quot;</span>)</span><br><span class="line">trainer = Trainer(</span><br><span class="line">    model=model,</span><br><span class="line">    args=training_args,</span><br><span class="line">    train_dataset=dataset,</span><br><span class="line">    data_collator=<span class="keyword">lambda</span> x: &#123;  <span class="comment"># 数据整理函数</span></span><br><span class="line">        <span class="string">&quot;input_ids&quot;</span>: tokenizer(</span><br><span class="line">            [item[<span class="string">&quot;text&quot;</span>] <span class="keyword">for</span> item <span class="keyword">in</span> x],</span><br><span class="line">            padding=<span class="literal">True</span>,</span><br><span class="line">            truncation=<span class="literal">True</span>,</span><br><span class="line">            max_length=<span class="number">512</span>,</span><br><span class="line">            return_tensors=<span class="string">&quot;pt&quot;</span></span><br><span class="line">        )[<span class="string">&quot;input_ids&quot;</span>],</span><br><span class="line">        <span class="string">&quot;labels&quot;</span>: tokenizer(</span><br><span class="line">            [item[<span class="string">&quot;text&quot;</span>] <span class="keyword">for</span> item <span class="keyword">in</span> x],</span><br><span class="line">            padding=<span class="literal">True</span>,</span><br><span class="line">            truncation=<span class="literal">True</span>,</span><br><span class="line">            max_length=<span class="number">512</span>,</span><br><span class="line">            return_tensors=<span class="string">&quot;pt&quot;</span></span><br><span class="line">        )[<span class="string">&quot;input_ids&quot;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始训练</span></span><br><span class="line">trainer.train()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤7: 保存模型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;💾 保存模型...&quot;</span>)</span><br><span class="line">model.save_pretrained(<span class="string">&quot;./medical_lora_adapter&quot;</span>)  <span class="comment"># 只保存LoRA适配器</span></span><br><span class="line">tokenizer.save_pretrained(<span class="string">&quot;./medical_lora_adapter&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;✅ 训练完成！&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>说人话就是：全量微调就像重新装修房子，PEFT 就像是换家具刷墙漆 —— 成本低得多，但一样能让房子焕然一新。</p>
+<p>像我这种个人开发者，PEFT 几乎是唯一的选择。哪有 8 张 A100 啊？但一张 4090 跑 LoRA，照样能把模型调得服服帖帖的。</p>
+<h1 id="动手试试"><a href="#动手试试" class="headerlink" title="动手试试"></a>动手试试</h1><p>下面用 LoRA 微调一个医疗问答模型，单卡就能跑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoModelForCausalLM, AutoTokenizer, TrainingArguments</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> LoraConfig, get_peft_model, TaskType</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 加载预训练模型</span></span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    <span class="string">&quot;meta-llama/Llama-2-7b-hf&quot;</span>,</span><br><span class="line">    torch_dtype=torch.float16,</span><br><span class="line">    device_map=<span class="string">&quot;auto&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 配置 LoRA - 关键步骤！</span></span><br><span class="line">lora_config = LoraConfig(</span><br><span class="line">    r=<span class="number">16</span>,                    <span class="comment"># 秩，控制矩阵大小 (8-64)</span></span><br><span class="line">    lora_alpha=<span class="number">32</span>,          <span class="comment"># 缩放系数 = 2*r</span></span><br><span class="line">    target_modules=[<span class="string">&quot;q_proj&quot;</span>, <span class="string">&quot;v_proj&quot;</span>],  <span class="comment"># 只对这两层加 LoRA</span></span><br><span class="line">    lora_dropout=<span class="number">0.05</span>,</span><br><span class="line">    task_type=TaskType.CAUSAL_LM,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 应用 LoRA - 模型参数自动冻结，只有 LoRA 参数可训练</span></span><br><span class="line">model = get_peft_model(model, lora_config)</span><br><span class="line">model.print_trainable_parameters()</span><br><span class="line"><span class="comment">#输出: trainable params: 8M ||all params: 6.7B || trainable%: 0.12%</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 训练（和正常训练一样）</span></span><br><span class="line">trainer = Trainer(model=model, ...)</span><br><span class="line">trainer.train()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 只保存适配器（几百MB）</span></span><br><span class="line">model.save_pretrained(<span class="string">&quot;./lora_adapter&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p><strong>使用微调后的模型</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> PeftModel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载基础模型和 LoRA 适配器</span></span><br><span class="line">base_model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    model_name,</span><br><span class="line">    torch_dtype=torch.float16,</span><br><span class="line">    device_map=<span class="string">&quot;auto&quot;</span></span><br><span class="line">)</span><br><span class="line">model = PeftModel.from_pretrained(base_model, <span class="string">&quot;./medical_lora_adapter&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并权重（可选，合并后推理更快）</span></span><br><span class="line">model = model.merge_and_unload()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推理测试</span></span><br><span class="line">prompt = <span class="string">&quot;&quot;&quot;### 指令:</span></span><br><span class="line"><span class="string">请回答以下医疗问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 输入:</span></span><br><span class="line"><span class="string">糖尿病患者可以吃水果吗？</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 回答:&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">inputs = tokenizer(prompt, return_tensors=<span class="string">&quot;pt&quot;</span>).to(<span class="string">&quot;cuda&quot;</span>)</span><br><span class="line">outputs = model.generate(</span><br><span class="line">    **inputs,</span><br><span class="line">    max_new_tokens=<span class="number">200</span>,</span><br><span class="line">    temperature=<span class="number">0.7</span>,</span><br><span class="line">    do_sample=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line">response = tokenizer.decode(outputs[<span class="number">0</span>], skip_special_tokens=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(response)</span><br></pre></td></tr></table></figure>
+<h2 id="QLoRA：显存砍到-16GB"><a href="#QLoRA：显存砍到-16GB" class="headerlink" title="QLoRA：显存砍到 16GB"></a>QLoRA：显存砍到 16GB</h2><p>如果你只有 4090 24GB，用 QLoRA：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> BitsAndBytesConfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4-bit 量化配置</span></span><br><span class="line">bnb_config = BitsAndBytesConfig(</span><br><span class="line">    load_in_4bit=<span class="literal">True</span>,              <span class="comment"># 启用4-bit量化</span></span><br><span class="line">    bnb_4bit_quant_type=<span class="string">&quot;nf4&quot;</span>,      <span class="comment"># NF4量化类型</span></span><br><span class="line">    bnb_4bit_use_double_quant=<span class="literal">True</span>, <span class="comment"># 嵌套量化</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载量化后的模型</span></span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    <span class="string">&quot;meta-llama/Llama-2-7b-hf&quot;</span>,</span><br><span class="line">    quantization_config=bnb_config,</span><br><span class="line">    device_map=<span class="string">&quot;auto&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">model = get_peft_model(model, lora_config)  <span class="comment"># 再加 LoRA</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="案例-2：使用-QLoRA（量化-LoRA）进行高效微调"><a href="#案例-2：使用-QLoRA（量化-LoRA）进行高效微调" class="headerlink" title="案例 2：使用 QLoRA（量化 + LoRA）进行高效微调"></a>案例 2：使用 QLoRA（量化 + LoRA）进行高效微调</h2><p><strong>场景描述</strong>：在消费级显卡（如 RTX 4090 24GB）上微调 70 亿参数模型。</p>
-<p><strong>QLoRA 原理</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph QLoRA[&quot;QLoRA 技术架构&quot;]</span><br><span class="line">        A[&quot;4-bit量化模型&lt;br/&gt;🔒 冻结&lt;br/&gt;显存占用减少75%&quot;] --&gt; B[&quot;双量化技术&lt;br/&gt;进一步压缩优化器状态&quot;]</span><br><span class="line">        B --&gt; C[&quot;分页优化器&lt;br/&gt;CPU/GPU自动切换&quot;]</span><br><span class="line">        C --&gt; D[&quot;LoRA适配器&lt;br/&gt;🔥 可训练&lt;br/&gt;正常精度训练&quot;]</span><br><span class="line">        D --&gt; E[&quot;NF4量化&lt;br/&gt;4-bit Normal Float&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A fill:#ffcdd2,stroke:#d32f2f</span><br><span class="line">    style D fill:#c8e6c9,stroke:#388e3c</span><br></pre></td></tr></table></figure>
-
-<p><strong>完整代码实现</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1: 安装依赖</span></span><br><span class="line"><span class="comment"># pip install transformers datasets peft accelerate bitsandbytes</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> (</span><br><span class="line">    AutoModelForCausalLM,</span><br><span class="line">    AutoTokenizer,</span><br><span class="line">    BitsAndBytesConfig,  <span class="comment"># 量化配置</span></span><br><span class="line">    TrainingArguments,</span><br><span class="line">    Trainer</span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> peft <span class="keyword">import</span> LoraConfig, get_peft_model, prepare_model_for_kbit_training</span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> Dataset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2: 配置 4-bit 量化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;⚙️ 配置 4-bit 量化...&quot;</span>)</span><br><span class="line">bnb_config = BitsAndBytesConfig(</span><br><span class="line">    load_in_4bit=<span class="literal">True</span>,                          <span class="comment"># 启用4-bit量化</span></span><br><span class="line">    bnb_4bit_quant_type=<span class="string">&quot;nf4&quot;</span>,                  <span class="comment"># NF4量化类型（推荐）</span></span><br><span class="line">    bnb_4bit_compute_dtype=torch.float16,       <span class="comment"># 计算精度</span></span><br><span class="line">    bnb_4bit_use_double_quant=<span class="literal">True</span>,             <span class="comment"># 嵌套量化，进一步节省显存</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤3: 加载量化模型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🔄 加载量化模型...&quot;</span>)</span><br><span class="line">model_name = <span class="string">&quot;meta-llama/Llama-2-7b-hf&quot;</span></span><br><span class="line"></span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">    model_name,</span><br><span class="line">    quantization_config=bnb_config,  <span class="comment"># 使用量化配置</span></span><br><span class="line">    device_map=<span class="string">&quot;auto&quot;</span>,               <span class="comment"># 自动分配层</span></span><br><span class="line">    trust_remote_code=<span class="literal">True</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备模型用于训练（梯度检查点等）</span></span><br><span class="line">model = prepare_model_for_kbit_training(model)</span><br><span class="line"></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model_name)</span><br><span class="line">tokenizer.pad_token = tokenizer.eos_token</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤4: 配置 LoRA</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;⚙️ 配置 LoRA...&quot;</span>)</span><br><span class="line">lora_config = LoraConfig(</span><br><span class="line">    r=<span class="number">64</span>,               <span class="comment"># 更大的秩，QLoRA可以承受</span></span><br><span class="line">    lora_alpha=<span class="number">16</span>,</span><br><span class="line">    target_modules=[</span><br><span class="line">        <span class="string">&quot;q_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;k_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;v_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;o_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;gate_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;up_proj&quot;</span>,</span><br><span class="line">        <span class="string">&quot;down_proj&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">    lora_dropout=<span class="number">0.05</span>,</span><br><span class="line">    bias=<span class="string">&quot;none&quot;</span>,</span><br><span class="line">    task_type=<span class="string">&quot;CAUSAL_LM&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">model = get_peft_model(model, lora_config)</span><br><span class="line">model.print_trainable_parameters()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤5: 准备数据（与案例1类似）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📊 准备数据...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代码生成示例数据</span></span><br><span class="line">code_data = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;instruction&quot;</span>: <span class="string">&quot;编写一个Python函数&quot;</span>,</span><br><span class="line">        <span class="string">&quot;input&quot;</span>: <span class="string">&quot;计算斐波那契数列的第n项&quot;</span>,</span><br><span class="line">        <span class="string">&quot;output&quot;</span>: <span class="string">&quot;&quot;&quot;def fibonacci(n):</span></span><br><span class="line"><span class="string">    \&quot;\&quot;\&quot;</span></span><br><span class="line"><span class="string">    计算斐波那契数列的第n项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        n: 第n项（从0开始）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        第n项的值</span></span><br><span class="line"><span class="string">    \&quot;\&quot;\&quot;</span></span><br><span class="line"><span class="string">    if n &lt;= 1:</span></span><br><span class="line"><span class="string">        return n</span></span><br><span class="line"><span class="string">    a, b = 0, 1</span></span><br><span class="line"><span class="string">    for _ in range(2, n + 1):</span></span><br><span class="line"><span class="string">        a, b = b, a + b</span></span><br><span class="line"><span class="string">    return b&quot;&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment"># 更多代码示例...</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">format_code_prompt</span>(<span class="params">example</span>):</span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;### 指令:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;instruction&#x27;</span>]&#125;</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 输入:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;input&#x27;</span>]&#125;</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 代码:</span></span><br><span class="line"><span class="string"><span class="subst">&#123;example[<span class="string">&#x27;output&#x27;</span>]&#125;</span>&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;text&quot;</span>: prompt&#125;</span><br><span class="line"></span><br><span class="line">dataset = Dataset.from_list(code_data)</span><br><span class="line">dataset = dataset.<span class="built_in">map</span>(format_code_prompt)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤6: 配置训练（启用更多优化）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🎯 配置训练...&quot;</span>)</span><br><span class="line">training_args = TrainingArguments(</span><br><span class="line">    output_dir=<span class="string">&quot;./code_qlora_model&quot;</span>,</span><br><span class="line">    num_train_epochs=<span class="number">3</span>,</span><br><span class="line">    per_device_train_batch_size=<span class="number">1</span>,      <span class="comment"># QLoRA可以用更大的有效批次</span></span><br><span class="line">    gradient_accumulation_steps=<span class="number">8</span>,      <span class="comment"># 有效批次 = 1×8 = 8</span></span><br><span class="line">    learning_rate=<span class="number">2e-4</span>,</span><br><span class="line">    warmup_ratio=<span class="number">0.03</span>,                  <span class="comment"># 按比例设置预热</span></span><br><span class="line">    logging_steps=<span class="number">10</span>,</span><br><span class="line">    save_strategy=<span class="string">&quot;epoch&quot;</span>,              <span class="comment"># 每轮保存</span></span><br><span class="line">    fp16=<span class="literal">True</span>,</span><br><span class="line">    optim=<span class="string">&quot;paged_adamw_8bit&quot;</span>,           <span class="comment"># 分页优化器，节省显存</span></span><br><span class="line">    group_by_length=<span class="literal">True</span>,               <span class="comment"># 按长度分组，提高效率</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤7: 训练</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;🚀 开始训练...&quot;</span>)</span><br><span class="line">trainer = Trainer(</span><br><span class="line">    model=model,</span><br><span class="line">    args=training_args,</span><br><span class="line">    train_dataset=dataset,</span><br><span class="line">    data_collator=<span class="keyword">lambda</span> x: &#123;</span><br><span class="line">        <span class="string">&quot;input_ids&quot;</span>: tokenizer(</span><br><span class="line">            [item[<span class="string">&quot;text&quot;</span>] <span class="keyword">for</span> item <span class="keyword">in</span> x],</span><br><span class="line">            padding=<span class="literal">True</span>,</span><br><span class="line">            truncation=<span class="literal">True</span>,</span><br><span class="line">            max_length=<span class="number">1024</span>,</span><br><span class="line">            return_tensors=<span class="string">&quot;pt&quot;</span></span><br><span class="line">        )[<span class="string">&quot;input_ids&quot;</span>],</span><br><span class="line">        <span class="string">&quot;labels&quot;</span>: tokenizer(</span><br><span class="line">            [item[<span class="string">&quot;text&quot;</span>] <span class="keyword">for</span> item <span class="keyword">in</span> x],</span><br><span class="line">            padding=<span class="literal">True</span>,</span><br><span class="line">            truncation=<span class="literal">True</span>,</span><br><span class="line">            max_length=<span class="number">1024</span>,</span><br><span class="line">            return_tensors=<span class="string">&quot;pt&quot;</span></span><br><span class="line">        )[<span class="string">&quot;input_ids&quot;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">trainer.train()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤8: 保存（只保存适配器，非常小）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;💾 保存模型...&quot;</span>)</span><br><span class="line">model.save_pretrained(<span class="string">&quot;./code_qlora_adapter&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;✅ QLoRA 训练完成！&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;适配器大小: 约 <span class="subst">&#123;<span class="built_in">sum</span>(p.numel() <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters() <span class="keyword">if</span> p.requires_grad) * <span class="number">2</span> / <span class="number">1024</span> / <span class="number">1024</span>:<span class="number">.2</span>f&#125;</span> MB&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>显存对比</strong>：</p>
 <table>
 <thead>
 <tr>
@@ -584,240 +530,112 @@
 <td>800 万</td>
 </tr>
 </tbody></table>
-<h1 id="一些实战经验"><a href="#一些实战经验" class="headerlink" title="一些实战经验"></a>一些实战经验</h1><p>调了这么多模型，我总结了一些实用经验，希望能帮你少踩坑。</p>
-<h2 id="1-方法怎么选？"><a href="#1-方法怎么选？" class="headerlink" title="1. 方法怎么选？"></a>1. 方法怎么选？</h2><table>
-<thead>
-<tr>
-<th>你的情况</th>
-<th>推荐方法</th>
-<th>原因</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>就想快速验证下想法</td>
-<td>Prompt Tuning</td>
-<td>几分钟跑完，不用折腾</td>
-</tr>
-<tr>
-<td>要做文本生成</td>
-<td>LoRA / QLoRA</td>
-<td>社区最成熟，文档最多</td>
-</tr>
-<tr>
-<td>一个模型干多个活</td>
-<td>Adapter</td>
-<td>切换适配器就行</td>
-</tr>
-<tr>
-<td>只有消费级显卡</td>
-<td>QLoRA</td>
-<td>显存占用最小</td>
-</tr>
-<tr>
-<td>不差钱，追求极致</td>
-<td>LoRA (r=64+)</td>
-<td>参数越多，效果越接近全量</td>
-</tr>
-<tr>
-<td>做翻译、摘要类任务</td>
-<td>Prefix Tuning</td>
-<td>对这类任务特别有效</td>
-</tr>
-</tbody></table>
-<p><strong>我的建议</strong>：新手直接上 LoRA，简单粗暴效果好。等玩熟了再试其他的。</p>
-<h2 id="2-LoRA-参数怎么设？"><a href="#2-LoRA-参数怎么设？" class="headerlink" title="2. LoRA 参数怎么设？"></a>2. LoRA 参数怎么设？</h2><p>LoRA 有几个关键参数，设对了事半功倍，设错了白忙活。</p>
-<p><strong>秩（r）的选择</strong></p>
-<p>r 就是控制 LoRA 那两个小矩阵大小的参数。r 越大，能训练的参数越多，效果越好，但训练也越慢。</p>
-<table>
-<thead>
-<tr>
-<th>模型大小</th>
-<th>任务复杂度</th>
-<th>推荐 r</th>
-<th>推荐 alpha</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7B</td>
-<td>简单任务</td>
-<td>8-16</td>
-<td>16-32</td>
-</tr>
-<tr>
-<td>7B</td>
-<td>复杂任务</td>
-<td>32-64</td>
-<td>64-128</td>
-</tr>
-<tr>
-<td>13B+</td>
-<td>简单任务</td>
-<td>16-32</td>
-<td>32-64</td>
-</tr>
-<tr>
-<td>13B+</td>
-<td>复杂任务</td>
-<td>64-256</td>
-<td>128-512</td>
-</tr>
-</tbody></table>
-<p><strong>我个人的经验</strong>：先设 r=16 跑一遍看看效果，如果欠拟合（loss 不降），再往上加。别一上来就 r=256，训得慢不说，还可能过拟合。</p>
-<p><strong>学习率</strong></p>
-<p>LoRA 的学习率可以设得比全量微调高一些，我一般从 2e-4 开始试：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># LoRA 的学习率</span></span><br><span class="line">lora_lr = <span class="number">2e-4</span>  <span class="comment"># 可以设到全量微调的 10 倍</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全量微调的学习率参考</span></span><br><span class="line">full_finetune_lr = <span class="number">2e-5</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>目标模块</strong></p>
-<p>LoRA 可以应用到 Transformer 的不同层，层数越多效果越好，但显存也占用越多：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小配置（显存紧张时用）</span></span><br><span class="line">target_modules = [<span class="string">&quot;q_proj&quot;</span>, <span class="string">&quot;v_proj&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推荐配置（效果和显存的平衡）</span></span><br><span class="line">target_modules = [<span class="string">&quot;q_proj&quot;</span>, <span class="string">&quot;k_proj&quot;</span>, <span class="string">&quot;v_proj&quot;</span>, <span class="string">&quot;o_proj&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 完整配置（不差钱、追求效果）</span></span><br><span class="line">target_modules = [</span><br><span class="line">    <span class="string">&quot;q_proj&quot;</span>, <span class="string">&quot;k_proj&quot;</span>, <span class="string">&quot;v_proj&quot;</span>, <span class="string">&quot;o_proj&quot;</span>,</span><br><span class="line">    <span class="string">&quot;gate_proj&quot;</span>, <span class="string">&quot;up_proj&quot;</span>, <span class="string">&quot;down_proj&quot;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p><strong>我的经验</strong>：7B 模型用推荐配置（4 个模块）就够了，13B 以上可以考虑完整配置。</p>
-<h2 id="3-常见坑和填坑指南"><a href="#3-常见坑和填坑指南" class="headerlink" title="3. 常见坑和填坑指南"></a>3. 常见坑和填坑指南</h2><p>这些都是我踩过的坑，希望你别再踩了：</p>
+<h1 id="踩坑经验"><a href="#踩坑经验" class="headerlink" title="踩坑经验"></a>踩坑经验</h1><p>我踩过的那些坑，希望你别再踩：</p>
 <table>
 <thead>
 <tr>
 <th>坑</th>
 <th>表现</th>
-<th>原因</th>
 <th>怎么填</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>训练 loss 不降</td>
 <td>训了很久 loss 还是很高</td>
-<td>学习率太小、数据格式有问题</td>
-<td>学习率调到 2e-4，检查数据是不是拼错了</td>
+<td>学习率调到 2e-4，检查数据格式</td>
 </tr>
 <tr>
 <td>过拟合</td>
-<td>训练 loss 降了，验证 loss 反而升了</td>
-<td>数据太少、训太久</td>
-<td>减少 epoch、增大 dropout、或者加数据</td>
+<td>训练降了验证升了</td>
+<td>减少 epoch、增大 dropout</td>
 </tr>
 <tr>
 <td>输出质量差</td>
 <td>生成的内容很垃圾</td>
-<td>LoRA 的 r 设太小了</td>
-<td>把 r 从 8 改成 32 或 64</td>
+<td>r 从 8 改成 32 或 64</td>
 </tr>
 <tr>
 <td>显存爆了</td>
 <td>OOM 报错</td>
-<td>batch size 太大、序列太长</td>
-<td>减小 batch size、缩短 max_length</td>
+<td>减小 batch size、开梯度检查点</td>
 </tr>
 <tr>
 <td>灾难性遗忘</td>
-<td>模型忘记了通用知识</td>
-<td>训练数据和通用知识冲突</td>
-<td>混合一些通用数据一起训</td>
+<td>模型忘了通用知识</td>
+<td>混合点通用数据一起训</td>
 </tr>
 <tr>
 <td>训练速度慢</td>
 <td>跑得很慢</td>
-<td>没开 fp16/bf16</td>
-<td>开启混合精度训练</td>
-</tr>
-<tr>
-<td>推理结果不对</td>
-<td>加载后效果很差</td>
-<td>没正确加载 LoRA 适配器</td>
-<td>检查是不是用了 PEFT 的加载方法</td>
+<td>开 fp16/bf16 混合精度</td>
 </tr>
 </tbody></table>
-<p><strong>最容易被忽视的是灾难性遗忘</strong>。有时候你的模型在特定任务上表现很好，但问它一些通用问题（比如”你好”），它的回答变得很奇怪。这时候你需要在训练数据里加一些通用对话数据，或者降低学习率。</p>
-<h2 id="4-关于数据准备"><a href="#4-关于数据准备" class="headerlink" title="4. 关于数据准备"></a>4. 关于数据准备</h2><p>很多人问：LoRA 到底需要多少数据？</p>
-<p><strong>数据量参考</strong></p>
+<p><strong>最容易被忽视的是灾难性遗忘</strong>。模型在特定任务上表现很好，但你问它”你好”，它回得乱七八糟。这时候加点通用对话数据，或者降低学习率。</p>
+<p><strong>LoRA 参数建议</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>任务类型</th>
-<th>最少样本</th>
-<th>推荐样本</th>
+<th>模型大小</th>
+<th>简单任务</th>
+<th>复杂任务</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>风格调整（改变说话语气）</td>
-<td>100</td>
-<td>500-1000</td>
+<td>7B</td>
+<td>r=8-16</td>
+<td>r=32-64</td>
 </tr>
 <tr>
-<td>领域知识（医疗、法律等）</td>
-<td>500</td>
-<td>2000-5000</td>
-</tr>
-<tr>
-<td>复杂推理（数学、代码）</td>
-<td>1000</td>
-<td>5000+</td>
+<td>13B+</td>
+<td>r=16-32</td>
+<td>r=64-256</td>
 </tr>
 </tbody></table>
-<p><strong>数据质量比数量更重要</strong></p>
-<p>我见过有人用 1000 条高质量数据训出来的模型，比用 10000 条脏数据训的效果还好。所以<strong>宁可花时间清洗数据，也别急着开训</strong>。</p>
-<p><strong>数据格式示例</strong>（Alpaca 格式）</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;instruction&quot;</span><span class="punctuation">:</span> <span class="string">&quot;指令描述&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;input&quot;</span><span class="punctuation">:</span> <span class="string">&quot;用户输入（可选）&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;output&quot;</span><span class="punctuation">:</span> <span class="string">&quot;期望输出&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>这是目前最通用的格式，Hugging Face 上大部分数据集都是这个格式。</p>
-<h1 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h1><p>写这篇文章的时候，我一直在想：如果没有 PEFT，我可能到现在都没法自己微调大模型。毕竟一张 A100 80GB 要好几千美金，对于个人开发者来说真的太贵了。</p>
-<p>PEFT 的出现，某种程度上<strong>打破了技术壁垒</strong>，让每个人都有机会参与到 AI 的创造中来。这可能就是开源社区最伟大的地方。</p>
-<h2 id="核心内容快速回顾"><a href="#核心内容快速回顾" class="headerlink" title="核心内容快速回顾"></a>核心内容快速回顾</h2><ol>
+<p>数据量参考：风格调整 500+，领域知识 2000+，复杂推理 5000+。</p>
+<p><strong>一句话：宁可花时间清洗数据，也别急着开训。</strong></p>
+<h1 id="最后说几句"><a href="#最后说几句" class="headerlink" title="最后说几句"></a>最后说几句</h1><p>如果没有 PEFT，我可能到现在都没法自己微调大模型。一张 A100 80GB 好几千美金，对于我们个人开发者来说真的太贵了。</p>
+<p>PEFT 某种程度上<strong>打破了技术壁垒</strong>，让每个人都有机会参与到 AI 的创造中来。</p>
+<p><strong>核心内容快速回顾：</strong></p>
+<ol>
 <li><strong>是什么</strong>：只改一小部分参数（&lt;1%），效果接近全量微调</li>
-<li><strong>主流方法</strong>：<ul>
-<li>LoRA：最成熟，首选</li>
-<li>QLoRA：显存需求最低，4090 都能玩</li>
-<li>Adapter：多任务神器</li>
-<li>Prefix/Prompt Tuning：快速验证利器</li>
-</ul>
-</li>
-<li><strong>核心优势</strong>：省显存（80%+）、省时间、保留通用能力、适配器可复用</li>
-<li><strong>适合谁</strong>：个人开发者、小团队、资源有限但想微调的所有人</li>
+<li><strong>主流方法</strong>：LoRA（首选）、QLoRA（显存最小）、Adapter（多任务）</li>
+<li><strong>核心优势</strong>：省显存 80%+、省时间、保留通用能力、适配器可复用</li>
 </ol>
-<h2 id="不同场景的建议"><a href="#不同场景的建议" class="headerlink" title="不同场景的建议"></a>不同场景的建议</h2><table>
+<p><strong>不同场景的建议</strong>：</p>
+<table>
 <thead>
 <tr>
 <th>你的情况</th>
 <th>推荐方案</th>
-<th>成本</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>想免费试试</td>
 <td>Colab + LoRA</td>
-<td>完全免费</td>
 </tr>
 <tr>
 <td>手里有 4090</td>
 <td>QLoRA</td>
-<td>利用现有设备</td>
-</tr>
-<tr>
-<td>要做生产环境</td>
-<td>LoRA + 合并部署</td>
-<td>标准服务器</td>
 </tr>
 <tr>
 <td>一个模型干多个活</td>
-<td>Adapter 方案</td>
-<td>维护成本低</td>
+<td>Adapter</td>
 </tr>
 <tr>
 <td>不差钱追求极致</td>
 <td>LoRA (r=256)</td>
-<td>专业集群</td>
 </tr>
 </tbody></table>
-<h2 id="推荐的学习资源"><a href="#推荐的学习资源" class="headerlink" title="推荐的学习资源"></a>推荐的学习资源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://huggingface.co/docs/peft">Hugging Face PEFT 官方文档</a> —— 最权威，先看这个</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">LoRA 原始论文</a> —— 想了解原理可以读</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.14314">QLoRA 论文</a> —— 显存优化的极致方案</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/huggingface/peft">PEFT GitHub</a> —— 代码和示例</li>
-</ul>
 <blockquote>
-<p>💡 <strong>一句话总结</strong>：PEFT 就像是给大模型戴了副隐形眼镜 —— 眼睛还是那双眼睛，但加了小小的适配器，看世界（处理任务）的方式就完全不一样了。</p>
+<p>💡 <strong>一句话总结</strong>：PEFT 就像是给大模型戴了副隐形眼镜 —— 眼睛还是那双眼睛，但加了小小的适配器，看世界的方式就完全不一样了。</p>
 </blockquote>
 <hr>
-<p>这篇文章写了不少时间，期间跑了很多实验验证参数。如果你觉得有用，欢迎转发给朋友，或者留言告诉我你的想法和建议。</p>
-<p>咱们下期见！🚀<br><strong>感谢阅读！如果你觉得今天的内容对你有帮助，欢迎分享给你的朋友，一起学习成长！</strong> 🚀</p>
+<p><strong>参考资源</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/docs/peft">Hugging Face PEFT 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">LoRA 原始论文</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.14314">QLoRA 论文</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -1009,7 +827,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%88%E4%BB%8E%E5%8E%9F%E7%90%86%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">先从原理说起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PEFT-%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%B7%E4%BD%93%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">PEFT 有哪些具体方法？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-LoRA%EF%BC%88Low-Rank-Adaptation%EF%BC%89%E2%80%94-%E6%9C%80%E5%B8%B8%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. LoRA（Low-Rank Adaptation）— 最常用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Adapter-%E2%80%94-%E9%80%82%E5%90%88%E5%A4%9A%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. Adapter — 适合多任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Prefix-Tuning-%E2%80%94-%E9%80%82%E5%90%88%E7%94%9F%E6%88%90%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. Prefix Tuning — 适合生成任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Prompt-Tuning-%E2%80%94-%E6%9C%80%E7%AE%80%E5%8D%95"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. Prompt Tuning — 最简单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PEFT-vs-%E5%85%A8%E9%87%8F%E5%BE%AE%E8%B0%83%EF%BC%9A%E5%B7%AE%E5%9C%A8%E5%93%AA%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">PEFT vs 全量微调：差在哪？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E5%AE%9E%E6%88%98"><span class="toc-number">2.</span> <span class="toc-text">动手实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E7%94%A8-LoRA-%E5%BE%AE%E8%B0%83%E5%8C%BB%E7%96%97%E9%97%AE%E7%AD%94%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">案例 1：用 LoRA 微调医疗问答模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E4%BD%BF%E7%94%A8-QLoRA%EF%BC%88%E9%87%8F%E5%8C%96-LoRA%EF%BC%89%E8%BF%9B%E8%A1%8C%E9%AB%98%E6%95%88%E5%BE%AE%E8%B0%83"><span class="toc-number">2.2.</span> <span class="toc-text">案例 2：使用 QLoRA（量化 + LoRA）进行高效微调</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">一些实战经验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B9%E6%B3%95%E6%80%8E%E4%B9%88%E9%80%89%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">1. 方法怎么选？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-LoRA-%E5%8F%82%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%BE%EF%BC%9F"><span class="toc-number">3.2.</span> <span class="toc-text">2. LoRA 参数怎么设？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B8%B8%E8%A7%81%E5%9D%91%E5%92%8C%E5%A1%AB%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-number">3.3.</span> <span class="toc-text">3. 常见坑和填坑指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">3.4.</span> <span class="toc-text">4. 关于数据准备</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%AF%B4%E5%87%A0%E5%8F%A5"><span class="toc-number">4.</span> <span class="toc-text">最后说几句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE"><span class="toc-number">4.1.</span> <span class="toc-text">核心内容快速回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.2.</span> <span class="toc-text">不同场景的建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-number">4.3.</span> <span class="toc-text">推荐的学习资源</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%83%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">它到底是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E7%A7%8D%E4%B8%BB%E6%B5%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">四种主流方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PEFT-vs-%E5%85%A8%E9%87%8F%E5%BE%AE%E8%B0%83"><span class="toc-number">1.2.</span> <span class="toc-text">PEFT vs 全量微调</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%89%8B%E8%AF%95%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">动手试试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#QLoRA%EF%BC%9A%E6%98%BE%E5%AD%98%E7%A0%8D%E5%88%B0-16GB"><span class="toc-number">2.1.</span> <span class="toc-text">QLoRA：显存砍到 16GB</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%BB%8F%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">踩坑经验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%AF%B4%E5%87%A0%E5%8F%A5"><span class="toc-number">4.</span> <span class="toc-text">最后说几句</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1277,6 +1095,34 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OpenClaw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Harness Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AI Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Build & Verify</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Context Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Multi-Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">未来展望</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
               </li>
             
             <div class="clearfix"></div>
