@@ -614,17 +614,111 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>这期聊一个<strong>参数少到离谱</strong>的微调方法 —— <strong>Prompt Tuning（提示微调）</strong>。</p>
+<p>今天聊一个<strong>参数少到离谱</strong>的微调方法 —— <strong>Prompt Tuning（提示微调）</strong>。</p>
 <blockquote>
-<p>一句话概括：<strong>Prompt Tuning</strong> 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。</p>
+<p>一句话核心：<strong>Prompt Tuning</strong> 就是给模型加几个”软提示词”，其他参数全不动，就能让模型学会新任务。</p>
 </blockquote>
-<p>说实话，我第一次理解 Prompt Tuning 的时候，觉得这方法简直”作弊” —— 别的微调方法好歹还改改模型参数，它倒好，就加几个向量，模型权重完全不动，效果居然还不错？</p>
-<p>打个比方你就明白了。如果把预训练模型比作一个学识渊博的老教授，Prompt Tuning 就像是给教授戴一副<strong>特殊眼镜</strong>。教授还是那个教授，知识结构一点没变，但戴上眼镜后，他看问题的角度就不一样了。不同的任务换不同的眼镜就行，不用重新训练一个新教授。</p>
-<p>最夸张的是它的<strong>参数效率</strong>。传统 Fine-tuning 要动几十亿参数，Prompt Tuning 只需要训练几百到几千个参数，是的，你没看错，就差了<strong>几万倍</strong>！但效果却能接近传统微调。这对于资源有限的朋友来说，简直就是福音。</p>
-<p>特别适合什么场景呢？<strong>多任务服务</strong>。一个基础模型 + N 个软提示词，每个任务几十 KB，切换起来嗖嗖的。</p>
-    
-    <a class="article-more-a" href="/ailearn/daily/32.html#more">more >></a>
-    
+<p><img src="/assets/img/ailearn/daily/32/prompt-tuning-concept.png" alt="Prompt Tuning 软提示词概念图"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 输入层[&quot;📝 输入层&quot;]</span><br><span class="line">        A1[&quot;任务描述&lt;br/&gt;&#x27;翻译&#x27;&quot;] --&gt; A2[&quot;软提示词&lt;br/&gt;Soft Prompt&lt;br/&gt;可训练参数&quot;]</span><br><span class="line">        A3[&quot;用户输入&lt;br/&gt;&#x27;Hello&#x27;&quot;] --&gt; A4[&quot;输入拼接&quot;]</span><br><span class="line">        A2 --&gt; A4</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 模型层[&quot;🧠 预训练模型层&lt;br/&gt;🔒 参数完全冻结&quot;]</span><br><span class="line">        A4 --&gt; B1[&quot;Embedding层&quot;]</span><br><span class="line">        B1 --&gt; B2[&quot;Transformer&quot;]</span><br><span class="line">        B2 --&gt; B3[&quot;输出&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 输出层[&quot;✅ 输出&quot;]</span><br><span class="line">        B3 --&gt; C1[&quot;&#x27;你好&#x27;&quot;]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A2 fill:#fff3e0,stroke:#f57c00</span><br><span class="line">    style B2 fill:#e3f2fd,stroke:#1976d2</span><br><span class="line">    style 输出层 fill:#e8f5e9,stroke:#388e3c</span><br></pre></td></tr></table></figure>
+
+<p>我整理了一张对比表，让你一眼看清楚：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Prompt Engineering</th>
+<th>Prompt Tuning</th>
+<th>Full Fine-tuning</th>
+<th>LoRA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>参数更新</td>
+<td>0</td>
+<td>0.001%-0.01%</td>
+<td>100%</td>
+<td>0.1%-1%</td>
+</tr>
+<tr>
+<td>存储成本</td>
+<td>极低</td>
+<td>极低（KB 级）</td>
+<td>极高（GB 级）</td>
+<td>低（MB 级）</td>
+</tr>
+<tr>
+<td>需要数据</td>
+<td>不需要</td>
+<td>少量就行</td>
+<td>需要很多</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>训练速度</td>
+<td>不用训练</td>
+<td>极快</td>
+<td>很慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>推理速度</td>
+<td>慢（提示词太长）</td>
+<td>快</td>
+<td>快</td>
+<td>快</td>
+</tr>
+<tr>
+<td>多任务切换</td>
+<td>重写提示词</td>
+<td>换软提示词</td>
+<td>换模型</td>
+<td>换适配器</td>
+</tr>
+<tr>
+<td>适合什么</td>
+<td>简单任务</td>
+<td>中等任务</td>
+<td>复杂任务</td>
+<td>大部分场景</td>
+</tr>
+<tr>
+<td>可解释性</td>
+<td>高</td>
+<td>低</td>
+<td>低</td>
+<td>低</td>
+</tr>
+</tbody></table>
+<p><strong>我的选择建议</strong></p>
+<ul>
+<li><strong>想快速验证想法</strong> → 直接写提示词（Prompt Engineering），不用训练</li>
+<li><strong>资源有限、要做多任务</strong> → Prompt Tuning，一个模型干 N 个活</li>
+<li><strong>不差钱、追求极致效果</strong> → Full Fine-tuning，效果最好但最贵</li>
+<li><strong>要平衡效果和成本</strong> → LoRA（上一期讲的），目前最主流的方案</li>
+</ul>
+<h1 id="动手试试"><a href="#动手试试" class="headerlink" title="动手试试"></a>动手试试</h1><p>用 OpenPrompt 训练一个情感分析模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openprompt.data_utils <span class="keyword">import</span> InputExample</span><br><span class="line"><span class="keyword">from</span> openprompt.plms <span class="keyword">import</span> load_plm</span><br><span class="line"><span class="keyword">from</span> openprompt.prompts <span class="keyword">import</span> SoftTemplate, SoftVerbalizer</span><br><span class="line"><span class="keyword">from</span> openprompt <span class="keyword">import</span> PromptForClassification, PromptDataLoader</span><br><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AdamW</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 准备数据</span></span><br><span class="line">dataset = &#123;</span><br><span class="line">    <span class="string">&#x27;train&#x27;</span>: [</span><br><span class="line">        InputExample(guid=<span class="number">0</span>, text_a=<span class="string">&quot;这部电影太精彩了！&quot;</span>, label=<span class="number">1</span>),</span><br><span class="line">        InputExample(guid=<span class="number">1</span>, text_a=<span class="string">&quot;完全浪费时间&quot;</span>, label=<span class="number">0</span>),</span><br><span class="line">        <span class="comment"># ...更多数据</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 加载预训练模型</span></span><br><span class="line">plm, tokenizer, model_config, WrapperClass = load_plm(<span class="string">&quot;bert&quot;</span>, <span class="string">&quot;bert-base-chinese&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 定义软提示词 (soft 标签 = 可训练)</span></span><br><span class="line">soft_template = SoftTemplate(</span><br><span class="line">    model=plm,</span><br><span class="line">    tokenizer=tokenizer,</span><br><span class="line">    text=<span class="string">&#x27;&#123;&quot;soft&quot;: &quot;情感分析任务&quot;&#125; &#123;&quot;placeholder&quot;: &quot;text_a&quot;&#125; 这条评论的情感是&#123;&quot;mask&quot;&#125;。&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 只冻结模型，只训练软提示词</span></span><br><span class="line">prompt_model = PromptForClassification(</span><br><span class="line">    plm=plm,</span><br><span class="line">    template=soft_template,</span><br><span class="line">    verbalizer=SoftVerbalizer(tokenizer, plm, [<span class="string">&#x27;负面&#x27;</span>, <span class="string">&#x27;正面&#x27;</span>]),</span><br><span class="line">    freeze_plm=<span class="literal">True</span>,  <span class="comment"># 🔑 关键：冻结模型参数！</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 只优化软提示词 (约 60KB 参数)</span></span><br><span class="line">optimizer = AdamW(prompt_model.template.soft_embeds.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 训练</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> train_dataloader:</span><br><span class="line">        logits = prompt_model(batch)</span><br><span class="line">        loss = torch.nn.functional.cross_entropy(logits, batch[<span class="string">&#x27;label&#x27;</span>])</span><br><span class="line">        loss.backward()  <span class="comment"># 只更新软提示词</span></span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 保存软提示词 (只有 60KB)</span></span><br><span class="line">torch.save(prompt_model.template.soft_embeds.state_dict(), <span class="string">&quot;soft_prompt.pt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>freeze_plm=True</code> 这行代码是核心 —— 模型完全不动，只训那几千个参数的软提示词。</p>
+<h1 id="❄️-冷知识"><a href="#❄️-冷知识" class="headerlink" title="❄️ 冷知识"></a>❄️ 冷知识</h1><p>Prompt Tuning 效果不如 LoRA，方便程度又不如直接写提示词。但它的<strong>多任务切换</strong>确实很方便，一个模型 + N 个几十 KB 的软提示词，存储成本极低。</p>
+<p><strong>核心要点快速回顾：</strong></p>
+<ol>
+<li><strong>是什么</strong>：只训练软提示词向量（几百个参数），冻结整个模型</li>
+<li><strong>适用场景</strong>：多任务、资源受限、快速验证</li>
+<li><strong>核心优势</strong>：参数极少（KB 级）、训练极快、多任务切换方便</li>
+</ol>
+<blockquote>
+<p>💡 <strong>一句话总结</strong>：Prompt Tuning 就像是给模型戴副特殊眼镜 —— 不改模型本身，只换个眼镜，看世界的方式就完全不同了。</p>
+</blockquote>
+<hr>
+<p><strong>参考资源</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://thunlp.github.io/OpenPrompt/">OpenPrompt 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/docs/peft">Hugging Face PEFT 库</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08691">Prompt Tuning 原论文</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -723,14 +817,13 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>这期聊一个在微调圈子里<strong>救命级</strong>的技术 —— <strong>PEFT（Parameter-Efficient Fine-Tuning）</strong>。</p>
+<p>今天聊一个在微调圈子里<strong>救命级</strong>的技术 —— <strong>PEFT（Parameter-Efficient Fine-Tuning）</strong>。</p>
 <blockquote>
-<p>一句话概括：<strong>PEFT</strong> 就是那种”花小钱办大事”的技术 —— 只动一小部分参数，效果却能接近全量微调。</p>
+<p>一句话核心：<strong>PEFT</strong> 就是那种”花小钱办大事”的技术 —— 只动一小部分参数（&lt;1%），效果却能接近全量微调。</p>
 </blockquote>
-<p>说实话，我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 4090 都咬牙买的，你让我去哪搞 140GB？</p>
-<p>直到发现了 PEFT，就像发现了新大陆。它就像是给运动员<strong>戴了个特制手套</strong>，而不是重新训练整个身体 —— 成本低得多，但打比赛一样好使。</p>
-<p>最实在的好处是啥？显存从几百 GB 降到二三十 GB，训练时间从几天变成几小时，甚至你手里的 4090 都能跑 70 亿参数的模型。个人开发者终于不用看着大厂流眼泪了。</p>
-<p>说白了，<strong>PEFT 让每个人都有机会玩转大模型微调</strong>。</p>
+<p><img src="/assets/img/ailearn/daily/31/peft-concept.png" alt="PEFT 参数高效微调概念图"><br><em>图：PEFT 核心概念 —— 冻结大部分参数，只训练少量适配器参数（&lt;1%）</em></p>
+<p>我刚开始接触大模型微调那会儿，看全量微调的显存需求直接傻了 —— 140GB+？我连 24GB 的 4090 都是咬牙买的。直到发现了 PEFT，就像是给自行车<strong>装个辅助轮</strong> —— 不用重新训练整个身体，成本低得多，但一样能骑得稳。</p>
+<p>最实在的好处是啥？显存从几百 GB 降到二三十 GB，训练时间从几天变成几小时，你手里的 4090 都能跑 70 亿参数的模型。个人开发者终于不用看着大厂流眼泪了。</p>
     
     <a class="article-more-a" href="/ailearn/daily/31.html#more">more >></a>
     
@@ -832,15 +925,11 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>这期聊一个<strong>“重炮级”</strong>的微调技术 —— <strong>全量微调（Full Fine-tuning）</strong>。</p>
-<blockquote>
-<p>一句话核心：<strong>全量微调</strong> 就是更新模型的所有参数，让它在特定任务上发挥到极限。</p>
-</blockquote>
-<p>说实话，刚开始学微调的时候，我也搞不懂为什么要整这么多花样 —— LoRA、Adapter、Prefix Tuning… 直接全量微调不就行了？</p>
-<p>后来踩过坑才明白：<strong>全量微调就像是让一位全科医生去专科医院”进修”</strong>—— 不只是学点新知识，而是要彻底改掉原有的诊疗习惯，从头学起，最后变成这个领域的专家。</p>
-<p>代价是啥？时间久、成本高、设备要求苛刻。但好处也很直接：<strong>效果最好，没有之一</strong>。</p>
-<p>如果你手里有充足的算力（A100、H100 管够），又想在某个特定任务上追求极致性能，那全量微调就是你的不二选择。</p>
-<p>说白了，<strong>全量微调就是用资源换精度，用时间换效果</strong>。</p>
+<p>今天聊聊 <strong>全量微调（Full Fine-tuning）</strong>。</p>
+<p>说实话，我第一次听说这个词的时候，脑子里冒出的画面是——把整个模型丢进炼丹炉里重新炼一遍。后来发现，好像也差不多？全量微调就是<strong>更新模型的所有参数</strong>，让它在你想要的任务上发挥到极致。</p>
+<p>打个比方，它像是让一位全科医生去三甲医院”进修”——不学个皮毛就完事，而是从内到外彻底改造，最后变成这个领域真正的专家。</p>
+<p>代价嘛，你也猜到了：时间久、成本高、对设备要求苛刻。但好处也很直接：<strong>效果最好，没有之一</strong>。</p>
+<p>整个流程大致是这样：加载预训练模型 → 全量微调训练（所有参数参与） → 收获专用模型。</p>
     
     <a class="article-more-a" href="/ailearn/daily/30.html#more">more >></a>
     
@@ -907,7 +996,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -915,8 +1004,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/daily/21.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(21) - Code Agent
+	  <a class="article-title" href="/ailearn/daily/29.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(29) - 多智能体协作 (Multi-agent Collaboration)
       
     </a>
   
@@ -926,8 +1015,8 @@
 
   
   
-<a href="/ailearn/daily/21.html" class="archive-article-date">
-        <time datetime="2026-03-24T04:15:33.478Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-24</time>
+<a href="/ailearn/daily/29.html" class="archive-article-date">
+        <time datetime="2026-03-30T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-30</time>
 </a>
 
   
@@ -942,13 +1031,15 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>今天我们来学习 <strong>Code Agent</strong>。</p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— 多智能体协作 (Multi-agent Collaboration)</strong></p>
 <blockquote>
-<p><strong>Code Agent</strong>是专门用于<strong>代码理解、生成、调试和优化</strong>的智能代理系统，它能够<strong>理解编程语言、分析代码结构、自动完成开发任务</strong>的”AI 程序员助手”。</p>
+<p>一句话核心：<strong>多智能体协作</strong>（Multi-agent Collaboration）是让多个专业 AI Agent 像一个高效团队一样协同工作，将复杂任务分解成子任务，由各领域的专家 Agent 并行处理，再整合成最终结果。</p>
 </blockquote>
-<p>对比通用 AI Agent，Code Agent 就像从”全能助手”升级为”专业程序员”，专注于软件开发领域的复杂任务自动化。</p>
+<p>说实话，这种模式太像我们日常工作中团队协作的样子了。想想看，做一个项目需要多少人？产品经理出需求、设计师画图、前端写页面、后端写接口、测试找 BUG。每个人都是某个领域的专家，但又需要紧密配合。</p>
+<p>单个 AI Agent 再强大，也有它的局限。它就像一个超级全栈工程师，虽然什么都懂，但处理复杂任务时还是会力不从心——速度慢、质量不稳定、难以覆盖所有专业领域。</p>
+<p>多智能体协作的核心价值在于<strong>分工协作和并行处理</strong>——把一个大问题拆成多个小问题，交给不同的专家 Agent 同步处理，最后整合结果。就像组建了一个 AI 梦之队！</p>
     
-    <a class="article-more-a" href="/ailearn/daily/21.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/29.html#more">more >></a>
     
     
     
@@ -978,7 +1069,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/21.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/29.html">展开全文 >></a>
     </p>
     
 
@@ -1013,7 +1104,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/deepseek/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1021,8 +1112,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/deepseek/1.html" target="_blank">
-      DeepSeek R1引爆全球后，V4和R2为何双双难产？七轮深度辩论揭开真相
+	  <a class="article-title" href="/ailearn/daily/28.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(28) - Router（动态路由模式）
       
     </a>
   
@@ -1032,112 +1123,8 @@
 
   
   
-<a href="/ailearn/deepseek/1.html" class="archive-article-date">
-        <time datetime="2026-03-22T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>R1改变了世界，V4和R2却迟迟不来。这背后是战略定力，还是方向迷失？</p>
-</blockquote>
-<p>2025年1月，DeepSeek R1横空出世，凭借”思维链”技术彻底改写了AI对话的范式。全球科技圈为之震动，一时间，”国产AI超越OpenAI”的声音响彻云霄。</p>
-<p>然而，将近一年过去了。传闻中的V4基座模型从2025年底鸽到2026年4月，R2推理模型更是从2025年5月推迟至今。DeepSeek的使用率从年初的50%跌至3%，而ChatGPT流量逆势增长40%，Google Gemini增长85%。</p>
-<p>到底发生了什么？</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek/1.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek/1.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/openclaw/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/openclaw/07.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(7) —— 每日信息助手：自动推送天气、新闻、日程，顺带查资料翻译
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/openclaw/07.html" class="archive-article-date">
-        <time datetime="2026-03-18T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-18</time>
+<a href="/ailearn/daily/28.html" class="archive-article-date">
+        <time datetime="2026-03-29T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-29</time>
 </a>
 
   
@@ -1152,16 +1139,15 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>安全问题解决了，现在来聊一件真正让你每天都离不开龙虾的事：</p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Router（动态路由模式）</strong></p>
 <blockquote>
-<p>📌 <strong>第一次看到这个系列？</strong> 龙虾 = OpenClaw，一个能帮你自动完成各种任务的 AI 助手。前几篇讲了安装、下指令、装技能、安全使用，这篇讲怎么让龙虾变成你的<strong>每日信息助手</strong>。</p>
+<p>一句话核心：<strong>Router</strong>（动态路由模式）就像是一个智能客服转接系统，根据用户输入自动判断应该由哪个专门的 Agent 来处理，把请求路由到最适合的处理者手中。</p>
 </blockquote>
-<blockquote>
-<p>“每天早上打开手机，天气、新闻、今日日程全都推送好了；遇到不懂的词，随手问一下就翻译解释清楚——这不就是我一直想要的吗？”</p>
-</blockquote>
-<p>这篇文章就来实现这个场景。<strong>不需要写代码，不需要懂技术</strong>，只需要按步骤配置，你就能拥有一个专属的每日信息助手。</p>
+<p>说实话，这个模式太像我们日常生活中的场景了。你有没有打过客服电话？按下不同的数字键——1 号是查询余额，2 号是办理业务，3 号是投诉建议，0 号是转人工。这就是最朴素的路由思想。</p>
+<p>在 AI 的世界里，Router 模式也是类似的道理：面对五花八门的用户请求，我们不能指望一个全能的 Agent 搞定所有事情，而是让一个”调度员”（Router）先分析用户意图，然后把请求分配给专门处理这类问题的 Agent。</p>
+<p>它的核心价值在于<strong>专业化分工和效率提升</strong>——让每个 Agent 只做自己擅长的事，避免一个通用 Agent 什么都懂但什么都不精的尴尬局面。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/07.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/28.html#more">more >></a>
     
     
     
@@ -1181,11 +1167,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
         		</li>
       		
 		</ul>
@@ -1195,7 +1177,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/07.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/28.html">展开全文 >></a>
     </p>
     
 
@@ -1230,7 +1212,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1238,8 +1220,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/06.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(6) —— 安全使用指南
+	  <a class="article-title" href="/ailearn/daily/27.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(27) - Orchestrator-Workers
       
     </a>
   
@@ -1249,8 +1231,8 @@
 
   
   
-<a href="/ailearn/openclaw/06.html" class="archive-article-date">
-        <time datetime="2026-03-17T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-17</time>
+<a href="/ailearn/daily/27.html" class="archive-article-date">
+        <time datetime="2026-03-28T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -1265,16 +1247,17 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>技能装好了，龙虾能做的事情越来越多。但随之而来的，是一个很多人没想到的问题：</p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Orchestrator-Workers（编排器-工作者）</strong></p>
 <blockquote>
-<p>📌 <strong>第一次看到这个系列？</strong> 龙虾 = OpenClaw，一个能帮你自动完成各种任务的 AI 助手。它可以帮你整理文件、发飞书消息、搜索网页……前几篇文章教了怎么安装和使用，这篇讲怎么<strong>安全地</strong>使用它。</p>
+<p>一句话核心：<strong>Orchestrator-Workers</strong> 就像一个项目经理带团队——Orchestrator（编排器）负责整体规划和任务分配，多个 Workers（工作者）并行处理各自的部分，最后 Orchestrator 整合所有结果。</p>
 </blockquote>
-<blockquote>
-<p>“龙虾能访问我的文件、我的飞书、我的浏览器……它会不会做一些我不想让它做的事？”</p>
-</blockquote>
-<p>这个担心非常合理。<strong>能力越大，风险越大。</strong> 这篇文章就来解决这个问题：怎么安全地使用龙虾，保护好你的数据和隐私，同时避开新手最容易踩的坑。</p>
+<p>说实话，这个模式太像我们程序员的工作日常了。你有没有经历过这样的场景：</p>
+<p>项目来了，技术负责人先分析需求，然后把任务拆成前端、后端、数据库几个模块，分给不同的开发同学。大家各自写代码，开发过程中遇到问题再同步给负责人。等所有模块都完成后，负责人把代码合并、跑通联调，最后交付。</p>
+<p>这就是 Orchestrator-Workers 的核心思想：<strong>一个”大脑”负责统筹协调，多个”执行者”并行工作</strong>。</p>
+<p>它和前面讲的 Pure Parallelization（纯并行）有什么区别？纯并行是拆了就跑，各自独立。而 Orchestrator-Workers 强调<strong>中心化的协调和动态调度</strong>——Orchestrator 不仅分配任务，还监控进度、处理依赖、整合结果，甚至根据中间结果动态调整后续任务。</p>
+<p>它的核心价值在于<strong>处理复杂依赖关系、支持动态任务调度</strong>——适合那些任务之间有千丝万缕联系，需要灵活变通的场景。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/06.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/27.html#more">more >></a>
     
     
     
@@ -1294,11 +1277,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
         		</li>
       		
 		</ul>
@@ -1308,7 +1287,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/06.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/27.html">展开全文 >></a>
     </p>
     
 
@@ -1343,7 +1322,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/security/OpenClaw极简安全实践指南v2.8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1351,8 +1330,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html" target="_blank">
-      OpenClaw 极简安全实践指南 v2.8
+	  <a class="article-title" href="/ailearn/daily/26.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(26) - Parallelization
       
     </a>
   
@@ -1362,8 +1341,8 @@
 
   
   
-<a href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html" class="archive-article-date">
-        <time datetime="2026-03-17T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-17</time>
+<a href="/ailearn/daily/26.html" class="archive-article-date">
+        <time datetime="2026-03-28T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -1375,12 +1354,119 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="OpenClaw-极简安全实践指南-v2-8"><a href="#OpenClaw-极简安全实践指南-v2-8" class="headerlink" title="OpenClaw 极简安全实践指南 v2.8"></a>OpenClaw 极简安全实践指南 v2.8</h1><blockquote>
-<p><strong>适用场景</strong>：OpenClaw 拥有目标机器 Root 权限，安装各种 Skill/MCP/Script/Tool 等，追求能力最大化。<br><strong>核心原则</strong>：日常零摩擦，高危必确认，每晚有巡检（显性化汇报），<strong>拥抱零信任（Zero Trust）</strong>。<br><strong>路径约定</strong>：本文用 <code>$OC</code> 指代 OpenClaw 状态目录，即 <code>$&#123;OPENCLAW_STATE_DIR:-$HOME/.openclaw&#125;</code>。</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<hr>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Parallelization（并行化）</strong></p>
+<blockquote>
+<p>一句话核心：<strong>Parallelization</strong> 就是”分而治之，并行处理”——把一个复杂任务拆成多个独立的子任务，让每个子任务并行跑在不同的 AI 实例上，最后把结果汇总整合，大幅提升效率和准确率。</p>
+</blockquote>
+<p>说实话，这招我太熟悉了。作为程序员，咱天天都在用这个思路：写代码时用多线程加速、处理大文件时 MapReduce、微服务架构里的并行调用…现在 AI 时代，同样的套路依然好用。</p>
+<p>你想啊，以前让 AI 处理一个复杂的任务，比如”分析这份用户反馈并给出产品改进建议”，可能是让一个 AI 实例从头读到尾，慢慢悠悠地分析。但如果用户反馈特别多呢？AI 可能会看花了眼，或者干脆超时罢工。</p>
+<p>Parallelization 的思路特别简单：<strong>把大任务切成小任务，多个 AI 实例同时开工，最后汇总结果</strong>。就像餐厅的后厨，一个厨师做一桌年夜饭太慢，但五个厨师分工合作，有人做冷盘、有人炒菜、有人煲汤，最后一整合，效率立马起飞。</p>
+<p>它的核心价值在于<strong>缩短响应时间、提高结果质量</strong>——既快又好。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/26.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/26.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/harness/06.html" target="_blank">
+      AI Agent Harness Engineering（6）—— 未来展望：Harness 会消失吗？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/harness/06.html" class="archive-article-date">
+        <time datetime="2026-03-28T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><strong>随着模型越来越强，Harness 还有存在的必要吗？</strong></p>
+<p>这是一个很多人都在问的问题。答案比你想象的更有意思。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/06.html#more">more >></a>
     
     
     
@@ -1404,7 +1490,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">未来展望</a>
         		</li>
       		
 		</ul>
@@ -1414,7 +1508,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/harness/06.html">展开全文 >></a>
     </p>
     
 
@@ -1446,7 +1540,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1675,6 +1769,34 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OpenClaw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Harness Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AI Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Build & Verify</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Context Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Multi-Agent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">未来展望</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
               </li>
             
             <div class="clearfix"></div>

@@ -1,107 +1,164 @@
-Improving Deep Agents with harness engineering
-8 min read
-Feb 17, 2026
-TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0. We only changed the harness. Here’s our approach to harness engineering (teaser: self-verification & tracing help a lot).
+---
+title: 用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）
+description: "LangChain 团队如何通过 Harness Engineering 将编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到 66.5%？Trace 分析方法论、自我验证循环、循环检测中间件，全部实战干货。"
+keywords: [Harness Engineering, LangChain, Trace分析, AI Agent, 自我验证, 中间件, deepagents, Terminal Bench]
+date: 2026-04-11 10:00:00
+toc: true
+tags:
+  - 学习总结
+  - AI学习
+  - Harness Engineering
+  - AI Agent
+  - LangChain
+  - 翻译
+---
 
-The Goal of Harness Engineering
-The goal of a harness is to mold the inherently spiky intelligence of a model for tasks we care about. Harness Engineering is about systems, you’re building tooling around the model to optimize goals like task performance, token efficiency, latency, etc. Design decisions include the system prompt, tool choice, and execution flow.
+> **📌 原文信息**
+> - 原文标题：[Improving Deep Agents with Harness Engineering](https://blog.langchain.com/improving-deep-agents-with-harness-engineering/)
+> - 原文作者：LangChain 团队
+> - 发布时间：2026 年 2 月 17 日
+> - 本文为原文翻译，并结合中文读者习惯进行了适当优化。
 
-But how should you change the harness to improve your agent?
+> **📖 系列导读**：本文是 **Harness Engineering 系列**的外部参考资料。如果你还没读过系列正文，建议先从 [第 0 篇入门导读](https://qborfy.com/ailearn/harness/00.html) 开始，再回来看这篇实战案例，效果会更好。
 
-At LangChain, we use Traces to understand agent failure modes at scale. Models today are largely black-boxes, their inner mechanisms are hard to interpret. But we can see their inputs and outputs in text space which we then use in our improvement loops.
+---
 
-We used a simple recipe to iteratively improve deepagents-cli (our coding agent) 13.7 points from 52.8 to 66.5 on Terminal Bench 2.0. We only tweaked the harness and kept the model fixed, gpt-5.2-codex.
+**一句话结论：LangChain 的编程智能体在 Terminal Bench 2.0 上从第 30 名冲进了前 5 名。他们只改了 Harness，没换模型。**
 
+这件事值得细说。
 
-Experiment Setup & The Knobs on a Harness
-We used Terminal Bench 2.0, a now standard benchmark to evaluate agentic coding. It has 89 tasks across domains like machine learning, debugging, and biology. We use Harbor to orchestrate the runs. It spins up sandboxes (Daytona), interacts with our agent loop, and runs verification + scoring.
+<!-- more -->
 
-Every agent action is stored in LangSmith. It also includes metrics like latency, token counts, and costs.
+## Harness Engineering 的目标是什么
 
-The Knobs we can Turn
-An agent harness has a lot of knobs: system prompts, tools, hooks/middleware, skills, sub-agent delegation, memory systems, and more. We deliberately compress the optimization space and focus on three: System Prompt, Tools, and Middleware (our term for hooks around model and tool calls).
+模型本身的智能是"尖刺型"的——在某些任务上表现惊艳，在另一些任务上却莫名其妙地翻车。Harness Engineering 要做的，就是把这种不稳定的智能"驯服"，让它在你关心的任务上稳定发挥。
 
-We start with a default prompt and standard tools+middleware. This scores 52.8% with GPT-5.2-Codex. A solid score, just outside the Top 30 of the leaderboard today, but room to grow.
+具体来说，Harness 是围绕模型搭建的一套系统工具，包括：系统提示词、工具选择、执行流程。优化目标可以是任务完成率、Token 效率、响应延迟……你想优化什么，就往哪个方向调。
 
+那问题来了：**怎么知道该往哪个方向调？**
 
-The Trace Analyzer Skill
-We wanted trace analysis to be repeatable so we made it into an Agent Skill. This serves as our recipe to analyze errors across runs and make improvements to the harness. The flow is:
+LangChain 的答案是：**看 Trace。**
 
-Fetch experiment traces from LangSmith
-Spawn parallel error analysis agents → main agent synthesizes findings + suggestions
-Aggregate feedback and make targeted changes to the harness.
-This works similarly to boosting which focuses on mistakes from previous runs. A human can be pretty helpful in Step 3 (though not required) to verify and discuss proposed changes. Changes that overfit to a task are bad for generalization and can lead to regressions in other Tasks.
+## 实验设置：调哪些旋钮
 
-Automated trace analysis saves hours of time and made it easy to quickly try experiments. We’ll be publishing this skill soon, we’re currently testing it for prompt optimization generally.
+测试基准用的是 [Terminal Bench 2.0](https://www.tbench.ai/leaderboard/terminal-bench/2.0)，这是目前评估编程智能体的主流 Benchmark，包含 89 个任务，覆盖机器学习、调试、生物信息学等多个领域。
 
+模型固定用 `gpt-5.2-codex`，全程不换。
 
-What Actually Improved Agent Performance
-Automated Trace analysis allowed us to debug where agents were going wrong. Issues included reasoning errors, not following task instructions, missing testing and verification, running out of time, etc. We go into these improvements in more details in the sections below.
+Harness 上可以调的旋钮很多：系统提示词、工具集、钩子/中间件、技能、子智能体委托、记忆系统……LangChain 团队刻意收窄了优化范围，只聚焦三个：
 
-Build & Self-Verify
-Today’s models are exceptional self-improvement machines.
+1. **系统提示词（System Prompt）**
+2. **工具集（Tools）**
+3. **中间件（Middleware）**——他们对"中间件"的定义是：包裹在模型调用和工具调用前后的钩子逻辑
 
-Self-verification allows agents to self-improve via feedback within a run. However, they don’t have a natural tendency to enter this build-verify loop.
+起点是默认配置，得分 52.8%，排名第 30 名开外。
 
-The most common failure pattern was that the agent wrote a solution, re-read its own code, confirmed it looks ok, and stopped. Testing is a key part of autonomous agentic coding. It helps test for overall correctness and simultaneously gives agents signal to hill-climb against.
+## Trace 分析器：让改进可重复
 
-We added guidance to the system prompt on how to approach problem solving.
+LangChain 把 Trace 分析做成了一个可复用的"智能体技能"（Agent Skill）。这个技能的工作流程是：
 
-Planning & Discovery: Read the task, scan the codebase, and build an initial plan based on the task specification and how to verify the solution.
-Build: Implement the plan with verification in mind. Build tests, if they don’t exist and test both happy paths and edge cases.
-Verify: Run tests, read the full output, compare against what was asked (not against your own code).
-Fix: Analyze any errors, revisit the original spec, and fix issues.
-We really focus on testing because it powers the changes in every iteration. We found that alongside prompting, deterministic context injection helps agents verify their work. We use a PreCompletionChecklistMiddleware that intercepts the agent before it exits and reminds it to run a verification pass against the Task spec. This is similar to a Ralph Wiggum Loop where a hook forces the agent to continue executing on exit, we use this for verification.
+1. 从 LangSmith 拉取实验 Trace 数据
+2. 并行启动多个错误分析智能体 → 主智能体汇总发现和改进建议
+3. 聚合反馈，对 Harness 做针对性修改
 
+这个思路有点像机器学习里的 **Boosting**——每一轮都重点关注上一轮犯错的地方，集中火力攻克薄弱环节。
 
-Giving Agents Context about their Environment
-Part of harness engineering is building a good delivery mechanism for context engineering. Terminal Bench tasks come with directory structures, built-in tooling, and strict timeouts.
+人类工程师可以参与第三步（验证和讨论改进方案），但不是必须的。需要注意的是：如果改动过度拟合某个特定任务，可能会在其他任务上出现退步，这是需要警惕的。
 
-Directory Context & Tooling: A LocalContextMiddleware runs on agent start to map the cwd and other parent+children directories. We run bash commands to find tools like Python installations. Context discovery and search are error prone, so injecting context reduces this error surface and helps onboard the agent into its environment.
-Teaching Agents to Write Testable Code: Agents don’t know how their code needs to be testable. We add prompting say their work will be measured against programatic tests, similar to when committing code. For example, Task specs that mention file paths should be followed exactly so the solutions works in an automated scoring step. Prompting that stresses edge-cases helps the agent avoid only checking “happy path” cases. Forcing models to conform to testing standards is a powerful strategy to avoid “slop buildup” over time.
-Time Budgeting: We inject time budget warnings to nudge the agent to finish work and shift to verification. Agents are famously bad at time estimation so this heuristic helps in this environment. Real world coding usually doesn’t have strict time limits, but without adding any knowledge of constraints, agents won’t work within time bounds.
-The more that agents know about their environment, constraints, and evaluation criteria, the better they can autonomously self-direct their work.
+自动化 Trace 分析节省了大量手工排查时间，让快速迭代实验成为可能。
 
-The purpose of the harness engineer: prepare and deliver context so agents can autonomously complete work.
+## 真正提升性能的是什么
 
-Encouraging Agents to Step Back & Reconsider Plans
-Agents can be myopic once they’ve decided on a plan which results in “doom loops” that make small variations to the same broken approach (10+ times in some traces).
+### 1. 构建 + 自我验证循环
 
-We use a LoopDetectionMiddleware that tracks per-file edit counts via tool call hooks. It adds context like “…consider reconsidering your approach” after N edits to the same file. This can help agents recover from doom loops, though the model can continue down the same path if it thinks it’s correct.
+今天的模型是很好的"自我改进机器"——但它们不会自发进入"构建-验证"循环。
 
-Important note. This is a design heuristic that engineers around today’s perceived model issues. As models improve, these guardrails will likely be unnecessary, but today helps agents execute correctly and autonomously.
+最常见的失败模式是：智能体写完代码，回头看了一眼，觉得"看起来没问题"，然后就停了。没有测试，没有验证，直接交卷。
 
-Choosing How Much Compute to Spend on Reasoning
-Reasoning models can run autonomously for hours so we have to decide how much compute to spend on every subtask. You can use the max reasoning budget on every task, but most work can benefit from optimizing reasoning compute spend.
+LangChain 在系统提示词里加入了明确的问题解决流程：
 
-Terminal Bench timeout limits create a tradeoff. More reasoning helps agents evaluate each step, but can burn over 2x more tokens/time. gpt-5.2-codex has 4 reasoning modes, low, medium, high, and xhigh.
+| 阶段 | 做什么 |
+|------|--------|
+| **规划 & 探索** | 读任务、扫代码库、制定初始计划，包括如何验证解决方案 |
+| **构建** | 带着验证意识实现方案，写测试，覆盖正常路径和边界情况 |
+| **验证** | 跑测试，读完整输出，对照任务要求（不是对照自己的代码）检查 |
+| **修复** | 分析错误，回看原始规格，修复问题 |
 
-We found that reasoning helps with planning to fully understand the problem, some Terminal Bench tasks are very difficult. A good plan helps get to a working solution more quickly.
+除了提示词，他们还加了一个 `PreCompletionChecklistMiddleware`——在智能体准备退出之前拦截它，强制让它跑一遍验证。这类似于 [Ralph Wiggum Loop](https://ghuntley.com/loop/)：用钩子强制智能体继续执行，而不是直接结束。
 
-Later stage verification also benefits from more reasoning to catch mistakes and get a solution submitted. As a heuristic, we choose a xhigh-high-xhigh "reasoning sandwich" as a baseline.
+### 2. 给智能体提供环境上下文
 
+Harness Engineering 的一个核心职责，就是**替智能体做好上下文准备工作**。
 
-Spending more reasoning compute on planning and verification
-Running only at xhigh scored poorly at 53.9% due to agent timeouts compared to 63.6% at high. There weren’t large differences in trial runs across reasoning budget splits so we stuck with our approach which pushed the score to 66.5%.
+Terminal Bench 的任务有目录结构、内置工具和严格的超时限制。LangChain 的做法：
 
-The natural approach for models is Adaptive Reasoning, seen with Claude and Gemini models where the model decides how much compute to spend on reasoning.
+**目录上下文 & 工具发现**：用 `LocalContextMiddleware` 在智能体启动时自动扫描当前目录和父子目录，用 bash 命令找到 Python 等工具的安装位置。上下文发现本身容易出错，提前注入可以减少这类错误，帮助智能体快速"入职"。
 
-In a multi-model harness, balancing reasoning budgets could play out as using a large model for planning and handing off to a smaller model for implementation.
+**教智能体写可测试的代码**：智能体不知道自己的代码会被程序化测试评分。加入提示词，告诉它"你的工作会被自动化测试检验"，类似于提交代码前的 CI 流程。强调边界情况，避免只测"happy path"。
 
-Practical Takeaways for Building Agent Harnesses
-The design space of agents is big. Here are some general principles from our experiments and building deepagents overall.
+**时间预算提醒**：注入时间预算警告，提示智能体在时间快到时转向验证阶段。智能体天生不擅长时间估算，这个启发式规则在有严格超时的环境里很有用。
 
-Context Engineering on Behalf of Agents. Context assembly is still difficult for agents today, especially in unseen environments. Onboarding models with context like directory structures, available tools, coding best practices, and problem solving strategies helps reduce the error surface for poor search and avoidable errors in planning.
-Help agents self-verify their work. Models are biased towards their first plausible solution. Prompt them aggressively to verify their work by running tests and refining solutions. This is especially important in autonomous coding systems that don’t have humans in the loop.
-Tracing as a feedback signal. Traces allow agents to self-evaluate and debug themselves. It’s important to debug tooling and reasoning together (ex: models go down wrong paths because they lack a tool or instructions how to do something).
-Detect and fix bad patterns in the short term. Models today aren’t perfect. The job of the harness designer is to design around today’s shortcomings while planning for smarter models in the future. Blind retries and not verifying work are good examples. These guardrails will almost surely dissolve over time, but to build robust agent applications today, they’re useful tools to experiment with.
-Tailor Harnesses to Models. The Codex and Claude prompting guides show that models require different prompting. A test run with Claude Opus 4.6 scored 59.6% with an earlier harness version, competitive but worse than Codex because we didn’t run the same Improvement Loop with Claude. Many principles generalize like good context preparation and a focus on verification, but running a few rounds of harness iterations for your task helps maximize agent performance across tasks.
-There’s more open research to do in harness design. Interesting avenues include multi-model systems (Codex, Gemini, and Claude together), memory primitives for continual learning so agents can autonomously improve on tasks, and measuring harness changes across models.
+> **核心原则**：智能体对自己的环境、约束和评估标准了解得越多，就越能自主地完成工作。Harness 工程师的职责，就是准备和传递上下文，让智能体能够自主完成任务。
 
-For the outer loop of improving agents, we’re looking at methods like RLMs to more efficiently mine traces. We’ll be continuing work to improve the harness and openly share our research.
+### 3. 鼓励智能体退一步、重新考虑
 
-We created a dataset of our Traces to share with the community.
+智能体一旦确定了方案，就容易陷入"死循环"——对同一个破方案反复做小修小补，有时候能在 Trace 里看到同一个文件被改了 10 次以上。
 
-Deep Agents is open source. Python and Javascript.
+LangChain 用了一个 `LoopDetectionMiddleware`，通过工具调用钩子追踪每个文件的编辑次数。当同一个文件被编辑超过 N 次，就注入提示："……考虑重新审视你的方案"。
 
-To more hill climbing and open research.
+这是一个针对当前模型局限性的设计启发式规则。随着模型能力提升，这类护栏可能会变得不必要——但在今天，它确实有用。
+
+### 4. 合理分配推理计算量
+
+推理模型可以自主运行数小时，所以必须决定在每个子任务上花多少计算量。
+
+`gpt-5.2-codex` 有四个推理模式：`low`、`medium`、`high`、`xhigh`。
+
+LangChain 发现：
+- 全程用 `xhigh` 反而得分低（53.9%），因为超时太多
+- 全程用 `high` 得分 63.6%
+- 最终选择了 **"推理三明治"**：`xhigh-high-xhigh`
+
+逻辑是：**规划阶段**需要深度推理来充分理解问题；**实现阶段**用中等推理保持效率；**验证阶段**再用高推理来捕捉错误、确保提交质量。
+
+这个策略把得分推到了 **66.5%**。
+
+未来的自然演进方向是"自适应推理"（Adaptive Reasoning），让模型自己决定在每一步花多少推理计算量——Claude 和 Gemini 已经在往这个方向走了。
+
+## 实践总结：构建 Agent Harness 的五条原则
+
+LangChain 从这次实验中提炼出了五条可复用的原则：
+
+**① 替智能体做好上下文工程**
+智能体在陌生环境里的上下文组装能力还很弱。提前注入目录结构、可用工具、编码最佳实践和问题解决策略，能大幅减少可避免的错误。
+
+**② 帮智能体自我验证**
+模型天生偏向第一个"看起来合理"的解决方案。要积极地提示它跑测试、精炼方案。在没有人类介入的自主编程系统里，这一点尤其重要。
+
+**③ 把 Trace 当作反馈信号**
+Trace 让智能体能够自我评估和调试。调试工具和推理要放在一起看——很多时候，智能体走错路是因为缺少某个工具，或者没有相关操作的指导。
+
+**④ 短期内检测并修复坏模式**
+今天的模型不完美。Harness 设计者的工作，是围绕当前模型的短板设计护栏，同时为更强的模型做好准备。盲目重试、不验证工作成果——这些坏模式现在需要护栏，未来可能就不需要了。
+
+**⑤ 针对不同模型定制 Harness**
+Codex 和 Claude 的提示词指南都表明，不同模型需要不同的提示策略。用 Claude Opus 4.6 跑同一个 Harness 得了 59.6%，比 Codex 低——不是因为 Claude 不行，而是没有针对 Claude 跑同样的改进循环。很多原则是通用的（好的上下文准备、重视验证），但针对具体任务跑几轮 Harness 迭代，能让性能最大化。
+
+## 开放资源
+
+- [Trace 数据集](https://smith.langchain.com/public/29393299-8f31-48bb-a949-5a1f5968a744/d?tab=2)（已公开）
+- Deep Agents 开源代码：[Python 版](https://github.com/langchain-ai/deepagents) | [JavaScript 版](https://github.com/langchain-ai/deepagentsjs)
+
+---
+
+## 延伸阅读：Harness Engineering 系列
+
+这篇文章是 LangChain 的实战案例。如果你想系统学习 Harness Engineering，可以看看这个系列：
+
+- [第 0 篇：入门导读 —— 当 AI 开始"自己干活"，工程师该做什么？](https://qborfy.com/ailearn/harness/00.html)
+- [第 1 篇：Harness 的六大核心组件](https://qborfy.com/ailearn/harness/01.html)
+- [第 2 篇：Build & Verify 模式详解](https://qborfy.com/ailearn/harness/02.html)
+- [第 3 篇：上下文工程实战](https://qborfy.com/ailearn/harness/03.html)
+- [第 4 篇：多智能体架构设计](https://qborfy.com/ailearn/harness/04.html)
+- [第 5 篇：推理三明治与计算量分配](https://qborfy.com/ailearn/harness/05.html)
+- [第 6 篇：Harness 的未来与演进趋势](https://qborfy.com/ailearn/harness/06.html)

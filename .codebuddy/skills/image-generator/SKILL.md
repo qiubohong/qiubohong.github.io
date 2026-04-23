@@ -5,6 +5,47 @@ description: 调用大模型API生成图片的自动化工具。当用户需要�
 
 # Image Generator
 
+## ⚠️ 重要执行规范
+
+### 1. Python 环境
+
+**必须**在执行任何命令前，先激活 conda 环境：
+
+```bash
+conda activate qwen3-tts
+```
+
+### 2. 执行方式
+
+**禁止**直接在 shell 中拼接 `--prompt` 参数执行脚本，因为 prompt 内容中可能含有单引号、双引号等特殊字符，会导致 bash 解析出现 `quote>` 错误。
+
+**必须**使用 `python3 -c` 内联脚本方式，通过 `subprocess.run` 列表传参，完全绕过 shell 引号解析：
+
+```bash
+conda activate qwen3-tts && python3 -c "
+import subprocess
+import sys
+
+prompt = '''在这里写提示词，可以包含任意单引号和特殊字符'''
+
+result = subprocess.run(
+    [sys.executable, '/path/to/generate_image.py',
+     '--prompt', prompt,
+     '--size', '1K',
+     '--aspect-ratio', '16:9',
+     '--output', '/path/to/output.png',
+     '--format', 'png'],
+    capture_output=True, text=True
+)
+print(result.stdout)
+print(result.stderr)
+"
+```
+
+> 💡 **原因**：`python3 -c` 内联脚本中使用三引号 `'''` 包裹 prompt，`subprocess.run` 以列表方式传参，参数内容原样传递，不经过 shell 解析，彻底避免引号冲突问题。
+
+---
+
 ## 快速开始
 
 ### 环境配置
@@ -39,10 +80,27 @@ export LLM_API_KEY="your-api-key"
 
 #### 使用 JSON 配置文件（推荐）
 
-**生成图片**：
+**生成图片**（使用规范的执行方式）：
 
 ```bash
-python scripts/generate_image.py --prompt "一只可爱的橘猫在花园里晒太阳" --size "1K" --aspect-ratio "16:9"
+conda activate qwen3-tts && python3 -c "
+import subprocess
+import sys
+
+prompt = '''一只可爱的橘猫在花园里晒太阳'''
+
+result = subprocess.run(
+    [sys.executable, '/path/to/generate_image.py',
+     '--prompt', prompt,
+     '--size', '1K',
+     '--aspect-ratio', '16:9',
+     '--output', './output.png',
+     '--format', 'png'],
+    capture_output=True, text=True
+)
+print(result.stdout)
+print(result.stderr)
+"
 ```
 
 ## 核心功能
