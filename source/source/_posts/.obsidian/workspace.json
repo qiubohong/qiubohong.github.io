@@ -11,10 +11,14 @@
             "id": "08ed0620f40e340a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "ailearn/harness/00.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "00"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ailearn/harness/00.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "00 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ailearn/harness/00.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "00 的出链列表"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "ailearn/harness/00.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "00 的大纲"
             }
           }
         ]
@@ -176,8 +183,22 @@
       "bases:新建数据库": false
     }
   },
-  "active": "9cbbea148a77f652",
+  "active": "08ed0620f40e340a",
   "lastOpenFiles": [
+    "ailearn/llm/08.md",
+    "ailearn/llm/07.md",
+    "ailearn/llm/7.md",
+    "ailearn/llm/06.md",
+    "ailearn/llm/05.md",
+    "ailearn/llm/04.md",
+    "ailearn/llm/03.md",
+    "ailearn/llm/02.md",
+    "ailearn/openclaw/security/OpenClaw极简安全实践指南v2.8.md",
+    "ailearn/llm/01.md",
+    "ailearn/openclaw/00.md",
+    "ailearn/llm",
+    "ailearn/harness/anthropic-harness-design.md",
+    "ailearn/harness/anthropic-building-agents.md",
     "未命名.canvas",
     "assets/img/ailearn/ai-learn10-04.png.md",
     "assets/img/ailearn",
@@ -194,7 +215,6 @@
     "ailearn/harness/03.md",
     "ailearn/harness/02.md",
     "ailearn/harness/01.md",
-    "ailearn/ai-learn-road0.md",
-    "wx/20190731.md"
+    "ailearn/ai-learn-road0.md"
   ]
 }
