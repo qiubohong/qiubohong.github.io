@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ailearn/harness/00.md",
+                "file": "11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00"
+              "title": "11"
             }
           }
         ]
@@ -185,6 +185,9 @@
   },
   "active": "08ed0620f40e340a",
   "lastOpenFiles": [
+    "test.md",
+    "11.md",
+    "ailearn/harness/00.md",
     "ailearn/llm/08.md",
     "ailearn/llm/07.md",
     "ailearn/llm/7.md",
@@ -206,15 +209,12 @@
     "assets",
     "ailearn/ai-learn00.md",
     "ailearn/openclaw/05.md",
-    "ailearn/harness/00.md",
     "ailearn/harness/langchain.md",
     "ailearn/harness/anthropic.md",
     "ailearn/harness/06.md",
     "ailearn/harness/05.md",
     "ailearn/harness/04.md",
     "ailearn/harness/03.md",
-    "ailearn/harness/02.md",
-    "ailearn/harness/01.md",
-    "ailearn/ai-learn-road0.md"
+    "ailearn/harness/02.md"
   ]
 }
