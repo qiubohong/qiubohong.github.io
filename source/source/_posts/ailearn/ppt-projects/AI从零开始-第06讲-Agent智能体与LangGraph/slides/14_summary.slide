@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 04 · TAKEAWAY</Text>
+    <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 12 }}>Agent = 大脑 + 手 + 记忆</Text>
+    <Text style={{ fontSize: 16, color: '#DCE7F5', marginBottom: 30 }}>
+      LLM 作大脑想策略，工具作手去执行，记忆让它越用越懂你
+    </Text>
+
+    <Box style={{ flexDirection: 'row', gap: 20, marginBottom: 26 }}>
+      {[
+        { t: '大脑', d: 'LLM + 思维链推理' },
+        { t: '手', d: 'Function Call 工具' },
+        { t: '记忆', d: 'Embedding 向量检索' },
+        { t: '工作流', d: 'LangGraph 状态编排' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 12, padding: '20px 20px' }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#22D3EE', marginBottom: 6 }}>{item.t}</Text>
+          <Text style={{ fontSize: 13, color: '#DCE7F5' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '20px 24px', marginBottom: 14 }}>
+      <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>动手练习 · 三步完成</Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        ① 写一个 Function Calling Agent 查数据 → ② 用 LangGraph 把流程改成图 → ③ 接上 checkpointer 体验断点续跑
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        自测 3 题：Agent 三大能力？Function Calling 为什么是两次调用？LangGraph 的 State/Node/Edge 各管什么？
+      </Text>
+    </Box>
+  </Box>
+</Slide>

@@ -1,0 +1,41 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 02 · 编排</Text>
+    <Text style={{ fontSize: 44, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 16 }}>LCEL：一条管道表达一切</Text>
+    <Text style={{ fontSize: 18, color: '#DCE7F5', lineHeight: 1.7, marginBottom: 40 }}>
+      所有组件都实现 <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>Runnable Interface</span>，因此都能用 <span style={{ fontFamily: '"JetBrains Mono", monospace', color: '#22D3EE' }}>|</span> 无缝串联——一套接口，多种调用方式。
+    </Text>
+
+    <Box style={{ flexDirection: 'row', gap: 24 }}>
+      {[
+        { t: 'stream', d: '流式逐 token 返回\n打字机效果' },
+        { t: 'invoke', d: '单次同步调用\n拿到完整结果' },
+        { t: 'batch', d: '批量并行处理\n一组输入' },
+        { t: 'ainvoke / abatch / astream', d: '异步家族\n高并发不阻塞' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '24px 22px' }}>
+          <Text style={{ fontSize: 20, color: '#22D3EE', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace', marginBottom: 10 }}>{item.t}</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 36, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>
+        一个 chain 写一次，stream / invoke / batch 随心切换——这就是声明式的好处
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>09 / 14</Text>
+  </Box>
+</Slide>

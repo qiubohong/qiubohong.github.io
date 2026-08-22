@@ -1,0 +1,54 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 3, flexDirection: 'column' }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PRACTICE 02 · AGENT 化检索</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 16 }}>把检索器变成 Agent 的一件「工具」</Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 18 }} />
+      <CodeBlock
+        code={`from langchain.agents import create_react_agent, AgentExecutor
+from langchain.tools.retriever import create_retriever_tool
+
+# 把 retriever 包装成工具
+tool = create_retriever_tool(
+    retriever, "search_docs",
+    "在知识库中检索答案",
+)
+
+agent = create_react_agent(llm, [tool], prompt)
+executor = AgentExecutor(agent=agent, tools=[tool])
+
+executor.invoke({"input": "今天的股价多少？"})`}
+        language='python'
+        width={620}
+        fontSize={13}
+      />
+    </Box>
+
+    <Box style={{ flex: 2, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '16px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>自主决策</Text>
+        <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>Agent 自己判断「要不要查、查几次」，不再写死检索逻辑。</Text>
+      </Box>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '16px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>查不到就明说</Text>
+        <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>检索无结果时坦诚「我没查到」，而不是硬编一个答案。</Text>
+      </Box>
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '16px 20px' }}>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>
+          这是 RAG 与 Agent 的交汇点——<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>下一讲正式展开 Agent</span>。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 11</Text>
+  </Box>
+</Slide>

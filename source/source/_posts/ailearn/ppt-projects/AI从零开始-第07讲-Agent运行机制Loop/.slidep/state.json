@@ -1,0 +1,50 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第07讲-Agent运行机制Loop/AI从零开始-第07讲-Agent运行机制Loop-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "83613bfb3995e7cae5f5e7f733ded47aead29859",
+      "version": 1,
+      "at": "2026-08-13 21:30:50.325"
+    },
+    "02_heartbeat": {
+      "revisionId": "5ba5edc26d3e436870ec4805c207591c95d1bb97",
+      "version": 2,
+      "at": "2026-08-13 21:30:50.693"
+    },
+    "03_three_flavors": {
+      "revisionId": "793643f11d8b8abbd4311e1d4f1cac0e162dab0f",
+      "version": 3,
+      "at": "2026-08-13 21:30:50.898"
+    },
+    "04_minimal_loop": {
+      "revisionId": "43c7485c19f34269fe81be3c04eb96cf00babc3e",
+      "version": 4,
+      "at": "2026-08-13 21:30:51.353"
+    },
+    "05_message_lifecycle": {
+      "revisionId": "cc7ec0e613e2e73789381ea99fbd2b10e13b2137",
+      "version": 5,
+      "at": "2026-08-13 21:30:51.537"
+    },
+    "06_context_amnesia": {
+      "revisionId": "80cd332eecc13e5cbfa9be18b99ec54c2abb4277",
+      "version": 6,
+      "at": "2026-08-13 21:30:51.707"
+    },
+    "07_persistent_rules": {
+      "revisionId": "a307bcddfc7f961965cc19c4fb80b8ba95525bbc",
+      "version": 7,
+      "at": "2026-08-13 21:30:51.863"
+    },
+    "08_observability": {
+      "revisionId": "50780c736df854dd1db43865aba6d1cf84beec0f",
+      "version": 8,
+      "at": "2026-08-13 21:30:52.023"
+    },
+    "09_summary": {
+      "revisionId": "6d370d8d0af3ac31a17109140e0776bf1ea29b1f",
+      "version": 9,
+      "at": "2026-08-13 21:30:52.088"
+    }
+  }
+}

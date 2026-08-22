@@ -1,0 +1,38 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ELEMENT 05 · OUTPUT FORMAT</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>要素⑤输出格式：搭好舞台框架</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 20, flex: 1 }}>
+      {[
+        { t: '表格', d: '对比 / 汇总类信息，让 AI 用 Markdown 表格输出', icon: 'table', e: '「用表格对比三款模型」' },
+        { t: '代码块', d: '技术内容，要求输出带语言标注的代码块', icon: 'code', e: '「只输出 Python 代码」' },
+        { t: '对话体', d: '角色扮演 / 模拟对话，指定对话格式', icon: 'comments', e: '「以 A/B 对话形式呈现」' },
+        { t: '列表', d: '步骤 / 要点类，要求有序或无序列表', icon: 'list-ul', e: '「分三步列出来」' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ width: '48%', background: '#FFFFFF', borderRadius: 14, padding: '22px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+          <Box style={{ width: 50, height: 50, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>{item.t}</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6, marginBottom: 8 }}>{item.d}</Text>
+            <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold' }}>{item.e}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 3 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 11</Text>
+  </Box>
+</Slide>

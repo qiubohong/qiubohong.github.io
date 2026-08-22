@@ -1,0 +1,48 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>DEV FRAMEWORKS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>开发框架：从 LangChain 开始</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 18, flex: 1 }}>
+      {[
+        { t: 'LangChain', d: '生态最全，起步首选', icon: 'link', star: true },
+        { t: 'LlamaIndex', d: '专注 RAG 索引', icon: 'layer-group', star: false },
+        { t: 'Dify', d: '可视化低代码编排', icon: 'paint-brush', star: false },
+        { t: 'AutoGen', d: '多智能体协作', icon: 'users', star: false },
+        { t: 'Semantic Kernel', d: '微软 .NET 生态', icon: 'windows', star: false },
+        { t: 'Spring AI', d: 'Java 生态接入', icon: 'leaf', star: false },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ width: '31.8%', background: item.star ? '#16263F' : '#FFFFFF', borderRadius: 12, padding: '20px 22px', boxShadow: item.star ? 'none' : '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+            <FAIcon name={item.icon} style={{ fill: item.star ? '#FF9F1C' : '#22D3EE', width: 22, height: 22 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: item.star ? '#FFFFFF' : '#16263F' }}>{item.t}</Text>
+            {item.star && (
+              <Box style={{ background: 'rgba(255,159,28,0.15)', borderRadius: 8, padding: '4px 10px', marginLeft: 'auto' }}>
+                <Text style={{ fontSize: 12, color: '#FF9F1C', fontWeight: 'bold' }}>推荐</Text>
+              </Box>
+            )}
+          </Box>
+          <Text style={{ fontSize: 14, color: item.star ? '#DCE7F5' : '#5B6B7A' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        选型原则：别贪多，先吃透 LangChain 一个，再按场景补齐 RAG 或多智能体
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 11</Text>
+  </Box>
+</Slide>

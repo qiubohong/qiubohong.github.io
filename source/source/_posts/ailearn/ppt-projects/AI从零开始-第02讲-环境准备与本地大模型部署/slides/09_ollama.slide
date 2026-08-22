@@ -1,0 +1,43 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 4, flexDirection: 'column', gap: 16 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>INSTALL OLLAMA</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 12 }}>安装 Ollama：像 Docker 一样拉取模型</Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 12 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.8 }}>
+        开源的本地大语言模型运行框架（Go 开发）——类 Docker 的命令风格
+        <span style={{ fontWeight: 'bold', color: '#16263F' }}>list / pull / push / run</span>。
+      </Text>
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 24px', marginTop: 8 }}>
+        <Text style={{ fontSize: 14, color: '#22D3EE', marginBottom: 8 }}># 安装</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>
+          curl -fsSL https://ollama.com/install.sh | sh
+        </Text>
+        <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 12, marginBottom: 8 }}># 拉取模型（可加 :4bit 量化版）</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>
+          ollama pull deepseek-v4-flash
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 3, background: '#FFFFFF', borderRadius: 14, padding: '26px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 14 }}>为什么类比 Docker</Text>
+      <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.9 }}>
+        Docker 用「镜像」封装应用，Ollama 用「模型」封装权重——<br /><br />
+        一条命令下载、一条命令运行，<br />
+        把「部署大模型」从运维难题变成一行命令。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 2 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 12</Text>
+  </Box>
+</Slide>

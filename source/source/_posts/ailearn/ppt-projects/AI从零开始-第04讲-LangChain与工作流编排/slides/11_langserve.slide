@@ -1,0 +1,53 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 3, flexDirection: 'column' }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>DEPLOY</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 16 }}>LangServe：链 → RESTful API 一键部署</Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 18 }} />
+      <CodeBlock
+        code={`# 1. 脚手架生成项目
+pip install "langserve[all]"
+langchain app new my-app --package rag-demo
+
+# 2. 一行挂载为 RESTful 接口
+from langserve import add_routes
+add_routes(app, chain, path="/chain")
+
+# 3. 启动，自动生成 Swagger 文档
+langchain serve   # http://localhost:8000/chain`}
+        language='python'
+        width={620}
+        fontSize={13}
+      />
+    </Box>
+
+    <Box style={{ flex: 2, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+      {[
+        { t: '脚手架', d: 'langchain-cli 生成标准项目结构，开箱即用' },
+        { t: 'add_routes', d: '把 chain 挂到路径上，自动暴露 REST 端点' },
+        { t: 'Swagger', d: '自带 API 文档页，前端可直接对接' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ background: '#FFFFFF', borderRadius: 12, padding: '16px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>{item.d}</Text>
+        </Box>
+      ))}
+      <Box style={{ background: '#16263F', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>
+          部署不再是「写 Flask + 接模型」的苦活，<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>写好的链直接上线</span>。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>11 / 14</Text>
+  </Box>
+</Slide>

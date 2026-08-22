@@ -1,0 +1,51 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>DEEPSEEK EVOLUTION</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 28 }}>DeepSeek 演进深水区：从追赶到开源领跑</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 30 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
+      {[
+        { t: 'R1', y: '思维链推理', d: '先想再说\n对标 OpenAI o1' },
+        { t: 'V3', y: 'MoE 架构', d: '混合专家\n671B / 37B 激活' },
+        { t: 'V4-Flash', y: '2026 正式版', d: '小参数反超\n1M 上下文' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: idx === 2 ? '#16263F' : '#FFFFFF', borderRadius: 12, padding: '22px 24px', boxShadow: idx === 2 ? undefined : '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Text style={{ fontSize: 21, fontWeight: 'bold', color: idx === 2 ? '#FFFFFF' : '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: idx === 2 ? '#FF9F1C' : '#22D3EE', fontWeight: 'bold', marginBottom: 10 }}>{item.y}</Text>
+            <Text style={{ fontSize: 14, color: idx === 2 ? '#DCE7F5' : '#5B6B7A', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
+          </Box>
+          {idx < 2 && (
+            <Box style={{ width: 44, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 30, background: '#16263F', borderRadius: 14, padding: '24px 30px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+        <FAIcon name='chart-line' style={{ fill: '#FF9F1C', width: 30, height: 30 }} />
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>V4-Flash 正式版：开源旗舰</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 32 }}>
+        <Box><Text style={{ fontSize: 30, color: '#FF9F1C', fontWeight: 'bold' }}>284B</Text><Text style={{ fontSize: 13, color: '#DCE7F5' }}>总参 / 13B 激活</Text></Box>
+        <Box><Text style={{ fontSize: 30, color: '#22D3EE', fontWeight: 'bold' }}>1M</Text><Text style={{ fontSize: 13, color: '#DCE7F5' }}>上下文 · MIT · FP4+FP8</Text></Box>
+        <Box><Text style={{ fontSize: 30, color: '#FF9F1C', fontWeight: 'bold' }}>54.4</Text><Text style={{ fontSize: 13, color: '#DCE7F5' }}>DeepSWE · +640%</Text></Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 10 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 11</Text>
+  </Box>
+</Slide>

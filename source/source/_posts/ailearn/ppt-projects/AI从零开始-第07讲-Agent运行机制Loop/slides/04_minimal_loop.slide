@@ -1,0 +1,77 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>MINIMAL LOOP</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>50 行实现最简 Agent Loop：看懂循环的骨架</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 28, flex: 1 }}>
+      <Box style={{ flex: 2, background: '#16263F', borderRadius: 12, padding: '18px 18px' }}>
+        <CodeBlock
+          code={`# 工具注册表：名称 -> 可执行函数
+TOOLS = {
+    "get_weather": lambda city: f"{city}: 晴, 22°C",
+    "calculator":  lambda expr: eval(expr),
+}
+
+def agent_loop(task, max_steps=10):
+    messages = [{"role": "user", "content": task}]
+    for step in range(max_steps):            # 硬限制：防死循环
+        reply = llm(messages, tools=TOOLS)   # 思考：LLM 决定
+        if reply.stop_reason == "end_turn":  # 判断：LLM 自决终止
+            return reply.text
+        for call in reply.tool_uses:         # 执行 + 观察
+            result = TOOLS[call.name](**call.input)
+            messages.append({
+                "role": "tool_result",
+                "tool_use_id": call.id,
+                "content": str(result),
+            })
+    return "达到最大步数，停止"               # 兜底终止`}
+          language='python'
+          width={700}
+          fontSize={13}
+        />
+      </Box>
+
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='stop-circle' style={{ fill: '#FF9F1C', width: 22, height: 22 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F' }}>终止策略（两种）</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            · 硬限制：max_steps 上限，兜底防死循环<br />
+            · LLM 自决：stop_reason 判断模型自己说「做完了」
+          </Text>
+        </Box>
+
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='puzzle-piece' style={{ fill: '#22D3EE', width: 22, height: 22 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F' }}>工具注册表</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            TOOLS 字典 = 白名单：LLM 只能调用注册过的工具，能力边界由你定义。
+          </Text>
+        </Box>
+
+        <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+          <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+            这 50 行就是所有 Agent 框架的「最小公分母」
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 09</Text>
+  </Box>
+</Slide>

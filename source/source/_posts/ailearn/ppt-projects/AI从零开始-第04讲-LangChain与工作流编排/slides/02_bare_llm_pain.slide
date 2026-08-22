@@ -1,0 +1,44 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>WHY FRAMEWORK</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        裸调大模型<br />痛点在哪里
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        直接调用 API 能做 demo，却撑不起真实应用——<span style={{ fontWeight: 'bold', color: '#16263F' }}>四个痛点</span>逼出了框架的诞生。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      {[
+        { icon: 'brain', t: '无记忆', d: '每轮都重新开始，上下文靠手动拼接，多轮对话极易失忆' },
+        { icon: 'ruler', t: 'Token 限制', d: '窗口有限，长文本要自己切分与压缩，稍不留神就超限' },
+        { icon: 'times-circle', t: '无法验证', d: '输出是一段自由文本，格式不稳定，程序无法可靠解析' },
+        { icon: 'layer-group', t: '多步低效', d: '多模型、多提示词、多步骤的编排全靠手写 if-else，难复用' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '18px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>{item.d}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 14</Text>
+  </Box>
+</Slide>

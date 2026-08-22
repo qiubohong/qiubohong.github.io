@@ -1,0 +1,52 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>FUTURE</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        未来展望：<br />框架上移，人往上走
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        Harness 不会消失，只会<span style={{ fontWeight: 'bold', color: '#16263F' }}>越做越厚、越包越多</span>；工程师的战场从「写代码」上移到「驾驭 AI」。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>Harness 只会上移</Text>
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
+          {['自适应', '多模型', '记忆', '可观测'].map((item, idx) => (
+            <Box key={idx} style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 14px' }}>
+              <Text style={{ fontSize: 13, color: '#DCE7F5' }}>{item}</Text>
+            </Box>
+          ))}
+        </Box>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7, marginTop: 12 }}>底层能力被框架吸收，开发者站到更高的抽象层。</Text>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <FAIcon name='user-cog' style={{ fill: '#22D3EE', width: 24, height: 24, marginBottom: 10 }} />
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>角色转变</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>从写代码，到定义规范、评审、驾驭 AI</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <FAIcon name='users' style={{ fill: '#22D3EE', width: 24, height: 24, marginBottom: 10 }} />
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>多智能体成主流</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>分工协作的 Agent 团队成为常态</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 10 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,51 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>API PLATFORMS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>API 平台：一行 Key 接入</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 5, flexDirection: 'column', gap: 14 }}>
+        {[
+          { t: 'OpenAI', d: 'GPT-5 系列，生态最成熟', icon: 'bolt' },
+          { t: '腾讯混元', d: '国产大厂 · 企业级稳定', icon: 'cloud' },
+          { t: '百度文心', d: '中文场景积累深', icon: 'feather' },
+          { t: '硅基流动', d: '开源模型托管 · 聚合接入', icon: 'stream' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '16px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+            <Box style={{ width: 40, height: 40, borderRadius: 10, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F' }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 4, background: '#16263F', borderRadius: 14, padding: '28px 28px', justifyContent: 'center' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <FAIcon name='dollar' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>DeepSeek 官方 API</Text>
+        </Box>
+        <Text style={{ fontSize: 56, color: '#FF9F1C', fontWeight: 'bold', lineHeight: 1 }}>$0.14</Text>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', marginTop: 8, marginBottom: 18 }}>每百万 input token</Text>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+          成本低到可当「水电」用——一行 API Key 就能开始调用，<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>本地与云双轨可行</span>。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 11</Text>
+  </Box>
+</Slide>

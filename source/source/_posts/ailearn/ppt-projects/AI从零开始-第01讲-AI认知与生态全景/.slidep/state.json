@@ -1,0 +1,60 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第01讲-AI认知与生态全景/AI从零开始-第01讲-AI认知与生态全景-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "c03ea40e1f99fddd968a6e81c1c4706351636745",
+      "version": 1,
+      "at": "2026-08-13 21:33:32.576"
+    },
+    "02_llm": {
+      "revisionId": "d78582b2e60c0e1772764f8242fd276b705e991f",
+      "version": 2,
+      "at": "2026-08-13 21:33:32.806"
+    },
+    "03_terms": {
+      "revisionId": "6607280efa302dc18a8efa3b79ee10dbcb03c5c3",
+      "version": 3,
+      "at": "2026-08-13 21:33:32.977"
+    },
+    "04_transformer": {
+      "revisionId": "afd21a6045cc425eebc1e87914ef4785ec99b374",
+      "version": 4,
+      "at": "2026-08-13 21:33:33.122"
+    },
+    "05_token": {
+      "revisionId": "4f5e2774e2460555c261cfb307f43b746cbce67b",
+      "version": 5,
+      "at": "2026-08-13 21:34:24.125"
+    },
+    "06_embedding": {
+      "revisionId": "50aa46e03c9b7725d10e2872abc7f2f9477b3a18",
+      "version": 6,
+      "at": "2026-08-13 21:34:24.261"
+    },
+    "07_models": {
+      "revisionId": "1b5e914616f5a571a5dae6756fefd1741e8a0219",
+      "version": 7,
+      "at": "2026-08-13 21:34:24.480"
+    },
+    "08_frameworks": {
+      "revisionId": "48cce6d2beadfbf36443781059a1f6cbe43652c0",
+      "version": 8,
+      "at": "2026-08-13 21:34:24.655"
+    },
+    "09_api": {
+      "revisionId": "c0547812fba9d84e6c34b77e265208e5443a0e27",
+      "version": 9,
+      "at": "2026-08-13 21:35:01.722"
+    },
+    "10_action": {
+      "revisionId": "3a3bfdfc3eb40cc7e6f37f0fd5e803d4fba33b3b",
+      "version": 10,
+      "at": "2026-08-13 21:35:01.893"
+    },
+    "11_qkv": {
+      "revisionId": "198ec513bb2f6e9a55db4ab8e85c80a23db00907",
+      "version": 11,
+      "at": "2026-08-13 21:35:02.274"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 44 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>DEEPSEEK V4-FLASH · 2026 开源旗舰</Text>
+      <Box style={{ flexDirection: 'row', gap: 36, alignItems: 'flex-end', marginBottom: 20 }}>
+        <Box>
+          <Text style={{ fontSize: 68, color: '#FF9F1C', fontWeight: 'bold', lineHeight: 1 }}>284B</Text>
+          <Text style={{ fontSize: 16, color: '#DCE7F5', marginTop: 8 }}>总参 / 13B 激活 · MoE</Text>
+        </Box>
+        <Box>
+          <Text style={{ fontSize: 68, color: '#22D3EE', fontWeight: 'bold', lineHeight: 1 }}>1M</Text>
+          <Text style={{ fontSize: 16, color: '#DCE7F5', marginTop: 8 }}>上下文窗口</Text>
+        </Box>
+      </Box>
+      <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.5, marginBottom: 10 }}>
+        小参数反超大参数
+      </Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        2026 的竞争从「更大」转向「更聪明」——选型不必追最大模型，看架构与效率。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', gap: 14 }}>
+      <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 6 }}>MIT 开源协议</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>免费使用 + 可商用 + 可修改</Text>
+      </Box>
+      <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 6 }}>FP4 + FP8 混合量化</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>算力消耗仅前代 27% · 显存降至 10%</Text>
+      </Box>
+      <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 6 }}>双协议 API</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>同时兼容 OpenAI 与 Anthropic 接口</Text>
+      </Box>
+      <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 6 }}>价格 $0.14 / 百万 input</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>云 API 成本低到可当「水电」用——本地与云双轨可行</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 2 讲 · 数据截至 2026-08</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>06 / 12</Text>
+  </Box>
+</Slide>

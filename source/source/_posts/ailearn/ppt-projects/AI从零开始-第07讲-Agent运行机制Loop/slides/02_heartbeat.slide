@@ -1,0 +1,53 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>AGENT LOOP</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        Agent 的心跳<br />就是这四步循环
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        任何 Agent，无论多复杂，本质都是同一个循环：<span style={{ fontWeight: 'bold', color: '#16263F' }}>接收指令 → 思考 → 执行 → 观察 → 判断</span>，直到目标达成或达到终止条件。
+      </Text>
+      <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.7, marginTop: 16 }}>
+        实现方式分三种流派：确定性循环、SDK Loop、多 Agent 协作——下一页细讲。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 18, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16 }}>
+        {[
+          { n: '思考', icon: 'brain', d: 'LLM 推理下一步' },
+          { n: '执行', icon: 'wrench', d: '调用工具/生成' },
+          { n: '观察', icon: 'eye', d: '读取工具结果' },
+          { n: '判断', icon: 'check-circle', d: '是否继续循环' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <Box style={{ width: 52, height: 52, borderRadius: 26, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center', marginBottom: 12 }}>
+              <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+            </Box>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>{item.n}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', textAlign: 'center' }}>{item.d}</Text>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '18px 24px' }}>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7 }}>
+          <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>循环的起点</span>是「接收指令」：用户一句需求进入循环，每转一圈离目标近一步；<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>判断</span>决定是回到思考还是终止。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 09</Text>
+  </Box>
+</Slide>

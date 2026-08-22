@@ -1,0 +1,43 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>VECTOR DATABASE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>向量数据库：让语义搜索「查得快」</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 18, marginBottom: 20 }}>
+      {[
+        { t: 'Chroma', d: '轻量易用\n本地嵌入式首选' },
+        { t: 'Pinecone', d: '托管服务\n免运维按量付费' },
+        { t: 'FAISS', d: 'Meta 开源\n高性能向量检索' },
+        { t: 'Qdrant', d: 'Rust 实现\n自带过滤与高可用' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>{item.t}</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', textAlign: 'center', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ background: '#16263F', borderRadius: 14, padding: '22px 28px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+        <FAIcon name='search' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>相似性搜索：KNN vs ANN</Text>
+      </Box>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        <span style={{ color: '#22D3EE', fontWeight: 'bold' }}>KNN</span> 精确但慢，遍历全部向量；<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>ANN</span> 近似但快，用索引换取速度。
+        <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>召回率</span>衡量检索「找得全不全」——答案质量的上限，取决于检索这一步。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 11</Text>
+  </Box>
+</Slide>

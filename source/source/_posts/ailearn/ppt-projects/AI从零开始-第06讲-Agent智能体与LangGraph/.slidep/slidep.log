@@ -1,0 +1,301 @@
+=== boot pid=22544 ts=2026-08-13 21:37:27.211 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph --filename AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ===
+[2026-08-13 21:37:27.208] [INFO ] [pid=22544] [start] invoked pid=22544 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph --filename AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx]
+[2026-08-13 21:37:27.214] [INFO ] [pid=22544] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph filename=AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:37:27.221] [INFO ] [pid=22544] [start] daemon spawned childPid=22595; waiting started ipc
+=== boot pid=22595 ts=2026-08-13 21:37:28.294 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph --filename AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx --__daemon-child ===
+[2026-08-13 21:37:28.293] [INFO ] [pid=22595] [start] invoked pid=22595 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph --filename AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx --__daemon-child]
+[2026-08-13 21:37:28.305] [INFO ] [pid=22595] [start] daemon child runWorker ppid=22544
+[2026-08-13 21:37:28.307] [INFO ] [pid=22595] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph filename=AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx version=5.4.4
+[2026-08-13 21:37:28.309] [INFO ] [pid=22595] [worker] init ok dirs=ready
+[2026-08-13 21:37:28.311] [INFO ] [pid=22595] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:37:28.312] [INFO ] [pid=22595] [worker] openFile start
+[2026-08-13 21:37:28.314] [INFO ] [pid=22595] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:37:28.319] [INFO ] [pid=22595] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=4
+[2026-08-13 21:37:28.341] [ERROR] [pid=22595] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx"} ms=20
+[2026-08-13 21:37:28.342] [INFO ] [pid=22595] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:37:28.348] [INFO ] [pid=22595] [open-file] open ok fileId=AC37BC63 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=5
+[2026-08-13 21:37:28.350] [INFO ] [pid=22595] [worker] openFile ok fileId=AC37BC63 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:37:28.351] [INFO ] [pid=22595] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:37:28.352] [INFO ] [pid=22595] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:37:28.355] [INFO ] [pid=22595] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:37:28.362] [INFO ] [pid=22595] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"AC37BC63-534C-44F0-A7C7-412849A0E763"}
+[2026-08-13 21:37:28.366] [INFO ] [pid=22595] [mcp] mcp:slide_get_info ok ms=3
+[2026-08-13 21:37:28.369] [INFO ] [pid=22595] [purge] purge start backendSlideCount=0
+[2026-08-13 21:37:28.371] [INFO ] [pid=22595] [purge] purge ok removed=0 ms=12
+[2026-08-13 21:37:28.377] [INFO ] [pid=22595] [worker] initial sync submitted pages=0
+[2026-08-13 21:37:28.379] [INFO ] [pid=22595] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:37:28.383] [INFO ] [pid=22595] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:37:28.386] [INFO ] [pid=22595] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-13 21:37:28.389] [INFO ] [pid=22595] [worker] ready fileId=AC37BC63 backendUrl=http://127.0.0.1:39099 initialPages=0 ms=82
+[2026-08-13 21:37:28.389] [INFO ] [pid=22544] [start] daemon started childPid=22595 ms=1175
+[2026-08-13 21:37:28.390] [INFO ] [pid=22595] [sync] reconcile ok round=1 attempt=1 ms=4
+[2026-08-13 21:37:28.391] [INFO ] [pid=22595] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=8
+[2026-08-13 21:37:28.395] [INFO ] [pid=22595] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides
+[2026-08-13 21:38:41.168] [INFO ] [pid=22595] [watcher] event=add file=slides/05_memory.slide
+[2026-08-13 21:38:41.172] [INFO ] [pid=22595] [watcher] event=add file=slides/06_tools.slide
+[2026-08-13 21:38:41.173] [INFO ] [pid=22595] [watcher] event=add file=slides/03_collab_modes.slide
+[2026-08-13 21:38:41.174] [INFO ] [pid=22595] [watcher] event=add file=slides/02_what_is_agent.slide
+[2026-08-13 21:38:41.180] [INFO ] [pid=22595] [watcher] event=add file=slides/07_function_calling.slide
+[2026-08-13 21:38:41.182] [INFO ] [pid=22595] [watcher] event=add file=slides/04_reasoning_cot.slide
+[2026-08-13 21:38:41.188] [INFO ] [pid=22595] [watcher] event=add file=slides/01_cover.slide
+[2026-08-13 21:38:41.691] [INFO ] [pid=22595] [watcher] flush batch dirty=[05_memory,06_tools,03_collab_modes,02_what_is_agent,07_function_calling,04_reasoning_cot,01_cover] size=7
+[2026-08-13 21:38:41.693] [INFO ] [pid=22595] [sync] submit nextRound=2 dirty=05_memory,06_tools,03_collab_modes,02_what_is_agent,07_function_calling,04_reasoning_cot,01_cover pendingDirtySize=7 merged=no
+[2026-08-13 21:38:41.696] [INFO ] [pid=22595] [sync] drain start round=2 pendingDirtySize=7
+[2026-08-13 21:38:41.697] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:38:41.699] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:38:41.700] [INFO ] [pid=22595] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/01_cover.slide
+[2026-08-13 21:38:41.949] [INFO ] [pid=22595] [render] ok pageId=01_cover slides=1 ms=249
+[2026-08-13 21:38:41.952] [INFO ] [pid=22595] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:38:41.966] [INFO ] [pid=22595] [commit] commit send pageId=f141e1 targetIndex=0 version=1 baseVersion=0 revisionBytes=9836
+[2026-08-13 21:38:41.986] [INFO ] [pid=22595] [commit] commit ok pageId=f141e1 revisionId=1e04e2fa ms=5
+[2026-08-13 21:38:41.994] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=01_cover slideId=f141e1 index=0 version=1 baseVersion=0 revisionId=1e04e2fa code=0 images=[local=0 remote=0 cached=0 failed=0] ms=295
+[2026-08-13 21:38:41.995] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=02_what_is_agent index=1
+[2026-08-13 21:38:41.995] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=02_what_is_agent index=1
+[2026-08-13 21:38:41.996] [INFO ] [pid=22595] [render] start pageId=02_what_is_agent file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/02_what_is_agent.slide
+[2026-08-13 21:38:42.187] [INFO ] [pid=22595] [render] ok pageId=02_what_is_agent slides=1 ms=191
+[2026-08-13 21:38:42.189] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:012pucwc': {
+      id: 'rel:012pucwc',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/737efd36c53d3155839544792316459a.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.200] [INFO ] [pid=22595] [commit] commit send pageId=8c7885 targetIndex=1 version=2 baseVersion=1 revisionBytes=21956
+[2026-08-13 21:38:42.210] [INFO ] [pid=22595] [commit] commit ok pageId=8c7885 revisionId=139e5d93 ms=8
+[2026-08-13 21:38:42.217] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=02_what_is_agent slideId=8c7885 index=1 version=2 baseVersion=1 revisionId=139e5d93 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=222
+[2026-08-13 21:38:42.222] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=03_collab_modes index=2
+[2026-08-13 21:38:42.223] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=03_collab_modes index=2
+[2026-08-13 21:38:42.225] [INFO ] [pid=22595] [render] start pageId=03_collab_modes file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/03_collab_modes.slide
+[2026-08-13 21:38:42.314] [INFO ] [pid=22595] [render] ok pageId=03_collab_modes slides=1 ms=89
+[2026-08-13 21:38:42.316] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:005k8fiu': {
+      id: 'rel:005k8fiu',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.325] [INFO ] [pid=22595] [commit] commit send pageId=a8dfc5 targetIndex=2 version=3 baseVersion=2 revisionBytes=17700
+[2026-08-13 21:38:42.333] [INFO ] [pid=22595] [commit] commit ok pageId=a8dfc5 revisionId=ae7047bb ms=6
+[2026-08-13 21:38:42.352] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=03_collab_modes slideId=a8dfc5 index=2 version=3 baseVersion=2 revisionId=ae7047bb code=0 images=[local=1 remote=0 cached=0 failed=0] ms=129
+[2026-08-13 21:38:42.353] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=04_reasoning_cot index=3
+[2026-08-13 21:38:42.354] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=04_reasoning_cot index=3
+[2026-08-13 21:38:42.354] [INFO ] [pid=22595] [render] start pageId=04_reasoning_cot file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/04_reasoning_cot.slide
+[2026-08-13 21:38:42.471] [INFO ] [pid=22595] [render] ok pageId=04_reasoning_cot slides=1 ms=117
+[2026-08-13 21:38:42.473] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:01vgij6w': {
+      id: 'rel:01vgij6w',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/d8c06345ce78f2b26971a63d0d79bc80.svg'
+    },
+    'rel:000orfzu': {
+      id: 'rel:000orfzu',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/28b11e9c73efaa691fb4b4a3d14f0ee5.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.482] [INFO ] [pid=22595] [commit] commit send pageId=7dfcce targetIndex=3 version=4 baseVersion=3 revisionBytes=23908
+[2026-08-13 21:38:42.494] [INFO ] [pid=22595] [commit] commit ok pageId=7dfcce revisionId=facf7138 ms=10
+[2026-08-13 21:38:42.499] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=04_reasoning_cot slideId=7dfcce index=3 version=4 baseVersion=3 revisionId=facf7138 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=145
+[2026-08-13 21:38:42.500] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=05_memory index=4
+[2026-08-13 21:38:42.501] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=05_memory index=4
+[2026-08-13 21:38:42.505] [INFO ] [pid=22595] [render] start pageId=05_memory file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/05_memory.slide
+[2026-08-13 21:38:42.601] [INFO ] [pid=22595] [render] ok pageId=05_memory slides=1 ms=96
+[2026-08-13 21:38:42.606] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:017hz7k8': {
+      id: 'rel:017hz7k8',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/475fe1265e95ef7c76dc4e7a4b51147d.svg'
+    },
+    'rel:006l62aa': {
+      id: 'rel:006l62aa',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/1efcd2f4a27d60ef800cb4955e3a7378.svg'
+    },
+    'rel:01lyn9e6': {
+      id: 'rel:01lyn9e6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/9b39340b54904c1dd046e4721f02316e.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.611] [INFO ] [pid=22595] [commit] commit send pageId=0ccd25 targetIndex=4 version=5 baseVersion=4 revisionBytes=21160
+[2026-08-13 21:38:42.628] [INFO ] [pid=22595] [commit] commit ok pageId=0ccd25 revisionId=66a09c6c ms=14
+[2026-08-13 21:38:42.632] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=05_memory slideId=0ccd25 index=4 version=5 baseVersion=4 revisionId=66a09c6c code=0 images=[local=3 remote=0 cached=0 failed=0] ms=131
+[2026-08-13 21:38:42.638] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=06_tools index=5
+[2026-08-13 21:38:42.639] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=06_tools index=5
+[2026-08-13 21:38:42.640] [INFO ] [pid=22595] [render] start pageId=06_tools file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/06_tools.slide
+[2026-08-13 21:38:42.746] [INFO ] [pid=22595] [render] ok pageId=06_tools slides=1 ms=106
+[2026-08-13 21:38:42.748] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:019l3n0c': {
+      id: 'rel:019l3n0c',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/ce17b03c5ea1ed8c5eeb82d85bbca70e.svg'
+    },
+    'rel:00noln77': {
+      id: 'rel:00noln77',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/487ee42328ba3095035d6af3767103d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.753] [INFO ] [pid=22595] [commit] commit send pageId=ef993e targetIndex=5 version=6 baseVersion=5 revisionBytes=26608
+[2026-08-13 21:38:42.761] [INFO ] [pid=22595] [commit] commit ok pageId=ef993e revisionId=27435dd7 ms=7
+[2026-08-13 21:38:42.767] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=06_tools slideId=ef993e index=5 version=6 baseVersion=5 revisionId=27435dd7 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=128
+[2026-08-13 21:38:42.768] [INFO ] [pid=22595] [sync] step=add round=2 attempt=1 pageId=07_function_calling index=6
+[2026-08-13 21:38:42.770] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=07_function_calling index=6
+[2026-08-13 21:38:42.771] [INFO ] [pid=22595] [render] start pageId=07_function_calling file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/07_function_calling.slide
+[2026-08-13 21:38:42.839] [INFO ] [pid=22595] [render] ok pageId=07_function_calling slides=1 ms=68
+[2026-08-13 21:38:42.840] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:005k8fiu': {
+      id: 'rel:005k8fiu',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:00zjryxp': {
+      id: 'rel:00zjryxp',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/a04e5c4361de95f2ffdb4adc18f959e1.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:42.847] [INFO ] [pid=22595] [commit] commit send pageId=f00014 targetIndex=6 version=7 baseVersion=6 revisionBytes=20620
+[2026-08-13 21:38:42.856] [INFO ] [pid=22595] [commit] commit ok pageId=f00014 revisionId=cc8c3cc1 ms=7
+[2026-08-13 21:38:42.863] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=07_function_calling slideId=f00014 index=6 version=7 baseVersion=6 revisionId=cc8c3cc1 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=93
+[2026-08-13 21:38:42.865] [INFO ] [pid=22595] [sync] aligned round=2 attempt=1 size=7 desired=7 pendingDirtySize=0
+[2026-08-13 21:38:42.867] [INFO ] [pid=22595] [sync] reconcile ok round=2 attempt=1 ms=1170
+[2026-08-13 21:38:42.870] [INFO ] [pid=22595] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:38:42.871] [INFO ] [pid=22595] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:38:42.924] [INFO ] [pid=22595] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=52
+[2026-08-13 21:38:42.925] [INFO ] [pid=22595] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=55
+[2026-08-13 21:38:42.926] [INFO ] [pid=22595] [sync] drain end round=2 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1230
+[2026-08-13 21:39:40.436] [INFO ] [pid=22595] [watcher] event=add file=slides/13_persistence.slide
+[2026-08-13 21:39:40.439] [INFO ] [pid=22595] [watcher] event=add file=slides/12_plan_execute.slide
+[2026-08-13 21:39:40.441] [INFO ] [pid=22595] [watcher] event=add file=slides/08_agent_demo.slide
+[2026-08-13 21:39:40.442] [INFO ] [pid=22595] [watcher] event=add file=slides/09_agent_types.slide
+[2026-08-13 21:39:40.444] [INFO ] [pid=22595] [watcher] event=add file=slides/10_why_langgraph.slide
+[2026-08-13 21:39:40.446] [INFO ] [pid=22595] [watcher] event=add file=slides/14_summary.slide
+[2026-08-13 21:39:40.448] [INFO ] [pid=22595] [watcher] event=add file=slides/11_langgraph_elements.slide
+[2026-08-13 21:39:40.953] [INFO ] [pid=22595] [watcher] flush batch dirty=[13_persistence,12_plan_execute,08_agent_demo,09_agent_types,10_why_langgraph,14_summary,11_langgraph_elements] size=7
+[2026-08-13 21:39:40.958] [INFO ] [pid=22595] [sync] submit nextRound=3 dirty=13_persistence,12_plan_execute,08_agent_demo,09_agent_types,10_why_langgraph,14_summary,11_langgraph_elements pendingDirtySize=7 merged=no
+[2026-08-13 21:39:40.959] [INFO ] [pid=22595] [sync] drain start round=3 pendingDirtySize=7
+[2026-08-13 21:39:40.960] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=08_agent_demo index=7
+[2026-08-13 21:39:40.961] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=08_agent_demo index=7
+[2026-08-13 21:39:40.962] [INFO ] [pid=22595] [render] start pageId=08_agent_demo file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/08_agent_demo.slide
+[2026-08-13 21:39:41.399] [INFO ] [pid=22595] [render] ok pageId=08_agent_demo slides=1 ms=437
+[2026-08-13 21:39:41.402] [INFO ] [pid=22595] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:41.431] [INFO ] [pid=22595] [commit] commit send pageId=bd0256 targetIndex=7 version=8 baseVersion=7 revisionBytes=15216
+[2026-08-13 21:39:41.438] [INFO ] [pid=22595] [commit] commit ok pageId=bd0256 revisionId=fb6cb066 ms=5
+[2026-08-13 21:39:41.441] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=08_agent_demo slideId=bd0256 index=7 version=8 baseVersion=7 revisionId=fb6cb066 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=480
+[2026-08-13 21:39:41.442] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=09_agent_types index=8
+[2026-08-13 21:39:41.443] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=09_agent_types index=8
+[2026-08-13 21:39:41.444] [INFO ] [pid=22595] [render] start pageId=09_agent_types file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/09_agent_types.slide
+[2026-08-13 21:39:41.490] [INFO ] [pid=22595] [render] ok pageId=09_agent_types slides=1 ms=46
+[2026-08-13 21:39:41.491] [INFO ] [pid=22595] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:41.495] [INFO ] [pid=22595] [commit] commit send pageId=5fd318 targetIndex=8 version=9 baseVersion=8 revisionBytes=16200
+[2026-08-13 21:39:41.499] [INFO ] [pid=22595] [commit] commit ok pageId=5fd318 revisionId=a7ab621b ms=3
+[2026-08-13 21:39:41.505] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=09_agent_types slideId=5fd318 index=8 version=9 baseVersion=8 revisionId=a7ab621b code=0 images=[local=0 remote=0 cached=0 failed=0] ms=62
+[2026-08-13 21:39:41.506] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=10_why_langgraph index=9
+[2026-08-13 21:39:41.507] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=10_why_langgraph index=9
+[2026-08-13 21:39:41.508] [INFO ] [pid=22595] [render] start pageId=10_why_langgraph file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/10_why_langgraph.slide
+[2026-08-13 21:39:41.579] [INFO ] [pid=22595] [render] ok pageId=10_why_langgraph slides=1 ms=71
+[2026-08-13 21:39:41.581] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:003mfrk2': {
+      id: 'rel:003mfrk2',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/9a526ae567452f710e1bb586541d621f.svg'
+    },
+    'rel:00smn8j3': {
+      id: 'rel:00smn8j3',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/092fb1697ea249965f877ce16c00b158.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:41.588] [INFO ] [pid=22595] [commit] commit send pageId=0ef602 targetIndex=9 version=10 baseVersion=9 revisionBytes=19652
+[2026-08-13 21:39:41.615] [INFO ] [pid=22595] [commit] commit ok pageId=0ef602 revisionId=2e079088 ms=26
+[2026-08-13 21:39:41.619] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=10_why_langgraph slideId=0ef602 index=9 version=10 baseVersion=9 revisionId=2e079088 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=112
+[2026-08-13 21:39:41.620] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=11_langgraph_elements index=10
+[2026-08-13 21:39:41.621] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=11_langgraph_elements index=10
+[2026-08-13 21:39:41.622] [INFO ] [pid=22595] [render] start pageId=11_langgraph_elements file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/11_langgraph_elements.slide
+[2026-08-13 21:39:41.679] [INFO ] [pid=22595] [render] ok pageId=11_langgraph_elements slides=1 ms=57
+[2026-08-13 21:39:41.690] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:01q0cgip': {
+      id: 'rel:01q0cgip',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:41.710] [INFO ] [pid=22595] [commit] commit send pageId=c7064d targetIndex=10 version=11 baseVersion=10 revisionBytes=19188
+[2026-08-13 21:39:41.721] [INFO ] [pid=22595] [commit] commit ok pageId=c7064d revisionId=e7529945 ms=7
+[2026-08-13 21:39:41.737] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=11_langgraph_elements slideId=c7064d index=10 version=11 baseVersion=10 revisionId=e7529945 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=116
+[2026-08-13 21:39:41.738] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=12_plan_execute index=11
+[2026-08-13 21:39:41.739] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=12_plan_execute index=11
+[2026-08-13 21:39:41.740] [INFO ] [pid=22595] [render] start pageId=12_plan_execute file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/12_plan_execute.slide
+[2026-08-13 21:39:41.806] [INFO ] [pid=22595] [render] ok pageId=12_plan_execute slides=1 ms=66
+[2026-08-13 21:39:41.807] [INFO ] [pid=22595] [render] renderSlideData result.resources={
+  images: {
+    'rel:005k8fiu': {
+      id: 'rel:005k8fiu',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:009paatn': {
+      id: 'rel:009paatn',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/.cache/media/images/50617b755ebff6d3499a809d430277f6.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:41.811] [INFO ] [pid=22595] [commit] commit send pageId=15b1a0 targetIndex=11 version=12 baseVersion=11 revisionBytes=20628
+[2026-08-13 21:39:41.820] [INFO ] [pid=22595] [commit] commit ok pageId=15b1a0 revisionId=1d576ebe ms=8
+[2026-08-13 21:39:41.826] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=12_plan_execute slideId=15b1a0 index=11 version=12 baseVersion=11 revisionId=1d576ebe code=0 images=[local=2 remote=0 cached=0 failed=0] ms=87
+[2026-08-13 21:39:41.828] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=13_persistence index=12
+[2026-08-13 21:39:41.829] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=13_persistence index=12
+[2026-08-13 21:39:41.831] [INFO ] [pid=22595] [render] start pageId=13_persistence file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/13_persistence.slide
+[2026-08-13 21:39:41.872] [INFO ] [pid=22595] [render] ok pageId=13_persistence slides=1 ms=41
+[2026-08-13 21:39:41.874] [INFO ] [pid=22595] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:41.879] [INFO ] [pid=22595] [commit] commit send pageId=eecefc targetIndex=12 version=13 baseVersion=12 revisionBytes=16632
+[2026-08-13 21:39:41.885] [INFO ] [pid=22595] [commit] commit ok pageId=eecefc revisionId=48308bcd ms=3
+[2026-08-13 21:39:41.890] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=13_persistence slideId=eecefc index=12 version=13 baseVersion=12 revisionId=48308bcd code=0 images=[local=0 remote=0 cached=0 failed=0] ms=61
+[2026-08-13 21:39:41.891] [INFO ] [pid=22595] [sync] step=add round=3 attempt=1 pageId=14_summary index=13
+[2026-08-13 21:39:41.893] [INFO ] [pid=22595] [backend-ops] addSlideAt start pageId=14_summary index=13
+[2026-08-13 21:39:41.894] [INFO ] [pid=22595] [render] start pageId=14_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides/14_summary.slide
+[2026-08-13 21:39:41.940] [INFO ] [pid=22595] [render] ok pageId=14_summary slides=1 ms=46
+[2026-08-13 21:39:41.942] [INFO ] [pid=22595] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:41.952] [INFO ] [pid=22595] [commit] commit send pageId=454694 targetIndex=13 version=14 baseVersion=13 revisionBytes=18964
+[2026-08-13 21:39:41.968] [INFO ] [pid=22595] [commit] commit ok pageId=454694 revisionId=6b2eb80b ms=3
+[2026-08-13 21:39:41.973] [INFO ] [pid=22595] [backend-ops] addSlideAt ok pageId=14_summary slideId=454694 index=13 version=14 baseVersion=13 revisionId=6b2eb80b code=0 images=[local=0 remote=0 cached=0 failed=0] ms=80
+[2026-08-13 21:39:41.974] [INFO ] [pid=22595] [sync] aligned round=3 attempt=1 size=14 desired=14 pendingDirtySize=0
+[2026-08-13 21:39:41.975] [INFO ] [pid=22595] [sync] reconcile ok round=3 attempt=1 ms=1015
+[2026-08-13 21:39:41.976] [INFO ] [pid=22595] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:39:41.982] [INFO ] [pid=22595] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx
+[2026-08-13 21:39:42.056] [INFO ] [pid=22595] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=73
+[2026-08-13 21:39:42.057] [INFO ] [pid=22595] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx ms=81
+[2026-08-13 21:39:42.058] [INFO ] [pid=22595] [sync] drain end round=3 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1099
+=== boot pid=26957 ts=2026-08-13 21:39:44.459 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph ===
+[2026-08-13 21:39:44.458] [INFO ] [pid=26957] [validate] --all mode: found 14 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides
+[2026-08-13 21:39:44.463] [INFO ] [pid=26957] [validate] batch start files=14 checkOverflow=true
+[2026-08-13 21:39:45.954] [INFO ] [pid=26957] [validate] batch done total=14 passed=14 failed=0 ms=1497

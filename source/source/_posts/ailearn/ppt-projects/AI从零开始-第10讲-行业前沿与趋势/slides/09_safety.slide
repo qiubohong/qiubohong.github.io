@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>AI SAFETY & ETHICS</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        AI 安全与伦理：<br />能力越大，责任越大
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        模型越强，滥用风险越高。<span style={{ fontWeight: 'bold', color: '#16263F' }}>注入攻击、隐私泄露、偏见放大</span>——三大隐患必须在设计之初就防。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='shield' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>注入攻击 / 隐私 / 偏见</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>提示词注入、敏感数据外泄、模型偏见——三大风险要设防。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='filter' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>Moderation API</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>输入输出都过一道内容审核，把有害内容拦在门外。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='lock' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>数据不出门</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>敏感场景走本地部署或私有化，从物理上守住数据边界。</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 10 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 11</Text>
+  </Box>
+</Slide>

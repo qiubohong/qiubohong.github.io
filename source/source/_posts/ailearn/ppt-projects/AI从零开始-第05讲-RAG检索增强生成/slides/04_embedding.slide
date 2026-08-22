@@ -1,0 +1,60 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>EMBEDDING</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        嵌入模型<br />把文字变成向量
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        把「语义」映射到高维空间的坐标——<span style={{ fontWeight: 'bold', color: '#16263F' }}>意思越接近，向量距离越近</span>，这就是相似度检索的基础。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='language' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>text2vec · 中文场景</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>中文语义效果好，国产开源首选</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='globe' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>bge-m3 · 多语言</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>中英混排通用，兼顾检索与排序</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='feather' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>bge-small · 轻量</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>体积小、速度快，适合本地部署</Text>
+        </Box>
+      </Box>
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '16px 24px' }}>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>
+          <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>选型原则：</span>先看语种，再看规模与硬件——中文 text2vec、多语言 bge-m3、资源紧 bge-small
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,41 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 01 · 认识框架</Text>
+    <Text style={{ fontSize: 44, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 16 }}>LangChain 是什么？</Text>
+    <Text style={{ fontSize: 18, color: '#DCE7F5', lineHeight: 1.7, marginBottom: 40 }}>
+      一个开源的 <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>LLM 应用开发框架</span>——把「调用模型」的脏活累活标准化，让开发者专注于业务逻辑。
+    </Text>
+
+    <Box style={{ flexDirection: 'row', gap: 24 }}>
+      {[
+        { n: '01', t: '简化开发', d: '组件化封装提示词、模型、解析器\n像搭积木一样拼出应用' },
+        { n: '02', t: '标准化工具链', d: '统一调用接口与最佳实践\n从 prompt 到部署一条龙' },
+        { n: '03', t: '生态扩展', d: '海量集成 + 社区组件\n换模型、换向量库只需一行' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '26px 24px' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>{item.n}</Text>
+          <Text style={{ fontSize: 22, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 12 }}>{item.t}</Text>
+          <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 36, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>
+        一句话记住：LangChain 之于 LLM 应用，就像 Spring 之于 Java Web
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>03 / 14</Text>
+  </Box>
+</Slide>

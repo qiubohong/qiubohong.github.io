@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>COLLAB MODES</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>AI 协同的三种模式：从建议到自主</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
+      {[
+        { t: 'Embedding', d: '给建议', desc: 'AI 只在文字里给出意见\n人来做最终决定' },
+        { t: 'Copilot', d: '给初稿', desc: 'AI 生成草案\n人审核修改后定稿' },
+        { t: 'Agent', d: '自主执行', desc: 'AI 自主规划并完成任务\n人只定目标与验收' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: idx === 2 ? '#16263F' : '#FFFFFF', borderRadius: 14, padding: '30px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <Text style={{ fontSize: 22, fontWeight: 'bold', color: idx === 2 ? '#FF9F1C' : '#16263F', marginBottom: 6 }}>{item.t}</Text>
+            <Text style={{ fontSize: 15, color: idx === 2 ? '#22D3EE' : '#22D3EE', fontWeight: 'bold', marginBottom: 14 }}>{item.d}</Text>
+            <Text style={{ fontSize: 14, color: idx === 2 ? '#DCE7F5' : '#5B6B7A', textAlign: 'center', lineHeight: 1.8, whiteSpace: 'pre-line' }}>{item.desc}</Text>
+          </Box>
+          {idx < 2 && (
+            <Box style={{ width: 40, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 24, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        控制的让渡：Embedding 只给建议，Agent 交出了执行权——但目标与验收始终在人手里
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 14</Text>
+  </Box>
+</Slide>

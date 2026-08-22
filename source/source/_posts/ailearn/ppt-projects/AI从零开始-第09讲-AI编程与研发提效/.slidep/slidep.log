@@ -1,0 +1,283 @@
+=== boot pid=25897 ts=2026-08-13 21:39:10.563 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 --filename AI从零开始-第09讲-AI编程与研发提效-优化版.pptx ===
+[2026-08-13 21:39:10.557] [INFO ] [pid=25897] [start] invoked pid=25897 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 --filename AI从零开始-第09讲-AI编程与研发提效-优化版.pptx]
+[2026-08-13 21:39:10.565] [INFO ] [pid=25897] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 filename=AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:10.569] [INFO ] [pid=25897] [start] daemon spawned childPid=25924; waiting started ipc
+=== boot pid=25924 ts=2026-08-13 21:39:11.725 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 --filename AI从零开始-第09讲-AI编程与研发提效-优化版.pptx --__daemon-child ===
+[2026-08-13 21:39:11.724] [INFO ] [pid=25924] [start] invoked pid=25924 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 --filename AI从零开始-第09讲-AI编程与研发提效-优化版.pptx --__daemon-child]
+[2026-08-13 21:39:11.729] [INFO ] [pid=25924] [start] daemon child runWorker ppid=25897
+[2026-08-13 21:39:11.730] [INFO ] [pid=25924] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 filename=AI从零开始-第09讲-AI编程与研发提效-优化版.pptx version=5.4.4
+[2026-08-13 21:39:11.732] [INFO ] [pid=25924] [worker] init ok dirs=ready
+[2026-08-13 21:39:11.733] [INFO ] [pid=25924] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:39:11.735] [INFO ] [pid=25924] [worker] openFile start
+[2026-08-13 21:39:11.737] [INFO ] [pid=25924] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:11.741] [INFO ] [pid=25924] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx ms=3
+[2026-08-13 21:39:11.763] [ERROR] [pid=25924] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx"} ms=19
+[2026-08-13 21:39:11.764] [INFO ] [pid=25924] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:11.771] [INFO ] [pid=25924] [open-file] open ok fileId=18D2E099 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx ms=6
+[2026-08-13 21:39:11.772] [INFO ] [pid=25924] [worker] openFile ok fileId=18D2E099 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:11.773] [INFO ] [pid=25924] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC09%E8%AE%B2-AI%E7%BC%96%E7%A8%8B%E4%B8%8E%E7%A0%94%E5%8F%91%E6%8F%90%E6%95%88%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC09%E8%AE%B2-AI%E7%BC%96%E7%A8%8B%E4%B8%8E%E7%A0%94%E5%8F%91%E6%8F%90%E6%95%88-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:39:11.774] [INFO ] [pid=25924] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:11.781] [INFO ] [pid=25924] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:39:11.786] [INFO ] [pid=25924] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"18D2E099-3E0B-454C-BB12-A343CBDAE1CA"}
+[2026-08-13 21:39:11.801] [INFO ] [pid=25924] [mcp] mcp:slide_get_info ok ms=2
+[2026-08-13 21:39:11.806] [INFO ] [pid=25924] [purge] purge start backendSlideCount=0
+[2026-08-13 21:39:11.808] [INFO ] [pid=25924] [purge] purge ok removed=0 ms=25
+[2026-08-13 21:39:11.811] [INFO ] [pid=25924] [worker] initial sync submitted pages=12
+[2026-08-13 21:39:11.815] [INFO ] [pid=25924] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:39:11.817] [INFO ] [pid=25924] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:39:11.820] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:39:11.824] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:39:11.825] [INFO ] [pid=25924] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/01_cover.slide
+[2026-08-13 21:39:11.832] [INFO ] [pid=25924] [worker] ready fileId=18D2E099 backendUrl=http://127.0.0.1:39099 initialPages=12 ms=102
+[2026-08-13 21:39:11.833] [INFO ] [pid=25897] [start] daemon started childPid=25924 ms=1268
+[2026-08-13 21:39:12.050] [INFO ] [pid=25924] [render] ok pageId=01_cover slides=1 ms=225
+[2026-08-13 21:39:12.051] [INFO ] [pid=25924] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:12.061] [INFO ] [pid=25924] [commit] commit send pageId=4abfc3 targetIndex=0 version=1 baseVersion=0 revisionBytes=10372
+[2026-08-13 21:39:12.071] [INFO ] [pid=25924] [commit] commit ok pageId=4abfc3 revisionId=33a79531 ms=6
+[2026-08-13 21:39:12.075] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=01_cover slideId=4abfc3 index=0 version=1 baseVersion=0 revisionId=33a79531 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=251
+[2026-08-13 21:39:12.076] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=02_spec_driven index=1
+[2026-08-13 21:39:12.077] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=02_spec_driven index=1
+[2026-08-13 21:39:12.079] [INFO ] [pid=25924] [render] start pageId=02_spec_driven file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/02_spec_driven.slide
+[2026-08-13 21:39:12.104] [INFO ] [pid=25924] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides
+[2026-08-13 21:39:12.258] [INFO ] [pid=25924] [render] ok pageId=02_spec_driven slides=1 ms=179
+[2026-08-13 21:39:12.261] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:006ysxz0': {
+      id: 'rel:006ysxz0',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/ac434cf9e0a223900af41048adbf2769.svg'
+    },
+    'rel:01k1j6y7': {
+      id: 'rel:01k1j6y7',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/487ee42328ba3095035d6af3767103d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:12.275] [INFO ] [pid=25924] [commit] commit send pageId=705a9b targetIndex=1 version=2 baseVersion=1 revisionBytes=22408
+[2026-08-13 21:39:12.312] [INFO ] [pid=25924] [commit] commit ok pageId=705a9b revisionId=1261d3fe ms=11
+[2026-08-13 21:39:12.316] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=02_spec_driven slideId=705a9b index=1 version=2 baseVersion=1 revisionId=1261d3fe code=0 images=[local=2 remote=0 cached=0 failed=0] ms=239
+[2026-08-13 21:39:12.317] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=03_spec_kit index=2
+[2026-08-13 21:39:12.320] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=03_spec_kit index=2
+[2026-08-13 21:39:12.321] [INFO ] [pid=25924] [render] start pageId=03_spec_kit file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/03_spec_kit.slide
+[2026-08-13 21:39:12.442] [INFO ] [pid=25924] [render] ok pageId=03_spec_kit slides=1 ms=121
+[2026-08-13 21:39:12.445] [INFO ] [pid=25924] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:12.455] [INFO ] [pid=25924] [commit] commit send pageId=715ff2 targetIndex=2 version=3 baseVersion=2 revisionBytes=26208
+[2026-08-13 21:39:12.463] [INFO ] [pid=25924] [commit] commit ok pageId=715ff2 revisionId=360bc480 ms=5
+[2026-08-13 21:39:12.468] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=03_spec_kit slideId=715ff2 index=2 version=3 baseVersion=2 revisionId=360bc480 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=148
+[2026-08-13 21:39:12.469] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=04_clarify_value index=3
+[2026-08-13 21:39:12.470] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=04_clarify_value index=3
+[2026-08-13 21:39:12.471] [INFO ] [pid=25924] [render] start pageId=04_clarify_value file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/04_clarify_value.slide
+[2026-08-13 21:39:12.541] [INFO ] [pid=25924] [render] ok pageId=04_clarify_value slides=1 ms=70
+[2026-08-13 21:39:12.543] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:0037jqe0': {
+      id: 'rel:0037jqe0',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/29e344addda48b16357bba6bf35f3b38.svg'
+    },
+    'rel:01cply5z': {
+      id: 'rel:01cply5z',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/8992ca8e8783a1a1c181720b74e539da.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:12.549] [INFO ] [pid=25924] [commit] commit send pageId=1ebeba targetIndex=3 version=4 baseVersion=3 revisionBytes=19924
+[2026-08-13 21:39:12.560] [INFO ] [pid=25924] [commit] commit ok pageId=1ebeba revisionId=edeb6af8 ms=8
+[2026-08-13 21:39:12.567] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=04_clarify_value slideId=1ebeba index=3 version=4 baseVersion=3 revisionId=edeb6af8 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=97
+[2026-08-13 21:39:12.570] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=05_scene_table index=4
+[2026-08-13 21:39:12.575] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=05_scene_table index=4
+[2026-08-13 21:39:12.576] [INFO ] [pid=25924] [render] start pageId=05_scene_table file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/05_scene_table.slide
+[2026-08-13 21:39:12.637] [INFO ] [pid=25924] [render] ok pageId=05_scene_table slides=1 ms=61
+[2026-08-13 21:39:12.646] [INFO ] [pid=25924] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:12.653] [INFO ] [pid=25924] [commit] commit send pageId=990aec targetIndex=4 version=5 baseVersion=4 revisionBytes=17960
+[2026-08-13 21:39:12.662] [INFO ] [pid=25924] [commit] commit ok pageId=990aec revisionId=97ce317a ms=6
+[2026-08-13 21:39:12.666] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=05_scene_table slideId=990aec index=4 version=5 baseVersion=4 revisionId=97ce317a code=0 images=[local=0 remote=0 cached=0 failed=0] ms=91
+[2026-08-13 21:39:12.671] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=06_review_driven index=5
+[2026-08-13 21:39:12.673] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=06_review_driven index=5
+[2026-08-13 21:39:12.674] [INFO ] [pid=25924] [render] start pageId=06_review_driven file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/06_review_driven.slide
+[2026-08-13 21:39:12.789] [INFO ] [pid=25924] [render] ok pageId=06_review_driven slides=1 ms=115
+[2026-08-13 21:39:12.791] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:017vajxy': {
+      id: 'rel:017vajxy',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/eaef9dc9fd9e3d1d1af51457db8eda8b.svg'
+    },
+    'rel:011x5z9u': {
+      id: 'rel:011x5z9u',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:017bt88b': {
+      id: 'rel:017bt88b',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/1a8db986146cfc3bf7ca1b143e48f7ee.svg'
+    },
+    'rel:006wx4s8': {
+      id: 'rel:006wx4s8',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/ce17b03c5ea1ed8c5eeb82d85bbca70e.svg'
+    },
+    'rel:00pvqm94': {
+      id: 'rel:00pvqm94',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/cf8e4b1e8468fdd65231321299ca9037.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:12.796] [INFO ] [pid=25924] [commit] commit send pageId=16278e targetIndex=5 version=6 baseVersion=5 revisionBytes=28248
+[2026-08-13 21:39:12.811] [INFO ] [pid=25924] [commit] commit ok pageId=16278e revisionId=375a3b0b ms=13
+[2026-08-13 21:39:12.816] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=06_review_driven slideId=16278e index=5 version=6 baseVersion=5 revisionId=375a3b0b code=0 images=[local=5 remote=0 cached=0 failed=0] ms=143
+[2026-08-13 21:39:12.818] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=07_review_case index=6
+[2026-08-13 21:39:12.822] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=07_review_case index=6
+[2026-08-13 21:39:12.824] [INFO ] [pid=25924] [render] start pageId=07_review_case file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/07_review_case.slide
+[2026-08-13 21:39:12.961] [INFO ] [pid=25924] [render] ok pageId=07_review_case slides=1 ms=138
+[2026-08-13 21:39:12.963] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:01g1o66p': {
+      id: 'rel:01g1o66p',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/dac74819a0ff47f21e11d89f597d2097.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:12.969] [INFO ] [pid=25924] [commit] commit send pageId=c2c399 targetIndex=6 version=7 baseVersion=6 revisionBytes=30472
+[2026-08-13 21:39:12.979] [INFO ] [pid=25924] [commit] commit ok pageId=c2c399 revisionId=a856908a ms=8
+[2026-08-13 21:39:12.983] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=07_review_case slideId=c2c399 index=6 version=7 baseVersion=6 revisionId=a856908a code=0 images=[local=1 remote=0 cached=0 failed=0] ms=161
+[2026-08-13 21:39:12.984] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=08_codegraph index=7
+[2026-08-13 21:39:12.985] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=08_codegraph index=7
+[2026-08-13 21:39:12.986] [INFO ] [pid=25924] [render] start pageId=08_codegraph file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/08_codegraph.slide
+[2026-08-13 21:39:13.056] [INFO ] [pid=25924] [render] ok pageId=08_codegraph slides=1 ms=70
+[2026-08-13 21:39:13.060] [INFO ] [pid=25924] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:39:13.065] [INFO ] [pid=25924] [commit] commit send pageId=b46ccc targetIndex=7 version=8 baseVersion=7 revisionBytes=27612
+[2026-08-13 21:39:13.072] [INFO ] [pid=25924] [commit] commit ok pageId=b46ccc revisionId=aa4ba8e3 ms=5
+[2026-08-13 21:39:13.078] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=08_codegraph slideId=b46ccc index=7 version=8 baseVersion=7 revisionId=aa4ba8e3 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=93
+[2026-08-13 21:39:13.080] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=09_mcp index=8
+[2026-08-13 21:39:13.081] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=09_mcp index=8
+[2026-08-13 21:39:13.082] [INFO ] [pid=25924] [render] start pageId=09_mcp file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/09_mcp.slide
+[2026-08-13 21:39:13.211] [INFO ] [pid=25924] [render] ok pageId=09_mcp slides=1 ms=129
+[2026-08-13 21:39:13.213] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:01p3zbn2': {
+      id: 'rel:01p3zbn2',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/3bad5b20453478fe129e4fa22dfe7cf4.svg'
+    },
+    'rel:01f77bln': {
+      id: 'rel:01f77bln',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/3c2684e26f011832b4af497ccacdf871.svg'
+    },
+    'rel:01x8ktwz': {
+      id: 'rel:01x8ktwz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/aff524620ad91210a85fe8035352204d.svg'
+    },
+    'rel:00x0yq61': {
+      id: 'rel:00x0yq61',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/97d905691cdc868877b849a3037a3862.svg'
+    },
+    'rel:00zzdbb2': {
+      id: 'rel:00zzdbb2',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/9a526ae567452f710e1bb586541d621f.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:13.218] [INFO ] [pid=25924] [commit] commit send pageId=be48ae targetIndex=8 version=9 baseVersion=8 revisionBytes=33196
+[2026-08-13 21:39:13.234] [INFO ] [pid=25924] [commit] commit ok pageId=be48ae revisionId=6f3306ba ms=15
+[2026-08-13 21:39:13.238] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=09_mcp slideId=be48ae index=8 version=9 baseVersion=8 revisionId=6f3306ba code=0 images=[local=5 remote=0 cached=0 failed=0] ms=157
+[2026-08-13 21:39:13.239] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=10_gateway index=9
+[2026-08-13 21:39:13.241] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=10_gateway index=9
+[2026-08-13 21:39:13.246] [INFO ] [pid=25924] [render] start pageId=10_gateway file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/10_gateway.slide
+[2026-08-13 21:39:13.324] [INFO ] [pid=25924] [render] ok pageId=10_gateway slides=1 ms=78
+[2026-08-13 21:39:13.326] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:0033ms4b': {
+      id: 'rel:0033ms4b',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/1ae7dd68c05dc847ee15cff19559a58a.svg'
+    },
+    'rel:010jecaf': {
+      id: 'rel:010jecaf',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/f1adf3e29f2fac827cbfcade49645eea.svg'
+    },
+    'rel:00hi4te6': {
+      id: 'rel:00hi4te6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/849f5731f120c95112defa7b5cb5d980.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:13.330] [INFO ] [pid=25924] [commit] commit send pageId=575f6a targetIndex=9 version=10 baseVersion=9 revisionBytes=26520
+[2026-08-13 21:39:13.339] [INFO ] [pid=25924] [commit] commit ok pageId=575f6a revisionId=64b9630c ms=8
+[2026-08-13 21:39:13.342] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=10_gateway slideId=575f6a index=9 version=10 baseVersion=9 revisionId=64b9630c code=0 images=[local=3 remote=0 cached=0 failed=0] ms=101
+[2026-08-13 21:39:13.342] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=11_tools index=10
+[2026-08-13 21:39:13.343] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=11_tools index=10
+[2026-08-13 21:39:13.344] [INFO ] [pid=25924] [render] start pageId=11_tools file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/11_tools.slide
+[2026-08-13 21:39:13.444] [INFO ] [pid=25924] [render] ok pageId=11_tools slides=1 ms=100
+[2026-08-13 21:39:13.447] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:01scww54': {
+      id: 'rel:01scww54',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/55a91192ef933df23eb9c58db52fe5da.svg'
+    },
+    'rel:014l3thl': {
+      id: 'rel:014l3thl',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/556accab12be251cc2f4cf7b182f1506.svg'
+    },
+    'rel:006wx4s8': {
+      id: 'rel:006wx4s8',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/ce17b03c5ea1ed8c5eeb82d85bbca70e.svg'
+    },
+    'rel:01urow1z': {
+      id: 'rel:01urow1z',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/6cbf0697344a365e4e906e03b0795a18.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:13.455] [INFO ] [pid=25924] [commit] commit send pageId=2638b9 targetIndex=10 version=11 baseVersion=10 revisionBytes=34448
+[2026-08-13 21:39:13.467] [INFO ] [pid=25924] [commit] commit ok pageId=2638b9 revisionId=00e38666 ms=10
+[2026-08-13 21:39:13.477] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=11_tools slideId=2638b9 index=10 version=11 baseVersion=10 revisionId=00e38666 code=0 images=[local=4 remote=0 cached=0 failed=0] ms=134
+[2026-08-13 21:39:13.480] [INFO ] [pid=25924] [sync] step=add round=1 attempt=1 pageId=12_summary index=11
+[2026-08-13 21:39:13.482] [INFO ] [pid=25924] [backend-ops] addSlideAt start pageId=12_summary index=11
+[2026-08-13 21:39:13.517] [INFO ] [pid=25924] [render] start pageId=12_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides/12_summary.slide
+[2026-08-13 21:39:13.640] [INFO ] [pid=25924] [render] ok pageId=12_summary slides=1 ms=123
+[2026-08-13 21:39:13.641] [INFO ] [pid=25924] [render] renderSlideData result.resources={
+  images: {
+    'rel:0020kd3z': {
+      id: 'rel:0020kd3z',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/.cache/media/images/6a669d14edfa7a0dc9100a5e40a975c5.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:39:13.645] [INFO ] [pid=25924] [commit] commit send pageId=135e9e targetIndex=11 version=12 baseVersion=11 revisionBytes=19504
+[2026-08-13 21:39:13.657] [INFO ] [pid=25924] [commit] commit ok pageId=135e9e revisionId=6aa438ff ms=10
+[2026-08-13 21:39:13.663] [INFO ] [pid=25924] [backend-ops] addSlideAt ok pageId=12_summary slideId=135e9e index=11 version=12 baseVersion=11 revisionId=6aa438ff code=0 images=[local=1 remote=0 cached=0 failed=0] ms=181
+[2026-08-13 21:39:13.665] [INFO ] [pid=25924] [sync] aligned round=1 attempt=1 size=12 desired=12 pendingDirtySize=0
+[2026-08-13 21:39:13.666] [INFO ] [pid=25924] [sync] reconcile ok round=1 attempt=1 ms=1846
+[2026-08-13 21:39:13.667] [INFO ] [pid=25924] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:13.667] [INFO ] [pid=25924] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx
+[2026-08-13 21:39:13.752] [INFO ] [pid=25924] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx ms=84
+[2026-08-13 21:39:13.752] [INFO ] [pid=25924] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx ms=85
+[2026-08-13 21:39:13.753] [INFO ] [pid=25924] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1936
+=== boot pid=26013 ts=2026-08-13 21:39:17.118 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 ===
+[2026-08-13 21:39:17.117] [INFO ] [pid=26013] [validate] --all mode: found 12 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/slides
+[2026-08-13 21:39:17.121] [INFO ] [pid=26013] [validate] batch start files=12 checkOverflow=true
+[2026-08-13 21:39:19.406] [INFO ] [pid=26013] [validate] batch done total=12 passed=12 failed=0 ms=2290
+=== boot pid=26363 ts=2026-08-13 21:39:28.112 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-stop --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 ===
+[2026-08-13 21:39:28.110] [INFO ] [pid=26363] [stop] invoked pid=26363 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 force=no timeoutMs=10000
+[2026-08-13 21:39:28.117] [INFO ] [pid=26363] [stop] killing targetPid=25924 signal=SIGTERM timeoutMs=10000 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效
+[2026-08-13 21:39:28.118] [INFO ] [pid=25924] [worker] shutdown received sig=SIGTERM
+[2026-08-13 21:39:28.217] [INFO ] [pid=25924] [worker] shutdown ok sig=SIGTERM ms=99
+[2026-08-13 21:39:28.323] [INFO ] [pid=26363] [stop] ok targetPid=25924 signal=SIGTERM ms=213

@@ -1,0 +1,46 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>SERIES FINALE · 系列收官</Text>
+    <Text style={{ fontSize: 38, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 26 }}>从零到驾驭：M1 → M2 → M3 一路串起来</Text>
+
+    <Box style={{ flexDirection: 'row', gap: 20, marginBottom: 26 }}>
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 14, padding: '22px 22px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>M1 · 基础</Text>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>认识并跑起 AI</Text>
+        <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.8 }}>大模型原理 · 提示词<br />环境部署 · 本地模型</Text>
+      </Box>
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 14, padding: '22px 22px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>M2 · 应用</Text>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>让 AI 真正干活</Text>
+        <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.8 }}>RAG 检索增强<br />Agent 运行机制 Loop</Text>
+      </Box>
+      <Box style={{ flex: 1, background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '22px 22px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>M3 · 工程化</Text>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>驯服并驾驭 AI</Text>
+        <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.8 }}>Harness · 评测 · 安全<br />AI 编程 · 前沿趋势</Text>
+      </Box>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '20px 26px', marginBottom: 14 }}>
+      <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>动手练习 · 收官挑战</Text>
+      <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+        挑一个真实小需求，独立完成：Spec 驱动写规格 → Agent Loop 实现 → 加评测与安全防线，截图存档。
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 24px' }}>
+      <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.9 }}>
+        自测 3 题：Agent Loop 四步循环？Harness 六大组件？2026 三足鼎立是哪三家？
+      </Text>
+    </Box>
+  </Box>
+</Slide>

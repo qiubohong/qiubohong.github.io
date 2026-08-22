@@ -1,0 +1,60 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "cff4f302c871cd309ca96670f6d482f9127be93d",
+      "version": 1,
+      "at": "2026-08-13 21:38:56.425"
+    },
+    "02_five_elements": {
+      "revisionId": "881e4ddc1cb330fcbe60252988be9984eee66687",
+      "version": 2,
+      "at": "2026-08-13 21:38:56.749"
+    },
+    "03_role": {
+      "revisionId": "84641d74a665d1aa9bca153bc30f03696541fd57",
+      "version": 3,
+      "at": "2026-08-13 21:38:56.925"
+    },
+    "04_context": {
+      "revisionId": "ff9cc95d0280e0f493333e88f2eb2bb282f638eb",
+      "version": 4,
+      "at": "2026-08-13 21:38:57.047"
+    },
+    "05_instruction": {
+      "revisionId": "4078122ed01d1196c68cf7269c0a1423f8a196a6",
+      "version": 5,
+      "at": "2026-08-13 21:38:57.164"
+    },
+    "06_example": {
+      "revisionId": "156060edccbf48a0f2ced053d3b47dec918f35a3",
+      "version": 6,
+      "at": "2026-08-13 21:38:57.301"
+    },
+    "07_format": {
+      "revisionId": "d9b2dc4adcb488284f48ef9d4ba602d5d608856e",
+      "version": 7,
+      "at": "2026-08-13 21:38:57.414"
+    },
+    "08_four_rules": {
+      "revisionId": "3e293549d52747f882739f2931fca2e617022be2",
+      "version": 8,
+      "at": "2026-08-13 21:38:57.526"
+    },
+    "09_sql": {
+      "revisionId": "887567ec11ad8d29fbcdb936545b9c32b11cbbe7",
+      "version": 9,
+      "at": "2026-08-13 21:38:57.884"
+    },
+    "10_anti_hallucination": {
+      "revisionId": "4d3de470129332ea6cbee5f3dc666dbe7adbc32e",
+      "version": 10,
+      "at": "2026-08-13 21:38:57.992"
+    },
+    "11_summary": {
+      "revisionId": "598ef9694910ba8528b1edcc45459d03ae90384b",
+      "version": 11,
+      "at": "2026-08-13 21:38:58.026"
+    }
+  }
+}

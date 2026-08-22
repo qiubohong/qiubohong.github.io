@@ -1,0 +1,48 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>AGENT TYPES</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>Agent 类型对比：按需选择实现方式</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 22, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>Tool Calling</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 12 }}>现代首选</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          模型原生返回结构化工具调用，简洁高效，主流模型的默认实现。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>ReAct</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 12 }}>思考-行动交替</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          用提示词约束模型输出「思考→行动→观察」循环，兼容性广。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '24px 22px' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>Structured Chat</Text>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 12 }}>结构化输出</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+          支持多参数工具的稳定格式，输出更规整，调试更直观。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        <span style={{ color: '#FF9F1C' }}>agent_scratchpad</span> 的作用：存放「思考与中间步骤」的草稿区，让模型看清自己走到哪一步
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 14</Text>
+  </Box>
+</Slide>

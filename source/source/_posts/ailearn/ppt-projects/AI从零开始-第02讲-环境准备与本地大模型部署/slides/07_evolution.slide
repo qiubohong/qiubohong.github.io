@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>EVOLUTION</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 28 }}>模型演进：R1 → V3 → V4-Flash，蒸馏是捷径</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 32 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
+      {[
+        { t: 'R1', y: '2025.01', d: '思维链推理\n对标 OpenAI o1' },
+        { t: 'V3', y: '2025.11', d: 'MoE 架构\n671B / 37B 激活' },
+        { t: 'V4-Flash', y: '2026.07', d: '小参数反超\n1M 上下文' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 10 }}>{item.y}</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
+          </Box>
+          {idx < 2 && (
+            <Box style={{ width: 44, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 34, background: '#16263F', borderRadius: 14, padding: '24px 30px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+        <FAIcon name='graduation-cap' style={{ fill: '#FF9F1C', width: 30, height: 30 }} />
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>知识蒸馏 = 「老师教学生」</Text>
+      </Box>
+      <Text style={{ fontSize: 16, color: '#DCE7F5', lineHeight: 1.8 }}>
+        大模型（老师）训练出小模型（学生），学生继承能力、降低硬件门槛——这就是普通用户也能本地跑的原因。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 2 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 12</Text>
+  </Box>
+</Slide>

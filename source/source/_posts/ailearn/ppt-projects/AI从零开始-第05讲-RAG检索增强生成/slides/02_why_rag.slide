@@ -1,0 +1,60 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>WHY RAG</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>为什么需要 RAG：补上模型的两块短板</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 16, marginBottom: 20 }}>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>知识有截止日期</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>训练数据停在某个时间点，之后的新知识一概不知。</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>幻觉</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>不确定时会一本正经地编造，让你难辨真假。</Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <FAIcon name='book-open' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>RAG（检索增强）</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.9 }}>
+          · 外挂知识库，不改模型权重<br />
+          · 知识可实时更新、可溯源<br />
+          · 成本低，换库即可换知识
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <FAIcon name='microchip' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>微调（Fine-tune）</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.9 }}>
+          · 修改模型权重，深度融入<br />
+          · 需训练数据与算力，成本高<br />
+          · 知识更新要重新训练
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        多数场景先上 RAG：快、省、可控；微调留给「风格/领域深度定制」
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 11</Text>
+  </Box>
+</Slide>

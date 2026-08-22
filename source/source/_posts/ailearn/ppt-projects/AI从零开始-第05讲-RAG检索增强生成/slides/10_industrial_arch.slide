@@ -1,0 +1,52 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 40 }}>
+    <Box style={{ width: 320, paddingTop: 16 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>INDUSTRIAL ARCH</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        进阶工业级架构<br />从 demo 到生产
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        demo 是一条脚本，生产是<span style={{ fontWeight: 'bold', color: '#16263F' }}>五层组件 + 容器化</span>协同——本页只看结构，不讲代码。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#22D3EE', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>React 前端</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>对话界面与交互</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#2A9DB0', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>CopilotKit</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>前端 Agent 状态与工具 UI</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#2E5E8A', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>NestJS 后端</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>业务 API 与流式转发</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#274C78', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>LangGraph 工作流</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>RAG 流程编排与状态管理</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#1E3A5F', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>Chroma 向量库</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>语义检索与向量存储</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', background: '#FF9F1C', borderRadius: 8, padding: '12px 20px' }}>
+        <Text style={{ width: 180, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>Docker 容器化</Text>
+        <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.95 }}>全套服务一键编排部署</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 44 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>PRACTICE 01 · 龙虎榜查询 Agent</Text>
+      <Text style={{ fontSize: 34, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.3, marginBottom: 18 }}>
+        四步造一个<br />能查数据的 Agent
+      </Text>
+      <Text style={{ fontSize: 16, color: '#DCE7F5', lineHeight: 1.8, marginBottom: 22 }}>
+        <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>@tool 声明工具 → ChatOpenAI 兼容接口 → create_tool_calling_agent → AgentExecutor</span>，模型学会自己调用查询函数。
+      </Text>
+      <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          工具用 @tool 装饰器声明，参数带类型注解即可
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, justifyContent: 'center' }}>
+      <CodeBlock
+        code={`from langchain_openai import ChatOpenAI
+from langchain_core.tools import tool
+from langchain.agents import AgentExecutor, create_tool_calling_agent
+
+@tool
+def query_dragon_tiger(date: str) -> str:
+    """查询指定日期的龙虎榜数据"""
+    return fetch_rank(date)
+
+llm = ChatOpenAI(model="deepseek-v4-flash")
+agent = create_tool_calling_agent(llm, [query_dragon_tiger], prompt)
+executor = AgentExecutor(agent=agent, tools=[query_dragon_tiger])`}
+        language='python'
+        width={560}
+        fontSize={13}
+      />
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>08 / 14</Text>
+  </Box>
+</Slide>

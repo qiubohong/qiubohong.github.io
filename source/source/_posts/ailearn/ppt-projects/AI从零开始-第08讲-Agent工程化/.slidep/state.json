@@ -1,0 +1,65 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "0d5f0f410c37ee1a8932a66978f4b510754df1d9",
+      "version": 1,
+      "at": "2026-08-13 21:35:17.309"
+    },
+    "02_harness": {
+      "revisionId": "93434401bc3c28a3138760e4d6c45ae69c9ae089",
+      "version": 2,
+      "at": "2026-08-13 21:35:17.641"
+    },
+    "03_six_components": {
+      "revisionId": "fb6fa612f469924f21f6191df8f17c6e5da4f50e",
+      "version": 3,
+      "at": "2026-08-13 21:35:17.900"
+    },
+    "04_build_verify": {
+      "revisionId": "b79deb9104131f943bbbbbe9d620b3c4eddb507d",
+      "version": 4,
+      "at": "2026-08-13 21:35:18.105"
+    },
+    "05_context_eng": {
+      "revisionId": "f50d70d496626b9b157b2f1ebfc262d89d254e7c",
+      "version": 5,
+      "at": "2026-08-13 21:35:18.230"
+    },
+    "06_multi_agent": {
+      "revisionId": "cb66e093d0d4a55abfd6360e1c4c24b876559c3c",
+      "version": 6,
+      "at": "2026-08-13 21:35:18.390"
+    },
+    "07_eval_why": {
+      "revisionId": "bd81a9f905ed581f29c036011b745a238e46e513",
+      "version": 7,
+      "at": "2026-08-13 21:35:18.490"
+    },
+    "08_eval_method": {
+      "revisionId": "e5d97aad6c5355598a303c6ba5b8a5753cd6d98c",
+      "version": 8,
+      "at": "2026-08-13 21:35:18.573"
+    },
+    "09_deepeval": {
+      "revisionId": "6b731d50ffdb56a72c38f57331106beb3736378a",
+      "version": 9,
+      "at": "2026-08-13 21:35:18.991"
+    },
+    "10_monitoring": {
+      "revisionId": "319c1e89a9c3a759683d7988ddd93cdbab8c7134",
+      "version": 10,
+      "at": "2026-08-13 21:35:19.118"
+    },
+    "11_security": {
+      "revisionId": "2e960dfe46afe96eb4b9fa27e02fc3985b1bc7ef",
+      "version": 11,
+      "at": "2026-08-13 21:35:19.272"
+    },
+    "12_checklist": {
+      "revisionId": "31cb64a5c5bdccd0d81f3251acb04d2da510431c",
+      "version": 12,
+      "at": "2026-08-13 21:35:19.399"
+    }
+  }
+}

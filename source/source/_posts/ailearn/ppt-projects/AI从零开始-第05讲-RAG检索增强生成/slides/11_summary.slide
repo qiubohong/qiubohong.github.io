@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 04 · ROADMAP</Text>
+    <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 12 }}>从 demo 到工业级，三级跳</Text>
+    <Text style={{ fontSize: 16, color: '#DCE7F5', marginBottom: 30 }}>
+      先跑通一条脚本，再做 Agent 化检索，最后演进到容器化生产架构
+    </Text>
+
+    <Box style={{ flexDirection: 'row', gap: 20, marginBottom: 26 }}>
+      {[
+        { n: 'L1', t: '脚本级 demo', d: 'Streamlit + Chroma 跑通问答' },
+        { n: 'L2', t: 'Agent 化', d: '检索器变工具，自主决策' },
+        { n: 'L3', t: '工业级', d: '五层组件 + 容器化生产' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 12, padding: '22px 22px' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>{item.n}</Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#22D3EE', marginBottom: 6 }}>{item.t}</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '20px 24px', marginBottom: 14 }}>
+      <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>动手练习 · 三步完成</Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        ① 上传一份文档跑通 RAG 问答 → ② 换成 bge-m3 嵌入 + Qdrant → ③ 加上 Reranker 重排序对比效果
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        自测 3 题：RAG 六步流程？KNN 与 ANN 区别？检索三件套各解决什么问题？
+      </Text>
+    </Box>
+  </Box>
+</Slide>

@@ -1,0 +1,34 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>SUMMARY</Text>
+    <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 26 }}>五要素是骨架，练习才内化</Text>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 14, padding: '18px 26px', marginBottom: 22 }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        角色 → 上下文 → 指令 → 范例 → 输出格式，五个要素拼成一份<span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>可复用的 Prompt 骨架</span>。骨架靠练，不靠背。
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '20px 26px', marginBottom: 16 }}>
+      <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 10 }}>动手练习</Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        用五要素写一个「代码解释器」Prompt，让 AI 把任意一段代码讲清楚，跑通并截图。
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 24px' }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        自测 3 题：五要素分别是什么？「下指令四要素」如何把成功率拉到 90%+？怎样降低 AI 幻觉？
+      </Text>
+    </Box>
+  </Box>
+</Slide>

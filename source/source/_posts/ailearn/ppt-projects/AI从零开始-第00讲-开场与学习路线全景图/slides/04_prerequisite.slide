@@ -1,0 +1,60 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PREREQUISITE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>前置知识：先定位角色，再扫清术语</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 32, flex: 1 }}>
+      <Box style={{ flex: 4, flexDirection: 'column', gap: 18 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+            <FAIcon name='puzzle-piece' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>AI 工程师</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            用模型做应用：拼装 API、调用框架、落地产品。<span style={{ fontWeight: 'bold', color: '#16263F' }}>本系列的主线目标</span>。
+          </Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+            <FAIcon name='flask' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>ML 工程师</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            训练模型：钻研算法与数学，产出模型本身。<span style={{ fontWeight: 'bold', color: '#16263F' }}>门槛高，非本系列重点</span>。
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 5, background: '#16263F', borderRadius: 14, padding: '26px 28px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+          <FAIcon name='book' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>10 个术语，先混个脸熟</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
+          {['LLM', 'GPT', 'Transformer', 'RAG', '知识库', '召回', 'Prompt', 'Agent', 'Function Calling', '重写'].map((t, idx) => (
+            <Box key={idx} style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(220,231,245,0.18)', borderRadius: 10, padding: '12px 18px' }}>
+              <Text style={{ fontSize: 16, color: '#DCE7F5', fontWeight: 'bold' }}>{t}</Text>
+            </Box>
+          ))}
+        </Box>
+        <Box style={{ marginTop: 20, background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 10, padding: '12px 16px' }}>
+          <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+            别被术语吓退：后面每讲都会拆开讲透
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 0 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 11</Text>
+  </Box>
+</Slide>

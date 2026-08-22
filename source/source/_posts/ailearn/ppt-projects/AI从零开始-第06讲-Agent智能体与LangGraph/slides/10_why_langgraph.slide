@@ -1,0 +1,51 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>WHY LANGGRAPH</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>为什么要 LangGraph：线性 Chain 不够用了</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='link' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>线性 Chain 的局限</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.9 }}>
+          · 只能单向走，无法循环重试<br />
+          · 状态不保存，中断即丢失<br />
+          · 多模型协作要手动拼接<br />
+          · 断点后不能续跑
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '26px 24px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='project-diagram' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>LangGraph 图工作流</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.9 }}>
+          · 节点可循环，支持重试与反思<br />
+          · 共享 State，随时读写<br />
+          · 多模型多节点自由编排<br />
+          · checkpointer 断点续跑
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        Agent 天然需要「循环 + 状态」——图结构正是它的最佳载体
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 14</Text>
+  </Box>
+</Slide>

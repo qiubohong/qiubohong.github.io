@@ -1,0 +1,29 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    position: 'relative', overflow: 'hidden',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -80, right: -80, width: 340, height: 340, borderRadius: 170, background: 'rgba(34,211,238,0.12)', opacity: 0.8 }} />
+  <Box style={{ position: 'absolute', bottom: -100, left: -60, width: 300, height: 300, borderRadius: 150, background: 'rgba(255,159,28,0.10)' }} />
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 8, background: '#FF9F1C' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, padding: '60px 80px', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 4, marginBottom: 16 }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 52, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.25, marginBottom: 20 }}>
+      LangChain 与<br />工作流编排
+    </Text>
+    <Box style={{ width: 80, height: 4, background: '#FF9F1C', marginBottom: 28 }} />
+    <Text style={{ fontSize: 22, color: '#DCE7F5', lineHeight: 1.6 }}>
+      框架让 LLM 应用开发变简单：从手工拼接到搭积木
+    </Text>
+    <Text style={{ fontSize: 15, color: '#8FA4B8', marginTop: 36 }}>
+      学完能写出「5 行跑通对话 → LCEL 链式编排 → LangServe 一键部署」的完整闭环
+    </Text>
+    <Text style={{ fontSize: 13, color: '#8FA4B8', marginTop: 'auto', paddingTop: 40 }}>
+      Qborfy · 做一个有温度和有干货的技术分享作者
+    </Text>
+  </Box>
+</Slide>

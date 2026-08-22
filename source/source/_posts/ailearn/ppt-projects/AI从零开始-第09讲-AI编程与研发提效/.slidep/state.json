@@ -1,0 +1,65 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "33a79531462289b4df81fa607f48d2d756bcd3b6",
+      "version": 1,
+      "at": "2026-08-13 21:39:12.072"
+    },
+    "02_spec_driven": {
+      "revisionId": "1261d3fe6a48df67d80ade9fa6390b555a0bfd4b",
+      "version": 2,
+      "at": "2026-08-13 21:39:12.314"
+    },
+    "03_spec_kit": {
+      "revisionId": "360bc480e3c69faf1aa4e02a080975212a20aca7",
+      "version": 3,
+      "at": "2026-08-13 21:39:12.466"
+    },
+    "04_clarify_value": {
+      "revisionId": "edeb6af8a75102cc87888b3f459b6268b4c9e3f1",
+      "version": 4,
+      "at": "2026-08-13 21:39:12.563"
+    },
+    "05_scene_table": {
+      "revisionId": "97ce317ab4cfe4f6e4bf90538a90c18874dc4391",
+      "version": 5,
+      "at": "2026-08-13 21:39:12.664"
+    },
+    "06_review_driven": {
+      "revisionId": "375a3b0b9a33b37772da72e67017864705a3bc0a",
+      "version": 6,
+      "at": "2026-08-13 21:39:12.813"
+    },
+    "07_review_case": {
+      "revisionId": "a856908a9d71697cdc021802c89efbca9f914a1c",
+      "version": 7,
+      "at": "2026-08-13 21:39:12.980"
+    },
+    "08_codegraph": {
+      "revisionId": "aa4ba8e3fb8c010999222acf5b99b7c2607ce27c",
+      "version": 8,
+      "at": "2026-08-13 21:39:13.076"
+    },
+    "09_mcp": {
+      "revisionId": "6f3306bae35ca012203a558f51f9208051904826",
+      "version": 9,
+      "at": "2026-08-13 21:39:13.235"
+    },
+    "10_gateway": {
+      "revisionId": "64b9630c592bfdc033dc61b8820af5c997a150e3",
+      "version": 10,
+      "at": "2026-08-13 21:39:13.340"
+    },
+    "11_tools": {
+      "revisionId": "00e38666c01c4e4ff450037f72689dda936a656e",
+      "version": 11,
+      "at": "2026-08-13 21:39:13.473"
+    },
+    "12_summary": {
+      "revisionId": "6aa438ff0ff0fa0642d4fd8fd45ac5a1dd6acaeb",
+      "version": 12,
+      "at": "2026-08-13 21:39:13.658"
+    }
+  }
+}

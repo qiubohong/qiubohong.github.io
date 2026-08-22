@@ -1,0 +1,42 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>WHY NOW</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>学 AI 是 2026 程序员的新必修课</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 20 }} />
+
+    <Box style={{ background: '#16263F', borderRadius: 12, padding: '16px 24px', flexDirection: 'row', alignItems: 'center', gap: 14, marginBottom: 24 }}>
+      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>马车 <span style={{ color: '#22D3EE', fontWeight: 'bold' }}>→</span> 汽车</Text>
+      <Text style={{ fontSize: 16, color: '#FF9F1C' }}>|</Text>
+      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>马夫 <span style={{ color: '#22D3EE', fontWeight: 'bold' }}>→</span> 程序员</Text>
+      <Text style={{ fontSize: 15, color: '#8FA4B8', marginLeft: 'auto' }}>淘汰的不是马夫，是不会开车的人</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      {[
+        { n: '92%', c: '#FF9F1C', icon: 'briefcase', t: '世界 500 强', d: '已规模化应用 AI，成为标配能力' },
+        { n: '200万+', c: '#22D3EE', icon: 'users', t: '全球 AI 开发者', d: '持续增长的开发者人群，缺口巨大' },
+        { n: '1亿+', c: '#16263F', icon: 'chart-line', t: '主流 AI 周活', d: '头部 AI 产品周活跃用户规模' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 28px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', justifyContent: 'center' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+            <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 15, color: '#5B6B7A' }}>{item.t}</Text>
+          </Box>
+          <Text style={{ fontSize: 68, color: item.c, fontWeight: 'bold', lineHeight: 1 }}>{item.n}</Text>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', marginTop: 12, lineHeight: 1.6 }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 0 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,52 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>RAG PIPELINE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>RAG 原理：Retriever + Generator 双引擎</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
+      {[
+        { t: '加载', e: 'Load', d: '读取 PDF/网页/数据库' },
+        { t: '分割', e: 'Split', d: '切成带上下文的片段' },
+        { t: '向量化', e: 'Embed', d: '文本转为高维向量' },
+        { t: '存储', e: 'Store', d: '向量入库建索引' },
+        { t: '检索', e: 'Retrieve', d: '按语义找最相关片段' },
+        { t: '生成', e: 'Generate', d: 'LLM 结合检索结果作答' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 16px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 12, color: '#22D3EE', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace', marginBottom: 8 }}>{item.e}</Text>
+            <Text style={{ fontSize: 12, color: '#5B6B7A', textAlign: 'center', lineHeight: 1.5 }}>{item.d}</Text>
+          </Box>
+          {idx < 5 && (
+            <Box style={{ width: 26, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='chevron-right' style={{ fill: '#FF9F1C', width: 18, height: 18 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 26, background: '#16263F', borderRadius: 14, padding: '22px 28px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 10 }}>
+        <FAIcon name='sitemap' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>两个关键角色</Text>
+      </Box>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        <span style={{ color: '#22D3EE', fontWeight: 'bold' }}>Retriever（检索器）</span>负责「查什么」，<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>Generator（生成器）</span>负责「怎么答」——检索到的片段作为上下文喂给模型，答案就有了事实依据。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 11</Text>
+  </Box>
+</Slide>

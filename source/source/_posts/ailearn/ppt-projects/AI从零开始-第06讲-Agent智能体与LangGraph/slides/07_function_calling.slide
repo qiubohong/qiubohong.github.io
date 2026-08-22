@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>FUNCTION CALLING</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>Function Calling 原理：两次调用的闭环</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
+      {[
+        { t: '描述函数', d: '告诉模型有哪些工具\n每个工具的参数说明', c: '#22D3EE' },
+        { t: '返回 JSON 参数', d: '模型判断该调用谁\n输出结构化参数', c: '#2A9DB0' },
+        { t: '真实调用', d: '你的代码执行函数\n拿到真实结果', c: '#2E5E8A' },
+        { t: '回传生成答案', d: '结果喂回模型\n生成最终回复', c: '#FF9F1C' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: item.c, borderRadius: 12, padding: '26px 18px', alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center', marginBottom: 10 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#FFFFFF', opacity: 0.92, textAlign: 'center', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
+          </Box>
+          {idx < 3 && (
+            <Box style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 26, background: '#16263F', borderRadius: 14, padding: '20px 28px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 10 }}>
+        <FAIcon name='exchange-alt' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>核心是「两次调用」</Text>
+      </Box>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        第一次：模型只「说要做什么」并给出 JSON 参数；第二次：把真实执行结果回传，模型再「组织语言回答」——<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>模型负责决策，代码负责干活</span>。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 14</Text>
+  </Box>
+</Slide>

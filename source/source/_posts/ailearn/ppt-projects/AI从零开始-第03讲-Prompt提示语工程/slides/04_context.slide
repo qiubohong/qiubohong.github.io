@@ -1,0 +1,63 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ELEMENT 02 · CONTEXT</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>要素②上下文：给足背景才不答非所问</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 5, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='file-alt' style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F' }}>单次背景</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            一次说清：我是谁、要解决什么问题、有什么约束、给谁看。<span style={{ fontWeight: 'bold', color: '#16263F' }}>信息越具体，答案越贴题</span>。
+          </Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='comments' style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F' }}>多轮延续</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            对话是连续的：第一轮交代背景，后续只需追问补充，模型会<span style={{ fontWeight: 'bold', color: '#16263F' }}>记住上文</span>。
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 4, background: '#16263F', borderRadius: 14, padding: '24px 26px' }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 16 }}>两大误区，避开它</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginBottom: 16 }}>
+          <Box style={{ width: 28, height: 28, borderRadius: 8, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name='times' style={{ fill: '#FF9F1C', width: 14, height: 14 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 15, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 4 }}>背景缺失</Text>
+            <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>什么都不给，指望模型读心——必答非所问。</Text>
+          </Box>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
+          <Box style={{ width: 28, height: 28, borderRadius: 8, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name='times' style={{ fill: '#FF9F1C', width: 14, height: 14 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 15, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 4 }}>背景过载</Text>
+            <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>一坨无关信息全倒进来，重点被稀释——先提炼再投喂。</Text>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 3 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 11</Text>
+  </Box>
+</Slide>

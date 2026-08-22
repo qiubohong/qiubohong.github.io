@@ -1,0 +1,56 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36, alignItems: 'center' }}>
+    <Box style={{ flex: 5 }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+        <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3 }}>OPTIONAL · 选学</Text>
+        <Box style={{ background: 'rgba(255,159,28,0.15)', borderRadius: 8, padding: '5px 12px' }}>
+          <Text style={{ fontSize: 12, color: '#FF9F1C', fontWeight: 'bold' }}>可跳过</Text>
+        </Box>
+      </Box>
+      <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.3, marginBottom: 14 }}>Q / K / V 到底在算什么</Text>
+      <Box style={{ width: 56, height: 4, background: '#FF9F1C', marginBottom: 24 }} />
+
+      {[
+        { k: 'Q', c: '#22D3EE', d: '查询：当前词想问「整句话里，谁和我相关？」' },
+        { k: 'K', c: '#FF9F1C', d: '键：每个词回答「我是什么，能被谁匹配」' },
+        { k: 'V', c: '#DCE7F5', d: '值：每个词携带「我真正要传递的内容」' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, marginBottom: 16 }}>
+          <Box style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(255,255,255,0.1)', justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: item.c }}>{item.k}</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7, flex: 1 }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ flex: 5 }}>
+      <Text style={{ fontSize: 15, color: '#8FA4B8', marginBottom: 12 }}>一句话版本：注意力 = 加权求和</Text>
+      <CodeBlock
+        code={`# Q 问路，K 指路，V 给内容
+scores = Q @ K.T / sqrt(d_k)   # 相关性打分
+weights = softmax(scores)      # 归一化成权重
+output = weights @ V           # 按权重取 V`}
+        language='python'
+        width={520}
+        fontSize={14}
+      />
+      <Box style={{ marginTop: 20, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '16px 20px' }}>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+          把每个词的「重要程度」量化成权重，再决定输出里<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>哪些信息该被放大、哪些该被忽略</span>——这就是注意力。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 1 讲 · 选学页</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>11 / 11</Text>
+  </Box>
+</Slide>

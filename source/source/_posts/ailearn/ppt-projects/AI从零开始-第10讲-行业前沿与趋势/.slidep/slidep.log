@@ -1,0 +1,271 @@
+=== boot pid=33095 ts=2026-08-13 21:42:46.083 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 --filename AI从零开始-第10讲-行业前沿与趋势-优化版.pptx ===
+[2026-08-13 21:42:46.082] [INFO ] [pid=33095] [start] invoked pid=33095 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 --filename AI从零开始-第10讲-行业前沿与趋势-优化版.pptx]
+[2026-08-13 21:42:46.086] [INFO ] [pid=33095] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 filename=AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:46.093] [INFO ] [pid=33095] [start] daemon spawned childPid=33101; waiting started ipc
+=== boot pid=33101 ts=2026-08-13 21:42:47.138 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 --filename AI从零开始-第10讲-行业前沿与趋势-优化版.pptx --__daemon-child ===
+[2026-08-13 21:42:47.137] [INFO ] [pid=33101] [start] invoked pid=33101 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 --filename AI从零开始-第10讲-行业前沿与趋势-优化版.pptx --__daemon-child]
+[2026-08-13 21:42:47.141] [INFO ] [pid=33101] [start] daemon child runWorker ppid=33095
+[2026-08-13 21:42:47.142] [INFO ] [pid=33101] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 filename=AI从零开始-第10讲-行业前沿与趋势-优化版.pptx version=5.4.4
+[2026-08-13 21:42:47.143] [INFO ] [pid=33101] [worker] init ok dirs=ready
+[2026-08-13 21:42:47.144] [INFO ] [pid=33101] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:42:47.145] [INFO ] [pid=33101] [worker] openFile start
+[2026-08-13 21:42:47.147] [INFO ] [pid=33101] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:47.151] [INFO ] [pid=33101] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx ms=4
+[2026-08-13 21:42:47.173] [ERROR] [pid=33101] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx"} ms=19
+[2026-08-13 21:42:47.175] [INFO ] [pid=33101] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:47.186] [INFO ] [pid=33101] [open-file] open ok fileId=96376301 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx ms=7
+[2026-08-13 21:42:47.187] [INFO ] [pid=33101] [worker] openFile ok fileId=96376301 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:47.190] [INFO ] [pid=33101] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC10%E8%AE%B2-%E8%A1%8C%E4%B8%9A%E5%89%8D%E6%B2%BF%E4%B8%8E%E8%B6%8B%E5%8A%BF%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC10%E8%AE%B2-%E8%A1%8C%E4%B8%9A%E5%89%8D%E6%B2%BF%E4%B8%8E%E8%B6%8B%E5%8A%BF-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:42:47.224] [INFO ] [pid=33101] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:47.233] [INFO ] [pid=33101] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:42:47.238] [INFO ] [pid=33101] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"96376301-8384-4240-9D96-1C1FB974348E"}
+[2026-08-13 21:42:47.250] [INFO ] [pid=33101] [mcp] mcp:slide_get_info ok ms=3
+[2026-08-13 21:42:47.264] [INFO ] [pid=33101] [purge] purge start backendSlideCount=0
+[2026-08-13 21:42:47.265] [INFO ] [pid=33101] [purge] purge ok removed=0 ms=30
+[2026-08-13 21:42:47.267] [INFO ] [pid=33101] [worker] initial sync submitted pages=11
+[2026-08-13 21:42:47.272] [INFO ] [pid=33101] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:42:47.276] [INFO ] [pid=33101] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:42:47.279] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:42:47.280] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:42:47.282] [INFO ] [pid=33101] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/01_cover.slide
+[2026-08-13 21:42:47.290] [INFO ] [pid=33095] [start] daemon started childPid=33101 ms=1204
+[2026-08-13 21:42:47.289] [INFO ] [pid=33101] [worker] ready fileId=96376301 backendUrl=http://127.0.0.1:39099 initialPages=11 ms=147
+[2026-08-13 21:42:47.504] [INFO ] [pid=33101] [render] ok pageId=01_cover slides=1 ms=222
+[2026-08-13 21:42:47.505] [INFO ] [pid=33101] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:42:47.516] [INFO ] [pid=33101] [commit] commit send pageId=71d5a9 targetIndex=0 version=1 baseVersion=0 revisionBytes=9036
+[2026-08-13 21:42:47.543] [INFO ] [pid=33101] [commit] commit ok pageId=71d5a9 revisionId=55230ebe ms=5
+[2026-08-13 21:42:47.552] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=01_cover slideId=71d5a9 index=0 version=1 baseVersion=0 revisionId=55230ebe code=0 images=[local=0 remote=0 cached=0 failed=0] ms=272
+[2026-08-13 21:42:47.554] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=02_devday index=1
+[2026-08-13 21:42:47.554] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=02_devday index=1
+[2026-08-13 21:42:47.555] [INFO ] [pid=33101] [render] start pageId=02_devday file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/02_devday.slide
+[2026-08-13 21:42:47.596] [INFO ] [pid=33101] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides
+[2026-08-13 21:42:47.728] [INFO ] [pid=33101] [render] ok pageId=02_devday slides=1 ms=173
+[2026-08-13 21:42:47.755] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:003syuc0': {
+      id: 'rel:003syuc0',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/603091e527e5a785953539be7f3c184b.svg'
+    },
+    'rel:00v7202g': {
+      id: 'rel:00v7202g',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/a442b7a2fac1147accad9430572a770a.svg'
+    },
+    'rel:00ztw9ut': {
+      id: 'rel:00ztw9ut',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/c24aa048ba3d1bb01323fae3726f02ee.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:47.763] [INFO ] [pid=33101] [commit] commit send pageId=b36fb0 targetIndex=1 version=2 baseVersion=1 revisionBytes=24396
+[2026-08-13 21:42:47.774] [INFO ] [pid=33101] [commit] commit ok pageId=b36fb0 revisionId=a84179f6 ms=9
+[2026-08-13 21:42:47.777] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=02_devday slideId=b36fb0 index=1 version=2 baseVersion=1 revisionId=a84179f6 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=223
+[2026-08-13 21:42:47.778] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=03_deepseek index=2
+[2026-08-13 21:42:47.780] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=03_deepseek index=2
+[2026-08-13 21:42:47.781] [INFO ] [pid=33101] [render] start pageId=03_deepseek file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/03_deepseek.slide
+[2026-08-13 21:42:47.899] [INFO ] [pid=33101] [render] ok pageId=03_deepseek slides=1 ms=118
+[2026-08-13 21:42:47.900] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:00y62jcc': {
+      id: 'rel:00y62jcc',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01nvh2gf': {
+      id: 'rel:01nvh2gf',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/3b7cfab9a4f5c89c6a19e514dfe36f7d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:47.908] [INFO ] [pid=33101] [commit] commit send pageId=8cf134 targetIndex=2 version=3 baseVersion=2 revisionBytes=24204
+[2026-08-13 21:42:47.915] [INFO ] [pid=33101] [commit] commit ok pageId=8cf134 revisionId=7718087c ms=6
+[2026-08-13 21:42:47.917] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=03_deepseek slideId=8cf134 index=2 version=3 baseVersion=2 revisionId=7718087c code=0 images=[local=2 remote=0 cached=0 failed=0] ms=137
+[2026-08-13 21:42:47.917] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=04_tripod index=3
+[2026-08-13 21:42:47.918] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=04_tripod index=3
+[2026-08-13 21:42:47.919] [INFO ] [pid=33101] [render] start pageId=04_tripod file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/04_tripod.slide
+[2026-08-13 21:42:47.979] [INFO ] [pid=33101] [render] ok pageId=04_tripod slides=1 ms=60
+[2026-08-13 21:42:47.980] [INFO ] [pid=33101] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:42:47.986] [INFO ] [pid=33101] [commit] commit send pageId=e584f0 targetIndex=3 version=4 baseVersion=3 revisionBytes=19108
+[2026-08-13 21:42:47.991] [INFO ] [pid=33101] [commit] commit ok pageId=e584f0 revisionId=a6471a02 ms=4
+[2026-08-13 21:42:47.993] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=04_tripod slideId=e584f0 index=3 version=4 baseVersion=3 revisionId=a6471a02 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=75
+[2026-08-13 21:42:47.993] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=05_reasoning index=4
+[2026-08-13 21:42:47.994] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=05_reasoning index=4
+[2026-08-13 21:42:47.994] [INFO ] [pid=33101] [render] start pageId=05_reasoning file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/05_reasoning.slide
+[2026-08-13 21:42:48.064] [INFO ] [pid=33101] [render] ok pageId=05_reasoning slides=1 ms=70
+[2026-08-13 21:42:48.064] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:00p18l1a': {
+      id: 'rel:00p18l1a',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/d8c06345ce78f2b26971a63d0d79bc80.svg'
+    },
+    'rel:000vpphh': {
+      id: 'rel:000vpphh',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/8ff38473cfbdae5fc83fcc3815ddc804.svg'
+    },
+    'rel:00rs4c0e': {
+      id: 'rel:00rs4c0e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/2bdbfbca679d3679ca4ecd442ec9337e.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.069] [INFO ] [pid=33101] [commit] commit send pageId=3296fb targetIndex=4 version=5 baseVersion=4 revisionBytes=22280
+[2026-08-13 21:42:48.077] [INFO ] [pid=33101] [commit] commit ok pageId=3296fb revisionId=ccf8b092 ms=8
+[2026-08-13 21:42:48.079] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=05_reasoning slideId=3296fb index=4 version=5 baseVersion=4 revisionId=ccf8b092 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=85
+[2026-08-13 21:42:48.080] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=06_ontology index=5
+[2026-08-13 21:42:48.080] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=06_ontology index=5
+[2026-08-13 21:42:48.081] [INFO ] [pid=33101] [render] start pageId=06_ontology file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/06_ontology.slide
+[2026-08-13 21:42:48.148] [INFO ] [pid=33101] [render] ok pageId=06_ontology slides=1 ms=67
+[2026-08-13 21:42:48.148] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:01l8hccl': {
+      id: 'rel:01l8hccl',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/092fb1697ea249965f877ce16c00b158.svg'
+    },
+    'rel:013hi8dh': {
+      id: 'rel:013hi8dh',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    },
+    'rel:00g5zlpr': {
+      id: 'rel:00g5zlpr',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/f6f6b93cb2592a6dcbadba2c65ce0ecd.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.153] [INFO ] [pid=33101] [commit] commit send pageId=818db7 targetIndex=5 version=6 baseVersion=5 revisionBytes=22848
+[2026-08-13 21:42:48.160] [INFO ] [pid=33101] [commit] commit ok pageId=818db7 revisionId=3b9e63da ms=6
+[2026-08-13 21:42:48.162] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=06_ontology slideId=818db7 index=5 version=6 baseVersion=5 revisionId=3b9e63da code=0 images=[local=3 remote=0 cached=0 failed=0] ms=82
+[2026-08-13 21:42:48.163] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=07_multimodal index=6
+[2026-08-13 21:42:48.163] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=07_multimodal index=6
+[2026-08-13 21:42:48.163] [INFO ] [pid=33101] [render] start pageId=07_multimodal file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/07_multimodal.slide
+[2026-08-13 21:42:48.242] [INFO ] [pid=33101] [render] ok pageId=07_multimodal slides=1 ms=79
+[2026-08-13 21:42:48.243] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:00xakk1h': {
+      id: 'rel:00xakk1h',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/8e8a6410331fba39c9360e60dc20e923.svg'
+    },
+    'rel:01klpm14': {
+      id: 'rel:01klpm14',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/9644bbfed3515160567db2bdd6123739.svg'
+    },
+    'rel:00llz8qs': {
+      id: 'rel:00llz8qs',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/4417a888a91cdbdc9a9a663dd5888800.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.247] [INFO ] [pid=33101] [commit] commit send pageId=5b60dd targetIndex=6 version=7 baseVersion=6 revisionBytes=24324
+[2026-08-13 21:42:48.258] [INFO ] [pid=33101] [commit] commit ok pageId=5b60dd revisionId=f21931e0 ms=6
+[2026-08-13 21:42:48.260] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=07_multimodal slideId=5b60dd index=6 version=7 baseVersion=6 revisionId=f21931e0 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=97
+[2026-08-13 21:42:48.261] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=08_chip index=7
+[2026-08-13 21:42:48.263] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=08_chip index=7
+[2026-08-13 21:42:48.264] [INFO ] [pid=33101] [render] start pageId=08_chip file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/08_chip.slide
+[2026-08-13 21:42:48.332] [INFO ] [pid=33101] [render] ok pageId=08_chip slides=1 ms=68
+[2026-08-13 21:42:48.334] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:01molxuw': {
+      id: 'rel:01molxuw',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/a6db0dbf84d7804840a8a4c7c1e20b52.svg'
+    },
+    'rel:00f5ns9n': {
+      id: 'rel:00f5ns9n',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/539944a7aeee418f7e001e109755768d.svg'
+    },
+    'rel:00gqqu4e': {
+      id: 'rel:00gqqu4e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/63a4591c360ed5e2e0fef8098f05a0e2.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.339] [INFO ] [pid=33101] [commit] commit send pageId=1b7f58 targetIndex=7 version=8 baseVersion=7 revisionBytes=26864
+[2026-08-13 21:42:48.349] [INFO ] [pid=33101] [commit] commit ok pageId=1b7f58 revisionId=50b120a7 ms=8
+[2026-08-13 21:42:48.352] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=08_chip slideId=1b7f58 index=7 version=8 baseVersion=7 revisionId=50b120a7 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=89
+[2026-08-13 21:42:48.353] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=09_safety index=8
+[2026-08-13 21:42:48.354] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=09_safety index=8
+[2026-08-13 21:42:48.355] [INFO ] [pid=33101] [render] start pageId=09_safety file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/09_safety.slide
+[2026-08-13 21:42:48.414] [INFO ] [pid=33101] [render] ok pageId=09_safety slides=1 ms=59
+[2026-08-13 21:42:48.419] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:014pwvd3': {
+      id: 'rel:014pwvd3',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/bb5bd542cac1b73805896a2bd8be8326.svg'
+    },
+    'rel:00hh6i62': {
+      id: 'rel:00hh6i62',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/899af7450b24c8f6423d5ff0cbb3eabd.svg'
+    },
+    'rel:013hi8dh': {
+      id: 'rel:013hi8dh',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.423] [INFO ] [pid=33101] [commit] commit send pageId=04a261 targetIndex=8 version=9 baseVersion=8 revisionBytes=20420
+[2026-08-13 21:42:48.433] [INFO ] [pid=33101] [commit] commit ok pageId=04a261 revisionId=9efc1433 ms=9
+[2026-08-13 21:42:48.451] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=09_safety slideId=04a261 index=8 version=9 baseVersion=8 revisionId=9efc1433 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=97
+[2026-08-13 21:42:48.453] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=10_future index=9
+[2026-08-13 21:42:48.454] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=10_future index=9
+[2026-08-13 21:42:48.455] [INFO ] [pid=33101] [render] start pageId=10_future file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/10_future.slide
+[2026-08-13 21:42:48.606] [INFO ] [pid=33101] [render] ok pageId=10_future slides=1 ms=151
+[2026-08-13 21:42:48.609] [INFO ] [pid=33101] [render] renderSlideData result.resources={
+  images: {
+    'rel:01nivp2g': {
+      id: 'rel:01nivp2g',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/8c18db87941d3209216c5a4ebcfec0ba.svg'
+    },
+    'rel:01pv1hmx': {
+      id: 'rel:01pv1hmx',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/.cache/media/images/c8128fc728b7fc16a0ea1c7257943daa.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:42:48.614] [INFO ] [pid=33101] [commit] commit send pageId=9f89ca targetIndex=9 version=10 baseVersion=9 revisionBytes=24320
+[2026-08-13 21:42:48.630] [INFO ] [pid=33101] [commit] commit ok pageId=9f89ca revisionId=76df4e9c ms=13
+[2026-08-13 21:42:48.633] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=10_future slideId=9f89ca index=9 version=10 baseVersion=9 revisionId=76df4e9c code=0 images=[local=2 remote=0 cached=0 failed=0] ms=179
+[2026-08-13 21:42:48.635] [INFO ] [pid=33101] [sync] step=add round=1 attempt=1 pageId=11_finale index=10
+[2026-08-13 21:42:48.637] [INFO ] [pid=33101] [backend-ops] addSlideAt start pageId=11_finale index=10
+[2026-08-13 21:42:48.639] [INFO ] [pid=33101] [render] start pageId=11_finale file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides/11_finale.slide
+[2026-08-13 21:42:48.696] [INFO ] [pid=33101] [render] ok pageId=11_finale slides=1 ms=57
+[2026-08-13 21:42:48.697] [INFO ] [pid=33101] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:42:48.702] [INFO ] [pid=33101] [commit] commit send pageId=4c37d5 targetIndex=10 version=11 baseVersion=10 revisionBytes=20960
+[2026-08-13 21:42:48.709] [INFO ] [pid=33101] [commit] commit ok pageId=4c37d5 revisionId=6ad9c47a ms=6
+[2026-08-13 21:42:48.712] [INFO ] [pid=33101] [backend-ops] addSlideAt ok pageId=11_finale slideId=4c37d5 index=10 version=11 baseVersion=10 revisionId=6ad9c47a code=0 images=[local=0 remote=0 cached=0 failed=0] ms=75
+[2026-08-13 21:42:48.713] [INFO ] [pid=33101] [sync] aligned round=1 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:42:48.714] [INFO ] [pid=33101] [sync] reconcile ok round=1 attempt=1 ms=1435
+[2026-08-13 21:42:48.715] [INFO ] [pid=33101] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:48.716] [INFO ] [pid=33101] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx
+[2026-08-13 21:42:48.787] [INFO ] [pid=33101] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx ms=69
+[2026-08-13 21:42:48.788] [INFO ] [pid=33101] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx ms=73
+[2026-08-13 21:42:48.788] [INFO ] [pid=33101] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1512
+=== boot pid=33205 ts=2026-08-13 21:42:52.823 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 ===
+[2026-08-13 21:42:52.822] [INFO ] [pid=33205] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/slides
+[2026-08-13 21:42:52.825] [INFO ] [pid=33205] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:42:53.888] [INFO ] [pid=33205] [validate] batch done total=11 passed=11 failed=0 ms=1066
+=== boot pid=33516 ts=2026-08-13 21:43:00.854 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-stop --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 ===
+[2026-08-13 21:43:00.853] [INFO ] [pid=33516] [stop] invoked pid=33516 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 force=no timeoutMs=10000
+[2026-08-13 21:43:00.859] [INFO ] [pid=33516] [stop] killing targetPid=33101 signal=SIGTERM timeoutMs=10000 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势
+[2026-08-13 21:43:00.861] [INFO ] [pid=33101] [worker] shutdown received sig=SIGTERM
+[2026-08-13 21:43:00.956] [INFO ] [pid=33101] [worker] shutdown ok sig=SIGTERM ms=95
+[2026-08-13 21:43:01.063] [INFO ] [pid=33516] [stop] ok targetPid=33101 signal=SIGTERM ms=210

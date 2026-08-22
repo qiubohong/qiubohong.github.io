@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 44 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>PRACTICE 01 · STREAMLIT 问答机器人</Text>
+      <Text style={{ fontSize: 34, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.3, marginBottom: 18 }}>
+        上传文档，到智能问答
+      </Text>
+      <Text style={{ fontSize: 16, color: '#DCE7F5', lineHeight: 1.8, marginBottom: 22 }}>
+        一条链走完 <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>加载 → 分块 → 向量化 → 存库 → 检索</span>，Streamlit 负责界面。
+      </Text>
+      <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          TextLoader 读文件，RecursiveTextSplitter 切块，Chroma 存向量
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, justifyContent: 'center' }}>
+      <CodeBlock
+        code={`from langchain_community.document_loaders import TextLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_chroma import Chroma
+
+docs = TextLoader("知识库.txt").load()
+chunks = RecursiveCharacterTextSplitter(
+    chunk_size=500).split_documents(docs)
+store = Chroma.from_documents(chunks, OpenAIEmbeddings())
+retriever = store.as_retriever()
+
+hits = retriever.get_relevant_documents("问题")`}
+        language='python'
+        width={560}
+        fontSize={13}
+      />
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>07 / 11</Text>
+  </Box>
+</Slide>

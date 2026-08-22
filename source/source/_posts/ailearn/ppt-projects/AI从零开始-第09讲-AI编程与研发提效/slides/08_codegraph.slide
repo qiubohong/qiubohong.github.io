@@ -1,0 +1,58 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>CODEGRAPH</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        CodeGraph：<br />别再让 Token 浪费在找代码
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        大项目里，AI 花大量 token 在「大海捞针」找代码，而不是写代码。<span style={{ fontWeight: 'bold', color: '#16263F' }}>CodeGraph 用静态分析构建调用关系图</span>，让 AI 秒定位。
+      </Text>
+      <Box style={{ marginTop: 18, background: '#16263F', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          找到代码 ≠ 看懂代码，图谱补上「关系」
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 12 }}>
+        {['文件层', '类层', '函数层', '语句层'].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 10, padding: '14px 10px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 4 }}>L{idx + 1}</Text>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#16263F' }}>{item}</Text>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 12 }}>7 大使用场景</Text>
+        <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
+          {['代码导航', '影响分析', '依赖追踪', '死代码检测', '重构建议', '测试覆盖', 'API 理解'].map((item, idx) => (
+            <Box key={idx} style={{ background: '#F5F7FA', borderRadius: 8, padding: '8px 14px' }}>
+              <Text style={{ fontSize: 13, color: '#1B2733' }}>{item}</Text>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+
+      <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+        <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+          从「给 AI 整个仓库」到「给 AI 一张地图」，token 效率翻倍
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 12</Text>
+  </Box>
+</Slide>

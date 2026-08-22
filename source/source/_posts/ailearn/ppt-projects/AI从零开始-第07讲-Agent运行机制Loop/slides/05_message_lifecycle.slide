@@ -1,0 +1,65 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>MESSAGE LIFECYCLE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>消息生命周期：Tool Use 与 Tool Result 交替推进</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ background: '#FFFFFF', borderRadius: 14, padding: '22px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', marginBottom: 20 }}>
+      <Text style={{ fontSize: 14, color: '#5B6B7A', marginBottom: 14 }}>一轮循环中，消息数组像对话一样交替增长：</Text>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
+        {[
+          { t: 'user', d: '帮我查天气' },
+          { t: 'tool_use', d: '调用 get_weather' },
+          { t: 'tool_result', d: '北京: 晴 22°C' },
+          { t: 'tool_use', d: '调用 calculator' },
+          { t: 'final', d: '今天晴，适合出行' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+            <Box style={{ flex: 1, background: item.t === 'tool_use' ? '#16263F' : item.t === 'final' ? '#EAF2FB' : '#F5F7FA', border: '1px solid #E3EAF2', borderRadius: 10, padding: '14px 12px', alignItems: 'center' }}>
+              <Text style={{ fontSize: 12, color: item.t === 'tool_use' ? '#FF9F1C' : '#22D3EE', fontWeight: 'bold', marginBottom: 4 }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: item.t === 'tool_use' ? '#DCE7F5' : '#1B2733', textAlign: 'center' }}>{item.d}</Text>
+            </Box>
+            {idx < 4 && (
+              <Box style={{ width: 22, justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 16, height: 16 }} />
+              </Box>
+            )}
+          </Box>
+        ))}
+      </Box>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <FAIcon name='clone' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F' }}>并行工具调用</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+          一次可返回多个 tool_use，框架并发执行、结果聚合后再进入下一轮——省时省 token。
+        </Text>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '22px 24px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <FAIcon name='plug' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>Hooks 拦截</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+          在消息节点前后插入钩子（PreToolUse / PostToolUse），不改核心循环即可扩展日志、权限、缓存。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 09</Text>
+  </Box>
+</Slide>

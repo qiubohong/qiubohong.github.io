@@ -1,0 +1,53 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ENTRY LEVEL</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>入门能力：会调用、会提问、会用框架</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 22 }}>
+      {[
+        { t: 'GPT-5', v: 'OpenAI', d: '综合旗舰 · 生态最成熟', c: '#16263F' },
+        { t: 'Claude Opus 5', v: 'Anthropic', d: '代码与长文强 · 风格克制', c: '#16263F' },
+        { t: 'DeepSeek V4-Flash', v: '开源', d: '$0.14/M · 小参数反超大参数', c: '#FF9F1C' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 1, marginBottom: 10 }}>{item.v}</Text>
+          <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>{item.t}</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 22, marginTop: 22, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#DCE7F5', borderRadius: 12, padding: '20px 24px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          <FAIcon name='coins' style={{ fill: '#16263F', width: 22, height: 22 }} />
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>Token 规则</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#1B2733', lineHeight: 1.8 }}>
+          文本被切成 Token 计费；中文更贵（1 汉字 ≈ 1-2 Token）。<span style={{ fontWeight: 'bold' }}>先懂计费单位，再谈省钱</span>。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          <FAIcon name='cubes' style={{ fill: '#FF9F1C', width: 22, height: 22 }} />
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>开发框架</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+          LangChain / LlamaIndex 拼装应用，从「裸调 API」升级到「工程化开发」。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 0 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 11</Text>
+  </Box>
+</Slide>
