@@ -1,0 +1,40 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Box style={{ width: 400, paddingTop: 8 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>RUN & VERIFY</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.3, marginBottom: 14 }}>启动服务与验证：三步跑通本地模型</Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 16 }} />
+      <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+        serve 起服务 → run 进对话 → curl 验 API，<span style={{ fontWeight: 'bold', color: '#16263F' }}>一分钟后模型真正在本地响应</span>。
+      </Text>
+    </Box>
+
+    <Box style={{ marginTop: 20, background: '#16263F', borderRadius: 12, padding: '24px 28px' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', marginBottom: 10 }}># ① 启动 API 服务（端口 11434）</Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama serve</Text>
+      <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ② 命令行对话</Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+      <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+      <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+        {`curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'`}
+      </Text>
+    </Box>
+
+    <Box style={{ marginTop: 16, background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        curl 通了 = 本地模型已就绪，可以接入任何应用
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 2 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 12</Text>
+  </Box>
+</Slide>

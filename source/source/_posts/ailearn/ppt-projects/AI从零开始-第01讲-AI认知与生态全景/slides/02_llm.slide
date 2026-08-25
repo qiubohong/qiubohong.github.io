@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>LARGE LANGUAGE MODEL</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>LLM：参数量越大能力越强，但 2026 有新变量</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '28px 28px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 18 }}>旧规律：参数越大越强</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 20, marginBottom: 18 }}>
+          <Box>
+            <Text style={{ fontSize: 40, color: '#16263F', fontWeight: 'bold', lineHeight: 1 }}>1750亿</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', marginTop: 6 }}>GPT-3 · 2020</Text>
+          </Box>
+          <FAIcon name='arrow-right' style={{ fill: '#22D3EE', width: 26, height: 26, marginBottom: 10 }} />
+          <Box>
+            <Text style={{ fontSize: 40, color: '#16263F', fontWeight: 'bold', lineHeight: 1 }}>1.8万亿</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', marginTop: 6 }}>GPT-4 · 2023</Text>
+          </Box>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+          三年前，堆参数是主旋律——参数越多，模型越聪明，成本也越高。
+        </Text>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '28px 28px' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 18 }}>2026 新变量：MoE 反超</Text>
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 20, marginBottom: 18 }}>
+          <Box>
+            <Text style={{ fontSize: 68, color: '#FF9F1C', fontWeight: 'bold', lineHeight: 1 }}>284B</Text>
+            <Text style={{ fontSize: 14, color: '#DCE7F5', marginTop: 6 }}>总参 / 13B 激活 · MoE</Text>
+          </Box>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+          DeepSeek V4-Flash 用 MoE「只激活少量参数」，<span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>小参数反超大参数</span>——比的是架构与效率，不是蛮力。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 20, background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        结论：2026 选模型不再看「谁最大」，而是看「谁更聪明、更省」
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 11</Text>
+  </Box>
+</Slide>

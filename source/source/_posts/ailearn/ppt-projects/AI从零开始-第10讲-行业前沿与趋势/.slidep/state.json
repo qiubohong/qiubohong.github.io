@@ -1,0 +1,60 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "55230ebe18923fab800b135aef4ed8324f8f3d63",
+      "version": 1,
+      "at": "2026-08-13 21:42:47.549"
+    },
+    "02_devday": {
+      "revisionId": "a84179f6036f5ef14e50bc182b3618fdd70d391f",
+      "version": 2,
+      "at": "2026-08-13 21:42:47.775"
+    },
+    "03_deepseek": {
+      "revisionId": "7718087ca6d50da361aee72f85182d9cf15eb7d9",
+      "version": 3,
+      "at": "2026-08-13 21:42:47.916"
+    },
+    "04_tripod": {
+      "revisionId": "a6471a028ad824069558b08126e2b8ec05433c7a",
+      "version": 4,
+      "at": "2026-08-13 21:42:47.992"
+    },
+    "05_reasoning": {
+      "revisionId": "ccf8b092f2dfc252423eb00254e45db8153d98c6",
+      "version": 5,
+      "at": "2026-08-13 21:42:48.078"
+    },
+    "06_ontology": {
+      "revisionId": "3b9e63da69417035424973973e0d472bb9157acd",
+      "version": 6,
+      "at": "2026-08-13 21:42:48.161"
+    },
+    "07_multimodal": {
+      "revisionId": "f21931e04888f641c14a60d998b5ebeb67f81cd4",
+      "version": 7,
+      "at": "2026-08-13 21:42:48.259"
+    },
+    "08_chip": {
+      "revisionId": "50b120a7623456ea95e3362f3627aa2b496eb5cd",
+      "version": 8,
+      "at": "2026-08-13 21:42:48.350"
+    },
+    "09_safety": {
+      "revisionId": "9efc143334c08a6b7e42556e21e60223a3486598",
+      "version": 9,
+      "at": "2026-08-13 21:42:48.435"
+    },
+    "10_future": {
+      "revisionId": "76df4e9c3ab434f8c5a3f7b498f922311e3f2a08",
+      "version": 10,
+      "at": "2026-08-13 21:42:48.631"
+    },
+    "11_finale": {
+      "revisionId": "6ad9c47a0c0568b10f75aefebb775ba8beb91eb8",
+      "version": 11,
+      "at": "2026-08-13 21:42:48.710"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ELEMENT 04 · EXAMPLE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>要素④范例：给 AI 临摹字帖</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 22, flex: 1 }}>
+      {[
+        { t: '风格迁移', d: '给一段你满意的文案，让 AI「照着这个调子写」。字帖式学习，比描述风格更精准。', e: '给示例 → 要求同风格', icon: 'paint-brush' },
+        { t: '复杂格式', d: '给一个 JSON / 表格 / 结构示例，AI 会严格照着结构输出，避免格式跑偏。', e: '给结构 → 要求同格式', icon: 'file-code' },
+        { t: '语义校准', d: '给「正确 vs 错误」成对示例，让 AI 明白你要的边界，减少歧义。', e: '给对错 → 校准理解', icon: 'adjust' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+            <Box style={{ width: 46, height: 46, borderRadius: 12, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 22, height: 22 }} />
+            </Box>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>{item.t}</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8, marginBottom: 16 }}>{item.d}</Text>
+          <Box style={{ marginTop: 'auto', background: '#DCE7F5', borderRadius: 8, padding: '10px 14px' }}>
+            <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>{item.e}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#16263F', borderRadius: 12, padding: '16px 22px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+      <Text style={{ fontSize: 15, color: '#DCE7F5', fontWeight: 'bold' }}>
+        Few-shot 的本质：给一两个高质量范例，胜过十句口头描述
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 3 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 11</Text>
+  </Box>
+</Slide>

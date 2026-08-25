@@ -1,0 +1,46 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>CAREER PATH</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>学完去哪：三条职业路线</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
+      {[
+        { t: 'Prompt 工程师', d: '写好提示词，榨干模型能力', l: '入门 · 2-4 周', icon: 'pen', c: '#FFFFFF', bg: '#16263F' },
+        { t: 'Agent 工程师', d: '编排多智能体工作流', l: '进阶 · 3-6 月', icon: 'network-wired', c: '#FFFFFF', bg: '#1E3A5F' },
+        { t: 'AI 专家', d: '造模型、定架构、带团队', l: '高级 · 1-3 年', icon: 'crown', c: '#16263F', bg: '#FF9F1C' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'stretch', flex: 1 }}>
+          <Box style={{ flex: 1, background: item.bg, borderRadius: 14, padding: '28px 26px', justifyContent: 'center' }}>
+            <FAIcon name={item.icon} style={{ fill: item.c, width: 30, height: 30, marginBottom: 16 }} />
+            <Text style={{ fontSize: 21, fontWeight: 'bold', color: item.c, marginBottom: 10 }}>{item.t}</Text>
+            <Text style={{ fontSize: 15, color: item.bg === '#FF9F1C' ? '#16263F' : '#DCE7F5', lineHeight: 1.7, marginBottom: 12 }}>{item.d}</Text>
+            <Text style={{ fontSize: 13, color: item.bg === '#FF9F1C' ? '#16263F' : '#8FA4B8', fontWeight: 'bold' }}>{item.l}</Text>
+          </Box>
+          {idx < 2 && (
+            <Box style={{ width: 40, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 20, background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        三条路线不是互斥，而是递进：先会写，再会排，最后会造
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 0 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 11</Text>
+  </Box>
+</Slide>

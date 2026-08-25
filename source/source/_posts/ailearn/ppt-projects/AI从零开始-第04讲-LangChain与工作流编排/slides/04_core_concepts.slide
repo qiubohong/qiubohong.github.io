@@ -1,0 +1,55 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>CORE CONCEPTS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>必知概念：一张概念墙，建立全局地图</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'column', gap: 14 }}>
+      <Box style={{ flexDirection: 'row', gap: 14 }}>
+        {[
+          { t: 'LLM', d: '大语言模型，应用的「大脑」' },
+          { t: 'Prompt', d: '提示模板，定义怎么问' },
+          { t: 'Chain', d: '组件串联的调用流水线' },
+          { t: 'LCEL', d: '声明式链式表达语言' },
+          { t: 'RAG', d: '检索增强，外挂知识库' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.5 }}>{item.d}</Text>
+          </Box>
+        ))}
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 14 }}>
+        {[
+          { t: 'Agent', d: '自主决策并执行任务的智能体' },
+          { t: 'Memory', d: '对话记忆，跨轮保留上下文' },
+          { t: 'OutputParser', d: '输出解析，把结果格式化' },
+          { t: 'Vectorstore', d: '向量库，存语义向量' },
+          { t: 'Embedding', d: '嵌入，把文本转成向量' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.5 }}>{item.d}</Text>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        这些概念不必今天全懂，用到哪学到哪——先有个地图，后续几讲逐一展开
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 14</Text>
+  </Box>
+</Slide>

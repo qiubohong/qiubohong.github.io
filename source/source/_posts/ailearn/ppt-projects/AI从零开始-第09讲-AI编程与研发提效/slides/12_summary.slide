@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 04 · 工具与演进</Text>
+    <Text style={{ fontSize: 38, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 26 }}>AI 编程演进：补全 → 对话 → Agent → 规范驱动</Text>
+
+    <Box style={{ flexDirection: 'row', gap: 16, marginBottom: 26 }}>
+      {[
+        { t: '补全', d: '写完一句接下一句' },
+        { t: '对话', d: '问答式写代码' },
+        { t: 'Agent', d: '自主拆解执行' },
+        { t: '规范驱动', d: '先对齐规格再动手' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: idx === 3 ? 'rgba(255,159,28,0.15)' : 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 12, padding: '18px 16px', alignItems: 'center' }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: idx === 3 ? '#FF9F1C' : '#FFFFFF', marginBottom: 6 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#DCE7F5', textAlign: 'center' }}>{item.d}</Text>
+          </Box>
+          {idx < 3 && (
+            <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#22D3EE', width: 16, height: 16 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '20px 26px', marginBottom: 14 }}>
+      <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 8 }}>动手练习</Text>
+      <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+        挑一个小需求，走一遍 Spec-Kit 的 specify → clarify → plan → implement，并让 code-review 子 Agent 给一份坏味道清单。
+      </Text>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 24px' }}>
+      <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.9 }}>
+        自测 3 题：Spec 六要素是什么？评审循环是哪四步？MCP 和 Skill 的分工是什么？
+      </Text>
+    </Box>
+  </Box>
+</Slide>

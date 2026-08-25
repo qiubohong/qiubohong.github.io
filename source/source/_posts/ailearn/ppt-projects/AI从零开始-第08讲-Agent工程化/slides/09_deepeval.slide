@@ -1,0 +1,71 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>DEEPEVAL</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>DeepEval 实战：三个指标盯死 Agent 质量</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 20, marginBottom: 20 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>ToolCorrectness</Text>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>工具调用正确性</Text>
+        <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>选的工具、传的参数对不对</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>PlanAdherence</Text>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>计划遵循度</Text>
+        <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>有没有偏离既定计划乱跑</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '18px 20px' }}>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 8 }}>AgentGoalCompletion</Text>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>目标达成度</Text>
+        <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.6 }}>最终有没有真正完成任务</Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 3, background: '#16263F', borderRadius: 12, padding: '16px 18px' }}>
+        <CodeBlock
+          code={`from deepeval.metrics import (
+    ToolCorrectnessMetric,
+    PlanAdherenceMetric,
+    AgentGoalCompletionMetric,
+)
+
+def test_agent():
+    result = run_agent("查北京天气并给出穿衣建议")
+    evaluate(result, metrics=[
+        ToolCorrectnessMetric(),
+        PlanAdherenceMetric(),
+        AgentGoalCompletionMetric(),
+    ])`}
+          language='python'
+          width={560}
+          fontSize={12}
+        />
+      </Box>
+
+      <Box style={{ flex: 2, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>指标 ≤ 5 个</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.7 }}>别贪多，挑最关键的 3-5 个指标，每次提交自动跑。</Text>
+        </Box>
+        <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+            评测进 CI/CD：质量门禁，不通过不合并
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 12</Text>
+  </Box>
+</Slide>

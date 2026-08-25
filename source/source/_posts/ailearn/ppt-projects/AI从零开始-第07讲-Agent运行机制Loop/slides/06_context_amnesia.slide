@@ -1,0 +1,60 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>CONTEXT AMNESIA</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        上下文失忆：<br />Token 窗口有物理上限
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        模型不是「无限记忆」，上下文窗口装满了，<span style={{ fontWeight: 'bold', color: '#16263F' }}>最早的对话会被挤掉</span>——Agent 跑得越久越容易「失忆」。
+      </Text>
+      <Box style={{ marginTop: 18, background: '#16263F', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          记忆不是免费的，需要主动管理
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='cut' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>滑动窗口截断</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>只保留最近 N 轮消息，简单粗暴，但会丢掉早期关键信息。</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='compress' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>上下文压缩</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>用 LLM 把历史总结成摘要，保留要点、省 token，但有信息损耗。</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='database' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>外部记忆</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>写入向量库/文件，用时再检索——最可靠，但要多一套存储。</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 09</Text>
+  </Box>
+</Slide>

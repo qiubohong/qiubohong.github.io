@@ -1,0 +1,341 @@
+=== boot pid=19506 ts=2026-08-13 21:36:01.900 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ===
+[2026-08-13 21:36:01.896] [INFO ] [pid=19506] [start] invoked pid=19506 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx]
+[2026-08-13 21:36:01.905] [INFO ] [pid=19506] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 filename=AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:36:01.911] [INFO ] [pid=19506] [start] daemon spawned childPid=19526; waiting started ipc
+=== boot pid=19526 ts=2026-08-13 21:36:03.019 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx --__daemon-child ===
+[2026-08-13 21:36:03.018] [INFO ] [pid=19526] [start] invoked pid=19526 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx --__daemon-child]
+[2026-08-13 21:36:03.022] [INFO ] [pid=19526] [start] daemon child runWorker ppid=1
+[2026-08-13 21:36:03.024] [INFO ] [pid=19526] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 filename=AI从零开始-第03讲-Prompt提示语工程-优化版.pptx version=5.4.4
+[2026-08-13 21:36:03.025] [INFO ] [pid=19526] [worker] init ok dirs=ready
+[2026-08-13 21:36:03.026] [INFO ] [pid=19526] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:36:03.028] [INFO ] [pid=19526] [worker] openFile start
+[2026-08-13 21:36:03.034] [INFO ] [pid=19526] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:36:03.038] [INFO ] [pid=19526] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ms=3
+[2026-08-13 21:36:03.063] [ERROR] [pid=19526] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx"} ms=22
+[2026-08-13 21:36:03.064] [INFO ] [pid=19526] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:36:03.073] [INFO ] [pid=19526] [open-file] open ok fileId=35AE37B0 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ms=8
+[2026-08-13 21:36:03.077] [INFO ] [pid=19526] [worker] openFile ok fileId=35AE37B0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:36:03.078] [INFO ] [pid=19526] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:36:03.079] [INFO ] [pid=19526] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:36:03.083] [INFO ] [pid=19526] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:36:03.090] [INFO ] [pid=19526] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"35AE37B0-96B7-4813-A7C3-E0B7943D41E0"}
+[2026-08-13 21:36:03.093] [INFO ] [pid=19526] [mcp] mcp:slide_get_info ok ms=2
+[2026-08-13 21:36:03.095] [INFO ] [pid=19526] [purge] purge start backendSlideCount=0
+[2026-08-13 21:36:03.096] [INFO ] [pid=19526] [purge] purge ok removed=0 ms=9
+[2026-08-13 21:36:03.098] [INFO ] [pid=19526] [worker] initial sync submitted pages=0
+[2026-08-13 21:36:03.099] [INFO ] [pid=19526] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:36:03.101] [INFO ] [pid=19526] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:36:03.103] [INFO ] [pid=19526] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-13 21:36:03.104] [INFO ] [pid=19526] [worker] ready fileId=35AE37B0 backendUrl=http://127.0.0.1:39099 initialPages=0 ms=80
+[2026-08-13 21:36:03.105] [INFO ] [pid=19526] [sync] reconcile ok round=1 attempt=1 ms=3
+[2026-08-13 21:36:03.106] [INFO ] [pid=19526] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=5
+=== boot pid=24016 ts=2026-08-13 21:38:12.516 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 ===
+[2026-08-13 21:38:12.515] [INFO ] [pid=24016] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides
+[2026-08-13 21:38:12.519] [INFO ] [pid=24016] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:38:14.207] [INFO ] [pid=24016] [validate] batch done total=11 passed=11 failed=0 ms=1692
+=== boot pid=25285 ts=2026-08-13 21:38:54.918 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ===
+[2026-08-13 21:38:54.917] [INFO ] [pid=25285] [start] invoked pid=25285 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx]
+[2026-08-13 21:38:55.051] [INFO ] [pid=25285] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 filename=AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:55.060] [INFO ] [pid=25285] [start] daemon spawned childPid=25324; waiting started ipc
+=== boot pid=25324 ts=2026-08-13 21:38:56.113 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx --__daemon-child ===
+[2026-08-13 21:38:56.112] [INFO ] [pid=25324] [start] invoked pid=25324 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 --filename AI从零开始-第03讲-Prompt提示语工程-优化版.pptx --__daemon-child]
+[2026-08-13 21:38:56.116] [INFO ] [pid=25324] [start] daemon child runWorker ppid=25285
+[2026-08-13 21:38:56.116] [INFO ] [pid=25324] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程 filename=AI从零开始-第03讲-Prompt提示语工程-优化版.pptx version=5.4.4
+[2026-08-13 21:38:56.117] [INFO ] [pid=25324] [worker] init ok dirs=ready
+[2026-08-13 21:38:56.118] [INFO ] [pid=25324] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:38:56.119] [INFO ] [pid=25324] [worker] openFile start
+[2026-08-13 21:38:56.126] [INFO ] [pid=25324] [open-file] backup (copy) existing pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.slidep/bak/AI从零开始-第03讲-Prompt提示语工程-优化版.bak-20260813-213856.pptx
+[2026-08-13 21:38:56.134] [INFO ] [pid=25324] [open-file] reopen existing pptx (preserve birthtime) filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:56.154] [INFO ] [pid=25324] [open-file] open skip (already in pool) fileId=35AE37B0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:56.156] [INFO ] [pid=25324] [worker] openFile ok fileId=35AE37B0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:56.158] [INFO ] [pid=25324] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:38:56.161] [INFO ] [pid=25324] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:38:56.165] [INFO ] [pid=25324] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"35AE37B0-96B7-4813-A7C3-E0B7943D41E0"}
+[2026-08-13 21:38:56.169] [INFO ] [pid=25324] [mcp] mcp:slide_get_info ok ms=3
+[2026-08-13 21:38:56.170] [INFO ] [pid=25324] [purge] purge start backendSlideCount=0
+[2026-08-13 21:38:56.171] [INFO ] [pid=25324] [purge] purge ok removed=0 ms=9
+[2026-08-13 21:38:56.172] [INFO ] [pid=25324] [worker] initial sync submitted pages=11
+[2026-08-13 21:38:56.173] [INFO ] [pid=25324] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:38:56.175] [INFO ] [pid=25324] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:38:56.177] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:38:56.178] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:38:56.179] [INFO ] [pid=25324] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/01_cover.slide
+[2026-08-13 21:38:56.185] [INFO ] [pid=25324] [worker] ready fileId=35AE37B0 backendUrl=http://127.0.0.1:39099 initialPages=11 ms=69
+[2026-08-13 21:38:56.185] [INFO ] [pid=25285] [start] daemon started childPid=25324 ms=1134
+[2026-08-13 21:38:56.398] [INFO ] [pid=25324] [render] ok pageId=01_cover slides=1 ms=220
+[2026-08-13 21:38:56.401] [INFO ] [pid=25324] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:38:56.414] [INFO ] [pid=25324] [commit] commit send pageId=535d12 targetIndex=0 version=1 baseVersion=0 revisionBytes=9736
+[2026-08-13 21:38:56.422] [INFO ] [pid=25324] [commit] commit ok pageId=535d12 revisionId=cff4f302 ms=5
+[2026-08-13 21:38:56.429] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=01_cover slideId=535d12 index=0 version=1 baseVersion=0 revisionId=cff4f302 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=251
+[2026-08-13 21:38:56.430] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=02_five_elements index=1
+[2026-08-13 21:38:56.434] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=02_five_elements index=1
+[2026-08-13 21:38:56.435] [INFO ] [pid=25324] [render] start pageId=02_five_elements file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/02_five_elements.slide
+[2026-08-13 21:38:56.487] [INFO ] [pid=25324] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides
+[2026-08-13 21:38:56.714] [INFO ] [pid=25324] [render] ok pageId=02_five_elements slides=1 ms=279
+[2026-08-13 21:38:56.718] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:018opgvk': {
+      id: 'rel:018opgvk',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/2fb42da0f7bbc60cd2d6c16bb95cb66f.svg'
+    },
+    'rel:00sd6nr2': {
+      id: 'rel:00sd6nr2',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/7d2d9f3b77a994b6c74712b8cb116db4.svg'
+    },
+    'rel:01yis2xj': {
+      id: 'rel:01yis2xj',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/f5db77ee2fc8a7034a88bbaee9a2e53f.svg'
+    },
+    'rel:01japd3k': {
+      id: 'rel:01japd3k',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/4ffca7afaab2a6c31d84db36298bc2c5.svg'
+    },
+    'rel:00yhw22k': {
+      id: 'rel:00yhw22k',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/63ada61691070b785e6b308baa084fbf.svg'
+    },
+    'rel:00xjqed4': {
+      id: 'rel:00xjqed4',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:56.728] [INFO ] [pid=25324] [commit] commit send pageId=1c3fc6 targetIndex=1 version=2 baseVersion=1 revisionBytes=38164
+[2026-08-13 21:38:56.748] [INFO ] [pid=25324] [commit] commit ok pageId=1c3fc6 revisionId=881e4ddc ms=18
+[2026-08-13 21:38:56.752] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=02_five_elements slideId=1c3fc6 index=1 version=2 baseVersion=1 revisionId=881e4ddc code=0 images=[local=6 remote=0 cached=0 failed=0] ms=318
+[2026-08-13 21:38:56.754] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=03_role index=2
+[2026-08-13 21:38:56.755] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=03_role index=2
+[2026-08-13 21:38:56.757] [INFO ] [pid=25324] [render] start pageId=03_role file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/03_role.slide
+[2026-08-13 21:38:56.893] [INFO ] [pid=25324] [render] ok pageId=03_role slides=1 ms=136
+[2026-08-13 21:38:56.896] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:018opgvk': {
+      id: 'rel:018opgvk',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/2fb42da0f7bbc60cd2d6c16bb95cb66f.svg'
+    },
+    'rel:004sfxga': {
+      id: 'rel:004sfxga',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/e99822aed4a979f9c4baf43e665903ff.svg'
+    },
+    'rel:00p2xnth': {
+      id: 'rel:00p2xnth',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/2f3c5106cc935c232087c68fce065faa.svg'
+    },
+    'rel:00a98aqr': {
+      id: 'rel:00a98aqr',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/737efd36c53d3155839544792316459a.svg'
+    },
+    'rel:01u93n0q': {
+      id: 'rel:01u93n0q',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/487ee42328ba3095035d6af3767103d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:56.904] [INFO ] [pid=25324] [commit] commit send pageId=349e16 targetIndex=2 version=3 baseVersion=2 revisionBytes=29936
+[2026-08-13 21:38:56.920] [INFO ] [pid=25324] [commit] commit ok pageId=349e16 revisionId=84641d74 ms=15
+[2026-08-13 21:38:56.929] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=03_role slideId=349e16 index=2 version=3 baseVersion=2 revisionId=84641d74 code=0 images=[local=5 remote=0 cached=0 failed=0] ms=174
+[2026-08-13 21:38:56.930] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=04_context index=3
+[2026-08-13 21:38:56.931] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=04_context index=3
+[2026-08-13 21:38:56.932] [INFO ] [pid=25324] [render] start pageId=04_context file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/04_context.slide
+[2026-08-13 21:38:57.016] [INFO ] [pid=25324] [render] ok pageId=04_context slides=1 ms=84
+[2026-08-13 21:38:57.029] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:00pmsovw': {
+      id: 'rel:00pmsovw',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/b4c78bfd51296b6f02fc538b515e753b.svg'
+    },
+    'rel:01mx6e8i': {
+      id: 'rel:01mx6e8i',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/8992ca8e8783a1a1c181720b74e539da.svg'
+    },
+    'rel:01ukm87q': {
+      id: 'rel:01ukm87q',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/e508597b3ff0d5ad260331db537e9405.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.034] [INFO ] [pid=25324] [commit] commit send pageId=832c9a targetIndex=3 version=4 baseVersion=3 revisionBytes=22828
+[2026-08-13 21:38:57.046] [INFO ] [pid=25324] [commit] commit ok pageId=832c9a revisionId=ff9cc95d ms=10
+[2026-08-13 21:38:57.050] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=04_context slideId=832c9a index=3 version=4 baseVersion=3 revisionId=ff9cc95d code=0 images=[local=3 remote=0 cached=0 failed=0] ms=119
+[2026-08-13 21:38:57.051] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=05_instruction index=4
+[2026-08-13 21:38:57.052] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=05_instruction index=4
+[2026-08-13 21:38:57.054] [INFO ] [pid=25324] [render] start pageId=05_instruction file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/05_instruction.slide
+[2026-08-13 21:38:57.144] [INFO ] [pid=25324] [render] ok pageId=05_instruction slides=1 ms=90
+[2026-08-13 21:38:57.146] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:01yis2xj': {
+      id: 'rel:01yis2xj',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/f5db77ee2fc8a7034a88bbaee9a2e53f.svg'
+    },
+    'rel:008smybv': {
+      id: 'rel:008smybv',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/6e996476bd9d985c7b2c9ce5a4ed78f3.svg'
+    },
+    'rel:01a6xrdl': {
+      id: 'rel:01a6xrdl',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/9a526ae567452f710e1bb586541d621f.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.152] [INFO ] [pid=25324] [commit] commit send pageId=8dcde0 targetIndex=4 version=5 baseVersion=4 revisionBytes=31856
+[2026-08-13 21:38:57.162] [INFO ] [pid=25324] [commit] commit ok pageId=8dcde0 revisionId=4078122e ms=9
+[2026-08-13 21:38:57.166] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=05_instruction slideId=8dcde0 index=4 version=5 baseVersion=4 revisionId=4078122e code=0 images=[local=3 remote=0 cached=0 failed=0] ms=114
+[2026-08-13 21:38:57.167] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=06_example index=5
+[2026-08-13 21:38:57.171] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=06_example index=5
+[2026-08-13 21:38:57.172] [INFO ] [pid=25324] [render] start pageId=06_example file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/06_example.slide
+[2026-08-13 21:38:57.276] [INFO ] [pid=25324] [render] ok pageId=06_example slides=1 ms=104
+[2026-08-13 21:38:57.278] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:01d1pm1b': {
+      id: 'rel:01d1pm1b',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/ec7aab6d96e0f448bd01728da20ae4c7.svg'
+    },
+    'rel:01uu64s0': {
+      id: 'rel:01uu64s0',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/379ca7993cbfc106347cbbfd8a05effa.svg'
+    },
+    'rel:00w2afil': {
+      id: 'rel:00w2afil',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/912595775a4f1ab0055f06ca710c4338.svg'
+    },
+    'rel:00xjqed4': {
+      id: 'rel:00xjqed4',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.284] [INFO ] [pid=25324] [commit] commit send pageId=497c19 targetIndex=5 version=6 baseVersion=5 revisionBytes=26732
+[2026-08-13 21:38:57.299] [INFO ] [pid=25324] [commit] commit ok pageId=497c19 revisionId=156060ed ms=12
+[2026-08-13 21:38:57.306] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=06_example slideId=497c19 index=5 version=6 baseVersion=5 revisionId=156060ed code=0 images=[local=4 remote=0 cached=0 failed=0] ms=135
+[2026-08-13 21:38:57.307] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=07_format index=6
+[2026-08-13 21:38:57.308] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=07_format index=6
+[2026-08-13 21:38:57.309] [INFO ] [pid=25324] [render] start pageId=07_format file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/07_format.slide
+[2026-08-13 21:38:57.389] [INFO ] [pid=25324] [render] ok pageId=07_format slides=1 ms=80
+[2026-08-13 21:38:57.391] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:00yhw22k': {
+      id: 'rel:00yhw22k',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/63ada61691070b785e6b308baa084fbf.svg'
+    },
+    'rel:00ylza6r': {
+      id: 'rel:00ylza6r',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/432a5d10bba07c8f92114591d2b6c460.svg'
+    },
+    'rel:01mx6e8i': {
+      id: 'rel:01mx6e8i',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/8992ca8e8783a1a1c181720b74e539da.svg'
+    },
+    'rel:01m8ntpf': {
+      id: 'rel:01m8ntpf',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/16171dcd5935e8ec91aa2c28b2357f8f.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.398] [INFO ] [pid=25324] [commit] commit send pageId=ad0e29 targetIndex=6 version=7 baseVersion=6 revisionBytes=26400
+[2026-08-13 21:38:57.412] [INFO ] [pid=25324] [commit] commit ok pageId=ad0e29 revisionId=d9b2dc4a ms=12
+[2026-08-13 21:38:57.417] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=07_format slideId=ad0e29 index=6 version=7 baseVersion=6 revisionId=d9b2dc4a code=0 images=[local=4 remote=0 cached=0 failed=0] ms=109
+[2026-08-13 21:38:57.419] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=08_four_rules index=7
+[2026-08-13 21:38:57.419] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=08_four_rules index=7
+[2026-08-13 21:38:57.420] [INFO ] [pid=25324] [render] start pageId=08_four_rules file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/08_four_rules.slide
+[2026-08-13 21:38:57.501] [INFO ] [pid=25324] [render] ok pageId=08_four_rules slides=1 ms=81
+[2026-08-13 21:38:57.504] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:01c4qfcd': {
+      id: 'rel:01c4qfcd',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01yis2xj': {
+      id: 'rel:01yis2xj',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/f5db77ee2fc8a7034a88bbaee9a2e53f.svg'
+    },
+    'rel:00pmsovw': {
+      id: 'rel:00pmsovw',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/b4c78bfd51296b6f02fc538b515e753b.svg'
+    },
+    'rel:00yhw22k': {
+      id: 'rel:00yhw22k',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/63ada61691070b785e6b308baa084fbf.svg'
+    },
+    'rel:00idpyvt': {
+      id: 'rel:00idpyvt',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/cc4df2eccdb76ca527158d7ec9d8fc4c.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.508] [INFO ] [pid=25324] [commit] commit send pageId=8d5f6f targetIndex=7 version=8 baseVersion=7 revisionBytes=28128
+[2026-08-13 21:38:57.524] [INFO ] [pid=25324] [commit] commit ok pageId=8d5f6f revisionId=3e293549 ms=14
+[2026-08-13 21:38:57.530] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=08_four_rules slideId=8d5f6f index=7 version=8 baseVersion=7 revisionId=3e293549 code=0 images=[local=5 remote=0 cached=0 failed=0] ms=111
+[2026-08-13 21:38:57.531] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=09_sql index=8
+[2026-08-13 21:38:57.532] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=09_sql index=8
+[2026-08-13 21:38:57.532] [INFO ] [pid=25324] [render] start pageId=09_sql file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/09_sql.slide
+[2026-08-13 21:38:57.867] [INFO ] [pid=25324] [render] ok pageId=09_sql slides=1 ms=335
+[2026-08-13 21:38:57.869] [INFO ] [pid=25324] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:38:57.877] [INFO ] [pid=25324] [commit] commit send pageId=873409 targetIndex=8 version=9 baseVersion=8 revisionBytes=21360
+[2026-08-13 21:38:57.882] [INFO ] [pid=25324] [commit] commit ok pageId=873409 revisionId=887567ec ms=4
+[2026-08-13 21:38:57.887] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=09_sql slideId=873409 index=8 version=9 baseVersion=8 revisionId=887567ec code=0 images=[local=0 remote=0 cached=0 failed=0] ms=355
+[2026-08-13 21:38:57.888] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=10_anti_hallucination index=9
+[2026-08-13 21:38:57.890] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=10_anti_hallucination index=9
+[2026-08-13 21:38:57.891] [INFO ] [pid=25324] [render] start pageId=10_anti_hallucination file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/10_anti_hallucination.slide
+[2026-08-13 21:38:57.968] [INFO ] [pid=25324] [render] ok pageId=10_anti_hallucination slides=1 ms=77
+[2026-08-13 21:38:57.969] [INFO ] [pid=25324] [render] renderSlideData result.resources={
+  images: {
+    'rel:01w7yue0': {
+      id: 'rel:01w7yue0',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/fb90858032fb007bf69c40a82d16380b.svg'
+    },
+    'rel:00qhfthq': {
+      id: 'rel:00qhfthq',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/2f18470fc926c61c65010c8aad47459b.svg'
+    },
+    'rel:00tldhfp': {
+      id: 'rel:00tldhfp',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/23d8cffd07ae9b75fbf83ea8c4cca8e4.svg'
+    },
+    'rel:01hg64di': {
+      id: 'rel:01hg64di',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:38:57.972] [INFO ] [pid=25324] [commit] commit send pageId=1b46ea targetIndex=9 version=10 baseVersion=9 revisionBytes=25772
+[2026-08-13 21:38:57.991] [INFO ] [pid=25324] [commit] commit ok pageId=1b46ea revisionId=4d3de470 ms=17
+[2026-08-13 21:38:57.993] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=10_anti_hallucination slideId=1b46ea index=9 version=10 baseVersion=9 revisionId=4d3de470 code=0 images=[local=4 remote=0 cached=0 failed=0] ms=103
+[2026-08-13 21:38:57.994] [INFO ] [pid=25324] [sync] step=add round=1 attempt=1 pageId=11_summary index=10
+[2026-08-13 21:38:57.994] [INFO ] [pid=25324] [backend-ops] addSlideAt start pageId=11_summary index=10
+[2026-08-13 21:38:57.994] [INFO ] [pid=25324] [render] start pageId=11_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/slides/11_summary.slide
+[2026-08-13 21:38:58.015] [INFO ] [pid=25324] [render] ok pageId=11_summary slides=1 ms=21
+[2026-08-13 21:38:58.016] [INFO ] [pid=25324] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:38:58.022] [INFO ] [pid=25324] [commit] commit send pageId=fddd59 targetIndex=10 version=11 baseVersion=10 revisionBytes=11108
+[2026-08-13 21:38:58.025] [INFO ] [pid=25324] [commit] commit ok pageId=fddd59 revisionId=598ef969 ms=3
+[2026-08-13 21:38:58.027] [INFO ] [pid=25324] [backend-ops] addSlideAt ok pageId=11_summary slideId=fddd59 index=10 version=11 baseVersion=10 revisionId=598ef969 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=33
+[2026-08-13 21:38:58.027] [INFO ] [pid=25324] [sync] aligned round=1 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:38:58.027] [INFO ] [pid=25324] [sync] reconcile ok round=1 attempt=1 ms=1851
+[2026-08-13 21:38:58.028] [INFO ] [pid=25324] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:58.028] [INFO ] [pid=25324] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx
+[2026-08-13 21:38:58.080] [INFO ] [pid=25324] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ms=52
+[2026-08-13 21:38:58.081] [INFO ] [pid=25324] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/AI从零开始-第03讲-Prompt提示语工程-优化版.pptx ms=53
+[2026-08-13 21:38:58.081] [INFO ] [pid=25324] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1906

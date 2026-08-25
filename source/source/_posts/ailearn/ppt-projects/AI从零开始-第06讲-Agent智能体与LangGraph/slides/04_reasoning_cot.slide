@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 340, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>REASONING</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        激发推理<br />让模型「想清楚再做」
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        裸模型倾向「张口就来」，推理框架逼它<span style={{ fontWeight: 'bold', color: '#16263F' }}>先拆解、再试错、后复盘</span>，答案质量随之跃升。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+      {[
+        { t: 'CoT 思维链', d: '让模型「逐步思考」，把推理过程写出来再给答案' },
+        { t: '思维树 ToT', d: '并行探索多条思路，像下棋一样评估与回溯' },
+        { t: 'ReAct', d: '思考(Reason)与行动(Act)交替，边想边调用工具' },
+        { t: 'Reflexion', d: '做完后反思复盘，把教训写进记忆用于下一轮' },
+        { t: 'Hindsight', d: '事后回顾，把经验转化为可复用的策略' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '15px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ width: 46, height: 46, borderRadius: 12, background: idx === 2 ? 'rgba(255,159,28,0.14)' : '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name='brain' style={{ fill: idx === 2 ? '#FF9F1C' : '#22D3EE', width: 22, height: 22 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 2 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 14</Text>
+  </Box>
+</Slide>

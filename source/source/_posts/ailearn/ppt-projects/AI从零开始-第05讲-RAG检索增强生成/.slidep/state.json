@@ -1,0 +1,60 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "2af498cc85980eb7d50f8b1851b0f05bf374b76c",
+      "version": 1,
+      "at": "2026-08-13 21:34:12.224"
+    },
+    "02_why_rag": {
+      "revisionId": "14bd8206473d2f995b90e8ced86b8a2cce4e3de2",
+      "version": 2,
+      "at": "2026-08-13 21:34:12.480"
+    },
+    "03_rag_pipeline": {
+      "revisionId": "3748fd17607871a05f976c3b577108f8754f2a3b",
+      "version": 3,
+      "at": "2026-08-13 21:34:12.672"
+    },
+    "04_embedding": {
+      "revisionId": "bed4ad806433a3ac28953482d289ed7333cbddd9",
+      "version": 4,
+      "at": "2026-08-13 21:34:12.813"
+    },
+    "05_vector_db": {
+      "revisionId": "9b7e1e580505bc3be26430628f548fd06ce99dd9",
+      "version": 5,
+      "at": "2026-08-13 21:34:12.906"
+    },
+    "06_retrieval_advanced": {
+      "revisionId": "2b1ab49d3caef2274def6e0cfbc46ea2356bf296",
+      "version": 6,
+      "at": "2026-08-13 21:34:12.994"
+    },
+    "07_streamlit_demo": {
+      "revisionId": "fe4d773cf7ef8ca6f53c121736a0460633526661",
+      "version": 13,
+      "at": "2026-08-13 21:36:36.080"
+    },
+    "08_agent_retrieval": {
+      "revisionId": "316fa7467e2f991e7912b889a8f6c1ec7727bcf2",
+      "version": 8,
+      "at": "2026-08-13 21:34:56.450"
+    },
+    "09_response_notes": {
+      "revisionId": "348d31274d67920e1ec7ed0dbcbb125683231ae3",
+      "version": 9,
+      "at": "2026-08-13 21:34:56.580"
+    },
+    "10_industrial_arch": {
+      "revisionId": "92d03df2dcb4ed1b2f3593b6d10eb51aa83eb04e",
+      "version": 10,
+      "at": "2026-08-13 21:34:56.701"
+    },
+    "11_summary": {
+      "revisionId": "55bea6da73b738f0c876792481e0abfbecbeea7f",
+      "version": 11,
+      "at": "2026-08-13 21:34:56.830"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>MULTI-AGENT</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>多智能体协作：用「分角」破解自我评估偏差</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 30, flex: 1 }}>
+      <Box style={{ flex: 3, flexDirection: 'column', justifyContent: 'center' }}>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', marginBottom: 16 }}>三角架构：规划者定方向，生成者动手，评估者独立打分——自己写的自己评不靠谱。</Text>
+        <Box style={{ flexDirection: 'row', gap: 16 }}>
+          <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <FAIcon name='clipboard-list' style={{ fill: '#22D3EE', width: 30, height: 30, marginBottom: 12 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>规划者</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', textAlign: 'center' }}>拆任务、定标准</Text>
+          </Box>
+          <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '20px 20px', alignItems: 'center' }}>
+            <FAIcon name='hammer' style={{ fill: '#FF9F1C', width: 30, height: 30, marginBottom: 12 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>生成者</Text>
+            <Text style={{ fontSize: 13, color: '#DCE7F5', textAlign: 'center' }}>负责产出内容</Text>
+          </Box>
+          <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <FAIcon name='star' style={{ fill: '#22D3EE', width: 30, height: 30, marginBottom: 12 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>评估者</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', textAlign: 'center' }}>独立打分校验</Text>
+          </Box>
+        </Box>
+        <Box style={{ marginTop: 16, background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+            关键：评估者必须独立，不能和生成者是同一个「脑子」
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 2, flexDirection: 'column', justifyContent: 'center', gap: 14 }}>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 22px' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>Orchestrator-Workers</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>
+            一个总指挥（Orchestrator）派活，多个工人（Workers）并行执行，结果汇总给指挥验收。
+          </Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>什么时候才上多 Agent</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.7 }}>
+            单 Agent 加验证够用就别上——多 Agent 调试难、成本高，是为「复杂分工」准备的。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 12</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,42 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 40 }}>
+    <Box style={{ width: 320, paddingTop: 16 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>FRAMEWORK STRUCTURE</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        框架七层结构<br />从核心到工具链
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        底部是核心抽象，越往上越面向开发者与运维——<span style={{ fontWeight: 'bold', color: '#16263F' }}>LangChain 已从「库」长成「平台」</span>。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+      {[
+        { t: 'LangSmith', d: '调试 / 监控 / 评估平台', bg: '#22D3EE' },
+        { t: 'LangServe', d: '一键部署为 REST API', bg: '#2A9DB0' },
+        { t: 'LangGraph', d: '图工作流：循环 / 状态 / 多智能体', bg: '#3B82A0' },
+        { t: 'Community', d: '社区维护的扩展包', bg: '#2E5E8A' },
+        { t: 'Integrations', d: '第三方集成：模型 / 向量库', bg: '#274C78' },
+        { t: 'LangChain', d: '高级链与智能体编排', bg: '#1E3A5F' },
+        { t: 'LangChain-Core', d: '核心抽象：Runnable / 消息 / 工具', bg: '#FF9F1C' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', background: item.bg, borderRadius: 8, padding: '10px 20px' }}>
+          <Text style={{ width: 190, fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>{item.t}</Text>
+          <Text style={{ flex: 1, fontSize: 13, color: '#FFFFFF', opacity: 0.9 }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 14</Text>
+  </Box>
+</Slide>

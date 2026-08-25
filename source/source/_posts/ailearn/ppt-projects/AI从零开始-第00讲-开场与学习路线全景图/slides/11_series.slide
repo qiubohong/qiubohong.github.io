@@ -1,0 +1,43 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: 'linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ position: 'absolute', top: -60, right: -60, width: 260, height: 260, borderRadius: 130, background: 'rgba(34,211,238,0.1)' }} />
+
+  <Box style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>SERIES PREVIEW</Text>
+    <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 30 }}>系列预告：10 场正片 + 3 里程碑</Text>
+
+    <Box style={{ flexDirection: 'row', gap: 24, marginBottom: 28 }}>
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 14, padding: '24px 26px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 1, marginBottom: 10 }}>M1 · 会用</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>提问与调用</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>第 0-3 讲：认知、术语、Prompt、API</Text>
+      </Box>
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(220,231,245,0.2)', borderRadius: 14, padding: '24px 26px' }}>
+        <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 1, marginBottom: 10 }}>M2 · 会调</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>部署与框架</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>第 4-7 讲：环境、本地部署、框架、安全</Text>
+      </Box>
+      <Box style={{ flex: 1, background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '24px 26px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 1, marginBottom: 10 }}>M3 · 会造</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>实战与进阶</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>第 8-10 讲：RAG、Agent、多模态、实战</Text>
+      </Box>
+    </Box>
+
+    <Box style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 12, padding: '18px 24px' }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+        <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>10 场正片：</span>
+        认知 → 环境 → Prompt → 部署 → 框架 → 安全 → RAG → Agent → 多模态 → 实战
+      </Text>
+      <Text style={{ fontSize: 14, color: '#8FA4B8', marginTop: 10 }}>
+        第 0 讲到此结束——下一讲，我们一起把「AI 认知与生态」彻底扫清
+      </Text>
+    </Box>
+  </Box>
+</Slide>

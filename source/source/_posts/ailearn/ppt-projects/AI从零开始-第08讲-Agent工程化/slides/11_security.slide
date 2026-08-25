@@ -1,0 +1,71 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>SECURITY</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>安全防线：事前设界、事中收权、事后兜底</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+          <FAIcon name='shield' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>事前 · 设界</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.9 }}>
+          · 红线黑名单：敏感操作直接禁<br />
+          · 黄线：高危操作需人工审批<br />
+          · 审计日志：记录谁在什么时候做了什么
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 14 }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold' }}>把危险挡在门外</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '26px 24px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+          <FAIcon name='lock' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>事中 · 收权</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.9 }}>
+          · 权限收窄：最小权限原则<br />
+          · Pre-flight：执行前预检，危险动作拦截<br />
+          · 每次工具调用都过权限校验
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 14 }}>
+          <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold' }}>把危害压到最小</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+          <FAIcon name='history' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>事后 · 兜底</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.9 }}>
+          · 定期巡检：异常行为复盘<br />
+          · 灾备回滚：出问题能恢复现场<br />
+          · 把事故沉淀成新的防线
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 14 }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold' }}>把损失降到最低</Text>
+        </Box>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 20, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        安全是分层设防：一层会漏，三层叠加才靠谱——呼应瑞士奶酪模型
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>11 / 12</Text>
+  </Box>
+</Slide>

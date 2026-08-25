@@ -1,0 +1,864 @@
+=== boot pid=67001 ts=2026-08-12 08:11:42.256 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 --filename AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ===
+[2026-08-12 08:11:42.255] [INFO ] [pid=67001] [start] invoked pid=67001 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 --filename AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx]
+[2026-08-12 08:11:42.259] [INFO ] [pid=67001] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 filename=AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:11:42.263] [INFO ] [pid=67001] [start] daemon spawned childPid=67235; waiting started ipc
+=== boot pid=67235 ts=2026-08-12 08:11:43.288 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 --filename AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx --__daemon-child ===
+[2026-08-12 08:11:43.287] [INFO ] [pid=67235] [start] invoked pid=67235 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 --filename AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx --__daemon-child]
+[2026-08-12 08:11:43.289] [INFO ] [pid=67235] [start] daemon child runWorker ppid=67001
+[2026-08-12 08:11:43.290] [INFO ] [pid=67235] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 filename=AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx version=5.4.4
+[2026-08-12 08:11:43.291] [INFO ] [pid=67235] [worker] init ok dirs=ready
+[2026-08-12 08:11:43.292] [INFO ] [pid=67235] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-12 08:11:43.293] [INFO ] [pid=67235] [worker] openFile start
+[2026-08-12 08:11:43.294] [INFO ] [pid=67235] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:11:43.300] [INFO ] [pid=67235] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=5
+[2026-08-12 08:11:43.320] [ERROR] [pid=67235] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx"} ms=19
+[2026-08-12 08:11:43.323] [INFO ] [pid=67235] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:11:43.330] [INFO ] [pid=67235] [open-file] open ok fileId=D799B5AD fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=6
+[2026-08-12 08:11:43.332] [INFO ] [pid=67235] [worker] openFile ok fileId=D799B5AD filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:11:43.335] [INFO ] [pid=67235] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC02%E8%AE%B2-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC02%E8%AE%B2-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-12 08:11:43.336] [INFO ] [pid=67235] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:11:43.339] [INFO ] [pid=67235] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-12 08:11:43.342] [INFO ] [pid=67235] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"D799B5AD-C396-486E-A902-DDD5079C64E4"}
+[2026-08-12 08:11:43.346] [INFO ] [pid=67235] [mcp] mcp:slide_get_info ok ms=3
+[2026-08-12 08:11:43.347] [INFO ] [pid=67235] [purge] purge start backendSlideCount=0
+[2026-08-12 08:11:43.348] [INFO ] [pid=67235] [purge] purge ok removed=0 ms=8
+[2026-08-12 08:11:43.349] [INFO ] [pid=67235] [worker] initial sync submitted pages=0
+[2026-08-12 08:11:43.351] [INFO ] [pid=67235] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-12 08:11:43.352] [INFO ] [pid=67235] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-12 08:11:43.353] [INFO ] [pid=67235] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-12 08:11:43.355] [INFO ] [pid=67235] [worker] ready fileId=D799B5AD backendUrl=http://127.0.0.1:39099 initialPages=0 ms=65
+[2026-08-12 08:11:43.355] [INFO ] [pid=67001] [start] daemon started childPid=67235 ms=1096
+[2026-08-12 08:11:43.355] [INFO ] [pid=67235] [sync] reconcile ok round=1 attempt=1 ms=2
+[2026-08-12 08:11:43.356] [INFO ] [pid=67235] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=4
+[2026-08-12 08:11:43.429] [INFO ] [pid=67235] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides
+[2026-08-12 08:11:59.298] [INFO ] [pid=67235] [watcher] event=add file=slides/01_cover.slide
+[2026-08-12 08:11:59.802] [INFO ] [pid=67235] [watcher] flush batch dirty=[01_cover] size=1
+[2026-08-12 08:11:59.803] [INFO ] [pid=67235] [sync] submit nextRound=2 dirty=01_cover pendingDirtySize=1 merged=no
+[2026-08-12 08:11:59.804] [INFO ] [pid=67235] [sync] drain start round=2 pendingDirtySize=1
+[2026-08-12 08:11:59.805] [INFO ] [pid=67235] [sync] step=add round=2 attempt=1 pageId=01_cover index=0
+[2026-08-12 08:11:59.806] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-12 08:11:59.807] [INFO ] [pid=67235] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/01_cover.slide
+[2026-08-12 08:12:00.046] [INFO ] [pid=67235] [render] ok pageId=01_cover slides=1 ms=239
+[2026-08-12 08:12:00.047] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:12:00.057] [INFO ] [pid=67235] [commit] commit send pageId=b19e42 targetIndex=0 version=1 baseVersion=0 revisionBytes=9724
+[2026-08-12 08:12:00.066] [INFO ] [pid=67235] [commit] commit ok pageId=b19e42 revisionId=35dc11c4 ms=6
+[2026-08-12 08:12:00.073] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=01_cover slideId=b19e42 index=0 version=1 baseVersion=0 revisionId=35dc11c4 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=267
+[2026-08-12 08:12:00.075] [INFO ] [pid=67235] [sync] aligned round=2 attempt=1 size=1 desired=1 pendingDirtySize=0
+[2026-08-12 08:12:00.076] [INFO ] [pid=67235] [sync] reconcile ok round=2 attempt=1 ms=271
+[2026-08-12 08:12:00.077] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:00.078] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:00.101] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=20
+[2026-08-12 08:12:00.102] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=26
+[2026-08-12 08:12:00.103] [INFO ] [pid=67235] [sync] drain end round=2 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=299
+[2026-08-12 08:12:08.342] [INFO ] [pid=67235] [watcher] event=add file=slides/02_why_local.slide
+[2026-08-12 08:12:08.844] [INFO ] [pid=67235] [watcher] flush batch dirty=[02_why_local] size=1
+[2026-08-12 08:12:08.848] [INFO ] [pid=67235] [sync] submit nextRound=3 dirty=02_why_local pendingDirtySize=1 merged=no
+[2026-08-12 08:12:08.849] [INFO ] [pid=67235] [sync] drain start round=3 pendingDirtySize=1
+[2026-08-12 08:12:08.850] [INFO ] [pid=67235] [sync] step=add round=3 attempt=1 pageId=02_why_local index=1
+[2026-08-12 08:12:08.852] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=02_why_local index=1
+[2026-08-12 08:12:08.853] [INFO ] [pid=67235] [render] start pageId=02_why_local file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/02_why_local.slide
+[2026-08-12 08:12:09.041] [INFO ] [pid=67235] [render] ok pageId=02_why_local slides=1 ms=188
+[2026-08-12 08:12:09.046] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00bo4rqz': {
+      id: 'rel:00bo4rqz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/2bdbfbca679d3679ca4ecd442ec9337e.svg'
+    },
+    'rel:016yxt6y': {
+      id: 'rel:016yxt6y',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/4066095864d90019124e58ea4e5916de.svg'
+    },
+    'rel:00ndio42': {
+      id: 'rel:00ndio42',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:12:09.055] [INFO ] [pid=67235] [commit] commit send pageId=b2b30d targetIndex=1 version=2 baseVersion=1 revisionBytes=24672
+[2026-08-12 08:12:09.068] [INFO ] [pid=67235] [commit] commit ok pageId=b2b30d revisionId=40cad757 ms=12
+[2026-08-12 08:12:09.073] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=02_why_local slideId=b2b30d index=1 version=2 baseVersion=1 revisionId=40cad757 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=221
+[2026-08-12 08:12:09.074] [INFO ] [pid=67235] [sync] aligned round=3 attempt=1 size=2 desired=2 pendingDirtySize=0
+[2026-08-12 08:12:09.076] [INFO ] [pid=67235] [sync] reconcile ok round=3 attempt=1 ms=226
+[2026-08-12 08:12:09.079] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:09.081] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:09.110] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=26
+[2026-08-12 08:12:09.116] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=37
+[2026-08-12 08:12:09.117] [INFO ] [pid=67235] [sync] drain end round=3 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=268
+[2026-08-12 08:12:15.553] [INFO ] [pid=67235] [watcher] event=add file=slides/03_env_stack.slide
+[2026-08-12 08:12:16.056] [INFO ] [pid=67235] [watcher] flush batch dirty=[03_env_stack] size=1
+[2026-08-12 08:12:16.058] [INFO ] [pid=67235] [sync] submit nextRound=4 dirty=03_env_stack pendingDirtySize=1 merged=no
+[2026-08-12 08:12:16.059] [INFO ] [pid=67235] [sync] drain start round=4 pendingDirtySize=1
+[2026-08-12 08:12:16.060] [INFO ] [pid=67235] [sync] step=add round=4 attempt=1 pageId=03_env_stack index=2
+[2026-08-12 08:12:16.061] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=03_env_stack index=2
+[2026-08-12 08:12:16.062] [INFO ] [pid=67235] [render] start pageId=03_env_stack file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/03_env_stack.slide
+[2026-08-12 08:12:16.137] [INFO ] [pid=67235] [render] ok pageId=03_env_stack slides=1 ms=75
+[2026-08-12 08:12:16.138] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:003h2y3o': {
+      id: 'rel:003h2y3o',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:12:16.145] [INFO ] [pid=67235] [commit] commit send pageId=67c34d targetIndex=2 version=3 baseVersion=2 revisionBytes=18612
+[2026-08-12 08:12:16.155] [INFO ] [pid=67235] [commit] commit ok pageId=67c34d revisionId=a56f56b6 ms=8
+[2026-08-12 08:12:16.158] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=03_env_stack slideId=67c34d index=2 version=3 baseVersion=2 revisionId=a56f56b6 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=97
+[2026-08-12 08:12:16.159] [INFO ] [pid=67235] [sync] aligned round=4 attempt=1 size=3 desired=3 pendingDirtySize=0
+[2026-08-12 08:12:16.160] [INFO ] [pid=67235] [sync] reconcile ok round=4 attempt=1 ms=100
+[2026-08-12 08:12:16.161] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:16.161] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:16.185] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=23
+[2026-08-12 08:12:16.187] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=26
+[2026-08-12 08:12:16.189] [INFO ] [pid=67235] [sync] drain end round=4 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=130
+[2026-08-12 08:12:23.045] [INFO ] [pid=67235] [watcher] event=add file=slides/04_install_python.slide
+[2026-08-12 08:12:23.548] [INFO ] [pid=67235] [watcher] flush batch dirty=[04_install_python] size=1
+[2026-08-12 08:12:23.551] [INFO ] [pid=67235] [sync] submit nextRound=5 dirty=04_install_python pendingDirtySize=1 merged=no
+[2026-08-12 08:12:23.553] [INFO ] [pid=67235] [sync] drain start round=5 pendingDirtySize=1
+[2026-08-12 08:12:23.555] [INFO ] [pid=67235] [sync] step=add round=5 attempt=1 pageId=04_install_python index=3
+[2026-08-12 08:12:23.559] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=04_install_python index=3
+[2026-08-12 08:12:23.561] [INFO ] [pid=67235] [render] start pageId=04_install_python file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/04_install_python.slide
+[2026-08-12 08:12:23.667] [INFO ] [pid=67235] [render] ok pageId=04_install_python slides=1 ms=106
+[2026-08-12 08:12:23.671] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:01t4hd7e': {
+      id: 'rel:01t4hd7e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/20c3d1413c3843f829e563194cd494f1.svg'
+    },
+    'rel:01p417tz': {
+      id: 'rel:01p417tz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/589cc3a8f0391a3d95b4ef36cd02e238.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:12:23.679] [INFO ] [pid=67235] [commit] commit send pageId=389072 targetIndex=3 version=4 baseVersion=3 revisionBytes=19504
+[2026-08-12 08:12:23.689] [INFO ] [pid=67235] [commit] commit ok pageId=389072 revisionId=a668fe2c ms=8
+[2026-08-12 08:12:23.694] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=04_install_python slideId=389072 index=3 version=4 baseVersion=3 revisionId=a668fe2c code=0 images=[local=2 remote=0 cached=0 failed=0] ms=135
+[2026-08-12 08:12:23.696] [INFO ] [pid=67235] [sync] aligned round=5 attempt=1 size=4 desired=4 pendingDirtySize=0
+[2026-08-12 08:12:23.697] [INFO ] [pid=67235] [sync] reconcile ok round=5 attempt=1 ms=142
+[2026-08-12 08:12:23.699] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:23.701] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:23.729] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=23
+[2026-08-12 08:12:23.730] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=31
+[2026-08-12 08:12:23.731] [INFO ] [pid=67235] [sync] drain end round=5 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=178
+[2026-08-12 08:12:31.797] [INFO ] [pid=67235] [watcher] event=add file=slides/05_install_libs.slide
+[2026-08-12 08:12:32.301] [INFO ] [pid=67235] [watcher] flush batch dirty=[05_install_libs] size=1
+[2026-08-12 08:12:32.302] [INFO ] [pid=67235] [sync] submit nextRound=6 dirty=05_install_libs pendingDirtySize=1 merged=no
+[2026-08-12 08:12:32.304] [INFO ] [pid=67235] [sync] drain start round=6 pendingDirtySize=1
+[2026-08-12 08:12:32.305] [INFO ] [pid=67235] [sync] step=add round=6 attempt=1 pageId=05_install_libs index=4
+[2026-08-12 08:12:32.310] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=05_install_libs index=4
+[2026-08-12 08:12:32.311] [INFO ] [pid=67235] [render] start pageId=05_install_libs file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/05_install_libs.slide
+[2026-08-12 08:12:32.395] [INFO ] [pid=67235] [render] ok pageId=05_install_libs slides=1 ms=84
+[2026-08-12 08:12:32.396] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:12:32.402] [INFO ] [pid=67235] [commit] commit send pageId=9d4f16 targetIndex=4 version=5 baseVersion=4 revisionBytes=19892
+[2026-08-12 08:12:32.408] [INFO ] [pid=67235] [commit] commit ok pageId=9d4f16 revisionId=9acb296e ms=5
+[2026-08-12 08:12:32.410] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=05_install_libs slideId=9d4f16 index=4 version=5 baseVersion=4 revisionId=9acb296e code=0 images=[local=0 remote=0 cached=0 failed=0] ms=100
+[2026-08-12 08:12:32.410] [INFO ] [pid=67235] [sync] aligned round=6 attempt=1 size=5 desired=5 pendingDirtySize=0
+[2026-08-12 08:12:32.411] [INFO ] [pid=67235] [sync] reconcile ok round=6 attempt=1 ms=107
+[2026-08-12 08:12:32.411] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:32.412] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:32.442] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=30
+[2026-08-12 08:12:32.443] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=32
+[2026-08-12 08:12:32.444] [INFO ] [pid=67235] [sync] drain end round=6 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=140
+[2026-08-12 08:12:40.409] [INFO ] [pid=67235] [watcher] event=add file=slides/06_deepseek_v4.slide
+[2026-08-12 08:12:40.913] [INFO ] [pid=67235] [watcher] flush batch dirty=[06_deepseek_v4] size=1
+[2026-08-12 08:12:40.916] [INFO ] [pid=67235] [sync] submit nextRound=7 dirty=06_deepseek_v4 pendingDirtySize=1 merged=no
+[2026-08-12 08:12:40.917] [INFO ] [pid=67235] [sync] drain start round=7 pendingDirtySize=1
+[2026-08-12 08:12:40.919] [INFO ] [pid=67235] [sync] step=add round=7 attempt=1 pageId=06_deepseek_v4 index=5
+[2026-08-12 08:12:40.921] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=06_deepseek_v4 index=5
+[2026-08-12 08:12:40.923] [INFO ] [pid=67235] [render] start pageId=06_deepseek_v4 file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/06_deepseek_v4.slide
+[2026-08-12 08:12:40.993] [INFO ] [pid=67235] [render] ok pageId=06_deepseek_v4 slides=1 ms=70
+[2026-08-12 08:12:40.994] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:12:40.998] [INFO ] [pid=67235] [commit] commit send pageId=5ea592 targetIndex=5 version=6 baseVersion=5 revisionBytes=20952
+[2026-08-12 08:12:41.005] [INFO ] [pid=67235] [commit] commit ok pageId=5ea592 revisionId=33bd9735 ms=6
+[2026-08-12 08:12:41.009] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=06_deepseek_v4 slideId=5ea592 index=5 version=6 baseVersion=5 revisionId=33bd9735 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=88
+[2026-08-12 08:12:41.011] [INFO ] [pid=67235] [sync] aligned round=7 attempt=1 size=6 desired=6 pendingDirtySize=0
+[2026-08-12 08:12:41.012] [INFO ] [pid=67235] [sync] reconcile ok round=7 attempt=1 ms=93
+[2026-08-12 08:12:41.013] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:41.014] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:41.044] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=30
+[2026-08-12 08:12:41.045] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=32
+[2026-08-12 08:12:41.047] [INFO ] [pid=67235] [sync] drain end round=7 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=130
+[2026-08-12 08:12:48.297] [INFO ] [pid=67235] [watcher] event=add file=slides/07_evolution.slide
+[2026-08-12 08:12:48.801] [INFO ] [pid=67235] [watcher] flush batch dirty=[07_evolution] size=1
+[2026-08-12 08:12:48.803] [INFO ] [pid=67235] [sync] submit nextRound=8 dirty=07_evolution pendingDirtySize=1 merged=no
+[2026-08-12 08:12:48.804] [INFO ] [pid=67235] [sync] drain start round=8 pendingDirtySize=1
+[2026-08-12 08:12:48.805] [INFO ] [pid=67235] [sync] step=add round=8 attempt=1 pageId=07_evolution index=6
+[2026-08-12 08:12:48.806] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=07_evolution index=6
+[2026-08-12 08:12:48.807] [INFO ] [pid=67235] [render] start pageId=07_evolution file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/07_evolution.slide
+[2026-08-12 08:12:48.890] [INFO ] [pid=67235] [render] ok pageId=07_evolution slides=1 ms=83
+[2026-08-12 08:12:48.892] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00i22z2x': {
+      id: 'rel:00i22z2x',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01owcww6': {
+      id: 'rel:01owcww6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ca8d954c1f9aed321fe454ebea8633de.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:12:48.900] [INFO ] [pid=67235] [commit] commit send pageId=9a1938 targetIndex=6 version=7 baseVersion=6 revisionBytes=20472
+[2026-08-12 08:12:48.909] [INFO ] [pid=67235] [commit] commit ok pageId=9a1938 revisionId=c76322f9 ms=7
+[2026-08-12 08:12:48.913] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=07_evolution slideId=9a1938 index=6 version=7 baseVersion=6 revisionId=c76322f9 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=107
+[2026-08-12 08:12:48.914] [INFO ] [pid=67235] [sync] aligned round=8 attempt=1 size=7 desired=7 pendingDirtySize=0
+[2026-08-12 08:12:48.915] [INFO ] [pid=67235] [sync] reconcile ok round=8 attempt=1 ms=110
+[2026-08-12 08:12:48.916] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:48.918] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:48.949] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=30
+[2026-08-12 08:12:48.950] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=34
+[2026-08-12 08:12:48.951] [INFO ] [pid=67235] [sync] drain end round=8 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=147
+[2026-08-12 08:12:55.995] [INFO ] [pid=67235] [watcher] event=add file=slides/08_hardware.slide
+[2026-08-12 08:12:56.497] [INFO ] [pid=67235] [watcher] flush batch dirty=[08_hardware] size=1
+[2026-08-12 08:12:56.497] [INFO ] [pid=67235] [sync] submit nextRound=9 dirty=08_hardware pendingDirtySize=1 merged=no
+[2026-08-12 08:12:56.498] [INFO ] [pid=67235] [sync] drain start round=9 pendingDirtySize=1
+[2026-08-12 08:12:56.498] [INFO ] [pid=67235] [sync] step=add round=9 attempt=1 pageId=08_hardware index=7
+[2026-08-12 08:12:56.498] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=08_hardware index=7
+[2026-08-12 08:12:56.499] [INFO ] [pid=67235] [render] start pageId=08_hardware file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/08_hardware.slide
+[2026-08-12 08:12:56.554] [INFO ] [pid=67235] [render] ok pageId=08_hardware slides=1 ms=55
+[2026-08-12 08:12:56.555] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:0158wbg5': {
+      id: 'rel:0158wbg5',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/3bad5b20453478fe129e4fa22dfe7cf4.svg'
+    },
+    'rel:01i5dk9v': {
+      id: 'rel:01i5dk9v',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/84e37f0c7e82d0d5e0d799d315fcb6d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:12:56.558] [INFO ] [pid=67235] [commit] commit send pageId=65d97d targetIndex=7 version=8 baseVersion=7 revisionBytes=20916
+[2026-08-12 08:12:56.564] [INFO ] [pid=67235] [commit] commit ok pageId=65d97d revisionId=470b6f56 ms=5
+[2026-08-12 08:12:56.566] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=08_hardware slideId=65d97d index=7 version=8 baseVersion=7 revisionId=470b6f56 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=68
+[2026-08-12 08:12:56.567] [INFO ] [pid=67235] [sync] aligned round=9 attempt=1 size=8 desired=8 pendingDirtySize=0
+[2026-08-12 08:12:56.567] [INFO ] [pid=67235] [sync] reconcile ok round=9 attempt=1 ms=69
+[2026-08-12 08:12:56.567] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:56.568] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:12:56.598] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=30
+[2026-08-12 08:12:56.598] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=31
+[2026-08-12 08:12:56.599] [INFO ] [pid=67235] [sync] drain end round=9 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=101
+[2026-08-12 08:13:04.180] [INFO ] [pid=67235] [watcher] event=add file=slides/09_ollama.slide
+[2026-08-12 08:13:04.684] [INFO ] [pid=67235] [watcher] flush batch dirty=[09_ollama] size=1
+[2026-08-12 08:13:04.685] [INFO ] [pid=67235] [sync] submit nextRound=10 dirty=09_ollama pendingDirtySize=1 merged=no
+[2026-08-12 08:13:04.686] [INFO ] [pid=67235] [sync] drain start round=10 pendingDirtySize=1
+[2026-08-12 08:13:04.687] [INFO ] [pid=67235] [sync] step=add round=10 attempt=1 pageId=09_ollama index=8
+[2026-08-12 08:13:04.688] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=09_ollama index=8
+[2026-08-12 08:13:04.688] [INFO ] [pid=67235] [render] start pageId=09_ollama file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/09_ollama.slide
+[2026-08-12 08:13:04.732] [INFO ] [pid=67235] [render] ok pageId=09_ollama slides=1 ms=44
+[2026-08-12 08:13:04.735] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:04.745] [INFO ] [pid=67235] [commit] commit send pageId=698f3e targetIndex=8 version=9 baseVersion=8 revisionBytes=15132
+[2026-08-12 08:13:04.753] [INFO ] [pid=67235] [commit] commit ok pageId=698f3e revisionId=04ddea23 ms=5
+[2026-08-12 08:13:04.757] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=09_ollama slideId=698f3e index=8 version=9 baseVersion=8 revisionId=04ddea23 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=69
+[2026-08-12 08:13:04.758] [INFO ] [pid=67235] [sync] aligned round=10 attempt=1 size=9 desired=9 pendingDirtySize=0
+[2026-08-12 08:13:04.758] [INFO ] [pid=67235] [sync] reconcile ok round=10 attempt=1 ms=71
+[2026-08-12 08:13:04.759] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:13:04.760] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:13:04.794] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=33
+[2026-08-12 08:13:04.796] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=37
+[2026-08-12 08:13:04.797] [INFO ] [pid=67235] [sync] drain end round=10 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=111
+[2026-08-12 08:13:12.315] [INFO ] [pid=67235] [watcher] event=add file=slides/10_run_verify.slide
+[2026-08-12 08:13:12.817] [INFO ] [pid=67235] [watcher] flush batch dirty=[10_run_verify] size=1
+[2026-08-12 08:13:12.819] [INFO ] [pid=67235] [sync] submit nextRound=11 dirty=10_run_verify pendingDirtySize=1 merged=no
+[2026-08-12 08:13:12.820] [INFO ] [pid=67235] [sync] drain start round=11 pendingDirtySize=1
+[2026-08-12 08:13:12.822] [INFO ] [pid=67235] [sync] step=add round=11 attempt=1 pageId=10_run_verify index=9
+[2026-08-12 08:13:12.823] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:12.824] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:12.826] [WARN ] [pid=67235] [worker] reconcile failed (Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error); trying soft recovery (purge backend + sync version, no editor restart)
+[2026-08-12 08:13:12.829] [INFO ] [pid=67235] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia"}
+[2026-08-12 08:13:12.832] [INFO ] [pid=67235] [mcp] mcp:slide_get_info ok ms=1
+[2026-08-12 08:13:12.833] [INFO ] [pid=67235] [purge] purge start backendSlideCount=9
+[2026-08-12 08:13:12.835] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.839] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=3
+[2026-08-12 08:13:12.841] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.845] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:12.848] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.855] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=1
+[2026-08-12 08:13:12.867] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.888] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=17
+[2026-08-12 08:13:12.896] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.903] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=5
+[2026-08-12 08:13:12.907] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.912] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:12.921] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.932] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=4
+[2026-08-12 08:13:12.941] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.944] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=1
+[2026-08-12 08:13:12.947] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:12.951] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=1
+[2026-08-12 08:13:12.952] [INFO ] [pid=67235] [purge] purge ok removed=9 ms=125
+[2026-08-12 08:13:12.954] [INFO ] [pid=67235] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia"}
+[2026-08-12 08:13:12.957] [INFO ] [pid=67235] [mcp] mcp:slide_get_info ok ms=1
+[2026-08-12 08:13:12.958] [INFO ] [pid=67235] [backend-ops] seedServerVersion from=9 to=18
+[2026-08-12 08:13:12.959] [INFO ] [pid=67235] [worker] recovery (soft) ok: purged=9 backendNow=0page(s) version=18, view reset; reconcile will redo full sync
+[2026-08-12 08:13:12.960] [INFO ] [pid=67235] [sync] reconcile FAIL but recovered via onReconcileFailure round=11 attempt=1 (recovery 1/2) ms=138; re-running reconcile
+[2026-08-12 08:13:12.962] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=01_cover index=0
+[2026-08-12 08:13:12.965] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-12 08:13:12.966] [INFO ] [pid=67235] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/01_cover.slide
+[2026-08-12 08:13:12.990] [INFO ] [pid=67235] [render] ok pageId=01_cover slides=1 ms=24
+[2026-08-12 08:13:12.992] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:12.998] [INFO ] [pid=67235] [commit] commit send pageId=c16dd8 targetIndex=0 version=10 baseVersion=18 revisionBytes=9724
+[2026-08-12 08:13:13.001] [INFO ] [pid=67235] [commit] commit ok pageId=c16dd8 revisionId=177192bc ms=2
+[2026-08-12 08:13:13.006] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=01_cover slideId=c16dd8 index=0 version=10 baseVersion=18 revisionId=177192bc code=0 images=[local=0 remote=0 cached=0 failed=0] ms=41
+[2026-08-12 08:13:13.007] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=02_why_local index=1
+[2026-08-12 08:13:13.008] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=02_why_local index=1
+[2026-08-12 08:13:13.009] [INFO ] [pid=67235] [render] start pageId=02_why_local file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/02_why_local.slide
+[2026-08-12 08:13:13.072] [INFO ] [pid=67235] [render] ok pageId=02_why_local slides=1 ms=63
+[2026-08-12 08:13:13.073] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00bo4rqz': {
+      id: 'rel:00bo4rqz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/2bdbfbca679d3679ca4ecd442ec9337e.svg'
+    },
+    'rel:016yxt6y': {
+      id: 'rel:016yxt6y',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/4066095864d90019124e58ea4e5916de.svg'
+    },
+    'rel:00ndio42': {
+      id: 'rel:00ndio42',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.078] [INFO ] [pid=67235] [commit] commit send pageId=4d8cc9 targetIndex=1 version=11 baseVersion=19 revisionBytes=24668
+[2026-08-12 08:13:13.089] [INFO ] [pid=67235] [commit] commit ok pageId=4d8cc9 revisionId=3cb1d34d ms=9
+[2026-08-12 08:13:13.093] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=02_why_local slideId=4d8cc9 index=1 version=11 baseVersion=19 revisionId=3cb1d34d code=0 images=[local=3 remote=0 cached=0 failed=0] ms=85
+[2026-08-12 08:13:13.094] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=03_env_stack index=2
+[2026-08-12 08:13:13.095] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=03_env_stack index=2
+[2026-08-12 08:13:13.096] [INFO ] [pid=67235] [render] start pageId=03_env_stack file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/03_env_stack.slide
+[2026-08-12 08:13:13.138] [INFO ] [pid=67235] [render] ok pageId=03_env_stack slides=1 ms=42
+[2026-08-12 08:13:13.140] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:003h2y3o': {
+      id: 'rel:003h2y3o',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.145] [INFO ] [pid=67235] [commit] commit send pageId=c9b99f targetIndex=2 version=12 baseVersion=20 revisionBytes=18616
+[2026-08-12 08:13:13.174] [INFO ] [pid=67235] [commit] commit ok pageId=c9b99f revisionId=d7bb8784 ms=26
+[2026-08-12 08:13:13.208] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=03_env_stack slideId=c9b99f index=2 version=12 baseVersion=20 revisionId=d7bb8784 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=113
+[2026-08-12 08:13:13.209] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=04_install_python index=3
+[2026-08-12 08:13:13.209] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=04_install_python index=3
+[2026-08-12 08:13:13.212] [INFO ] [pid=67235] [render] start pageId=04_install_python file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/04_install_python.slide
+[2026-08-12 08:13:13.254] [INFO ] [pid=67235] [render] ok pageId=04_install_python slides=1 ms=42
+[2026-08-12 08:13:13.256] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:01t4hd7e': {
+      id: 'rel:01t4hd7e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/20c3d1413c3843f829e563194cd494f1.svg'
+    },
+    'rel:01p417tz': {
+      id: 'rel:01p417tz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/589cc3a8f0391a3d95b4ef36cd02e238.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.263] [INFO ] [pid=67235] [commit] commit send pageId=1228be targetIndex=3 version=13 baseVersion=21 revisionBytes=19492
+[2026-08-12 08:13:13.272] [INFO ] [pid=67235] [commit] commit ok pageId=1228be revisionId=180a9ca0 ms=7
+[2026-08-12 08:13:13.277] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=04_install_python slideId=1228be index=3 version=13 baseVersion=21 revisionId=180a9ca0 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=68
+[2026-08-12 08:13:13.278] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=05_install_libs index=4
+[2026-08-12 08:13:13.279] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=05_install_libs index=4
+[2026-08-12 08:13:13.280] [INFO ] [pid=67235] [render] start pageId=05_install_libs file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/05_install_libs.slide
+[2026-08-12 08:13:13.327] [INFO ] [pid=67235] [render] ok pageId=05_install_libs slides=1 ms=47
+[2026-08-12 08:13:13.328] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:13.331] [INFO ] [pid=67235] [commit] commit send pageId=336e54 targetIndex=4 version=14 baseVersion=22 revisionBytes=19876
+[2026-08-12 08:13:13.339] [INFO ] [pid=67235] [commit] commit ok pageId=336e54 revisionId=a6ff0154 ms=5
+[2026-08-12 08:13:13.343] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=05_install_libs slideId=336e54 index=4 version=14 baseVersion=22 revisionId=a6ff0154 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=64
+[2026-08-12 08:13:13.344] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=06_deepseek_v4 index=5
+[2026-08-12 08:13:13.345] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=06_deepseek_v4 index=5
+[2026-08-12 08:13:13.347] [INFO ] [pid=67235] [render] start pageId=06_deepseek_v4 file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/06_deepseek_v4.slide
+[2026-08-12 08:13:13.410] [INFO ] [pid=67235] [render] ok pageId=06_deepseek_v4 slides=1 ms=63
+[2026-08-12 08:13:13.414] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:13.419] [INFO ] [pid=67235] [commit] commit send pageId=ca9008 targetIndex=5 version=15 baseVersion=23 revisionBytes=20948
+[2026-08-12 08:13:13.425] [INFO ] [pid=67235] [commit] commit ok pageId=ca9008 revisionId=5336940f ms=4
+[2026-08-12 08:13:13.432] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=06_deepseek_v4 slideId=ca9008 index=5 version=15 baseVersion=23 revisionId=5336940f code=0 images=[local=0 remote=0 cached=0 failed=0] ms=87
+[2026-08-12 08:13:13.433] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=07_evolution index=6
+[2026-08-12 08:13:13.434] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=07_evolution index=6
+[2026-08-12 08:13:13.438] [INFO ] [pid=67235] [render] start pageId=07_evolution file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/07_evolution.slide
+[2026-08-12 08:13:13.488] [INFO ] [pid=67235] [render] ok pageId=07_evolution slides=1 ms=50
+[2026-08-12 08:13:13.490] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00i22z2x': {
+      id: 'rel:00i22z2x',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01owcww6': {
+      id: 'rel:01owcww6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ca8d954c1f9aed321fe454ebea8633de.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.495] [INFO ] [pid=67235] [commit] commit send pageId=6ee736 targetIndex=6 version=16 baseVersion=24 revisionBytes=20460
+[2026-08-12 08:13:13.502] [INFO ] [pid=67235] [commit] commit ok pageId=6ee736 revisionId=5e70a76e ms=6
+[2026-08-12 08:13:13.509] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=07_evolution slideId=6ee736 index=6 version=16 baseVersion=24 revisionId=5e70a76e code=0 images=[local=2 remote=0 cached=0 failed=0] ms=75
+[2026-08-12 08:13:13.510] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=08_hardware index=7
+[2026-08-12 08:13:13.512] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=08_hardware index=7
+[2026-08-12 08:13:13.516] [INFO ] [pid=67235] [render] start pageId=08_hardware file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/08_hardware.slide
+[2026-08-12 08:13:13.556] [INFO ] [pid=67235] [render] ok pageId=08_hardware slides=1 ms=40
+[2026-08-12 08:13:13.558] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:0158wbg5': {
+      id: 'rel:0158wbg5',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/3bad5b20453478fe129e4fa22dfe7cf4.svg'
+    },
+    'rel:01i5dk9v': {
+      id: 'rel:01i5dk9v',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/84e37f0c7e82d0d5e0d799d315fcb6d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.563] [INFO ] [pid=67235] [commit] commit send pageId=fd597b targetIndex=7 version=17 baseVersion=25 revisionBytes=20912
+[2026-08-12 08:13:13.574] [INFO ] [pid=67235] [commit] commit ok pageId=fd597b revisionId=dcdaa12b ms=8
+[2026-08-12 08:13:13.581] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=08_hardware slideId=fd597b index=7 version=17 baseVersion=25 revisionId=dcdaa12b code=0 images=[local=2 remote=0 cached=0 failed=0] ms=69
+[2026-08-12 08:13:13.583] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=09_ollama index=8
+[2026-08-12 08:13:13.583] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=09_ollama index=8
+[2026-08-12 08:13:13.584] [INFO ] [pid=67235] [render] start pageId=09_ollama file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/09_ollama.slide
+[2026-08-12 08:13:13.614] [INFO ] [pid=67235] [render] ok pageId=09_ollama slides=1 ms=30
+[2026-08-12 08:13:13.616] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:13.619] [INFO ] [pid=67235] [commit] commit send pageId=d4ea83 targetIndex=8 version=18 baseVersion=26 revisionBytes=15120
+[2026-08-12 08:13:13.626] [INFO ] [pid=67235] [commit] commit ok pageId=d4ea83 revisionId=8be1011e ms=4
+[2026-08-12 08:13:13.633] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=09_ollama slideId=d4ea83 index=8 version=18 baseVersion=26 revisionId=8be1011e code=0 images=[local=0 remote=0 cached=0 failed=0] ms=50
+[2026-08-12 08:13:13.635] [INFO ] [pid=67235] [sync] step=add round=11 attempt=2 pageId=10_run_verify index=9
+[2026-08-12 08:13:13.637] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:13.639] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:13.641] [WARN ] [pid=67235] [worker] reconcile failed (Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error); trying soft recovery (purge backend + sync version, no editor restart)
+[2026-08-12 08:13:13.647] [INFO ] [pid=67235] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia"}
+[2026-08-12 08:13:13.649] [INFO ] [pid=67235] [mcp] mcp:slide_get_info ok ms=1
+[2026-08-12 08:13:13.651] [INFO ] [pid=67235] [purge] purge start backendSlideCount=9
+[2026-08-12 08:13:13.656] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.659] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.661] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.665] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.669] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.673] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.676] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.681] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.685] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.688] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.690] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.693] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.696] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.702] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=4
+[2026-08-12 08:13:13.705] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.709] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=2
+[2026-08-12 08:13:13.715] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia","page_index":0}
+[2026-08-12 08:13:13.718] [INFO ] [pid=67235] [mcp] mcp:slide_remove_slide ok ms=1
+[2026-08-12 08:13:13.719] [INFO ] [pid=67235] [purge] purge ok removed=9 ms=74
+[2026-08-12 08:13:13.722] [INFO ] [pid=67235] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"sid_mspc3xxw_m2ess0ia"}
+[2026-08-12 08:13:13.729] [INFO ] [pid=67235] [mcp] mcp:slide_get_info ok ms=4
+[2026-08-12 08:13:13.731] [INFO ] [pid=67235] [backend-ops] seedServerVersion from=27 to=36
+[2026-08-12 08:13:13.732] [INFO ] [pid=67235] [worker] recovery (soft) ok: purged=9 backendNow=0page(s) version=36, view reset; reconcile will redo full sync
+[2026-08-12 08:13:13.733] [INFO ] [pid=67235] [sync] reconcile FAIL but recovered via onReconcileFailure round=11 attempt=2 (recovery 2/2) ms=772; re-running reconcile
+[2026-08-12 08:13:13.735] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=01_cover index=0
+[2026-08-12 08:13:13.736] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-12 08:13:13.742] [INFO ] [pid=67235] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/01_cover.slide
+[2026-08-12 08:13:13.759] [INFO ] [pid=67235] [render] ok pageId=01_cover slides=1 ms=17
+[2026-08-12 08:13:13.760] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:13.763] [INFO ] [pid=67235] [commit] commit send pageId=7e5f3f targetIndex=0 version=19 baseVersion=36 revisionBytes=9720
+[2026-08-12 08:13:13.768] [INFO ] [pid=67235] [commit] commit ok pageId=7e5f3f revisionId=d206f78c ms=3
+[2026-08-12 08:13:13.772] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=01_cover slideId=7e5f3f index=0 version=19 baseVersion=36 revisionId=d206f78c code=0 images=[local=0 remote=0 cached=0 failed=0] ms=36
+[2026-08-12 08:13:13.774] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=02_why_local index=1
+[2026-08-12 08:13:13.775] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=02_why_local index=1
+[2026-08-12 08:13:13.777] [INFO ] [pid=67235] [render] start pageId=02_why_local file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/02_why_local.slide
+[2026-08-12 08:13:13.823] [INFO ] [pid=67235] [render] ok pageId=02_why_local slides=1 ms=46
+[2026-08-12 08:13:13.826] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00bo4rqz': {
+      id: 'rel:00bo4rqz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/2bdbfbca679d3679ca4ecd442ec9337e.svg'
+    },
+    'rel:016yxt6y': {
+      id: 'rel:016yxt6y',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/4066095864d90019124e58ea4e5916de.svg'
+    },
+    'rel:00ndio42': {
+      id: 'rel:00ndio42',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ffe2eff16f3d96b0be98f7a9d9d8f11d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.830] [INFO ] [pid=67235] [commit] commit send pageId=2b77ea targetIndex=1 version=20 baseVersion=37 revisionBytes=24680
+[2026-08-12 08:13:13.841] [INFO ] [pid=67235] [commit] commit ok pageId=2b77ea revisionId=9c515dfe ms=9
+[2026-08-12 08:13:13.848] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=02_why_local slideId=2b77ea index=1 version=20 baseVersion=37 revisionId=9c515dfe code=0 images=[local=3 remote=0 cached=0 failed=0] ms=73
+[2026-08-12 08:13:13.849] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=03_env_stack index=2
+[2026-08-12 08:13:13.850] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=03_env_stack index=2
+[2026-08-12 08:13:13.852] [INFO ] [pid=67235] [render] start pageId=03_env_stack file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/03_env_stack.slide
+[2026-08-12 08:13:13.886] [INFO ] [pid=67235] [render] ok pageId=03_env_stack slides=1 ms=34
+[2026-08-12 08:13:13.888] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:003h2y3o': {
+      id: 'rel:003h2y3o',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.892] [INFO ] [pid=67235] [commit] commit send pageId=5d10b4 targetIndex=2 version=21 baseVersion=38 revisionBytes=18604
+[2026-08-12 08:13:13.900] [INFO ] [pid=67235] [commit] commit ok pageId=5d10b4 revisionId=d29fa058 ms=6
+[2026-08-12 08:13:13.903] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=03_env_stack slideId=5d10b4 index=2 version=21 baseVersion=38 revisionId=d29fa058 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=53
+[2026-08-12 08:13:13.904] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=04_install_python index=3
+[2026-08-12 08:13:13.906] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=04_install_python index=3
+[2026-08-12 08:13:13.909] [INFO ] [pid=67235] [render] start pageId=04_install_python file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/04_install_python.slide
+[2026-08-12 08:13:13.947] [INFO ] [pid=67235] [render] ok pageId=04_install_python slides=1 ms=38
+[2026-08-12 08:13:13.948] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:01t4hd7e': {
+      id: 'rel:01t4hd7e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/20c3d1413c3843f829e563194cd494f1.svg'
+    },
+    'rel:01p417tz': {
+      id: 'rel:01p417tz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/589cc3a8f0391a3d95b4ef36cd02e238.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:13.954] [INFO ] [pid=67235] [commit] commit send pageId=a8aa93 targetIndex=3 version=22 baseVersion=39 revisionBytes=19496
+[2026-08-12 08:13:13.963] [INFO ] [pid=67235] [commit] commit ok pageId=a8aa93 revisionId=f29e2048 ms=6
+[2026-08-12 08:13:13.967] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=04_install_python slideId=a8aa93 index=3 version=22 baseVersion=39 revisionId=f29e2048 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=61
+[2026-08-12 08:13:13.973] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=05_install_libs index=4
+[2026-08-12 08:13:13.974] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=05_install_libs index=4
+[2026-08-12 08:13:13.982] [INFO ] [pid=67235] [render] start pageId=05_install_libs file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/05_install_libs.slide
+[2026-08-12 08:13:14.029] [INFO ] [pid=67235] [render] ok pageId=05_install_libs slides=1 ms=47
+[2026-08-12 08:13:14.030] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:14.036] [INFO ] [pid=67235] [commit] commit send pageId=0f0fea targetIndex=4 version=23 baseVersion=40 revisionBytes=19892
+[2026-08-12 08:13:14.040] [INFO ] [pid=67235] [commit] commit ok pageId=0f0fea revisionId=1e5dcb60 ms=3
+[2026-08-12 08:13:14.046] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=05_install_libs slideId=0f0fea index=4 version=23 baseVersion=40 revisionId=1e5dcb60 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=72
+[2026-08-12 08:13:14.055] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=06_deepseek_v4 index=5
+[2026-08-12 08:13:14.060] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=06_deepseek_v4 index=5
+[2026-08-12 08:13:14.061] [INFO ] [pid=67235] [render] start pageId=06_deepseek_v4 file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/06_deepseek_v4.slide
+[2026-08-12 08:13:14.101] [INFO ] [pid=67235] [render] ok pageId=06_deepseek_v4 slides=1 ms=40
+[2026-08-12 08:13:14.103] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:14.110] [INFO ] [pid=67235] [commit] commit send pageId=7d0e3b targetIndex=5 version=24 baseVersion=41 revisionBytes=20956
+[2026-08-12 08:13:14.114] [INFO ] [pid=67235] [commit] commit ok pageId=7d0e3b revisionId=f2a0be69 ms=3
+[2026-08-12 08:13:14.119] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=06_deepseek_v4 slideId=7d0e3b index=5 version=24 baseVersion=41 revisionId=f2a0be69 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=59
+[2026-08-12 08:13:14.120] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=07_evolution index=6
+[2026-08-12 08:13:14.120] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=07_evolution index=6
+[2026-08-12 08:13:14.121] [INFO ] [pid=67235] [render] start pageId=07_evolution file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/07_evolution.slide
+[2026-08-12 08:13:14.168] [INFO ] [pid=67235] [render] ok pageId=07_evolution slides=1 ms=47
+[2026-08-12 08:13:14.169] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:00i22z2x': {
+      id: 'rel:00i22z2x',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01owcww6': {
+      id: 'rel:01owcww6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/ca8d954c1f9aed321fe454ebea8633de.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:14.172] [INFO ] [pid=67235] [commit] commit send pageId=fc0511 targetIndex=6 version=25 baseVersion=42 revisionBytes=20484
+[2026-08-12 08:13:14.182] [INFO ] [pid=67235] [commit] commit ok pageId=fc0511 revisionId=02b9527a ms=9
+[2026-08-12 08:13:14.188] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=07_evolution slideId=fc0511 index=6 version=25 baseVersion=42 revisionId=02b9527a code=0 images=[local=2 remote=0 cached=0 failed=0] ms=68
+[2026-08-12 08:13:14.189] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=08_hardware index=7
+[2026-08-12 08:13:14.192] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=08_hardware index=7
+[2026-08-12 08:13:14.196] [INFO ] [pid=67235] [render] start pageId=08_hardware file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/08_hardware.slide
+[2026-08-12 08:13:14.238] [INFO ] [pid=67235] [render] ok pageId=08_hardware slides=1 ms=42
+[2026-08-12 08:13:14.239] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:0158wbg5': {
+      id: 'rel:0158wbg5',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/3bad5b20453478fe129e4fa22dfe7cf4.svg'
+    },
+    'rel:01i5dk9v': {
+      id: 'rel:01i5dk9v',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/84e37f0c7e82d0d5e0d799d315fcb6d9.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:14.242] [INFO ] [pid=67235] [commit] commit send pageId=3d6f98 targetIndex=7 version=26 baseVersion=43 revisionBytes=20912
+[2026-08-12 08:13:14.251] [INFO ] [pid=67235] [commit] commit ok pageId=3d6f98 revisionId=31a891cc ms=8
+[2026-08-12 08:13:14.256] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=08_hardware slideId=3d6f98 index=7 version=26 baseVersion=43 revisionId=31a891cc code=0 images=[local=2 remote=0 cached=0 failed=0] ms=64
+[2026-08-12 08:13:14.258] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=09_ollama index=8
+[2026-08-12 08:13:14.258] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=09_ollama index=8
+[2026-08-12 08:13:14.259] [INFO ] [pid=67235] [render] start pageId=09_ollama file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/09_ollama.slide
+[2026-08-12 08:13:14.287] [INFO ] [pid=67235] [render] ok pageId=09_ollama slides=1 ms=28
+[2026-08-12 08:13:14.290] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:14.294] [INFO ] [pid=67235] [commit] commit send pageId=cff08b targetIndex=8 version=27 baseVersion=44 revisionBytes=15136
+[2026-08-12 08:13:14.298] [INFO ] [pid=67235] [commit] commit ok pageId=cff08b revisionId=02c9d00a ms=3
+[2026-08-12 08:13:14.302] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=09_ollama slideId=cff08b index=8 version=27 baseVersion=44 revisionId=02c9d00a code=0 images=[local=0 remote=0 cached=0 failed=0] ms=44
+[2026-08-12 08:13:14.303] [INFO ] [pid=67235] [sync] step=add round=11 attempt=3 pageId=10_run_verify index=9
+[2026-08-12 08:13:14.305] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:14.306] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:14.307] [WARN ] [pid=67235] [sync] recovery budget exhausted round=11 (2/2); falling back to failure throttle
+[2026-08-12 08:13:14.309] [ERROR] [pid=67235] [sync] reconcile FAIL round=11 attempt=3 (1/5) ms=575 Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error
+    at Compiler.parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:202:46)
+    at parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:397:21)
+    at CE.parse (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:12894)
+    at vE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:13356)
+    at Gd.validateAndTransform (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:266)
+    at Gd.eval (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:14824)
+    at LE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:3280)
+    at CV (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:12798)
+    at mh.addSlideAt (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:17549)
+    at L.reconcile (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:24371)
+[2026-08-12 08:13:14.338] [INFO ] [pid=67235] [sync] backoff round=11 5000ms before next reconcile retry
+[2026-08-12 08:13:19.340] [INFO ] [pid=67235] [sync] step=add round=11 attempt=4 pageId=10_run_verify index=9
+[2026-08-12 08:13:19.343] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:19.344] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:19.346] [WARN ] [pid=67235] [sync] recovery budget exhausted round=11 (2/2); falling back to failure throttle
+[2026-08-12 08:13:19.347] [ERROR] [pid=67235] [sync] reconcile FAIL round=11 attempt=4 (2/5) ms=7 Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error
+    at Compiler.parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:202:46)
+    at parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:397:21)
+    at CE.parse (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:12894)
+    at vE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:13356)
+    at Gd.validateAndTransform (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:266)
+    at Gd.eval (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:14824)
+    at LE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:3280)
+    at CV (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:12798)
+    at mh.addSlideAt (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:17549)
+    at L.reconcile (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:24371)
+[2026-08-12 08:13:19.349] [INFO ] [pid=67235] [sync] backoff round=11 5000ms before next reconcile retry
+[2026-08-12 08:13:19.768] [INFO ] [pid=67235] [watcher] event=add file=slides/11_dify.slide
+[2026-08-12 08:13:20.272] [INFO ] [pid=67235] [watcher] flush batch dirty=[11_dify] size=1
+[2026-08-12 08:13:20.273] [INFO ] [pid=67235] [sync] submit round=11 dirty=11_dify pendingDirtySize=2 merged=yes
+[2026-08-12 08:13:24.352] [INFO ] [pid=67235] [sync] step=add round=11 attempt=5 pageId=10_run_verify index=9
+[2026-08-12 08:13:24.354] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:24.356] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:24.357] [WARN ] [pid=67235] [sync] recovery budget exhausted round=11 (2/2); falling back to failure throttle
+[2026-08-12 08:13:24.359] [ERROR] [pid=67235] [sync] reconcile FAIL round=11 attempt=5 (3/5) ms=7 Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error
+    at Compiler.parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:202:46)
+    at parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:397:21)
+    at CE.parse (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:12894)
+    at vE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:13356)
+    at Gd.validateAndTransform (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:266)
+    at Gd.eval (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:14824)
+    at LE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:3280)
+    at CV (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:12798)
+    at mh.addSlideAt (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:17549)
+    at L.reconcile (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:24371)
+[2026-08-12 08:13:24.360] [INFO ] [pid=67235] [sync] backoff round=11 5000ms before next reconcile retry
+[2026-08-12 08:13:27.022] [INFO ] [pid=67235] [watcher] event=add file=slides/12_summary.slide
+[2026-08-12 08:13:27.525] [INFO ] [pid=67235] [watcher] flush batch dirty=[12_summary] size=1
+[2026-08-12 08:13:27.526] [INFO ] [pid=67235] [sync] submit round=11 dirty=12_summary pendingDirtySize=3 merged=yes
+[2026-08-12 08:13:29.363] [INFO ] [pid=67235] [sync] step=add round=11 attempt=6 pageId=10_run_verify index=9
+[2026-08-12 08:13:29.365] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:29.367] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:29.370] [WARN ] [pid=67235] [sync] recovery budget exhausted round=11 (2/2); falling back to failure throttle
+[2026-08-12 08:13:29.371] [ERROR] [pid=67235] [sync] reconcile FAIL round=11 attempt=6 (4/5) ms=8 Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error
+    at Compiler.parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:202:46)
+    at parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:397:21)
+    at CE.parse (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:12894)
+    at vE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:13356)
+    at Gd.validateAndTransform (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:266)
+    at Gd.eval (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:14824)
+    at LE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:3280)
+    at CV (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:12798)
+    at mh.addSlideAt (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:17549)
+    at L.reconcile (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:24371)
+[2026-08-12 08:13:29.373] [INFO ] [pid=67235] [sync] backoff round=11 5000ms before next reconcile retry
+=== boot pid=70444 ts=2026-08-12 08:13:32.231 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 ===
+[2026-08-12 08:13:32.230] [INFO ] [pid=70444] [validate] --all mode: found 12 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides
+[2026-08-12 08:13:32.233] [INFO ] [pid=70444] [validate] batch start files=12 checkOverflow=true
+[2026-08-12 08:13:33.208] [INFO ] [pid=70444] [validate] batch done total=12 passed=11 failed=1 ms=978
+[2026-08-12 08:13:34.375] [INFO ] [pid=67235] [sync] step=add round=11 attempt=7 pageId=10_run_verify index=9
+[2026-08-12 08:13:34.378] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:34.380] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:34.382] [WARN ] [pid=67235] [sync] recovery budget exhausted round=11 (2/2); falling back to failure throttle
+[2026-08-12 08:13:34.384] [ERROR] [pid=67235] [sync] reconcile FAIL round=11 attempt=7 (5/5) ms=9 Error:   x Expected '</', got ':'
+    ,-[26:1]
+ 23 |       <Text style={{ fontSize: 15, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.8 }}>ollama run deepseek-v4-flash</Text>
+ 24 |       <Text style={{ fontSize: 14, color: '#22D3EE', marginTop: 16, marginBottom: 10 }}># ③ curl 验证 HTTP API</Text>
+ 25 |       <Text style={{ fontSize: 13, color: '#DCE7F5', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7, wordBreak: 'break-all' }}>
+ 26 |         curl http://localhost:11434/api/generate -d '{"model":"deepseek-v4-flash","prompt":"为什么天空是蓝色的？"}'
+    :                                                              ^
+ 27 |       </Text>
+ 28 |     </Box>
+    `----
+
+
+Caused by:
+    Syntax Error
+    at Compiler.parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:202:46)
+    at parseSync (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/node_modules/@swc/core/index.js:397:21)
+    at CE.parse (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:12894)
+    at vE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:13356)
+    at Gd.validateAndTransform (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:266)
+    at Gd.eval (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5938:14824)
+    at LE (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5945:3280)
+    at CV (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:12798)
+    at mh.addSlideAt (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:17549)
+    at L.reconcile (/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/slidep.js:5993:24371)
+[2026-08-12 08:13:34.391] [WARN ] [pid=67235] [sync] giving up auto-retry round=11 pendingDirtySize=3 next external submit will resume
+[2026-08-12 08:13:34.392] [WARN ] [pid=67235] [sync] skip save round=11: residual failure state (consecutiveFailures=5 pendingDirtySize=3); defer save until next clean reconcile
+[2026-08-12 08:13:34.394] [INFO ] [pid=67235] [sync] drain end round=11 reconciles=7 mergedSubmits=3 pendingDirtySize=3 ms=21574
+[2026-08-12 08:13:39.626] [INFO ] [pid=67235] [watcher] event=change file=slides/10_run_verify.slide
+[2026-08-12 08:13:40.129] [INFO ] [pid=67235] [watcher] flush batch dirty=[10_run_verify] size=1
+[2026-08-12 08:13:40.131] [INFO ] [pid=67235] [sync] submit nextRound=12 dirty=10_run_verify pendingDirtySize=3 merged=no
+[2026-08-12 08:13:40.132] [INFO ] [pid=67235] [sync] drain start round=12 pendingDirtySize=3
+[2026-08-12 08:13:40.133] [INFO ] [pid=67235] [sync] step=add round=12 attempt=1 pageId=10_run_verify index=9
+[2026-08-12 08:13:40.134] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=10_run_verify index=9
+[2026-08-12 08:13:40.135] [INFO ] [pid=67235] [render] start pageId=10_run_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/10_run_verify.slide
+[2026-08-12 08:13:40.216] [INFO ] [pid=67235] [render] ok pageId=10_run_verify slides=1 ms=81
+[2026-08-12 08:13:40.218] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:40.225] [INFO ] [pid=67235] [commit] commit send pageId=be707a targetIndex=9 version=28 baseVersion=45 revisionBytes=15512
+[2026-08-12 08:13:40.230] [INFO ] [pid=67235] [commit] commit ok pageId=be707a revisionId=064768cd ms=4
+[2026-08-12 08:13:40.233] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=10_run_verify slideId=be707a index=9 version=28 baseVersion=45 revisionId=064768cd code=0 images=[local=0 remote=0 cached=0 failed=0] ms=99
+[2026-08-12 08:13:40.235] [INFO ] [pid=67235] [sync] step=add round=12 attempt=1 pageId=11_dify index=10
+[2026-08-12 08:13:40.236] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=11_dify index=10
+[2026-08-12 08:13:40.237] [INFO ] [pid=67235] [render] start pageId=11_dify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/11_dify.slide
+[2026-08-12 08:13:40.285] [INFO ] [pid=67235] [render] ok pageId=11_dify slides=1 ms=48
+[2026-08-12 08:13:40.287] [INFO ] [pid=67235] [render] renderSlideData result.resources={
+  images: {
+    'rel:0016wjgg': {
+      id: 'rel:0016wjgg',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/81a2ce98efd96671643cabf4b9f66969.svg'
+    },
+    'rel:01hnry5e': {
+      id: 'rel:01hnry5e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/.cache/media/images/6f259cbee1cc9dff3dc189ba7d3337ee.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-12 08:13:40.291] [INFO ] [pid=67235] [commit] commit send pageId=b65f5f targetIndex=10 version=29 baseVersion=46 revisionBytes=18540
+[2026-08-12 08:13:40.299] [INFO ] [pid=67235] [commit] commit ok pageId=b65f5f revisionId=975732d1 ms=6
+[2026-08-12 08:13:40.302] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=11_dify slideId=b65f5f index=10 version=29 baseVersion=46 revisionId=975732d1 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=66
+[2026-08-12 08:13:40.303] [INFO ] [pid=67235] [sync] step=add round=12 attempt=1 pageId=12_summary index=11
+[2026-08-12 08:13:40.304] [INFO ] [pid=67235] [backend-ops] addSlideAt start pageId=12_summary index=11
+[2026-08-12 08:13:40.307] [INFO ] [pid=67235] [render] start pageId=12_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides/12_summary.slide
+[2026-08-12 08:13:40.354] [INFO ] [pid=67235] [render] ok pageId=12_summary slides=1 ms=47
+[2026-08-12 08:13:40.355] [INFO ] [pid=67235] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-12 08:13:40.359] [INFO ] [pid=67235] [commit] commit send pageId=4cd4b4 targetIndex=11 version=30 baseVersion=47 revisionBytes=16776
+[2026-08-12 08:13:40.364] [INFO ] [pid=67235] [commit] commit ok pageId=4cd4b4 revisionId=e4c4d0b2 ms=4
+[2026-08-12 08:13:40.369] [INFO ] [pid=67235] [backend-ops] addSlideAt ok pageId=12_summary slideId=4cd4b4 index=11 version=30 baseVersion=47 revisionId=e4c4d0b2 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=65
+[2026-08-12 08:13:40.370] [INFO ] [pid=67235] [sync] aligned round=12 attempt=1 size=12 desired=12 pendingDirtySize=0
+[2026-08-12 08:13:40.371] [INFO ] [pid=67235] [sync] reconcile ok round=12 attempt=1 ms=238
+[2026-08-12 08:13:40.372] [INFO ] [pid=67235] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:13:40.373] [INFO ] [pid=67235] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx
+[2026-08-12 08:13:40.426] [INFO ] [pid=67235] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=53
+[2026-08-12 08:13:40.427] [INFO ] [pid=67235] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx ms=55
+[2026-08-12 08:13:40.428] [INFO ] [pid=67235] [sync] drain end round=12 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=296
+=== boot pid=70885 ts=2026-08-12 08:13:44.477 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 ===
+[2026-08-12 08:13:44.475] [INFO ] [pid=70885] [validate] --all mode: found 12 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides
+[2026-08-12 08:13:44.478] [INFO ] [pid=70885] [validate] batch start files=12 checkOverflow=true
+[2026-08-12 08:13:45.394] [INFO ] [pid=70885] [validate] batch done total=12 passed=12 failed=0 ms=919
+=== boot pid=98434 ts=2026-08-13 21:26:20.191 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署 ===
+[2026-08-13 21:26:20.189] [INFO ] [pid=98434] [validate] --all mode: found 12 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/slides
+[2026-08-13 21:26:20.201] [INFO ] [pid=98434] [validate] batch start files=12 checkOverflow=true
+[2026-08-13 21:26:21.363] [INFO ] [pid=98434] [validate] batch done total=12 passed=12 failed=0 ms=1177

@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 44 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>HARNESS · 智能体的马具</Text>
+      <Text style={{ fontSize: 22, color: '#DCE7F5', marginBottom: 16 }}>Terminal Bench 得分</Text>
+      <Box style={{ flexDirection: 'row', gap: 20, alignItems: 'flex-end', marginBottom: 20 }}>
+        <Text style={{ fontSize: 64, color: '#8FA4B8', fontWeight: 'bold', lineHeight: 1 }}>52.8%</Text>
+        <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 44, height: 44, marginBottom: 8 }} />
+        <Text style={{ fontSize: 64, color: '#FF9F1C', fontWeight: 'bold', lineHeight: 1 }}>66.5%</Text>
+      </Box>
+      <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.5, marginBottom: 10 }}>
+        同一模型，加了 Harness 能力跃升
+      </Text>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        模型能力是「尖刺型」：单点强、整体不稳。Harness 像马具一样把野马驯成战马——能力不只靠模型，更靠框架。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', gap: 14 }}>
+      <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 6 }}>模型能力尖刺型</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>单点很猛，但循环一长就容易崩</Text>
+      </Box>
+      <Box style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 6 }}>LangChain 只改外壳</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>编排了 prompt 与工具，但没解决循环可靠性</Text>
+      </Box>
+      <Box style={{ background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 6 }}>Harness 马具</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5' }}>验证、评测、监控、安全——把能力驯成稳定输出</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 8 讲 · 数据为示意基准</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>02 / 12</Text>
+  </Box>
+</Slide>

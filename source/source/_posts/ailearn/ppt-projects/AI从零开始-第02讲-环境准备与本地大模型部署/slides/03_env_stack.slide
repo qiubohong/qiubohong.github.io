@@ -1,0 +1,39 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 01 · 环境准备</Text>
+    <Text style={{ fontSize: 44, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 40 }}>环境四件套，一条链路串起学习主线</Text>
+
+    <Box style={{ flexDirection: 'row', gap: 24 }}>
+      {[
+        { n: '01', t: 'Python', d: 'Anaconda 发行版\nconda 管理环境' },
+        { n: '02', t: 'PyTorch', d: '深度学习框架\n本地推理依赖' },
+        { n: '03', t: 'Transformers', d: 'Hugging Face 库\n加载预训练模型' },
+        { n: '04', t: 'LangChain', d: 'LLM 应用框架\n后续实战主力' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '26px 22px' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>{item.n}</Text>
+          <Text style={{ fontSize: 24, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 14 }}>{item.t}</Text>
+          <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{item.d}</Text>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 40, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>
+        小白提示：建议用 Anaconda 统一管理，避免环境冲突
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 2 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>03 / 12</Text>
+  </Box>
+</Slide>

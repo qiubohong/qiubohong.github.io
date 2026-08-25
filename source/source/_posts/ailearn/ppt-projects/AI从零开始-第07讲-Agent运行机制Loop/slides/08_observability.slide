@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 380, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>OBSERVABILITY</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        可观测性：<br />看不懂日志，就治不了 Agent
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', marginBottom: 14 }}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 8 }}>ResultMessage 读懂停止原因</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.7 }}>
+          循环结束必有一条 ResultMessage，它告诉你为什么停：正常完成 / 达到步数上限 / 被中断。
+        </Text>
+      </Box>
+
+      <Box style={{ background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>effort 参数控成本</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.7 }}>
+          思考强度可调：effort 越高推理越深、token 越多、越贵——成本意识从读日志开始。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+      {[
+        { t: 'SystemMessage', d: '系统提示词，定义角色与规则', icon: 'cog', n: '01' },
+        { t: 'UserMessage', d: '用户输入，任务的起点', icon: 'user', n: '02' },
+        { t: 'AssistantMessage', d: '模型回复，可能含 tool_use', icon: 'comment', n: '03' },
+        { t: 'ToolProgress', d: '工具执行的进度反馈', icon: 'spinner', n: '04' },
+        { t: 'ResultMessage', d: '最终结果，含停止原因', icon: 'flag-checkered', n: '05' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '16px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ width: 44, height: 44, borderRadius: 11, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 22, height: 22 }} />
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 3 }}>{item.t}</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+          </Box>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold' }}>{item.n}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 09</Text>
+  </Box>
+</Slide>

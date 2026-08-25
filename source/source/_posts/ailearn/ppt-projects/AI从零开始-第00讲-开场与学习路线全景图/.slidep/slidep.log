@@ -1,0 +1,376 @@
+=== boot pid=2511 ts=2026-08-13 21:28:00.127 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 --filename AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ===
+[2026-08-13 21:28:00.122] [INFO ] [pid=2511] [start] invoked pid=2511 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 --filename AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx]
+[2026-08-13 21:28:00.129] [INFO ] [pid=2511] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 filename=AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:28:00.135] [INFO ] [pid=2511] [start] daemon spawned childPid=2541; waiting started ipc
+=== boot pid=2541 ts=2026-08-13 21:28:01.397 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 --filename AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx --__daemon-child ===
+[2026-08-13 21:28:01.393] [INFO ] [pid=2541] [start] invoked pid=2541 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 --filename AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx --__daemon-child]
+[2026-08-13 21:28:01.399] [INFO ] [pid=2541] [start] daemon child runWorker ppid=2511
+[2026-08-13 21:28:01.400] [INFO ] [pid=2541] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 filename=AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx version=5.4.4
+[2026-08-13 21:28:01.402] [INFO ] [pid=2541] [worker] init ok dirs=ready
+[2026-08-13 21:28:01.403] [INFO ] [pid=2541] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:28:01.404] [INFO ] [pid=2541] [worker] openFile start
+[2026-08-13 21:28:01.405] [INFO ] [pid=2541] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:28:01.421] [INFO ] [pid=2541] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=14
+[2026-08-13 21:28:01.445] [ERROR] [pid=2541] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx"} ms=22
+[2026-08-13 21:28:01.450] [INFO ] [pid=2541] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:28:01.465] [INFO ] [pid=2541] [open-file] open ok fileId=A4FC6536 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=11
+[2026-08-13 21:28:01.469] [INFO ] [pid=2541] [worker] openFile ok fileId=A4FC6536 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:28:01.470] [INFO ] [pid=2541] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC00%E8%AE%B2-%E5%BC%80%E5%9C%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%85%A8%E6%99%AF%E5%9B%BE%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC00%E8%AE%B2-%E5%BC%80%E5%9C%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%85%A8%E6%99%AF%E5%9B%BE-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:28:01.482] [INFO ] [pid=2541] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:28:01.503] [INFO ] [pid=2541] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:28:01.508] [INFO ] [pid=2541] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"A4FC6536-2CDD-4871-939D-01407CD8C82E"}
+[2026-08-13 21:28:01.512] [INFO ] [pid=2541] [mcp] mcp:slide_get_info ok ms=2
+[2026-08-13 21:28:01.513] [INFO ] [pid=2541] [purge] purge start backendSlideCount=0
+[2026-08-13 21:28:01.514] [INFO ] [pid=2541] [purge] purge ok removed=0 ms=9
+[2026-08-13 21:28:01.517] [INFO ] [pid=2541] [worker] initial sync submitted pages=0
+[2026-08-13 21:28:01.518] [INFO ] [pid=2541] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:28:01.519] [INFO ] [pid=2541] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:28:01.520] [INFO ] [pid=2541] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-13 21:28:01.522] [INFO ] [pid=2541] [worker] ready fileId=A4FC6536 backendUrl=http://127.0.0.1:39099 initialPages=0 ms=122
+[2026-08-13 21:28:01.523] [INFO ] [pid=2541] [sync] reconcile ok round=1 attempt=1 ms=3
+[2026-08-13 21:28:01.523] [INFO ] [pid=2511] [start] daemon started childPid=2541 ms=1394
+[2026-08-13 21:28:01.526] [INFO ] [pid=2541] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=7
+[2026-08-13 21:28:01.530] [INFO ] [pid=2541] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides
+[2026-08-13 21:29:32.360] [INFO ] [pid=2541] [watcher] event=add file=slides/03_roadmap.slide
+[2026-08-13 21:29:32.362] [INFO ] [pid=2541] [watcher] event=add file=slides/04_prerequisite.slide
+[2026-08-13 21:29:32.363] [INFO ] [pid=2541] [watcher] event=add file=slides/01_cover.slide
+[2026-08-13 21:29:32.365] [INFO ] [pid=2541] [watcher] event=add file=slides/02_must_learn.slide
+[2026-08-13 21:29:32.867] [INFO ] [pid=2541] [watcher] flush batch dirty=[03_roadmap,04_prerequisite,01_cover,02_must_learn] size=4
+[2026-08-13 21:29:32.868] [INFO ] [pid=2541] [sync] submit nextRound=2 dirty=03_roadmap,04_prerequisite,01_cover,02_must_learn pendingDirtySize=4 merged=no
+[2026-08-13 21:29:32.869] [INFO ] [pid=2541] [sync] drain start round=2 pendingDirtySize=4
+[2026-08-13 21:29:32.870] [INFO ] [pid=2541] [sync] step=add round=2 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:29:32.875] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:29:32.876] [INFO ] [pid=2541] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/01_cover.slide
+[2026-08-13 21:29:33.109] [INFO ] [pid=2541] [render] ok pageId=01_cover slides=1 ms=233
+[2026-08-13 21:29:33.111] [INFO ] [pid=2541] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:29:33.124] [INFO ] [pid=2541] [commit] commit send pageId=a48f57 targetIndex=0 version=1 baseVersion=0 revisionBytes=9544
+[2026-08-13 21:29:33.142] [INFO ] [pid=2541] [commit] commit ok pageId=a48f57 revisionId=4040a642 ms=11
+[2026-08-13 21:29:33.150] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=01_cover slideId=a48f57 index=0 version=1 baseVersion=0 revisionId=4040a642 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=275
+[2026-08-13 21:29:33.158] [INFO ] [pid=2541] [sync] step=add round=2 attempt=1 pageId=02_must_learn index=1
+[2026-08-13 21:29:33.159] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=02_must_learn index=1
+[2026-08-13 21:29:33.160] [INFO ] [pid=2541] [render] start pageId=02_must_learn file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/02_must_learn.slide
+[2026-08-13 21:29:33.363] [INFO ] [pid=2541] [render] ok pageId=02_must_learn slides=1 ms=203
+[2026-08-13 21:29:33.368] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:01qfk4ey': {
+      id: 'rel:01qfk4ey',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/95b8c8b2566a00a776e45540d078fa7d.svg'
+    },
+    'rel:004vhfkt': {
+      id: 'rel:004vhfkt',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/c8128fc728b7fc16a0ea1c7257943daa.svg'
+    },
+    'rel:0002n2hp': {
+      id: 'rel:0002n2hp',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/8633085ae596db18ffc7f3c0e1e9bc19.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:29:33.377] [INFO ] [pid=2541] [commit] commit send pageId=cf13b8 targetIndex=1 version=2 baseVersion=1 revisionBytes=25660
+[2026-08-13 21:29:33.394] [INFO ] [pid=2541] [commit] commit ok pageId=cf13b8 revisionId=f2b7962c ms=15
+[2026-08-13 21:29:33.405] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=02_must_learn slideId=cf13b8 index=1 version=2 baseVersion=1 revisionId=f2b7962c code=0 images=[local=3 remote=0 cached=0 failed=0] ms=246
+[2026-08-13 21:29:33.408] [INFO ] [pid=2541] [sync] step=add round=2 attempt=1 pageId=03_roadmap index=2
+[2026-08-13 21:29:33.409] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=03_roadmap index=2
+[2026-08-13 21:29:33.411] [INFO ] [pid=2541] [render] start pageId=03_roadmap file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/03_roadmap.slide
+[2026-08-13 21:29:33.550] [INFO ] [pid=2541] [render] ok pageId=03_roadmap slides=1 ms=139
+[2026-08-13 21:29:33.551] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:00sxjsxs': {
+      id: 'rel:00sxjsxs',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/7d8cfa8ed4643871f8d2ea421650273e.svg'
+    },
+    'rel:00xmmia3': {
+      id: 'rel:00xmmia3',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:29:33.561] [INFO ] [pid=2541] [commit] commit send pageId=7d01f8 targetIndex=2 version=3 baseVersion=2 revisionBytes=24708
+[2026-08-13 21:29:33.577] [INFO ] [pid=2541] [commit] commit ok pageId=7d01f8 revisionId=c13208d6 ms=14
+[2026-08-13 21:29:33.583] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=03_roadmap slideId=7d01f8 index=2 version=3 baseVersion=2 revisionId=c13208d6 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=174
+[2026-08-13 21:29:33.584] [INFO ] [pid=2541] [sync] step=add round=2 attempt=1 pageId=04_prerequisite index=3
+[2026-08-13 21:29:33.585] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=04_prerequisite index=3
+[2026-08-13 21:29:33.586] [INFO ] [pid=2541] [render] start pageId=04_prerequisite file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/04_prerequisite.slide
+[2026-08-13 21:29:33.739] [INFO ] [pid=2541] [render] ok pageId=04_prerequisite slides=1 ms=152
+[2026-08-13 21:29:33.740] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:001evczz': {
+      id: 'rel:001evczz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/63552191ee2c872def746e819fecbf24.svg'
+    },
+    'rel:00j5lz45': {
+      id: 'rel:00j5lz45',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/ea01e2841b7b61912273997e6d16c389.svg'
+    },
+    'rel:00joclob': {
+      id: 'rel:00joclob',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/3424ee1dd15e1d0eb093ed27e54ef546.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:29:33.747] [INFO ] [pid=2541] [commit] commit send pageId=625b78 targetIndex=3 version=4 baseVersion=3 revisionBytes=31372
+[2026-08-13 21:29:33.755] [INFO ] [pid=2541] [commit] commit ok pageId=625b78 revisionId=d629501f ms=7
+[2026-08-13 21:29:33.757] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=04_prerequisite slideId=625b78 index=3 version=4 baseVersion=3 revisionId=d629501f code=0 images=[local=3 remote=0 cached=0 failed=0] ms=172
+[2026-08-13 21:29:33.758] [INFO ] [pid=2541] [sync] aligned round=2 attempt=1 size=4 desired=4 pendingDirtySize=0
+[2026-08-13 21:29:33.758] [INFO ] [pid=2541] [sync] reconcile ok round=2 attempt=1 ms=888
+[2026-08-13 21:29:33.759] [INFO ] [pid=2541] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:29:33.759] [INFO ] [pid=2541] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:29:33.797] [INFO ] [pid=2541] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=37
+[2026-08-13 21:29:33.798] [INFO ] [pid=2541] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=39
+[2026-08-13 21:29:33.798] [INFO ] [pid=2541] [sync] drain end round=2 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=929
+[2026-08-13 21:30:09.576] [INFO ] [pid=2541] [watcher] event=add file=slides/08_career.slide
+[2026-08-13 21:30:09.580] [INFO ] [pid=2541] [watcher] event=add file=slides/06_advanced.slide
+[2026-08-13 21:30:09.581] [INFO ] [pid=2541] [watcher] event=add file=slides/05_entry.slide
+[2026-08-13 21:30:09.582] [INFO ] [pid=2541] [watcher] event=add file=slides/07_expert.slide
+[2026-08-13 21:30:10.083] [INFO ] [pid=2541] [watcher] flush batch dirty=[08_career,06_advanced,05_entry,07_expert] size=4
+[2026-08-13 21:30:10.087] [INFO ] [pid=2541] [sync] submit nextRound=3 dirty=08_career,06_advanced,05_entry,07_expert pendingDirtySize=4 merged=no
+[2026-08-13 21:30:10.088] [INFO ] [pid=2541] [sync] drain start round=3 pendingDirtySize=4
+[2026-08-13 21:30:10.089] [INFO ] [pid=2541] [sync] step=add round=3 attempt=1 pageId=05_entry index=4
+[2026-08-13 21:30:10.090] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=05_entry index=4
+[2026-08-13 21:30:10.091] [INFO ] [pid=2541] [render] start pageId=05_entry file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/05_entry.slide
+[2026-08-13 21:30:10.221] [INFO ] [pid=2541] [render] ok pageId=05_entry slides=1 ms=130
+[2026-08-13 21:30:10.222] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:00goxu0d': {
+      id: 'rel:00goxu0d',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/07a7bcf110fd504f6c6fd4eab4fb11bc.svg'
+    },
+    'rel:006wzsuf': {
+      id: 'rel:006wzsuf',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/631831d7467a83516ec8881c4df1d13b.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:10.238] [INFO ] [pid=2541] [commit] commit send pageId=6ea4e5 targetIndex=4 version=5 baseVersion=4 revisionBytes=25016
+[2026-08-13 21:30:10.250] [INFO ] [pid=2541] [commit] commit ok pageId=6ea4e5 revisionId=abb746e7 ms=10
+[2026-08-13 21:30:10.255] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=05_entry slideId=6ea4e5 index=4 version=5 baseVersion=4 revisionId=abb746e7 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=165
+[2026-08-13 21:30:10.256] [INFO ] [pid=2541] [sync] step=add round=3 attempt=1 pageId=06_advanced index=5
+[2026-08-13 21:30:10.260] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=06_advanced index=5
+[2026-08-13 21:30:10.262] [INFO ] [pid=2541] [render] start pageId=06_advanced file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/06_advanced.slide
+[2026-08-13 21:30:10.357] [INFO ] [pid=2541] [render] ok pageId=06_advanced slides=1 ms=95
+[2026-08-13 21:30:10.358] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:00wxn9rl': {
+      id: 'rel:00wxn9rl',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/90f97654dd44f1e0df500c922fe45714.svg'
+    },
+    'rel:008hxbxd': {
+      id: 'rel:008hxbxd',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/aff524620ad91210a85fe8035352204d.svg'
+    },
+    'rel:01h0uhak': {
+      id: 'rel:01h0uhak',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/9b4950dce2ecc23b6fbee60b554c1d78.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:10.369] [INFO ] [pid=2541] [commit] commit send pageId=e43ca3 targetIndex=5 version=6 baseVersion=5 revisionBytes=22600
+[2026-08-13 21:30:10.408] [INFO ] [pid=2541] [commit] commit ok pageId=e43ca3 revisionId=382977fd ms=17
+[2026-08-13 21:30:10.413] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=06_advanced slideId=e43ca3 index=5 version=6 baseVersion=5 revisionId=382977fd code=0 images=[local=3 remote=0 cached=0 failed=0] ms=153
+[2026-08-13 21:30:10.414] [INFO ] [pid=2541] [sync] step=add round=3 attempt=1 pageId=07_expert index=6
+[2026-08-13 21:30:10.421] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=07_expert index=6
+[2026-08-13 21:30:10.422] [INFO ] [pid=2541] [render] start pageId=07_expert file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/07_expert.slide
+[2026-08-13 21:30:10.618] [INFO ] [pid=2541] [render] ok pageId=07_expert slides=1 ms=196
+[2026-08-13 21:30:10.620] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:00hfchsq': {
+      id: 'rel:00hfchsq',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/45c4b6158436d4ff5f24be2b75df7ad3.svg'
+    },
+    'rel:002sr57l': {
+      id: 'rel:002sr57l',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/274b93434694b1e9607aa2fed59e7548.svg'
+    },
+    'rel:010tacav': {
+      id: 'rel:010tacav',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/8d63bac9670db7467b987bd65624e666.svg'
+    },
+    'rel:000lpzdz': {
+      id: 'rel:000lpzdz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/a7260aec2c57df5cc37665afdffbf042.svg'
+    },
+    'rel:007jlk9e': {
+      id: 'rel:007jlk9e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/4c92c9cabeda3bb3987fb4af4424e2bb.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:10.627] [INFO ] [pid=2541] [commit] commit send pageId=2bd358 targetIndex=6 version=7 baseVersion=6 revisionBytes=29940
+[2026-08-13 21:30:10.648] [INFO ] [pid=2541] [commit] commit ok pageId=2bd358 revisionId=abedd69e ms=15
+[2026-08-13 21:30:10.652] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=07_expert slideId=2bd358 index=6 version=7 baseVersion=6 revisionId=abedd69e code=0 images=[local=5 remote=0 cached=0 failed=0] ms=231
+[2026-08-13 21:30:10.653] [INFO ] [pid=2541] [sync] step=add round=3 attempt=1 pageId=08_career index=7
+[2026-08-13 21:30:10.654] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=08_career index=7
+[2026-08-13 21:30:10.656] [INFO ] [pid=2541] [render] start pageId=08_career file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/08_career.slide
+[2026-08-13 21:30:10.766] [INFO ] [pid=2541] [render] ok pageId=08_career slides=1 ms=110
+[2026-08-13 21:30:10.770] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:00wan26r': {
+      id: 'rel:00wan26r',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/f3b131ec5460681de10c8f4b2b6876dc.svg'
+    },
+    'rel:01c7mj9c': {
+      id: 'rel:01c7mj9c',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    },
+    'rel:01gcvwmi': {
+      id: 'rel:01gcvwmi',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/7f96369f7c73a96a5f1c5875bcfd4673.svg'
+    },
+    'rel:01lqodim': {
+      id: 'rel:01lqodim',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/6809c832453a13acf58b324cea96b8ae.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:10.776] [INFO ] [pid=2541] [commit] commit send pageId=b9805b targetIndex=7 version=8 baseVersion=7 revisionBytes=23464
+[2026-08-13 21:30:10.797] [INFO ] [pid=2541] [commit] commit ok pageId=b9805b revisionId=2c8d0656 ms=19
+[2026-08-13 21:30:10.801] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=08_career slideId=b9805b index=7 version=8 baseVersion=7 revisionId=2c8d0656 code=0 images=[local=4 remote=0 cached=0 failed=0] ms=147
+[2026-08-13 21:30:10.803] [INFO ] [pid=2541] [sync] aligned round=3 attempt=1 size=8 desired=8 pendingDirtySize=0
+[2026-08-13 21:30:10.804] [INFO ] [pid=2541] [sync] reconcile ok round=3 attempt=1 ms=715
+[2026-08-13 21:30:10.805] [INFO ] [pid=2541] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:30:10.806] [INFO ] [pid=2541] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:30:10.892] [INFO ] [pid=2541] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=84
+[2026-08-13 21:30:10.894] [INFO ] [pid=2541] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=89
+[2026-08-13 21:30:10.895] [INFO ] [pid=2541] [sync] drain end round=3 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=807
+[2026-08-13 21:30:45.948] [INFO ] [pid=2541] [watcher] event=add file=slides/11_series.slide
+[2026-08-13 21:30:45.953] [INFO ] [pid=2541] [watcher] event=add file=slides/10_nine_tricks.slide
+[2026-08-13 21:30:45.955] [INFO ] [pid=2541] [watcher] event=add file=slides/09_method.slide
+[2026-08-13 21:30:46.455] [INFO ] [pid=2541] [watcher] flush batch dirty=[11_series,10_nine_tricks,09_method] size=3
+[2026-08-13 21:30:46.457] [INFO ] [pid=2541] [sync] submit nextRound=4 dirty=11_series,10_nine_tricks,09_method pendingDirtySize=3 merged=no
+[2026-08-13 21:30:46.457] [INFO ] [pid=2541] [sync] drain start round=4 pendingDirtySize=3
+[2026-08-13 21:30:46.460] [INFO ] [pid=2541] [sync] step=add round=4 attempt=1 pageId=09_method index=8
+[2026-08-13 21:30:46.464] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=09_method index=8
+[2026-08-13 21:30:46.466] [INFO ] [pid=2541] [render] start pageId=09_method file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/09_method.slide
+[2026-08-13 21:30:46.608] [INFO ] [pid=2541] [render] ok pageId=09_method slides=1 ms=142
+[2026-08-13 21:30:46.609] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:01jsf9yp': {
+      id: 'rel:01jsf9yp',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/eb7f30d23b5770669663ec2e38d220c5.svg'
+    },
+    'rel:00nyab0c': {
+      id: 'rel:00nyab0c',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/c8a258c5eaf0c80b254769b7f9ef5764.svg'
+    },
+    'rel:01x4itfx': {
+      id: 'rel:01x4itfx',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/c90a230fba709c20b9d455701ae4e003.svg'
+    },
+    'rel:012i5vjn': {
+      id: 'rel:012i5vjn',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/e30695327256f2856d03e85b69415ffa.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:46.615] [INFO ] [pid=2541] [commit] commit send pageId=2041b7 targetIndex=8 version=9 baseVersion=8 revisionBytes=29256
+[2026-08-13 21:30:46.632] [INFO ] [pid=2541] [commit] commit ok pageId=2041b7 revisionId=88a591a1 ms=15
+[2026-08-13 21:30:46.645] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=09_method slideId=2041b7 index=8 version=9 baseVersion=8 revisionId=88a591a1 code=0 images=[local=4 remote=0 cached=0 failed=0] ms=181
+[2026-08-13 21:30:46.646] [INFO ] [pid=2541] [sync] step=add round=4 attempt=1 pageId=10_nine_tricks index=9
+[2026-08-13 21:30:46.646] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=10_nine_tricks index=9
+[2026-08-13 21:30:46.649] [INFO ] [pid=2541] [render] start pageId=10_nine_tricks file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/10_nine_tricks.slide
+[2026-08-13 21:30:46.718] [INFO ] [pid=2541] [render] ok pageId=10_nine_tricks slides=1 ms=69
+[2026-08-13 21:30:46.720] [INFO ] [pid=2541] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:30:46.726] [INFO ] [pid=2541] [commit] commit send pageId=c03fae targetIndex=9 version=10 baseVersion=9 revisionBytes=27064
+[2026-08-13 21:30:46.734] [INFO ] [pid=2541] [commit] commit ok pageId=c03fae revisionId=98b0914c ms=5
+[2026-08-13 21:30:46.742] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=10_nine_tricks slideId=c03fae index=9 version=10 baseVersion=9 revisionId=98b0914c code=0 images=[local=0 remote=0 cached=0 failed=0] ms=96
+[2026-08-13 21:30:46.745] [INFO ] [pid=2541] [sync] step=add round=4 attempt=1 pageId=11_series index=10
+[2026-08-13 21:30:46.755] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=11_series index=10
+[2026-08-13 21:30:46.757] [INFO ] [pid=2541] [render] start pageId=11_series file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/11_series.slide
+[2026-08-13 21:30:46.810] [INFO ] [pid=2541] [render] ok pageId=11_series slides=1 ms=53
+[2026-08-13 21:30:46.814] [INFO ] [pid=2541] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:30:46.819] [INFO ] [pid=2541] [commit] commit send pageId=a3b3c4 targetIndex=10 version=11 baseVersion=10 revisionBytes=19028
+[2026-08-13 21:30:46.825] [INFO ] [pid=2541] [commit] commit ok pageId=a3b3c4 revisionId=d11a6651 ms=3
+[2026-08-13 21:30:46.830] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=11_series slideId=a3b3c4 index=10 version=11 baseVersion=10 revisionId=d11a6651 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=75
+[2026-08-13 21:30:46.831] [INFO ] [pid=2541] [sync] aligned round=4 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:30:46.832] [INFO ] [pid=2541] [sync] reconcile ok round=4 attempt=1 ms=372
+[2026-08-13 21:30:46.832] [INFO ] [pid=2541] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:30:46.834] [INFO ] [pid=2541] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:30:46.894] [INFO ] [pid=2541] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=60
+[2026-08-13 21:30:46.896] [INFO ] [pid=2541] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=64
+[2026-08-13 21:30:46.897] [INFO ] [pid=2541] [sync] drain end round=4 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=440
+=== boot pid=8719 ts=2026-08-13 21:30:51.328 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 ===
+[2026-08-13 21:30:51.327] [INFO ] [pid=8719] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides
+[2026-08-13 21:30:51.330] [INFO ] [pid=8719] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:30:52.590] [INFO ] [pid=8719] [validate] batch done total=11 passed=11 failed=0 ms=1264
+[2026-08-13 21:31:04.361] [INFO ] [pid=2541] [watcher] event=change file=slides/07_expert.slide
+[2026-08-13 21:31:04.863] [INFO ] [pid=2541] [watcher] flush batch dirty=[07_expert] size=1
+[2026-08-13 21:31:04.871] [INFO ] [pid=2541] [sync] submit nextRound=5 dirty=07_expert pendingDirtySize=1 merged=no
+[2026-08-13 21:31:04.879] [INFO ] [pid=2541] [sync] drain start round=5 pendingDirtySize=1
+[2026-08-13 21:31:04.890] [INFO ] [pid=2541] [sync] step=remove-dirty round=5 attempt=1 pageId=07_expert index=6
+[2026-08-13 21:31:04.892] [INFO ] [pid=2541] [backend-ops] removeSlideAt start index=6
+[2026-08-13 21:31:04.896] [INFO ] [pid=2541] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"A4FC6536-2CDD-4871-939D-01407CD8C82E","page_index":6}
+[2026-08-13 21:31:04.904] [INFO ] [pid=2541] [mcp] mcp:slide_remove_slide ok ms=4
+[2026-08-13 21:31:04.908] [INFO ] [pid=2541] [backend-ops] removeSlideAt ok index=6 serverVersion=12 ms=16
+[2026-08-13 21:31:04.909] [INFO ] [pid=2541] [sync] step=add round=5 attempt=1 pageId=07_expert index=6
+[2026-08-13 21:31:04.910] [INFO ] [pid=2541] [backend-ops] addSlideAt start pageId=07_expert index=6
+[2026-08-13 21:31:04.911] [INFO ] [pid=2541] [render] start pageId=07_expert file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides/07_expert.slide
+[2026-08-13 21:31:05.029] [INFO ] [pid=2541] [render] ok pageId=07_expert slides=1 ms=118
+[2026-08-13 21:31:05.033] [INFO ] [pid=2541] [render] renderSlideData result.resources={
+  images: {
+    'rel:01054brd': {
+      id: 'rel:01054brd',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/a000ca757c8266014db2e37795327f41.svg'
+    },
+    'rel:00hfchsq': {
+      id: 'rel:00hfchsq',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/45c4b6158436d4ff5f24be2b75df7ad3.svg'
+    },
+    'rel:002sr57l': {
+      id: 'rel:002sr57l',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/274b93434694b1e9607aa2fed59e7548.svg'
+    },
+    'rel:010tacav': {
+      id: 'rel:010tacav',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/8d63bac9670db7467b987bd65624e666.svg'
+    },
+    'rel:000lpzdz': {
+      id: 'rel:000lpzdz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/a7260aec2c57df5cc37665afdffbf042.svg'
+    },
+    'rel:007jlk9e': {
+      id: 'rel:007jlk9e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/.cache/media/images/4c92c9cabeda3bb3987fb4af4424e2bb.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:31:05.046] [INFO ] [pid=2541] [commit] commit send pageId=c0f93a targetIndex=6 version=12 baseVersion=12 revisionBytes=31144
+[2026-08-13 21:31:05.064] [INFO ] [pid=2541] [commit] commit ok pageId=c0f93a revisionId=881793a0 ms=17
+[2026-08-13 21:31:05.069] [INFO ] [pid=2541] [backend-ops] addSlideAt ok pageId=07_expert slideId=c0f93a index=6 version=12 baseVersion=12 revisionId=881793a0 code=0 images=[local=6 remote=0 cached=0 failed=0] ms=159
+[2026-08-13 21:31:05.071] [INFO ] [pid=2541] [sync] aligned round=5 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:31:05.074] [INFO ] [pid=2541] [sync] reconcile ok round=5 attempt=1 ms=184
+[2026-08-13 21:31:05.076] [INFO ] [pid=2541] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:31:05.089] [INFO ] [pid=2541] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx
+[2026-08-13 21:31:05.184] [INFO ] [pid=2541] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=93
+[2026-08-13 21:31:05.185] [INFO ] [pid=2541] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/AI从零开始-第00讲-开场与学习路线全景图-优化版.pptx ms=109
+[2026-08-13 21:31:05.185] [INFO ] [pid=2541] [sync] drain end round=5 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=306
+=== boot pid=9342 ts=2026-08-13 21:31:08.100 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图 ===
+[2026-08-13 21:31:08.098] [INFO ] [pid=9342] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/slides
+[2026-08-13 21:31:08.110] [INFO ] [pid=9342] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:31:09.329] [INFO ] [pid=9342] [validate] batch done total=11 passed=11 failed=0 ms=1231

@@ -1,0 +1,75 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "1e04e2fa7639228bbf182976a82ffd90e4bd5ef0",
+      "version": 1,
+      "at": "2026-08-13 21:38:41.992"
+    },
+    "02_what_is_agent": {
+      "revisionId": "139e5d9377d54b085d606c9ec840f7b11f2f46af",
+      "version": 2,
+      "at": "2026-08-13 21:38:42.211"
+    },
+    "03_collab_modes": {
+      "revisionId": "ae7047bbeb35c4f0b4276fd760f219acb2147385",
+      "version": 3,
+      "at": "2026-08-13 21:38:42.337"
+    },
+    "04_reasoning_cot": {
+      "revisionId": "facf7138f8e9a3ddf89b9894a5a28cd570ac4d93",
+      "version": 4,
+      "at": "2026-08-13 21:38:42.497"
+    },
+    "05_memory": {
+      "revisionId": "66a09c6c6cd51c96197c5e82662534bfd0752a2d",
+      "version": 5,
+      "at": "2026-08-13 21:38:42.630"
+    },
+    "06_tools": {
+      "revisionId": "27435dd79e3ba7aa52ee7b48cb2ce16730007c81",
+      "version": 6,
+      "at": "2026-08-13 21:38:42.765"
+    },
+    "07_function_calling": {
+      "revisionId": "cc8c3cc1adc88fffd6b6f1020b06bbaeb18ae6eb",
+      "version": 7,
+      "at": "2026-08-13 21:38:42.858"
+    },
+    "08_agent_demo": {
+      "revisionId": "fb6cb066c203b3fc1c821a5586f6052f93f641f7",
+      "version": 8,
+      "at": "2026-08-13 21:39:41.439"
+    },
+    "09_agent_types": {
+      "revisionId": "a7ab621bebfdcf3cfdd71e667a2ad277e0556fc4",
+      "version": 9,
+      "at": "2026-08-13 21:39:41.500"
+    },
+    "10_why_langgraph": {
+      "revisionId": "2e079088a2c5af73eccd5d28d18640f3ca3a585c",
+      "version": 10,
+      "at": "2026-08-13 21:39:41.616"
+    },
+    "11_langgraph_elements": {
+      "revisionId": "e75299451fae92466a9597a4b369798bf6539627",
+      "version": 11,
+      "at": "2026-08-13 21:39:41.733"
+    },
+    "12_plan_execute": {
+      "revisionId": "1d576ebe8226d3bc1612f83e279ea7d3586c75f0",
+      "version": 12,
+      "at": "2026-08-13 21:39:41.822"
+    },
+    "13_persistence": {
+      "revisionId": "48308bcdac3a462e031d4dc6c15dfce4ec0a8bf3",
+      "version": 13,
+      "at": "2026-08-13 21:39:41.888"
+    },
+    "14_summary": {
+      "revisionId": "6b2eb80b573094d0af1d4b9bcb1848c7ea651ac3",
+      "version": 14,
+      "at": "2026-08-13 21:39:41.970"
+    }
+  }
+}

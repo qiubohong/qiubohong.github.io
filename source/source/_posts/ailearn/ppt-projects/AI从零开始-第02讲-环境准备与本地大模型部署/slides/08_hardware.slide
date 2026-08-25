@@ -1,0 +1,58 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 3, background: '#16263F', borderRadius: 14, padding: '30px 30px', justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 16 }}>V4-Flash 本地部署</Text>
+      <Text style={{ fontSize: 16, color: '#DCE7F5', lineHeight: 1.9 }}>
+        4bit 量化：约 24GB+ 显存<br />
+        （或 70GB 内存，Ollama 支持）<br /><br />
+        服务器级 GPU（2 张起）<br />
+        消费级显卡可降级小模型
+      </Text>
+      <Box style={{ marginTop: 16, background: 'rgba(34,211,238,0.12)', borderRadius: 8, padding: '12px 16px' }}>
+        <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold' }}>
+          4bit 量化 → 消费级门槛大降，本地部署不是服务器专属
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 4, flexDirection: 'column', gap: 16 }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 14, padding: '26px 28px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <FAIcon name='desktop' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>入门最低配置</Text>
+        </Box>
+        <Text style={{ fontSize: 16, color: '#1B2733', lineHeight: 1.9 }}>
+          · Windows：GTX 1650 4GB + 16GB 内存<br />
+          · Mac：M2 8GB 内存起<br />
+          · 实在不够：用云 API 兜底
+        </Text>
+      </Box>
+      <Box style={{ background: '#FFFFFF', borderRadius: 14, padding: '26px 28px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          <FAIcon name='seedling' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>双轨策略</Text>
+        </Box>
+        <Text style={{ fontSize: 16, color: '#1B2733', lineHeight: 1.9 }}>
+          本地 4bit 练手 + 云 API 兜底<br />
+          成本最低，体验不妥协
+        </Text>
+      </Box>
+      <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '14px 20px', marginTop: 4 }}>
+        <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+          原则：硬件不够不是放弃的理由，先云后本地逐步迁移
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, flexDirection: 'row', justifyContent: 'space-between', width: 'calc(100% - 120px)' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 2 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 12</Text>
+  </Box>
+</Slide>

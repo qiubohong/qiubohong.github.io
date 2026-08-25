@@ -1,0 +1,75 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "48c1bc7d080dae6bf385fb0ff6ce2d719e3ffc06",
+      "version": 1,
+      "at": "2026-08-13 21:30:44.989"
+    },
+    "02_bare_llm_pain": {
+      "revisionId": "7def11c3b044bd2af20592c0ec696364080443e5",
+      "version": 2,
+      "at": "2026-08-13 21:30:45.313"
+    },
+    "03_what_is_langchain": {
+      "revisionId": "ea5a583646c735db7bf16467e39090c799f362ea",
+      "version": 3,
+      "at": "2026-08-13 21:30:45.426"
+    },
+    "04_core_concepts": {
+      "revisionId": "250964d86823f1e708535b6300c8761379507a54",
+      "version": 4,
+      "at": "2026-08-13 21:30:45.522"
+    },
+    "05_framework_layers": {
+      "revisionId": "44939a8a2ed655e9de3aa52c88b6c6a3aebdd61f",
+      "version": 5,
+      "at": "2026-08-13 21:30:45.598"
+    },
+    "06_first_call": {
+      "revisionId": "321884e2c0854c6c4400f7703d8baf3d6fa081f3",
+      "version": 6,
+      "at": "2026-08-13 21:31:25.719"
+    },
+    "07_prompt_template": {
+      "revisionId": "8f78328c453953696cfec1e3cfa7bf71cc723e2f",
+      "version": 7,
+      "at": "2026-08-13 21:31:25.845"
+    },
+    "08_fewshot": {
+      "revisionId": "5607a1cff7d6abc39b491f852fbf975c13564296",
+      "version": 8,
+      "at": "2026-08-13 21:31:25.961"
+    },
+    "09_lcel_principle": {
+      "revisionId": "4d2aacccd8dd47daf957bf9af12cb6a6fe911239",
+      "version": 9,
+      "at": "2026-08-13 21:31:26.039"
+    },
+    "10_lcel_practice": {
+      "revisionId": "0bf2d069e7442cca025467f79ad184a8ff6fb8be",
+      "version": 10,
+      "at": "2026-08-13 21:31:26.130"
+    },
+    "11_langserve": {
+      "revisionId": "6c587ad4ca287cd56ae3924450ab419e94175abb",
+      "version": 11,
+      "at": "2026-08-13 21:32:00.411"
+    },
+    "12_langsmith": {
+      "revisionId": "ecff0ef625dcbc1f43de449d75ebebb14ac0ce8c",
+      "version": 12,
+      "at": "2026-08-13 21:32:00.544"
+    },
+    "13_params_cheatsheet": {
+      "revisionId": "1d03c3b58f51e98c80a9b96e0707053b6e620f0e",
+      "version": 13,
+      "at": "2026-08-13 21:32:00.646"
+    },
+    "14_summary": {
+      "revisionId": "81b4f9187b23515cd2caa3a4f3fbe9b1b99c782b",
+      "version": 14,
+      "at": "2026-08-13 21:32:00.745"
+    }
+  }
+}

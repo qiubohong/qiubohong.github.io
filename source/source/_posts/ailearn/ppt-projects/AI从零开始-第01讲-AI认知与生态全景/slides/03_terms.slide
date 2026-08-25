@@ -1,0 +1,43 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>CORE TERMS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>核心术语一网打尽</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 20 }} />
+
+    <Box style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 16, flex: 1 }}>
+      {[
+        { t: 'LLM', d: '大语言模型，靠海量文本学会「说话」' },
+        { t: 'GPT', d: '生成式预训练 Transformer，OpenAI 出品' },
+        { t: 'Transformer', d: '注意力架构，现代 LLM 的共同底座' },
+        { t: 'RAG', d: '检索增强：先查资料，再组织回答' },
+        { t: '知识库', d: '喂给模型的私有资料库' },
+        { t: '召回', d: '从知识库里捞出最相关内容' },
+        { t: 'Prompt', d: '你写给模型的输入指令' },
+        { t: 'Agent', d: '会规划 + 调用工具的自主智能体' },
+        { t: 'Function Calling', d: '让模型按约定调用你的函数' },
+        { t: '重写', d: '优化原始问题，提升命中率' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ width: '48.5%', background: '#FFFFFF', borderRadius: 12, padding: '16px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+          <Box style={{ width: 44, height: 44, borderRadius: 10, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold' }}>{String(idx + 1).padStart(2, '0')}</Text>
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 3 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 11</Text>
+  </Box>
+</Slide>

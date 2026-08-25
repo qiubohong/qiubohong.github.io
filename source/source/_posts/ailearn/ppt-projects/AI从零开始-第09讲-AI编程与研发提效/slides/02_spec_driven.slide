@@ -1,0 +1,55 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>SPEC DRIVEN</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>先写规格再动手：把返工消灭在源头</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <FAIcon name='times-circle' style={{ fill: '#5B6B7A', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>传统开发</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.9 }}>
+          边写边想，需求靠脑补<br />
+          → 写一半发现理解错了<br />
+          → 返工、返工、再返工
+        </Text>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '24px 26px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <FAIcon name='check-circle' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>Spec 驱动</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+          先写规格，和 AI 对齐预期<br />
+          → 确认无误再动手<br />
+          → 一次到位，返工最小化
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#5B6B7A', marginBottom: 10 }}>Spec 六要素：规格是「对齐」的载体</Text>
+      <Box style={{ flexDirection: 'row', gap: 12 }}>
+        {['User Story', '验收标准', '数据模型', '功能需求', '边界', '成功指标'].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 10, padding: '12px 10px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', alignItems: 'center' }}>
+            <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold', textAlign: 'center' }}>{item}</Text>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>02 / 12</Text>
+  </Box>
+</Slide>

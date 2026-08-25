@@ -1,0 +1,277 @@
+=== boot pid=1591 ts=2026-08-13 21:27:38.500 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 --filename AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ===
+[2026-08-13 21:27:38.495] [INFO ] [pid=1591] [start] invoked pid=1591 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 --filename AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx]
+[2026-08-13 21:27:38.504] [INFO ] [pid=1591] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 filename=AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:27:38.512] [INFO ] [pid=1591] [start] daemon spawned childPid=1607; waiting started ipc
+=== boot pid=1607 ts=2026-08-13 21:27:39.599 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 --filename AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx --__daemon-child ===
+[2026-08-13 21:27:39.598] [INFO ] [pid=1607] [start] invoked pid=1607 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 --filename AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx --__daemon-child]
+[2026-08-13 21:27:39.602] [INFO ] [pid=1607] [start] daemon child runWorker ppid=1591
+[2026-08-13 21:27:39.603] [INFO ] [pid=1607] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 filename=AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx version=5.4.4
+[2026-08-13 21:27:39.605] [INFO ] [pid=1607] [worker] init ok dirs=ready
+[2026-08-13 21:27:39.607] [INFO ] [pid=1607] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:27:39.608] [INFO ] [pid=1607] [worker] openFile start
+[2026-08-13 21:27:39.609] [INFO ] [pid=1607] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:27:39.613] [INFO ] [pid=1607] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=3
+[2026-08-13 21:27:39.656] [ERROR] [pid=1607] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx"} ms=41
+[2026-08-13 21:27:39.657] [INFO ] [pid=1607] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:27:39.667] [INFO ] [pid=1607] [open-file] open ok fileId=3F0A7DB0 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=10
+[2026-08-13 21:27:39.668] [INFO ] [pid=1607] [worker] openFile ok fileId=3F0A7DB0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:27:39.669] [INFO ] [pid=1607] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:27:39.669] [INFO ] [pid=1607] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:27:39.671] [INFO ] [pid=1607] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:27:39.674] [INFO ] [pid=1607] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"3F0A7DB0-CDEF-4FD3-8CEC-031C61F10E4C"}
+[2026-08-13 21:27:39.680] [INFO ] [pid=1607] [mcp] mcp:slide_get_info ok ms=5
+[2026-08-13 21:27:39.682] [INFO ] [pid=1607] [purge] purge start backendSlideCount=0
+[2026-08-13 21:27:39.683] [INFO ] [pid=1607] [purge] purge ok removed=0 ms=12
+[2026-08-13 21:27:39.685] [INFO ] [pid=1607] [worker] initial sync submitted pages=0
+[2026-08-13 21:27:39.686] [INFO ] [pid=1607] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:27:39.688] [INFO ] [pid=1607] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:27:39.689] [INFO ] [pid=1607] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-13 21:27:39.691] [INFO ] [pid=1607] [worker] ready fileId=3F0A7DB0 backendUrl=http://127.0.0.1:39099 initialPages=0 ms=88
+[2026-08-13 21:27:39.692] [INFO ] [pid=1591] [start] daemon started childPid=1607 ms=1188
+[2026-08-13 21:27:39.692] [INFO ] [pid=1607] [sync] reconcile ok round=1 attempt=1 ms=3
+[2026-08-13 21:27:39.693] [INFO ] [pid=1607] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=5
+[2026-08-13 21:27:39.723] [INFO ] [pid=1607] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides
+[2026-08-13 21:30:44.172] [INFO ] [pid=1607] [watcher] event=add file=slides/02_bare_llm_pain.slide
+[2026-08-13 21:30:44.175] [INFO ] [pid=1607] [watcher] event=add file=slides/04_core_concepts.slide
+[2026-08-13 21:30:44.179] [INFO ] [pid=1607] [watcher] event=add file=slides/03_what_is_langchain.slide
+[2026-08-13 21:30:44.181] [INFO ] [pid=1607] [watcher] event=add file=slides/01_cover.slide
+[2026-08-13 21:30:44.182] [INFO ] [pid=1607] [watcher] event=add file=slides/05_framework_layers.slide
+[2026-08-13 21:30:44.683] [INFO ] [pid=1607] [watcher] flush batch dirty=[02_bare_llm_pain,04_core_concepts,03_what_is_langchain,01_cover,05_framework_layers] size=5
+[2026-08-13 21:30:44.685] [INFO ] [pid=1607] [sync] submit nextRound=2 dirty=02_bare_llm_pain,04_core_concepts,03_what_is_langchain,01_cover,05_framework_layers pendingDirtySize=5 merged=no
+[2026-08-13 21:30:44.688] [INFO ] [pid=1607] [sync] drain start round=2 pendingDirtySize=5
+[2026-08-13 21:30:44.689] [INFO ] [pid=1607] [sync] step=add round=2 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:30:44.690] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:30:44.692] [INFO ] [pid=1607] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/01_cover.slide
+[2026-08-13 21:30:44.958] [INFO ] [pid=1607] [render] ok pageId=01_cover slides=1 ms=266
+[2026-08-13 21:30:44.961] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:30:44.973] [INFO ] [pid=1607] [commit] commit send pageId=f763b3 targetIndex=0 version=1 baseVersion=0 revisionBytes=9908
+[2026-08-13 21:30:44.986] [INFO ] [pid=1607] [commit] commit ok pageId=f763b3 revisionId=48c1bc7d ms=6
+[2026-08-13 21:30:45.005] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=01_cover slideId=f763b3 index=0 version=1 baseVersion=0 revisionId=48c1bc7d code=0 images=[local=0 remote=0 cached=0 failed=0] ms=315
+[2026-08-13 21:30:45.007] [INFO ] [pid=1607] [sync] step=add round=2 attempt=1 pageId=02_bare_llm_pain index=1
+[2026-08-13 21:30:45.029] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=02_bare_llm_pain index=1
+[2026-08-13 21:30:45.030] [INFO ] [pid=1607] [render] start pageId=02_bare_llm_pain file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/02_bare_llm_pain.slide
+[2026-08-13 21:30:45.271] [INFO ] [pid=1607] [render] ok pageId=02_bare_llm_pain slides=1 ms=242
+[2026-08-13 21:30:45.274] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:01ilb7y2': {
+      id: 'rel:01ilb7y2',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/d8c06345ce78f2b26971a63d0d79bc80.svg'
+    },
+    'rel:015b59zo': {
+      id: 'rel:015b59zo',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/46f56cc7bb67523a0851ed1ca8323565.svg'
+    },
+    'rel:01s7xlp4': {
+      id: 'rel:01s7xlp4',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/b9f9281081cd525712a7d5cb16fa4993.svg'
+    },
+    'rel:002xsp9p': {
+      id: 'rel:002xsp9p',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/29e1b10e6974ac7149a3e2021e8196aa.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:45.283] [INFO ] [pid=1607] [commit] commit send pageId=bf615a targetIndex=1 version=2 baseVersion=1 revisionBytes=25392
+[2026-08-13 21:30:45.312] [INFO ] [pid=1607] [commit] commit ok pageId=bf615a revisionId=7def11c3 ms=25
+[2026-08-13 21:30:45.314] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=02_bare_llm_pain slideId=bf615a index=1 version=2 baseVersion=1 revisionId=7def11c3 code=0 images=[local=4 remote=0 cached=0 failed=0] ms=285
+[2026-08-13 21:30:45.314] [INFO ] [pid=1607] [sync] step=add round=2 attempt=1 pageId=03_what_is_langchain index=2
+[2026-08-13 21:30:45.315] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=03_what_is_langchain index=2
+[2026-08-13 21:30:45.315] [INFO ] [pid=1607] [render] start pageId=03_what_is_langchain file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/03_what_is_langchain.slide
+[2026-08-13 21:30:45.410] [INFO ] [pid=1607] [render] ok pageId=03_what_is_langchain slides=1 ms=95
+[2026-08-13 21:30:45.411] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:01d5559v': {
+      id: 'rel:01d5559v',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:30:45.419] [INFO ] [pid=1607] [commit] commit send pageId=cdc9d8 targetIndex=2 version=3 baseVersion=2 revisionBytes=18664
+[2026-08-13 21:30:45.426] [INFO ] [pid=1607] [commit] commit ok pageId=cdc9d8 revisionId=ea5a5836 ms=5
+[2026-08-13 21:30:45.427] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=03_what_is_langchain slideId=cdc9d8 index=2 version=3 baseVersion=2 revisionId=ea5a5836 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=112
+[2026-08-13 21:30:45.428] [INFO ] [pid=1607] [sync] step=add round=2 attempt=1 pageId=04_core_concepts index=3
+[2026-08-13 21:30:45.428] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=04_core_concepts index=3
+[2026-08-13 21:30:45.429] [INFO ] [pid=1607] [render] start pageId=04_core_concepts file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/04_core_concepts.slide
+[2026-08-13 21:30:45.507] [INFO ] [pid=1607] [render] ok pageId=04_core_concepts slides=1 ms=78
+[2026-08-13 21:30:45.508] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:30:45.516] [INFO ] [pid=1607] [commit] commit send pageId=c69726 targetIndex=3 version=4 baseVersion=3 revisionBytes=24796
+[2026-08-13 21:30:45.522] [INFO ] [pid=1607] [commit] commit ok pageId=c69726 revisionId=250964d8 ms=6
+[2026-08-13 21:30:45.524] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=04_core_concepts slideId=c69726 index=3 version=4 baseVersion=3 revisionId=250964d8 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=96
+[2026-08-13 21:30:45.524] [INFO ] [pid=1607] [sync] step=add round=2 attempt=1 pageId=05_framework_layers index=4
+[2026-08-13 21:30:45.524] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=05_framework_layers index=4
+[2026-08-13 21:30:45.525] [INFO ] [pid=1607] [render] start pageId=05_framework_layers file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/05_framework_layers.slide
+[2026-08-13 21:30:45.580] [INFO ] [pid=1607] [render] ok pageId=05_framework_layers slides=1 ms=55
+[2026-08-13 21:30:45.582] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:30:45.588] [INFO ] [pid=1607] [commit] commit send pageId=1bbcc6 targetIndex=4 version=5 baseVersion=4 revisionBytes=20964
+[2026-08-13 21:30:45.597] [INFO ] [pid=1607] [commit] commit ok pageId=1bbcc6 revisionId=44939a8a ms=6
+[2026-08-13 21:30:45.604] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=05_framework_layers slideId=1bbcc6 index=4 version=5 baseVersion=4 revisionId=44939a8a code=0 images=[local=0 remote=0 cached=0 failed=0] ms=80
+[2026-08-13 21:30:45.606] [INFO ] [pid=1607] [sync] aligned round=2 attempt=1 size=5 desired=5 pendingDirtySize=0
+[2026-08-13 21:30:45.606] [INFO ] [pid=1607] [sync] reconcile ok round=2 attempt=1 ms=917
+[2026-08-13 21:30:45.607] [INFO ] [pid=1607] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:30:45.608] [INFO ] [pid=1607] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:30:45.658] [INFO ] [pid=1607] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=43
+[2026-08-13 21:30:45.665] [INFO ] [pid=1607] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=58
+[2026-08-13 21:30:45.666] [INFO ] [pid=1607] [sync] drain end round=2 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=978
+[2026-08-13 21:31:24.672] [INFO ] [pid=1607] [watcher] event=add file=slides/07_prompt_template.slide
+[2026-08-13 21:31:24.673] [INFO ] [pid=1607] [watcher] event=add file=slides/08_fewshot.slide
+[2026-08-13 21:31:24.673] [INFO ] [pid=1607] [watcher] event=add file=slides/09_lcel_principle.slide
+[2026-08-13 21:31:24.674] [INFO ] [pid=1607] [watcher] event=add file=slides/10_lcel_practice.slide
+[2026-08-13 21:31:24.674] [INFO ] [pid=1607] [watcher] event=add file=slides/06_first_call.slide
+[2026-08-13 21:31:25.175] [INFO ] [pid=1607] [watcher] flush batch dirty=[07_prompt_template,08_fewshot,09_lcel_principle,10_lcel_practice,06_first_call] size=5
+[2026-08-13 21:31:25.176] [INFO ] [pid=1607] [sync] submit nextRound=3 dirty=07_prompt_template,08_fewshot,09_lcel_principle,10_lcel_practice,06_first_call pendingDirtySize=5 merged=no
+[2026-08-13 21:31:25.179] [INFO ] [pid=1607] [sync] drain start round=3 pendingDirtySize=5
+[2026-08-13 21:31:25.181] [INFO ] [pid=1607] [sync] step=add round=3 attempt=1 pageId=06_first_call index=5
+[2026-08-13 21:31:25.182] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=06_first_call index=5
+[2026-08-13 21:31:25.183] [INFO ] [pid=1607] [render] start pageId=06_first_call file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/06_first_call.slide
+[2026-08-13 21:31:25.682] [INFO ] [pid=1607] [render] ok pageId=06_first_call slides=1 ms=499
+[2026-08-13 21:31:25.688] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:31:25.705] [INFO ] [pid=1607] [commit] commit send pageId=1dfa8d targetIndex=5 version=6 baseVersion=5 revisionBytes=15100
+[2026-08-13 21:31:25.716] [INFO ] [pid=1607] [commit] commit ok pageId=1dfa8d revisionId=321884e2 ms=10
+[2026-08-13 21:31:25.722] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=06_first_call slideId=1dfa8d index=5 version=6 baseVersion=5 revisionId=321884e2 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=540
+[2026-08-13 21:31:25.724] [INFO ] [pid=1607] [sync] step=add round=3 attempt=1 pageId=07_prompt_template index=6
+[2026-08-13 21:31:25.724] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=07_prompt_template index=6
+[2026-08-13 21:31:25.725] [INFO ] [pid=1607] [render] start pageId=07_prompt_template file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/07_prompt_template.slide
+[2026-08-13 21:31:25.831] [INFO ] [pid=1607] [render] ok pageId=07_prompt_template slides=1 ms=106
+[2026-08-13 21:31:25.832] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:31:25.837] [INFO ] [pid=1607] [commit] commit send pageId=4769f1 targetIndex=6 version=7 baseVersion=6 revisionBytes=17844
+[2026-08-13 21:31:25.843] [INFO ] [pid=1607] [commit] commit ok pageId=4769f1 revisionId=8f78328c ms=4
+[2026-08-13 21:31:25.847] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=07_prompt_template slideId=4769f1 index=6 version=7 baseVersion=6 revisionId=8f78328c code=0 images=[local=0 remote=0 cached=0 failed=0] ms=123
+[2026-08-13 21:31:25.849] [INFO ] [pid=1607] [sync] step=add round=3 attempt=1 pageId=08_fewshot index=7
+[2026-08-13 21:31:25.851] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=08_fewshot index=7
+[2026-08-13 21:31:25.854] [INFO ] [pid=1607] [render] start pageId=08_fewshot file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/08_fewshot.slide
+[2026-08-13 21:31:25.940] [INFO ] [pid=1607] [render] ok pageId=08_fewshot slides=1 ms=86
+[2026-08-13 21:31:25.943] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:01yw440b': {
+      id: 'rel:01yw440b',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/4ffca7afaab2a6c31d84db36298bc2c5.svg'
+    },
+    'rel:01b1952u': {
+      id: 'rel:01b1952u',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/899af7450b24c8f6423d5ff0cbb3eabd.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:31:25.950] [INFO ] [pid=1607] [commit] commit send pageId=29dbb8 targetIndex=7 version=8 baseVersion=7 revisionBytes=18104
+[2026-08-13 21:31:25.959] [INFO ] [pid=1607] [commit] commit ok pageId=29dbb8 revisionId=5607a1cf ms=7
+[2026-08-13 21:31:25.965] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=08_fewshot slideId=29dbb8 index=7 version=8 baseVersion=7 revisionId=5607a1cf code=0 images=[local=2 remote=0 cached=0 failed=0] ms=114
+[2026-08-13 21:31:25.966] [INFO ] [pid=1607] [sync] step=add round=3 attempt=1 pageId=09_lcel_principle index=8
+[2026-08-13 21:31:25.970] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=09_lcel_principle index=8
+[2026-08-13 21:31:25.972] [INFO ] [pid=1607] [render] start pageId=09_lcel_principle file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/09_lcel_principle.slide
+[2026-08-13 21:31:26.019] [INFO ] [pid=1607] [render] ok pageId=09_lcel_principle slides=1 ms=47
+[2026-08-13 21:31:26.021] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:01d5559v': {
+      id: 'rel:01d5559v',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/428c0420abfa44a022f807b72b59c3ef.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:31:26.031] [INFO ] [pid=1607] [commit] commit send pageId=bd22e4 targetIndex=8 version=9 baseVersion=8 revisionBytes=18080
+[2026-08-13 21:31:26.038] [INFO ] [pid=1607] [commit] commit ok pageId=bd22e4 revisionId=4d2aaccc ms=6
+[2026-08-13 21:31:26.042] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=09_lcel_principle slideId=bd22e4 index=8 version=9 baseVersion=8 revisionId=4d2aaccc code=0 images=[local=1 remote=0 cached=0 failed=0] ms=72
+[2026-08-13 21:31:26.044] [INFO ] [pid=1607] [sync] step=add round=3 attempt=1 pageId=10_lcel_practice index=9
+[2026-08-13 21:31:26.045] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=10_lcel_practice index=9
+[2026-08-13 21:31:26.046] [INFO ] [pid=1607] [render] start pageId=10_lcel_practice file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/10_lcel_practice.slide
+[2026-08-13 21:31:26.115] [INFO ] [pid=1607] [render] ok pageId=10_lcel_practice slides=1 ms=69
+[2026-08-13 21:31:26.116] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:31:26.121] [INFO ] [pid=1607] [commit] commit send pageId=ef15f2 targetIndex=9 version=10 baseVersion=9 revisionBytes=20512
+[2026-08-13 21:31:26.127] [INFO ] [pid=1607] [commit] commit ok pageId=ef15f2 revisionId=0bf2d069 ms=5
+[2026-08-13 21:31:26.132] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=10_lcel_practice slideId=ef15f2 index=9 version=10 baseVersion=9 revisionId=0bf2d069 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=87
+[2026-08-13 21:31:26.133] [INFO ] [pid=1607] [sync] aligned round=3 attempt=1 size=10 desired=10 pendingDirtySize=0
+[2026-08-13 21:31:26.138] [INFO ] [pid=1607] [sync] reconcile ok round=3 attempt=1 ms=958
+[2026-08-13 21:31:26.139] [INFO ] [pid=1607] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:31:26.140] [INFO ] [pid=1607] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:31:26.197] [INFO ] [pid=1607] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=56
+[2026-08-13 21:31:26.198] [INFO ] [pid=1607] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=59
+[2026-08-13 21:31:26.206] [INFO ] [pid=1607] [sync] drain end round=3 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1027
+[2026-08-13 21:31:59.744] [INFO ] [pid=1607] [watcher] event=add file=slides/12_langsmith.slide
+[2026-08-13 21:31:59.746] [INFO ] [pid=1607] [watcher] event=add file=slides/13_params_cheatsheet.slide
+[2026-08-13 21:31:59.748] [INFO ] [pid=1607] [watcher] event=add file=slides/11_langserve.slide
+[2026-08-13 21:31:59.749] [INFO ] [pid=1607] [watcher] event=add file=slides/14_summary.slide
+[2026-08-13 21:32:00.250] [INFO ] [pid=1607] [watcher] flush batch dirty=[12_langsmith,13_params_cheatsheet,11_langserve,14_summary] size=4
+[2026-08-13 21:32:00.253] [INFO ] [pid=1607] [sync] submit nextRound=4 dirty=12_langsmith,13_params_cheatsheet,11_langserve,14_summary pendingDirtySize=4 merged=no
+[2026-08-13 21:32:00.256] [INFO ] [pid=1607] [sync] drain start round=4 pendingDirtySize=4
+[2026-08-13 21:32:00.261] [INFO ] [pid=1607] [sync] step=add round=4 attempt=1 pageId=11_langserve index=10
+[2026-08-13 21:32:00.269] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=11_langserve index=10
+[2026-08-13 21:32:00.273] [INFO ] [pid=1607] [render] start pageId=11_langserve file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/11_langserve.slide
+[2026-08-13 21:32:00.383] [INFO ] [pid=1607] [render] ok pageId=11_langserve slides=1 ms=110
+[2026-08-13 21:32:00.384] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:32:00.394] [INFO ] [pid=1607] [commit] commit send pageId=4566fc targetIndex=10 version=11 baseVersion=10 revisionBytes=18040
+[2026-08-13 21:32:00.403] [INFO ] [pid=1607] [commit] commit ok pageId=4566fc revisionId=6c587ad4 ms=8
+[2026-08-13 21:32:00.414] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=11_langserve slideId=4566fc index=10 version=11 baseVersion=10 revisionId=6c587ad4 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=145
+[2026-08-13 21:32:00.418] [INFO ] [pid=1607] [sync] step=add round=4 attempt=1 pageId=12_langsmith index=11
+[2026-08-13 21:32:00.419] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=12_langsmith index=11
+[2026-08-13 21:32:00.420] [INFO ] [pid=1607] [render] start pageId=12_langsmith file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/12_langsmith.slide
+[2026-08-13 21:32:00.508] [INFO ] [pid=1607] [render] ok pageId=12_langsmith slides=1 ms=88
+[2026-08-13 21:32:00.510] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:00fl5phh': {
+      id: 'rel:00fl5phh',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/8633085ae596db18ffc7f3c0e1e9bc19.svg'
+    },
+    'rel:017t08pz': {
+      id: 'rel:017t08pz',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/09c21db28fab58b0451406ae1c465654.svg'
+    },
+    'rel:008o78ni': {
+      id: 'rel:008o78ni',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/fd3f1c81520046d0e2d418413752dbda.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:32:00.514] [INFO ] [pid=1607] [commit] commit send pageId=ce7668 targetIndex=11 version=12 baseVersion=11 revisionBytes=24136
+[2026-08-13 21:32:00.537] [INFO ] [pid=1607] [commit] commit ok pageId=ce7668 revisionId=ecff0ef6 ms=19
+[2026-08-13 21:32:00.547] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=12_langsmith slideId=ce7668 index=11 version=12 baseVersion=11 revisionId=ecff0ef6 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=128
+[2026-08-13 21:32:00.549] [INFO ] [pid=1607] [sync] step=add round=4 attempt=1 pageId=13_params_cheatsheet index=12
+[2026-08-13 21:32:00.550] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=13_params_cheatsheet index=12
+[2026-08-13 21:32:00.551] [INFO ] [pid=1607] [render] start pageId=13_params_cheatsheet file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/13_params_cheatsheet.slide
+[2026-08-13 21:32:00.626] [INFO ] [pid=1607] [render] ok pageId=13_params_cheatsheet slides=1 ms=75
+[2026-08-13 21:32:00.628] [INFO ] [pid=1607] [render] renderSlideData result.resources={
+  images: {
+    'rel:00ufsce9': {
+      id: 'rel:00ufsce9',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/.cache/media/images/8ff38473cfbdae5fc83fcc3815ddc804.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:32:00.634] [INFO ] [pid=1607] [commit] commit send pageId=21dc23 targetIndex=12 version=13 baseVersion=12 revisionBytes=20064
+[2026-08-13 21:32:00.644] [INFO ] [pid=1607] [commit] commit ok pageId=21dc23 revisionId=1d03c3b5 ms=8
+[2026-08-13 21:32:00.651] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=13_params_cheatsheet slideId=21dc23 index=12 version=13 baseVersion=12 revisionId=1d03c3b5 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=101
+[2026-08-13 21:32:00.658] [INFO ] [pid=1607] [sync] step=add round=4 attempt=1 pageId=14_summary index=13
+[2026-08-13 21:32:00.659] [INFO ] [pid=1607] [backend-ops] addSlideAt start pageId=14_summary index=13
+[2026-08-13 21:32:00.660] [INFO ] [pid=1607] [render] start pageId=14_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides/14_summary.slide
+[2026-08-13 21:32:00.729] [INFO ] [pid=1607] [render] ok pageId=14_summary slides=1 ms=69
+[2026-08-13 21:32:00.730] [INFO ] [pid=1607] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:32:00.735] [INFO ] [pid=1607] [commit] commit send pageId=9e4f84 targetIndex=13 version=14 baseVersion=13 revisionBytes=19376
+[2026-08-13 21:32:00.742] [INFO ] [pid=1607] [commit] commit ok pageId=9e4f84 revisionId=81b4f918 ms=4
+[2026-08-13 21:32:00.747] [INFO ] [pid=1607] [backend-ops] addSlideAt ok pageId=14_summary slideId=9e4f84 index=13 version=14 baseVersion=13 revisionId=81b4f918 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=88
+[2026-08-13 21:32:00.749] [INFO ] [pid=1607] [sync] aligned round=4 attempt=1 size=14 desired=14 pendingDirtySize=0
+[2026-08-13 21:32:00.751] [INFO ] [pid=1607] [sync] reconcile ok round=4 attempt=1 ms=491
+[2026-08-13 21:32:00.753] [INFO ] [pid=1607] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:32:00.754] [INFO ] [pid=1607] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx
+[2026-08-13 21:32:00.838] [INFO ] [pid=1607] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=84
+[2026-08-13 21:32:00.840] [INFO ] [pid=1607] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-优化版.pptx ms=87
+[2026-08-13 21:32:00.841] [INFO ] [pid=1607] [sync] drain end round=4 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=585
+=== boot pid=11346 ts=2026-08-13 21:32:03.962 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 ===
+[2026-08-13 21:32:03.962] [INFO ] [pid=11346] [validate] --all mode: found 14 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides
+[2026-08-13 21:32:03.964] [INFO ] [pid=11346] [validate] batch start files=14 checkOverflow=true
+[2026-08-13 21:32:05.417] [INFO ] [pid=11346] [validate] batch done total=14 passed=14 failed=0 ms=1456

@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>REASONING ERA</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        推理模型时代：<br />先想，再说
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        模型不再「张口就来」，而是先在内部走一遍思维链，<span style={{ fontWeight: 'bold', color: '#16263F' }}>想清楚了再输出</span>——准确率大幅提升。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='brain' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>先想再说</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>内部思维链是「草稿纸」，看不见但决定了对错。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='sliders-h' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>思考强度可调</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>reasoning_effort / effort 参数，从「快答」到「深想」自由切换。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='dollar' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>管理推理 token 成本</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>想得越久越贵——简单问题关掉思考，复杂问题才加满。</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 10 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,251 @@
+=== boot pid=17601 ts=2026-08-13 21:35:15.855 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 --filename AI从零开始-第08讲-Agent工程化-优化版.pptx ===
+[2026-08-13 21:35:15.852] [INFO ] [pid=17601] [start] invoked pid=17601 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 --filename AI从零开始-第08讲-Agent工程化-优化版.pptx]
+[2026-08-13 21:35:15.857] [INFO ] [pid=17601] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 filename=AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:15.862] [INFO ] [pid=17601] [start] daemon spawned childPid=17625; waiting started ipc
+=== boot pid=17625 ts=2026-08-13 21:35:16.948 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 --filename AI从零开始-第08讲-Agent工程化-优化版.pptx --__daemon-child ===
+[2026-08-13 21:35:16.947] [INFO ] [pid=17625] [start] invoked pid=17625 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 --filename AI从零开始-第08讲-Agent工程化-优化版.pptx --__daemon-child]
+[2026-08-13 21:35:16.950] [INFO ] [pid=17625] [start] daemon child runWorker ppid=17601
+[2026-08-13 21:35:16.951] [INFO ] [pid=17625] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 filename=AI从零开始-第08讲-Agent工程化-优化版.pptx version=5.4.4
+[2026-08-13 21:35:16.955] [INFO ] [pid=17625] [worker] init ok dirs=ready
+[2026-08-13 21:35:16.957] [INFO ] [pid=17625] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:35:16.959] [INFO ] [pid=17625] [worker] openFile start
+[2026-08-13 21:35:16.966] [INFO ] [pid=17625] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:16.971] [INFO ] [pid=17625] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx ms=4
+[2026-08-13 21:35:16.994] [ERROR] [pid=17625] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx"} ms=22
+[2026-08-13 21:35:16.999] [INFO ] [pid=17625] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:17.026] [INFO ] [pid=17625] [open-file] open ok fileId=F86E8B97 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx ms=8
+[2026-08-13 21:35:17.027] [INFO ] [pid=17625] [worker] openFile ok fileId=F86E8B97 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:17.028] [INFO ] [pid=17625] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC08%E8%AE%B2-Agent%E5%B7%A5%E7%A8%8B%E5%8C%96%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC08%E8%AE%B2-Agent%E5%B7%A5%E7%A8%8B%E5%8C%96-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:35:17.029] [INFO ] [pid=17625] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:17.031] [INFO ] [pid=17625] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:35:17.035] [INFO ] [pid=17625] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"F86E8B97-EB56-491A-9EF4-326A276EBDEE"}
+[2026-08-13 21:35:17.039] [INFO ] [pid=17625] [mcp] mcp:slide_get_info ok ms=3
+[2026-08-13 21:35:17.040] [INFO ] [pid=17625] [purge] purge start backendSlideCount=0
+[2026-08-13 21:35:17.040] [INFO ] [pid=17625] [purge] purge ok removed=0 ms=8
+[2026-08-13 21:35:17.041] [INFO ] [pid=17625] [worker] initial sync submitted pages=12
+[2026-08-13 21:35:17.042] [INFO ] [pid=17625] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:35:17.043] [INFO ] [pid=17625] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:35:17.044] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:35:17.045] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:35:17.046] [INFO ] [pid=17625] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/01_cover.slide
+[2026-08-13 21:35:17.052] [INFO ] [pid=17625] [worker] ready fileId=F86E8B97 backendUrl=http://127.0.0.1:39099 initialPages=12 ms=101
+[2026-08-13 21:35:17.053] [INFO ] [pid=17601] [start] daemon started childPid=17625 ms=1196
+[2026-08-13 21:35:17.285] [INFO ] [pid=17625] [render] ok pageId=01_cover slides=1 ms=239
+[2026-08-13 21:35:17.287] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:17.299] [INFO ] [pid=17625] [commit] commit send pageId=22fd70 targetIndex=0 version=1 baseVersion=0 revisionBytes=9840
+[2026-08-13 21:35:17.307] [INFO ] [pid=17625] [commit] commit ok pageId=22fd70 revisionId=0d5f0f41 ms=7
+[2026-08-13 21:35:17.313] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=01_cover slideId=22fd70 index=0 version=1 baseVersion=0 revisionId=0d5f0f41 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=268
+[2026-08-13 21:35:17.314] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=02_harness index=1
+[2026-08-13 21:35:17.315] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=02_harness index=1
+[2026-08-13 21:35:17.316] [INFO ] [pid=17625] [render] start pageId=02_harness file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/02_harness.slide
+[2026-08-13 21:35:17.362] [INFO ] [pid=17625] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides
+[2026-08-13 21:35:17.603] [INFO ] [pid=17625] [render] ok pageId=02_harness slides=1 ms=287
+[2026-08-13 21:35:17.607] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:01nkzog6': {
+      id: 'rel:01nkzog6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/209b7dce8305a064896e200a7d971cfe.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:17.617] [INFO ] [pid=17625] [commit] commit send pageId=5fe021 targetIndex=1 version=2 baseVersion=1 revisionBytes=18048
+[2026-08-13 21:35:17.639] [INFO ] [pid=17625] [commit] commit ok pageId=5fe021 revisionId=93434401 ms=13
+[2026-08-13 21:35:17.644] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=02_harness slideId=5fe021 index=1 version=2 baseVersion=1 revisionId=93434401 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=329
+[2026-08-13 21:35:17.646] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=03_six_components index=2
+[2026-08-13 21:35:17.647] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=03_six_components index=2
+[2026-08-13 21:35:17.648] [INFO ] [pid=17625] [render] start pageId=03_six_components file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/03_six_components.slide
+[2026-08-13 21:35:17.865] [INFO ] [pid=17625] [render] ok pageId=03_six_components slides=1 ms=217
+[2026-08-13 21:35:17.867] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:17.887] [INFO ] [pid=17625] [commit] commit send pageId=d60e4d targetIndex=2 version=3 baseVersion=2 revisionBytes=32500
+[2026-08-13 21:35:17.899] [INFO ] [pid=17625] [commit] commit ok pageId=d60e4d revisionId=fb6fa612 ms=6
+[2026-08-13 21:35:17.903] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=03_six_components slideId=d60e4d index=2 version=3 baseVersion=2 revisionId=fb6fa612 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=256
+[2026-08-13 21:35:17.904] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=04_build_verify index=3
+[2026-08-13 21:35:17.905] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=04_build_verify index=3
+[2026-08-13 21:35:17.906] [INFO ] [pid=17625] [render] start pageId=04_build_verify file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/04_build_verify.slide
+[2026-08-13 21:35:18.075] [INFO ] [pid=17625] [render] ok pageId=04_build_verify slides=1 ms=169
+[2026-08-13 21:35:18.076] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:014a3nej': {
+      id: 'rel:014a3nej',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/838143b614706e3bda3eb95af6b51185.svg'
+    },
+    'rel:00mmrcuh': {
+      id: 'rel:00mmrcuh',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/0bf2b1d19062b35ad5058ef0c0cd8312.svg'
+    },
+    'rel:018a73so': {
+      id: 'rel:018a73so',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/f41d87d5e9a7de22eebed851a13b5ee7.svg'
+    },
+    'rel:00skqtyk': {
+      id: 'rel:00skqtyk',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/ce17b03c5ea1ed8c5eeb82d85bbca70e.svg'
+    },
+    'rel:00qqsifk': {
+      id: 'rel:00qqsifk',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/8d43f36b434e334992a5902c8455ddca.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:18.086] [INFO ] [pid=17625] [commit] commit send pageId=b2f166 targetIndex=3 version=4 baseVersion=3 revisionBytes=29796
+[2026-08-13 21:35:18.101] [INFO ] [pid=17625] [commit] commit ok pageId=b2f166 revisionId=b79deb91 ms=14
+[2026-08-13 21:35:18.108] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=04_build_verify slideId=b2f166 index=3 version=4 baseVersion=3 revisionId=b79deb91 code=0 images=[local=5 remote=0 cached=0 failed=0] ms=203
+[2026-08-13 21:35:18.109] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=05_context_eng index=4
+[2026-08-13 21:35:18.112] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=05_context_eng index=4
+[2026-08-13 21:35:18.114] [INFO ] [pid=17625] [render] start pageId=05_context_eng file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/05_context_eng.slide
+[2026-08-13 21:35:18.204] [INFO ] [pid=17625] [render] ok pageId=05_context_eng slides=1 ms=90
+[2026-08-13 21:35:18.208] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:00qhmeig': {
+      id: 'rel:00qhmeig',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/475fe1265e95ef7c76dc4e7a4b51147d.svg'
+    },
+    'rel:01skxj48': {
+      id: 'rel:01skxj48',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/e8dfeceba4e29f4bbe8f59efa947a3d6.svg'
+    },
+    'rel:00yo0tum': {
+      id: 'rel:00yo0tum',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/11d8c358ad532809a14b00286f3319ad.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:18.213] [INFO ] [pid=17625] [commit] commit send pageId=d0b36e targetIndex=4 version=5 baseVersion=4 revisionBytes=22112
+[2026-08-13 21:35:18.228] [INFO ] [pid=17625] [commit] commit ok pageId=d0b36e revisionId=f50d70d4 ms=13
+[2026-08-13 21:35:18.250] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=05_context_eng slideId=d0b36e index=4 version=5 baseVersion=4 revisionId=f50d70d4 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=138
+[2026-08-13 21:35:18.259] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=06_multi_agent index=5
+[2026-08-13 21:35:18.262] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=06_multi_agent index=5
+[2026-08-13 21:35:18.263] [INFO ] [pid=17625] [render] start pageId=06_multi_agent file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/06_multi_agent.slide
+[2026-08-13 21:35:18.368] [INFO ] [pid=17625] [render] ok pageId=06_multi_agent slides=1 ms=105
+[2026-08-13 21:35:18.371] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:014a3nej': {
+      id: 'rel:014a3nej',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/838143b614706e3bda3eb95af6b51185.svg'
+    },
+    'rel:00mmmng1': {
+      id: 'rel:00mmmng1',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/22aa64ae173f08c93e70c3f0c3de9ff3.svg'
+    },
+    'rel:01lpwjvd': {
+      id: 'rel:01lpwjvd',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/0a13af42358eb600143acce66b742c62.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:18.377] [INFO ] [pid=17625] [commit] commit send pageId=ab03d1 targetIndex=5 version=6 baseVersion=5 revisionBytes=26356
+[2026-08-13 21:35:18.389] [INFO ] [pid=17625] [commit] commit ok pageId=ab03d1 revisionId=cb66e093 ms=11
+[2026-08-13 21:35:18.394] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=06_multi_agent slideId=ab03d1 index=5 version=6 baseVersion=5 revisionId=cb66e093 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=132
+[2026-08-13 21:35:18.398] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=07_eval_why index=6
+[2026-08-13 21:35:18.399] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=07_eval_why index=6
+[2026-08-13 21:35:18.400] [INFO ] [pid=17625] [render] start pageId=07_eval_why file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/07_eval_why.slide
+[2026-08-13 21:35:18.475] [INFO ] [pid=17625] [render] ok pageId=07_eval_why slides=1 ms=75
+[2026-08-13 21:35:18.476] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:18.481] [INFO ] [pid=17625] [commit] commit send pageId=979a9d targetIndex=6 version=7 baseVersion=6 revisionBytes=27584
+[2026-08-13 21:35:18.489] [INFO ] [pid=17625] [commit] commit ok pageId=979a9d revisionId=bd81a9f9 ms=7
+[2026-08-13 21:35:18.492] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=07_eval_why slideId=979a9d index=6 version=7 baseVersion=6 revisionId=bd81a9f9 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=93
+[2026-08-13 21:35:18.493] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=08_eval_method index=7
+[2026-08-13 21:35:18.495] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=08_eval_method index=7
+[2026-08-13 21:35:18.496] [INFO ] [pid=17625] [render] start pageId=08_eval_method file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/08_eval_method.slide
+[2026-08-13 21:35:18.560] [INFO ] [pid=17625] [render] ok pageId=08_eval_method slides=1 ms=64
+[2026-08-13 21:35:18.561] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:18.565] [INFO ] [pid=17625] [commit] commit send pageId=efb259 targetIndex=7 version=8 baseVersion=7 revisionBytes=20112
+[2026-08-13 21:35:18.572] [INFO ] [pid=17625] [commit] commit ok pageId=efb259 revisionId=e5d97aad ms=5
+[2026-08-13 21:35:18.575] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=08_eval_method slideId=efb259 index=7 version=8 baseVersion=7 revisionId=e5d97aad code=0 images=[local=0 remote=0 cached=0 failed=0] ms=80
+[2026-08-13 21:35:18.576] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=09_deepeval index=8
+[2026-08-13 21:35:18.580] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=09_deepeval index=8
+[2026-08-13 21:35:18.582] [INFO ] [pid=17625] [render] start pageId=09_deepeval file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/09_deepeval.slide
+[2026-08-13 21:35:18.963] [INFO ] [pid=17625] [render] ok pageId=09_deepeval slides=1 ms=381
+[2026-08-13 21:35:18.971] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:18.979] [INFO ] [pid=17625] [commit] commit send pageId=6a1a49 targetIndex=8 version=9 baseVersion=8 revisionBytes=23352
+[2026-08-13 21:35:18.989] [INFO ] [pid=17625] [commit] commit ok pageId=6a1a49 revisionId=6b731d50 ms=5
+[2026-08-13 21:35:18.995] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=09_deepeval slideId=6a1a49 index=8 version=9 baseVersion=8 revisionId=6b731d50 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=415
+[2026-08-13 21:35:18.997] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=10_monitoring index=9
+[2026-08-13 21:35:18.998] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=10_monitoring index=9
+[2026-08-13 21:35:19.000] [INFO ] [pid=17625] [render] start pageId=10_monitoring file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/10_monitoring.slide
+[2026-08-13 21:35:19.102] [INFO ] [pid=17625] [render] ok pageId=10_monitoring slides=1 ms=102
+[2026-08-13 21:35:19.104] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:00bg07oj': {
+      id: 'rel:00bg07oj',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/8633085ae596db18ffc7f3c0e1e9bc19.svg'
+    },
+    'rel:00txsdc7': {
+      id: 'rel:00txsdc7',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/5e74b841901c9cbe6073f5c4ec60f4f3.svg'
+    },
+    'rel:01k9j1jr': {
+      id: 'rel:01k9j1jr',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/81b0007dc3469199f0a8cca6f816d62d.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:19.109] [INFO ] [pid=17625] [commit] commit send pageId=4d5f75 targetIndex=9 version=10 baseVersion=9 revisionBytes=22928
+[2026-08-13 21:35:19.117] [INFO ] [pid=17625] [commit] commit ok pageId=4d5f75 revisionId=319c1e89 ms=6
+[2026-08-13 21:35:19.121] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=10_monitoring slideId=4d5f75 index=9 version=10 baseVersion=9 revisionId=319c1e89 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=123
+[2026-08-13 21:35:19.122] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=11_security index=10
+[2026-08-13 21:35:19.123] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=11_security index=10
+[2026-08-13 21:35:19.125] [INFO ] [pid=17625] [render] start pageId=11_security file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/11_security.slide
+[2026-08-13 21:35:19.229] [INFO ] [pid=17625] [render] ok pageId=11_security slides=1 ms=104
+[2026-08-13 21:35:19.239] [INFO ] [pid=17625] [render] renderSlideData result.resources={
+  images: {
+    'rel:01u4u0gx': {
+      id: 'rel:01u4u0gx',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/bb5bd542cac1b73805896a2bd8be8326.svg'
+    },
+    'rel:013wim1y': {
+      id: 'rel:013wim1y',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/5b1dc2a683b10148251d0ce21738a6d9.svg'
+    },
+    'rel:01pvue2d': {
+      id: 'rel:01pvue2d',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/.cache/media/images/afb8942bce0cabde4854ed1e8452bedb.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:35:19.246] [INFO ] [pid=17625] [commit] commit send pageId=593ad5 targetIndex=10 version=11 baseVersion=10 revisionBytes=24668
+[2026-08-13 21:35:19.258] [INFO ] [pid=17625] [commit] commit ok pageId=593ad5 revisionId=2e960dfe ms=11
+[2026-08-13 21:35:19.282] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=11_security slideId=593ad5 index=10 version=11 baseVersion=10 revisionId=2e960dfe code=0 images=[local=3 remote=0 cached=0 failed=0] ms=159
+[2026-08-13 21:35:19.284] [INFO ] [pid=17625] [sync] step=add round=1 attempt=1 pageId=12_checklist index=11
+[2026-08-13 21:35:19.285] [INFO ] [pid=17625] [backend-ops] addSlideAt start pageId=12_checklist index=11
+[2026-08-13 21:35:19.286] [INFO ] [pid=17625] [render] start pageId=12_checklist file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides/12_checklist.slide
+[2026-08-13 21:35:19.341] [INFO ] [pid=17625] [render] ok pageId=12_checklist slides=1 ms=55
+[2026-08-13 21:35:19.364] [INFO ] [pid=17625] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:19.368] [INFO ] [pid=17625] [commit] commit send pageId=4f3640 targetIndex=11 version=12 baseVersion=11 revisionBytes=14292
+[2026-08-13 21:35:19.375] [INFO ] [pid=17625] [commit] commit ok pageId=4f3640 revisionId=31cb64a5 ms=4
+[2026-08-13 21:35:19.406] [INFO ] [pid=17625] [backend-ops] addSlideAt ok pageId=12_checklist slideId=4f3640 index=11 version=12 baseVersion=11 revisionId=31cb64a5 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=121
+[2026-08-13 21:35:19.407] [INFO ] [pid=17625] [sync] aligned round=1 attempt=1 size=12 desired=12 pendingDirtySize=0
+[2026-08-13 21:35:19.409] [INFO ] [pid=17625] [sync] reconcile ok round=1 attempt=1 ms=2366
+[2026-08-13 21:35:19.414] [INFO ] [pid=17625] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:19.415] [INFO ] [pid=17625] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx
+[2026-08-13 21:35:19.539] [INFO ] [pid=17625] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx ms=123
+[2026-08-13 21:35:19.540] [INFO ] [pid=17625] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-优化版.pptx ms=126
+[2026-08-13 21:35:19.541] [INFO ] [pid=17625] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=2498
+=== boot pid=17881 ts=2026-08-13 21:35:22.426 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 ===
+[2026-08-13 21:35:22.425] [INFO ] [pid=17881] [validate] --all mode: found 12 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/slides
+[2026-08-13 21:35:22.428] [INFO ] [pid=17881] [validate] batch start files=12 checkOverflow=true
+[2026-08-13 21:35:24.008] [INFO ] [pid=17881] [validate] batch done total=12 passed=12 failed=0 ms=1584
+=== boot pid=18222 ts=2026-08-13 21:35:30.907 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-stop --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 ===
+[2026-08-13 21:35:30.907] [INFO ] [pid=18222] [stop] invoked pid=18222 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 force=no timeoutMs=10000
+[2026-08-13 21:35:30.912] [INFO ] [pid=18222] [stop] killing targetPid=17625 signal=SIGTERM timeoutMs=10000 projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化
+[2026-08-13 21:35:30.914] [INFO ] [pid=17625] [worker] shutdown received sig=SIGTERM
+[2026-08-13 21:35:31.000] [INFO ] [pid=17625] [worker] shutdown ok sig=SIGTERM ms=86
+[2026-08-13 21:35:31.116] [INFO ] [pid=18222] [stop] ok targetPid=17625 signal=SIGTERM ms=210

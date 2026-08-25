@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>BUILD & VERIFY</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>强制验证：四阶段循环，流程跑得通才算数</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 32, flex: 1 }}>
+      <Box style={{ flex: 2, flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
+        {[
+          { n: '1', t: '规划', d: '拆解任务，明确验收标准', icon: 'clipboard-list' },
+          { n: '2', t: '构建', d: 'Agent 生成方案/代码', icon: 'hammer' },
+          { n: '3', t: '验证', d: '跑测试、对验收、查格式', icon: 'check-double' },
+          { n: '4', t: '修复', d: '不通过就带错误回炉', icon: 'wrench' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+            <Box style={{ width: 48, height: 48, borderRadius: 12, background: idx === 2 ? '#16263F' : '#FFFFFF', justifyContent: 'center', alignItems: 'center', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+              <FAIcon name={item.icon} style={{ fill: idx === 2 ? '#FF9F1C' : '#22D3EE', width: 24, height: 24 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 3 }}>{item.n} · {item.t}</Text>
+              <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '22px 24px' }}>
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>流程 ≠ 质量</Text>
+          <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+            光让 Agent 跑完没用，每一步都得有「验证门」把守，不合格就退回上一步。
+          </Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='infinity' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>防死循环中间件</Text>
+          </Box>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.7 }}>
+            设最大步数、检测重复动作、连续失败熔断——从机制上杜绝原地打转。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 12</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,55 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ width: 340, paddingTop: 24 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>ADVANCED LEVEL</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 20 }}>
+        进阶能力：<br />从「会用」到「会调」
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 20 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        掌握开源模型、本地部署与 AI 安全三件事，就能<span style={{ fontWeight: 'bold', color: '#16263F' }}>把 AI 真正捏在自己手里</span>。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 18, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '22px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 56, height: 56, borderRadius: 14, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='code-branch' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>开源模型</Text>
+          <Text style={{ fontSize: 15, color: '#5B6B7A' }}>DeepSeek / Qwen / GLM · 可商用、可魔改、可本地</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '22px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 56, height: 56, borderRadius: 14, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='server' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>本地部署</Text>
+          <Text style={{ fontSize: 15, color: '#5B6B7A' }}>Ollama 一条命令拉模型 · 数据不出门 · 免费无限</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#16263F', borderRadius: 12, padding: '22px 26px' }}>
+        <Box style={{ width: 56, height: 56, borderRadius: 14, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='shield' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>AI 安全</Text>
+          <Text style={{ fontSize: 15, color: '#DCE7F5' }}>Prompt 注入、越权、幻觉治理——会用更要会防</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 0 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 11</Text>
+  </Box>
+</Slide>

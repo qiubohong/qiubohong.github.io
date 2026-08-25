@@ -1,0 +1,65 @@
+{
+  "filePath": "/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/AI从零开始-第02讲-环境准备与本地大模型部署-优化版.pptx",
+  "lastCommit": {
+    "01_cover": {
+      "revisionId": "d206f78c573b863ac9e320bf3c91456b68ad4a32",
+      "version": 19,
+      "at": "2026-08-12 08:13:13.769"
+    },
+    "02_why_local": {
+      "revisionId": "9c515dfe0c920727216a20ac67f023349ed87b0c",
+      "version": 20,
+      "at": "2026-08-12 08:13:13.843"
+    },
+    "03_env_stack": {
+      "revisionId": "d29fa058f39c5071a763213d74bf6d28d2649203",
+      "version": 21,
+      "at": "2026-08-12 08:13:13.902"
+    },
+    "04_install_python": {
+      "revisionId": "f29e204806db76ecb220d993a484a584a1fa0432",
+      "version": 22,
+      "at": "2026-08-12 08:13:13.964"
+    },
+    "05_install_libs": {
+      "revisionId": "1e5dcb601332e78238d5e0a342663981805843e0",
+      "version": 23,
+      "at": "2026-08-12 08:13:14.042"
+    },
+    "06_deepseek_v4": {
+      "revisionId": "f2a0be690795991d1a1dffce09488d31dcfc21c3",
+      "version": 24,
+      "at": "2026-08-12 08:13:14.116"
+    },
+    "07_evolution": {
+      "revisionId": "02b9527a3520a9e6731459b13c27e8d6f30bab56",
+      "version": 25,
+      "at": "2026-08-12 08:13:14.183"
+    },
+    "08_hardware": {
+      "revisionId": "31a891cc914eb732a5675c6f4942b79f4d59c4fc",
+      "version": 26,
+      "at": "2026-08-12 08:13:14.252"
+    },
+    "09_ollama": {
+      "revisionId": "02c9d00a836fe10c0d0cd32102b1d3f5aa060428",
+      "version": 27,
+      "at": "2026-08-12 08:13:14.300"
+    },
+    "10_run_verify": {
+      "revisionId": "064768cd7bb7c7c2851aa3f2d10e092d0e4dd802",
+      "version": 28,
+      "at": "2026-08-12 08:13:40.231"
+    },
+    "11_dify": {
+      "revisionId": "975732d1bfc69f1b478037b30281083b33810256",
+      "version": 29,
+      "at": "2026-08-12 08:13:40.300"
+    },
+    "12_summary": {
+      "revisionId": "e4c4d0b208f885383fcfb6f96f336b7ae24333ac",
+      "version": 30,
+      "at": "2026-08-12 08:13:40.367"
+    }
+  }
+}

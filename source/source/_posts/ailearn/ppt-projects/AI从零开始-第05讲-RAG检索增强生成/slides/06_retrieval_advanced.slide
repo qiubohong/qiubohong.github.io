@@ -1,0 +1,48 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>RETRIEVAL ADVANCED</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>检索进阶三件套：让检索更准</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>Query 查询</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 12 }}>输入侧优化</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          把口语化问题改写成更适合检索的表达，或拆解成多个子查询，扩大命中面。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>Reranker 重排序</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 12 }}>BM25 · DPR</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          对初筛结果二次排序，把真正相关的片段排到最前——粗召回 + 精排序。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '26px 24px' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>Rewrite 重写</Text>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 12 }}>多轮上下文补全</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+          多轮对话中，把「它呢？」补全成完整问题，避免指代缺失导致检索跑偏。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        先保证「检索到」，再谈「检索准」——三件套按需叠加，别一上来全上
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 5 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 11</Text>
+  </Box>
+</Slide>

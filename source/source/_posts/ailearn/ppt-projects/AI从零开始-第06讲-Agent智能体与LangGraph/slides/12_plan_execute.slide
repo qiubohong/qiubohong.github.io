@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PRACTICE 02 · PLAN-EXECUTE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>计划-执行-反思：强弱模型分工</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
+      {[
+        { t: 'Plan', tag: '强模型', d: '拆解目标\n规划执行步骤', c: '#22D3EE' },
+        { t: 'Execute', tag: '弱模型', d: '按计划逐步执行\n产出中间结果', c: '#2E5E8A' },
+        { t: 'Replan', tag: '强模型', d: '复盘结果\n调整计划再执行', c: '#FF9F1C' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+          <Box style={{ flex: 1, background: item.c, borderRadius: 14, padding: '28px 20px', alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#FFFFFF', opacity: 0.9, fontWeight: 'bold', marginBottom: 12 }}>{item.tag}</Text>
+            <Text style={{ fontSize: 13, color: '#FFFFFF', opacity: 0.92, textAlign: 'center', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
+          </Box>
+          {idx < 2 && (
+            <Box style={{ width: 34, justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 22, height: 22 }} />
+            </Box>
+          )}
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 26, background: '#16263F', borderRadius: 14, padding: '22px 28px' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 10 }}>
+        <FAIcon name='undo' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>Reflexion 反思：让 Agent 越做越聪明</Text>
+      </Box>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+        执行失败或结果不佳时，把「哪里错了」写进长期记忆，下一轮计划自动避坑——<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>强模型负责想，弱模型负责干，成本与质量兼得</span>。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>12 / 14</Text>
+  </Box>
+</Slide>

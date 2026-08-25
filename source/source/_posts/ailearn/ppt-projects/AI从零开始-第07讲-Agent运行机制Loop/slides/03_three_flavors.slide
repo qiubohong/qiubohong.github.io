@@ -1,0 +1,68 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>THREE FLAVORS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>三种流派：从「写死」到「放飞」，复杂度递增</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 30 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '28px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='cog' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>确定性循环</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+          流程写死在代码里，每一步都可预测、可复现。<br />
+          适合固定流程，改需求要改代码。
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 16 }}>
+          <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>优点：稳定可控</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '28px 26px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='layer-group' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>SDK Loop（主流）</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
+          用 LangChain / Claude Agent SDK 的现成循环，模型自主决定每步。<br />
+          灵活 + 工具生态齐全，是工程首选。
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 16 }}>
+          <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold' }}>优点：灵活 + 生态</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '28px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='users' style={{ fill: '#22D3EE', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F' }}>多 Agent 协作</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+          多个 Agent 分工：规划者、执行者、评审者相互配合。<br />
+          能力最强，但调试与成本翻倍。
+        </Text>
+        <Box style={{ marginTop: 'auto', paddingTop: 16 }}>
+          <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>优点：能力上限高</Text>
+        </Box>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        选型心法：先确定性跑通，再上 SDK Loop，只有确需多角色分工才上多 Agent
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 09</Text>
+  </Box>
+</Slide>

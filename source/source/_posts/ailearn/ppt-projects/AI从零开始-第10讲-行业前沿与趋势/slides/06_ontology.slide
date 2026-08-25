@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>ONTOLOGY</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        Ontology 语义地基：<br />让 Agent 说「同一种话」
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        Agent 跨系统协作时，各说各话、词义打架。<span style={{ fontWeight: 'bold', color: '#16263F' }}>本体（Ontology）统一词汇与关系</span>，是语义层面的「共同字典」。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='project-diagram' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>三元组：主语 - 谓语 - 宾语</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>如「用户 - 拥有 - 订单」，用最简结构描述世界的关系。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='lock' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>本体绑定 = 权限边界</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>谁有权访问哪类实体，绑定在本体上，越界即拦截。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='rocket' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>Demo 用 RAG，规模化才上本体</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>小项目检索够用；多系统协作到一定规模，本体才是地基。</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 10 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 11</Text>
+  </Box>
+</Slide>

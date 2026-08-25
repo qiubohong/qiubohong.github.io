@@ -1,0 +1,61 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>WEEKLY ACTION</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>本周行动：跑通一次模型对话</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 5, flexDirection: 'column', gap: 16 }}>
+        {[
+          { n: '①', t: '注册拿 Key', d: '任选一个平台（推荐 DeepSeek），注册并生成 API Key', icon: 'key' },
+          { n: '②', t: '写第一段对话', d: '用官方 Playground 或网页，向模型发出第一个问题', icon: 'comment' },
+          { n: '③', t: '调通 API', d: '写几行 Python，用 Key 调一次模型，看到返回即通关', icon: 'code' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+            <Text style={{ fontSize: 26, color: '#FF9F1C', fontWeight: 'bold' }}>{item.n}</Text>
+            <Box style={{ width: 44, height: 44, borderRadius: 12, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 22, height: 22 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+              <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 4, background: '#16263F', borderRadius: 14, padding: '26px 28px', justifyContent: 'center' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+          <FAIcon name='clipboard-check' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>自测 3 题</Text>
+        </Box>
+        {[
+          'LLM 的参数量一定越大越好吗？为什么？',
+          '「中文 Token 税」是什么意思，能省吗？',
+          'Embedding 和 RAG 是什么关系？',
+        ].map((q, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginBottom: 14 }}>
+            <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold' }}>0{idx + 1}</Text>
+            <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7 }}>{q}</Text>
+          </Box>
+        ))}
+        <Box style={{ marginTop: 8, background: 'rgba(255,159,28,0.12)', borderRadius: 8, padding: '12px 16px' }}>
+          <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+            答不上来？回到对应页面再看一遍
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 11</Text>
+  </Box>
+</Slide>

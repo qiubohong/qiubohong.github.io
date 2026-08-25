@@ -1,0 +1,57 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>CONTEXT ENGINEERING</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        上下文工程：<br />喂什么，比怎么喂更重要
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        信息不足会乱猜，信息过载会分心。核心原则：<span style={{ fontWeight: 'bold', color: '#16263F' }}>可见即存在</span>——没进上下文的，等于不存在。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='eye' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 5 }}>可见即存在</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>没放进上下文的规则、文件、约定，对模型就是「不存在」。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: 'rgba(255,159,28,0.15)', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='map' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 5 }}>AGENTS.md 导航地图</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>把「去哪找、找什么」写清楚——地图优于百科全书，先导航后展开。</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ width: 52, height: 52, borderRadius: 13, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+          <FAIcon name='balance-scale' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+        </Box>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 5 }}>信息要恰到好处</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.6 }}>太少→瞎猜，太多→分心。只给当前任务真正需要的上下文。</Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 12</Text>
+  </Box>
+</Slide>

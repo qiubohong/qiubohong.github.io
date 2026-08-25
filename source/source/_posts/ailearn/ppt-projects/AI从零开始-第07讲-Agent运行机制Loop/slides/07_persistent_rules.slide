@@ -1,0 +1,63 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PERSISTENT RULES</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>持久规则与会话恢复：让 Agent 记住「该怎么做」</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 3, background: '#16263F', borderRadius: 14, padding: '28px 28px', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <FAIcon name='file-text' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>CLAUDE.md 持久规则</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+          把「项目的约定、命令、边界」写进 CLAUDE.md，每次会话自动注入——规则不靠记性，靠文件持久化。
+        </Text>
+        <Box style={{ marginTop: 16, background: 'rgba(255,255,255,0.08)', borderRadius: 8, padding: '12px 16px' }}>
+          <Text style={{ fontSize: 13, color: '#22D3EE', fontFamily: '"JetBrains Mono", monospace', lineHeight: 1.7 }}>
+            # CLAUDE.md<br />本项目使用 npm，测试用 vitest<br />禁止直接改 main 分支
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 4, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='redo' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F' }}>会话断点恢复</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            把对话历史与中间状态存下来，任务中断后能从断点继续，不必从头再来。
+          </Text>
+        </Box>
+
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '22px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='magic' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#16263F' }}>PreCompact Hook</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.8 }}>
+            上下文快满时自动触发的钩子——在压缩前把关键信息先落盘，再摘要，避免失忆。
+          </Text>
+        </Box>
+
+        <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '12px 18px' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+            规则靠文件，进度靠断点，关键信息靠钩子——三件套对抗失忆
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 7 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 09</Text>
+  </Box>
+</Slide>

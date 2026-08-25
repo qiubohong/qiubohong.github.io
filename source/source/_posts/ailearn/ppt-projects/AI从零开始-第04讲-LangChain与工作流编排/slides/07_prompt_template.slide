@@ -1,0 +1,56 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PROMPT TEMPLATE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>PromptTemplate：用消息角色组织一次对话</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 28, flex: 1 }}>
+      <Box style={{ flex: 3 }}>
+        <CodeBlock
+          code={`from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "你是资深 AI 讲师，用通俗语言回答。"),
+    MessagesPlaceholder("history"),      # 历史对话占位
+    ("human", "{question}"),
+])`}
+          language='python'
+          width={640}
+          fontSize={14}
+        />
+      </Box>
+
+      <Box style={{ flex: 2, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+        {[
+          { t: 'system', c: '#22D3EE', d: '设定人设与规则，一次定义全程生效' },
+          { t: 'human', c: '#FF9F1C', d: '用户的真实输入，每次可变' },
+          { t: 'ai', c: '#DCE7F5', d: '模型的回复，常用于多轮上下文' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, background: '#FFFFFF', borderRadius: 10, padding: '14px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Box style={{ width: 14, height: 14, borderRadius: 7, background: item.c }} />
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F' }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+        <Box style={{ background: '#16263F', borderRadius: 10, padding: '14px 18px' }}>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.6 }}>
+            <span style={{ color: '#22D3EE', fontWeight: 'bold' }}>MessagesPlaceholder</span> 把历史消息「塞进」固定位置——多轮对话的关键。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 14</Text>
+  </Box>
+</Slide>

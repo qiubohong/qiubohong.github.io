@@ -1,0 +1,47 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>TOOLBOX</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>15 个趁手 AI 工具，按四类收好</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 20, flex: 1 }}>
+      {[
+        { t: '文档转换', icon: 'file-export', dark: false, items: ['markitdown', 'snapdom', 'pandoc', 'docling'] },
+        { t: 'Agent 编排', icon: 'sitemap', dark: true, items: ['spec-kit', 'claude-code', 'prompt-optimizer', 'langgraph'] },
+        { t: '开发工具链', icon: 'wrench', dark: false, items: ['codegraph', 'deepeval', 'otel', 'ruff'] },
+        { t: '可视化', icon: 'chart-pie', dark: false, items: ['mermaid', 'excalidraw', 'graphviz'] },
+      ].map((cat, idx) => (
+        <Box key={idx} style={{ flex: 1, background: cat.dark ? '#16263F' : '#FFFFFF', borderRadius: 14, padding: '22px 22px', boxShadow: cat.dark ? undefined : '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+            <FAIcon name={cat.icon} style={{ fill: cat.dark ? '#FF9F1C' : '#22D3EE', width: 26, height: 26 }} />
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: cat.dark ? '#FFFFFF' : '#16263F' }}>{cat.t}</Text>
+          </Box>
+          <Box style={{ flexDirection: 'column', gap: 10 }}>
+            {cat.items.map((item, i) => (
+              <Box key={i} style={{ background: cat.dark ? 'rgba(255,255,255,0.07)' : '#F5F7FA', borderRadius: 8, padding: '10px 14px' }}>
+                <Text style={{ fontSize: 13, color: cat.dark ? '#DCE7F5' : '#1B2733', fontFamily: '"JetBrains Mono", monospace' }}>{item}</Text>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        工具不在多，在于「各司其职」——文档、编排、开发、可视化一条链路串起来
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>11 / 12</Text>
+  </Box>
+</Slide>

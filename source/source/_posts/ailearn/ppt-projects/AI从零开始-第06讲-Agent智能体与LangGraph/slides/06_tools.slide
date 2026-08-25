@@ -1,0 +1,59 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 3, flexDirection: 'column' }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ABILITY 02 · TOOLS</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 16 }}>三大能力 ② 工具：给 Agent 装上手</Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 20 }} />
+
+      <Box style={{ flexDirection: 'column', gap: 14, flex: 1, justifyContent: 'center' }}>
+        {[
+          { t: 'Function Call', d: '模型输出结构化 JSON 参数，由你调用真实函数' },
+          { t: 'Plugin', d: '打包好的能力组件，即插即用，如搜索、计算' },
+          { t: '模型内嵌', d: '厂商把工具直接内置进模型，无需额外接入' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', gap: 16, background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Box style={{ width: 48, height: 48, borderRadius: 12, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name='wrench' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 2, background: '#16263F', borderRadius: 14, padding: '28px 26px', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>主流模型原生支持</Text>
+      <Text style={{ fontSize: 13, color: '#8FA4B8', marginBottom: 18 }}>Function Call 已成标配</Text>
+      {[
+        'GPT-5',
+        'Claude Opus 5',
+        'DeepSeek V4-Flash',
+        'Qwen',
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderBottom: '1px solid rgba(220,231,245,0.12)', padding: '12px 4px' }}>
+          <FAIcon name='check-circle' style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+          <Text style={{ fontSize: 16, color: '#DCE7F5', fontWeight: 'bold' }}>{item}</Text>
+        </Box>
+      ))}
+      <Box style={{ marginTop: 16, background: 'rgba(255,159,28,0.12)', borderRadius: 8, padding: '12px 16px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          选型：接口统一（OpenAI 兼容），工具随处可用
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>06 / 14</Text>
+  </Box>
+</Slide>

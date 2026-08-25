@@ -1,0 +1,62 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>LLM GATEWAY</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        LLM 网关治理：<br />多模型接入的统一入口
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        直接连多家模型，密钥散落、切换麻烦、成本失控。<span style={{ fontWeight: 'bold', color: '#16263F' }}>网关把多家模型收拢成一个入口</span>。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>代表工具</Text>
+        <Box style={{ flexDirection: 'row', gap: 10 }}>
+          {['LiteLLM', 'One API', 'OpenRouter'].map((item, idx) => (
+            <Box key={idx} style={{ background: '#EAF2FB', borderRadius: 8, padding: '8px 16px' }}>
+              <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace' }}>{item}</Text>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+
+      <Box style={{ flexDirection: 'row', gap: 14 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <FAIcon name='key' style={{ fill: '#22D3EE', width: 24, height: 24, marginBottom: 10 }} />
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>虚拟密钥</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>一个入口发多个虚拟密钥，分团队分项目</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <FAIcon name='route' style={{ fill: '#22D3EE', width: 24, height: 24, marginBottom: 10 }} />
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>成本路由</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>按任务自动选便宜/强模型</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '18px 20px' }}>
+          <FAIcon name='chart-bar' style={{ fill: '#FF9F1C', width: 24, height: 24, marginBottom: 10 }} />
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>预算审计</Text>
+          <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.6 }}>配额、限额、用量一目了然</Text>
+        </Box>
+      </Box>
+
+      <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+        <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+          网关是「省钱 + 可控」的地基，多模型时代的必备基建
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>10 / 12</Text>
+  </Box>
+</Slide>

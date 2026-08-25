@@ -1,0 +1,62 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 36 }}>
+    <Box style={{ flex: 5, paddingTop: 8 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 10 }}>TRANSFORMER</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 16 }}>
+        Transformer：<br />答题时圈重点的注意力机制
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.8, marginBottom: 22 }}>
+        读题时你会<span style={{ fontWeight: 'bold', color: '#16263F' }}>圈出关键词</span>再作答——Transformer 的「注意力」就是这个过程：让模型知道一句话里<span style={{ fontWeight: 'bold', color: '#16263F' }}>哪些词最重要</span>。
+      </Text>
+
+      <Box style={{ background: '#16263F', borderRadius: 14, padding: '24px 28px' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <FAIcon name='brain' style={{ fill: '#FF9F1C', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>一句话记牢</Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.9 }}>
+          自注意力 = 每个词都问一遍「整句话里，谁和我最相关」，然后把重点信息「加权」到自己身上。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 4, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>Q / K / V 三个角色</Text>
+        <Box style={{ background: 'rgba(255,159,28,0.12)', borderRadius: 8, padding: '6px 12px' }}>
+          <Text style={{ fontSize: 12, color: '#FF9F1C', fontWeight: 'bold' }}>选学 · 可跳过</Text>
+        </Box>
+      </Box>
+      {[
+        { k: 'Q', n: '查询 Query', d: '「我想找什么」——当前词的发问', c: '#22D3EE' },
+        { k: 'K', n: '键 Key', d: '「我是什么」——每个词的标签', c: '#FF9F1C' },
+        { k: 'V', n: '值 Value', d: '「我有什么内容」——被提取的信息', c: '#16263F' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, padding: '14px 0', borderBottom: idx < 2 ? '1px solid #EEF2F7' : 'none' }}>
+          <Box style={{ width: 40, height: 40, borderRadius: 10, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: item.c }}>{item.k}</Text>
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.n}</Text>
+            <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+          </Box>
+        </Box>
+      ))}
+      <Text style={{ fontSize: 13, color: '#5B6B7A', marginTop: 14, lineHeight: 1.6 }}>
+        细节留到 P11 选学页再展开，这里先记住「注意力 = 圈重点」即可。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 1 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>04 / 11</Text>
+  </Box>
+</Slide>

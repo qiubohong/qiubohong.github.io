@@ -1,0 +1,60 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>DEVIL REVIEW</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>魔鬼式评审实战：把需求问到「没有漏洞」</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 14 }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>案例：登录失败 3 次锁定账户</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+            魔鬼评审会追问：<br />
+            · 锁定多久？自动解锁还是人工？<br />
+            · 锁账号还是锁 IP？<br />
+            · 失败计数何时清零？<br />
+            · 并发登录怎么算？
+          </Text>
+        </Box>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>Spec 评审 4 问</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 2 }}>
+            ① 验收标准清晰吗？<br />② 边界情况覆盖了吗？<br />③ 数据模型定义了吗？<br />④ 成功指标量化了吗？
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <FAIcon name='search' style={{ fill: '#22D3EE', width: 26, height: 26 }} />
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>code-review 子 Agent 抓坏味道</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', marginBottom: 14 }}>用独立的 code-review 子 Agent 扫描，输出重构清单：</Text>
+        {[
+          { t: '重复代码', d: '能抽函数就抽函数' },
+          { t: '命名不清', d: '变量名看不懂是债' },
+          { t: '函数过长', d: '一个函数只做一件事' },
+          { t: '魔法数字', d: '硬编码要提常量' },
+          { t: '缺错误处理', d: '边界不设防必出事' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: '10px 0', borderBottom: '1px solid #EDF1F5' }}>
+            <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', width: 26 }}>{idx + 1}</Text>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#16263F', width: 96 }}>{item.t}</Text>
+            <Text style={{ fontSize: 13, color: '#5B6B7A', flex: 1 }}>{item.d}</Text>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 12</Text>
+  </Box>
+</Slide>

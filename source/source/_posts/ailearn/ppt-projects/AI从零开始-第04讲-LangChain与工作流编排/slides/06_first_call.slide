@@ -1,0 +1,47 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'row', gap: 44 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>FIRST CALL · 第一次调用</Text>
+      <Box style={{ flexDirection: 'row', gap: 20, alignItems: 'flex-end', marginBottom: 20 }}>
+        <Text style={{ fontSize: 68, color: '#FF9F1C', fontWeight: 'bold', lineHeight: 1 }}>5</Text>
+        <Text style={{ fontSize: 24, color: '#FFFFFF', fontWeight: 'bold', paddingBottom: 10 }}>行代码<br />跑通对话</Text>
+      </Box>
+      <Text style={{ fontSize: 16, color: '#DCE7F5', lineHeight: 1.8 }}>
+        <span style={{ color: '#FF9F1C', fontWeight: 'bold' }}>prompt | llm | StrOutputParser</span>——用管道符 <span style={{ fontFamily: '"JetBrains Mono", monospace', color: '#22D3EE' }}>|</span> 把三个组件串成一条链，输出即干净的字符串。
+      </Text>
+      <Box style={{ marginTop: 22, background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 10, padding: '14px 18px' }}>
+        <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold' }}>
+          这就是 LCEL 的最小闭环：组件化 + 管道串联
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, justifyContent: 'center' }}>
+      <CodeBlock
+        code={`from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+
+prompt = ChatPromptTemplate.from_template("{topic} 是什么？")
+llm = ChatOpenAI(model="deepseek-v4-flash")
+chain = prompt | llm | StrOutputParser()
+
+print(chain.invoke({"topic": "LangChain"}))`}
+        language='python'
+        width={560}
+        fontSize={14}
+      />
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 4 讲</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>06 / 14</Text>
+  </Box>
+</Slide>

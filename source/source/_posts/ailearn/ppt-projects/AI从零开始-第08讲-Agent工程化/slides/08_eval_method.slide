@@ -1,0 +1,61 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>EVAL METHODS</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>评测方法论：评分器、通过率，还有反直觉案例</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 28, flex: 1 }}>
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 12 }}>Anthropic 三类评分器</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+            · 代码评分器：跑单元测试，客观可复现<br />
+            · 人工评分器：人来评，最准但最贵<br />
+            · LLM 评分器：模型来评，快但有偏差
+          </Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 12 }}>pass@k vs pass^k</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+            · pass@k：跑 k 次，至少一次成功<br />
+            · pass^k：跑 k 次，全部成功（测稳定性）<br />
+            一个测「上限」，一个测「靠谱」。
+          </Text>
+        </Box>
+      </Box>
+
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 12 }}>微软 AgentEval 三智能体</Text>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+            · 规划评估：任务拆解合不合理<br />
+            · 执行评估：步骤走得对不对<br />
+            · 结果评估：最终答案达不达标
+          </Text>
+        </Box>
+        <Box style={{ background: '#FF9F1C', borderRadius: 12, padding: '20px 24px' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>反直觉：忠实度仅 32%</Text>
+          <Text style={{ fontSize: 14, color: '#16263F', lineHeight: 1.8 }}>
+            某个 Agent 过程看起来「行云流水」，但只有 32% 的步骤真正忠实于任务——<span style={{ fontWeight: 'bold' }}>过程流畅 ≠ 结果正确</span>。
+          </Text>
+        </Box>
+        <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+            结论：过程与结果必须分开评，别被「看起来不错」骗了
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>08 / 12</Text>
+  </Box>
+</Slide>

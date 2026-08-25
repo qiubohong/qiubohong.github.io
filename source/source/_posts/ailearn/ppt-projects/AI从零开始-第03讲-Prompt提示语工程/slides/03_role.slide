@@ -1,0 +1,59 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>ELEMENT 01 · ROLE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>要素①角色：给 AI 戴上职业帽子</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 4, flexDirection: 'column', gap: 14 }}>
+        {[
+          { t: '专业型', d: '「你是资深后端工程师」→ 输出更内行', icon: 'user-tie' },
+          { t: '创意型', d: '「你是文案策划」→ 表达更有感染力', icon: 'palette' },
+          { t: '中介型', d: '「你是翻译/谈判专家」→ 擅长双向转换', icon: 'handshake' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 42, height: 42, borderRadius: 11, background: '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+              <FAIcon name={item.icon} style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            </Box>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 3 }}>{item.t}</Text>
+              <Text style={{ fontSize: 14, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 5, flexDirection: 'column', gap: 14 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '18px 22px', border: '1px solid rgba(255,159,28,0.35)', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+            <FAIcon name='times-circle' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FF9F1C' }}>反面：没戴帽子</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#5B6B7A', lineHeight: 1.7 }}>
+            「帮我写个活动方案」→ 模型不知道你是什么身份、要什么语气，输出泛泛而谈。
+          </Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '18px 22px' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+            <FAIcon name='check-circle' style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FFFFFF' }}>正面：戴好帽子</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7 }}>
+            「你是一位有 5 年经验的线下活动策划，帮我写一份面向 30 人技术分享会的活动方案」→ 输出更有针对性。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 3 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 11</Text>
+  </Box>
+</Slide>

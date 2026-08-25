@@ -1,0 +1,289 @@
+=== boot pid=13147 ts=2026-08-13 21:32:58.856 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 --filename AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ===
+[2026-08-13 21:32:58.850] [INFO ] [pid=13147] [start] invoked pid=13147 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 daemonChild=no dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 --filename AI从零开始-第05讲-RAG检索增强生成-优化版.pptx]
+[2026-08-13 21:32:58.859] [INFO ] [pid=13147] [start] spawning daemon projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 filename=AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:32:58.864] [INFO ] [pid=13147] [start] daemon spawned childPid=13157; waiting started ipc
+=== boot pid=13157 ts=2026-08-13 21:33:00.120 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-start --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 --filename AI从零开始-第05讲-RAG检索增强生成-优化版.pptx --__daemon-child ===
+[2026-08-13 21:33:00.119] [INFO ] [pid=13157] [start] invoked pid=13157 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 daemonChild=yes dev=no argv=[--project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 --filename AI从零开始-第05讲-RAG检索增强生成-优化版.pptx --__daemon-child]
+[2026-08-13 21:33:00.127] [INFO ] [pid=13157] [start] daemon child runWorker ppid=13147
+[2026-08-13 21:33:00.139] [INFO ] [pid=13157] [worker] start projectDir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 filename=AI从零开始-第05讲-RAG检索增强生成-优化版.pptx version=5.4.4
+[2026-08-13 21:33:00.141] [INFO ] [pid=13157] [worker] init ok dirs=ready
+[2026-08-13 21:33:00.143] [INFO ] [pid=13157] [server-url] env TENCENT_DOCS_LOCAL_MCP = http://127.0.0.1:39099/mcp
+[2026-08-13 21:33:00.147] [INFO ] [pid=13157] [worker] openFile start
+[2026-08-13 21:33:00.151] [INFO ] [pid=13157] [open-file] copy blank.pptx start src=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/lib/node_modules/@tencent/slidep/dist/resources/pptx/blank.pptx dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:33:00.155] [INFO ] [pid=13157] [open-file] copy blank.pptx ok dest=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=3
+[2026-08-13 21:33:00.184] [ERROR] [pid=13157] [http] editorStatus http 404 url=http://127.0.0.1:39099/api/editor/status body={"code":-1,"message":"no editor open for file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx"} ms=23
+[2026-08-13 21:33:00.188] [INFO ] [pid=13157] [open-file] open send url=http://127.0.0.1:39099/localapi/open filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:33:00.204] [INFO ] [pid=13157] [open-file] open ok fileId=B72062D4 fileType=slide filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=11
+[2026-08-13 21:33:00.246] [INFO ] [pid=13157] [worker] openFile ok fileId=B72062D4 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:33:00.248] [INFO ] [pid=13157] [worker] previewUrl=http://127.0.0.1:39099/static/slide/pc.html?local_edit=1&client=sdk_local&localFilePath=%2FUsers%2Fborfyqiu%2FDesktop%2Fstudy%2Fself%2Fqiubohong.github.io%2Fsource%2Fsource%2F_posts%2Failearn%2Fppt-projects%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%2FAI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90-%E4%BC%98%E5%8C%96%E7%89%88.pptx
+[2026-08-13 21:33:00.249] [INFO ] [pid=13157] [state] state.json not found, creating path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.slidep/state.json filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:33:00.251] [INFO ] [pid=13157] [worker] commitEndpoint=http://127.0.0.1:39099/localapi/commitrevision
+[2026-08-13 21:33:00.254] [INFO ] [pid=13157] [mcp] mcp:slide_get_info send url=http://127.0.0.1:39099/mcp args={"file_id":"B72062D4-8FCE-473B-AFE0-54B72CE3FF65"}
+[2026-08-13 21:33:00.257] [INFO ] [pid=13157] [mcp] mcp:slide_get_info ok ms=2
+[2026-08-13 21:33:00.262] [INFO ] [pid=13157] [purge] purge start backendSlideCount=0
+[2026-08-13 21:33:00.264] [INFO ] [pid=13157] [purge] purge ok removed=0 ms=13
+[2026-08-13 21:33:00.268] [INFO ] [pid=13157] [worker] initial sync submitted pages=0
+[2026-08-13 21:33:00.268] [INFO ] [pid=13157] [sync] submit nextRound=1 dirty=<none> pendingDirtySize=0 merged=no
+[2026-08-13 21:33:00.270] [INFO ] [pid=13157] [sync] drain start round=1 pendingDirtySize=0
+[2026-08-13 21:33:00.271] [INFO ] [pid=13157] [sync] aligned round=1 attempt=1 size=0 desired=0 pendingDirtySize=0
+[2026-08-13 21:33:00.275] [INFO ] [pid=13157] [worker] ready fileId=B72062D4 backendUrl=http://127.0.0.1:39099 initialPages=0 ms=136
+[2026-08-13 21:33:00.276] [INFO ] [pid=13147] [start] daemon started childPid=13157 ms=1417
+[2026-08-13 21:33:00.308] [INFO ] [pid=13157] [sync] reconcile ok round=1 attempt=1 ms=37
+[2026-08-13 21:33:00.309] [INFO ] [pid=13157] [sync] drain end round=1 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=39
+[2026-08-13 21:33:00.315] [INFO ] [pid=13157] [watcher] ready dir=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
+[2026-08-13 21:34:11.414] [INFO ] [pid=13157] [watcher] event=add file=slides/06_retrieval_advanced.slide
+[2026-08-13 21:34:11.417] [INFO ] [pid=13157] [watcher] event=add file=slides/05_vector_db.slide
+[2026-08-13 21:34:11.423] [INFO ] [pid=13157] [watcher] event=add file=slides/04_embedding.slide
+[2026-08-13 21:34:11.424] [INFO ] [pid=13157] [watcher] event=add file=slides/02_why_rag.slide
+[2026-08-13 21:34:11.425] [INFO ] [pid=13157] [watcher] event=add file=slides/03_rag_pipeline.slide
+[2026-08-13 21:34:11.426] [INFO ] [pid=13157] [watcher] event=add file=slides/01_cover.slide
+[2026-08-13 21:34:11.929] [INFO ] [pid=13157] [watcher] flush batch dirty=[06_retrieval_advanced,05_vector_db,04_embedding,02_why_rag,03_rag_pipeline,01_cover] size=6
+[2026-08-13 21:34:11.931] [INFO ] [pid=13157] [sync] submit nextRound=2 dirty=06_retrieval_advanced,05_vector_db,04_embedding,02_why_rag,03_rag_pipeline,01_cover pendingDirtySize=6 merged=no
+[2026-08-13 21:34:11.932] [INFO ] [pid=13157] [sync] drain start round=2 pendingDirtySize=6
+[2026-08-13 21:34:11.933] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=01_cover index=0
+[2026-08-13 21:34:11.934] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=01_cover index=0
+[2026-08-13 21:34:11.938] [INFO ] [pid=13157] [render] start pageId=01_cover file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/01_cover.slide
+[2026-08-13 21:34:12.196] [INFO ] [pid=13157] [render] ok pageId=01_cover slides=1 ms=258
+[2026-08-13 21:34:12.198] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:12.211] [INFO ] [pid=13157] [commit] commit send pageId=16e093 targetIndex=0 version=1 baseVersion=0 revisionBytes=9364
+[2026-08-13 21:34:12.222] [INFO ] [pid=13157] [commit] commit ok pageId=16e093 revisionId=2af498cc ms=8
+[2026-08-13 21:34:12.226] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=01_cover slideId=16e093 index=0 version=1 baseVersion=0 revisionId=2af498cc code=0 images=[local=0 remote=0 cached=0 failed=0] ms=292
+[2026-08-13 21:34:12.228] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=02_why_rag index=1
+[2026-08-13 21:34:12.229] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=02_why_rag index=1
+[2026-08-13 21:34:12.231] [INFO ] [pid=13157] [render] start pageId=02_why_rag file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/02_why_rag.slide
+[2026-08-13 21:34:12.440] [INFO ] [pid=13157] [render] ok pageId=02_why_rag slides=1 ms=209
+[2026-08-13 21:34:12.442] [INFO ] [pid=13157] [render] renderSlideData result.resources={
+  images: {
+    'rel:0020ut72': {
+      id: 'rel:0020ut72',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/274b93434694b1e9607aa2fed59e7548.svg'
+    },
+    'rel:00ft0yul': {
+      id: 'rel:00ft0yul',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/1ec93f9d4acf82291484f301341793a8.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:34:12.454] [INFO ] [pid=13157] [commit] commit send pageId=6dc342 targetIndex=1 version=2 baseVersion=1 revisionBytes=23276
+[2026-08-13 21:34:12.474] [INFO ] [pid=13157] [commit] commit ok pageId=6dc342 revisionId=14bd8206 ms=18
+[2026-08-13 21:34:12.483] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=02_why_rag slideId=6dc342 index=1 version=2 baseVersion=1 revisionId=14bd8206 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=254
+[2026-08-13 21:34:12.484] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=03_rag_pipeline index=2
+[2026-08-13 21:34:12.484] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=03_rag_pipeline index=2
+[2026-08-13 21:34:12.486] [INFO ] [pid=13157] [render] start pageId=03_rag_pipeline file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/03_rag_pipeline.slide
+[2026-08-13 21:34:12.645] [INFO ] [pid=13157] [render] ok pageId=03_rag_pipeline slides=1 ms=159
+[2026-08-13 21:34:12.646] [INFO ] [pid=13157] [render] renderSlideData result.resources={
+  images: {
+    'rel:00s5ngx9': {
+      id: 'rel:00s5ngx9',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/7d8cfa8ed4643871f8d2ea421650273e.svg'
+    },
+    'rel:01e3o1gk': {
+      id: 'rel:01e3o1gk',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/556accab12be251cc2f4cf7b182f1506.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:34:12.655] [INFO ] [pid=13157] [commit] commit send pageId=b11e7b targetIndex=2 version=3 baseVersion=2 revisionBytes=29296
+[2026-08-13 21:34:12.671] [INFO ] [pid=13157] [commit] commit ok pageId=b11e7b revisionId=3748fd17 ms=15
+[2026-08-13 21:34:12.675] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=03_rag_pipeline slideId=b11e7b index=2 version=3 baseVersion=2 revisionId=3748fd17 code=0 images=[local=2 remote=0 cached=0 failed=0] ms=191
+[2026-08-13 21:34:12.682] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=04_embedding index=3
+[2026-08-13 21:34:12.683] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=04_embedding index=3
+[2026-08-13 21:34:12.685] [INFO ] [pid=13157] [render] start pageId=04_embedding file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/04_embedding.slide
+[2026-08-13 21:34:12.780] [INFO ] [pid=13157] [render] ok pageId=04_embedding slides=1 ms=95
+[2026-08-13 21:34:12.782] [INFO ] [pid=13157] [render] renderSlideData result.resources={
+  images: {
+    'rel:00ndl1we': {
+      id: 'rel:00ndl1we',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/b2d7301b95273edcfa82cea240f6d826.svg'
+    },
+    'rel:00nh0je6': {
+      id: 'rel:00nh0je6',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/20c3d1413c3843f829e563194cd494f1.svg'
+    },
+    'rel:01re457r': {
+      id: 'rel:01re457r',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/5d2079f3a7aa60e6a5379b2f45c796b6.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:34:12.794] [INFO ] [pid=13157] [commit] commit send pageId=93dff0 targetIndex=3 version=4 baseVersion=3 revisionBytes=25104
+[2026-08-13 21:34:12.809] [INFO ] [pid=13157] [commit] commit ok pageId=93dff0 revisionId=bed4ad80 ms=12
+[2026-08-13 21:34:12.817] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=04_embedding slideId=93dff0 index=3 version=4 baseVersion=3 revisionId=bed4ad80 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=134
+[2026-08-13 21:34:12.819] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=05_vector_db index=4
+[2026-08-13 21:34:12.820] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=05_vector_db index=4
+[2026-08-13 21:34:12.821] [INFO ] [pid=13157] [render] start pageId=05_vector_db file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/05_vector_db.slide
+[2026-08-13 21:34:12.889] [INFO ] [pid=13157] [render] ok pageId=05_vector_db slides=1 ms=68
+[2026-08-13 21:34:12.890] [INFO ] [pid=13157] [render] renderSlideData result.resources={
+  images: {
+    'rel:01hc1z3e': {
+      id: 'rel:01hc1z3e',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/7226ae0d6fdb15f1ca203c1550ccca86.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:34:12.894] [INFO ] [pid=13157] [commit] commit send pageId=322b37 targetIndex=4 version=5 baseVersion=4 revisionBytes=18112
+[2026-08-13 21:34:12.904] [INFO ] [pid=13157] [commit] commit ok pageId=322b37 revisionId=9b7e1e58 ms=7
+[2026-08-13 21:34:12.909] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=05_vector_db slideId=322b37 index=4 version=5 baseVersion=4 revisionId=9b7e1e58 code=0 images=[local=1 remote=0 cached=0 failed=0] ms=89
+[2026-08-13 21:34:12.912] [INFO ] [pid=13157] [sync] step=add round=2 attempt=1 pageId=06_retrieval_advanced index=5
+[2026-08-13 21:34:12.912] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=06_retrieval_advanced index=5
+[2026-08-13 21:34:12.913] [INFO ] [pid=13157] [render] start pageId=06_retrieval_advanced file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/06_retrieval_advanced.slide
+[2026-08-13 21:34:12.961] [INFO ] [pid=13157] [render] ok pageId=06_retrieval_advanced slides=1 ms=48
+[2026-08-13 21:34:12.969] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:12.979] [INFO ] [pid=13157] [commit] commit send pageId=823cb0 targetIndex=5 version=6 baseVersion=5 revisionBytes=16252
+[2026-08-13 21:34:12.992] [INFO ] [pid=13157] [commit] commit ok pageId=823cb0 revisionId=2b1ab49d ms=4
+[2026-08-13 21:34:12.996] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=06_retrieval_advanced slideId=823cb0 index=5 version=6 baseVersion=5 revisionId=2b1ab49d code=0 images=[local=0 remote=0 cached=0 failed=0] ms=84
+[2026-08-13 21:34:13.002] [INFO ] [pid=13157] [sync] aligned round=2 attempt=1 size=6 desired=6 pendingDirtySize=0
+[2026-08-13 21:34:13.004] [INFO ] [pid=13157] [sync] reconcile ok round=2 attempt=1 ms=1072
+[2026-08-13 21:34:13.006] [INFO ] [pid=13157] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:34:13.007] [INFO ] [pid=13157] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:34:13.056] [INFO ] [pid=13157] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=48
+[2026-08-13 21:34:13.057] [INFO ] [pid=13157] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=51
+[2026-08-13 21:34:13.059] [INFO ] [pid=13157] [sync] drain end round=2 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1127
+[2026-08-13 21:34:55.330] [INFO ] [pid=13157] [watcher] event=add file=slides/09_response_notes.slide
+[2026-08-13 21:34:55.333] [INFO ] [pid=13157] [watcher] event=add file=slides/10_industrial_arch.slide
+[2026-08-13 21:34:55.335] [INFO ] [pid=13157] [watcher] event=add file=slides/11_summary.slide
+[2026-08-13 21:34:55.348] [INFO ] [pid=13157] [watcher] event=add file=slides/07_streamlit_demo.slide
+[2026-08-13 21:34:55.350] [INFO ] [pid=13157] [watcher] event=add file=slides/08_agent_retrieval.slide
+[2026-08-13 21:34:55.852] [INFO ] [pid=13157] [watcher] flush batch dirty=[09_response_notes,10_industrial_arch,11_summary,07_streamlit_demo,08_agent_retrieval] size=5
+[2026-08-13 21:34:55.854] [INFO ] [pid=13157] [sync] submit nextRound=3 dirty=09_response_notes,10_industrial_arch,11_summary,07_streamlit_demo,08_agent_retrieval pendingDirtySize=5 merged=no
+[2026-08-13 21:34:55.855] [INFO ] [pid=13157] [sync] drain start round=3 pendingDirtySize=5
+[2026-08-13 21:34:55.856] [INFO ] [pid=13157] [sync] step=add round=3 attempt=1 pageId=07_streamlit_demo index=6
+[2026-08-13 21:34:55.857] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=07_streamlit_demo index=6
+[2026-08-13 21:34:55.859] [INFO ] [pid=13157] [render] start pageId=07_streamlit_demo file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/07_streamlit_demo.slide
+[2026-08-13 21:34:56.323] [INFO ] [pid=13157] [render] ok pageId=07_streamlit_demo slides=1 ms=464
+[2026-08-13 21:34:56.325] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:56.334] [INFO ] [pid=13157] [commit] commit send pageId=1594bc targetIndex=6 version=7 baseVersion=6 revisionBytes=16940
+[2026-08-13 21:34:56.342] [INFO ] [pid=13157] [commit] commit ok pageId=1594bc revisionId=9513593c ms=7
+[2026-08-13 21:34:56.348] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=07_streamlit_demo slideId=1594bc index=6 version=7 baseVersion=6 revisionId=9513593c code=0 images=[local=0 remote=0 cached=0 failed=0] ms=491
+[2026-08-13 21:34:56.350] [INFO ] [pid=13157] [sync] step=add round=3 attempt=1 pageId=08_agent_retrieval index=7
+[2026-08-13 21:34:56.352] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=08_agent_retrieval index=7
+[2026-08-13 21:34:56.355] [INFO ] [pid=13157] [render] start pageId=08_agent_retrieval file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/08_agent_retrieval.slide
+[2026-08-13 21:34:56.431] [INFO ] [pid=13157] [render] ok pageId=08_agent_retrieval slides=1 ms=76
+[2026-08-13 21:34:56.433] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:56.437] [INFO ] [pid=13157] [commit] commit send pageId=89c0a7 targetIndex=7 version=8 baseVersion=7 revisionBytes=18008
+[2026-08-13 21:34:56.446] [INFO ] [pid=13157] [commit] commit ok pageId=89c0a7 revisionId=316fa746 ms=4
+[2026-08-13 21:34:56.455] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=08_agent_retrieval slideId=89c0a7 index=7 version=8 baseVersion=7 revisionId=316fa746 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=103
+[2026-08-13 21:34:56.460] [INFO ] [pid=13157] [sync] step=add round=3 attempt=1 pageId=09_response_notes index=8
+[2026-08-13 21:34:56.466] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=09_response_notes index=8
+[2026-08-13 21:34:56.467] [INFO ] [pid=13157] [render] start pageId=09_response_notes file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/09_response_notes.slide
+[2026-08-13 21:34:56.554] [INFO ] [pid=13157] [render] ok pageId=09_response_notes slides=1 ms=87
+[2026-08-13 21:34:56.556] [INFO ] [pid=13157] [render] renderSlideData result.resources={
+  images: {
+    'rel:009tuiux': {
+      id: 'rel:009tuiux',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/14486e87b44d0d8560bd6fe8e5d800ed.svg'
+    },
+    'rel:01hzkj9k': {
+      id: 'rel:01hzkj9k',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/bb5bd542cac1b73805896a2bd8be8326.svg'
+    },
+    'rel:00k2ghlw': {
+      id: 'rel:00k2ghlw',
+      src: '/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/.cache/media/images/e5de439ab1ac30fdee12496b71677eb8.svg'
+    }
+  },
+  videos: {},
+  audios: {},
+  fonts: {}
+}
+[2026-08-13 21:34:56.561] [INFO ] [pid=13157] [commit] commit send pageId=b71142 targetIndex=8 version=9 baseVersion=8 revisionBytes=20840
+[2026-08-13 21:34:56.579] [INFO ] [pid=13157] [commit] commit ok pageId=b71142 revisionId=348d3127 ms=17
+[2026-08-13 21:34:56.585] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=09_response_notes slideId=b71142 index=8 version=9 baseVersion=8 revisionId=348d3127 code=0 images=[local=3 remote=0 cached=0 failed=0] ms=119
+[2026-08-13 21:34:56.587] [INFO ] [pid=13157] [sync] step=add round=3 attempt=1 pageId=10_industrial_arch index=9
+[2026-08-13 21:34:56.588] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=10_industrial_arch index=9
+[2026-08-13 21:34:56.589] [INFO ] [pid=13157] [render] start pageId=10_industrial_arch file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/10_industrial_arch.slide
+[2026-08-13 21:34:56.651] [INFO ] [pid=13157] [render] ok pageId=10_industrial_arch slides=1 ms=62
+[2026-08-13 21:34:56.654] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:56.664] [INFO ] [pid=13157] [commit] commit send pageId=ee8c07 targetIndex=9 version=10 baseVersion=9 revisionBytes=20924
+[2026-08-13 21:34:56.689] [INFO ] [pid=13157] [commit] commit ok pageId=ee8c07 revisionId=92d03df2 ms=5
+[2026-08-13 21:34:56.706] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=10_industrial_arch slideId=ee8c07 index=9 version=10 baseVersion=9 revisionId=92d03df2 code=0 images=[local=0 remote=0 cached=0 failed=0] ms=118
+[2026-08-13 21:34:56.709] [INFO ] [pid=13157] [sync] step=add round=3 attempt=1 pageId=11_summary index=10
+[2026-08-13 21:34:56.710] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=11_summary index=10
+[2026-08-13 21:34:56.712] [INFO ] [pid=13157] [render] start pageId=11_summary file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/11_summary.slide
+[2026-08-13 21:34:56.788] [INFO ] [pid=13157] [render] ok pageId=11_summary slides=1 ms=76
+[2026-08-13 21:34:56.791] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:34:56.799] [INFO ] [pid=13157] [commit] commit send pageId=cc98ea targetIndex=10 version=11 baseVersion=10 revisionBytes=19020
+[2026-08-13 21:34:56.806] [INFO ] [pid=13157] [commit] commit ok pageId=cc98ea revisionId=55bea6da ms=5
+[2026-08-13 21:34:56.844] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=11_summary slideId=cc98ea index=10 version=11 baseVersion=10 revisionId=55bea6da code=0 images=[local=0 remote=0 cached=0 failed=0] ms=134
+[2026-08-13 21:34:56.845] [INFO ] [pid=13157] [sync] aligned round=3 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:34:56.847] [INFO ] [pid=13157] [sync] reconcile ok round=3 attempt=1 ms=992
+[2026-08-13 21:34:56.849] [INFO ] [pid=13157] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:34:56.851] [INFO ] [pid=13157] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:34:56.929] [INFO ] [pid=13157] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=70
+[2026-08-13 21:34:56.934] [INFO ] [pid=13157] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=85
+[2026-08-13 21:34:56.936] [INFO ] [pid=13157] [sync] drain end round=3 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=1081
+=== boot pid=16935 ts=2026-08-13 21:34:59.923 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 ===
+[2026-08-13 21:34:59.922] [INFO ] [pid=16935] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
+[2026-08-13 21:34:59.929] [INFO ] [pid=16935] [validate] batch start files=11 checkOverflow=true
+=== boot pid=17546 ts=2026-08-13 21:35:14.187 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 ===
+[2026-08-13 21:35:14.186] [INFO ] [pid=17546] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
+[2026-08-13 21:35:14.191] [INFO ] [pid=17546] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:35:15.626] [INFO ] [pid=17546] [validate] batch done total=11 passed=10 failed=1 ms=1441
+[2026-08-13 21:35:41.754] [INFO ] [pid=13157] [watcher] event=change file=slides/07_streamlit_demo.slide
+[2026-08-13 21:35:42.258] [INFO ] [pid=13157] [watcher] flush batch dirty=[07_streamlit_demo] size=1
+[2026-08-13 21:35:42.260] [INFO ] [pid=13157] [sync] submit nextRound=4 dirty=07_streamlit_demo pendingDirtySize=1 merged=no
+[2026-08-13 21:35:42.266] [INFO ] [pid=13157] [sync] drain start round=4 pendingDirtySize=1
+[2026-08-13 21:35:42.269] [INFO ] [pid=13157] [sync] step=remove-dirty round=4 attempt=1 pageId=07_streamlit_demo index=6
+[2026-08-13 21:35:42.272] [INFO ] [pid=13157] [backend-ops] removeSlideAt start index=6
+[2026-08-13 21:35:42.282] [INFO ] [pid=13157] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"B72062D4-8FCE-473B-AFE0-54B72CE3FF65","page_index":6}
+[2026-08-13 21:35:42.288] [INFO ] [pid=13157] [mcp] mcp:slide_remove_slide ok ms=3
+[2026-08-13 21:35:42.290] [INFO ] [pid=13157] [backend-ops] removeSlideAt ok index=6 serverVersion=12 ms=18
+[2026-08-13 21:35:42.291] [INFO ] [pid=13157] [sync] step=add round=4 attempt=1 pageId=07_streamlit_demo index=6
+[2026-08-13 21:35:42.292] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=07_streamlit_demo index=6
+[2026-08-13 21:35:42.293] [INFO ] [pid=13157] [render] start pageId=07_streamlit_demo file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/07_streamlit_demo.slide
+[2026-08-13 21:35:42.392] [INFO ] [pid=13157] [render] ok pageId=07_streamlit_demo slides=1 ms=99
+[2026-08-13 21:35:42.394] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:35:42.403] [INFO ] [pid=13157] [commit] commit send pageId=6be7e2 targetIndex=6 version=12 baseVersion=12 revisionBytes=15508
+[2026-08-13 21:35:42.409] [INFO ] [pid=13157] [commit] commit ok pageId=6be7e2 revisionId=bcaaf14d ms=4
+[2026-08-13 21:35:42.413] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=07_streamlit_demo slideId=6be7e2 index=6 version=12 baseVersion=12 revisionId=bcaaf14d code=0 images=[local=0 remote=0 cached=0 failed=0] ms=121
+[2026-08-13 21:35:42.413] [INFO ] [pid=13157] [sync] aligned round=4 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:35:42.415] [INFO ] [pid=13157] [sync] reconcile ok round=4 attempt=1 ms=146
+[2026-08-13 21:35:42.417] [INFO ] [pid=13157] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:35:42.418] [INFO ] [pid=13157] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:35:42.473] [INFO ] [pid=13157] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=53
+[2026-08-13 21:35:42.475] [INFO ] [pid=13157] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=58
+[2026-08-13 21:35:42.476] [INFO ] [pid=13157] [sync] drain end round=4 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=210
+=== boot pid=18889 ts=2026-08-13 21:35:46.382 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 ===
+[2026-08-13 21:35:46.381] [INFO ] [pid=18889] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
+[2026-08-13 21:35:46.384] [INFO ] [pid=18889] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:35:47.751] [INFO ] [pid=18889] [validate] batch done total=11 passed=10 failed=1 ms=1371
+[2026-08-13 21:36:35.458] [INFO ] [pid=13157] [watcher] event=change file=slides/07_streamlit_demo.slide
+[2026-08-13 21:36:35.961] [INFO ] [pid=13157] [watcher] flush batch dirty=[07_streamlit_demo] size=1
+[2026-08-13 21:36:35.963] [INFO ] [pid=13157] [sync] submit nextRound=5 dirty=07_streamlit_demo pendingDirtySize=1 merged=no
+[2026-08-13 21:36:35.966] [INFO ] [pid=13157] [sync] drain start round=5 pendingDirtySize=1
+[2026-08-13 21:36:35.968] [INFO ] [pid=13157] [sync] step=remove-dirty round=5 attempt=1 pageId=07_streamlit_demo index=6
+[2026-08-13 21:36:35.969] [INFO ] [pid=13157] [backend-ops] removeSlideAt start index=6
+[2026-08-13 21:36:35.976] [INFO ] [pid=13157] [mcp] mcp:slide_remove_slide send url=http://127.0.0.1:39099/mcp args={"file_id":"B72062D4-8FCE-473B-AFE0-54B72CE3FF65","page_index":6}
+[2026-08-13 21:36:35.983] [INFO ] [pid=13157] [mcp] mcp:slide_remove_slide ok ms=3
+[2026-08-13 21:36:35.987] [INFO ] [pid=13157] [backend-ops] removeSlideAt ok index=6 serverVersion=14 ms=18
+[2026-08-13 21:36:35.995] [INFO ] [pid=13157] [sync] step=add round=5 attempt=1 pageId=07_streamlit_demo index=6
+[2026-08-13 21:36:35.996] [INFO ] [pid=13157] [backend-ops] addSlideAt start pageId=07_streamlit_demo index=6
+[2026-08-13 21:36:35.997] [INFO ] [pid=13157] [render] start pageId=07_streamlit_demo file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides/07_streamlit_demo.slide
+[2026-08-13 21:36:36.067] [INFO ] [pid=13157] [render] ok pageId=07_streamlit_demo slides=1 ms=70
+[2026-08-13 21:36:36.068] [INFO ] [pid=13157] [render] renderSlideData result.resources={ images: {}, videos: {}, audios: {}, fonts: {} }
+[2026-08-13 21:36:36.073] [INFO ] [pid=13157] [commit] commit send pageId=161a85 targetIndex=6 version=13 baseVersion=14 revisionBytes=15636
+[2026-08-13 21:36:36.078] [INFO ] [pid=13157] [commit] commit ok pageId=161a85 revisionId=fe4d773c ms=4
+[2026-08-13 21:36:36.083] [INFO ] [pid=13157] [backend-ops] addSlideAt ok pageId=07_streamlit_demo slideId=161a85 index=6 version=13 baseVersion=14 revisionId=fe4d773c code=0 images=[local=0 remote=0 cached=0 failed=0] ms=87
+[2026-08-13 21:36:36.084] [INFO ] [pid=13157] [sync] aligned round=5 attempt=1 size=11 desired=11 pendingDirtySize=0
+[2026-08-13 21:36:36.086] [INFO ] [pid=13157] [sync] reconcile ok round=5 attempt=1 ms=118
+[2026-08-13 21:36:36.087] [INFO ] [pid=13157] [backend-ops] save start file=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:36:36.088] [INFO ] [pid=13157] [commit] save send filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx
+[2026-08-13 21:36:36.146] [INFO ] [pid=13157] [commit] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=57
+[2026-08-13 21:36:36.148] [INFO ] [pid=13157] [backend-ops] save ok file_path=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-优化版.pptx ms=61
+[2026-08-13 21:36:36.149] [INFO ] [pid=13157] [sync] drain end round=5 reconciles=1 mergedSubmits=1 pendingDirtySize=0 ms=183
+=== boot pid=21048 ts=2026-08-13 21:36:39.691 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2/bin/slidep-validate --all --project /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 ===
+[2026-08-13 21:36:39.690] [INFO ] [pid=21048] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
+[2026-08-13 21:36:39.692] [INFO ] [pid=21048] [validate] batch start files=11 checkOverflow=true
+[2026-08-13 21:36:40.947] [INFO ] [pid=21048] [validate] batch done total=11 passed=11 failed=0 ms=1258

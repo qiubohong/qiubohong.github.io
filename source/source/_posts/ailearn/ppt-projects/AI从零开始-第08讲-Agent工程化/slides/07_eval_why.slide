@@ -1,0 +1,72 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 360, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>EVALUATION</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        没有评测，<br />就没有改进
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        你无法改进你测不到的东西。Agent 评测难在三点：
+      </Text>
+      <Box style={{ marginTop: 16, flexDirection: 'column', gap: 10 }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 10, padding: '12px 16px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>非确定性</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>同输入不同输出，结果不稳定</Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 10, padding: '12px 16px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>过程重于结果</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>答案对但步骤错，也算失败</Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 10, padding: '12px 16px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>错误传播</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A' }}>前一步错，后面全错</Text>
+        </Box>
+      </Box>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+      <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>评测四层：从单元到系统逐层把关</Text>
+      <Box style={{ flexDirection: 'row', gap: 14 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>L1 组件级</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>工具/检索</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>单个工具对不对、检索准不准</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>L2 轨迹级</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>单次运行过程</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>工具选择、步骤顺序是否合理</Text>
+        </Box>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 14 }}>
+        <Box style={{ flex: 1, background: '#16263F', borderRadius: 12, padding: '20px 18px' }}>
+          <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 8 }}>L3 任务级</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>端到端任务</Text>
+          <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.6 }}>完整任务能否一次成功</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '20px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 8 }}>L4 系统级</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>线上整体</Text>
+          <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>回归、监控、真实用户反馈</Text>
+        </Box>
+      </Box>
+      <Box style={{ background: '#DCE7F5', borderRadius: 10, padding: '13px 20px' }}>
+        <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+          层越低越稳定、越便宜，层越高越接近真实——四层都要有
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 8 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>07 / 12</Text>
+  </Box>
+</Slide>

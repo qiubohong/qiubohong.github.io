@@ -1,0 +1,45 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>BEST PRACTICE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>场景 × 命令组合：不是所有需求都要走完八步</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'column', gap: 14, flex: 1 }}>
+      {[
+        { s: '常规需求', c: 'constitution → specify → clarify → plan → implement', tag: '完整流程', dark: false },
+        { s: '复杂 bug', c: 'specify → plan → analyze → implement', tag: '重排查', dark: false },
+        { s: '小 bug', c: 'implement → code-review', tag: '轻量修复', dark: false },
+        { s: '配置错误', c: 'implement（改配置）→ 验证', tag: '最快路径', dark: true },
+      ].map((item, idx) => (
+        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 20, background: item.dark ? '#16263F' : '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: item.dark ? undefined : '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ width: 110 }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: item.dark ? '#FFFFFF' : '#16263F' }}>{item.s}</Text>
+          </Box>
+          <Box style={{ width: 70 }}>
+            <Text style={{ fontSize: 13, color: item.dark ? '#22D3EE' : '#FF9F1C', fontWeight: 'bold' }}>{item.tag}</Text>
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Text style={{ fontSize: 14, color: item.dark ? '#DCE7F5' : '#5B6B7A', fontFamily: '"JetBrains Mono", monospace' }}>{item.c}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+
+    <Box style={{ marginTop: 18, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold' }}>
+        原则：小问题用短路径，大需求才走完整流水线——别让流程变成负担
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>05 / 12</Text>
+  </Box>
+</Slide>

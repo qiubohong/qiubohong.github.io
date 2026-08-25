@@ -1,0 +1,49 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#16263F',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 10 }}>MODEL LANDSCAPE 2026</Text>
+    <Text style={{ fontSize: 34, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 26 }}>2026 模型格局：三足鼎立，各卡一个身位</Text>
+
+    <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 14, padding: '26px 24px' }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>GPT-5</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 16 }}>闭源 · 全能</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 2 }}>
+          400K 上下文<br />内置思考能力<br />text + vision 多模态
+        </Text>
+      </Box>
+
+      <Box style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 14, padding: '26px 24px' }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 6 }}>Claude Opus 5</Text>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', marginBottom: 16 }}>闭源 · 长上下文</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 2 }}>
+          1M 上下文<br />thinking 默认开启<br />复杂 Agent 任务强项
+        </Text>
+      </Box>
+
+      <Box style={{ flex: 1, background: 'rgba(255,159,28,0.12)', border: '1px solid rgba(255,159,28,0.3)', borderRadius: 14, padding: '26px 24px' }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FF9F1C', marginBottom: 6 }}>DeepSeek V4-Flash</Text>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 16 }}>开源 · 高性价比</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 2 }}>
+          $0.14 / 百万 token<br />脱离 CUDA · 适配昇腾<br />MIT 开源可商用
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 20, background: 'rgba(255,255,255,0.06)', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 15, color: '#DCE7F5', fontWeight: 'bold' }}>
+        选型看三个维度：上下文 × 成本 × 开源——没有最好，只有最合适
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>AI 从零开始 · 第 10 讲 · 数据截至 2026-08</Text>
+    <Text style={{ fontSize: 14, color: '#8FA4B8' }}>04 / 11</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,63 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>MCP</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>MCP 协议：AI 世界的 USB-C 统一接口</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 28, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '24px 26px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 16, color: '#5B6B7A', marginBottom: 16 }}>Host / Client / Server 架构</Text>
+        {[
+          { t: 'Host 宿主', d: 'Claude Desktop、IDE 等应用', icon: 'desktop' },
+          { t: 'Client 客户端', d: '与 Server 建立连接的协议端', icon: 'plug' },
+          { t: 'Server 服务端', d: '暴露工具与数据的提供方', icon: 'server' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ flexDirection: 'column', alignItems: 'center' }}>
+              <Box style={{ width: 44, height: 44, borderRadius: 11, background: idx === 1 ? '#16263F' : '#EAF2FB', justifyContent: 'center', alignItems: 'center' }}>
+                <FAIcon name={item.icon} style={{ fill: idx === 1 ? '#FF9F1C' : '#22D3EE', width: 22, height: 22 }} />
+              </Box>
+              {idx < 2 && <Box style={{ width: 2, height: 18, background: '#DCE7F5', marginTop: 4 }} />}
+            </Box>
+            <Box style={{ flex: 1, background: '#F5F7FA', borderRadius: 10, padding: '12px 16px', marginLeft: 4, marginTop: 4, marginBottom: 4 }}>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F', marginBottom: 3 }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='usb' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>USB-C 类比</Text>
+          </Box>
+          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+            一个接口连所有设备——MCP 一个协议连所有工具，不用每个工具都单独开发适配。
+          </Text>
+        </Box>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <FAIcon name='link' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>MCP 是桥，Skill 是手</Text>
+          </Box>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+            MCP 只负责「连接」，具体怎么干活的「手」是 Skill——桥搭好了，手才有地方使劲。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 12</Text>
+  </Box>
+</Slide>

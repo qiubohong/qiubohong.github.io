@@ -1,0 +1,56 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PRACTICE · SQL GENERATOR</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 14 }}>实战：用五要素构建 SQL 生成器</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 22 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 26, flex: 1 }}>
+      <Box style={{ flex: 5, flexDirection: 'column', gap: 12 }}>
+        {[
+          { k: '角色', v: '你是资深数据库工程师，精通 MySQL', c: '#22D3EE' },
+          { k: '上下文', v: 'MySQL 8.0，表 user(id, name, age, city)', c: '#22D3EE' },
+          { k: '指令', v: '把用户自然语言转成 SQL 查询', c: '#22D3EE' },
+          { k: '范例', v: '「30岁以上北京用户」→ SELECT ...', c: '#FF9F1C' },
+          { k: '输出格式', v: '只输出 SQL，不要解释', c: '#22D3EE' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: '14px 20px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 76, justifyContent: 'center' }}>
+              <Text style={{ fontSize: 15, color: item.c, fontWeight: 'bold' }}>{item.k}</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: '#5B6B7A', flex: 1, lineHeight: 1.6 }}>{item.v}</Text>
+          </Box>
+        ))}
+      </Box>
+
+      <Box style={{ flex: 5 }}>
+        <Text style={{ fontSize: 15, color: '#5B6B7A', marginBottom: 10 }}>输入自然语言 → 输出 SQL</Text>
+        <CodeBlock
+          code={`-- 输入：查 30 岁以上、住在北京的用户姓名
+SELECT name
+FROM user
+WHERE age > 30
+  AND city = '北京';`}
+          language='sql'
+          width={520}
+          fontSize={14}
+        />
+        <Box style={{ marginTop: 16, background: '#DCE7F5', borderRadius: 10, padding: '14px 20px' }}>
+          <Text style={{ fontSize: 14, color: '#16263F', fontWeight: 'bold' }}>
+            把五要素固定成模板，之后每次只替换「指令」，就能复用一个可靠的生成器
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 3 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>09 / 11</Text>
+  </Box>
+</Slide>

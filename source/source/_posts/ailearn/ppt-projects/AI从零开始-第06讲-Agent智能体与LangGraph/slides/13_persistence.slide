@@ -1,0 +1,48 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ width: '100%', height: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>PERSISTENCE</Text>
+    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>人机交互与持久化：让工作流「能暂停能续」</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 22, flex: 1 }}>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace', marginBottom: 10 }}>checkpointer</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>断点恢复</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          每一步自动存档，中断后从断点继续，不必重头再来。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 14, padding: '26px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+        <Text style={{ fontSize: 13, color: '#22D3EE', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace', marginBottom: 10 }}>thread_id</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#16263F', marginBottom: 10 }}>多轮会话隔离</Text>
+        <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          不同线程各自持有状态，多用户并发互不干扰。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#16263F', borderRadius: 14, padding: '26px 24px' }}>
+        <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace', marginBottom: 10 }}>recursion_limit</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 }}>递归上限</Text>
+        <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+          限制循环次数，防止 Agent 陷入死循环烧 token。
+        </Text>
+      </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, background: '#DCE7F5', borderRadius: 10, padding: '14px 22px' }}>
+      <Text style={{ fontSize: 16, color: '#16263F', fontWeight: 'bold' }}>
+        持久化是「生产级 Agent」与「demo」的分水岭——上线前先接上 checkpointer
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 6 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>13 / 14</Text>
+  </Box>
+</Slide>

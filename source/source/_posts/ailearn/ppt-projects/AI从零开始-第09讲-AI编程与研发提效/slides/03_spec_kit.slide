@@ -1,0 +1,54 @@
+<Slide
+  style={{
+    width: '1280px', height: '720px',
+    background: '#F5F7FA',
+    padding: '20px 60px',
+    fontFamily: '"思源黑体", sans-serif',
+  }}
+>
+  <Box style={{ flexDirection: 'row', width: '100%', height: '100%', gap: 40 }}>
+    <Box style={{ width: 340, paddingTop: 20 }}>
+      <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 12 }}>SPEC-KIT</Text>
+      <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', lineHeight: 1.35, marginBottom: 24 }}>
+        Spec-Kit 全流程<br />八个命令一条流水线
+      </Text>
+      <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 24 }} />
+      <Text style={{ fontSize: 16, color: '#5B6B7A', lineHeight: 1.7 }}>
+        从「定规则」到「写实现」，八个命令把需求一步步变成合规范的代码——<span style={{ fontWeight: 'bold', color: '#16263F' }}>每一步都对齐、可追溯</span>。
+      </Text>
+    </Box>
+
+    <Box style={{ flex: 1, flexDirection: 'row', gap: 16, justifyContent: 'center' }}>
+      {[
+        [
+          { c: 'constitution', d: '定项目宪法' },
+          { c: 'specify', d: '写需求规格' },
+          { c: 'checklist', d: '生成检查清单' },
+          { c: 'clarify', d: '澄清模糊点' },
+        ],
+        [
+          { c: 'plan', d: '生成实现计划' },
+          { c: 'tasks', d: '拆解任务' },
+          { c: 'analyze', d: '分析一致性' },
+          { c: 'implement', d: '执行实现' },
+        ],
+      ].map((col, ci) => (
+        <Box key={ci} style={{ flex: 1, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+          {col.map((item, idx) => (
+            <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, background: '#FFFFFF', borderRadius: 10, padding: '14px 18px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+              <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', width: 26 }}>{ci * 4 + idx + 1}</Text>
+              <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 15, color: '#16263F', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace' }}>{item.c}</Text>
+              </Box>
+              <Text style={{ fontSize: 13, color: '#5B6B7A' }}>{item.d}</Text>
+            </Box>
+          ))}
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 14, left: 60, width: 1160, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>AI 从零开始 · 第 9 讲</Text>
+    <Text style={{ fontSize: 14, color: '#5B6B7A' }}>03 / 12</Text>
+  </Box>
+</Slide>
