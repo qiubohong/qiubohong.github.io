@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-lowcode/async-component-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/eval/from/tool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/lowcode/async-component-2.html" target="_blank">
-      低代码平台加载远端组件解决方案(2)——项目实战
+	  <a class="article-title" href="/ailearn/eval/from/tool.html" target="_blank">
+      AI 智能体评测工具使用教程
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/lowcode/async-component-2.html" class="archive-article-date">
-        <time datetime="2023-09-04T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-04</time>
+<a href="/ailearn/eval/from/tool.html" class="archive-article-date">
+        <time datetime="2026-07-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-17</time>
 </a>
 
   
@@ -393,14 +393,362 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+    <h1 id="AI-智能体评测工具使用教程"><a href="#AI-智能体评测工具使用教程" class="headerlink" title="AI 智能体评测工具使用教程"></a>AI 智能体评测工具使用教程</h1><blockquote>
+<p>本文整理了当前主流的 AI 智能体（Agent）评测开源工具的使用方法，重点介绍 <strong>DeepEval</strong> 框架，同时涵盖 LangChain AgentEvals、AgentEvalHQ 和 AWS Agent-EvalKit。</p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前阵子搞了一下如何在Vue项目中加载远程的组件，文章为<a target="_blank" rel="noopener" href="https://qborfy.com/lowcode/async-component.html">【低代码平台加载远端组件解决方案(1)——defineAsyncComponent】</a>，遗留一些问题，就是如何在项目中实际应用，因为所有的问题都来源自实际项目，所以本文会继续把这个坑填完。</p>
-<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>涉及到项目实战了，解决方案是需要通过<code>wepack</code>或<code>vite</code>构建工具将资源进行打包，然后通过解析文件，进行模拟封装成可以加载的 js函数即可，下面我们以 vite为构建工具进行编译组件文件<code>async/Async.vue</code></p>
-    
-    <a class="article-more-a" href="/lowcode/async-component-2.html#more">more >></a>
-    
+<hr>
+<h2 id="工具全景"><a href="#工具全景" class="headerlink" title="工具全景"></a>工具全景</h2><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>定位</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DeepEval</strong></td>
+<td>高人气、开箱即用的专业 LLM/Agent 评估平台</td>
+<td>Python CI/CD 流水线、Agent/RAG/Chatbot 全场景</td>
+</tr>
+<tr>
+<td><strong>langchain-ai/agentevals</strong></td>
+<td>轨迹匹配与图执行审计</td>
+<td>LangGraph 状态图、行为树分支校验</td>
+</tr>
+<tr>
+<td><strong>AgentEvalHQ/AgentEval</strong></td>
+<td>.NET 微软生态专用全栈评测</td>
+<td>Microsoft.Extensions.AI、红队安全测试</td>
+</tr>
+<tr>
+<td><strong>AWS Agent-EvalKit</strong></td>
+<td>云原生 OpenTelemetry 轨迹采集</td>
+<td>Strands/LangGraph/CrewAI，AWS 生态</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="一、DeepEval（重点）"><a href="#一、DeepEval（重点）" class="headerlink" title="一、DeepEval（重点）"></a>一、DeepEval（重点）</h2><blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://deepeval.com/docs/introduction">https://deepeval.com/docs/introduction</a><br>GitHub：<a target="_blank" rel="noopener" href="https://github.com/confident-ai/deepeval">https://github.com/confident-ai/deepeval</a><br>每日评估量：2000 万+</p>
+</blockquote>
+<h3 id="1-1-什么是-DeepEval？"><a href="#1-1-什么是-DeepEval？" class="headerlink" title="1.1 什么是 DeepEval？"></a>1.1 什么是 DeepEval？</h3><p>DeepEval 是一个<strong>开源 LLM 评估框架</strong>，专为 LLM 应用的构建与迭代而设计。它的核心设计理念是：</p>
+<ul>
+<li>用 <strong>Pytest 风格的断言</strong>对 LLM 输出进行单元测试</li>
+<li>内置 <strong>50+ 即用型指标</strong>，涵盖 LLM-as-a-judge、智能体、工具调用、对话、安全、RAG 和多模态指标</li>
+<li>支持评估 <strong>AI 智能体、对话智能体（聊天机器人）、RAG 流水线、MCP 系统</strong>及其他自定义工作流</li>
+<li>同时支持<strong>端到端评估</strong>和<strong>组件级评估</strong>（通过追踪）</li>
+<li>可<strong>生成合成数据集</strong>，覆盖难以手动收集的边缘案例</li>
+<li><strong>本地优先</strong>：评估在你自己的环境中运行，无需上传数据</li>
+</ul>
+<h3 id="1-2-适用人群"><a href="#1-2-适用人群" class="headerlink" title="1.2 适用人群"></a>1.2 适用人群</h3><table>
+<thead>
+<tr>
+<th>角色</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AI 工程师</strong></td>
+<td>评估智能体、RAG 流水线、工具调用和生产 LLM 工作流；为 AI 行为编写单元测试</td>
+</tr>
+<tr>
+<td><strong>数据科学家</strong></td>
+<td>对比提示词、模型、数据集和指标分数的可重复实验</td>
+</tr>
+<tr>
+<td><strong>QA 工程师</strong></td>
+<td>在变更到达用户前进行可靠的 AI 行为回归测试</td>
+</tr>
+<tr>
+<td><strong>技术 PM</strong></td>
+<td>定义质量标准、检查失败案例、追踪产品变更是否改善了 AI 输出</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-安装"><a href="#1-3-安装" class="headerlink" title="1.3 安装"></a>1.3 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在虚拟环境中安装</span></span><br><span class="line">pip install -U deepeval</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：登录 Confident AI 云平台（免费），将测试报告保存到云端</span></span><br><span class="line">deepeval login</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-五分钟快速上手"><a href="#1-4-五分钟快速上手" class="headerlink" title="1.4 五分钟快速上手"></a>1.4 五分钟快速上手</h3><h4 id="第一步：创建测试文件"><a href="#第一步：创建测试文件" class="headerlink" title="第一步：创建测试文件"></a>第一步：创建测试文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test_example.py</span></span><br><span class="line"><span class="keyword">from</span> deepeval <span class="keyword">import</span> assert_test</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase, SingleTurnParams</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> GEval</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_correctness</span>():</span><br><span class="line">    <span class="comment"># 定义评估指标：正确性</span></span><br><span class="line">    correctness_metric = GEval(</span><br><span class="line">        name=<span class="string">&quot;Correctness&quot;</span>,</span><br><span class="line">        criteria=<span class="string">&quot;判断 &#x27;actual output&#x27; 是否基于 &#x27;expected output&#x27; 正确回答了问题。&quot;</span>,</span><br><span class="line">        evaluation_params=[SingleTurnParams.ACTUAL_OUTPUT, SingleTurnParams.EXPECTED_OUTPUT],</span><br><span class="line">        threshold=<span class="number">0.5</span>  <span class="comment"># 分数 &gt;= 0.5 则通过</span></span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建测试用例</span></span><br><span class="line">    test_case = LLMTestCase(</span><br><span class="line">        <span class="built_in">input</span>=<span class="string">&quot;我持续咳嗽和发烧，应该担心吗？&quot;</span>,</span><br><span class="line">        <span class="comment"># 替换为你的 LLM 应用实际输出</span></span><br><span class="line">        actual_output=<span class="string">&quot;持续咳嗽和发烧可能是病毒感染或更严重的疾病。如果症状加重或几天内没有改善，请就医。&quot;</span>,</span><br><span class="line">        expected_output=<span class="string">&quot;持续咳嗽和发烧可能表明多种疾病，从轻微的病毒感染到更严重的情况如肺炎或 COVID-19。如果症状加重、持续超过几天，或伴有呼吸困难、胸痛等令人担忧的症状，应寻求医疗帮助。&quot;</span></span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    assert_test(test_case, [correctness_metric])</span><br></pre></td></tr></table></figure>
+
+<h4 id="第二步：运行评估"><a href="#第二步：运行评估" class="headerlink" title="第二步：运行评估"></a>第二步：运行评估</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 deepeval 的 Pytest 集成运行</span></span><br><span class="line">deepeval <span class="built_in">test</span> run test_example.py</span><br></pre></td></tr></table></figure>
+
+<h4 id="关键概念解析"><a href="#关键概念解析" class="headerlink" title="关键概念解析"></a>关键概念解析</h4><ul>
+<li><code>input</code>：模拟用户输入</li>
+<li><code>actual_output</code>：LLM 应用的实际输出（替换为你的应用输出）</li>
+<li><code>expected_output</code>：理想答案（参考答案）</li>
+<li><code>GEval</code>：基于研究的 LLM-as-a-Judge 指标，可用自然语言定义任何评估标准</li>
+<li><code>threshold=0.5</code>：分数 ≥ 0.5 则测试通过，所有指标分数范围为 0-1</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：由于大多数 DeepEval 指标（包括 GEval）使用 LLM-as-a-Judge，需要设置 <code>OPENAI_API_KEY</code> 环境变量。也可以自定义评判模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">correctness_metric = GEval(..., model=<span class="string">&quot;o1&quot;</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h3 id="1-5-两种评估模式"><a href="#1-5-两种评估模式" class="headerlink" title="1.5 两种评估模式"></a>1.5 两种评估模式</h3><p>DeepEval 支持两种互补的评估方式：</p>
+<h4 id="模式一：端到端评估（End-to-End-Evals）"><a href="#模式一：端到端评估（End-to-End-Evals）" class="headerlink" title="模式一：端到端评估（End-to-End Evals）"></a>模式一：端到端评估（End-to-End Evals）</h4><p>将 LLM 应用视为黑盒，提供输入、输出、预期行为和指标，检测质量回归。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 → [LLM 应用黑盒] → 输出 → DeepEval 评分</span><br></pre></td></tr></table></figure>
+
+<p><strong>适用场景</strong>：原始 LLM API、简单应用、聊天机器人、黑盒质量检查。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> AnswerRelevancyMetric</span><br><span class="line"><span class="keyword">from</span> deepeval <span class="keyword">import</span> evaluate</span><br><span class="line"></span><br><span class="line">test_case = LLMTestCase(<span class="built_in">input</span>=<span class="string">&quot;什么是 deepeval？&quot;</span>, actual_output=<span class="string">&quot;你最喜欢的评估框架。&quot;</span>)</span><br><span class="line">evaluate(test_cases=[test_case], metrics=[AnswerRelevancyMetric()])</span><br></pre></td></tr></table></figure>
+
+<h4 id="模式二：组件级评估（Component-Level-Evals）"><a href="#模式二：组件级评估（Component-Level-Evals）" class="headerlink" title="模式二：组件级评估（Component-Level Evals）"></a>模式二：组件级评估（Component-Level Evals）</h4><p>追踪应用内部，对各个 Span（工具调用、检索器、生成器等）单独评分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入 → [追踪] → Span1（检索）→ Span2（生成）→ Span3（工具调用）→ 输出</span><br><span class="line">                    ↓评分          ↓评分           ↓评分</span><br></pre></td></tr></table></figure>
+
+<p><strong>适用场景</strong>：AI 智能体、工具调用工作流、MCP 系统、复杂多步骤应用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.dataset <span class="keyword">import</span> EvaluationDataset, Golden</span><br><span class="line"><span class="keyword">from</span> deepeval.tracing <span class="keyword">import</span> observe, update_current_span</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> AnswerRelevancyMetric</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">llm_app</span>(<span class="params"><span class="built_in">input</span>: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="meta">    @observe(<span class="params">metrics=[AnswerRelevancyMetric(<span class="params"></span>)]</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">nested_component</span>():</span><br><span class="line">        update_current_span(test_case=LLMTestCase(<span class="built_in">input</span>=<span class="built_in">input</span>, actual_output=<span class="string">&quot;...&quot;</span>))</span><br><span class="line">    nested_component()</span><br><span class="line"></span><br><span class="line">dataset = EvaluationDataset(goldens=[Golden(<span class="built_in">input</span>=<span class="string">&quot;测试输入&quot;</span>)])</span><br><span class="line"><span class="keyword">for</span> golden <span class="keyword">in</span> dataset.evals_iterator():</span><br><span class="line">    llm_app(golden.<span class="built_in">input</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-6-核心概念"><a href="#1-6-核心概念" class="headerlink" title="1.6 核心概念"></a>1.6 核心概念</h3><h4 id="测试用例（Test-Case）"><a href="#测试用例（Test-Case）" class="headerlink" title="测试用例（Test Case）"></a>测试用例（Test Case）</h4><p>单个待评估的行为单元，包含任务输入、智能体输出、预期行为、工具调用、上下文和元数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase, ToolCall</span><br><span class="line"></span><br><span class="line">test_case = LLMTestCase(</span><br><span class="line">    <span class="built_in">input</span>=<span class="string">&quot;这双鞋不合适怎么办？&quot;</span>,</span><br><span class="line">    actual_output=<span class="string">&quot;我们提供 30 天全额退款，无需额外费用。&quot;</span>,</span><br><span class="line">    expected_output=<span class="string">&quot;...&quot;</span>,  <span class="comment"># 可选：参考答案</span></span><br><span class="line">    retrieval_context=[<span class="string">&quot;退款政策：30天内可全额退款&quot;</span>],  <span class="comment"># 可选：RAG 检索上下文</span></span><br><span class="line">    tools_called=[ToolCall(name=<span class="string">&quot;WebSearch&quot;</span>), ToolCall(name=<span class="string">&quot;PolicyQuery&quot;</span>)],  <span class="comment"># 可选：实际调用的工具</span></span><br><span class="line">    expected_tools=[ToolCall(name=<span class="string">&quot;PolicyQuery&quot;</span>)]  <span class="comment"># 可选：预期调用的工具</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据集（Dataset）"><a href="#数据集（Dataset）" class="headerlink" title="数据集（Dataset）"></a>数据集（Dataset）</h4><p>可重复使用的测试用例集合，支持跨提示词、模型和版本的对比实验。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.dataset <span class="keyword">import</span> EvaluationDataset, Golden</span><br><span class="line"></span><br><span class="line">dataset = EvaluationDataset(goldens=[</span><br><span class="line">    Golden(<span class="built_in">input</span>=<span class="string">&quot;问题1&quot;</span>),</span><br><span class="line">    Golden(<span class="built_in">input</span>=<span class="string">&quot;问题2&quot;</span>),</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h4 id="追踪（Trace）"><a href="#追踪（Trace）" class="headerlink" title="追踪（Trace）"></a>追踪（Trace）</h4><p>智能体运行时的完整记录，包括步骤、Span、输入输出、工具调用和组件行为。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.tracing <span class="keyword">import</span> observe, update_current_trace</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe()</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">my_ai_agent</span>(<span class="params">query: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    chunks = <span class="keyword">await</span> retrieve(query)</span><br><span class="line">    answer = <span class="keyword">await</span> generate(query, chunks)</span><br><span class="line">    update_current_trace(<span class="built_in">input</span>=query, output=answer)</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-7-50-内置指标详解"><a href="#1-7-50-内置指标详解" class="headerlink" title="1.7 50+ 内置指标详解"></a>1.7 50+ 内置指标详解</h3><h4 id="自定义指标（Custom-Metrics）"><a href="#自定义指标（Custom-Metrics）" class="headerlink" title="自定义指标（Custom Metrics）"></a>自定义指标（Custom Metrics）</h4><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>G-Eval</strong></td>
+<td>用自然语言定义任意评估标准，最灵活，适合主观标准（正确性、连贯性、语气）</td>
+</tr>
+<tr>
+<td><strong>DAG（深度无环图）</strong></td>
+<td>决策树式指标，适合客观或混合标准（如先验证格式再评估语气）</td>
+</tr>
+<tr>
+<td><strong>Conversational G-Eval</strong></td>
+<td>多轮对话版 G-Eval</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase, SingleTurnParams</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> GEval</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义正确性指标</span></span><br><span class="line">correctness = GEval(</span><br><span class="line">    name=<span class="string">&quot;Correctness&quot;</span>,</span><br><span class="line">    criteria=<span class="string">&quot;根据 expected_output 判断 actual_output 是否正确。&quot;</span>,</span><br><span class="line">    evaluation_params=[SingleTurnParams.ACTUAL_OUTPUT, SingleTurnParams.EXPECTED_OUTPUT],</span><br><span class="line">    strict_mode=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line">correctness.measure(test_case)</span><br><span class="line"><span class="built_in">print</span>(correctness.score, correctness.reason)</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAG-指标"><a href="#RAG-指标" class="headerlink" title="RAG 指标"></a>RAG 指标</h4><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>说明</th>
+<th>需要参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AnswerRelevancyMetric</strong></td>
+<td>生成答案是否与用户查询相关</td>
+<td>input, actual_output</td>
+</tr>
+<tr>
+<td><strong>FaithfulnessMetric</strong></td>
+<td>生成答案是否与提供的上下文事实一致（防幻觉）</td>
+<td>actual_output, retrieval_context</td>
+</tr>
+<tr>
+<td><strong>ContextualRelevancyMetric</strong></td>
+<td>检索到的上下文是否与用户查询相关</td>
+<td>input, retrieval_context</td>
+</tr>
+<tr>
+<td><strong>ContextualRecallMetric</strong></td>
+<td>检索上下文是否包含所有相关信息</td>
+<td>expected_output, retrieval_context</td>
+</tr>
+<tr>
+<td><strong>ContextualPrecisionMetric</strong></td>
+<td>检索上下文是否精准聚焦</td>
+<td>input, expected_output, retrieval_context</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> AnswerRelevancyMetric</span><br><span class="line"></span><br><span class="line">test_case = LLMTestCase(<span class="built_in">input</span>=<span class="string">&quot;...&quot;</span>, actual_output=<span class="string">&quot;...&quot;</span>)</span><br><span class="line">relevancy = AnswerRelevancyMetric(threshold=<span class="number">0.5</span>)</span><br><span class="line">relevancy.measure(test_case)</span><br><span class="line"><span class="built_in">print</span>(relevancy.score, relevancy.reason)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Agent-专用指标"><a href="#Agent-专用指标" class="headerlink" title="Agent 专用指标"></a>Agent 专用指标</h4><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>说明</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ToolCorrectnessMetric</strong></td>
+<td>评估工具/函数调用的正确性</td>
+<td>确定性 + LLM</td>
+</tr>
+<tr>
+<td><strong>PlanAdherenceMetric</strong></td>
+<td>评估智能体是否遵循了规划</td>
+<td>LLM-as-a-judge</td>
+</tr>
+<tr>
+<td><strong>PlanQualityMetric</strong></td>
+<td>评估智能体规划的质量</td>
+<td>LLM-as-a-judge</td>
+</tr>
+<tr>
+<td><strong>AgentGoalCompletionMetric</strong></td>
+<td>评估智能体是否完成了目标任务</td>
+<td>LLM-as-a-judge</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="1-8-Agent-评估实战"><a href="#1-8-Agent-评估实战" class="headerlink" title="1.8 Agent 评估实战"></a>1.8 Agent 评估实战</h3><h4 id="工具正确性评估（ToolCorrectnessMetric）"><a href="#工具正确性评估（ToolCorrectnessMetric）" class="headerlink" title="工具正确性评估（ToolCorrectnessMetric）"></a>工具正确性评估（ToolCorrectnessMetric）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval <span class="keyword">import</span> evaluate</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase, ToolCall</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> ToolCorrectnessMetric</span><br><span class="line"></span><br><span class="line">test_case = LLMTestCase(</span><br><span class="line">    <span class="built_in">input</span>=<span class="string">&quot;这双鞋不合适怎么办？&quot;</span>,</span><br><span class="line">    actual_output=<span class="string">&quot;我们提供 30 天全额退款，无需额外费用。&quot;</span>,</span><br><span class="line">    <span class="comment"># 智能体实际调用的工具</span></span><br><span class="line">    tools_called=[ToolCall(name=<span class="string">&quot;WebSearch&quot;</span>), ToolCall(name=<span class="string">&quot;PolicyQuery&quot;</span>)],</span><br><span class="line">    <span class="comment"># 预期应该调用的工具</span></span><br><span class="line">    expected_tools=[ToolCall(name=<span class="string">&quot;PolicyQuery&quot;</span>)],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">metric = ToolCorrectnessMetric()</span><br><span class="line">evaluate(test_cases=[test_case], metrics=[metric])</span><br></pre></td></tr></table></figure>
+
+<p><strong>ToolCorrectnessMetric 关键参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>threshold</code></td>
+<td>最低通过阈值</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td><code>evaluation_params</code></td>
+<td>严格程度：可加入 <code>ToolCallParams.INPUT_PARAMETERS</code>（验证入参）和 <code>ToolCallParams.OUTPUT</code>（验证输出）</td>
+<td>空列表（仅验证工具名）</td>
+</tr>
+<tr>
+<td><code>should_consider_ordering</code></td>
+<td>是否考虑工具调用顺序</td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>should_exact_match</code></td>
+<td>是否要求完全匹配</td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>available_tools</code></td>
+<td>所有可用工具列表，用于评估工具选择是否最优</td>
+<td>None</td>
+</tr>
+</tbody></table>
+<p><strong>计算方式</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工具正确性分数 = 正确使用的工具数 / 总调用工具数</span><br></pre></td></tr></table></figure>
+
+<p>若提供了 <code>available_tools</code>，还会用 LLM 评估工具选择是否最优，最终取两个分数的最小值。</p>
+<h4 id="规划遵循评估（PlanAdherenceMetric）"><a href="#规划遵循评估（PlanAdherenceMetric）" class="headerlink" title="规划遵循评估（PlanAdherenceMetric）"></a>规划遵循评估（PlanAdherenceMetric）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.tracing <span class="keyword">import</span> observe, update_current_trace</span><br><span class="line"><span class="keyword">from</span> deepeval.dataset <span class="keyword">import</span> Golden, EvaluationDataset</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> PlanAdherenceMetric</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> ToolCall</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tool_call</span>(<span class="params"><span class="built_in">input</span></span>):</span><br><span class="line">    <span class="keyword">return</span> [ToolCall(name=<span class="string">&quot;CheckWeather&quot;</span>)]</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">agent</span>(<span class="params"><span class="built_in">input</span></span>):</span><br><span class="line">    tools = tool_call(<span class="built_in">input</span>)</span><br><span class="line">    output = llm(<span class="built_in">input</span>, tools)</span><br><span class="line">    update_current_trace(</span><br><span class="line">        <span class="built_in">input</span>=<span class="built_in">input</span>,</span><br><span class="line">        output=output,</span><br><span class="line">        tools_called=tools</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">dataset = EvaluationDataset(goldens=[Golden(<span class="built_in">input</span>=<span class="string">&quot;旧金山今天天气怎么样？&quot;</span>)])</span><br><span class="line">metric = PlanAdherenceMetric(threshold=<span class="number">0.7</span>, model=<span class="string">&quot;gpt-4o&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> golden <span class="keyword">in</span> dataset.evals_iterator(metrics=[metric]):</span><br><span class="line">    agent(golden.<span class="built_in">input</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>计算步骤</strong>：</p>
+<ol>
+<li>从追踪中提取<strong>任务</strong>（用户目标）</li>
+<li>从智能体的思考/推理中提取<strong>规划</strong></li>
+<li>评估智能体的执行步骤是否遵循了规划</li>
+<li>若追踪中没有明确规划，默认通过（得分 1）</li>
+</ol>
+<h4 id="带追踪的完整-Agent-评估示例"><a href="#带追踪的完整-Agent-评估示例" class="headerlink" title="带追踪的完整 Agent 评估示例"></a>带追踪的完整 Agent 评估示例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">from</span> deepeval.tracing <span class="keyword">import</span> observe, update_current_span, update_current_trace</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> AnswerRelevancyMetric</span><br><span class="line"><span class="keyword">from</span> deepeval.dataset <span class="keyword">import</span> EvaluationDataset, Golden</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe()</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">my_ai_agent</span>(<span class="params">query: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    chunks = <span class="keyword">await</span> retrieve(query)</span><br><span class="line">    answer = <span class="keyword">await</span> generate(query, chunks)</span><br><span class="line">    update_current_trace(<span class="built_in">input</span>=query, output=answer)</span><br><span class="line">    <span class="keyword">return</span> answer</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe()</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">retrieve</span>(<span class="params">query: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>[<span class="built_in">str</span>]:</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">&quot;相关文档片段...&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe(<span class="params">metrics=[AnswerRelevancyMetric(<span class="params"></span>)]</span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">generate</span>(<span class="params">query: <span class="built_in">str</span>, chunks: <span class="built_in">list</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    response = <span class="string">&quot;...&quot;</span>  <span class="comment"># 调用 LLM</span></span><br><span class="line">    update_current_span(</span><br><span class="line">        test_case=LLMTestCase(</span><br><span class="line">            <span class="built_in">input</span>=query,</span><br><span class="line">            actual_output=response,</span><br><span class="line">            retrieval_context=chunks</span><br><span class="line">        ),</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据集并运行评估</span></span><br><span class="line">dataset = EvaluationDataset(goldens=[Golden(<span class="built_in">input</span>=<span class="string">&quot;为什么天空是蓝色的？&quot;</span>)])</span><br><span class="line"><span class="keyword">for</span> golden <span class="keyword">in</span> dataset.evals_iterator():</span><br><span class="line">    task = asyncio.create_task(my_ai_agent(golden.<span class="built_in">input</span>))</span><br><span class="line">    dataset.evaluate(task)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-9-指标选择策略"><a href="#1-9-指标选择策略" class="headerlink" title="1.9 指标选择策略"></a>1.9 指标选择策略</h3><blockquote>
+<p><strong>原则</strong>：不超过 5 个指标，避免过度评估。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">通用指标（系统专用）：最多 3 个</span><br><span class="line">  ├── RAG 系统：ContextualPrecision + Faithfulness</span><br><span class="line">  ├── Agent 系统：ToolCorrectness + PlanAdherence</span><br><span class="line">  └── 聊天机器人：ConversationCompleteness</span><br><span class="line"></span><br><span class="line">自定义指标（用例专用）：最多 2 个</span><br><span class="line">  └── 用 G-Eval 定义业务特定标准（如医疗聊天机器人的&quot;有用性&quot;）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-10-配置-LLM-评判模型"><a href="#1-10-配置-LLM-评判模型" class="headerlink" title="1.10 配置 LLM 评判模型"></a>1.10 配置 LLM 评判模型</h3><p>DeepEval 支持多种 LLM 提供商作为评判模型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># OpenAI（默认）</span></span><br><span class="line"><span class="built_in">export</span> OPENAI_API_KEY=&lt;your-openai-api-key&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Azure OpenAI</span></span><br><span class="line"><span class="built_in">export</span> AZURE_OPENAI_API_KEY=&lt;your-azure-openai-api-key&gt;</span><br><span class="line"><span class="built_in">export</span> AZURE_OPENAI_ENDPOINT=&lt;your-azure-endpoint&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Anthropic</span></span><br><span class="line"><span class="built_in">export</span> ANTHROPIC_API_KEY=&lt;your-anthropic-api-key&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 Ollama 本地模型</span></span><br><span class="line"><span class="keyword">from</span> deepeval.models <span class="keyword">import</span> OllamaModel</span><br><span class="line">metric = GEval(..., model=OllamaModel(model=<span class="string">&quot;llama3&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 Gemini</span></span><br><span class="line"><span class="keyword">from</span> deepeval.models <span class="keyword">import</span> GeminiModel</span><br><span class="line">metric = GEval(..., model=GeminiModel(model=<span class="string">&quot;gemini-pro&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-11-集成-CI-CD-流水线"><a href="#1-11-集成-CI-CD-流水线" class="headerlink" title="1.11 集成 CI/CD 流水线"></a>1.11 集成 CI/CD 流水线</h3><p>DeepEval 原生支持 Pytest，可直接集成到 CI/CD：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test_agent.py</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> deepeval <span class="keyword">import</span> assert_test</span><br><span class="line"><span class="keyword">from</span> deepeval.test_case <span class="keyword">import</span> LLMTestCase, ToolCall</span><br><span class="line"><span class="keyword">from</span> deepeval.metrics <span class="keyword">import</span> ToolCorrectnessMetric, GEval, SingleTurnParams</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(<span class="params"><span class="string">&quot;test_case&quot;</span>, [</span></span></span><br><span class="line"><span class="params"><span class="meta">    LLMTestCase(<span class="params"></span></span></span></span><br><span class="line"><span class="params"><span class="params"><span class="meta">        <span class="built_in">input</span>=<span class="string">&quot;查询订单状态&quot;</span>,</span></span></span></span><br><span class="line"><span class="params"><span class="params"><span class="meta">        actual_output=<span class="string">&quot;您的订单正在配送中&quot;</span>,</span></span></span></span><br><span class="line"><span class="params"><span class="params"><span class="meta">        tools_called=[ToolCall(<span class="params">name=<span class="string">&quot;QueryOrderStatus&quot;</span></span>)],</span></span></span></span><br><span class="line"><span class="params"><span class="params"><span class="meta">        expected_tools=[ToolCall(<span class="params">name=<span class="string">&quot;QueryOrderStatus&quot;</span></span>)]</span></span></span></span><br><span class="line"><span class="params"><span class="params"><span class="meta">    </span>)</span></span></span><br><span class="line"><span class="params"><span class="meta">]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_agent_tool_usage</span>(<span class="params">test_case</span>):</span><br><span class="line">    tool_metric = ToolCorrectnessMetric(threshold=<span class="number">0.8</span>)</span><br><span class="line">    quality_metric = GEval(</span><br><span class="line">        name=<span class="string">&quot;ResponseQuality&quot;</span>,</span><br><span class="line">        criteria=<span class="string">&quot;回答是否清晰、准确、有帮助&quot;</span>,</span><br><span class="line">        evaluation_params=[SingleTurnParams.ACTUAL_OUTPUT],</span><br><span class="line">        threshold=<span class="number">0.7</span></span><br><span class="line">    )</span><br><span class="line">    assert_test(test_case, [tool_metric, quality_metric])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 CI 中运行</span></span><br><span class="line">deepeval <span class="built_in">test</span> run test_agent.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 并行运行（加速）</span></span><br><span class="line">deepeval <span class="built_in">test</span> run test_agent.py --n-workers 4</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-12-生产环境在线评估"><a href="#1-12-生产环境在线评估" class="headerlink" title="1.12 生产环境在线评估"></a>1.12 生产环境在线评估</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> deepeval.tracing <span class="keyword">import</span> observe, update_current_trace</span><br><span class="line"></span><br><span class="line"><span class="meta">@observe()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ai_agent</span>(<span class="params"><span class="built_in">input</span>: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    output = <span class="string">&quot;你的 AI 智能体输出&quot;</span></span><br><span class="line">    <span class="comment"># 关联到 Confident AI 上的指标集合</span></span><br><span class="line">    update_current_trace(metric_collection=<span class="string">&quot;生产环境在线评估&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+
+<p>配置 API Key 后，所有智能体调用都会自动运行在线评估：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> CONFIDENT_API_KEY=<span class="string">&quot;confident_us...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、LangChain-AgentEvals"><a href="#二、LangChain-AgentEvals" class="headerlink" title="二、LangChain AgentEvals"></a>二、LangChain AgentEvals</h2><blockquote>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/langchain-ai/agentevals">https://github.com/langchain-ai/agentevals</a></p>
+</blockquote>
+<h3 id="2-1-定位"><a href="#2-1-定位" class="headerlink" title="2.1 定位"></a>2.1 定位</h3><p>专注于 Agent 运行中<strong>执行轨迹（Trajectory）审计</strong>的现成评估器，完美契合 LangGraph 状态图或行为树分支校验。</p>
+<h3 id="2-2-核心功能"><a href="#2-2-核心功能" class="headerlink" title="2.2 核心功能"></a>2.2 核心功能</h3><ul>
+<li><strong>轨迹 LLM 裁判</strong>：用 LLM 评判智能体的执行轨迹是否合理</li>
+<li><strong>路径相似度对齐</strong>：比较实际执行路径与预期路径的相似度</li>
+<li><strong>LangGraph 原生集成</strong>：无缝接入 LangGraph 的状态图评估</li>
+</ul>
+<h3 id="2-3-快速使用"><a href="#2-3-快速使用" class="headerlink" title="2.3 快速使用"></a>2.3 快速使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install agentevals</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> agentevals.trajectory.llm <span class="keyword">import</span> create_trajectory_llm_evaluator</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建轨迹评估器</span></span><br><span class="line">evaluator = create_trajectory_llm_evaluator(</span><br><span class="line">    prompt=<span class="string">&quot;trajectory_accuracy&quot;</span>,</span><br><span class="line">    model=<span class="string">&quot;openai:gpt-4o&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估智能体轨迹</span></span><br><span class="line">result = evaluator(</span><br><span class="line">    inputs=&#123;<span class="string">&quot;messages&quot;</span>: [&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;查询天气&quot;</span>&#125;]&#125;,</span><br><span class="line">    outputs=&#123;<span class="string">&quot;messages&quot;</span>: [...]&#125;,  <span class="comment"># 智能体实际输出的消息列表</span></span><br><span class="line">    reference_outputs=&#123;<span class="string">&quot;messages&quot;</span>: [...]&#125;,  <span class="comment"># 预期的参考轨迹</span></span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(result[<span class="string">&quot;score&quot;</span>])  <span class="comment"># 0 或 1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、AgentEvalHQ-AgentEval（-NET-生态）"><a href="#三、AgentEvalHQ-AgentEval（-NET-生态）" class="headerlink" title="三、AgentEvalHQ/AgentEval（.NET 生态）"></a>三、AgentEvalHQ/AgentEval（.NET 生态）</h2><blockquote>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/AgentEvalHQ/AgentEval">https://github.com/AgentEvalHQ/AgentEval</a></p>
+</blockquote>
+<h3 id="3-1-定位"><a href="#3-1-定位" class="headerlink" title="3.1 定位"></a>3.1 定位</h3><p>全面集成于 <strong>Microsoft.Extensions.AI</strong> 和 <strong>Microsoft Agent Framework</strong> 的 .NET 专用评测框架。</p>
+<h3 id="3-2-核心功能"><a href="#3-2-核心功能" class="headerlink" title="3.2 核心功能"></a>3.2 核心功能</h3><ul>
+<li><strong>流式断言（Fluent Assertion）</strong>：对 Agent 执行节点进行零代码侵入式断言</li>
+<li><strong>192+ 红队安全漏洞检测</strong>：自动化安全测试</li>
+<li><strong>自动化可观测性捕获</strong>：无需修改业务代码</li>
+</ul>
+<h3 id="3-3-快速使用"><a href="#3-3-快速使用" class="headerlink" title="3.3 快速使用"></a>3.3 快速使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet add package AgentEval</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> AgentEval;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建评估器</span></span><br><span class="line"><span class="keyword">var</span> evaluator = <span class="keyword">new</span> AgentEvaluator()</span><br><span class="line">    .WithModel(<span class="string">&quot;gpt-4o&quot;</span>)</span><br><span class="line">    .WithMetrics(AgentMetrics.ToolCorrectness, AgentMetrics.ResponseQuality);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行评估</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="keyword">await</span> evaluator.EvaluateAsync(<span class="keyword">new</span> AgentTestCase</span><br><span class="line">&#123;</span><br><span class="line">    Input = <span class="string">&quot;查询订单状态&quot;</span>,</span><br><span class="line">    ActualOutput = <span class="string">&quot;您的订单正在配送中&quot;</span>,</span><br><span class="line">    ToolsCalled = <span class="keyword">new</span>[] &#123; <span class="string">&quot;QueryOrderStatus&quot;</span> &#125;,</span><br><span class="line">    ExpectedTools = <span class="keyword">new</span>[] &#123; <span class="string">&quot;QueryOrderStatus&quot;</span> &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">$&quot;Score: <span class="subst">&#123;result.Score&#125;</span>, Reason: <span class="subst">&#123;result.Reason&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、AWS-Agent-EvalKit"><a href="#四、AWS-Agent-EvalKit" class="headerlink" title="四、AWS Agent-EvalKit"></a>四、AWS Agent-EvalKit</h2><blockquote>
+<p>博客：<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/">https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/</a><br>GitHub：<a target="_blank" rel="noopener" href="https://github.com/awslabs/Agent-EvalKit">https://github.com/awslabs/Agent-EvalKit</a></p>
+</blockquote>
+<h3 id="4-1-定位"><a href="#4-1-定位" class="headerlink" title="4.1 定位"></a>4.1 定位</h3><p>AWS 2026 年发布的标准 Agent 评估工具包，核心是利用 <strong>OpenTelemetry（OTel）兼容的链路追踪</strong>，无缝抓取 Agent 行为轨迹生成报告，并指出代码层面的修改建议。</p>
+<h3 id="4-2-六阶段评估流程"><a href="#4-2-六阶段评估流程" class="headerlink" title="4.2 六阶段评估流程"></a>4.2 六阶段评估流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/evalkit.plan → /evalkit.data → /evalkit.trace → /evalkit.run_agent → /evalkit.eval → /evalkit.report</span><br><span class="line">    规划           生成测试用例      添加追踪          运行智能体           评估指标          生成报告</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-快速使用"><a href="#4-3-快速使用" class="headerlink" title="4.3 快速使用"></a>4.3 快速使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">uv tool install evalkit --from git+https://github.com/awslabs/Agent-EvalKit.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化项目</span></span><br><span class="line">evalkit init my-agent-evaluation</span><br><span class="line"><span class="built_in">cd</span> my-agent-evaluation</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 AI 助手（Claude Code / Kiro CLI）</span></span><br><span class="line">claude</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速引导模式</span></span><br><span class="line">/evalkit.quick 评估 ./my_agent 的响应质量和工具准确性</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、工具选型建议"><a href="#五、工具选型建议" class="headerlink" title="五、工具选型建议"></a>五、工具选型建议</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python 项目，需要 CI/CD 集成</td>
+<td><strong>DeepEval</strong>（首选）</td>
+</tr>
+<tr>
+<td>LangGraph / LangChain 项目，关注执行轨迹</td>
+<td><strong>langchain-ai/agentevals</strong></td>
+</tr>
+<tr>
+<td>.NET / Microsoft 生态项目</td>
+<td><strong>AgentEvalHQ/AgentEval</strong></td>
+</tr>
+<tr>
+<td>AWS 云原生项目，需要 OTel 追踪</td>
+<td><strong>AWS Agent-EvalKit</strong></td>
+</tr>
+<tr>
+<td>需要生产环境在线监控</td>
+<td><strong>DeepEval + Confident AI</strong></td>
+</tr>
+<tr>
+<td>需要红队安全测试</td>
+<td><strong>DeepEval DeepTeam</strong> 或 <strong>AgentEvalHQ</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://deepeval.com/docs/introduction">DeepEval 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/confident-ai/deepeval">DeepEval GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/agentevals">LangChain AgentEvals GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/AgentEvalHQ/AgentEval">AgentEvalHQ GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/">AWS Agent-EvalKit 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic：解密 AI 智能体评估</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -410,30 +758,11 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component-2.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/eval/from/tool.html">展开全文 >></a>
     </p>
     
 
@@ -468,7 +797,7 @@
     height:800px
   }
   </style>
-<article id="post-lowcode/async-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/loop/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -476,8 +805,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/lowcode/async-component.html" target="_blank">
-      低代码平台加载远端组件解决方案(1)——defineAsyncComponent
+	  <a class="article-title" href="/ailearn/loop/04.html" target="_blank">
+      AI Agent Loop 工程实践（04）—— 你的 Agent 为什么跑着跑着就&#34;失忆&#34;了？
       
     </a>
   
@@ -487,8 +816,8 @@
 
   
   
-<a href="/lowcode/async-component.html" class="archive-article-date">
-        <time datetime="2023-08-29T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-29</time>
+<a href="/ailearn/loop/04.html" class="archive-article-date">
+        <time datetime="2026-07-15T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-15</time>
 </a>
 
   
@@ -501,125 +830,968 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过 Agent Loop、遇到过”失忆”问题的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 Agent 失忆的根本原因，以及三种上下文管理策略的适用场景和工程权衡。</p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在做低代码平台项目中遇到一个很容易遇到的问题，具体描述如下：</p>
+<p>你让 Agent 重构一个大项目，它跑得挺好，到第 12 步突然开始重复第 3 步做过的事。</p>
+<p>你问它”你刚才改了哪些文件”，它说”我还没有修改任何文件”。</p>
+<p>明明改了一堆，它说没改。</p>
+<p>这不是 Bug，这是 Token 窗口的物理限制在作怪。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/03.html" target="_blank">
+      AI Agent Loop 工程实践（03）—— 一条消息在 Agent 内部经历了什么？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/03.html" class="archive-article-date">
+        <time datetime="2026-07-08T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过简单 Agent Loop、想理解成熟框架内部机制的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 SDK 级 Agent Loop 的消息处理流程，以及 Hooks 机制如何让你不侵入核心逻辑就能控制一切。</p>
+</blockquote>
+<p>你每次给 Claude/ChatGPT 发一条消息，从按下回车到看到回复，背后其实经历了十几个步骤。</p>
+<p>为什么有时 Agent 会连续调用好几个工具才回复你？为什么有时会突然”顿一下”再继续？</p>
+<p>上一篇我们写了 50 行的最简 Loop。但真正生产级的 Agent Loop——比如 Claude Code 的 Agent SDK——内部要复杂得多。这篇带你进入 Agent 的”心脏”看看。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/03.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/03.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/02.html" target="_blank">
+      AI Agent Loop 工程实践（02）—— 50 行代码实现一个能跑的 Agent Loop
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/02.html" class="archive-article-date">
+        <time datetime="2026-07-04T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门实战</strong>，适合想动手写代码的开发者。需要一点 Python 基础。<br><strong>🎁 核心收获</strong>：读完本篇你将能够自己跑通一个带工具调用的 Agent Loop，并理解终止策略的设计逻辑。</p>
+</blockquote>
+<p>别被那些框架吓到。</p>
+<p>LangChain、AutoGen、CrewAI……这些框架确实强大，但它们解决的核心问题其实特别简单——让 Agent 持续跑下去。</p>
+<p>Agent Loop 的核心逻辑，50 行代码就能写清楚。这篇结束后，你手上会有一个真正能跑的 Agent Loop。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/02.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/02.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/01.html" target="_blank">
+      AI Agent Loop 工程实践（01）—— Agent Loop：被你忽视的 AI 应用核心引擎
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/01.html" class="archive-article-date">
+        <time datetime="2026-07-01T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门导读</strong>，适合所有对 AI Agent 感兴趣的读者。无需前置知识。<br><strong>🎁 核心收获</strong>：读完本篇你将能够理解 Agent Loop 的本质，并知道三种主流实现方案分别适合什么场景。</p>
+</blockquote>
+<p>你让 AI 帮你重构一段代码，它改了第一处就停了。你再催它，它从头开始分析。你又催，它又改了一处，又停了。</p>
+<p>为什么有的 Agent 能一口气完成复杂任务，有的只能”一问一答”？</p>
+<p>差别不在模型，在于 Loop。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/01.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/01.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/from/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/from/02.html" target="_blank">
+      【译】Agent Loop —— AI 驱动的软件开发框架
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/from/02.html" class="archive-article-date">
+        <time datetime="2026-06-15T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://github.com/Saik0s/agent-loop">Saik0s/agent-loop - GitHub</a><br><strong>项目标签</strong>：automation · orchestration · software-development · ai-agents · claude-ai · agentic-engineering</p>
+</blockquote>
+<h1 id="Agent-Loop-🚀-——-AI-驱动的软件开发"><a href="#Agent-Loop-🚀-——-AI-驱动的软件开发" class="headerlink" title="Agent Loop 🚀 —— AI 驱动的软件开发"></a>Agent Loop 🚀 —— AI 驱动的软件开发</h1><p>Agent Loop 是一个 AI 驱动的软件开发框架。它使用一组由编排者（Orchestrator）管理的专家 AI Agent 团队，处理从规划、架构到编码、测试和部署的各类任务。你通过简单的命令来引导整个流程。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/from/02.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开源项目</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/from/02.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/from/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/from/01.html" target="_blank">
+      【译】Agent Loop 的工作原理 —— Claude Code Agent SDK 文档
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/from/01.html" class="archive-article-date">
+        <time datetime="2026-06-15T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/agent-sdk/agent-loop">How the agent loop works - Claude Code Docs</a></p>
+</blockquote>
+<p>了解消息生命周期、工具执行、上下文窗口以及驱动 SDK Agent 运行的架构。</p>
+<p>Agent SDK 让你可以在自己的应用中嵌入 Claude Code 的自主 Agent 循环。SDK 是一个独立的包，让你能以编程方式控制工具、权限、费用限制和输出。使用它不需要安装 Claude Code CLI。</p>
+<p>当你启动一个 Agent 时，SDK 会运行与 Claude Code 相同的<a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/how-claude-code-works#the-agentic-loop">执行循环</a>：Claude 评估你的提示词，调用工具执行操作，接收结果，然后重复这个过程，直到任务完成。本文将解释这个循环内部发生了什么，帮助你更有效地构建、调试和优化 Agent。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/from/01.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Claude Code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/from/01.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/from/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/from/00.html" target="_blank">
+      【译】Loop 模板工作流 Agent —— Google ADK 文档
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/from/00.html" class="archive-article-date">
+        <time datetime="2026-06-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://adk.dev/agents/workflow-agents/loop-agents/">Loop workflow - Agent Development Kit (ADK)</a><br><strong>支持版本</strong>：Python v0.1.0 / TypeScript v0.2.0 / Go v0.1.0 / Java v0.2.0</p>
+</blockquote>
+<p><strong><em>LoopAgent</em></strong> 类是一种<a target="_blank" rel="noopener" href="https://adk.dev/agents/workflow-agents/">模板工作流</a> Agent，它会在循环中执行子 Agent，直到达到指定的迭代次数或满足终止条件为止。当你的工作流涉及重复操作或迭代精化时（比如反复修改代码或文档），就可以使用 <strong><em>LoopAgent</em></strong>。</p>
+<p>与其他模板工作流一样，<strong><em>LoopAgent</em></strong> 对象的执行不受 AI 模型控制，其子 Agent 的执行顺序是确定性的。循环内的子 Agent 可以使用也可以不使用 AI 模型，但这些子 Agent 的整体执行最终由你定义的 <strong><em>LoopAgent</em></strong> 对象来管理。</p>
+<blockquote>
+<p><strong>替代方案：基于图的工作流</strong></p>
+<p>从 ADK 2.0 开始，模板工作流已被更灵活的工作流结构所取代，包括<a target="_blank" rel="noopener" href="https://adk.dev/workflows/graphs/">基于图的工作流</a>和<a target="_blank" rel="noopener" href="https://adk.dev/workflows/dynamic/">动态工作流</a>。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/loop/from/00.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Google ADK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/from/00.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/from/5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/from/5.html" target="_blank">
+      使用 Agent-EvalKit 系统化评估 AI 智能体
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/from/5.html" class="archive-article-date">
+        <time datetime="2026-06-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="使用-Agent-EvalKit-系统化评估-AI-智能体"><a href="#使用-Agent-EvalKit-系统化评估-AI-智能体" class="headerlink" title="使用 Agent-EvalKit 系统化评估 AI 智能体"></a>使用 Agent-EvalKit 系统化评估 AI 智能体</h1><blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/">Evaluate AI agents systematically with Agent-EvalKit</a><br>作者：Ishan Singh, Haibo Ding, Kang Zhou, Sangmin Woo<br>发布日期：2026 年 6 月 11 日<br>分类：Amazon Bedrock, 人工智能, Strands Agents, 技术实践</p>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>构建 AI 智能体的团队通常像评估其他软件一样评估它们：检查输出是否符合预期。但自主选择工具并跨多个来源顺序执行操作的智能体，会产生仅靠输出级别测试无法完全表征的行为。</p>
+<p>一个智能体可能在工具返回空结果时产生幻觉、捏造事实，却仍然提供结构良好、可操作的响应。它也可能在跳过可靠流程所需的验证步骤的情况下得出正确结论。由于这些失败隐藏在最终响应的表面之下，捕获它们需要追踪智能体完整执行路径的评估：智能体调用了哪些工具、这些工具返回了什么数据，以及响应是否忠实地反映了这些数据。</p>
+<p>弥合这一差距需要大多数智能体团队没有人力从头构建的基础设施：带有基准结果的测试用例、用于捕获工具调用和中间状态的可观测性工具，以及在表面准确性之外评估忠实度和工具使用情况的指标。</p>
+<hr>
+<h2 id="Agent-EvalKit-简介"><a href="#Agent-EvalKit-简介" class="headerlink" title="Agent-EvalKit 简介"></a>Agent-EvalKit 简介</h2><p><strong>Agent-EvalKit</strong> 是一个开源工具包（Apache 2.0 许可），通过与 AI 编码助手（包括 Claude Code、Kiro CLI 和 Kilo Code）集成，使这种评估基础设施变得可用。它将整个工作流程引入您的开发环境，而不是将评估视为独立的部署后工作。</p>
+<p>您用自然语言描述评估目标，工具包处理每个阶段——从读取智能体的源代码和生成有针对性的测试用例，到运行评估并生成包含改进建议的报告，这些建议引用了代码库中的具体位置。</p>
+<hr>
+<h2 id="智能体评估的要求"><a href="#智能体评估的要求" class="headerlink" title="智能体评估的要求"></a>智能体评估的要求</h2><p>除了基础设施本身，选择测量什么同样具有挑战性。智能体质量跨越没有单一指标能够捕获的多个维度：</p>
 <ul>
-<li>问题描述：低代码平台依赖的组件库，如果将一个组件库进行融合打包到平台项目中的就会导致平台在渲染页面的时候需要加载完整的组件库，从而导致页面加载了一些大部分页面不需要的组件文件</li>
-<li>希望方案：页面使用到哪些组件就去动态加载组件</li>
-<li>解决方案：<ul>
-<li>Vue的异步加载组件，<code>Suspense</code>和<code>defineAsyncComponent</code></li>
-<li>React的异步加载组件， <code>Suspense</code>和<code>import()</code></li>
+<li><strong>忠实度（Faithfulness）</strong>：响应是否基于工具实际返回的内容</li>
+<li><strong>工具参数准确性（Tool Parameter Accuracy）</strong>：智能体是否以正确的输入调用了正确的工具</li>
+<li><strong>响应质量（Response Quality）</strong>：最终输出是否连贯且对提问者有用</li>
 </ul>
+<p>响应可能读起来很好，却悄悄地在空工具结果上产生幻觉；智能体可能通过一系列错误的工具调用得出合理的答案。因此每个维度都必须单独检查，而不是从相邻维度推断。</p>
+<p>没有单一的评估器风格能很好地处理所有三个维度：</p>
+<ul>
+<li><strong>基于代码的评估器</strong>：提供快速、可复现的结果，但会惩罚有效的方法变体</li>
+<li><strong>LLM 作为评判者的评估器</strong>：以额外推理和精心提示设计为代价提供细致评估</li>
+</ul>
+<p>最有效的评估策略结合了两种方法。将评估分数转化为具体代码变更是许多工作最终停滞的地方，这就是为什么评估工作流程需要以具体的代码级建议而非数字仪表板结束。</p>
+<hr>
+<h2 id="Agent-EvalKit-的工作原理"><a href="#Agent-EvalKit-的工作原理" class="headerlink" title="Agent-EvalKit 的工作原理"></a>Agent-EvalKit 的工作原理</h2><p>Agent-EvalKit 通过您现有的 AI 编码助手工作，而不是作为独立的评估平台运行。您的助手（无论是 Claude Code、Kiro CLI 还是 Kilo Code）通过在评估过程的每个阶段应用其读取代码和推理智能体行为的能力，成为评估引擎。</p>
+<p>您通过斜杠命令（如 <code>/evalkit.plan</code> 和 <code>/evalkit.data</code>）驱动此工作流程，附加自然语言指导，告诉助手哪些质量维度对您的智能体最重要。</p>
+<h3 id="六个评估阶段"><a href="#六个评估阶段" class="headerlink" title="六个评估阶段"></a>六个评估阶段</h3><p>工具包将工作组织为六个阶段，每个阶段在 <code>eval/</code> 目录中生成供下一阶段使用的产物：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>计划</strong></td>
+<td><code>/evalkit.plan</code></td>
+<td>读取智能体代码，了解其工具和框架，生成评估计划，将每个指标与具体评估方法配对</td>
+</tr>
+<tr>
+<td><strong>数据</strong></td>
+<td><code>/evalkit.data</code></td>
+<td>生成基于评估计划的测试用例，每个用例都有针对特定行为和失败模式的输入和预期结果</td>
+</tr>
+<tr>
+<td><strong>追踪</strong></td>
+<td><code>/evalkit.trace</code></td>
+<td>通过添加 OpenTelemetry 兼容的追踪使完整执行路径可见。支持 Strands、LangGraph 和 CrewAI 等框架</td>
+</tr>
+<tr>
+<td><strong>运行智能体</strong></td>
+<td><code>/evalkit.run_agent</code></td>
+<td>针对每个测试用例执行智能体，为每次运行生成结构化追踪文件，捕获工具调用、模型响应和中间状态的完整历史</td>
+</tr>
+<tr>
+<td><strong>评估</strong></td>
+<td><code>/evalkit.eval</code></td>
+<td>将计划中的指标实现为可执行评估代码，针对收集的追踪运行，并保存结构化结果</td>
+</tr>
+<tr>
+<td><strong>报告</strong></td>
+<td><code>/evalkit.report</code></td>
+<td>分析测试用例的模式，生成引用智能体代码中具体位置的优先建议，每个建议包含预期影响</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="演示研究：评估旅行研究智能体"><a href="#演示研究：评估旅行研究智能体" class="headerlink" title="演示研究：评估旅行研究智能体"></a>演示研究：评估旅行研究智能体</h2><h3 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h3><p>在开发使用 Strands Agents SDK 和 Amazon Bedrock 构建的旅行研究智能体期间，我们注意到智能体有时在响应中提供可疑的精确数字。该智能体使用网络搜索、航班信息、气候数据、货币转换和预算计算工具帮助用户规划旅行，但我们无法确定精确度问题有多普遍或哪些查询会触发它。</p>
+<h3 id="评估过程"><a href="#评估过程" class="headerlink" title="评估过程"></a>评估过程</h3><p>Agent-EvalKit 分析了智能体的代码，并在计划阶段围绕三个指标设计了重点评估：</p>
+<ol>
+<li><strong>忠实度（Faithfulness）</strong>：响应是否基于工具实际返回的数据</li>
+<li><strong>工具参数准确性（Tool Parameter Accuracy）</strong>：智能体是否以正确的输入调用工具</li>
+<li><strong>响应质量（Response Quality）</strong>：输出是否连贯且有用</li>
+</ol>
+<p>数据阶段生成了 100 个多轮测试会话，涵盖目的地研究、季节时机、行程构建、比较问题和预算计算，后续阶段在捕获详细执行追踪的同时运行每个会话。</p>
+<h3 id="评估结果"><a href="#评估结果" class="headerlink" title="评估结果"></a>评估结果</h3><p>结果揭示了质量和可靠性之间的明显分歧：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>响应质量</strong></td>
+<td>83.9%</td>
+<td>智能体提供了清晰、可操作的旅行建议</td>
+</tr>
+<tr>
+<td><strong>工具参数准确性</strong></td>
+<td>64.5%</td>
+<td>智能体通常选择了正确的工具，但有时传递了不精确的参数</td>
+</tr>
+<tr>
+<td><strong>忠实度</strong></td>
+<td><strong>32.3%</strong></td>
+<td>⚠️ 严重问题：智能体在工具返回空或不完整结果时捏造汇率、温度和景点详情</td>
+</tr>
+</tbody></table>
+<h3 id="根因分析"><a href="#根因分析" class="headerlink" title="根因分析"></a>根因分析</h3><p>报告将幻觉防护措施确定为最高优先级修复，建议：</p>
+<ul>
+<li>在系统提示中添加指令，当工具返回空结果时进行披露</li>
+<li>改进所有代码路径中的工具错误处理</li>
+</ul>
+<p><strong>在运行 Agent-EvalKit 之前</strong>，我们知道智能体有时看起来不可靠。<strong>之后</strong>，我们知道根本原因是空工具输出触发了幻觉，并有具体的代码变更来解决它。</p>
+<hr>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><ul>
+<li>启用了基础模型的活跃 AWS 账户（在 Amazon Bedrock 控制台中确认）</li>
+<li>Python 3.11 或更高版本和 Git</li>
+<li><code>uv</code> 包管理器（macOS/Linux 安装：<code>curl -LsSf https://astral.sh/uv/install.sh | sh</code>）</li>
+<li>已安装并配置的支持 AI 编码助手（Claude Code、Kiro CLI 或 Kilo Code）</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 uv 安装工具包</span></span><br><span class="line">uv tool install evalkit --from git+https://github.com/awslabs/Agent-EvalKit.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化评估项目</span></span><br><span class="line">evalkit init my-agent-evaluation</span><br><span class="line"><span class="built_in">cd</span> my-agent-evaluation</span><br><span class="line"><span class="built_in">cp</span> -r /path/to/your/agent .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 AI 助手</span></span><br><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行评估"><a href="#运行评估" class="headerlink" title="运行评估"></a>运行评估</h3><p><strong>快速引导模式</strong>（推荐新手）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/evalkit.quick 评估 ./my_agent 的响应质量和工具准确性</span><br></pre></td></tr></table></figure>
+
+<p><strong>分阶段精细控制</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/evalkit.plan 评估 ./my_agent 的响应质量和工具准确性</span><br><span class="line">/evalkit.data</span><br><span class="line">/evalkit.trace</span><br><span class="line">/evalkit.run_agent</span><br><span class="line">/evalkit.eval</span><br><span class="line">/evalkit.report</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol>
+<li><p><strong>从窄范围开始</strong>：聚焦于 2-3 个针对智能体最关键质量维度的指标，在后续评估中扩大范围</p>
 </li>
-</ul>
-<p>由于低代码项目本身使用的 Vue3 框架，而且 Vue和  React的异步加载组件方案其实差异不多，所以下面以 Vue为主进行介绍。</p>
-    
-    <a class="article-more-a" href="/lowcode/async-component.html#more">more >></a>
-    
-    
-    
+<li><p><strong>用领域知识引导</strong>：在每个阶段描述您观察到的具体输入、边缘情况和失败模式。指令越有针对性，生成的测试用例、指标和建议就越相关</p>
+</li>
+<li><p><strong>执行前审查测试用例</strong>：数据阶段从评估计划中综合用例，但您对真实用户行为的理解是不可替代的</p>
+</li>
+<li><p><strong>每次重大变更后评估</strong>：尽早发现回归并衡量每次改进的影响</p>
+</li>
+<li><p><strong>逐步处理建议</strong>：从报告中影响最大的项目开始，实施修复，重新评估以确认改进，然后继续下一个发现</p>
+</li>
+<li><p><strong>在生产中持续监控</strong>：使用 Amazon Bedrock AgentCore Observability 从真实流量中捕获追踪，并使用 AgentCore Evaluation 对这些追踪运行质量指标</p>
+</li>
+<li><p><strong>保持评估者与人类专家一致</strong>：定期将 LLM 作为评判者的分数与领域专家或人工注释者的判断进行比较</p>
+</li>
+</ol>
+<hr>
+<h2 id="CI-CD-集成"><a href="#CI-CD-集成" class="headerlink" title="CI/CD 集成"></a>CI/CD 集成</h2><p>对于准备自动化的团队，Agent-EvalKit 可以集成到 CI/CD 流水线中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码变更 → 触发评估 → 质量门控（检查指标阈值和回归）→ 失败路由回评估报告中的标记项目</span><br></pre></td></tr></table></figure>
 
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-framework/framework-k8s-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/framework/framework-k8s-study.html" target="_blank">
-      前端架构—— 学习k8s集群管理
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/framework/framework-k8s-study.html" class="archive-article-date">
-        <time datetime="2023-08-26T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li>k8s学习资料 <a target="_blank" rel="noopener" href="https://kuboard.cn/learning/">https://kuboard.cn/learning/</a></li>
-<li>k8s管理界面 <a target="_blank" rel="noopener" href="https://github.com/eip-work/kuboard-press">https://github.com/eip-work/kuboard-press</a></li>
-</ul>
+<p>一旦流水线就位，每轮测试都会重用上一轮的测试用例和工具，因此随着项目成熟，运行新评估的成本会下降。</p>
+<hr>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Agent-EvalKit 通过将每个步骤（从评估设计到指标计算和报告）委托给您已经使用的同一 AI 助手，为 AI 智能体评估提供了系统化的形式。</p>
+<p>模糊的质量担忧变成了结构化的证据体：测试用例、执行追踪、指标分数和优先建议，所有这些都与代码中的具体位置相关联。</p>
+<hr>
+<p><em>开源地址：<a target="_blank" rel="noopener" href="https://github.com/awslabs/Agent-EvalKit">https://github.com/awslabs/Agent-EvalKit</a></em><br><em>许可证：Apache 2.0</em></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -630,26 +1802,11 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">架构系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/framework/framework-k8s-study.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/eval/from/5.html">展开全文 >></a>
     </p>
     
 
@@ -684,7 +1841,7 @@
     height:800px
   }
   </style>
-<article id="post-study/think-framework" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -692,8 +1849,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/study/think-framework.html" target="_blank">
-      《思考的框架》，如何做出更好的决策？
+	  <a class="article-title" href="/ailearn/llm/08.html" target="_blank">
+      LLM API 参数详解（8）—— LLM 网关与聚合架构：模型一多，你迟早需要这一层 | 收官篇
       
     </a>
   
@@ -703,8 +1860,8 @@
 
   
   
-<a href="/study/think-framework.html" class="archive-article-date">
-        <time datetime="2023-08-15T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
+<a href="/ailearn/llm/08.html" class="archive-article-date">
+        <time datetime="2026-04-24T03:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-24</time>
 </a>
 
   
@@ -717,215 +1874,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📘 <strong>总结篇</strong>。这一篇不再讨论单个参数怎么调，而是开始处理多模型系统真正会失控的地方：接入、路由、成本、权限和稳定性。<br><strong>🎯 核心收获</strong>：什么时候该上 LLM 网关 + 主流方案怎么选 + LiteLLM 落地骨架 + 路由、预算、审计与高可用设计的关键判断</p>
 </blockquote>
-<h1 id="思考的框架"><a href="#思考的框架" class="headerlink" title="思考的框架"></a>思考的框架</h1><p>我们绝大部分行为都是建立在我们所理解的知识领域基础之上，所以我们大部分决策都是都是存在盲区，为了做出更好的决策，本书讲述了不同的思维模型，用来让你的大脑在做出决策之前可以通过不同的思维角度去思考。</p>
+<p><strong>前面七篇，我们一直在研究“怎么把一次调用做好”；到了这一篇，问题变成了：当调用越来越多、模型越来越杂时，怎么把整个系统管住。</strong></p>
+<p>一开始，很多团队都会直接在业务代码里接模型。OpenAI 一套 SDK，Anthropic 一套 SDK，DeepSeek 再来一套。项目小的时候，这么做没什么问题，甚至是最快的办法。</p>
     
-    <a class="article-more-a" href="/study/think-framework.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/think-framework.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/8-lazy-load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/8-lazy-load.html" target="_blank">
-      前端面试100道手写题（8）—— 懒加载
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/8-lazy-load.html" class="archive-article-date">
-        <time datetime="2023-08-12T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/face100/8-lazy-load.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/7-loop-pic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/7-loop-pic.html" target="_blank">
-      前端面试100道手写题（7）—— 循环轮播图
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/7-loop-pic.html" class="archive-article-date">
-        <time datetime="2023-07-31T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循环轮播图，基本上大家用的都是现有组件，如果要让你自己设计实现一个，其实最主要的两个点：循环算法和滚动动画</p>
-<p>手写难度：⭐️⭐️</p>
-<p>涉及知识点：</p>
-<ul>
-<li>循环播放的思路</li>
-<li>CSS 动画，transtion和 transform</li>
-<li>Web Component 自定义组件</li>
-</ul>
-    
-    <a class="article-more-a" href="/face100/7-loop-pic.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/08.html#more">more >></a>
     
     
     
@@ -945,323 +1899,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/face100/7-loop-pic.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230301" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230301.html" target="_blank">
-      一次性完整学完搭建PWA项目
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230301.html" class="archive-article-date">
-        <time datetime="2023-07-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在开发一个简单的个人记录网站，技术栈是使用 Vite + Vue3，由于使用的单台服务器，有时候服务器会被限制带宽，所以平时都会比较访问比较慢。所以想实现一个离线应用，而 PWA 应用则是目前最佳方案。</p>
-<p>本文涉及知识点如下：</p>
-<ul>
-<li>PWA 的概念</li>
-<li>Service Worker使用</li>
-<li>用构建工具搭建 PWA 应用</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230301.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230301.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230228" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230228.html" target="_blank">
-      Hexo博客添加GitHub评论功能
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230228.html" class="archive-article-date">
-        <time datetime="2023-07-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>其实从今年开始运营这个博客，我一直想增加一些新的交互功能，如：评论，之前一直有些问题没搞定，现在终于通过 Google 搜索解决问题了， 其实也算是每天学习一些新东西。</p>
-<p>解决问题：给 Hexo 博客新增 Github评论功能</p>
-<p>为什么选择 Github 呢？是因为 Github 对于偏向开发人员基本上属于一个必注册网站，而我博客的内容又偏向于技术，所以才会采取这个。</p>
-    
-    <a class="article-more-a" href="/today/20230228.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230228.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/6-visual-scroll" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/6-visual-scroll.html" target="_blank">
-      前端面试100道手写题（6）—— 虚拟滚动
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/6-visual-scroll.html" class="archive-article-date">
-        <time datetime="2023-07-05T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虚拟滚动在前端中是一个很常见的解决方案，由于浏览器对于内存的限制，当页面需要展示大量 DOM 节点（如：列表数据超过 10 万）的时候，如果完整渲染整个 DOM 树，当页面数据需要更新重新渲染的时候就会出现滚动卡顿，这个时候就需要虚拟滚动去模拟浏览器原生滚动事件，从而避免这个卡顿情况。</p>
-<p>手写难度：⭐️⭐️⭐️</p>
-<p>涉及知识点：</p>
-<ul>
-<li>滚动监听事件 wheel/move</li>
-<li>事件节流</li>
-<li>滚动偏移量 offset</li>
-<li>按需渲染计算方案</li>
-</ul>
-    
-    <a class="article-more-a" href="/face100/6-visual-scroll.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -1271,113 +1921,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/face100/6-visual-scroll.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-face100/5-router-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/face100/5-router-component.html" target="_blank">
-      前端面试100道手写题（5）—— Router路由
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/face100/5-router-component.html" class="archive-article-date">
-        <time datetime="2023-06-20T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前端路由，大家都使用过，那么有没有想过它是怎么实现的吗？如：Vue-Router 或者 React-Router。或许有个大概印象，但是真正要自己去实现还是没有什么思路，那么这篇文章将完整的实现思路去实现一次。</p>
-<p>手写难度：⭐️⭐️⭐️</p>
-<p>涉及知识点：</p>
-<ul>
-<li>history api 和监听事件</li>
-<li>onhashchange 监听事件</li>
-<li>Web Component 自定义组件</li>
-</ul>
-    
-    <a class="article-more-a" href="/face100/5-router-component.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/face100/5-router-component.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/08.html">展开全文 >></a>
     </p>
     
 
@@ -1409,7 +1953,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1666,6 +2210,178 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

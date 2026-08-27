@@ -361,962 +361,168 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/05.html" target="_blank">
-      AI Agent Harness Engineering（5）—— 用 Trace 分析驱动持续迭代
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/05.html" class="archive-article-date">
-        <time datetime="2026-03-28T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>你怎么知道 AI 在哪里出了问题？</strong></p>
-<p>靠感觉不够，靠猜测更不够。LangChain 的答案是：<strong>看 Trace</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Trace Analysis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/05.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/04.html" target="_blank">
-      AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/04.html" class="archive-article-date">
-        <time datetime="2026-03-28T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。</strong></p>
-<p>这不是玄学，这是 Anthropic 工程师在实践中验证过的结论。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/04.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Multi-Agent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/04.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/03.html" target="_blank">
-      AI Agent Harness Engineering（3）—— 上下文工程：给 AI 一张地图
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/03.html" class="archive-article-date">
-        <time datetime="2026-03-28T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>AI 看不到的东西，对它来说就不存在。</strong></p>
-<p>这句话听起来像废话，但它背后藏着一个很多人忽视的问题：你以为 AI 知道的事情，它其实不知道。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/03.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Context Engineering</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/03.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/02.html" target="_blank">
-      AI Agent Harness Engineering（2）—— 让 AI 学会&#34;自我验证&#34;
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/02.html" class="archive-article-date">
-        <time datetime="2026-03-28T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>AI 写完代码，自己看了一眼觉得没问题，就交差了。这是 AI Agent 最常见的失败模式之一。</strong></p>
-<p>LangChain 在分析了大量 Agent 运行 Trace 之后，发现了一个规律：最常见的失败，不是 AI 不会写代码，而是 AI 写完代码之后，<strong>没有去验证它是否真的能跑</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/02.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Build & Verify</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/02.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/01.html" target="_blank">
-      AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/01.html" class="archive-article-date">
-        <time datetime="2026-03-28T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>同样的模型，为什么有人用得飞起，有人用得一塌糊涂？</strong></p>
-<p>答案不在模型，在 Harness。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/01.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/01.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/langchain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ppt-projects/AI从零开始-第07讲-Agent运行机制Loop/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Improving Deep Agents with harness engineering<br>8 min read<br>Feb 17, 2026<br>TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0. We only changed the harness. Here’s our approach to harness engineering (teaser: self-verification &amp; tracing help a lot).</p>
-<p>The Goal of Harness Engineering<br>The goal of a harness is to mold the inherently spiky intelligence of a model for tasks we care about. Harness Engineering is about systems, you’re building tooling around the model to optimize goals like task performance, token efficiency, latency, etc. Design decisions include the system prompt, tool choice, and execution flow.</p>
-<p>But how should you change the harness to improve your agent?</p>
-<p>At LangChain, we use Traces to understand agent failure modes at scale. Models today are largely black-boxes, their inner mechanisms are hard to interpret. But we can see their inputs and outputs in text space which we then use in our improvement loops.</p>
-<p>We used a simple recipe to iteratively improve deepagents-cli (our coding agent) 13.7 points from 52.8 to 66.5 on Terminal Bench 2.0. We only tweaked the harness and kept the model fixed, gpt-5.2-codex.</p>
-<p>Experiment Setup &amp; The Knobs on a Harness<br>We used Terminal Bench 2.0, a now standard benchmark to evaluate agentic coding. It has 89 tasks across domains like machine learning, debugging, and biology. We use Harbor to orchestrate the runs. It spins up sandboxes (Daytona), interacts with our agent loop, and runs verification + scoring.</p>
-<p>Every agent action is stored in LangSmith. It also includes metrics like latency, token counts, and costs.</p>
-<p>The Knobs we can Turn<br>An agent harness has a lot of knobs: system prompts, tools, hooks/middleware, skills, sub-agent delegation, memory systems, and more. We deliberately compress the optimization space and focus on three: System Prompt, Tools, and Middleware (our term for hooks around model and tool calls).</p>
-<p>We start with a default prompt and standard tools+middleware. This scores 52.8% with GPT-5.2-Codex. A solid score, just outside the Top 30 of the leaderboard today, but room to grow.</p>
-<p>The Trace Analyzer Skill<br>We wanted trace analysis to be repeatable so we made it into an Agent Skill. This serves as our recipe to analyze errors across runs and make improvements to the harness. The flow is:</p>
-<p>Fetch experiment traces from LangSmith<br>Spawn parallel error analysis agents → main agent synthesizes findings + suggestions<br>Aggregate feedback and make targeted changes to the harness.<br>This works similarly to boosting which focuses on mistakes from previous runs. A human can be pretty helpful in Step 3 (though not required) to verify and discuss proposed changes. Changes that overfit to a task are bad for generalization and can lead to regressions in other Tasks.</p>
-<p>Automated trace analysis saves hours of time and made it easy to quickly try experiments. We’ll be publishing this skill soon, we’re currently testing it for prompt optimization generally.</p>
-<p>What Actually Improved Agent Performance<br>Automated Trace analysis allowed us to debug where agents were going wrong. Issues included reasoning errors, not following task instructions, missing testing and verification, running out of time, etc. We go into these improvements in more details in the sections below.</p>
-<p>Build &amp; Self-Verify<br>Today’s models are exceptional self-improvement machines.</p>
-<p>Self-verification allows agents to self-improve via feedback within a run. However, they don’t have a natural tendency to enter this build-verify loop.</p>
-<p>The most common failure pattern was that the agent wrote a solution, re-read its own code, confirmed it looks ok, and stopped. Testing is a key part of autonomous agentic coding. It helps test for overall correctness and simultaneously gives agents signal to hill-climb against.</p>
-<p>We added guidance to the system prompt on how to approach problem solving.</p>
-<p>Planning &amp; Discovery: Read the task, scan the codebase, and build an initial plan based on the task specification and how to verify the solution.<br>Build: Implement the plan with verification in mind. Build tests, if they don’t exist and test both happy paths and edge cases.<br>Verify: Run tests, read the full output, compare against what was asked (not against your own code).<br>Fix: Analyze any errors, revisit the original spec, and fix issues.<br>We really focus on testing because it powers the changes in every iteration. We found that alongside prompting, deterministic context injection helps agents verify their work. We use a PreCompletionChecklistMiddleware that intercepts the agent before it exits and reminds it to run a verification pass against the Task spec. This is similar to a Ralph Wiggum Loop where a hook forces the agent to continue executing on exit, we use this for verification.</p>
-<p>Giving Agents Context about their Environment<br>Part of harness engineering is building a good delivery mechanism for context engineering. Terminal Bench tasks come with directory structures, built-in tooling, and strict timeouts.</p>
-<p>Directory Context &amp; Tooling: A LocalContextMiddleware runs on agent start to map the cwd and other parent+children directories. We run bash commands to find tools like Python installations. Context discovery and search are error prone, so injecting context reduces this error surface and helps onboard the agent into its environment.<br>Teaching Agents to Write Testable Code: Agents don’t know how their code needs to be testable. We add prompting say their work will be measured against programatic tests, similar to when committing code. For example, Task specs that mention file paths should be followed exactly so the solutions works in an automated scoring step. Prompting that stresses edge-cases helps the agent avoid only checking “happy path” cases. Forcing models to conform to testing standards is a powerful strategy to avoid “slop buildup” over time.<br>Time Budgeting: We inject time budget warnings to nudge the agent to finish work and shift to verification. Agents are famously bad at time estimation so this heuristic helps in this environment. Real world coding usually doesn’t have strict time limits, but without adding any knowledge of constraints, agents won’t work within time bounds.<br>The more that agents know about their environment, constraints, and evaluation criteria, the better they can autonomously self-direct their work.</p>
-<p>The purpose of the harness engineer: prepare and deliver context so agents can autonomously complete work.</p>
-<p>Encouraging Agents to Step Back &amp; Reconsider Plans<br>Agents can be myopic once they’ve decided on a plan which results in “doom loops” that make small variations to the same broken approach (10+ times in some traces).</p>
-<p>We use a LoopDetectionMiddleware that tracks per-file edit counts via tool call hooks. It adds context like “…consider reconsidering your approach” after N edits to the same file. This can help agents recover from doom loops, though the model can continue down the same path if it thinks it’s correct.</p>
-<p>Important note. This is a design heuristic that engineers around today’s perceived model issues. As models improve, these guardrails will likely be unnecessary, but today helps agents execute correctly and autonomously.</p>
-<p>Choosing How Much Compute to Spend on Reasoning<br>Reasoning models can run autonomously for hours so we have to decide how much compute to spend on every subtask. You can use the max reasoning budget on every task, but most work can benefit from optimizing reasoning compute spend.</p>
-<p>Terminal Bench timeout limits create a tradeoff. More reasoning helps agents evaluate each step, but can burn over 2x more tokens/time. gpt-5.2-codex has 4 reasoning modes, low, medium, high, and xhigh.</p>
-<p>We found that reasoning helps with planning to fully understand the problem, some Terminal Bench tasks are very difficult. A good plan helps get to a working solution more quickly.</p>
-<p>Later stage verification also benefits from more reasoning to catch mistakes and get a solution submitted. As a heuristic, we choose a xhigh-high-xhigh “reasoning sandwich” as a baseline.</p>
-<p>Spending more reasoning compute on planning and verification<br>Running only at xhigh scored poorly at 53.9% due to agent timeouts compared to 63.6% at high. There weren’t large differences in trial runs across reasoning budget splits so we stuck with our approach which pushed the score to 66.5%.</p>
-<p>The natural approach for models is Adaptive Reasoning, seen with Claude and Gemini models where the model decides how much compute to spend on reasoning.</p>
-<p>In a multi-model harness, balancing reasoning budgets could play out as using a large model for planning and handing off to a smaller model for implementation.</p>
-<p>Practical Takeaways for Building Agent Harnesses<br>The design space of agents is big. Here are some general principles from our experiments and building deepagents overall.</p>
-<p>Context Engineering on Behalf of Agents. Context assembly is still difficult for agents today, especially in unseen environments. Onboarding models with context like directory structures, available tools, coding best practices, and problem solving strategies helps reduce the error surface for poor search and avoidable errors in planning.<br>Help agents self-verify their work. Models are biased towards their first plausible solution. Prompt them aggressively to verify their work by running tests and refining solutions. This is especially important in autonomous coding systems that don’t have humans in the loop.<br>Tracing as a feedback signal. Traces allow agents to self-evaluate and debug themselves. It’s important to debug tooling and reasoning together (ex: models go down wrong paths because they lack a tool or instructions how to do something).<br>Detect and fix bad patterns in the short term. Models today aren’t perfect. The job of the harness designer is to design around today’s shortcomings while planning for smarter models in the future. Blind retries and not verifying work are good examples. These guardrails will almost surely dissolve over time, but to build robust agent applications today, they’re useful tools to experiment with.<br>Tailor Harnesses to Models. The Codex and Claude prompting guides show that models require different prompting. A test run with Claude Opus 4.6 scored 59.6% with an earlier harness version, competitive but worse than Codex because we didn’t run the same Improvement Loop with Claude. Many principles generalize like good context preparation and a focus on verification, but running a few rounds of harness iterations for your task helps maximize agent performance across tasks.<br>There’s more open research to do in harness design. Interesting avenues include multi-model systems (Codex, Gemini, and Claude together), memory primitives for continual learning so agents can autonomously improve on tasks, and measuring harness changes across models.</p>
-<p>For the outer loop of improving agents, we’re looking at methods like RLMs to more efficiently mine traces. We’ll be continuing work to improve the harness and openly share our research.</p>
-<p>We created a dataset of our Traces to share with the community.</p>
-<p>Deep Agents is open source. Python and Javascript.</p>
-<p>To more hill climbing and open research.</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/langchain.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/00.html" target="_blank">
-      AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/00.html" class="archive-article-date">
-        <time datetime="2026-03-28T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？</strong></p>
-<p>2025 年下半年，一件事悄悄发生了——OpenAI 内部有个三人团队，用 Codex 智能体在五个月内写出了一百万行代码，没有一行是人工敲的。LangChain 的团队用同样的方式，把他们的编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到了 66.5%，而且全程没有换模型，只改了”外壳”。</p>
-<p>这个”外壳”，就是 <strong>Harness</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/00.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/00.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/openai" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>工程技术：在智能体优先的世界中利用 Codex<br>作者：Ryan Lopopolo，技术人员</p>
-<p>聆听文章<br>19:36<br>分享<br>在过去五个月里，我们的团队一直在进行一项实验：构建并交付一款软件产品的内部 beta 版，其中没有一行代码是人工编写的。</p>
-<p>该产品有内部日常活跃用户和外部 Alpha 测试者。它经历了交付、部署、故障和修复的整个过程。与众不同的是，每一行代码 — 从应用逻辑、测试、CI 配置、文档、可观察性到内部工具 — 全都是由 Codex 编写的。据估计，我们只用了手工编写代码所需的大约 1/10 的时间就完成了这项工作。</p>
-<p>人类掌舵。智能体执行。</p>
-<p>我们有意选择这一限制，以便构建必要的内容，从而将工程速度提升数个数量级。我们用了几周的时间来交付最终达到一百万行代码的项目。为此，我们需要了解，当软件工程团队的主要工作不再是编写代码，而是设计环境、明确意图和构建反馈回路，从而使 Codex 智能体能够可靠地工作时，会发生哪些变化。</p>
-<p>这个帖子要说的是，在我们与智能体团队一起从零开始打造一款全新产品的过程中，所能学到的经验教训 — 哪些地方出了问题，哪些问题相互叠加，以及如何最大化利用我们唯一真正稀缺的资源：人类的时间和注意力。</p>
-<p>我们从一个空的 Git 代码仓库开始<br>首次提交到一个空的代码仓库是在 2025 年 8 月下旬。</p>
-<p>初始架构 — 包括代码仓库结构、CI 配置、格式化规则、包管理器设置和应用框架 — 是在一小套现有模板的指导下，由 Codex CLI 使用 GPT‑5 生成的。就连指导智能体如何在代码仓库中工作的初始 AGENTS.md 文件本身也是由 Codex 编写的。</p>
-<p>该系统没有预存任何人工编写的代码。从一开始，代码仓库就由智能体塑造。</p>
-<p>五个月后，该代码仓库已经拥有约一百万行代码，从应用逻辑、基础设施、工具、文档到内部开发者工具应有尽有。在那段时间内，大约有 1,500 个 Pull Request 被打开与合并，而推动 Codex 的仅仅是一个由三名工程师组成的小团队。这相当于平均每位工程师每天处理 3.5 个 PRs 的吞吐量，而且令人惊讶的是，随着团队规模扩大到现在的七名工程师，吞吐量甚至还增加了。重要的是，这并非为了输出而输出：该产品已在数百名内测用户那里投入使用，其中包括每天都在使用的内测高级用户。</p>
-<p>在整个开发过程中，人类从未直接直接贡献过任何代码。这成为团队的核心理念：不手动编写代码。</p>
-<p>重新定义工程师的角色<br>由于缺乏人工编码的实践，工程师工作的重点转向了系统、架构和杠杆作用。</p>
-<p>早期进展比我们所预期的要慢，而这并不是因为 Codex 不具备相应的能力，而是因为环境的规范不够明确。该智能体缺乏实现高级目标所需的工具、抽象层和内部结构，因而无法取得进展。我们工程团队的主要任务成了协助智能体完成有用的工作。</p>
-<p>在实践中，这意味着采用深度优先的工作方式：将更大的目标拆解为更小的构建模块（设计、代码、评审、测试等），提示智能体去构建这些模块，并使用它们去解锁更复杂的任务。当事情进行不顺利时，解决方案基本上再也不会是“再努力一点”。因为取得进展的唯一方式是让 Codex 来完成工作，而人类工程师则总是介入这项任务并追问：“究竟还需要什么样的能力，我们又该如何让这个能力对智能体来说既清晰可读又可强制执行？”</p>
-<p>人类几乎完全通过提示与系统交互：工程师描述任务，运行智能体，并允许其打开一个 Pull Request。为了推动 PR 的完成，我们会指示 Codex 在本地审核其自身的更改，在本地和云端请求额外的特定智能体审查，对任何人工或智能体给出的反馈做出响应，并循环往复，直到所有智能体审核人员都满意为止（这实际上是一个 Ralph Wiggum 循环⁠（在新窗口中打开））。Codex 直接使用我们的标准开发工具（gh、本地脚本和嵌入代码仓库的技能）来收集情境，而无需人工将内容复制粘贴到 CLI 中。</p>
-<p>人类可以审核 Pull Request（合并请求），但并非必须这样做。随着时间的推移，我们已将几乎所有的审核工作调整为用智能体对智能体的方式来处理。</p>
-<p>提高应用程序的可读性<br>随着代码吞吐量的增加，我们的瓶颈变成了人工 QA 能力。由于人类的时间和注意力是固定的限制因素，我们一直在努力通过令应用程序的 UI、日志和应用指标等内容对 Codex 直接可读，从而为智能体增加更多功能。</p>
-<p>例如，我们令应用程序可以根据 git worktree 启动，因此 Codex 可以为每次更改启动并驱动一个实例。我们还将 Chrome DevTools 协议接入智能体运行时，并创建了用于处理 DOM 快照、屏幕截图和导航的技能。这使 Codex 能够复现错误、验证修复，并直接推理 UI 的行为。</p>
-<p>题为“Codex 使用 Chrome DevTools MCP 驱动应用程序以验证其工作”的图表。Codex 会选择一个目标，对触发用户界面路径前后的状态进行快照，通过 Chrome DevTools 观察运行时事件，应用修复、重启和循环重新运行验证，直到应用程序恢复正常。<br>我们对可观测性工具也做了同样的处理。日志、指标和追踪记录会通过一个本地可观测性堆栈展示给 Codex，对任何给定的工作树来说，该堆栈都是临时的。Codex 在该应用程序的一个完全独立的版本上运行，一旦任务完成，该版本的所有内容，包括日志和指标，都会被删除。智能体可以使用 LogQL 查询日志，使用 PromQL 查询指标。有了这些情境，像“确保服务启动在 800ms 内完成”或“这四个关键用户旅程中的任何跨度都不得超过两秒”这样的提示就变得可行了。</p>
-<p>题为“在本地开发中赋予 Codex 完整的可观察性堆栈”的图表。一个应用程序将日志、指标和追踪数据发送到 Vector，Vector 会将数据分发到一个包含 Victoria Logs、Metrics 和 Traces 的可观测性堆栈中，并通过 LogQL、PromQL 或 TraceQL API 进行查询。Codex 使用这些信号进行查询、关联和推理，然后在代码库中进行修复，重启应用程序，重新运行工作负载，测试 UI 流程，并在反馈循环中重复此过程。<br>我们经常看到单次 Codex 运行在单个任务上持续工作超过六个小时（通常是在人类睡眠时间）。</p>
-<p>我们将代码仓库设为记录系统<br>情境管理是使智能体在大型和复杂任务中有效发挥作用的最大挑战之一。我们学到的最早经验教训之一很简单：要给 Codex 的是一张地图，而不是一本 1,000 页的说明书。</p>
-<p>我们尝试了“一个大型的 AGENTS.md⁠（在新窗口中打开）”方法。可想而知，这是一次失败的尝试：</p>
-<p>情境是一种稀缺资源。一个巨大的指令文件会挤掉任务、代码和相关文档 — 因此智能体要么会错过关键约束条件，要么开始针对错误的约束条件进行优化。<br>过多的指导反而变得无效。当一切都 “重要”时，一切都不重要了。智能体最终会在本地进行模式匹配，而不是有意识地进行导航。<br>它会立即腐烂。一本庞杂的手册会变成陈旧规则的坟场。智能体无法判断哪些信息仍然有效，一旦人类停止维护它，此文件就会悄然成为一个颇具吸引力的麻烦源头。<br>这很难核实。单个 blob 不适合进行机械检查（覆盖率、新鲜度、所有权、交叉链接），因此漂移是不可避免的。<br>因此，我们不再将 AGENTS.md 视为百科全书，而是将其视为内容目录。</p>
-<p>代码仓库的知识库位于一个结构化了的 docs/ 目录中，此目录被当作记录系统来使用。一份简短的 AGENTS.md（大约 100 行）被注入到情境中，主要用作地图，并指向其他地方更深层次的真实信息来源。</p>
-<p>纯文本</p>
-<p>1<br>AGENTS.md<br>2<br>ARCHITECTURE.md<br>3<br>docs/<br>4<br>├── design-docs/<br>5<br>│   ├── index.md<br>6<br>│   ├── core-beliefs.md<br>7<br>│   └── …<br>8<br>├── exec-plans/<br>9<br>│   ├── active/<br>10<br>│   ├── completed/<br>11<br>│   └── tech-debt-tracker.md<br>12<br>├── generated/<br>13<br>│   └── db-schema.md<br>14<br>├── product-specs/<br>15<br>│   ├── index.md<br>16<br>│   ├── new-user-onboarding.md<br>17<br>│   └── …<br>18<br>├── references/<br>19<br>│   ├── design-system-reference-llms.txt<br>20<br>│   ├── nixpacks-llms.txt<br>21<br>│   ├── uv-llms.txt<br>22<br>│   └── …<br>23<br>├── DESIGN.md<br>24<br>├── FRONTEND.md<br>25<br>├── PLANS.md<br>26<br>├── PRODUCT_SENSE.md<br>27<br>├── QUALITY_SCORE.md<br>28<br>├── RELIABILITY.md<br>29<br>└── SECURITY.md<br>代码仓库内知识存储布局。</p>
-<p>设计文档已被编目和索引，其中包括验证状态和一套核心理念，定义了智能体优先的操作原则。架构文档⁠（在新窗口中打开）提供域和包分层的顶层地图。一份高质量的文档会对每个产品领域和架构层进行评分，并随着时间的推移追踪差距。</p>
-<p>计划被视为一流的工件。临时轻量计划用于小幅变更，而复杂工作则记录在执行计划⁠（在新窗口中打开）中，并附带进度和决策日志，这些日志会被提交到代码仓库。活跃计划、已完成计划和已知的技术债务都已进行版本控制并集中存放，使智能体能够在不依赖外部情境的情况下运行。</p>
-<p>这实现了渐进式披露：智能体从一个小而稳定的切入点开始，并被指导下一步该去哪里查看，而不是一开始就被淹没。</p>
-<p>我们严格执行这一点。专职的 linter 和 CI 作业会验证知识库的更新状况、是否已交叉链接且结构正确。一个定期运行的“doc-gardening”智能体会扫描那些不再反映真实代码行为的过时或废弃文档，并发起修复用的 Pull Request。</p>
-<p>目标是智能体的可读性<br>随着代码库的发展，Codex 的设计决策框架也需要随之演变。</p>
-<p>由于该代码仓库完全由智能体生成，因此我们首先针对 Codex 的可读性进行了优化。就像团队会努力提升代码对新入职工程师的可导航性一样，我们的人类工程师的目标也是让智能体能够直接从代码仓库推理出完整的业务领域。</p>
-<p>从智能体的角度来看，它在运行时无法在情境中访问的任何内容都是不存在的。存储在 Google Docs、聊天记录或人们头脑中的知识都无法被系统访问。代码仓库本地的、已版本化的工件（例如，代码、Markdown、模式、可执行计划）就是它所能看到的全部。</p>
-<p>题为“智能体知识的局限性：Codex看不到的东西就不存在”的图表。Codex 的知识被展示为一个有边界的气泡。在其下方是不可见知识的示例 — Google Docs、Slack 消息，以及隐性的人类知识。箭头表示，要想让 Codex 看到这些信息，就必须将其以 Markdown 的形式编码到代码库中。<br>我们了解到，随着时间的推移，我们需要将越来越多的情境推送到仓库中。那次让团队在架构模式上达成一致的 Slack 讨论？如果智能体无法发现它，那么它就会像迟了三个月入职的新员工一样，对其一无所知。</p>
-<p>为 Codex 提供更多情境意味着要组织和展示正确的信息，好令智能体能够基于这些信息进行推理，而不是用临时指令使其不堪重负。就像你会在产品原则、工程规范和团队文化（包括表情符号偏好）方面为新队友提供引导一样，将这些信息提供给智能体会带来更一致的输出。</p>
-<p>这一框架明确了许多取舍。我们倾向于选择那些可以完全内化于在仓库中进行推理的依赖项和抽象。对智能体来说，通常被称为“枯燥”的技术，由于其可组合性、API 稳定性和在训练集里的表现，往往更容易建立模型。在某些情况下，让智能体重新实现部分功能子集比绕过公共库中不透明的上游行为更便宜。例如，我们没有引入通用的 p-limit 风格包，而是投入使用了我们自己的带并发的 map 辅助函数：它与我们的 OpenTelemetry 仪表紧密集成，具备 100% 的测试覆盖率，并且其行为完全符合我们的运行时预期。</p>
-<p>将系统的更多部分转化为智能体可以检查、验证并直接修改的形式，可以直接提高杠杆效应 — 这不仅适用于 Codex，也适用于其他智能体（例如Aardvark) 也在参与代码库的开发。</p>
-<p>规范架构与品味<br>仅靠文档本身，是没法保持完全由智能体生成的代码库的连贯性的。通过强制执行不变量，而非对实施过程进行微观管理，我们令智能体能够快速交付，而且不会削弱基础。例如，我们要求 Codex 在边界处解析数据形状⁠（在新窗口中打开），但不规定具体实现方式（模型似乎偏好 Zod，但我们没有指定特定库）。</p>
-<p>智能体在具有严格边界和可预测结构⁠（在新窗口中打开）的环境中最为高效，因此我们围绕一个严格的架构模型构建了该应用。每个业务域都划分为一组固定的层，依赖方向经过严格验证，并且仅允许有限的一组边。这些约束是通过自定义的 linter（当然是由 Codex 生成的！）和结构测试机械地强制执行的。</p>
-<p>下图展示了规则：在每个业务领域内（例如应用设置），代码只能“向前”依赖于一组固定的层（Types → Config → Repo → Service → Runtime → UI）。横切关注点（认证、连接器、遥测、功能标志）通过一个单一的显式接口进入：Providers。其他任何内容都不被允许，并将通过自动化方式强制执行。</p>
-<p>题为“具有明确交叉界限的分层领域架构”的图表。在业务逻辑域内存在以下模块：Types → Config → Repo，以及 Providers → Service → Runtime → UI，底部是 App Wiring + UI。一个 Utils 模块位于界限之外，并向 Providers 提供输入。<br>这种架构通常要等到你拥有数百名工程师时才会推迟。对于编码智能体来说，这是一个早期的先决条件：有了约束，速度才不会下降，架构才不会漂移。</p>
-<p>在实践中，我们通过自定义的代码检查器和结构测试来强制执行这些规则，并辅以一小组“品味不变式”。例如，我们通过自定义 lint 静态地强制执行结构化日志记录、模式和类型的命名约定、文件大小限制，以及特定平台的可靠性要求。由于这些 lint 是自定义的，我们编写错误信息时会在智能体情境中注入修复指令。</p>
-<p>在以人为本的工作流程中，这些规则可能会让人感到迂腐或束缚。有了智能体，它们就成了倍增器：一旦编码，它们就能立即应用于所有地方。</p>
-<p>同时，我们还明确指出了哪些地方需要限制，哪些地方不需要限制。这类似于领导一个大型工程平台组织：在中央层面强制执行边界，在本地层面允许自主权。你非常重视界限、正确性和可重复性。在这些边界内，你允许团队或智能体在解决方案的表达方式上拥有很大的自由。</p>
-<p>生成的代码不总是符合人类的风格偏好，这也没关系。只要输出是正确的、可维护的，并且对未来的智能体运行而言清晰易读，就可以算作达标。</p>
-<p>人类的品味会不断反馈到系统中。审查评论、重构的 Pull Request 和面向用户的 Bug 会被记录为文档更新，或直接编码到工具中。当文档不够完善时，我们会将规则转化为代码</p>
-<p>吞吐量改变了合并的理念<br>随着 Codex 的吞吐量增加，许多传统的工程规范变得不再有效。</p>
-<p>该代码仓库在运行过程中尽量减少阻塞合并门。Pull Request 的生命周期很短。测试偶发失败通常通过后续重跑来解决，而不是无限期地阻碍进展。在一个智能体吞吐量远超人类注意力的系统中，纠错成本低，而等待成本高。</p>
-<p>在低吞吐量环境中，这样做是不负责任的。而在这里，这通常是正确的选择。</p>
-<p>“智能体生成”实际上意味着什么<br>当我们说代码库是由 Codex 智能体生成的，我们指的是整个代码库。</p>
-<p>智能体的产出包括：</p>
-<p>产品代码与测试<br>CI 配置和发布工具<br>内部开发者工具<br>文档和设计历史<br>评估框架<br>审阅评论和回复<br>管理代码仓库本身的脚本<br>生产仪表板定义文件<br>人类始终参与其中，但工作的抽象层次与过去不同。我们优先处理工作，将用户反馈转化为验收标准，并对结果进行验证。当智能体遇到困难时，我们将其视为一个信号：识别缺失的内容 — 工具、指导与约束、文档 — 并将其反馈到代码仓库中，始终由 Codex 自己编写修复。</p>
-<p>智能体可以直接使用我们的标准开发工具。他们会拉取审查反馈、在行内回复、推送更新，并且经常压缩并合并他们自己的 Pull Request（合并请求）。</p>
-<p>不断提高的自主水平<br>随着越来越多的开发环节被直接编码到系统中 — 包括测试、验证、审查、反馈处理和恢复 — 该代码仓库最近跨过了一个重要门槛，使 Codex 能够端到端地驱动一个新功能。</p>
-<p>给定一个提示，智能体现在可以：</p>
-<p>验证代码库的当前状态<br>重现已报告的漏洞<br>录制一个演示故障的视频<br>实施修复措施<br>通过运行应用程序来验证修复<br>录制第二个视频，演示解决方案<br>打开 Pull Request<br>回应智能体和人类反馈<br>检测并修复构建故障<br>仅在需要判断时才交由人工处理<br>合并更改<br>此行为在很大程度上取决于此代码仓库的具体结构和工具，不应在没有类似投入的情况下假定它可以泛化 — 至少目前还不行。</p>
-<p>熵与垃圾收集<br>完全自主的智能体也引入了新的问题。Codex 会复现代码仓库中已存在的模式 — 甚至包括那些不均衡或不够理想的模式。随着时间的推移，这不可避免地导致漂移。</p>
-<p>最初，人类是手动处理这个问题的。我们的团队过去每周五（占一周的20%）都要花时间清理“AI 残渣”。不出所料，那并不具备可扩展性。</p>
-<p>相反，我们开始将我们称为“黄金原则”的内容直接编码到代码仓库中，并建立了一个循环清理流程。这些原则是带有主观意见的机械规则，旨在保持代码库的可读性和一致性，以便将来运行智能体。例如：(1) 我们更倾向于使用共享的实用程序包，而不是手工编写的辅助工具，以便将不变式集中管理；(2) 我们不会使用“YOLO 式”探测数据 — 我们会验证边界，或依赖类型化的 SDK，这样智能体就不会意外地基于猜测的结构进行构建。我们会定期运行一组后台 Codex 任务，扫描偏差、更新质量等级，并发起有针对性的重构 Pull Request。其中大多数都可以在一分钟内完成审查并自动合并。</p>
-<p>其功能类似于垃圾回收。技术债务就像一笔高息贷款：不断地以小额贷款的方式偿还债务，总比让债务不断累积，再痛苦地一次解决要好得多。人类的品味一旦被捕捉，就会持续应用于每一行代码。这也使我们能够每天发现并解决不良模式，而不是让它们在代码库中传播数天或数周。</p>
-<p>我们仍在学习的内容<br>到目前为止，这一策略在 OpenAI 的内部发布和采纳过程中表现良好。为真实用户打造真实产品，帮助我们将投资锚定在现实中，并引导我们实现长期的可维护性。</p>
-<p>我们尚不清楚的是，在一个完全由智能体生成的系统中，架构连贯性会如何随着时间的推移而演变。我们仍在学习人类的判断力在哪些方面能发挥最大作用，以及如何对这种判断力进行编码，使其发挥更大作用。我们也不知道，随着时间的推移，模型的功能不断增强，这一系统将如何演变。</p>
-<p>显而易见的是：构建软件仍然需要纪律，但纪律更多地体现在支撑结构上，而不是代码上。保持代码库一致性的工具、抽象和反馈回路变得越发重要。</p>
-<p>我们当前最棘手的挑战集中在设计环境、反馈回路和控制系统方面，帮助智能体实现我们的目标：大规模构建和维护复杂、可靠的软件。</p>
-<p>随着像 Codex 这样的智能体在软件生命周期中占据越来越大的比重，这些问题将变得更加重要。我们希望通过分享一些早期的经验教训，帮助你理清投入精力的方向，以便你可以直接开始构建。</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/openai.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/anthropic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Harness design for long-running application development<br>Published Mar 24, 2026</p>
-<p>Harness design is key to performance at the frontier of agentic coding. Here’s how we pushed Claude further in frontend design and long-running autonomous software engineering.</p>
-<p>Written by Prithvi Rajasekaran, a member of our Labs team.</p>
-<p>Over the past several months I’ve been working on two interconnected problems: getting Claude to produce high-quality frontend designs, and getting it to build complete applications without human intervention. This work originated with earlier efforts on our frontend design skill and long-running coding agent harness, where my colleagues and I were able to improve Claude’s performance well above baseline through prompt engineering and harness design—but both eventually hit ceilings.</p>
-<p>To break through, I sought out novel AI engineering approaches that held across two quite different domains, one defined by subjective taste, the other by verifiable correctness and usability. Taking inspiration from Generative Adversarial Networks (GANs), I designed a multi-agent structure with a generator and evaluator agent. Building an evaluator that graded outputs reliably—and with taste—meant first developing a set of criteria that could turn subjective judgments like “is this design good?” into concrete, gradable terms.</p>
-<p>I then applied these techniques to long-running autonomous coding, carrying over two lessons from our earlier harness work: decomposing the build into tractable chunks, and using structured artifacts to hand off context between sessions. The final result was a three-agent architecture—planner, generator, and evaluator—that produced rich full-stack applications over multi-hour autonomous coding sessions.</p>
-<p>Why naive implementations fall short<br>We’ve previously shown that harness design has a substantial impact on the effectiveness of long running agentic coding. In an earlier experiment, we used an initializer agent to decompose a product spec into a task list, and a coding agent that implemented the tasks one feature at a time before handing off artifacts to carry context across sessions. The broader developer community has converged on similar insights, with approaches like the “Ralph Wiggum” method using hooks or scripts to keep agents in continuous iteration cycles.</p>
-<p>But some problems remained persistent. For more complex tasks, the agent still tends to go off the rails over time. While decomposing this issue, we observed two common failure modes with agents executing these sorts of tasks.</p>
-<p>First is that models tend to lose coherence on lengthy tasks as the context window fills (see our post on context engineering). Some models also exhibit “context anxiety,” in which they begin wrapping up work prematurely as they approach what they believe is their context limit. Context resets—clearing the context window entirely and starting a fresh agent, combined with a structured handoff that carries the previous agent’s state and the next steps—addresses both these issues.</p>
-<p>This differs from compaction, where earlier parts of the conversation are summarized in place so the same agent can keep going on a shortened history. While compaction preserves continuity, it doesn’t give the agent a clean slate, which means context anxiety can still persist. A reset provides a clean slate, at the cost of the handoff artifact having enough state for the next agent to pick up the work cleanly. In our earlier testing, we found Claude Sonnet 4.5 exhibited context anxiety strongly enough that compaction alone wasn’t sufficient to enable strong long task performance, so context resets became essential to the harness design. This solves the core issue, but adds orchestration complexity, token overhead, and latency to each harness run.</p>
-<p>A second issue, which we haven’t previously addressed, is self-evaluation. When asked to evaluate work they’ve produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre. This problem is particularly pronounced for subjective tasks like design, where there is no binary check equivalent to a verifiable software test. Whether a layout feels polished or generic is a judgment call, and agents reliably skew positive when grading their own work.</p>
-<p>However, even on tasks that do have verifiable outcomes, agents still sometimes exhibit poor judgment that impedes their performance while completing the task. Separating the agent doing the work from the agent judging it proves to be a strong lever to address this issue. The separation doesn’t immediately eliminate that leniency on its own; the evaluator is still an LLM that is inclined to be generous towards LLM-generated outputs. But tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work, and once that external feedback exists, the generator has something concrete to iterate against.</p>
-<p>Frontend design: making subjective quality gradable<br>I started by experimenting on frontend design, where the self-evaluation issue was most visible. Absent any intervention, Claude normally gravitates toward safe, predictable layouts that are technically functional but visually unremarkable.</p>
-<p>Two insights shaped the harness I built for frontend design. First, while aesthetics can’t be fully reduced to a score—and individual tastes will always vary—they can be improved with grading criteria that encode design principles and preferences. “Is this design beautiful?” is hard to answer consistently, but “does this follow our principles for good design?” gives Claude something concrete to grade against. Second, by separating frontend generation from frontend grading, we can create a feedback loop that drives the generator toward stronger outputs.</p>
-<p>With this in mind, I wrote four grading criteria that I gave to both the generator and evaluator agents in their prompts:</p>
-<p>Design quality: Does the design feel like a coherent whole rather than a collection of parts? Strong work here means the colors, typography, layout, imagery, and other details combine to create a distinct mood and identity.<br>Originality: Is there evidence of custom decisions, or is this template layouts, library defaults, and AI-generated patterns? A human designer should recognize deliberate creative choices. Unmodified stock components—or telltale signs of AI generation like purple gradients over white cards—fail here.<br>Craft: Technical execution: typography hierarchy, spacing consistency, color harmony, contrast ratios. This is a competence check rather than a creativity check. Most reasonable implementations do fine here by default; failing means broken fundamentals.<br>Functionality: Usability independent of aesthetics. Can users understand what the interface does, find primary actions, and complete tasks without guessing?<br>I emphasized design quality and originality over craft and functionality. Claude already scored well on craft and functionality by default, as the required technical competence tended to come naturally to the model. But on design and originality, Claude often produced outputs that were bland at best. The criteria explicitly penalized highly generic “AI slop” patterns, and by weighting design and originality more heavily it pushed the model toward more aesthetic risk-taking.</p>
-<p>I calibrated the evaluator using few-shot examples with detailed score breakdowns. This ensured the evaluator’s judgment aligned with my preferences, and reduced score drift across iterations.</p>
-<p>I built the loop on the Claude Agent SDK, which kept the orchestration straightforward. A generator agent first created an HTML/CSS/JS frontend based on a user prompt. I gave the evaluator the Playwright MCP, which let it interact with the live page directly before scoring each criterion and writing a detailed critique. In practice, the evaluator would navigate the page on its own, screenshotting and carefully studying the implementation before producing its assessment. That feedback flowed back to the generator as input for the next iteration. I ran 5 to 15 iterations per generation, with each iteration typically pushing the generator in a more distinctive direction as it responded to the evaluator’s critique. Because the evaluator was actively navigating the page rather than scoring a static screenshot, each cycle took real wall-clock time. Full runs stretched up to four hours. I also instructed the generator to make a strategic decision after each evaluation: refine the current direction if scores were trending well, or pivot to an entirely different aesthetic if the approach wasn’t working.</p>
-<p>Across runs, the evaluator’s assessments improved over iterations before plateauing, with headroom still remaining. Some generations refined incrementally. Others took sharp aesthetic turns between iterations.</p>
-<p>The wording of the criteria steered the generator in ways I didn’t fully anticipate. Including phrases like “the best designs are museum quality” pushed designs toward a particular visual convergence, suggesting that the prompting associated with the criteria directly shaped the character of the output.</p>
-<p>While scores generally improved over iterations, the pattern was not always cleanly linear. Later implementations tended to be better as a whole, but I regularly saw cases where I preferred a middle iteration over the last one. Implementation complexity also tended to increase across rounds, with the generator reaching for more ambitious solutions in response to the evaluator’s feedback. Even on the first iteration, outputs were noticeably better than a baseline with no prompting at all, suggesting the criteria and associated language themselves steered the model away from generic defaults before any evaluator feedback led to further refinement.</p>
-<p>In one notable example, I prompted the model to create a website for a Dutch art museum. By the ninth iteration, it had produced a clean, dark-themed landing page for a fictional museum. The page was visually polished but largely in line with my expectations. Then, on the tenth cycle, it scrapped the approach entirely and reimagined the site as a spatial experience: a 3D room with a checkered floor rendered in CSS perspective, artwork hung on the walls in free-form positions, and doorway-based navigation between gallery rooms instead of scroll or click. It was the kind of creative leap that I hadn’t seen before from a single-pass generation.</p>
-<p>Scaling to full-stack coding<br>With these findings in hand, I applied this GAN-inspired pattern to full-stack development. The generator-evaluator loop maps naturally onto the software development lifecycle, where code review and QA serve the same structural role as the design evaluator.</p>
-<p>The architecture<br>In our earlier long-running harness, we had solved for coherent multi-session coding with an initializer agent, a coding agent that worked one feature at a time, and context resets between sessions. Context resets were a key unlock: the harness used Sonnet 4.5, which exhibited the “context anxiety” tendency mentioned earlier. Creating a harness that worked well across context resets was key to keeping the model on task. Opus 4.5 largely removed that behavior on its own, so I was able to drop context resets from this harness entirely. The agents were run as one continuous session across the whole build, with the Claude Agent SDK’s automatic compaction handling context growth along the way.</p>
-<p>For this work I built on the foundation from the original harness with a three-agent system, with each agent addressing a specific gap I’d observed in prior runs. The system contained the following agent personas:</p>
-<p>Planner: Our previous long-running harness required the user to provide a detailed spec upfront. I wanted to automate that step, so I created a planner agent that took a simple 1-4 sentence prompt and expanded it into a full product spec. I prompted it to be ambitious about scope and to stay focused on product context and high level technical design rather than detailed technical implementation. This emphasis was due to the concern that if the planner tried to specify granular technical details upfront and got something wrong, the errors in the spec would cascade into the downstream implementation. It seemed smarter to constrain the agents on the deliverables to be produced and let them figure out the path as they worked. I also asked the planner to find opportunities to weave AI features into the product specs. (See example in the Appendix at the bottom.)</p>
-<p>Generator: The one-feature-at-a-time approach from the earlier harness worked well for scope management. I applied a similar model here, instructing the generator to work in sprints, picking up one feature at a time from the spec. Each sprint implemented the app with a React, Vite, FastAPI, and SQLite (later PostgreSQL) stack, and the generator was instructed to self-evaluate its work at the end of each sprint before handing off to QA. It also had git for version control.</p>
-<p>Evaluator: Applications from earlier harnesses often looked impressive but still had real bugs when you actually tried to use them. To catch these, the evaluator used the Playwright MCP to click through the running application the way a user would, testing UI features, API endpoints, and database states. It then graded each sprint against both the bugs it had found and a set of criteria modeled on the frontend experiment, adapted here to cover product depth, functionality, visual design, and code quality. Each criterion had a hard threshold, and if any one fell below it, the sprint failed and the generator got detailed feedback on what went wrong.</p>
-<p>Before each sprint, the generator and evaluator negotiated a sprint contract: agreeing on what “done” looked like for that chunk of work before any code was written. This existed because the product spec was intentionally high-level, and I wanted a step to bridge the gap between user stories and testable implementation. The generator proposed what it would build and how success would be verified, and the evaluator reviewed that proposal to make sure the generator was building the right thing. The two iterated until they agreed.</p>
-<p>Communication was handled via files: one agent would write a file, another agent would read it and respond either within that file or with a new file that the previous agent would read in turn. The generator then built against the agreed-upon contract before handing the work off to QA. This kept the work faithful to the spec without over-specifying implementation too early.</p>
-<p>Running the harness<br>For the first version of this harness, I used Claude Opus 4.5, running user prompts against both the full harness and a single-agent system for comparison. I used Opus 4.5 since this was our best coding model when I began these experiments.</p>
-<p>I wrote the following prompt to generate a retro video game maker:</p>
-<p>Create a 2D retro game maker with features including a level editor, sprite editor, entity behaviors, and a playable test mode.<br>The table below shows the harness type, length it ran for, and the total cost.</p>
-<p>Harness    Duration    Cost<br>Solo    20 min    $9<br>Full harness    6 hr    $200<br>The harness was over 20x more expensive, but the difference in output quality was immediately apparent.</p>
-<p>I was expecting an interface where I could construct a level and its component parts (sprites, entities, tile layout) then hit play to actually play the level. I started by opening the solo run’s output, and the initial application seemed in line with those expectations.</p>
-<p>As I clicked through, however, issues started to emerge. The layout wasted space, with fixed-height panels leaving most of the viewport empty. The workflow was rigid. Trying to populate a level prompted me to create sprites and entities first, but nothing in the UI guided me toward that sequence. More to the point, the actual game was broken. My entities appeared on screen but nothing responded to input. Digging into the code revealed that the wiring between entity definitions and the game runtime was broken, with no surface indication of where.</p>
-<p>Opening screen<br>Sprite editor<br>Game play</p>
-<p>Initial screen when opening the app created by the solo harness.</p>
-<p>After evaluating the solo run, I turned my attention to the harness run. This run started from the same one-sentence prompt, but the planner step expanded that prompt into a 16-feature spec spread across ten sprints. It went well beyond what the solo run attempted. In addition to the core editors and play mode, the spec called for a sprite animation system, behavior templates, sound effects and music, an AI-assisted sprite generator and level designer, and game export with shareable links. I gave the planner access to our frontend design skill, which it read and used to create a visual design language for the app as part of the spec. For each sprint, the generator and evaluator negotiated a contract defining the specific implementation details for the sprint, and the testable behaviors that would be tested to verify completion.</p>
-<p>The app immediately showed more polish and smoothness than the solo run. The canvas used the full viewport, the panels were sized sensibly, and the interface had a consistent visual identity that tracked the design direction from the spec. Some of the clunkiness I’d seen in the solo run did remain—the workflow still didn’t make it clear that you should build sprites and entities before trying to populate a level, and I had to figure that out by poking around. This read as a gap in the base model’s product intuition rather than something the harness was designed to address, though it did suggest a place where targeted iteration inside the harness could help to further improve output quality.</p>
-<p>Working through the editors, the new run’s advantages over solo became more apparent. The sprite editor was richer and more fully featured, with cleaner tool palettes, a better color picker, and more usable zoom controls.</p>
-<p>Because I’d asked the planner to weave AI features into its specs, the app also came with a built-in Claude integration that let me generate different parts of the game through prompting. This significantly sped up the workflow.</p>
-<p>Opening screen<br>Sprite editor<br>AI game design<br>AI game design<br>Game play</p>
-<p>Initial screen: Creating a new game, in the app built with the full harness</p>
-<p>The biggest difference was in play mode. I was actually able to move my entity and play the game. The physics had some rough edges—my character jumped onto a platform but ended up overlapping with it, which felt intuitively wrong—but the core thing worked, which the solo run did not manage. After moving around a bit, I did hit some limitations with the AI’s game level construction. There was a large wall that I wasn’t able to jump past, so I was stuck. This suggested there were some common sense improvements and edge cases that the harness could handle to further refine the app.</p>
-<p>Reading through the logs, it was clear that the evaluator kept the implementation in line with the spec. Each sprint, it walked through the sprint contract’s test criteria and exercised the running application through Playwright, filing bugs against anything that diverged from expected behavior. The contracts were granular—Sprint 3 alone had 27 criteria covering the level editor—and the evaluator’s findings were specific enough to act on without extra investigation. The table below shows several examples of issues our evaluator identified:</p>
-<p>Contract criterion    Evaluator finding<br>Rectangle fill tool allows click-drag to fill a rectangular area with selected tile    FAIL — Tool only places tiles at drag start/end points instead of filling the region. fillRectangle function exists but isn’t triggered properly on mouseUp.<br>User can select and delete placed entity spawn points    FAIL — Delete key handler at LevelEditor.tsx:892 requires both selection and selectedEntityId to be set, but clicking an entity only sets selectedEntityId. Condition should be selection || (selectedEntityId &amp;&amp; activeLayer === ‘entity’).<br>User can reorder animation frames via API    FAIL — PUT /frames/reorder route defined after /{frame_id} routes. FastAPI matches ‘reorder’ as a frame_id integer and returns 422: “unable to parse string as an integer.”<br>Getting the evaluator to perform at this level took work. Out of the box, Claude is a poor QA agent. In early runs, I watched it identify legitimate issues, then talk itself into deciding they weren’t a big deal and approve the work anyway. It also tended to test superficially, rather than probing edge cases, so more subtle bugs often slipped through. The tuning loop was to read the evaluator’s logs, find examples where its judgment diverged from mine, and update the QAs prompt to solve for those issues. It took several rounds of this development loop before the evaluator was grading in a way that I found reasonable. Even then, the harness output showed the limits of the model’s QAing capabilities: small layout issues, interactions that felt unintuitive in places, and undiscovered bugs in more deeply nested features that the evaluator hadn’t exercised thoroughly. There was clearly more verification headroom to capture with further tuning. But compared to the solo run, where the central feature of the application simply didn’t work, the lift was obvious.</p>
-<p>Iterating on the harness<br>The first set of harness results was encouraging, but it was also bulky, slow, and expensive. The logical next step was to find ways to simplify the harness without degrading its performance. This was partly common sense and partly a function of a more general principle: every component in a harness encodes an assumption about what the model can’t do on its own, and those assumptions are worth stress testing, both because they may be incorrect, and because they can quickly go stale as models improve. Our blog post Building Effective Agents frames the underlying idea as “find the simplest solution possible, and only increase complexity when needed,” and it’s a pattern that shows up consistently for anyone maintaining an agent harness.</p>
-<p>In my first attempt to simplify, I cut the harness back radically and tried a few creative new ideas, but I wasn’t able to replicate the performance of the original. It also became difficult to tell which pieces of the harness design were actually load-bearing, and in what ways. Based on that experience, I moved to a more methodical approach, removing one component at a time and reviewing what impact it had on the final result.</p>
-<p>As I was going through these iteration cycles, we also released Opus 4.6, which provided further motivation to reduce harness complexity. There was good reason to expect 4.6 would need less scaffolding than 4.5 did. From our launch blog: “[Opus 4.6] plans more carefully, sustains agentic tasks for longer, can operate more reliably in larger codebases, and has better code review and debugging skills to catch its own mistakes.” It also improved substantially on long-context retrieval. These were all capabilities the harness had been built to supplement.</p>
-<p>Removing the sprint construct<br>I started by removing the sprint construct entirely. The sprint structure had helped to decompose work into chunks for the model to work coherently. Given the improvements in Opus 4.6, there was good reason to believe that the model could natively handle the job without this sort of decomposition.</p>
-<p>I kept both the planner and evaluator, as each continued to add obvious value. Without the planner, the generator under-scoped: given the raw prompt, it would start building without first speccing its work, and end up creating a less feature-rich application than the planner did.</p>
-<p>With the sprint construct removed, I moved the evaluator to a single pass at the end of the run rather than grading per sprint. Since the model was much more capable, it changed how load-bearing the evaluator was for certain runs, with its usefulness depending on where the task sat relative to what the model could do reliably on its own. On 4.5, that boundary was close: our builds were at the edge of what the generator could do well solo, and the evaluator caught meaningful issues across the build. On 4.6, the model’s raw capability increased, so the boundary moved outward. Tasks that used to need the evaluator’s check to be implemented coherently were now often within what the generator handled well on its own, and for tasks within that boundary, the evaluator became unnecessary overhead. But for the parts of the build that were still at the edge of the generator’s capabilities, the evaluator continued to give real lift.</p>
-<p>The practical implication is that the evaluator is not a fixed yes-or-no decision. It is worth the cost when the task sits beyond what the current model does reliably solo.</p>
-<p>Alongside the structural simplification, I also added prompting to improve how the harness built AI features into each app, specifically getting the generator to build a proper agent that could drive the app’s own functionality through tools. That took real iteration, since the relevant knowledge is recent enough that Claude’s training data covers it thinly. But with enough tuning, the generator was building agents correctly.</p>
-<p>Results from the updated harness<br>To put the updated harness to the test, I used the following prompt to generate a Digital Audio Workstation (DAW), a music production program for composing, recording, and mixing songs:</p>
-<p>Build a fully featured DAW in the browser using the Web Audio API.<br>The run was still lengthy and expensive, at about 4 hours and $124 in token costs.</p>
-<p>Most of the time went to the builder, which ran coherently for over two hours without the sprint decomposition that Opus 4.5 had needed.</p>
-<p>Agent &amp; Phase    Duration    Cost<br>Planner    4.7 min    $0.46<br>Build (Round 1)    2 hr 7 min    $71.08<br>QA (Round 1)    8.8 min    $3.24<br>Build (Round 2)    1 hr 2 min    $36.89<br>QA (Round 2)    6.8 min    $3.09<br>Build (Round 3)    10.9 min    $5.88<br>QA (Round 3)    9.6 min    $4.06<br>Total V2 Harness    3 hr 50 min    $124.70<br>As with the previous harness, the planner expanded the one-line prompt into a full spec. From the logs, I could see the generator model did a good job planning the app and the agent design, wiring the agent up, and testing it before handing off to QA.</p>
-<p>That being said, the QA agent still caught real gaps. In its first-round feedback, it noted:</p>
-<p>This is a strong app with excellent design fidelity, solid AI agent, and good backend. The main failure point is Feature Completeness — while the app looks impressive and the AI integration works well, several core DAW features are display-only without interactive depth: clips can’t be dragged/moved on the timeline, there are no instrument UI panels (synth knobs, drum pads), and no visual effect editors (EQ curves, compressor meters). These aren’t edge cases — they’re the core interactions that make a DAW usable, and the spec explicitly calls for them.<br>In its second round feedback, it again caught several functionality gaps:</p>
-<p>Remaining gaps:</p>
-<ul>
-<li>Audio recording is still stub-only (button toggles but no mic capture)</li>
-<li>Clip resize by edge drag and clip split not implemented</li>
-<li>Effect visualizations are numeric sliders, not graphical (no EQ curve)<br>The generator was still liable to miss details or stub features when left to its own devices, and the QA still added value in catching those last mile issues for the generator to fix.</li>
+    <h1 id="STORY-md-—-第-07-讲：Agent-运行机制-Agent-Loop（优化版）"><a href="#STORY-md-—-第-07-讲：Agent-运行机制-Agent-Loop（优化版）" class="headerlink" title="STORY.md — 第 07 讲：Agent 运行机制 Agent Loop（优化版）"></a>STORY.md — 第 07 讲：Agent 运行机制 Agent Loop（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 7 讲）。</li>
+<li><strong>核心目标</strong>：让观众真正看懂「Agent 是怎么跑起来的」，记住「接收指令 → 思考 → 执行 → 观察 → 判断」四步循环这一心智锚点，课后能独立写出 50 行最简 Loop。</li>
+<li><strong>PPT 长度</strong>：9 页（封面 + 7 内容 + 结尾），Hero 页配额 2-3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲四步循环、三种流派、最简 Loop 实现、消息生命周期、上下文失忆、持久规则、可观测性；不讲具体框架源码、不展开评测与安全（留给第 8 讲）；禁碰训练细节。</li>
 </ul>
-<p>Based on the prompt, I was expecting a program where I could create melodies, harmonies, and drum patterns, arrange them into a song, and get help from an integrated agent along the way. The video below shows the result.</p>
-<p>The app is far from a professional music production program, and the agent’s song composition skills could clearly use a lot of work. Additionally, Claude can’t actually hear, which made the QA feedback loop less effective with respect to musical taste.</p>
-<p>But the final app had all the core pieces of a functional music production program: a working arrangement view, mixer, and transport running in the browser. Beyond that, I was able to put together a short song snippet entirely through prompting: the agent set the tempo and key, laid down a melody, built a drum track, adjusted mixer levels, and added reverb. The core primitives for song composition were present, and the agent could drive them autonomously, using tools to create a simple production from end to end. You might say it’s not pitch-perfect yet—but it’s getting there.</p>
-<p>What comes next<br>As models continue to improve, we can roughly expect them to be capable of working for longer, and on more complex tasks. In some cases, that will mean the scaffold surrounding the model matters less over time, and developers can wait for the next model and see certain problems solve themselves. On the other hand, the better the models get, the more space there is to develop harnesses that can achieve complex tasks beyond what the model can do at baseline.</p>
-<p>With this in mind, there are a few lessons from this work worth carrying forward. It is always good practice to experiment with the model you’re building against, read its traces on realistic problems, and tune its performance to achieve your desired outcomes. When working on more complex tasks, there is sometimes headroom from decomposing the task and applying specialized agents to each aspect of the problem. And when a new model lands, it is generally good practice to re-examine a harness, stripping away pieces that are no longer load-bearing to performance and adding new pieces to achieve greater capability that may not have been possible before.</p>
-<p>From this work, my conviction is that the space of interesting harness combinations doesn’t shrink as models improve. Instead, it moves, and the interesting work for AI engineers is to keep finding the next novel combination.</p>
-<p>Acknowledgements<br>Special thanks to Mike Krieger, Michael Agaby, Justin Young, Jeremy Hadfield, David Hershey, Julius Tarng, Xiaoyi Zhang, Barry Zhang, Orowa Sidker, Michael Tingley, Ibrahim Madha, Martina Long, and Canyon Robbins for their contributions to this work.</p>
-<p>Thanks also to Jake Eaton, Alyssa Leonard, and Stef Sequeira for their help shaping the post.</p>
-<p>Appendix<br>Example plan generated by planner agent.</p>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 3 章：<ul>
+<li>第 1 章「循环本质」（P2 心跳引擎 / P3 三种流派 / P4 最简 Loop）→ 扉页 P2</li>
+<li>第 2 章「消息与记忆」（P5 消息生命周期 / P6 上下文失忆 / P7 持久规则与会话恢复）→ 扉页 P5</li>
+<li>第 3 章「看见与控制」（P8 可观测性 / P9 总结与练习）→ 扉页 P8</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P9 结尾页（2 页，22%，符合 20-30%）；P4 为核心代码页，视觉加重但不计入 Hero（深色代码块为主视觉）。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 peak → P5 valley → P6 valley → P7 valley → P8 valley → P9 peak。P4 以 CodeBlock 大图制造第二个峰，P2-P3 与 P5-P8 两段 valley 各被打断一次。</li>
+<li><strong>非对称版式</strong>：P2 左标题+右内容、P4 左文+右代码、P6 左标题+右内容、P7 左文+右卡、P8 左标题+右内容 —— 非对称占比 5/9 = 56% ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P3（决策树三卡）、P5（上大图下卡）用对称，全篇对称 ≤ 2 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览；禁止标题小字</td>
+<td align="left">封面：Agent Loop——Agent 是怎么跑起来的</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_heartbeat.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">四步循环横条</td>
+<td align="left">anchor</td>
+<td align="left">字数170/留白20%</td>
+<td align="left">禁止等宽四卡装饰化</td>
+<td align="left">心跳引擎：接收指令→思考→执行→观察→判断，一步不停转下去</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_three_flavors.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">决策树三卡</td>
+<td align="left">三卡对比</td>
+<td align="left">evidence</td>
+<td align="left">字数160/留白25%</td>
+<td align="left">禁止罗列框架细节</td>
+<td align="left">三种流派：确定性循环可预测 / SDK Loop 灵活 / 多 Agent 复杂</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_minimal_loop.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">peak</td>
+<td align="left">左文+右代码</td>
+<td align="left">CodeBlock</td>
+<td align="left">anchor</td>
+<td align="left">字数140/图1/留白20%</td>
+<td align="left">禁止代码塞进小卡</td>
+<td align="left">50 行实现最简 Loop：骨架 + 终止策略 + 工具注册表</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_message_lifecycle.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上大图+下方卡片</td>
+<td align="left">消息流图示</td>
+<td align="left">anchor</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止术语堆砌</td>
+<td align="left">消息生命周期：Tool Use/Tool Result 交替、并行调用、Hooks 拦截</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_context_amnesia.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">三板斧卡片</td>
+<td align="left">evidence</td>
+<td align="left">字数170/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">Token 窗口物理限制 + 三板斧：滑动窗口 / 压缩 / 外部记忆</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_persistent_rules.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左文+右卡</td>
+<td align="left">CLAUDE.md 深卡</td>
+<td align="left">evidence</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">持久规则与会话恢复：CLAUDE.md / 断点恢复 / PreCompact Hook</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_observability.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">五消息类型卡</td>
+<td align="left">evidence</td>
+<td align="left">字数170/留白20%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">可观测性：五种消息类型、ResultMessage 停止原因、effort 控成本</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">装饰圆</td>
+<td align="left">anchor</td>
+<td align="left">字数80/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">总结：先跑通再上框架，避免过度设计 + 练习 + 自测</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P6：Token 窗口物理上限 → 上下文不是无限记忆，会被「挤掉」——所以需要主动管理记忆。</li>
+<li>P8：effort 参数 → 思考强度可调，直接映射为 token 成本——成本意识从读日志开始。</li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -1331,7 +537,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/anthropic.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC07%E8%AE%B2-Agent%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6Loop/STORY.html">展开全文 >></a>
     </p>
     
 
@@ -1366,52 +572,342 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/25.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(25) - Plan-and-Solve
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/25.html" class="archive-article-date">
-        <time datetime="2026-03-27T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Plan-and-Solve（计划与执行）</strong></p>
-<blockquote>
-<p>一句话核心：<strong>Plan-and-Solve</strong> 就是”先想清楚再做”——让 AI 把复杂任务拆解成一步步可执行的计划，然后按部就班地执行，不再像无头苍蝇一样乱撞。</p>
-</blockquote>
-<p>说实话，这招特别对我们程序员的胃口。你想啊，我们接到一个大需求，第一反应是什么？肯定是先拆需求、列任务清单、排优先级对吧？Plan-and-Solve 就是让 AI 也按这个套路来工作。</p>
-<p>之前学 ReAct 的时候，AI 是”边想边做”，走一步看一步。这种方式对付简单问题还行，但遇到复杂任务就容易跑偏——做着做着忘了最初的目标，或者在某个子任务里死循环出不来。</p>
-<p>Plan-and-Solve 的思路完全不同：它让 AI <strong>先停下来好好规划</strong>，把整个任务的路线图画清楚，然后再开工。就像盖房子要先有设计图纸，打仗要先有作战计划。</p>
-<p>它的核心价值在于<strong>把复杂问题化整为零，提高任务完成的成功率和效率</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/daily/25.html#more">more >></a>
-    
+    <h1 id="DESIGN-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）"><a href="#DESIGN-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）" class="headerlink" title="DESIGN.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）"></a>DESIGN.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 6 讲」+ 右侧页码 <code>NN / 14</code>，14px 灰</li>
+</ul>
+</li>
+<li>封面 / 结尾页自定义版式，省略 C 区。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/代码/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
+<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
+<li>Hero 页（P1/P8/P14）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.25</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">19-22px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-17px</td>
+<td align="left">regular</td>
+<td align="left">1.6-1.9</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">代码</td>
+<td align="left">13-15px</td>
+<td align="left">regular</td>
+<td align="left">1.8</td>
+<td align="left">JetBrains Mono</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
+<li>代码页以 CodeBlock 为主视觉；代码单行 ≤ 60 字符（防水平溢出）。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
+<thead>
+<tr>
+<th align="left">等级</th>
+<th align="left">用途</th>
+<th align="left">最小尺寸</th>
+<th align="left">接入</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">L1</td>
+<td align="left">主视觉</td>
+<td align="left">B 区 ≥40%</td>
+<td align="left">CodeBlock / 时序条 / 流程条</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">支撑图</td>
+<td align="left">≥280×180</td>
+<td align="left">段落旁</td>
+</tr>
+<tr>
+<td align="left">L3</td>
+<td align="left">角标</td>
+<td align="left">≤64×64</td>
+<td align="left">C 区左侧固定</td>
+</tr>
+</tbody></table>
+<ul>
+<li>架构/流程/时序用 Box+Text 还原；命令与代码用 CodeBlock 还原。</li>
+<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">L1</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_what_is_agent.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">五大局限卡</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">五局限右栏</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_collab_modes.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三模式演进</td>
+<td align="left">演进卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">箭头串联</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_reasoning_cot.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">思维链流程卡</td>
+<td align="left">流程卡</td>
+<td align="left">150</td>
+<td align="left">22%</td>
+<td align="left">CoT/ReAct 等</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_memory.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三类记忆横排</td>
+<td align="left">记忆卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">感觉/短期/长期</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_tools.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左工具+右支持表</td>
+<td align="left">支持表</td>
+<td align="left">150</td>
+<td align="left">22%</td>
+<td align="left">原生支持表</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_function_calling.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">时序图</td>
+<td align="left">时序条</td>
+<td align="left">140</td>
+<td align="left">25%</td>
+<td align="left">两次调用</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_agent_demo.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">120</td>
+<td align="left">30%</td>
+<td align="left">四步实战</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_agent_types.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">类型对比</td>
+<td align="left">对比卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">scratchpad</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_why_langgraph.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左右对照</td>
+<td align="left">对比卡</td>
+<td align="left">150</td>
+<td align="left">22%</td>
+<td align="left">Chain vs Graph</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_langgraph_elements.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三要素横排</td>
+<td align="left">要素卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">State/Node/Edge</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_plan_execute.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">计划流程</td>
+<td align="left">流程条</td>
+<td align="left">140</td>
+<td align="left">25%</td>
+<td align="left">Plan/Execute/Replan</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">13_persistence.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三要点横排</td>
+<td align="left">要点卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">checkpointer 等</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">14_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">80</td>
+<td align="left">40%</td>
+<td align="left">深色收尾+练习自测</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P2(左标题右内容)→P3(演进)→P4(流程卡)→P5(三卡)→P6(左工具右表)→P7(时序图)→P8(代码Hero)→P9(对比)→P10(左右对照)→P11(三卡)→P12(流程条)→P13(三卡)→P14(居中) ✅</li>
+<li>P11/P13 均为三卡，中间隔 P12（流程条）打断，可接受。</li>
+<li>Hero 3 页 = 21%，互不相邻 ✅</li>
+<li>连续 valley ≤7：P2-P7 六连 → P8 peak 打断，P9-P13 五连 → P14 peak ✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -1421,26 +917,2326 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/25.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）"><a href="#STORY-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）" class="headerlink" title="STORY.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）"></a>STORY.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：已会编排与 RAG、想让 AI「从回答变成做事」的开发者（系列课程第 6 讲）。</li>
+<li><strong>核心目标</strong>：让观众相信「Agent = 大脑 + 手 + 记忆」，记住「LLM 作推理引擎 + 工具执行 + 反馈闭环」这一心智锚点，课后能写出「Function Calling Agent」并理解 LangGraph 状态机。</li>
+<li><strong>PPT 长度</strong>：14 页（封面 + 12 内容 + 结尾），Hero 页配额 3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、代码可信（延续系列视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲 Agent 定位、协同模式、思维链、记忆/工具/规划三能力、Function Calling、LangGraph 三要素与实战、持久化；不讲强化学习训练细节；Manus 仅作案例引入。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 4 章：<ul>
+<li>第 1 章「认识 Agent」（P2 定位 / P3 协同模式 / P4 思维链）→ 扉页 P2</li>
+<li>第 2 章「三大能力」（P5 记忆 / P6 工具 / P7 Function Calling）→ 扉页 P5</li>
+<li>第 3 章「实战与对比」（P8 龙虎榜 Agent / P9 类型对比）→ 扉页 P8</li>
+<li>第 4 章「LangGraph 工作流」（P10 为什么 / P11 三要素 / P12 计划执行反思 / P13 持久化 / P14 总结）→ 扉页 P10</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P8 实战①（代码主视觉）、P14 结尾页（3 页，21%）；任意两 Hero 间隔 ≥1 Supporting。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 valley → P8 peak → P9 valley → P10 valley → P11 valley → P12 valley → P13 valley → P14 peak。连续 valley 过长，靠 P8 代码 Hero、P14 收官打破；P4 思维链用流程卡增加节奏。</li>
+<li><strong>非对称版式</strong>：P2 左标题右内容、P3 三模式演进、P7 时序图、P8 左代码右说明、P10 左右对照、P12 计划流程——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P5（三类记忆）、P6（工具+支持表）、P9（类型对比）、P11（三要素）用对称，全篇对称 ≤ 4 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：Agent 让 AI 从回答变成做事（Manus 案例引入）</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_what_is_agent.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">五大局限卡</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">Agent 是什么：LLM 推理引擎 + 行动 + 反馈闭环</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_collab_modes.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三模式演进</td>
+<td align="left">演进卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止堆名词</td>
+<td align="left">Embedding→Copilot→Agent 三种协同模式</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_reasoning_cot.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">思维链流程卡</td>
+<td align="left">流程卡</td>
+<td align="left">字数150/留白22%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">CoT/思维树/ReAct/Reflexion/Hindsight 激发推理</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_memory.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三类记忆横排</td>
+<td align="left">记忆卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽四卡</td>
+<td align="left">感觉/短期/长期记忆，Embedding 是记忆载体</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_tools.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左工具+右支持表</td>
+<td align="left">支持表</td>
+<td align="left">字数150/留白22%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">Function Call/Plugin/模型内嵌，主流模型原生支持</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_function_calling.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">时序图</td>
+<td align="left">时序条</td>
+<td align="left">字数140/留白25%</td>
+<td align="left">禁止贴大段代码</td>
+<td align="left">Function Calling 原理：两次调用闭环</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_agent_demo.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数120/留白30%</td>
+<td align="left">禁止代码超 12 行</td>
+<td align="left">实战①：龙虎榜查询 Agent 四步</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_agent_types.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">类型对比</td>
+<td align="left">对比卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">Tool Calling/ReAct/Structured Chat + agent_scratchpad</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_why_langgraph.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左右对照</td>
+<td align="left">对比卡</td>
+<td align="left">字数150/留白22%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">线性 Chain 的局限 vs LangGraph 图工作流</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_langgraph_elements.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三要素横排</td>
+<td align="left">要素卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止堆名词</td>
+<td align="left">State/Node/Edge 三要素 + HelloWorld</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_plan_execute.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">计划流程</td>
+<td align="left">流程条</td>
+<td align="left">字数140/留白25%</td>
+<td align="left">禁止贴大段代码</td>
+<td align="left">计划-执行-反思：Plan→Execute→Replan</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">13_persistence.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三要点横排</td>
+<td align="left">要点卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">checkpointer/thread_id/recursion_limit</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">14_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">字数80/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">Agent = 大脑 + 手 + 记忆 + 练习 + 自测</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P2：LLM 五大局限——无记忆 / 无工具 / 无规划 / 会幻觉 / 不会验证，Agent 用「行动 + 反馈」逐一补位。</li>
+<li>P6：GPT-5 / Claude Opus 5 / DeepSeek V4-Flash / Qwen 均原生支持 Function Call。</li>
+<li>P7：Function Calling 是「两次调用」——第一次 LLM 返回结构化 JSON 参数，第二次把执行结果回传生成最终答案。</li>
+<li>P11：State（共享状态）/ Node（处理节点）/ Edge（连接与条件路由）三要素，循环靠「边」上的条件判断。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-05-讲：RAG-检索增强生成（优化版）"><a href="#STORY-md-—-第-05-讲：RAG-检索增强生成（优化版）" class="headerlink" title="STORY.md — 第 05 讲：RAG 检索增强生成（优化版）"></a>STORY.md — 第 05 讲：RAG 检索增强生成（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：已会用 LangChain 编排、想给模型「外挂知识」的开发者（系列课程第 5 讲）。</li>
+<li><strong>核心目标</strong>：让观众相信「RAG 让模型学会先查资料再回答」，记住「加载→分割→向量化→检索→生成」这条流水线，课后能做出「上传文档 → 问答」的 demo，并知道工业级的进阶方向。</li>
+<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 结尾），Hero 页配额 2-3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、工程可信（延续系列视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲 RAG 动机、原理流程、Embedding、向量库、检索进阶、两个实战、响应注意点、工业级架构；不讲训练/微调细节（第 2 讲已讲）；工业级架构页不讲代码。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 4 章：<ul>
+<li>第 1 章「为什么需要 RAG」（P2 动机与对比）→ 扉页 P2</li>
+<li>第 2 章「原理与组件」（P3 全流程 / P4 Embedding / P5 向量库）→ 扉页 P3</li>
+<li>第 3 章「检索进阶与实战」（P6 三件套 / P7 实战① / P8 实战②）→ 扉页 P6</li>
+<li>第 4 章「优化与落地」（P9 响应注意点 / P10 工业级架构 / P11 总结）→ 扉页 P9</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P7 实战①（代码主视觉）、P11 结尾页（3 页，27%）；任意两 Hero 间隔 ≥1 Supporting。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 peak → P8 valley → P9 valley → P10 valley → P11 peak。连续 valley 过长，靠 P7 代码 Hero、P11 收官打破；P3 用流程长条增加节奏。</li>
+<li><strong>非对称版式</strong>：P2 左右对照、P3 流程长条、P7 左代码右说明、P8 左代码右说明、P10 架构图——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P5（四库卡）、P9（三注意卡）用对称，全篇对称 ≤ 2 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：RAG 让模型学会查资料再回答</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_why_rag.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左右对照</td>
+<td align="left">对比卡</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">知识有截止日期+幻觉；RAG vs 微调对比</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_rag_pipeline.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">流程长条</td>
+<td align="left">流程条</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">加载→分割→向量化→存储→检索→生成 全流程</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_embedding.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">选型卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">Embedding 嵌入模型：高维→低维向量，中英选型</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_vector_db.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">四库卡横排</td>
+<td align="left">库卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽四卡装饰化</td>
+<td align="left">向量数据库：Chroma/Pinecone/FAISS/Qdrant + KNN/ANN</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_retrieval_advanced.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三件套横排</td>
+<td align="left">三件套卡</td>
+<td align="left">字数150/留白22%</td>
+<td align="left">禁止堆名词</td>
+<td align="left">Query/Reranker/Rewrite 检索进阶三件套</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_streamlit_demo.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数120/留白30%</td>
+<td align="left">禁止代码超 12 行</td>
+<td align="left">实战①：Streamlit 问答机器人全链路</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_agent_retrieval.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止无代码纯文字</td>
+<td align="left">实战②：Agent 化检索，查不到就说不查不到</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_response_notes.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三注意卡横排</td>
+<td align="left">注意卡</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">响应模型注意点：上下文融合/幻觉抑制/逻辑连贯</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_industrial_arch.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">架构图</td>
+<td align="left">SVG 架构</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止贴代码</td>
+<td align="left">进阶工业级架构：LangGraph+CopilotKit+NestJS+React+Chroma</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">字数80/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">demo 到工业级三级跳 + 练习 + 自测</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P2：模型知识有截止日期（训练数据停在某时刻）+ 幻觉（一本正经编造）——RAG 用外部知识库补齐。</li>
+<li>P4：text2vec（中文）/ bge-m3（多语言）/ bge-small（轻量）——中英选型要点。</li>
+<li>P5：KNN 精确但慢 / ANN 近似但快；召回率衡量检索「找得全不全」。</li>
+<li>P10：LangGraph（工作流）+ CopilotKit（前端 Agent UI）+ NestJS（后端）+ React（前端）+ Chroma（向量库）容器化。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-05-讲：RAG-检索增强生成（优化版）"><a href="#DESIGN-md-—-第-05-讲：RAG-检索增强生成（优化版）" class="headerlink" title="DESIGN.md — 第 05 讲：RAG 检索增强生成（优化版）"></a>DESIGN.md — 第 05 讲：RAG 检索增强生成（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 5 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰</li>
+</ul>
+</li>
+<li>封面 / 结尾页自定义版式，省略 C 区。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/代码/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
+<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
+<li>Hero 页（P1/P7/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.25</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">19-22px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-17px</td>
+<td align="left">regular</td>
+<td align="left">1.6-1.9</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">代码</td>
+<td align="left">13-15px</td>
+<td align="left">regular</td>
+<td align="left">1.8</td>
+<td align="left">JetBrains Mono</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
+<li>代码页以 CodeBlock 为主视觉。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
+<thead>
+<tr>
+<th align="left">等级</th>
+<th align="left">用途</th>
+<th align="left">最小尺寸</th>
+<th align="left">接入</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">L1</td>
+<td align="left">主视觉</td>
+<td align="left">B 区 ≥40%</td>
+<td align="left">CodeBlock / SVG 架构图 / 流程长条</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">支撑图</td>
+<td align="left">≥280×180</td>
+<td align="left">段落旁</td>
+</tr>
+<tr>
+<td align="left">L3</td>
+<td align="left">角标</td>
+<td align="left">≤64×64</td>
+<td align="left">C 区左侧固定</td>
+</tr>
+</tbody></table>
+<ul>
+<li>架构/流程用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原。</li>
+<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">L1</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_why_rag.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左右对照</td>
+<td align="left">对比卡</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">RAG vs 微调</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_rag_pipeline.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">流程长条</td>
+<td align="left">流程条</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">六步流水线</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_embedding.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">选型卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">中英选型</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_vector_db.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">四库卡横排</td>
+<td align="left">库卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">KNN/ANN/召回率</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_retrieval_advanced.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三件套横排</td>
+<td align="left">三件套卡</td>
+<td align="left">150</td>
+<td align="left">22%</td>
+<td align="left">Query/Reranker/Rewrite</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_streamlit_demo.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">120</td>
+<td align="left">30%</td>
+<td align="left">全链路代码</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_agent_retrieval.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">create_retriever_tool</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_response_notes.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三注意卡横排</td>
+<td align="left">注意卡</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">融合/抑制/连贯</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_industrial_arch.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">架构图</td>
+<td align="left">SVG 架构</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">五组件容器化</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">80</td>
+<td align="left">40%</td>
+<td align="left">深色收尾+练习自测</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P2(左右对照)→P3(流程条)→P4(左标题右内容)→P5(四卡)→P6(三件套)→P7(代码Hero)→P8(代码)→P9(三卡)→P10(架构图)→P11(居中) ✅</li>
+<li>P7/P8 均为「左代码右说明」相邻，但主题不同（Streamlit demo vs Agent 检索），且 P7 为 Hero、P8 为 Supporting，视觉重量差异明显，可接受。</li>
+<li>Hero 3 页 = 27%，互不相邻 ✅</li>
+<li>连续 valley ≤5：P2-P6 五连 → P7 peak 打断，P8-P10 三连 → P11 peak ✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-04-讲：LangChain-与工作流编排（优化版）"><a href="#STORY-md-—-第-04-讲：LangChain-与工作流编排（优化版）" class="headerlink" title="STORY.md — 第 04 讲：LangChain 与工作流编排（优化版）"></a>STORY.md — 第 04 讲：LangChain 与工作流编排（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、已会跑通本地/云大模型的开发者（系列课程第 4 讲）。</li>
+<li><strong>核心目标</strong>：让观众相信「LangChain 把 LLM 应用开发从手工拼接变成搭积木」，记住「Chain 是一条可复用的调用流水线」这一心智锚点，课后能写出「5 行跑通对话 → LCEL 链式编排 → LangServe 一键部署」的完整闭环。</li>
+<li><strong>PPT 长度</strong>：14 页（封面 + 12 内容 + 结尾），Hero 页配额 3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、代码可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲裸调痛点、LangChain 定位、核心概念、LCEL、LangServe、LangSmith、参数速查；不讲 RAG/Agent 深层实现（留给第 5/6 讲）；禁贴过长源码（每页代码 ≤ 12 行）。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 4 章：<ul>
+<li>第 1 章「为什么需要框架」（P2 裸调痛点）→ 扉页 P2</li>
+<li>第 2 章「认识 LangChain」（P3 定位 / P4 概念墙 / P5 框架结构 / P6 第一次调用）→ 扉页 P3</li>
+<li>第 3 章「Prompt 与示例」（P7 PromptTemplate / P8 FewShot）→ 扉页 P7</li>
+<li>第 4 章「编排 · 部署 · 监控」（P9 LCEL 原理 / P10 LCEL 实战 / P11 LangServe / P12 LangSmith / P13 参数卡 / P14 总结）→ 扉页 P9</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P6 第一次调用（代码实战）、P14 结尾页（3 页，21%）；任意两 Hero 之间间隔 ≥1 Supporting。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 peak → P7 valley → P8 valley → P9 valley → P10 valley → P11 valley → P12 valley → P13 valley → P14 peak。连续 valley 过长，靠 P4 概念墙（章节 transition 深色）与 P6 Hero、P14 Hero 打破。</li>
+<li><strong>非对称版式</strong>：P2 左标题+右内容、P5 分层图、P6 左代码+右说明、P7 上下分栏、P10 左代码+右说明、P13 参数卡矩阵——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P4（概念墙）、P8（左右对照）、P12（三卡）用对称，全篇对称 ≤ 3 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：LangChain 框架让 LLM 应用开发变简单</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_bare_llm_pain.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">痛点卡组</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">裸调大模型四大痛点：无记忆/token 限制/无法验证/多步低效</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_what_is_langchain.slide</td>
+<td align="left">section</td>
+<td align="left">transition</td>
+<td align="left">valley</td>
+<td align="left">左大字+右要点</td>
+<td align="left">定位卡</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">LangChain 是什么：LLM 应用开发框架，简化开发+标准化工具链</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_core_concepts.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">概念墙横排</td>
+<td align="left">概念卡 5×2</td>
+<td align="left">字数160/留白15%</td>
+<td align="left">禁止超 10 概念</td>
+<td align="left">10 大必知概念：LLM/Prompt/Chain/LCEL/RAG/Agent/Memory/OutputParser/Vectorstore/Embedding</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_framework_layers.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">分层架构图</td>
+<td align="left">SVG 分层</td>
+<td align="left">字数140/留白25%</td>
+<td align="left">禁止扁平罗列</td>
+<td align="left">框架七层结构：Core→LangChain→Integrations→Community→LangGraph/LangServe/LangSmith</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_first_call.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数120/留白30%</td>
+<td align="left">禁止代码塞满全页</td>
+<td align="left">5 行代码跑通对话：prompt → llm → StrOutputParser 链</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_prompt_template.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上下分栏</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数140/留白20%</td>
+<td align="left">禁止无代码纯文字</td>
+<td align="left">ChatPromptTemplate 消息角色 system/human/ai + MessagesPlaceholder</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_fewshot.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左右对照</td>
+<td align="left">示例选择卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">FewShot：示例集=微型知识库，SemanticSimilarityExampleSelector 语义选择</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_lcel_principle.slide</td>
+<td align="left">section</td>
+<td align="left">transition</td>
+<td align="left">valley</td>
+<td align="left">左大字+右方法家族</td>
+<td align="left">方法卡</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">LCEL 原理：Runnable Interface，stream/invoke/batch + async 家族</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_lcel_practice.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止代码超 12 行</td>
+<td align="left">流式输出/异步/JsonOutputParser/astream_events</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_langserve.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止无命令纯文字</td>
+<td align="left">langchain-cli 脚手架 + add_routes 一键 RESTful + Swagger</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_langsmith.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三卡横排</td>
+<td align="left">监控卡</td>
+<td align="left">字数130/留白25%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">LangSmith 链路可视化 / set_verbose / set_debug</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">13_params_cheatsheet.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">参数卡矩阵</td>
+<td align="left">参数卡</td>
+<td align="left">字数140/留白22%</td>
+<td align="left">禁止等宽四卡</td>
+<td align="left">temperature/top_p/top_k/max_tokens，「一次只动一个旋钮」</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">14_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">字数80/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">调用→编排→部署→监控 完整闭环 + 练习 + 自测</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P13：temperature 0~2（越低越确定）/ top_p 核采样 / top_k 词表截断 / max_tokens 输出上限——「一次只动一个旋钮」是调参第一原则。</li>
+<li>P6：prompt → llm → StrOutputParser 用 <code>|</code> 管道连接，输出即纯字符串，5 行以内完成。</li>
+<li>P11：<code>langchain app new</code> 脚手架 + <code>add_routes(app, chain, path=&quot;/chain&quot;)</code> + 自动生成 Swagger 文档页。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-04-讲：LangChain-与工作流编排（优化版）"><a href="#DESIGN-md-—-第-04-讲：LangChain-与工作流编排（优化版）" class="headerlink" title="DESIGN.md — 第 04 讲：LangChain 与工作流编排（优化版）"></a>DESIGN.md — 第 04 讲：LangChain 与工作流编排（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 4 讲」+ 右侧页码 <code>NN / 14</code>，14px 灰</li>
+</ul>
+</li>
+<li>封面 / 结尾页自定义版式，省略 C 区。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/代码/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
+<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
+<li>Hero 页（P1/P6/P14）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.25</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">章节过渡（P3/P9）</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">19-22px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-17px</td>
+<td align="left">regular</td>
+<td align="left">1.6-1.9</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">代码</td>
+<td align="left">13-15px</td>
+<td align="left">regular</td>
+<td align="left">1.8</td>
+<td align="left">JetBrains Mono</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
+<li>巨型数据必须 bold + 与正文不同字重。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
+<li>卡片填充率 ≥85%，卡片正文 ≥100 字（高 ≥380px 卡）。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
+<li>代码页以 CodeBlock 为主视觉，深色代码块即锚点。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
+<thead>
+<tr>
+<th align="left">等级</th>
+<th align="left">用途</th>
+<th align="left">最小尺寸</th>
+<th align="left">接入</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">L1</td>
+<td align="left">主视觉</td>
+<td align="left">B 区 ≥40%</td>
+<td align="left">CodeBlock / SVG 分层图</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">支撑图</td>
+<td align="left">≥280×180</td>
+<td align="left">段落旁</td>
+</tr>
+<tr>
+<td align="left">L3</td>
+<td align="left">角标</td>
+<td align="left">≤64×64</td>
+<td align="left">C 区左侧固定</td>
+</tr>
+</tbody></table>
+<ul>
+<li>架构/流程/分层用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原（不引用真实截图）。</li>
+<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">L1</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_bare_llm_pain.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">痛点卡组</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">右栏四痛点卡</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_what_is_langchain.slide</td>
+<td align="left">section</td>
+<td align="left">transition</td>
+<td align="left">左大字+右要点</td>
+<td align="left">定位卡</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">深色章节页</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_core_concepts.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">概念墙 5×2</td>
+<td align="left">概念卡</td>
+<td align="left">160</td>
+<td align="left">15%</td>
+<td align="left">10 概念两行五列</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_framework_layers.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">分层架构图</td>
+<td align="left">SVG 分层</td>
+<td align="left">140</td>
+<td align="left">25%</td>
+<td align="left">七层堆叠</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_first_call.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">120</td>
+<td align="left">30%</td>
+<td align="left">5 行代码为主视觉</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_prompt_template.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">上下分栏</td>
+<td align="left">CodeBlock</td>
+<td align="left">140</td>
+<td align="left">20%</td>
+<td align="left">消息角色+占位符</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_fewshot.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左右对照</td>
+<td align="left">示例选择卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">语义选择器</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_lcel_principle.slide</td>
+<td align="left">section</td>
+<td align="left">transition</td>
+<td align="left">左大字+右方法</td>
+<td align="left">方法卡</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">深色章节页</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_lcel_practice.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">流式/异步/Json</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_langserve.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左代码+右说明</td>
+<td align="left">CodeBlock</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">脚手架+路由</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_langsmith.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三卡横排</td>
+<td align="left">监控卡</td>
+<td align="left">130</td>
+<td align="left">25%</td>
+<td align="left">可视化+日志</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">13_params_cheatsheet.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">参数卡矩阵</td>
+<td align="left">参数卡</td>
+<td align="left">140</td>
+<td align="left">22%</td>
+<td align="left">四旋钮速查</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">14_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">居中金句</td>
+<td align="left">—</td>
+<td align="left">80</td>
+<td align="left">40%</td>
+<td align="left">深色收尾+练习自测</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P2(左标题右内容)→P3(章节)→P4(概念墙)→P5(分层图)→P6(代码Hero)→P7(上下分栏)→P8(左右对照)→P9(章节)→P10(代码)→P11(代码)→P12(三卡)→P13(参数卡)→P14(居中) ✅</li>
+<li>P10/P11 均为「左代码右说明」相邻，但内容主题不同（LCEL 实战 vs LangServe 部署），且 P9 章节页打断，可接受。</li>
+<li>Hero 3 页 = 21%，互不相邻 ✅</li>
+<li>连续 valley ≤5：P7-P13 七连 → P14 peak 打断（P9 章节 transition 加重节奏）✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-03-讲：Prompt-提示语工程（优化版）"><a href="#DESIGN-md-—-第-03-讲：Prompt-提示语工程（优化版）" class="headerlink" title="DESIGN.md — 第 03 讲：Prompt 提示语工程（优化版）"></a>DESIGN.md — 第 03 讲：Prompt 提示语工程（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 3 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰 #5B6B7A</li>
+</ul>
+</li>
+<li>封面 / 深色页用渐变 <code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 或纯深蓝 #16263F。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code>。</li>
+<li>半透明：深色块内嵌 <code>rgba(255,255,255,0.06)</code> 卡、<code>rgba(220,231,245,0.15)</code> 边框；装饰圆 <code>opacity 0.12</code>。</li>
+<li>Hero 页（P1/P8/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">深色巨数页标题</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字（P8）</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">20px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-16px</td>
+<td align="left">regular</td>
+<td align="left">1.7</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」（≤2 中文字体家族）。</li>
+<li>巨型数据必须 bold + 与正文不同字重（64px vs 15px）。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/收官页 40%。</li>
+<li>卡片填充率 ≥85%，卡片正文 ≥80 字（高 ≥320px 卡）。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图）。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
+<li>本讲以「正反例卡片 + 五要素 + CodeBlock + 巨数」为主视觉，不引入外部配图；SQL、Prompt 结构用 CodeBlock 还原。</li>
+<li>图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">色彩分配</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">主60+辅20+强15</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_five_elements.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">五要素卡横排</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">五要素编号卡</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_role.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左角色+右正反例</td>
+<td align="left">130</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三角色+正反例</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_context.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左背景+右误区</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">两大误区卡</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_instruction.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">上标题+下正反例三卡</td>
+<td align="left">130</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三大正反例</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_example.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三卡并列</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三场景卡</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_format.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">四格式卡</td>
+<td align="left">110</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30</td>
+<td align="left">四格式卡</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_four_rules.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">深色巨数</td>
+<td align="left">100</td>
+<td align="left">35%</td>
+<td align="left">主55+强15</td>
+<td align="left">30%→90% 巨数锚点</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_sql.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左结构+右 CodeBlock</td>
+<td align="left">130</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">SQL 代码块</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_anti_hallucination.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">上原则+下三技巧</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三技巧卡</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">深色收官居中</td>
+<td align="left">100</td>
+<td align="left">38%</td>
+<td align="left">主60+强15</td>
+<td align="left">五要素回顾+自测 3 题</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P1(封面)→P2(五卡)→P3(左角色右例)→P4(左背景右误区)→P5(正反例三卡)→P6(三卡)→P7(四格式卡)→P8(深色巨数)→P9(左结构右代码)→P10(上原则下技巧)→P11(深色收官) ✅</li>
+<li>非对称版式 ≥ 40% ✅</li>
+<li>对称版式 P2/P5/P6/P7 四页，均非相邻 ✅</li>
+<li>Hero 3 页 = 27%，互不相邻 ✅</li>
+<li>连续 valley ≤6：P2-P7 六连 → P2(五卡总览)、P5(正反例) 视觉加重，可接受 ✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-03-讲：Prompt-提示语工程（优化版）"><a href="#STORY-md-—-第-03-讲：Prompt-提示语工程（优化版）" class="headerlink" title="STORY.md — 第 03 讲：Prompt 提示语工程（优化版）"></a>STORY.md — 第 03 讲：Prompt 提示语工程（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 3 讲）。</li>
+<li><strong>核心目标</strong>：让观众掌握「五要素 Prompt 骨架」（角色/上下文/指令/范例/输出格式），把下指令成功率从 30% 拉到 90%+，课后能独立写出一个 SQL 生成器。</li>
+<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 收官），Hero 页配额 3 页（27%）。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙 + 青）。</li>
+<li><strong>内容边界</strong>：讲「怎么写好 Prompt」与「为什么这样写」，不展开微调、不深入 Agent 编排；每个要素用「正反例对比」落地。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 3 章：<ul>
+<li>第 1 章「骨架总览」（P2 五要素总览）→ 扉页 P2</li>
+<li>第 2 章「五要素逐个拆」（P3 角色 / P4 上下文 / P5 指令 / P6 范例 / P7 输出格式）→ 扉页 P3</li>
+<li>第 3 章「实战与心法」（P8 四要素 / P9 SQL 实战 / P10 降幻觉 / P11 总结）→ 扉页 P8</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P8 下指令四要素（深色巨数页）、P11 总结收官（3 页，27%，符合 20-30%）；P1→P8 间隔 P2-P7，P8→P11 间隔 P9-P10。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 valley → P8 peak → P9 valley → P10 valley → P11 peak。P2（五要素总览卡）与 P9（SQL 实战）视觉重量大，P8 用 30%→90% 巨数打破连续 valley。</li>
+<li><strong>非对称版式</strong>：P3（左角色+右正反例）、P4（左背景+右误区）、P9（左 Prompt 结构+右 SQL 输出）——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P2（五要素卡）、P5（正反例对比）、P6（三卡）、P7（四格式卡）用对称，控制节奏。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：Prompt 提示语工程｜让 AI 一次就懂</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_five_elements.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">五要素卡横排</td>
+<td align="left">五要素卡</td>
+<td align="left">anchor</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止五卡无编号</td>
+<td align="left">Prompt 是工作说明书：角色/上下文/指令/范例/输出格式</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_role.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左角色+右正反例</td>
+<td align="left">三角色+正反例</td>
+<td align="left">evidence</td>
+<td align="left">字数130/留白22%</td>
+<td align="left">禁止角色空谈无例</td>
+<td align="left">要素①角色：专业型/创意型/中介型 + 正反例</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_context.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左背景+右误区</td>
+<td align="left">两误区卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止背景堆成一段</td>
+<td align="left">要素②上下文：单次背景+多轮延续 + 两大误区</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_instruction.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上标题+下正反例三卡</td>
+<td align="left">正反例对比</td>
+<td align="left">evidence</td>
+<td align="left">字数130/留白22%</td>
+<td align="left">禁止反例缺失</td>
+<td align="left">要素③指令：动词先行+结果导向 + 三大正反例</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_example.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三卡并列</td>
+<td align="left">三场景卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止三卡无场景</td>
+<td align="left">要素④范例：风格迁移/复杂格式/语义校准</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_format.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">四格式卡</td>
+<td align="left">四格式卡</td>
+<td align="left">evidence</td>
+<td align="left">字数110/留白22%</td>
+<td align="left">禁止格式只列名词</td>
+<td align="left">要素⑤输出格式：表格/代码块/对话体/列表</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_four_rules.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色巨数</td>
+<td align="left">30%→90%</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白35%</td>
+<td align="left">禁止浅底数据页</td>
+<td align="left">下指令四要素：做什么/材料/格式/发到哪</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_sql.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左结构+右 CodeBlock</td>
+<td align="left">SQL 输出</td>
+<td align="left">anchor</td>
+<td align="left">字数130/留白20%</td>
+<td align="left">禁止代码塞小卡</td>
+<td align="left">实战：五要素构建 SQL 生成器</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_anti_hallucination.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上原则+下三技巧</td>
+<td align="left">三技巧卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止技巧堆砌</td>
+<td align="left">降低 AI 幻觉：让模型不知道就说不知道</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色收官居中</td>
+<td align="left">五要素回顾</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白38%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">总结：五要素是骨架，练习才内化 + 自测 3 题</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P8：成功率 30% → 90%+ → 用对四要素，同一模型的效果天差地别。</li>
+<li>P2：五要素（角色/上下文/指令/范例/输出格式）→ 一套可复用的 Prompt 骨架。</li>
+<li>P9：SQL 生成器完整 Prompt 结构 + 输入输出示例 → 五要素落地的标准范本。</li>
+<li>P10：幻觉 = 模型「一本正经地胡说」→ 用「不知道就说不知道」约束，把风险降到最低。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-02-讲：环境准备与本地大模型部署（优化版）"><a href="#STORY-md-—-第-02-讲：环境准备与本地大模型部署（优化版）" class="headerlink" title="STORY.md — 第 02 讲：环境准备与本地大模型部署（优化版）"></a>STORY.md — 第 02 讲：环境准备与本地大模型部署（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 2 讲）。</li>
+<li><strong>核心目标</strong>：让观众相信「本地大模型人人可部署」，记住「Ollama 像 Docker 一样简单」这一心智锚点，课后动手完成「装环境 → 拉模型 → 对话」三步。</li>
+<li><strong>PPT 长度</strong>：12 页（封面 + 10 内容 + 结尾），Hero 页配额 2-3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲 Python 环境、DeepSeek V4-Flash、Ollama 部署、Dify；不讲训练模型、不讲微调；禁碰硬件配置罗列过细（给最低要求即可）。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 4 章，目录页声明 4 个章节：<ul>
+<li>第 1 章「为什么本地」（P2 为什么需要本地模型）→ 扉页 P2</li>
+<li>第 2 章「环境准备」（P3 环境四件套 / P4 安装 Python / P5 安装深度学习库）→ 扉页 P3</li>
+<li>第 3 章「部署 V4-Flash」（P6 认识 V4-Flash / P7 模型演进 / P8 硬件要求 / P9 Ollama / P10 启动验证 / P11 Dify）→ 扉页 P6</li>
+<li>第 4 章「选择与练习」（P12 本地 vs 云 + 动手练习）→ 扉页 P12</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P6 V4-Flash 数据页、P12 结尾页（3 页，25%，符合 20-30%）；任意两 Hero 之间间隔 ≥1 Supporting。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 peak → P7 valley → P8 valley → P9 valley → P10 valley → P11 valley → P12 peak。连续 valley 过多，在 P5→P6 之间靠 Hero 打破；P3 设计为章节 transition 增加节奏。</li>
+<li><strong>非对称版式</strong>：P2 左标题+右内容、P4 非对称双栏、P5 上大图+下方卡片、P6 巨型数字+洞察、P8 左大图+右侧文字、P9 非对称双栏、P10 左标题+右内容、P11 上下分栏 —— 非对称占比 8/12 = 67% ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：仅 P3（N卡片横排）与 P7（时间轴）用对称，全篇对称 ≤ 2 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">L1: deepseek_abstract.png</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/图1/留白40%</td>
+<td align="left">禁止四卡预览；禁止标题小字</td>
+<td align="left">封面：本地大模型部署，人人可做——本讲从零装环境到跑起自己的 AI</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_why_local.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">L1: local_vs_cloud.png</td>
+<td align="left">anchor</td>
+<td align="left">字数180/图1/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">免费可控隐私三大理由 + 云 API 成本对比——本地不是替代云，而是多一种选择</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_env_stack.slide</td>
+<td align="left">section</td>
+<td align="left">transition</td>
+<td align="left">valley</td>
+<td align="left">N卡片横排</td>
+<td align="left">L3 角标</td>
+<td align="left">evidence</td>
+<td align="left">字数120/图0/留白25%</td>
+<td align="left">禁止等宽四卡装饰化</td>
+<td align="left">环境四件套：Python→PyTorch→HF→LangChain，一条链路串起学习主线</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_install_python.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">非对称双栏 60:40</td>
+<td align="left">L1: anaconda_badge.png</td>
+<td align="left">evidence</td>
+<td align="left">字数160/图1/留白25%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">官网直装 vs Anaconda——推荐 Anaconda 统一管理环境</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_install_libs.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上大图+下方卡片</td>
+<td align="left">L2: pip_commands.png</td>
+<td align="left">evidence</td>
+<td align="left">字数140/图1/留白20%</td>
+<td align="left">禁止代码塞进小卡</td>
+<td align="left">PyTorch/Transformers/LangChain 三条命令 + 验证方式</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_deepseek_v4.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">巨型数字+洞察</td>
+<td align="left">Chart(规格对比表)</td>
+<td align="left">anchor</td>
+<td align="left">字数120/图1/留白35%</td>
+<td align="left">禁止数据装进等宽卡</td>
+<td align="left">284B/13B MoE、1M 上下文、$0.14/M——小参数反超大参数的 2026 开源旗舰</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_evolution.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">时间轴</td>
+<td align="left">Diagram(时间轴)</td>
+<td align="left">evidence</td>
+<td align="left">字数140/图1/留白20%</td>
+<td align="left">禁止横排三卡</td>
+<td align="left">R1→V3→V4-Flash 演进 + 知识蒸馏=老师教学生</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_hardware.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左大图+右侧文字</td>
+<td align="left">L1: gpu_memory.png</td>
+<td align="left">anchor</td>
+<td align="left">字数150/图1/留白25%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">4bit 量化 24GB 显存可跑；入门最低配置；双轨策略</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_ollama.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">非对称双栏</td>
+<td align="left">L2: ollama_terminal.png</td>
+<td align="left">evidence</td>
+<td align="left">字数150/图1/留白20%</td>
+<td align="left">禁止命令文字化</td>
+<td align="left">Ollama 类 Docker 的体验：一条命令拉模型、一条命令跑模型</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_run_verify.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">L2: curl_demo.png</td>
+<td align="left">evidence</td>
+<td align="left">字数130/图1/留白20%</td>
+<td align="left">禁止超长单行命令</td>
+<td align="left">ollama serve → run → curl 验证 API——三步跑通本地模型</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_dify.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上下分栏</td>
+<td align="left">L1: dify_chat.png</td>
+<td align="left">anchor</td>
+<td align="left">字数130/图1/留白25%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">局域网开放 + Dify 可视化对话，告别命令行</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">L3 角标</td>
+<td align="left">anchor</td>
+<td align="left">字数80/图0/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">双轨策略 + 动手练习三步 + 自测 3 题——本讲完即可独立部署</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P6：284B 总参/13B 激活 → 小参数反超大参数，说明 2026 竞争从「更大」转向「更聪明」——选型不必追最大模型。</li>
+<li>P6：$0.14/百万 input → 云 API 成本已低到可当「水电」用——本地与云双轨完全可行。</li>
+<li>P8：4bit 量化 24GB 显存 → 消费级显卡门槛大降——本地部署不是服务器专属。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC02%E8%AE%B2-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/STORY.html">展开全文 >></a>
     </p>
     
 
@@ -1472,7 +3268,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1729,6 +3525,178 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

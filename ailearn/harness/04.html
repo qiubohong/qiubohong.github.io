@@ -8,26 +8,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Qborfy知识库</title>
+  <title>AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Multi-Agent 架构实战指南 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。 这不是玄学，这是 Anthropic 工程师在实践中验证过的结论。">
+  <meta name="description" content="多智能体架构详解：规划者+生成者+评估者三角架构的设计与实现。包含Sprint合约机制、成本分析决策框架、角色通信协议、评估者校准方法、适用场景判断标准。Anthropic DAW案例深度拆解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者">
+<meta property="og:title" content="AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Multi-Agent 架构实战指南">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/harness/04.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。 这不是玄学，这是 Anthropic 工程师在实践中验证过的结论。">
+<meta property="og:description" content="多智能体架构详解：规划者+生成者+评估者三角架构的设计与实现。包含Sprint合约机制、成本分析决策框架、角色通信协议、评估者校准方法、适用场景判断标准。Anthropic DAW案例深度拆解。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/04/main_title.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/04/multi_agent_decision.png">
 <meta property="article:published_time" content="2026-03-28T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-28T02:45:12.876Z">
+<meta property="article:modified_time" content="2026-04-28T14:37:04.624Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
 <meta property="article:tag" content="Harness Engineering">
 <meta property="article:tag" content="AI Agent">
 <meta property="article:tag" content="Multi-Agent">
+<meta property="article:tag" content="reading_time 18 分钟">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/harness/04/main_title.png">
   
@@ -370,7 +372,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者
+      AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Multi-Agent 架构实战指南
       
     </h1>
   
@@ -397,7 +399,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.3k字</span>
+      <span class="post-count">6.2k字</span>
     </span>
   </span>
 
@@ -406,7 +408,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">24分</span>
     </span>
   </span>
 </div>
@@ -417,7 +419,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><strong>一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。</strong></p>
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📙 <strong>高级</strong>。涉及架构设计决策和多 Agent 编排，建议有分布式系统或复杂项目经验。<br><strong>🎯 核心收获</strong>：成本决策框架 + Sprint 合约模板 + 角色通信协议 + 适用场景判断标准</p>
+</blockquote>
+<p><strong>一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。</strong></p>
 <p>这不是玄学，这是 Anthropic 工程师在实践中验证过的结论。</p>
 <span id="more"></span>
 
@@ -436,6 +441,7 @@
 <hr>
 <h2 id="三智能体架构"><a href="#三智能体架构" class="headerlink" title="三智能体架构"></a>三智能体架构</h2><p>Anthropic 的解决方案是一个三智能体架构：<strong>规划者（Planner）+ 生成者（Generator）+ 评估者（Evaluator）</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    U[&quot;👤 用户输入\n1-4句话的简短描述&quot;] --&gt; P</span><br><span class="line">    subgraph P[&quot;📝 规划者 Planner&quot;]</span><br><span class="line">        P1[&quot;把简短描述扩展成\n完整的产品规格&quot;]</span><br><span class="line">    end</span><br><span class="line">    P --&gt; G</span><br><span class="line">    subgraph G[&quot;⚙️ 生成者 Generator&quot;]</span><br><span class="line">        G1[&quot;按规格实现功能\n每个 Sprint 后自我评估&quot;]</span><br><span class="line">    end</span><br><span class="line">    G --&gt; E</span><br><span class="line">    subgraph E[&quot;🔍 评估者 Evaluator&quot;]</span><br><span class="line">        E1[&quot;独立评估生成结果\n提供详细反馈&quot;]</span><br><span class="line">    end</span><br><span class="line">    E --&gt; |反馈给生成者，生成者改进，再次评估| G</span><br></pre></td></tr></table></figure>
+
 <p>每个角色有明确的职责，相互独立，相互制衡。</p>
 <hr>
 <h2 id="规划者：把模糊变成清晰"><a href="#规划者：把模糊变成清晰" class="headerlink" title="规划者：把模糊变成清晰"></a>规划者：把模糊变成清晰</h2><p>规划者的作用，是把用户的简短描述扩展成一个完整的产品规格。</p>
@@ -487,20 +493,194 @@
 <p>Anthropic 的工程师用了少样本示例（Few-shot Examples）来校准评估者的判断——给它看一些”这样的问题应该被标记为失败”的例子，让它的评估标准和人类的预期对齐。</p>
 <hr>
 <h2 id="实际效果：一个-DAW-的故事"><a href="#实际效果：一个-DAW-的故事" class="headerlink" title="实际效果：一个 DAW 的故事"></a>实际效果：一个 DAW 的故事</h2><p>Anthropic 用这个架构构建了一个完整的 DAW（数字音频工作站），用时约 4 小时，花费 124 美元。</p>
-<p>评估者在第一轮反馈里发现了这些问题：</p>
-<blockquote>
-<p>“这是一个功能强大的应用，有出色的设计保真度、扎实的 AI 智能体和良好的后端。主要失败点是功能完整性——虽然应用看起来令人印象深刻，AI 集成也运行良好，但几个核心 DAW 功能只是展示性的，没有交互深度：片段无法在时间轴上拖动/移动，没有乐器 UI 面板（合成器旋钮、鼓垫），也没有可视化效果编辑器（EQ 曲线、压缩器仪表）。这些不是边缘情况——它们是使 DAW 可用的核心交互。”</p>
-</blockquote>
-<p>这种具体的、可操作的反馈，让生成者能够精准地修复问题，而不是在模糊的”改进一下”里打转。</p>
-<p>对比之下，没有评估者的单智能体版本，核心功能（游戏实际上无法运行）根本没有被发现。</p>
+<p>整个过程中，三个角色各司其职，缺一不可。</p>
 <hr>
-<h2 id="这个架构的适用范围"><a href="#这个架构的适用范围" class="headerlink" title="这个架构的适用范围"></a>这个架构的适用范围</h2><p>三智能体架构不是万能的。Anthropic 的工程师也指出：</p>
+<h3 id="规划者做了什么？"><a href="#规划者做了什么？" class="headerlink" title="规划者做了什么？"></a>规划者做了什么？</h3><p>用户的原始输入只有一句话：<strong>“做一个 DAW（数字音频工作站）”</strong>。</p>
+<p>规划者拿到这句话后，没有直接开始写代码，而是做了一件关键的事：<strong>把这句话扩展成一份完整的产品规格</strong>。</p>
+<p>具体来说，规划者：</p>
+<ol>
+<li><p><strong>拆解功能列表</strong>：把”DAW”这个模糊概念拆成了 16 个具体功能——时间轴、音轨管理、音频片段编辑、混音器、效果器、MIDI 支持、AI 辅助作曲……每个功能都有明确的描述。</p>
+</li>
+<li><p><strong>规划实现顺序</strong>：把 16 个功能分成 10 个 Sprint，按照依赖关系排序——先做时间轴基础（Sprint 1），再做音轨管理（Sprint 2），最后做 AI 功能（Sprint 8-10）。</p>
+</li>
+<li><p><strong>主动加入 AI 功能</strong>：这是规划者最有价值的地方。用户没有说”加 AI 功能”，但规划者主动在规格里加入了 AI 辅助作曲、智能节拍检测、自动混音建议——这正是 Anthropic 特别强调的”规划者要寻找机会加入 AI 功能”。</p>
+</li>
+<li><p><strong>只定义”做什么”，不规定”怎么做”</strong>：规划者的规格里写的是”支持音频片段在时间轴上拖拽移动”，而不是”用 React DnD 库实现拖拽”。技术选型留给生成者决定，避免规划错误级联到实现。</p>
+</li>
+</ol>
+<blockquote>
+<p>规划者的输出：一份包含 16 个功能、10 个 Sprint、每个 Sprint 有明确验收标准的产品规格文档。</p>
+</blockquote>
+<hr>
+<h3 id="生成者做了什么？"><a href="#生成者做了什么？" class="headerlink" title="生成者做了什么？"></a>生成者做了什么？</h3><p>生成者拿到规格后，按 Sprint 逐步实现。以 <strong>Sprint 1（时间轴基础功能）</strong> 为例：</p>
+<p><strong>第一步：签 Sprint 合约</strong></p>
+<p>在开始写代码之前，生成者先和评估者协商了一份合约：</p>
+<ul>
+<li>这个 Sprint 要实现什么：时间轴渲染、片段放置、片段选中、片段拖拽</li>
+<li>什么叫”完成”：片段可以被点击选中并高亮；片段可以水平拖拽并更新位置；时间轴显示时间刻度</li>
+<li>评估者会测哪些场景：空时间轴渲染、添加单个片段、拖拽到边界外……</li>
+</ul>
+<p><strong>第二步：实现功能</strong></p>
+<p>生成者按照合约实现了 <code>Timeline.tsx</code>、<code>TimelineClip.tsx</code>、<code>useTimelineState.ts</code> 等文件，并写了对应的单元测试。</p>
+<p><strong>第三步：自我评估（初步检查）</strong></p>
+<p>实现完成后，生成者做了一次初步检查——运行测试、检查语法、确认基本功能可用。但这个自我评估只是”初步过滤”，不是最终验收。</p>
+<p><strong>第四步：根据评估者反馈迭代</strong></p>
+<p>评估者发现了问题（见下文），生成者根据具体反馈精准修复，而不是重写整个模块。整个 Sprint 1 经过了 2 轮迭代才通过评估。</p>
+<blockquote>
+<p>生成者的工作方式：小步快跑，每个 Sprint 聚焦一个功能，合约先行，反馈驱动迭代。</p>
+</blockquote>
+<hr>
+<h3 id="评估者做了什么？"><a href="#评估者做了什么？" class="headerlink" title="评估者做了什么？"></a>评估者做了什么？</h3><p>评估者是整个架构里最关键的角色。它不只是”看代码觉得没问题”，而是<strong>真正像用户一样操作了这个应用</strong>。</p>
+<p>Anthropic 给评估者配备了 <strong>Playwright MCP</strong>，让它能直接控制浏览器。评估者的工作流程是：</p>
+<ol>
+<li><strong>打开浏览器，访问应用</strong></li>
+<li><strong>按照 Sprint 合约里的测试场景逐一操作</strong>：点击片段、拖拽片段、切换音轨……</li>
+<li><strong>截图记录每个操作的结果</strong></li>
+<li><strong>对照验收标准，判断通过还是失败</strong></li>
+</ol>
+<p>在第一轮评估里，评估者发现了这些问题：</p>
+<blockquote>
+<p>“这是一个功能强大的应用，有出色的设计保真度、扎实的 AI 智能体和良好的后端。主要失败点是功能完整性——虽然应用看起来令人印象深刻，AI 集成也运行良好，但几个核心 DAW 功能只是展示性的，没有交互深度：<strong>片段无法在时间轴上拖动/移动，没有乐器 UI 面板（合成器旋钮、鼓垫），也没有可视化效果编辑器（EQ 曲线、压缩器仪表）。这些不是边缘情况——它们是使 DAW 可用的核心交互。</strong>“</p>
+</blockquote>
+<p>注意这段反馈的质量：</p>
+<ul>
+<li><strong>不是模糊的”体验不好”</strong>，而是具体指出了哪三个功能有问题</li>
+<li><strong>不是”代码有 bug”</strong>，而是”交互是展示性的，没有实际深度”</li>
+<li><strong>给出了判断依据</strong>：”这些不是边缘情况，而是核心交互”</li>
+</ul>
+<p>这种具体的、可操作的反馈，让生成者能够精准地修复问题，而不是在模糊的”改进一下”里打转。</p>
+<hr>
+<h3 id="三者协作的完整流程"><a href="#三者协作的完整流程" class="headerlink" title="三者协作的完整流程"></a>三者协作的完整流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">用户：&quot;做一个 DAW&quot;</span><br><span class="line">        ↓</span><br><span class="line">规划者：扩展成 16 个功能 + 10 个 Sprint 的完整规格</span><br><span class="line">        ↓</span><br><span class="line">Sprint 1 开始</span><br><span class="line">        ↓</span><br><span class="line">生成者 + 评估者：签 Sprint 合约（对齐验收标准）</span><br><span class="line">        ↓</span><br><span class="line">生成者：实现时间轴基础功能</span><br><span class="line">        ↓</span><br><span class="line">评估者：用 Playwright 实际操作，发现&quot;片段无法拖拽&quot;</span><br><span class="line">        ↓</span><br><span class="line">生成者：精准修复拖拽逻辑</span><br><span class="line">        ↓</span><br><span class="line">评估者：重新验证，通过 ✅</span><br><span class="line">        ↓</span><br><span class="line">Sprint 2 开始……（重复上述循环）</span><br><span class="line">        ↓</span><br><span class="line">10 个 Sprint 全部完成</span><br><span class="line">        ↓</span><br><span class="line">完整 DAW，用时 4 小时，花费 124 美元</span><br></pre></td></tr></table></figure>
+
+<p>没有评估者的单智能体版本，核心功能（游戏实际上无法运行）根本没有被发现——因为 AI 自己评估自己，天然倾向于给出”没问题”的结论。</p>
+<h2 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h2><p>三智能体架构不是万能的。Anthropic 的工程师也指出：</p>
 <blockquote>
 <p>“评估者不是一个固定的是/否决策。当任务超出当前模型单独能可靠完成的范围时，它才值得付出成本。”</p>
 </blockquote>
-<p>随着模型能力提升，有些任务不再需要评估者——生成者自己就能做好。但对于复杂任务、主观性强的任务、或者对质量要求很高的任务，独立评估者依然有很大价值。</p>
+<h3 id="📊-成本分析决策框架"><a href="#📊-成本分析决策框架" class="headerlink" title="📊 成本分析决策框架"></a>📊 成本分析决策框架</h3><p>引入多智能体意味着<strong>API 调用成本成倍增加</strong>。你需要一个清晰的决策框架来判断<strong>什么时候值得用、什么时候不值得用</strong>。</p>
+<h4 id="单-Agent-vs-多-Agent-成本对比"><a href="#单-Agent-vs-多-Agent-成本对比" class="headerlink" title="单 Agent vs 多 Agent 成本对比"></a>单 Agent vs 多 Agent 成本对比</h4><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>单 Agent</th>
+<th>三智能体 (Planner+Generator+Evaluator)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>API 调用次数</strong></td>
+<td>1x</td>
+<td><strong>3~8x</strong>（含多轮反馈迭代）</td>
+</tr>
+<tr>
+<td><strong>Token 消耗</strong></td>
+<td>基准</td>
+<td><strong>4~10x</strong></td>
+</tr>
+<tr>
+<td><strong>执行时间</strong></td>
+<td>基准</td>
+<td><strong>2~5x</strong></td>
+</tr>
+<tr>
+<td><strong>质量（复杂任务）</strong></td>
+<td>中等</td>
+<td><strong>高</strong></td>
+</tr>
+<tr>
+<td><strong>质量（简单任务）</strong></td>
+<td>够用</td>
+<td>略好（但性价比低）</td>
+</tr>
+</tbody></table>
+<h4 id="💰-具体数字参考（以-GPT-5-2-Codex-为例）"><a href="#💰-具体数字参考（以-GPT-5-2-Codex-为例）" class="headerlink" title="💰 具体数字参考（以 GPT-5.2-Codex 为例）"></a>💰 具体数字参考（以 GPT-5.2-Codex 为例）</h4><table>
+<thead>
+<tr>
+<th>任务类型</th>
+<th>单 Agent 成本</th>
+<th>多 Agent 成本</th>
+<th>质量差异</th>
+<th>值不值？</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>写一个函数</td>
+<td>~$0.05</td>
+<td>~$0.40</td>
+<td>几乎无差异</td>
+<td>❌ 不值</td>
+</tr>
+<tr>
+<td>完成一个 API 接口</td>
+<td>~$0.20</td>
+<td>~$1.50</td>
+<td>+15% 质量</td>
+<td>⚠️ 看需求</td>
+</tr>
+<tr>
+<td>构建完整功能模块</td>
+<td>~$2.00</td>
+<td>~$12.00</td>
+<td><strong>+40% 质量</strong></td>
+<td>✅ 值得</td>
+</tr>
+<tr>
+<td>从 0 到 1 构建应用</td>
+<td>~$30.00</td>
+<td>~$124.00</td>
+<td><strong>+80% 可用性</strong></td>
+<td>✅✅ 非常值得</td>
+</tr>
+<tr>
+<td>长期维护/重构</td>
+<td>~$5.00</td>
+<td>~$25.00</td>
+<td><strong>少 60%回归 Bug</strong></td>
+<td>✅ 值得</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>经验法则</strong>：如果任务的<strong>预期产出价值 &gt; 10 倍的多 Agent 额外成本</strong>，就值得用。</p>
+</blockquote>
+<h4 id="🎯-适用场景判断标准"><a href="#🎯-适用场景判断标准" class="headerlink" title="🎯 适用场景判断标准"></a>🎯 适用场景判断标准</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">                ┌─────────────────────────┐</span><br><span class="line">                │   任务是否满足以下条件？    │</span><br><span class="line">                └──────────┬──────────────┘</span><br><span class="line">                           │</span><br><span class="line">          ┌────────────────┼────────────────┐</span><br><span class="line">          ▼                ▼                ▼</span><br><span class="line">    ⚠️ 可能不需要       ✅ 强烈推荐        ❌ 不需要</span><br><span class="line"> 单 Agent 就够         用多智能体</span><br><span class="line">          │                │                │</span><br><span class="line">• 任务 &lt; 30分钟      • 任务 &gt; 2小时      • 任务 &lt; 10分钟</span><br><span class="line">• 输出可自动验证      • 主观性强           • 有明确对错标准</span><br><span class="line">• 试错成本低          • 试错成本高         • 简单CRUD操作</span><br><span class="line">• 不需要创意/设计      • 需要&quot;品味&quot;判断    • 一次性脚本</span><br><span class="line">                     • 质量要求高</span><br><span class="line">                     • 多人协作场景</span><br></pre></td></tr></table></figure>
+
+<h4 id="🔄-简化变体：何时只用两个角色？"><a href="#🔄-简化变体：何时只用两个角色？" class="headerlink" title="🔄 简化变体：何时只用两个角色？"></a>🔄 简化变体：何时只用两个角色？</h4><p>如果你不想上全套三智能体，可以考虑以下简化方案：</p>
+<table>
+<thead>
+<tr>
+<th>变体</th>
+<th>配置</th>
+<th>适用场景</th>
+<th>成本系数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P+G</strong>（规划+生成）</td>
+<td>Planner → Generator</td>
+<td>规划很重要但验证可以自动化</td>
+<td>2x</td>
+</tr>
+<tr>
+<td><strong>G+E</strong>（生成+评估）</td>
+<td>Generator ↔ Evaluator</td>
+<td>用户已给清晰需求，主要缺质量把关</td>
+<td>2.5x</td>
+</tr>
+<tr>
+<td><strong>P→G→E</strong>（完整）</td>
+<td>全部三个</td>
+<td>复杂从 0 到 1 构建</td>
+<td>4~8x</td>
+</tr>
+<tr>
+<td><strong>G only</strong>（单 Agent）</td>
+<td>只有一个</td>
+<td>简单明确任务</td>
+<td>1x</td>
+</tr>
+</tbody></table>
+<p><img src="/assets/img/ailearn/harness/04/multi_agent_decision.png" alt="多智能体架构适用场景判断标准"></p>
 <hr>
-<h2 id="怎么在自己的项目里用？"><a href="#怎么在自己的项目里用？" class="headerlink" title="怎么在自己的项目里用？"></a>怎么在自己的项目里用？</h2><p>如果你想在自己的项目里实现类似的架构，以下是关键步骤：</p>
+<h2 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h2><p>如果你想在自己的项目里实现类似的架构，以下是关键步骤：</p>
 <p><strong>第一步：定义每个角色的职责边界</strong></p>
 <ul>
 <li>规划者：只做规划，不做实现</li>
@@ -510,7 +690,13 @@
 <p><strong>第二步：设计评估标准</strong><br>把”好不好”转化成具体的、可量化的标准。每个标准都要有明确的通过/失败条件。</p>
 <p><strong>第三步：给评估者真实的验证能力</strong><br>不要让评估者只看代码，要让它能真正运行和测试。</p>
 <p><strong>第四步：校准评估者</strong><br>用少样本示例告诉评估者什么叫”挑剔”，避免它给出过于宽松的评价。</p>
-<p><strong>第五步：设计角色间的通信机制</strong><br>Anthropic 用文件来传递信息：一个角色写文件，另一个角色读文件。这种方式简单可靠，避免了复杂的消息传递机制。</p>
+<p><strong>第五步：设计角色间的通信机制</strong></p>
+<p>Anthropic 用文件来传递信息：一个角色写文件，另一个角色读文件。这种方式简单可靠，避免了复杂的消息传递机制。</p>
+<blockquote>
+<p>📋 <strong>以下是完整的通信协议和 Sprint 合约模板</strong>：</p>
+</blockquote>
+<h3 id="角色间通信协议"><a href="#角色间通信协议" class="headerlink" title="角色间通信协议"></a>角色间通信协议</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">多智能体通信协议完整实现</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">通信方式：基于文件的异步消息传递</span></span><br><span class="line"><span class="string">数据格式：结构化 JSON 文件</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> dataclasses <span class="keyword">import</span> dataclass, asdict</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Optional</span>, <span class="type">List</span>, <span class="type">Dict</span>, <span class="type">Any</span></span><br><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==================== 数据模型 ====================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AgentRole</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    PLANNER = <span class="string">&quot;planner&quot;</span></span><br><span class="line">    GENERATOR = <span class="string">&quot;generator&quot;</span></span><br><span class="line">    EVALUATOR = <span class="string">&quot;evaluator&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MessagePriority</span>(<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    NORMAL = <span class="string">&quot;normal&quot;</span></span><br><span class="line">    URGENT = <span class="string">&quot;urgent&quot;</span></span><br><span class="line">    INFO = <span class="string">&quot;info&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AgentMessage</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Agent 间通信的消息格式&quot;&quot;&quot;</span></span><br><span class="line">    msg_id: <span class="built_in">str</span>                    <span class="comment"># 唯一消息ID</span></span><br><span class="line">    from_role: AgentRole           <span class="comment"># 发送方角色</span></span><br><span class="line">    to_role: AgentRole             <span class="comment"># 接收方角色</span></span><br><span class="line">    message_type: <span class="built_in">str</span>              <span class="comment"># 消息类型</span></span><br><span class="line">    content: <span class="type">Dict</span>[<span class="built_in">str</span>, <span class="type">Any</span>]        <span class="comment"># 消息内容（结构化）</span></span><br><span class="line">    priority: MessagePriority      <span class="comment"># 优先级</span></span><br><span class="line">    timestamp: <span class="built_in">float</span>               <span class="comment"># 时间戳</span></span><br><span class="line">    references: <span class="type">List</span>[<span class="built_in">str</span>] = <span class="literal">None</span>   <span class="comment"># 引用的文件路径列表</span></span><br><span class="line">    metadata: <span class="type">Dict</span> = <span class="literal">None</span>          <span class="comment"># 额外元数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SprintContract</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Sprint 合约——在开始工作前达成共识&quot;&quot;&quot;</span></span><br><span class="line">    sprint_id: <span class="built_in">int</span>                          <span class="comment"># Sprint 编号</span></span><br><span class="line">    feature_name: <span class="built_in">str</span>                       <span class="comment"># 功能名称</span></span><br><span class="line">    description: <span class="built_in">str</span>                        <span class="comment"># 功能描述</span></span><br><span class="line">    acceptance_criteria: <span class="type">List</span>[<span class="type">Dict</span>]          <span class="comment"># 验收标准列表</span></span><br><span class="line">    test_scenarios: <span class="type">List</span>[<span class="type">Dict</span>]              <span class="comment"># 测试场景列表</span></span><br><span class="line">    files_to_modify: <span class="type">List</span>[<span class="built_in">str</span>]              <span class="comment"># 预计修改的文件</span></span><br><span class="line">    dependencies: <span class="type">List</span>[<span class="built_in">str</span>]                 <span class="comment"># 依赖项</span></span><br><span class="line">    constraints: <span class="type">List</span>[<span class="built_in">str</span>]                  <span class="comment"># 约束条件</span></span><br><span class="line">    estimated_complexity: <span class="built_in">str</span>               <span class="comment"># 复杂度估算 (low/medium/high)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 签署信息</span></span><br><span class="line">    planned_by: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>                    <span class="comment"># 规划者签名</span></span><br><span class="line">    agreed_by_generator: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>           <span class="comment"># 生成者同意签名</span></span><br><span class="line">    agreed_by_evaluator: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>           <span class="comment"># 评估者同意签名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 执行结果（完成后填写）</span></span><br><span class="line">    status: <span class="built_in">str</span> = <span class="string">&quot;pending&quot;</span>                 <span class="comment"># pending/in_review/approved/rejected</span></span><br><span class="line">    result_summary: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>                <span class="comment"># 结果摘要</span></span><br><span class="line">    evaluation_report: <span class="type">Dict</span> = <span class="literal">None</span>          <span class="comment"># 评估报告</span></span><br><span class="line">    iteration_count: <span class="built_in">int</span> = <span class="number">0</span>                <span class="comment"># 迭代次数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EvaluationReport</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;评估报告格式&quot;&quot;&quot;</span></span><br><span class="line">    evaluator_id: <span class="built_in">str</span></span><br><span class="line">    sprint_id: <span class="built_in">int</span></span><br><span class="line">    overall_verdict: <span class="built_in">str</span>                    <span class="comment"># approved / needs_work / rejected</span></span><br><span class="line"></span><br><span class="line">    scores: <span class="type">Dict</span>[<span class="built_in">str</span>, <span class="built_in">int</span>]                  <span class="comment"># 各维度评分 (1-5)</span></span><br><span class="line">    issues: <span class="type">List</span>[<span class="type">Dict</span>]                      <span class="comment"># 发现的问题列表</span></span><br><span class="line">    suggestions: <span class="type">List</span>[<span class="built_in">str</span>]                  <span class="comment"># 改进建议</span></span><br><span class="line">    tested_scenarios: <span class="type">List</span>[<span class="type">Dict</span>]            <span class="comment"># 已测试的场景及结果</span></span><br><span class="line">    confidence: <span class="built_in">float</span>                       <span class="comment"># 评估置信度 (0.0-1.0)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==================== 通信层 ====================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AgentMessageBus</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    基于文件系统的 Agent 消息总线</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    设计原则：</span></span><br><span class="line"><span class="string">    - 每个角色有自己的输入/输出目录</span></span><br><span class="line"><span class="string">    - 消息以 JSON 文件形式传递</span></span><br><span class="line"><span class="string">    - 支持异步读写（一个写完另一个再读）</span></span><br><span class="line"><span class="string">    - 所有消息持久化，支持回溯调试</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, workspace_root: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.workspace = Path(workspace_root)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建目录结构</span></span><br><span class="line">        <span class="variable language_">self</span>.dirs = &#123;</span><br><span class="line">            <span class="string">&#x27;inbox&#x27;</span>: <span class="variable language_">self</span>.workspace / <span class="string">&#x27;_agent_comm&#x27;</span> / <span class="string">&#x27;inbox&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;outbox&#x27;</span>: <span class="variable language_">self</span>.workspace / <span class="string">&#x27;_agent_comm&#x27;</span> / <span class="string">&#x27;outbox&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;shared&#x27;</span>: <span class="variable language_">self</span>.workspace / <span class="string">&#x27;_agent_comm&#x27;</span> / <span class="string">&#x27;shared&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;contracts&#x27;</span>: <span class="variable language_">self</span>.workspace / <span class="string">&#x27;_agent_comm&#x27;</span> / <span class="string">&#x27;contracts&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;reports&#x27;</span>: <span class="variable language_">self</span>.workspace / <span class="string">&#x27;_agent_comm&#x27;</span> / <span class="string">&#x27;reports&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="variable language_">self</span>.dirs.values():</span><br><span class="line">            d.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">send</span>(<span class="params">self, message: AgentMessage</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;发送消息到目标角色的 inbox&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 构造目标路径</span></span><br><span class="line">        target_inbox = <span class="variable language_">self</span>.dirs[<span class="string">&#x27;inbox&#x27;</span>] / message.to_role.value</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 写入文件</span></span><br><span class="line">        filename = <span class="string">f&quot;<span class="subst">&#123;message.msg_id&#125;</span>.json&quot;</span></span><br><span class="line">        filepath = target_inbox / filename</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            json.dump(asdict(message), f, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(filepath)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">receive</span>(<span class="params">self, role: AgentRole, message_type: <span class="built_in">str</span> = <span class="literal">None</span></span>) -&gt; <span class="type">List</span>[AgentMessage]:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;接收发给某个角色的所有未读消息&quot;&quot;&quot;</span></span><br><span class="line">        inbox = <span class="variable language_">self</span>.dirs[<span class="string">&#x27;inbox&#x27;</span>] / role.value</span><br><span class="line">        messages = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> inbox.exists():</span><br><span class="line">            <span class="keyword">return</span> messages</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> filepath <span class="keyword">in</span> <span class="built_in">sorted</span>(inbox.glob(<span class="string">&#x27;*.json&#x27;</span>)):</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                data = json.load(f)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 可选过滤</span></span><br><span class="line">            <span class="keyword">if</span> message_type <span class="keyword">and</span> data.get(<span class="string">&#x27;message_type&#x27;</span>) != message_type:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            msg = AgentMessage(**data)</span><br><span class="line">            messages.append(msg)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 标记为已读（移到已读目录）</span></span><br><span class="line">            read_dir = inbox / <span class="string">&#x27;_read&#x27;</span></span><br><span class="line">            read_dir.mkdir(exist_ok=<span class="literal">True</span>)</span><br><span class="line">            filepath.rename(read_dir / filepath.name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> messages</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_contract</span>(<span class="params">self, contract: SprintContract</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;保存 Sprint 合约&quot;&quot;&quot;</span></span><br><span class="line">        filepath = <span class="variable language_">self</span>.dirs[<span class="string">&#x27;contracts&#x27;</span>] / <span class="string">f&quot;sprint_<span class="subst">&#123;contract.sprint_id:03d&#125;</span>_contract.json&quot;</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            json.dump(asdict(contract), f, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(filepath)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_evaluation</span>(<span class="params">self, report: EvaluationReport</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;保存评估报告&quot;&quot;&quot;</span></span><br><span class="line">        filepath = (</span><br><span class="line">            <span class="variable language_">self</span>.dirs[<span class="string">&#x27;reports&#x27;</span>] /</span><br><span class="line">            <span class="string">f&quot;eval_sprint_<span class="subst">&#123;report.sprint_id:03d&#125;</span>_<span class="subst">&#123;report.evaluator_id&#125;</span>.json&quot;</span></span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            json.dump(asdict(report), f, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(filepath)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==================== Sprint 合约模板 ====================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_sprint_contract_template</span>(<span class="params"></span></span><br><span class="line"><span class="params">    sprint_id: <span class="built_in">int</span>,</span></span><br><span class="line"><span class="params">    feature_name: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    description: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    planner_output: <span class="type">Dict</span>,</span></span><br><span class="line"><span class="params"></span>) -&gt; SprintContract:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    根据规划者的输出创建 Sprint 合约模板</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这是 Planner 和 Generator/Evaluator 之间</span></span><br><span class="line"><span class="string">    达成共识的核心文档</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    contract = SprintContract(</span><br><span class="line">        sprint_id=sprint_id,</span><br><span class="line">        feature_name=feature_name,</span><br><span class="line">        description=description,</span><br><span class="line"></span><br><span class="line">        <span class="comment"># === 从规划输出中提取 ===</span></span><br><span class="line">        acceptance_criteria=planner_output.get(<span class="string">&#x27;acceptance_criteria&#x27;</span>, []),</span><br><span class="line">        test_scenarios=planner_output.get(<span class="string">&#x27;test_scenarios&#x27;</span>, []),</span><br><span class="line">        files_to_modify=planner_output.get(<span class="string">&#x27;target_files&#x27;</span>, []),</span><br><span class="line">        dependencies=planner_output.get(<span class="string">&#x27;dependencies&#x27;</span>, []),</span><br><span class="line">        constraints=planner_output.get(<span class="string">&#x27;constraints&#x27;</span>, [</span><br><span class="line">            <span class="string">&quot;代码必须通过现有 lint 规则&quot;</span>,</span><br><span class="line">            <span class="string">&quot;新代码需要有对应的测试&quot;</span>,</span><br><span class="line">            <span class="string">&quot;不能破坏现有功能&quot;</span>,</span><br><span class="line">            <span class="string">&quot;遵循项目的编码规范&quot;</span>,</span><br><span class="line">        ]),</span><br><span class="line">        estimated_complexity=planner_output.get(<span class="string">&#x27;complexity&#x27;</span>, <span class="string">&#x27;medium&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> contract</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：DAW 项目的 Sprint 合约</span></span><br><span class="line">EXAMPLE_CONTRACT = &#123;</span><br><span class="line">    <span class="string">&quot;sprint_id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;feature_name&quot;</span>: <span class="string">&quot;时间轴基础功能&quot;</span>,</span><br><span class="line">    <span class="string">&quot;description&quot;</span>: <span class="string">&quot;实现 DAW 的核心时间轴组件，支持音频片段的放置、选择、拖拽&quot;</span>,</span><br><span class="line">    <span class="string">&quot;acceptance_criteria&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;AC-1&quot;</span>,</span><br><span class="line">            <span class="string">&quot;criteria&quot;</span>: <span class="string">&quot;用户可以在时间轴上看到音频片段的可视化表示&quot;</span>,</span><br><span class="line">            <span class="string">&quot;verification&quot;</span>: <span class="string">&quot;视觉确认 + Playwright 截图对比&quot;</span>,</span><br><span class="line">            <span class="string">&quot;priority&quot;</span>: <span class="string">&quot;must&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;AC-2&quot;</span>,</span><br><span class="line">            <span class="string">&quot;criteria&quot;</span>: <span class="string">&quot;片段可以被鼠标选中并高亮显示&quot;</span>,</span><br><span class="line">            <span class="string">&quot;verification&quot;</span>: <span class="string">&quot;Playwright 自动化测试：点击片段 → 验证高亮状态&quot;</span>,</span><br><span class="line">            <span class="string">&quot;priority&quot;</span>: <span class="string">&quot;must&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;AC-3&quot;</span>,</span><br><span class="line">            <span class="string">&quot;criteria&quot;</span>: <span class="string">&quot;片段可以在时间轴上水平拖拽移动位置&quot;</span>,</span><br><span class="line">            <span class="string">&quot;verification&quot;</span>: <span class="string">&quot;Playwright：拖拽片段 → 验证新位置的像素坐标&quot;</span>,</span><br><span class="line">            <span class="string">&quot;priority&quot;</span>: <span class="string">&quot;must&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;AC-4&quot;</span>,</span><br><span class="line">            <span class="string">&quot;criteria&quot;</span>: <span class="string">&quot;时间轴显示时间刻度标尺（小节/拍）&quot;</span>,</span><br><span class="line">            <span class="string">&quot;verification&quot;</span>: <span class="string">&quot;视觉确认刻度文本正确渲染&quot;</span>,</span><br><span class="line">            <span class="string">&quot;priority&quot;</span>: <span class="string">&quot;should&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;test_scenarios&quot;</span>: [</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;空时间轴渲染&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;visual&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;打开页面&quot;</span>, <span class="string">&quot;确认时间轴区域存在&quot;</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;添加单个片段&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;interaction&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;调用API添加片段&quot;</span>, <span class="string">&quot;验证UI更新&quot;</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;选中并高亮&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;interaction&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;点击片段&quot;</span>, <span class="string">&quot;验证高亮样式&quot;</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;拖拽移动&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;interaction&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;拖拽片段&quot;</span>, <span class="string">&quot;验证坐标变化&quot;</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;边界情况：超出时间轴范围&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;edge_case&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;拖拽到边界外&quot;</span>, <span class="string">&quot;验证行为&quot;</span>]&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;性能：50个片段同时显示&quot;</span>, <span class="string">&quot;type&quot;</span>: <span class="string">&quot;performance&quot;</span>, <span class="string">&quot;steps&quot;</span>: [<span class="string">&quot;添加50个片段&quot;</span>, <span class="string">&quot;测量帧率&gt;30fps&quot;</span>]&#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;files_to_modify&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;src/components/Timeline/Timeline.tsx&quot;</span>,</span><br><span class="line">        <span class="string">&quot;src/components/Timeline/TimelineClip.tsx&quot;</span>,</span><br><span class="line">        <span class="string">&quot;src/hooks/useTimelineState.ts&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__tests__/Timeline.test.tsx&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;estimated_complexity&quot;</span>: <span class="string">&quot;high&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==================== 评估者校准 Few-shot 示例 ====================</span></span><br><span class="line"></span><br><span class="line">EVALUATOR_CALIBRATION_EXAMPLES = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">## 评估者校准：Few-shot 示例</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">以下是一些&quot;你应该标记为失败&quot;的例子。</span></span><br><span class="line"><span class="string">仔细阅读它们，理解什么样的质量问题是不可接受的。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 示例 1：表面可用但缺少深度交互 ❌ 应该标记为失败</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**场景**：一个音乐播放器应用</span></span><br><span class="line"><span class="string">**表面表现**：</span></span><br><span class="line"><span class="string">- UI 看起来很专业，有播放按钮、进度条、音量控制</span></span><br><span class="line"><span class="string">- 颜色搭配和谐，排版整齐</span></span><br><span class="line"><span class="string">- 点击播放按钮后确实发出声音</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**隐藏问题**：</span></span><br><span class="line"><span class="string">- 进度条不能拖拽（只是装饰性的）</span></span><br><span class="line"><span class="string">- 音量滑块不响应操作</span></span><br><span class="line"><span class="string">- 播放列表只能显示，无法切换歌曲</span></span><br><span class="line"><span class="string">- 切换页面后播放状态丢失</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**你的评估应该是**：</span></span><br><span class="line"><span class="string">&gt; FAIL — 虽然界面令人印象深刻且基本播放功能正常，</span></span><br><span class="line"><span class="string">&gt; 但多个核心交互（进度跳转、音量调节、列表切换）仅是展示性的，</span></span><br><span class="line"><span class="string">&gt; 没有实际的交互深度。这些不是边缘情况——它们是使播放器可用的核心交互。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 示例 2：功能完整但 UI 有明显缺陷 ⚠️ 应该标记为需要改进</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**场景**：一个表单提交页面</span></span><br><span class="line"><span class="string">**好的方面**：</span></span><br><span class="line"><span class="string">- 表单验证逻辑正确</span></span><br><span class="line"><span class="string">- 提交后数据正确保存到数据库</span></span><br><span class="line"><span class="string">- 错误提示准确</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**问题**：</span></span><br><span class="line"><span class="string">- 提交按钮在移动端太小（&lt;44px 触摸目标）</span></span><br><span class="line"><span class="string">- 错误信息颜色对比度不足（WCAG AA 不达标）</span></span><br><span class="line"><span class="string">- Loading 状态没有禁用重复提交</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**你的评估应该是**：</span></span><br><span class="line"><span class="string">&gt; NEEDS_WORK — 后端逻辑和数据处理正确，</span></span><br><span class="line"><span class="string">&gt; 但前端 UX 存在三个可访问性/易用性问题：</span></span><br><span class="line"><span class="string">&gt; [列出具体问题]。这些问题不影响核心功能但会影响用户体验质量。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 示例 3：看起来粗糙但功能完全正确 ✅ 可以标记为通过（带建议）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**场景**：一个后台数据导出工具</span></span><br><span class="line"><span class="string">**外观**：</span></span><br><span class="line"><span class="string">- UI 很朴素，没有花哨的设计</span></span><br><span class="line"><span class="string">- 排版不够精致</span></span><br><span class="line"><span class="string">- 缺少动画过渡效果</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**功能方面**：</span></span><br><span class="line"><span class="string">- 支持所有必需的筛选条件组合</span></span><br><span class="line"><span class="string">- 导出的数据100%准确</span></span><br><span class="line"><span class="string">- 大数据量导出有进度显示</span></span><br><span class="line"><span class="string">- 错误处理完善（网络超时、权限不足等）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**你的评估应该是**：</span></span><br><span class="line"><span class="string">&gt; APPROVED（with suggestions）— 所有验收标准均已满足，</span></span><br><span class="line"><span class="string">&gt; 核心功能完整可靠。以下为可选的改进建议（非阻塞）：</span></span><br><span class="line"><span class="string">&gt; [列出 UI 打磨建议]。这些不影响功能发布，可在后续迭代优化。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
 <hr>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>三智能体架构的核心价值，是<strong>用分工来解决单个 AI 的局限性</strong>。</p>
 <ul>
@@ -580,7 +766,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/harness/04.html" title="AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者" target="_blank">https://www.qborfy.com/ailearn/harness/04.html</a>
+          <a href="https://www.qborfy.com/ailearn/harness/04.html" title="AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Multi-Agent 架构实战指南" target="_blank">https://www.qborfy.com/ailearn/harness/04.html</a>
         </li>
         
         <li>
@@ -619,6 +805,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Multi-Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">reading_time 18 分钟</a>
         		</li>
       		
 		</ul>
@@ -693,7 +883,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AI Agent Harness Engineering（5）—— 用 Trace 分析驱动持续迭代
+          AI Agent Harness Engineering（5）—— 用 Trace 分析驱动持续迭代 | Trace Analysis 完整指南
         
       </div>
     </a>
@@ -727,7 +917,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%95%E4%B8%AA-AI-%E7%9A%84%E8%87%AA%E6%88%91%E8%AF%84%E4%BC%B0%E4%B8%8D%E5%8F%AF%E9%9D%A0%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么单个 AI 的自我评估不可靠？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%99%BA%E8%83%BD%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">三智能体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%92%E8%80%85%EF%BC%9A%E6%8A%8A%E6%A8%A1%E7%B3%8A%E5%8F%98%E6%88%90%E6%B8%85%E6%99%B0"><span class="toc-number">3.</span> <span class="toc-text">规划者：把模糊变成清晰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%80%85%EF%BC%9A%E4%B8%93%E6%B3%A8%E5%AE%9E%E7%8E%B0%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%AF%84%E5%88%A4"><span class="toc-number">4.</span> <span class="toc-text">生成者：专注实现，不做评判</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E8%80%85%EF%BC%9A%E7%8B%AC%E7%AB%8B%E3%80%81%E6%8C%91%E5%89%94%E3%80%81%E5%85%B7%E4%BD%93"><span class="toc-number">5.</span> <span class="toc-text">评估者：独立、挑剔、具体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E4%B8%AA-DAW-%E7%9A%84%E6%95%85%E4%BA%8B"><span class="toc-number">6.</span> <span class="toc-text">实际效果：一个 DAW 的故事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%9E%B6%E6%9E%84%E7%9A%84%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-number">7.</span> <span class="toc-text">这个架构的适用范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%87%8C%E7%94%A8%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">怎么在自己的项目里用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%95%E4%B8%AA-AI-%E7%9A%84%E8%87%AA%E6%88%91%E8%AF%84%E4%BC%B0%E4%B8%8D%E5%8F%AF%E9%9D%A0%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么单个 AI 的自我评估不可靠？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%99%BA%E8%83%BD%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">三智能体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%92%E8%80%85%EF%BC%9A%E6%8A%8A%E6%A8%A1%E7%B3%8A%E5%8F%98%E6%88%90%E6%B8%85%E6%99%B0"><span class="toc-number">3.</span> <span class="toc-text">规划者：把模糊变成清晰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%80%85%EF%BC%9A%E4%B8%93%E6%B3%A8%E5%AE%9E%E7%8E%B0%EF%BC%8C%E4%B8%8D%E5%81%9A%E8%AF%84%E5%88%A4"><span class="toc-number">4.</span> <span class="toc-text">生成者：专注实现，不做评判</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E8%80%85%EF%BC%9A%E7%8B%AC%E7%AB%8B%E3%80%81%E6%8C%91%E5%89%94%E3%80%81%E5%85%B7%E4%BD%93"><span class="toc-number">5.</span> <span class="toc-text">评估者：独立、挑剔、具体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C%EF%BC%9A%E4%B8%80%E4%B8%AA-DAW-%E7%9A%84%E6%95%85%E4%BA%8B"><span class="toc-number">6.</span> <span class="toc-text">实际效果：一个 DAW 的故事</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%92%E8%80%85%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">规划者做了什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%80%85%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">生成者做了什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E8%80%85%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.3.</span> <span class="toc-text">评估者做了什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%80%85%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B"><span class="toc-number">6.4.</span> <span class="toc-text">三者协作的完整流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-number">7.</span> <span class="toc-text">适用范围</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-%E6%88%90%E6%9C%AC%E5%88%86%E6%9E%90%E5%86%B3%E7%AD%96%E6%A1%86%E6%9E%B6"><span class="toc-number">7.1.</span> <span class="toc-text">📊 成本分析决策框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95-Agent-vs-%E5%A4%9A-Agent-%E6%88%90%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">7.1.1.</span> <span class="toc-text">单 Agent vs 多 Agent 成本对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%92%B0-%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%97%E5%8F%82%E8%80%83%EF%BC%88%E4%BB%A5-GPT-5-2-Codex-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">7.1.2.</span> <span class="toc-text">💰 具体数字参考（以 GPT-5.2-Codex 为例）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%8E%AF-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%A4%E6%96%AD%E6%A0%87%E5%87%86"><span class="toc-number">7.1.3.</span> <span class="toc-text">🎯 适用场景判断标准</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%84-%E7%AE%80%E5%8C%96%E5%8F%98%E4%BD%93%EF%BC%9A%E4%BD%95%E6%97%B6%E5%8F%AA%E7%94%A8%E4%B8%A4%E4%B8%AA%E8%A7%92%E8%89%B2%EF%BC%9F"><span class="toc-number">7.1.4.</span> <span class="toc-text">🔄 简化变体：何时只用两个角色？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98"><span class="toc-number">8.</span> <span class="toc-text">项目实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E9%97%B4%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE"><span class="toc-number">8.1.</span> <span class="toc-text">角色间通信协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">小结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1023,6 +1213,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

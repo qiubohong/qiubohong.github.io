@@ -12,21 +12,19 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  背景大模型篇AIGC篇开源工具篇使用RAG-GPT和Ollama搭建智能客服原创">
+  <meta name="description" content="AI信息收集篇：整理15个实用AI工具，按文档转换、Agent编排、开发工具链、可视化辅助四大类分组，涵盖snapdom、markitdown、spec-kit、prompt-optimizer等，帮你快速找到趁手的AI工具。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI信息收集篇">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/all-info.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="做一个有温度和有干货的技术分享作者 —— Qborfy  背景大模型篇AIGC篇开源工具篇使用RAG-GPT和Ollama搭建智能客服原创">
+<meta property="og:description" content="AI信息收集篇：整理15个实用AI工具，按文档转换、Agent编排、开发工具链、可视化辅助四大类分组，涵盖snapdom、markitdown、spec-kit、prompt-optimizer等，帮你快速找到趁手的AI工具。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.qborfy.com/ailearn/logo-1.png">
 <meta property="article:published_time" content="2023-09-06T10:00:01.000Z">
-<meta property="article:modified_time" content="2025-02-07T05:50:03.214Z">
+<meta property="article:modified_time" content="2026-04-28T14:37:04.623Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="AI系列">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.qborfy.com/ailearn/logo-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
   
@@ -394,7 +392,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">43字</span>
+      <span class="post-count">2.4k字</span>
     </span>
   </span>
 
@@ -403,7 +401,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -414,11 +412,93 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="./logo-1.png" alt=""></p>
-<blockquote>
+    <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="大模型篇"><a href="#大模型篇" class="headerlink" title="大模型篇"></a>大模型篇</h1><h1 id="AIGC篇"><a href="#AIGC篇" class="headerlink" title="AIGC篇"></a>AIGC篇</h1><h1 id="开源工具篇"><a href="#开源工具篇" class="headerlink" title="开源工具篇"></a>开源工具篇</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2420057">使用RAG-GPT和Ollama搭建智能客服原创</a></p>
+<h2 id="引言：收藏夹越来越长，真正用过的有几个？"><a href="#引言：收藏夹越来越长，真正用过的有几个？" class="headerlink" title="引言：收藏夹越来越长，真正用过的有几个？"></a>引言：收藏夹越来越长，真正用过的有几个？</h2><p>刷 GitHub 趋势榜的时候，总忍不住点 Star——这个有意思，那个也收藏一下。结果收藏夹越来越长，真正用起来的却没几个。后来我换了个思路：与其贪多，不如按用途分好类，每个工具搞清楚”能干啥””比同类好在哪”，需要的时候直接拿。</p>
+<p>这篇文章就是我整理的 15 个 AI 工具速查手册，按用途分成四类，每个工具给你三个关键信息：<strong>是什么、为什么推荐、什么时候用</strong>。不算面面俱到，但至少能帮你快速判断”这个我需不需要”。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="一、文档与内容转换"><a href="#一、文档与内容转换" class="headerlink" title="一、文档与内容转换"></a>一、文档与内容转换</h2><p>这类工具解决一个共同的问题：<strong>格式不对，啥都白搭</strong>。</p>
+<h3 id="1-snapdom-——-HTML-转图片，一行搞定"><a href="#1-snapdom-——-HTML-转图片，一行搞定" class="headerlink" title="1. snapdom —— HTML 转图片，一行搞定"></a>1. snapdom —— HTML 转图片，一行搞定</h3><p><a target="_blank" rel="noopener" href="https://github.com/zumerlab/snapdom">snapdom</a></p>
+<p><strong>是什么</strong>：把任意 HTML 元素（包括 SVG、Canvas、伪元素）截图为高清图片。</p>
+<p><strong>为什么推荐</strong>：之前用 html2canvas，总遇到伪元素丢失、跨域图片渲染失败的问题。snapdom 对这些边缘情况处理得更好，而且 API 就一个函数调用，几乎不用配置。</p>
+<p><strong>什么时候用</strong>：需要生成分享海报、页面截图、组件预览图的时候。比手动截图靠谱，比 Puppeteer 轻量。</p>
+<h3 id="2-markitdown-——-Office-文档一键转-Markdown"><a href="#2-markitdown-——-Office-文档一键转-Markdown" class="headerlink" title="2. markitdown —— Office 文档一键转 Markdown"></a>2. markitdown —— Office 文档一键转 Markdown</h3><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/markitdown">markitdown</a></p>
+<p><strong>是什么</strong>：微软开源的文档转换工具，支持 Word、PPT、Excel、PDF 等格式转 Markdown。</p>
+<p><strong>为什么推荐</strong>：微软自家的东西，对 Office 格式兼容性自然最好。之前试过 pandoc，复杂表格和嵌入图片经常丢。markitdown 在这些细节上明显更稳，而且支持批量处理。</p>
+<p><strong>什么时候用</strong>：拿到一份需求文档是 Word 的，想扔给 AI 分析？先用这个转成 Markdown，干净利落。</p>
+<h3 id="3-DeepSeek-OCR-WebUI-——-本地部署的图片识别服务"><a href="#3-DeepSeek-OCR-WebUI-——-本地部署的图片识别服务" class="headerlink" title="3. DeepSeek-OCR-WebUI —— 本地部署的图片识别服务"></a>3. DeepSeek-OCR-WebUI —— 本地部署的图片识别服务</h3><p><a target="_blank" rel="noopener" href="https://github.com/neosun100/DeepSeek-OCR-WebUI">DeepSeek-OCR-WebUI</a></p>
+<p><strong>是什么</strong>：基于 DeepSeek 的 OCR 本地部署方案，带 Web 界面，支持图片转文档、表格识别、发票提取等。</p>
+<p><strong>为什么推荐</strong>：隐私敏感的场景不想用云端 OCR？这个直接本地跑，数据不出机器。WebUI 界面也方便非技术人员操作。</p>
+<p><strong>什么时候用</strong>：需要批量识别发票、合同、手写笔记，又不想把数据传到第三方服务的时候。</p>
+<hr>
+<h2 id="二、AI-Agent-与编排"><a href="#二、AI-Agent-与编排" class="headerlink" title="二、AI Agent 与编排"></a>二、AI Agent 与编排</h2><p>Agent 是今年的热门方向，但光有单个 Agent 不够，<strong>怎么编排、怎么对齐</strong>才是难点。</p>
+<h3 id="4-BettaFish-“微舆”-——-多智能体舆情分析系统"><a href="#4-BettaFish-“微舆”-——-多智能体舆情分析系统" class="headerlink" title="4. BettaFish “微舆” —— 多智能体舆情分析系统"></a>4. BettaFish “微舆” —— 多智能体舆情分析系统</h3><p><a target="_blank" rel="noopener" href="https://github.com/666ghj/BettaFish">BettaFish</a></p>
+<p><strong>是什么</strong>：从零实现的多智能体舆情分析系统，核心目标是破除信息茧房、还原舆情原貌。</p>
+<p><strong>为什么推荐</strong>：不是又一个通用 Agent 框架，而是针对舆情场景做深了。多 Agent 协作分工——有的负责采集，有的负责分析，有的负责生成报告——比单个大模型硬啃效果好得多。</p>
+<p><strong>什么时候用</strong>：需要监控社交媒体舆情、做竞品分析、了解用户真实反馈的时候。适合产品和运营团队参考。</p>
+<h3 id="5-Parlant-——-对话式-Agent-对齐引擎"><a href="#5-Parlant-——-对话式-Agent-对齐引擎" class="headerlink" title="5. Parlant —— 对话式 Agent 对齐引擎"></a>5. Parlant —— 对话式 Agent 对齐引擎</h3><p><a target="_blank" rel="noopener" href="https://github.com/emcie-co/parlant">Parlant</a></p>
+<p><strong>是什么</strong>：LLM 代理对齐引擎，帮开发者创建可控、合规、面向客户的 Agent。</p>
+<p><strong>为什么推荐</strong>：做 Agent 最头疼的不是”让它能说话”，而是”让它说该说的话”。Parlant 解决的是对齐问题——Agent 的回复要符合业务规则、品牌调性、合规要求，不能瞎聊。</p>
+<p><strong>什么时候用</strong>：做客服机器人、销售助手这类面向用户的 Agent，需要精确控制回复边界的时候。</p>
+<h3 id="6-vibe-kanban-——-多线程-AI-Agent-任务面板"><a href="#6-vibe-kanban-——-多线程-AI-Agent-任务面板" class="headerlink" title="6. vibe-kanban —— 多线程 AI Agent 任务面板"></a>6. vibe-kanban —— 多线程 AI Agent 任务面板</h3><p><a target="_blank" rel="noopener" href="https://github.com/BloopAI/vibe-kanban">vibe-kanban</a></p>
+<p><strong>是什么</strong>：AI Agent 的任务管理面板，支持多线程并发处理。</p>
+<p><strong>为什么推荐</strong>：单线程跑 Agent 任务，一个卡住全等着。vibe-kanban 让多个 Agent 并发推进，看板式界面也直观——哪个在跑、哪个卡了、哪个完成了，一眼就看清。</p>
+<p><strong>什么时候用</strong>：同时跑多个 Agent 任务（比如并行做代码审查、文档生成、测试编写）的时候，比一个个排队高效多了。</p>
+<hr>
+<h2 id="三、AI-开发工具链"><a href="#三、AI-开发工具链" class="headerlink" title="三、AI 开发工具链"></a>三、AI 开发工具链</h2><p>这组工具直接嵌入开发流程，<strong>提升的是写代码的效率和质量</strong>。</p>
+<h3 id="7-spec-kit-——-AI-编程规范驱动开发标准化"><a href="#7-spec-kit-——-AI-编程规范驱动开发标准化" class="headerlink" title="7. spec-kit —— AI 编程规范驱动开发标准化"></a>7. spec-kit —— AI 编程规范驱动开发标准化</h3><p><a target="_blank" rel="noopener" href="https://github.com/github/spec-kit">spec-kit</a></p>
+<p><strong>是什么</strong>：GitHub 出的 AI 驱动开发工作流工具，把”需求 → 方案 → 任务 → 实现”标准化。</p>
+<p><strong>为什么推荐</strong>：用 AI 写代码最怕什么？需求没写清楚，AI 就按自己的理解瞎生成，改来改去浪费时间。spec-kit 的思路是：先把需求（spec）写明白，再让 AI 按 spec 生成方案和代码，减少返工。我在第 15 期文章里专门聊过怎么在 spec-kit 里加评审环节，效果不错。</p>
+<p><strong>什么时候用</strong>：任何需要 AI 参与开发的需求，尤其是功能复杂、边界条件多的场景。</p>
+<h3 id="8-prompt-optimizer-——-提示词优化器"><a href="#8-prompt-optimizer-——-提示词优化器" class="headerlink" title="8. prompt-optimizer —— 提示词优化器"></a>8. prompt-optimizer —— 提示词优化器</h3><p><a target="_blank" rel="noopener" href="https://github.com/linshenkx/prompt-optimizer">prompt-optimizer</a></p>
+<p><strong>是什么</strong>：提示词优化工具，帮你把模糊的需求描述打磨成高质量 prompt。</p>
+<p><strong>为什么推荐</strong>：同样一个需求，prompt 写得好不好，AI 输出质量天差地别。这个工具不是帮你”写”prompt，而是帮你”优化”——给它一段粗略描述，它帮你理清结构、补充上下文、消除歧义。</p>
+<p><strong>什么时候用</strong>：写 prompt 的时候总觉得 AI 没理解你的意思？先丢进来优化一下，效果立竿见影。</p>
+<h3 id="9-OpenHands-——-浏览器自动化-SDK"><a href="#9-OpenHands-——-浏览器自动化-SDK" class="headerlink" title="9. OpenHands —— 浏览器自动化 SDK"></a>9. OpenHands —— 浏览器自动化 SDK</h3><p><a target="_blank" rel="noopener" href="https://docs.openhands.dev/sdk/guides/hello-world">OpenHands</a></p>
+<p><strong>是什么</strong>：AI 驱动的浏览器自动化工具，可以用自然语言操控浏览器。</p>
+<p><strong>为什么推荐</strong>：传统自动化（Selenium、Playwright）需要写定位器、处理等待逻辑，维护成本高。OpenHands 的思路是用 AI 理解页面，自然语言描述你要做什么就行，大大降低上手门槛。</p>
+<p><strong>什么时候用</strong>：需要做 UI 自动化测试、网页数据采集、重复性浏览器操作的时候。</p>
+<h3 id="10-ai-sdk-——-前端-AI-开发框架"><a href="#10-ai-sdk-——-前端-AI-开发框架" class="headerlink" title="10. ai-sdk —— 前端 AI 开发框架"></a>10. ai-sdk —— 前端 AI 开发框架</h3><p><a target="_blank" rel="noopener" href="https://ai-sdk.dev/docs/getting-started/nuxt">ai-sdk</a></p>
+<p><strong>是什么</strong>：Vercel 出的前端 AI 集成框架，支持 Nuxt、Next.js 等主流框架。</p>
+<p><strong>为什么推荐</strong>：前端接 AI 能力（流式对话、工具调用、结构化输出）本来挺麻烦的，这个 SDK 把常见模式都封装好了。尤其是流式输出这块，自己处理 SSE 协议容易踩坑，用它几行代码搞定。</p>
+<p><strong>什么时候用</strong>：前端项目需要接入 AI 对话、智能补全、流式输出等功能的时候。</p>
+<h3 id="11-ai-engineering-hub-——-AI-实战项目集合"><a href="#11-ai-engineering-hub-——-AI-实战项目集合" class="headerlink" title="11. ai-engineering-hub —— AI 实战项目集合"></a>11. ai-engineering-hub —— AI 实战项目集合</h3><p><a target="_blank" rel="noopener" href="https://github.com/patchy631/ai-engineering-hub">ai-engineering-hub</a></p>
+<p><strong>是什么</strong>：从入门到生产级别的 AI 项目源码合集，涵盖 RAG、Agent、微调等多个方向。</p>
+<p><strong>为什么推荐</strong>：学 AI 最怕只看概念不动手。这个仓库的好处是每个项目都有完整代码，从简单到复杂，适合边看边练。比到处找零散教程效率高。</p>
+<p><strong>什么时候用</strong>：想实践某个 AI 方向但不知从何下手的时候，先来这里找对应项目跑一遍。</p>
+<hr>
+<h2 id="四、可视化与辅助"><a href="#四、可视化与辅助" class="headerlink" title="四、可视化与辅助"></a>四、可视化与辅助</h2><p>最后这组是”锦上添花”的工具，<strong>解决的是效率小痛点</strong>。</p>
+<h3 id="12-next-ai-draw-io-——-用对话画流程图"><a href="#12-next-ai-draw-io-——-用对话画流程图" class="headerlink" title="12. next-ai-draw-io —— 用对话画流程图"></a>12. next-ai-draw-io —— 用对话画流程图</h3><p><a target="_blank" rel="noopener" href="https://github.com/DayuanJiang/next-ai-draw-io">next-ai-draw-io</a></p>
+<p><strong>是什么</strong>：AI 驱动的流程图工具，用自然语言描述就能生成 Draw.io 格式的流程图。</p>
+<p><strong>为什么推荐</strong>：画流程图这事儿，排版比画线费时间。用自然语言描述逻辑，让 AI 帮你排版，再在 Draw.io 里微调——比从空白画布开始快得多。</p>
+<p><strong>什么时候用</strong>：需要画系统架构图、业务流程图、时序图，又不想手动画线排版的时候。</p>
+<h3 id="13-zread-ai-——-AI-转译-GitHub-源码"><a href="#13-zread-ai-——-AI-转译-GitHub-源码" class="headerlink" title="13. zread.ai —— AI 转译 GitHub 源码"></a>13. zread.ai —— AI 转译 GitHub 源码</h3><p><a target="_blank" rel="noopener" href="https://zread.ai">zread.ai</a></p>
+<p>示例：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zread.ai/ChromeDevTools/chrome-devtools-mcp/5-first-browser-automation-prompt">Chrome DevTools MCP</a></li>
+<li><a target="_blank" rel="noopener" href="https://zread.ai/danielmiessler/Personal_AI_Infrastructure/9-system-architecture-overview">Personal AI Infrastructure</a></li>
+</ul>
+<p><strong>是什么</strong>：把 GitHub 仓库的源码用 AI 转译成可阅读的文档，帮你快速理解项目。</p>
+<p><strong>为什么推荐</strong>：clone 一个大仓库慢慢读源码？太慢了。zread.ai 直接把代码逻辑翻译成人话，你先看文档理解整体设计，再决定要不要深入读代码。</p>
+<p><strong>什么时候用</strong>：想快速了解一个开源项目的设计思路和核心逻辑，又不想从零啃代码的时候。</p>
+<h3 id="14-knot-sdk"><a href="#14-knot-sdk" class="headerlink" title="14. knot-sdk"></a>14. knot-sdk</h3><p><a target="_blank" rel="noopener" href="https://github.com/QuoIntelligence/knot-sdk">knot-sdk</a></p>
+<p><strong>是什么</strong>：一个用于情报分析和知识图谱的 SDK。</p>
+<p><strong>为什么收录</strong>：工具还在早期阶段，文档不多，但思路有意思——把碎片化信息编织成结构化知识网络。值得关注后续发展。</p>
+<h3 id="15-去水印工具-amp-AI-生成辅助"><a href="#15-去水印工具-amp-AI-生成辅助" class="headerlink" title="15. 去水印工具 &amp; AI 生成辅助"></a>15. 去水印工具 &amp; AI 生成辅助</h3><ul>
+<li><strong>去水印</strong>：<a target="_blank" rel="noopener" href="https://sora2watermarkremover.net/">sora2watermarkremover</a> —— 在线去水印网站，支持图片和视频，简单直接。</li>
+<li><strong>AI 生成</strong>：<a target="_blank" rel="noopener" href="https://www.doubao.com/">豆包</a> —— 字节跳动的 AI 对话助手，能力跟 Google Gemini 差不多，中文场景体验更好。</li>
+</ul>
+<hr>
+<h2 id="写在最后：工具多不如工具对"><a href="#写在最后：工具多不如工具对" class="headerlink" title="写在最后：工具多不如工具对"></a>写在最后：工具多不如工具对</h2><p>说到底，工具的多少不是关键，关键是你有没有真正用起来。我的建议是：</p>
+<ol>
+<li><strong>先按需选</strong>：遇到什么问题，就来对应分类里找工具，别一上来全试一遍。</li>
+<li><strong>深入一两个</strong>：每个分类里挑一个最顺手的，用熟了再换。工具换来换去最浪费时间。</li>
+<li><strong>关注更新</strong>：AI 工具迭代快，本文提到的功能可能过几个月就有变化，记得看看项目的最新 release。</li>
+</ol>
+<p>这篇文章会持续更新，有新发现的工具会补进来。如果你有好用的 AI 工具推荐，也欢迎留言交流。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -602,6 +682,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A%E6%94%B6%E8%97%8F%E5%A4%B9%E8%B6%8A%E6%9D%A5%E8%B6%8A%E9%95%BF%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%94%A8%E8%BF%87%E7%9A%84%E6%9C%89%E5%87%A0%E4%B8%AA%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">引言：收藏夹越来越长，真正用过的有几个？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E6%A1%A3%E4%B8%8E%E5%86%85%E5%AE%B9%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">一、文档与内容转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-snapdom-%E2%80%94%E2%80%94-HTML-%E8%BD%AC%E5%9B%BE%E7%89%87%EF%BC%8C%E4%B8%80%E8%A1%8C%E6%90%9E%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">1. snapdom —— HTML 转图片，一行搞定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-markitdown-%E2%80%94%E2%80%94-Office-%E6%96%87%E6%A1%A3%E4%B8%80%E9%94%AE%E8%BD%AC-Markdown"><span class="toc-number">2.2.</span> <span class="toc-text">2. markitdown —— Office 文档一键转 Markdown</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DeepSeek-OCR-WebUI-%E2%80%94%E2%80%94-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.3.</span> <span class="toc-text">3. DeepSeek-OCR-WebUI —— 本地部署的图片识别服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81AI-Agent-%E4%B8%8E%E7%BC%96%E6%8E%92"><span class="toc-number">3.</span> <span class="toc-text">二、AI Agent 与编排</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-BettaFish-%E2%80%9C%E5%BE%AE%E8%88%86%E2%80%9D-%E2%80%94%E2%80%94-%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E8%88%86%E6%83%85%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.</span> <span class="toc-text">4. BettaFish “微舆” —— 多智能体舆情分析系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Parlant-%E2%80%94%E2%80%94-%E5%AF%B9%E8%AF%9D%E5%BC%8F-Agent-%E5%AF%B9%E9%BD%90%E5%BC%95%E6%93%8E"><span class="toc-number">3.2.</span> <span class="toc-text">5. Parlant —— 对话式 Agent 对齐引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-vibe-kanban-%E2%80%94%E2%80%94-%E5%A4%9A%E7%BA%BF%E7%A8%8B-AI-Agent-%E4%BB%BB%E5%8A%A1%E9%9D%A2%E6%9D%BF"><span class="toc-number">3.3.</span> <span class="toc-text">6. vibe-kanban —— 多线程 AI Agent 任务面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81AI-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-number">4.</span> <span class="toc-text">三、AI 开发工具链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-spec-kit-%E2%80%94%E2%80%94-AI-%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E6%A0%87%E5%87%86%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">7. spec-kit —— AI 编程规范驱动开发标准化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-prompt-optimizer-%E2%80%94%E2%80%94-%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%BC%98%E5%8C%96%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">8. prompt-optimizer —— 提示词优化器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-OpenHands-%E2%80%94%E2%80%94-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96-SDK"><span class="toc-number">4.3.</span> <span class="toc-text">9. OpenHands —— 浏览器自动化 SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-ai-sdk-%E2%80%94%E2%80%94-%E5%89%8D%E7%AB%AF-AI-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="toc-number">4.4.</span> <span class="toc-text">10. ai-sdk —— 前端 AI 开发框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-ai-engineering-hub-%E2%80%94%E2%80%94-AI-%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%E9%9B%86%E5%90%88"><span class="toc-number">4.5.</span> <span class="toc-text">11. ai-engineering-hub —— AI 实战项目集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E8%BE%85%E5%8A%A9"><span class="toc-number">5.</span> <span class="toc-text">四、可视化与辅助</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-next-ai-draw-io-%E2%80%94%E2%80%94-%E7%94%A8%E5%AF%B9%E8%AF%9D%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">5.1.</span> <span class="toc-text">12. next-ai-draw-io —— 用对话画流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-zread-ai-%E2%80%94%E2%80%94-AI-%E8%BD%AC%E8%AF%91-GitHub-%E6%BA%90%E7%A0%81"><span class="toc-number">5.2.</span> <span class="toc-text">13. zread.ai —— AI 转译 GitHub 源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-knot-sdk"><span class="toc-number">5.3.</span> <span class="toc-text">14. knot-sdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-%E5%8E%BB%E6%B0%B4%E5%8D%B0%E5%B7%A5%E5%85%B7-amp-AI-%E7%94%9F%E6%88%90%E8%BE%85%E5%8A%A9"><span class="toc-number">5.4.</span> <span class="toc-text">15. 去水印工具 &amp; AI 生成辅助</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E%EF%BC%9A%E5%B7%A5%E5%85%B7%E5%A4%9A%E4%B8%8D%E5%A6%82%E5%B7%A5%E5%85%B7%E5%AF%B9"><span class="toc-number">6.</span> <span class="toc-text">写在最后：工具多不如工具对</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -893,6 +986,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

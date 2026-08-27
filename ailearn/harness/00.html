@@ -8,25 +8,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？ | Qborfy知识库</title>
+  <title>AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？| 完整教程指南 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？ 2025 年下半年，一件事悄悄发生了——OpenAI 内部有个三人团队，用 Codex 智能体在五个月内写出了一百万行代码，没有一行是人工敲的。LangChain 的团队用同样的方式，把他们的编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到了 66.5%，而且全程没有换模型，">
+  <meta name="description" content="Harness Engineering完整教程：如何围绕AI模型搭建工作脚手架，让AI从52.5%提升到66.5%。涵盖六大核心组件、Build&amp;Verify模式、多智能体架构、Trace分析方法论。来自LangChain&#x2F;OpenAI&#x2F;Anthropic大厂实战经验。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI Agent Harness Engineering（0）—— 当 AI 开始&quot;自己干活&quot;，工程师该做什么？">
+<meta property="og:title" content="AI Agent Harness Engineering（0）—— 当 AI 开始&quot;自己干活&quot;，工程师该做什么？| 完整教程指南">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/harness/00.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？ 2025 年下半年，一件事悄悄发生了——OpenAI 内部有个三人团队，用 Codex 智能体在五个月内写出了一百万行代码，没有一行是人工敲的。LangChain 的团队用同样的方式，把他们的编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到了 66.5%，而且全程没有换模型，">
+<meta property="og:description" content="Harness Engineering完整教程：如何围绕AI模型搭建工作脚手架，让AI从52.5%提升到66.5%。涵盖六大核心组件、Build&amp;Verify模式、多智能体架构、Trace分析方法论。来自LangChain&#x2F;OpenAI&#x2F;Anthropic大厂实战经验。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/00/main_title.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/00/learning_path.png">
 <meta property="article:published_time" content="2026-03-28T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-28T02:42:25.731Z">
+<meta property="article:modified_time" content="2026-04-28T14:37:04.623Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
 <meta property="article:tag" content="Harness Engineering">
 <meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="教程系列">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.qborfy.com/assets/img/ailearn/harness/00/main_title.png">
   
@@ -369,7 +371,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？
+      AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？| 完整教程指南
       
     </h1>
   
@@ -396,7 +398,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.7k字</span>
+      <span class="post-count">2.2k字</span>
     </span>
   </span>
 
@@ -405,7 +407,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -416,7 +418,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><strong>你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？</strong></p>
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门导读</strong>，适合所有对 AI Agent 感兴趣的读者。无需前置知识。</p>
+</blockquote>
+<p><strong>你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？</strong></p>
 <p>2025 年下半年，一件事悄悄发生了——OpenAI 内部有个三人团队，用 Codex 智能体在五个月内写出了一百万行代码，没有一行是人工敲的。LangChain 的团队用同样的方式，把他们的编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到了 66.5%，而且全程没有换模型，只改了”外壳”。</p>
 <p>这个”外壳”，就是 <strong>Harness</strong>。</p>
 <span id="more"></span>
@@ -432,13 +437,48 @@
 <p>这些问题，不是模型不够聪明，而是<strong>没有给模型搭好工作的脚手架</strong>。</p>
 <p>Harness Engineering，就是专门解决这个问题的工程方法论。</p>
 <hr>
-<h2 id="这个系列是写给谁的？"><a href="#这个系列是写给谁的？" class="headerlink" title="这个系列是写给谁的？"></a>这个系列是写给谁的？</h2><p>如果你是：</p>
-<ul>
-<li><strong>AI 应用开发者</strong>，正在用 LangChain、LlamaIndex 或者直接调 API 构建 AI 应用</li>
-<li><strong>工程师</strong>，想让 AI 在你的项目里真正”干活”，而不只是”聊天”</li>
-<li><strong>技术管理者</strong>，想理解为什么有些团队用 AI 效率翻倍，有些团队却越用越乱</li>
+<h2 id="这个系列是写给谁的？"><a href="#这个系列是写给谁的？" class="headerlink" title="这个系列是写给谁的？"></a>这个系列是写给谁的？</h2><h3 id="🎯-目标读者"><a href="#🎯-目标读者" class="headerlink" title="🎯 目标读者"></a>🎯 目标读者</h3><table>
+<thead>
+<tr>
+<th>读者类型</th>
+<th>当前状态</th>
+<th>学完你能获得什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AI 应用开发者</strong></td>
+<td>正在用 LangChain/LlamaIndex/直接调 API 构建应用</td>
+<td>一套完整的 Harness 设计方法论，让你的 Agent 得分提升 20%+</td>
+</tr>
+<tr>
+<td><strong>工程师</strong></td>
+<td>想让 AI 在项目里”干活”，不只是聊天</td>
+<td>从 0 到 1 搭建 Harness 的具体步骤和代码模板</td>
+</tr>
+<tr>
+<td><strong>技术管理者</strong></td>
+<td>想理解为什么有些团队用 AI 效率翻倍，有些越用越乱</td>
+<td>评估团队 AI 效能的框架和改进路线图</td>
+</tr>
+<tr>
+<td><strong>AI 爱好者</strong></td>
+<td>对 Agent 技术感兴趣，想了解前沿实践</td>
+<td>业界最前沿的 Harness Engineering 知识体系</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>不需要你是机器学习专家</strong>。本系列聚焦于<strong>工程实践</strong>，不是模型训练。如果你会写代码、用过 ChatGPT/Claude 等 AI 工具，就能跟上。</p>
+</blockquote>
+<h3 id="🎁-学完这个系列，你将能够："><a href="#🎁-学完这个系列，你将能够：" class="headerlink" title="🎁 学完这个系列，你将能够："></a>🎁 学完这个系列，你将能够：</h3><ul>
+<li>✅ <strong>诊断</strong>：快速识别你的 AI Agent 为什么表现不好（是模型问题还是 Harness 问题）</li>
+<li>✅ <strong>设计</strong>：从零搭建一个包含六大组件的完整 Harness</li>
+<li>✅ <strong>实现</strong>：写出 Build &amp; Verify 模式的系统提示词和中间件代码</li>
+<li>✅ <strong>架构</strong>：设计规划者-生成者-评估者的多智能体协作系统</li>
+<li>✅ <strong>迭代</strong>：建立 Trace 分析驱动的持续改进流程</li>
+<li>✅ <strong>决策</strong>：知道什么时候该加组件、什么时候该移除组件</li>
 </ul>
-<p>这个系列就是为你写的。</p>
+<hr>
+<h3 id="📐-系列学习路径"><a href="#📐-系列学习路径" class="headerlink" title="📐 系列学习路径"></a>📐 系列学习路径</h3><p><img src="/assets/img/ailearn/harness/00/learning_path.png" alt="系列学习路径"></p>
 <p>我们不会讲太多理论，重点是<strong>实战</strong>——从真实案例出发，把 LangChain、OpenAI、Anthropic 这些大厂踩过的坑和总结出来的方法，翻译成你能直接用的东西。</p>
 <hr>
 <h2 id="Harness-Engineering-到底是什么？"><a href="#Harness-Engineering-到底是什么？" class="headerlink" title="Harness Engineering 到底是什么？"></a>Harness Engineering 到底是什么？</h2><p>先说一个比喻。</p>
@@ -464,14 +504,32 @@
 <p>这些不是实验室里的数字，是真实发生的事。而它们背后的共同点，就是<strong>精心设计的 Harness</strong>。</p>
 <p>模型在变强，但模型的能力能不能真正发挥出来，越来越取决于 Harness 的质量。</p>
 <hr>
-<h2 id="系列文章目录"><a href="#系列文章目录" class="headerlink" title="系列文章目录"></a>系列文章目录</h2><p>这个系列一共规划了 <strong>6 篇文章</strong>，从概念到实战，逐步深入：</p>
-<h3 id="第-0-篇（本篇）：系列介绍"><a href="#第-0-篇（本篇）：系列介绍" class="headerlink" title="第 0 篇（本篇）：系列介绍"></a>第 0 篇（本篇）：系列介绍</h3><p>当 AI 开始”自己干活”，工程师该做什么？——Harness Engineering 的背景和意义</p>
-<h3 id="第-1-篇：Harness-是什么？"><a href="#第-1-篇：Harness-是什么？" class="headerlink" title="第 1 篇：Harness 是什么？"></a>第 1 篇：Harness 是什么？</h3><p>从”马具”到”AI 脚手架”——深入理解 Harness 的六个核心组件，以及为什么它能让 AI 表现更好</p>
-<h3 id="第-2-篇：让-AI-学会”自我验证”"><a href="#第-2-篇：让-AI-学会”自我验证”" class="headerlink" title="第 2 篇：让 AI 学会”自我验证”"></a>第 2 篇：让 AI 学会”自我验证”</h3><p>Build &amp; Verify 模式——如何通过系统提示词和中间件，让 AI 从”写完就交”变成”写完自测”</p>
-<h3 id="第-3-篇：上下文工程，给-AI-一张地图"><a href="#第-3-篇：上下文工程，给-AI-一张地图" class="headerlink" title="第 3 篇：上下文工程，给 AI 一张地图"></a>第 3 篇：上下文工程，给 AI 一张地图</h3><p>Context Engineering——如何管理 AI 的”视野”，避免它在复杂任务中迷失方向</p>
-<h3 id="第-4-篇：多智能体协作架构"><a href="#第-4-篇：多智能体协作架构" class="headerlink" title="第 4 篇：多智能体协作架构"></a>第 4 篇：多智能体协作架构</h3><p>从单打独斗到团队作战——规划者、生成者、评估者三角架构的设计与实践</p>
-<h3 id="第-5-篇：Harness-的持续迭代"><a href="#第-5-篇：Harness-的持续迭代" class="headerlink" title="第 5 篇：Harness 的持续迭代"></a>第 5 篇：Harness 的持续迭代</h3><p>用 Trace 分析驱动改进——如何像 LangChain 那样，用数据找到 AI 的失败模式并系统性修复</p>
-<h3 id="第-6-篇：未来展望"><a href="#第-6-篇：未来展望" class="headerlink" title="第 6 篇：未来展望"></a>第 6 篇：未来展望</h3><p>当模型越来越强，Harness 会消失吗？——AI Agent 的持续性与准确性的终极问题</p>
+<h2 id="系列文章目录"><a href="#系列文章目录" class="headerlink" title="系列文章目录"></a>系列文章目录</h2><p>这个系列一共规划了 <strong>7 篇文章</strong>（含本篇导读），从概念到实战，逐步深入：</p>
+<h3 id="第-0-篇（本篇）：系列介绍-⬅️-你在这里"><a href="#第-0-篇（本篇）：系列介绍-⬅️-你在这里" class="headerlink" title="第 0 篇（本篇）：系列介绍 ⬅️ 你在这里"></a>第 0 篇（本篇）：系列介绍 ⬅️ 你在这里</h3><p>当 AI 开始”自己干活”，工程师该做什么？——Harness Engineering 的背景、意义和学习路线图</p>
+<h3 id="第-1-篇：Harness-是什么？📘-入门"><a href="#第-1-篇：Harness-是什么？📘-入门" class="headerlink" title="第 1 篇：Harness 是什么？📘 入门"></a>第 1 篇：Harness 是什么？📘 入门</h3><p>从”马具”到”AI 脚手架”——深入理解 Harness 的六个核心组件，以及为什么它能让 AI 表现更好</p>
+<blockquote>
+<p><strong>关键收获</strong>：六大组件速查表 + 每个组件的设计检查清单</p>
+</blockquote>
+<h3 id="第-2-篇：让-AI-学会”自我验证”-📗-进阶"><a href="#第-2-篇：让-AI-学会”自我验证”-📗-进阶" class="headerlink" title="第 2 篇：让 AI 学会”自我验证” 📗 进阶"></a>第 2 篇：让 AI 学会”自我验证” 📗 进阶</h3><p>Build &amp; Verify 模式——如何通过系统提示词和中间件，让 AI 从”写完就交”变成”写完自测”</p>
+<blockquote>
+<p><strong>关键收获</strong>：可复制的系统提示词模板 + Python 中间件完整代码</p>
+</blockquote>
+<h3 id="第-3-篇：上下文工程，给-AI-一张地图-📗-进阶"><a href="#第-3-篇：上下文工程，给-AI-一张地图-📗-进阶" class="headerlink" title="第 3 篇：上下文工程，给 AI 一张地图 📗 进阶"></a>第 3 篇：上下文工程，给 AI 一张地图 📗 进阶</h3><p>Context Engineering——如何管理 AI 的”视野”，避免它在复杂任务中迷失方向</p>
+<blockquote>
+<p><strong>关键收获</strong>：AGENTS.md 完整模板 + “地图优于百科全书”设计原则</p>
+</blockquote>
+<h3 id="第-4-篇：多智能体协作架构-📙-高级"><a href="#第-4-篇：多智能体协作架构-📙-高级" class="headerlink" title="第 4 篇：多智能体协作架构 📙 高级"></a>第 4 篇：多智能体协作架构 📙 高级</h3><p>从单打独斗到团队作战——规划者、生成者、评估者三角架构的设计与实践</p>
+<blockquote>
+<p><strong>关键收获</strong>：Sprint 合约机制 + 评估者校准方法 + 成本决策框架</p>
+</blockquote>
+<h3 id="第-5-篇：Harness-的持续迭代-📙-高级"><a href="#第-5-篇：Harness-的持续迭代-📙-高级" class="headerlink" title="第 5 篇：Harness 的持续迭代 📙 高级"></a>第 5 篇：Harness 的持续迭代 📙 高级</h3><p>用 Trace 分析驱动改进——如何像 LangChain 那样，用数据找到 AI 的失败模式并系统性修复</p>
+<blockquote>
+<p><strong>关键收获</strong>：Trace Analyzer Skill 实现指南 + 推理三明治策略 + 过拟合防范</p>
+</blockquote>
+<h3 id="第-6-篇：未来展望-📘-总结"><a href="#第-6-篇：未来展望-📘-总结" class="headerlink" title="第 6 篇：未来展望 📘 总结"></a>第 6 篇：未来展望 📘 总结</h3><p>当模型越来越强，Harness 会消失吗？——AI Agent 的持续性与准确性的终极问题</p>
+<blockquote>
+<p><strong>关键收获</strong>：四大趋势预测 + 工程师角色转型指南 + 行动准备清单</p>
+</blockquote>
 <hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>这个系列的核心参考来自三篇大厂实战文章：</p>
 <ul>
@@ -489,6 +547,7 @@
 <hr>
 <blockquote>
 <p>系列文章持续更新，欢迎关注。<br>参考资料：LangChain Blog、OpenAI Blog、Anthropic Blog</p>
+<p>📮 <strong>反馈与交流</strong>：如果你在实践中有问题或发现，欢迎在评论区留言，我会持续更新和完善这个系列。</p>
 </blockquote>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
@@ -546,7 +605,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/harness/00.html" title="AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？" target="_blank">https://www.qborfy.com/ailearn/harness/00.html</a>
+          <a href="https://www.qborfy.com/ailearn/harness/00.html" title="AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？| 完整教程指南" target="_blank">https://www.qborfy.com/ailearn/harness/00.html</a>
         </li>
         
         <li>
@@ -581,6 +640,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
         		</li>
       		
 		</ul>
@@ -651,18 +714,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/harness/langchain.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ailearn/harness/01.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南
         
       </div>
     </a>
   
   
-    <a href="/ailearn/harness/openai.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/ailearn/daily/25.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(25) - Plan-and-Solve</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -689,7 +752,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E7%B3%BB%E5%88%97%E6%98%AF%E5%86%99%E7%BB%99%E8%B0%81%E7%9A%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">这个系列是写给谁的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Harness-Engineering-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Harness Engineering 到底是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E7%89%B9%E5%88%AB%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么现在特别重要？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-0-%E7%AF%87%EF%BC%88%E6%9C%AC%E7%AF%87%EF%BC%89%EF%BC%9A%E7%B3%BB%E5%88%97%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.1.</span> <span class="toc-text">第 0 篇（本篇）：系列介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-1-%E7%AF%87%EF%BC%9AHarness-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">第 1 篇：Harness 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-2-%E7%AF%87%EF%BC%9A%E8%AE%A9-AI-%E5%AD%A6%E4%BC%9A%E2%80%9D%E8%87%AA%E6%88%91%E9%AA%8C%E8%AF%81%E2%80%9D"><span class="toc-number">4.3.</span> <span class="toc-text">第 2 篇：让 AI 学会”自我验证”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-3-%E7%AF%87%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%8C%E7%BB%99-AI-%E4%B8%80%E5%BC%A0%E5%9C%B0%E5%9B%BE"><span class="toc-number">4.4.</span> <span class="toc-text">第 3 篇：上下文工程，给 AI 一张地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-4-%E7%AF%87%EF%BC%9A%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%8D%8F%E4%BD%9C%E6%9E%B6%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">第 4 篇：多智能体协作架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-5-%E7%AF%87%EF%BC%9AHarness-%E7%9A%84%E6%8C%81%E7%BB%AD%E8%BF%AD%E4%BB%A3"><span class="toc-number">4.6.</span> <span class="toc-text">第 5 篇：Harness 的持续迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-6-%E7%AF%87%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">4.7.</span> <span class="toc-text">第 6 篇：未来展望</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E7%B3%BB%E5%88%97%E6%98%AF%E5%86%99%E7%BB%99%E8%B0%81%E7%9A%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">这个系列是写给谁的？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-%E7%9B%AE%E6%A0%87%E8%AF%BB%E8%80%85"><span class="toc-number">1.1.</span> <span class="toc-text">🎯 目标读者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%81-%E5%AD%A6%E5%AE%8C%E8%BF%99%E4%B8%AA%E7%B3%BB%E5%88%97%EF%BC%8C%E4%BD%A0%E5%B0%86%E8%83%BD%E5%A4%9F%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">🎁 学完这个系列，你将能够：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%90-%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">1.3.</span> <span class="toc-text">📐 系列学习路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Harness-Engineering-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Harness Engineering 到底是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E7%89%B9%E5%88%AB%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么现在特别重要？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-0-%E7%AF%87%EF%BC%88%E6%9C%AC%E7%AF%87%EF%BC%89%EF%BC%9A%E7%B3%BB%E5%88%97%E4%BB%8B%E7%BB%8D-%E2%AC%85%EF%B8%8F-%E4%BD%A0%E5%9C%A8%E8%BF%99%E9%87%8C"><span class="toc-number">4.1.</span> <span class="toc-text">第 0 篇（本篇）：系列介绍 ⬅️ 你在这里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-1-%E7%AF%87%EF%BC%9AHarness-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%F0%9F%93%98-%E5%85%A5%E9%97%A8"><span class="toc-number">4.2.</span> <span class="toc-text">第 1 篇：Harness 是什么？📘 入门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-2-%E7%AF%87%EF%BC%9A%E8%AE%A9-AI-%E5%AD%A6%E4%BC%9A%E2%80%9D%E8%87%AA%E6%88%91%E9%AA%8C%E8%AF%81%E2%80%9D-%F0%9F%93%97-%E8%BF%9B%E9%98%B6"><span class="toc-number">4.3.</span> <span class="toc-text">第 2 篇：让 AI 学会”自我验证” 📗 进阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-3-%E7%AF%87%EF%BC%9A%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%8C%E7%BB%99-AI-%E4%B8%80%E5%BC%A0%E5%9C%B0%E5%9B%BE-%F0%9F%93%97-%E8%BF%9B%E9%98%B6"><span class="toc-number">4.4.</span> <span class="toc-text">第 3 篇：上下文工程，给 AI 一张地图 📗 进阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-4-%E7%AF%87%EF%BC%9A%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%8D%8F%E4%BD%9C%E6%9E%B6%E6%9E%84-%F0%9F%93%99-%E9%AB%98%E7%BA%A7"><span class="toc-number">4.5.</span> <span class="toc-text">第 4 篇：多智能体协作架构 📙 高级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-5-%E7%AF%87%EF%BC%9AHarness-%E7%9A%84%E6%8C%81%E7%BB%AD%E8%BF%AD%E4%BB%A3-%F0%9F%93%99-%E9%AB%98%E7%BA%A7"><span class="toc-number">4.6.</span> <span class="toc-text">第 5 篇：Harness 的持续迭代 📙 高级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-6-%E7%AF%87%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B-%F0%9F%93%98-%E6%80%BB%E7%BB%93"><span class="toc-number">4.7.</span> <span class="toc-text">第 6 篇：未来展望 📘 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -985,6 +1048,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

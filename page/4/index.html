@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/02.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(2) —— 白嫖大模型
+	  <a class="article-title" href="/ailearn/deepseek-harness/08.html" target="_blank">
+      DeepSeek Harness 工程实践（08）—— 安全与权限：让 Agent 在可控边界内工作
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/openclaw/02.html" class="archive-article-date">
-        <time datetime="2026-03-09T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/deepseek-harness/08.html" class="archive-article-date">
+        <time datetime="2026-08-22T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
 </a>
 
   
@@ -394,12 +394,14 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 系列说明</strong>：本篇是安全专题篇，适合准备把 dsh 用到生产环境的开发者。安全不是可选项，是必选项。<br><strong>🎁 读完你会得到</strong>：理解 dsh 三层安全机制的工作原理，能配置沙箱和审批策略，能写审计日志插件，以及一份生产环境安全配置清单。</p>
 </blockquote>
-<p>上一篇我们搞清楚了 OpenClaw 是什么。这一篇解决一个很多人卡住的问题：<strong>龙虾需要一个”大脑”（大模型）才能思考，这个大脑要花钱吗？</strong></p>
-<p>答案是：<strong>完全不用花钱。</strong> 国内有好几家大模型平台提供免费额度，注册就能用，足够日常使用。</p>
+<p>有个朋友跟我说，他们公司搭了一个内部 Agent，让它帮开发者做代码重构。</p>
+<p>跑了两周，有一天 Agent 在重构过程中判断某个”废弃的测试文件”可以删掉，就删了。问题是那个文件不是废弃的，是一个关键的集成测试。删掉之后，CI 一直在跑，但实际上有一个核心功能的测试已经消失了。</p>
+<p>这个问题发现的时候，已经过了三周。</p>
+<p>Agent 能干活，但得管住它。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/02.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/08.html#more">more >></a>
     
     
     
@@ -423,7 +425,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
         		</li>
       		
 		</ul>
@@ -433,7 +443,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/02.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/08.html">展开全文 >></a>
     </p>
     
 
@@ -468,7 +478,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -476,8 +486,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/01.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(1) —— 认识龙虾
+	  <a class="article-title" href="/ailearn/deepseek-harness/07.html" target="_blank">
+      DeepSeek Harness 工程实践（07）—— 研发场景落地：CI 集成、代码审查与测试分析
       
     </a>
   
@@ -487,8 +497,8 @@
 
   
   
-<a href="/ailearn/openclaw/01.html" class="archive-article-date">
-        <time datetime="2026-03-09T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/deepseek-harness/07.html" class="archive-article-date">
+        <time datetime="2026-08-22T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
 </a>
 
   
@@ -501,15 +511,13 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 系列说明</strong>：本篇是系列的第一个”落地篇”，从框架学习转向实际应用。需要你已经理解 dsh 的基本用法（第 02-06 篇）。本篇的代码可以直接拿去改用。<br><strong>🎁 读完你会得到</strong>：三个可以直接落地的研发场景方案：CI/CD 集成、PR 代码审查机器人、测试失败智能分析。</p>
 </blockquote>
-<p>今天我们来认识 <strong>OpenClaw（龙虾 AI）</strong>。</p>
-<blockquote>
-<p><strong>OpenClaw</strong> 是一款<strong>开源的个人 AI 助手</strong>，能够通过 QQ、飞书、微信等你每天都在用的聊天工具<strong>远程操控本地电脑</strong>，自主完成邮件处理、文档整理、日程管理等复杂任务，是真正意义上的”<strong>7×24 小时 AI 数字员工</strong>“。</p>
-</blockquote>
-<p>如果你用过 DeepSeek 或豆包，你会发现它们都是”问答型”的——你问一句，它答一句，然后你自己去执行。OpenClaw 不一样，它是”行动型”的——你说目标，它自己拆解、执行、反馈，真正帮你把事情做完。</p>
+<p>前六篇讲了很多框架知识——插件、工具、架构、多 Agent。</p>
+<p>但说实话，学框架不是目的，用起来才是。</p>
+<p>这篇开始，我们进入落地阶段。研发团队最高频的三个痛点：代码审查靠人工效率低、CI 跑失败不知道哪里出了问题、技术债越堆越多没人管——这篇一个一个解决。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/01.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/07.html#more">more >></a>
     
     
     
@@ -533,7 +541,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
         		</li>
       		
 		</ul>
@@ -543,7 +559,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/01.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/07.html">展开全文 >></a>
     </p>
     
 
@@ -578,7 +594,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -586,8 +602,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/00.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(0) —— 系列介绍
+	  <a class="article-title" href="/ailearn/deepseek-harness/06.html" target="_blank">
+      DeepSeek Harness 工程实践（06）—— 多 Agent 协作：子代理、工作流与 Teams
       
     </a>
   
@@ -597,113 +613,8 @@
 
   
   
-<a href="/ailearn/openclaw/00.html" class="archive-article-date">
-        <time datetime="2026-03-09T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>你听说过”龙虾 AI”吗？它正在悄悄改变那些”会用”的人的工作方式。</strong></p>
-<p>2026 年初，一款叫 OpenClaw 的 AI 工具突然火遍全网（开源地址：<a target="_blank" rel="noopener" href="https://github.com/OpenClaw-AI/OpenClaw">github.com/OpenClaw-AI/OpenClaw</a>），因为图标是一只红色龙虾，大家都亲切地叫它”龙虾 AI”。它上线短短几天，全球超过 24 万开发者收藏了它，打破了 GitHub 有史以来最快增长记录，甚至登上了全国两会的讨论议题。</p>
-<p>但你可能也发现了：身边很多人都在说”龙虾很厉害”，却没几个人真的用起来了。</p>
-    
-    <a class="article-more-a" href="/ailearn/openclaw/00.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/00.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/daily/22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/22.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(22) - Claude Code
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/22.html" class="archive-article-date">
-        <time datetime="2026-03-09T06:21:33.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/deepseek-harness/06.html" class="archive-article-date">
+        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
 </a>
 
   
@@ -716,15 +627,130 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 系列说明</strong>：本篇接着第 05 篇，需要你已经理解 dsh 的基本架构和插件机制。多 Agent 是 dsh 的进阶能力，适合任务复杂度超出单 Agent 处理范围的场景。<br><strong>🎁 读完你会得到</strong>：理解 dsh 子代理的调度机制、工作流的串并行设计、Teams 的配置方式，以及 <code>agent.ctx</code> 作用域隔离和 <code>ctx.goals</code> 目标管理的实际用法。</p>
 </blockquote>
-<p>今天我们来学习 <strong>Claude Code</strong>。</p>
-<blockquote>
-<p><strong>Claude Code</strong> 是 Anthropic 推出的<strong>面向开发者的 AI 编程 Agent</strong>，它以<strong>命令行工具</strong>的形式运行在开发者的本地终端，能够<strong>读写文件、执行命令、调用工具、自主完成复杂编程任务</strong>，是真正意义上的”AI 程序员”。</p>
+<p>你让 Agent 帮你做一个完整的代码审查——检查风格、找安全漏洞、评估性能，最后出一份综合报告。</p>
+<p>单个 Agent 能做，但做得不够好。它的注意力会分散，风格审查做到一半开始想安全问题，安全问题没查完又跳去看性能。最后给你一份什么都提了、什么都没说透的报告。</p>
+<p>这种场景，就是多 Agent 的用武之地。</p>
+    
+    <a class="article-more-a" href="/ailearn/deepseek-harness/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/deepseek-harness/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/graph/4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/graph/4.html" target="_blank">
+      AI Graph工程（04）—— 让可控性拉满：人机协同（HITL）与断点调试在 Graph 工程中的落地
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/graph/4.html" class="archive-article-date">
+        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚怎么在图里插入人工审批节点，怎么用 <code>update_state</code> 动态修改 State，以及 Time Travel 和 Langfuse 在实际调试中怎么用。</p>
 </blockquote>
-<p>对比普通的 AI 代码补全工具，Claude Code 就像从”代码建议者”升级为”自主执行者”——它不只是给你写几行代码，而是能够理解整个项目、制定计划、逐步执行，直到任务完成。</p>
+<p>上一篇讲了 State 的设计和记忆架构。</p>
+<p>图能跑起来了，但生产环境里还有一个绕不开的问题：<strong>谁来监督 Agent？</strong></p>
+<p>Agent 自己跑到底，在很多场景里是不可接受的。金融操作、内容发布、代码部署——这些关键节点必须有人确认。不是不信任 Agent，而是这类决策的错误成本太高，一旦出错，代价远超”多等几秒让人看一眼”的成本。</p>
+<p>这就是 Human-in-the-Loop（HITL）要解决的问题。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/22.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/graph/4.html#more">more >></a>
     
     
     
@@ -744,7 +770,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
         		</li>
       		
 		</ul>
@@ -754,7 +792,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/22.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/graph/4.html">展开全文 >></a>
     </p>
     
 
@@ -789,7 +827,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -797,8 +835,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/06.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(6) —— 让 AI 当你的&#34;镜子&#34;
+	  <a class="article-title" href="/ailearn/deepseek-harness/05.html" target="_blank">
+      DeepSeek Harness 工程实践（05）—— 架构深度解析：一条消息进来，dsh 内部发生了什么
       
     </a>
   
@@ -808,8 +846,8 @@
 
   
   
-<a href="/ailearn/use/06.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/deepseek-harness/05.html" class="archive-article-date">
+        <time datetime="2026-08-21T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
 </a>
 
   
@@ -821,9 +859,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能六：让-AI-当你的”镜子”——高手都喜欢听-AI-唱反调"><a href="#技能六：让-AI-当你的”镜子”——高手都喜欢听-AI-唱反调" class="headerlink" title="技能六：让 AI 当你的”镜子”——高手都喜欢听 AI 唱反调"></a>技能六：让 AI 当你的”镜子”——高手都喜欢听 AI 唱反调</h1>
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇是架构深度篇，适合已经能写插件和工具、想搞清楚 dsh 内部运转逻辑的开发者。理解这些机制，能帮你更准确地选择扩展点、排查问题。<br><strong>🎁 读完你会得到</strong>：理解 dsh 的轮次流程、三类事件的区别和用法、会话日志的核心不变量，以及 Seam 机制为什么让 dsh 如此灵活。</p>
+</blockquote>
+<p>你发出一条指令，Agent 开始工作——读文件、改代码、跑测试。</p>
+<p>这中间 dsh 内部到底发生了什么？</p>
+<p>前几篇我们学了怎么写插件、怎么注册工具。但如果你不清楚 dsh 内部的运转逻辑，遇到问题就只能靠猜。这篇把盖子掀开，从头到尾走一遍。</p>
     
-    <a class="article-more-a" href="/ailearn/use/06.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/05.html#more">more >></a>
     
     
     
@@ -845,6 +888,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -853,7 +908,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/06.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/05.html">展开全文 >></a>
     </p>
     
 
@@ -888,7 +943,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -896,8 +951,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/07.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(7) —— 别让 AI&#34;吃太撑&#34;
+	  <a class="article-title" href="/ailearn/deepseek-harness/04.html" target="_blank">
+      DeepSeek Harness 工程实践（04）—— 工具开发实战：给 Agent 装上你自己的工具
       
     </a>
   
@@ -907,8 +962,8 @@
 
   
   
-<a href="/ailearn/use/07.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/deepseek-harness/04.html" class="archive-article-date">
+        <time datetime="2026-08-21T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
 </a>
 
   
@@ -920,9 +975,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能七：别让-AI”吃太撑”——学会给信息”瘦身”，AI-才能更懂你"><a href="#技能七：别让-AI”吃太撑”——学会给信息”瘦身”，AI-才能更懂你" class="headerlink" title="技能七：别让 AI”吃太撑”——学会给信息”瘦身”，AI 才能更懂你"></a>技能七：别让 AI”吃太撑”——学会给信息”瘦身”，AI 才能更懂你</h1>
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇接着第 03 篇，需要你已经能写出基本的 dsh 插件。工具开发是插件开发的核心，也是让 Agent 真正”有用”的关键一步。<br><strong>🎁 读完你会得到</strong>：能写出一个完整的 dsh 工具，理解 Tool DSL 的每个字段是干什么的，以及工具执行流水线怎么用来做安全控制。</p>
+</blockquote>
+<p>上一篇写了一个会话日志记录器，它能监听事件、打日志，但它不能给 Agent 增加新能力。</p>
+<p>Agent 的能力来自<strong>工具</strong>。工具是 Agent 和外部世界交互的唯一接口——读文件、跑命令、查数据库、调 API，全都是通过工具完成的。</p>
+<p>这篇专门讲工具开发。</p>
     
-    <a class="article-more-a" href="/ailearn/use/07.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/04.html#more">more >></a>
     
     
     
@@ -944,6 +1004,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -952,7 +1024,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/07.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/04.html">展开全文 >></a>
     </p>
     
 
@@ -987,7 +1059,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -995,8 +1067,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/09.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(9) —— 让 AI 当你的私人老师
+	  <a class="article-title" href="/ailearn/deepseek-harness/03.html" target="_blank">
+      DeepSeek Harness 工程实践（03）—— 插件开发入门：从 Hello World 到真正有用的插件
       
     </a>
   
@@ -1006,8 +1078,8 @@
 
   
   
-<a href="/ailearn/use/09.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/deepseek-harness/03.html" class="archive-article-date">
+        <time datetime="2026-08-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
 </a>
 
   
@@ -1019,9 +1091,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能九：让-AI-当你的私人老师——随时随地学会任何东西"><a href="#技能九：让-AI-当你的私人老师——随时随地学会任何东西" class="headerlink" title="技能九：让 AI 当你的私人老师——随时随地学会任何东西"></a>技能九：让 AI 当你的私人老师——随时随地学会任何东西</h1>
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇是插件开发的起点。需要你已经跑通了第 02 篇的环境，并且用源码方式安装了 dsh（npx 方式无法加载本地插件）。有 TypeScript 基础更好，但不是必须的。<br><strong>🎁 读完你会得到</strong>：能写出一个真正加载进 dsh 的插件，理解 ctx 是什么、插件的三种形态怎么选，以及为什么 dsh 的插件卸载不会留下垃圾。</p>
+</blockquote>
+<p>上一篇跑起来了 dsh，用的是它的默认能力。</p>
+<p>但 dsh 的设计哲学是”一切皆插件”——你现在用的那些能力，文件读写、Shell 执行、Web UI，全都是插件。这意味着你也可以写插件，给 Agent 加上你自己的能力。</p>
+<p>这篇从最简单的开始，一步步搞清楚插件是怎么运转的。</p>
     
-    <a class="article-more-a" href="/ailearn/use/09.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/03.html#more">more >></a>
     
     
     
@@ -1043,6 +1120,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1051,7 +1140,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/09.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/03.html">展开全文 >></a>
     </p>
     
 
@@ -1086,7 +1175,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/graph/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1094,8 +1183,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/08.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(8) —— 像打理花园一样打理你的 AI
+	  <a class="article-title" href="/ailearn/graph/3.html" target="_blank">
+      AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph
       
     </a>
   
@@ -1105,8 +1194,8 @@
 
   
   
-<a href="/ailearn/use/08.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/graph/3.html" class="archive-article-date">
+        <time datetime="2026-08-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
 </a>
 
   
@@ -1118,9 +1207,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能八：像打理花园一样打理你的-AI——告别”一团乱麻”，让资料井井有条"><a href="#技能八：像打理花园一样打理你的-AI——告别”一团乱麻”，让资料井井有条" class="headerlink" title="技能八：像打理花园一样打理你的 AI——告别”一团乱麻”，让资料井井有条"></a>技能八：像打理花园一样打理你的 AI——告别”一团乱麻”，让资料井井有条</h1>
+    <blockquote>
+<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚 State 在图里是怎么流动的，Reducer 机制解决了什么问题，以及短期记忆、长期记忆、Checkpointing 三者各自在什么场景下用。</p>
+</blockquote>
+<p>上一篇讲了 LangGraph 和 AutoGen 的选型。</p>
+<p>很多人选完框架，开始搭图，跑起来之后发现一个奇怪的问题：并行的三个搜索节点，最后 State 里只剩一个节点的结果。或者图跑了 20 轮，State 里堆了一堆没用的历史数据，内存开始吃紧。再或者，用户关了浏览器回来，图从头开始跑，之前的进度全没了。</p>
+<p>这些问题都指向同一个地方——<strong>State 的设计</strong>。</p>
     
-    <a class="article-more-a" href="/ailearn/use/08.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/graph/3.html#more">more >></a>
     
     
     
@@ -1142,6 +1236,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1150,7 +1256,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/08.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/graph/3.html">展开全文 >></a>
     </p>
     
 
@@ -1185,7 +1291,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/deepseek-harness/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1193,8 +1299,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/10.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(完整指南) —— 从&#34;会用&#34;到&#34;用好&#34;
+	  <a class="article-title" href="/ailearn/deepseek-harness/02.html" target="_blank">
+      DeepSeek Harness 工程实践（02）—— 10 分钟跑起来：从安装到第一个任务
       
     </a>
   
@@ -1204,8 +1310,8 @@
 
   
   
-<a href="/ailearn/use/10.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/deepseek-harness/02.html" class="archive-article-date">
+        <time datetime="2026-08-20T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
 </a>
 
   
@@ -1217,9 +1323,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="九个技能，一套心法——普通人也能用好-AI-的完整指南"><a href="#九个技能，一套心法——普通人也能用好-AI-的完整指南" class="headerlink" title="九个技能，一套心法——普通人也能用好 AI 的完整指南"></a>九个技能，一套心法——普通人也能用好 AI 的完整指南</h1>
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇是动手实操篇，跟着做就行，不需要提前了解任何背景知识。需要准备：Node.js 18+、一个 DeepSeek API Key（没有的话文章里有申请入口）。<br><strong>🎁 读完你会得到</strong>：一个真正跑起来的 dsh 实例，以及对 Web UI 各个功能区的基本认知。</p>
+</blockquote>
+<p>上一篇说了一堆 dsh 的设计哲学，这篇不说了，直接动手。</p>
+<p>文档看再多，不如自己跑一遍。10 分钟，让 Agent 真正动起来。</p>
     
-    <a class="article-more-a" href="/ailearn/use/10.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/deepseek-harness/02.html#more">more >></a>
     
     
     
@@ -1241,6 +1351,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1249,7 +1371,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/10.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/deepseek-harness/02.html">展开全文 >></a>
     </p>
     
 
@@ -1284,7 +1406,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-study/electron/from/5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1292,8 +1414,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/05.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(5) —— 给 AI 立个&#34;规矩&#34;
+	  <a class="article-title" href="/study/electron/from/5.html" target="_blank">
+      【译】Electron 调试与测试完整指南（Electron 官方文档）
       
     </a>
   
@@ -1303,8 +1425,8 @@
 
   
   
-<a href="/ailearn/use/05.html" class="archive-article-date">
-        <time datetime="2026-03-03T06:08:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/study/electron/from/5.html" class="archive-article-date">
+        <time datetime="2026-08-20T04:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
 </a>
 
   
@@ -1316,9 +1438,22 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能五：给-AI-立个”规矩”——把好的习惯，变成永久的标准"><a href="#技能五：给-AI-立个”规矩”——把好的习惯，变成永久的标准" class="headerlink" title="技能五：给 AI 立个”规矩”——把好的习惯，变成永久的标准"></a>技能五：给 AI 立个”规矩”——把好的习惯，变成永久的标准</h1>
+    <blockquote>
+<p><strong>📖 原文来源</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/automated-testing">Automated Testing</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/debugging-main-process">Debugging the Main Process</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/debugging-vscode">Debugging in VSCode</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/repl">REPL</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/devtools-extension">DevTools Extension</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/application-debugging">Application Debugging</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/testing-on-headless-ci">Testing on Headless CI</a></li>
+</ul>
+<p><strong>✍️ 原文作者</strong>：Electron 官方文档团队</p>
+</blockquote>
+<p>调试 Electron 应用比调试普通网页复杂一些——你有两个进程，渲染进程的 DevTools 你熟悉，但主进程怎么调试？自动化测试怎么跑？CI 上没有显示器怎么办？这篇文章一次性解答。</p>
     
-    <a class="article-more-a" href="/ailearn/use/05.html#more">more >></a>
+    <a class="article-more-a" href="/study/electron/from/5.html#more">more >></a>
     
     
     
@@ -1338,7 +1473,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">桌面开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
         		</li>
       		
 		</ul>
@@ -1348,7 +1499,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/05.html">展开全文 >></a>
+      <a class="article-more-a" href="/study/electron/from/5.html">展开全文 >></a>
     </p>
     
 
@@ -1380,7 +1531,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1637,6 +1788,178 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>
