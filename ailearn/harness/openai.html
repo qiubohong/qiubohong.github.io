@@ -8,20 +8,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Qborfy知识库</title>
+  <title>在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译） | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="工程技术：在智能体优先的世界中利用 Codex作者：Ryan Lopopolo，技术人员 聆听文章19:36分享在过去五个月里，我们的团队一直在进行一项实验：构建并交付一款软件产品的内部 beta 版，其中没有一行代码是人工编写的。 该产品有内部日常活跃用户和外部 Alpha 测试者。它经历了交付、部署、故障和修复的整个过程。与众不同的是，每一行代码 — 从应用逻辑、测试、CI 配置、文档、可观察">
+  <meta name="description" content="OpenAI 三人团队用 Codex 在五个月内写出百万行代码，没有一行是人工敲的。这篇文章讲的是：当工程师不再写代码，他们在做什么？代码仓库如何成为智能体的记录系统？架构约束如何成为速度倍增器？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qborfy知识库">
+<meta property="og:title" content="在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译）">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/harness/openai.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="工程技术：在智能体优先的世界中利用 Codex作者：Ryan Lopopolo，技术人员 聆听文章19:36分享在过去五个月里，我们的团队一直在进行一项实验：构建并交付一款软件产品的内部 beta 版，其中没有一行代码是人工编写的。 该产品有内部日常活跃用户和外部 Alpha 测试者。它经历了交付、部署、故障和修复的整个过程。与众不同的是，每一行代码 — 从应用逻辑、测试、CI 配置、文档、可观察">
+<meta property="og:description" content="OpenAI 三人团队用 Codex 在五个月内写出百万行代码，没有一行是人工敲的。这篇文章讲的是：当工程师不再写代码，他们在做什么？代码仓库如何成为智能体的记录系统？架构约束如何成为速度倍增器？">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-28T01:58:32.899Z">
-<meta property="article:modified_time" content="2026-03-28T02:40:35.673Z">
+<meta property="article:published_time" content="2026-04-11T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T15:04:28.619Z">
 <meta property="article:author" content="Qborfy">
+<meta property="article:tag" content="学习总结">
+<meta property="article:tag" content="AI学习">
+<meta property="article:tag" content="Harness Engineering">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="翻译">
+<meta property="article:tag" content="OpenAI">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
@@ -359,73 +365,177 @@
 <article id="post-ailearn/harness/openai" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 class="article-title" itemprop="name">
+      在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译）
+      
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/ailearn/harness/openai.html" class="archive-article-date">
+        <time datetime="2026-04-11T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">3.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">12分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <p>工程技术：在智能体优先的世界中利用 Codex<br>作者：Ryan Lopopolo，技术人员</p>
-<p>聆听文章<br>19:36<br>分享<br>在过去五个月里，我们的团队一直在进行一项实验：构建并交付一款软件产品的内部 beta 版，其中没有一行代码是人工编写的。</p>
-<p>该产品有内部日常活跃用户和外部 Alpha 测试者。它经历了交付、部署、故障和修复的整个过程。与众不同的是，每一行代码 — 从应用逻辑、测试、CI 配置、文档、可观察性到内部工具 — 全都是由 Codex 编写的。据估计，我们只用了手工编写代码所需的大约 1/10 的时间就完成了这项工作。</p>
-<p>人类掌舵。智能体执行。</p>
-<p>我们有意选择这一限制，以便构建必要的内容，从而将工程速度提升数个数量级。我们用了几周的时间来交付最终达到一百万行代码的项目。为此，我们需要了解，当软件工程团队的主要工作不再是编写代码，而是设计环境、明确意图和构建反馈回路，从而使 Codex 智能体能够可靠地工作时，会发生哪些变化。</p>
-<p>这个帖子要说的是，在我们与智能体团队一起从零开始打造一款全新产品的过程中，所能学到的经验教训 — 哪些地方出了问题，哪些问题相互叠加，以及如何最大化利用我们唯一真正稀缺的资源：人类的时间和注意力。</p>
-<p>我们从一个空的 Git 代码仓库开始<br>首次提交到一个空的代码仓库是在 2025 年 8 月下旬。</p>
-<p>初始架构 — 包括代码仓库结构、CI 配置、格式化规则、包管理器设置和应用框架 — 是在一小套现有模板的指导下，由 Codex CLI 使用 GPT‑5 生成的。就连指导智能体如何在代码仓库中工作的初始 AGENTS.md 文件本身也是由 Codex 编写的。</p>
-<p>该系统没有预存任何人工编写的代码。从一开始，代码仓库就由智能体塑造。</p>
-<p>五个月后，该代码仓库已经拥有约一百万行代码，从应用逻辑、基础设施、工具、文档到内部开发者工具应有尽有。在那段时间内，大约有 1,500 个 Pull Request 被打开与合并，而推动 Codex 的仅仅是一个由三名工程师组成的小团队。这相当于平均每位工程师每天处理 3.5 个 PRs 的吞吐量，而且令人惊讶的是，随着团队规模扩大到现在的七名工程师，吞吐量甚至还增加了。重要的是，这并非为了输出而输出：该产品已在数百名内测用户那里投入使用，其中包括每天都在使用的内测高级用户。</p>
-<p>在整个开发过程中，人类从未直接直接贡献过任何代码。这成为团队的核心理念：不手动编写代码。</p>
-<p>重新定义工程师的角色<br>由于缺乏人工编码的实践，工程师工作的重点转向了系统、架构和杠杆作用。</p>
-<p>早期进展比我们所预期的要慢，而这并不是因为 Codex 不具备相应的能力，而是因为环境的规范不够明确。该智能体缺乏实现高级目标所需的工具、抽象层和内部结构，因而无法取得进展。我们工程团队的主要任务成了协助智能体完成有用的工作。</p>
-<p>在实践中，这意味着采用深度优先的工作方式：将更大的目标拆解为更小的构建模块（设计、代码、评审、测试等），提示智能体去构建这些模块，并使用它们去解锁更复杂的任务。当事情进行不顺利时，解决方案基本上再也不会是“再努力一点”。因为取得进展的唯一方式是让 Codex 来完成工作，而人类工程师则总是介入这项任务并追问：“究竟还需要什么样的能力，我们又该如何让这个能力对智能体来说既清晰可读又可强制执行？”</p>
-<p>人类几乎完全通过提示与系统交互：工程师描述任务，运行智能体，并允许其打开一个 Pull Request。为了推动 PR 的完成，我们会指示 Codex 在本地审核其自身的更改，在本地和云端请求额外的特定智能体审查，对任何人工或智能体给出的反馈做出响应，并循环往复，直到所有智能体审核人员都满意为止（这实际上是一个 Ralph Wiggum 循环⁠（在新窗口中打开））。Codex 直接使用我们的标准开发工具（gh、本地脚本和嵌入代码仓库的技能）来收集情境，而无需人工将内容复制粘贴到 CLI 中。</p>
-<p>人类可以审核 Pull Request（合并请求），但并非必须这样做。随着时间的推移，我们已将几乎所有的审核工作调整为用智能体对智能体的方式来处理。</p>
-<p>提高应用程序的可读性<br>随着代码吞吐量的增加，我们的瓶颈变成了人工 QA 能力。由于人类的时间和注意力是固定的限制因素，我们一直在努力通过令应用程序的 UI、日志和应用指标等内容对 Codex 直接可读，从而为智能体增加更多功能。</p>
-<p>例如，我们令应用程序可以根据 git worktree 启动，因此 Codex 可以为每次更改启动并驱动一个实例。我们还将 Chrome DevTools 协议接入智能体运行时，并创建了用于处理 DOM 快照、屏幕截图和导航的技能。这使 Codex 能够复现错误、验证修复，并直接推理 UI 的行为。</p>
-<p>题为“Codex 使用 Chrome DevTools MCP 驱动应用程序以验证其工作”的图表。Codex 会选择一个目标，对触发用户界面路径前后的状态进行快照，通过 Chrome DevTools 观察运行时事件，应用修复、重启和循环重新运行验证，直到应用程序恢复正常。<br>我们对可观测性工具也做了同样的处理。日志、指标和追踪记录会通过一个本地可观测性堆栈展示给 Codex，对任何给定的工作树来说，该堆栈都是临时的。Codex 在该应用程序的一个完全独立的版本上运行，一旦任务完成，该版本的所有内容，包括日志和指标，都会被删除。智能体可以使用 LogQL 查询日志，使用 PromQL 查询指标。有了这些情境，像“确保服务启动在 800ms 内完成”或“这四个关键用户旅程中的任何跨度都不得超过两秒”这样的提示就变得可行了。</p>
-<p>题为“在本地开发中赋予 Codex 完整的可观察性堆栈”的图表。一个应用程序将日志、指标和追踪数据发送到 Vector，Vector 会将数据分发到一个包含 Victoria Logs、Metrics 和 Traces 的可观测性堆栈中，并通过 LogQL、PromQL 或 TraceQL API 进行查询。Codex 使用这些信号进行查询、关联和推理，然后在代码库中进行修复，重启应用程序，重新运行工作负载，测试 UI 流程，并在反馈循环中重复此过程。<br>我们经常看到单次 Codex 运行在单个任务上持续工作超过六个小时（通常是在人类睡眠时间）。</p>
-<p>我们将代码仓库设为记录系统<br>情境管理是使智能体在大型和复杂任务中有效发挥作用的最大挑战之一。我们学到的最早经验教训之一很简单：要给 Codex 的是一张地图，而不是一本 1,000 页的说明书。</p>
-<p>我们尝试了“一个大型的 AGENTS.md⁠（在新窗口中打开）”方法。可想而知，这是一次失败的尝试：</p>
-<p>情境是一种稀缺资源。一个巨大的指令文件会挤掉任务、代码和相关文档 — 因此智能体要么会错过关键约束条件，要么开始针对错误的约束条件进行优化。<br>过多的指导反而变得无效。当一切都 “重要”时，一切都不重要了。智能体最终会在本地进行模式匹配，而不是有意识地进行导航。<br>它会立即腐烂。一本庞杂的手册会变成陈旧规则的坟场。智能体无法判断哪些信息仍然有效，一旦人类停止维护它，此文件就会悄然成为一个颇具吸引力的麻烦源头。<br>这很难核实。单个 blob 不适合进行机械检查（覆盖率、新鲜度、所有权、交叉链接），因此漂移是不可避免的。<br>因此，我们不再将 AGENTS.md 视为百科全书，而是将其视为内容目录。</p>
-<p>代码仓库的知识库位于一个结构化了的 docs/ 目录中，此目录被当作记录系统来使用。一份简短的 AGENTS.md（大约 100 行）被注入到情境中，主要用作地图，并指向其他地方更深层次的真实信息来源。</p>
-<p>纯文本</p>
-<p>1<br>AGENTS.md<br>2<br>ARCHITECTURE.md<br>3<br>docs/<br>4<br>├── design-docs/<br>5<br>│   ├── index.md<br>6<br>│   ├── core-beliefs.md<br>7<br>│   └── …<br>8<br>├── exec-plans/<br>9<br>│   ├── active/<br>10<br>│   ├── completed/<br>11<br>│   └── tech-debt-tracker.md<br>12<br>├── generated/<br>13<br>│   └── db-schema.md<br>14<br>├── product-specs/<br>15<br>│   ├── index.md<br>16<br>│   ├── new-user-onboarding.md<br>17<br>│   └── …<br>18<br>├── references/<br>19<br>│   ├── design-system-reference-llms.txt<br>20<br>│   ├── nixpacks-llms.txt<br>21<br>│   ├── uv-llms.txt<br>22<br>│   └── …<br>23<br>├── DESIGN.md<br>24<br>├── FRONTEND.md<br>25<br>├── PLANS.md<br>26<br>├── PRODUCT_SENSE.md<br>27<br>├── QUALITY_SCORE.md<br>28<br>├── RELIABILITY.md<br>29<br>└── SECURITY.md<br>代码仓库内知识存储布局。</p>
-<p>设计文档已被编目和索引，其中包括验证状态和一套核心理念，定义了智能体优先的操作原则。架构文档⁠（在新窗口中打开）提供域和包分层的顶层地图。一份高质量的文档会对每个产品领域和架构层进行评分，并随着时间的推移追踪差距。</p>
-<p>计划被视为一流的工件。临时轻量计划用于小幅变更，而复杂工作则记录在执行计划⁠（在新窗口中打开）中，并附带进度和决策日志，这些日志会被提交到代码仓库。活跃计划、已完成计划和已知的技术债务都已进行版本控制并集中存放，使智能体能够在不依赖外部情境的情况下运行。</p>
-<p>这实现了渐进式披露：智能体从一个小而稳定的切入点开始，并被指导下一步该去哪里查看，而不是一开始就被淹没。</p>
-<p>我们严格执行这一点。专职的 linter 和 CI 作业会验证知识库的更新状况、是否已交叉链接且结构正确。一个定期运行的“doc-gardening”智能体会扫描那些不再反映真实代码行为的过时或废弃文档，并发起修复用的 Pull Request。</p>
-<p>目标是智能体的可读性<br>随着代码库的发展，Codex 的设计决策框架也需要随之演变。</p>
-<p>由于该代码仓库完全由智能体生成，因此我们首先针对 Codex 的可读性进行了优化。就像团队会努力提升代码对新入职工程师的可导航性一样，我们的人类工程师的目标也是让智能体能够直接从代码仓库推理出完整的业务领域。</p>
-<p>从智能体的角度来看，它在运行时无法在情境中访问的任何内容都是不存在的。存储在 Google Docs、聊天记录或人们头脑中的知识都无法被系统访问。代码仓库本地的、已版本化的工件（例如，代码、Markdown、模式、可执行计划）就是它所能看到的全部。</p>
-<p>题为“智能体知识的局限性：Codex看不到的东西就不存在”的图表。Codex 的知识被展示为一个有边界的气泡。在其下方是不可见知识的示例 — Google Docs、Slack 消息，以及隐性的人类知识。箭头表示，要想让 Codex 看到这些信息，就必须将其以 Markdown 的形式编码到代码库中。<br>我们了解到，随着时间的推移，我们需要将越来越多的情境推送到仓库中。那次让团队在架构模式上达成一致的 Slack 讨论？如果智能体无法发现它，那么它就会像迟了三个月入职的新员工一样，对其一无所知。</p>
-<p>为 Codex 提供更多情境意味着要组织和展示正确的信息，好令智能体能够基于这些信息进行推理，而不是用临时指令使其不堪重负。就像你会在产品原则、工程规范和团队文化（包括表情符号偏好）方面为新队友提供引导一样，将这些信息提供给智能体会带来更一致的输出。</p>
-<p>这一框架明确了许多取舍。我们倾向于选择那些可以完全内化于在仓库中进行推理的依赖项和抽象。对智能体来说，通常被称为“枯燥”的技术，由于其可组合性、API 稳定性和在训练集里的表现，往往更容易建立模型。在某些情况下，让智能体重新实现部分功能子集比绕过公共库中不透明的上游行为更便宜。例如，我们没有引入通用的 p-limit 风格包，而是投入使用了我们自己的带并发的 map 辅助函数：它与我们的 OpenTelemetry 仪表紧密集成，具备 100% 的测试覆盖率，并且其行为完全符合我们的运行时预期。</p>
-<p>将系统的更多部分转化为智能体可以检查、验证并直接修改的形式，可以直接提高杠杆效应 — 这不仅适用于 Codex，也适用于其他智能体（例如Aardvark) 也在参与代码库的开发。</p>
-<p>规范架构与品味<br>仅靠文档本身，是没法保持完全由智能体生成的代码库的连贯性的。通过强制执行不变量，而非对实施过程进行微观管理，我们令智能体能够快速交付，而且不会削弱基础。例如，我们要求 Codex 在边界处解析数据形状⁠（在新窗口中打开），但不规定具体实现方式（模型似乎偏好 Zod，但我们没有指定特定库）。</p>
-<p>智能体在具有严格边界和可预测结构⁠（在新窗口中打开）的环境中最为高效，因此我们围绕一个严格的架构模型构建了该应用。每个业务域都划分为一组固定的层，依赖方向经过严格验证，并且仅允许有限的一组边。这些约束是通过自定义的 linter（当然是由 Codex 生成的！）和结构测试机械地强制执行的。</p>
-<p>下图展示了规则：在每个业务领域内（例如应用设置），代码只能“向前”依赖于一组固定的层（Types → Config → Repo → Service → Runtime → UI）。横切关注点（认证、连接器、遥测、功能标志）通过一个单一的显式接口进入：Providers。其他任何内容都不被允许，并将通过自动化方式强制执行。</p>
-<p>题为“具有明确交叉界限的分层领域架构”的图表。在业务逻辑域内存在以下模块：Types → Config → Repo，以及 Providers → Service → Runtime → UI，底部是 App Wiring + UI。一个 Utils 模块位于界限之外，并向 Providers 提供输入。<br>这种架构通常要等到你拥有数百名工程师时才会推迟。对于编码智能体来说，这是一个早期的先决条件：有了约束，速度才不会下降，架构才不会漂移。</p>
-<p>在实践中，我们通过自定义的代码检查器和结构测试来强制执行这些规则，并辅以一小组“品味不变式”。例如，我们通过自定义 lint 静态地强制执行结构化日志记录、模式和类型的命名约定、文件大小限制，以及特定平台的可靠性要求。由于这些 lint 是自定义的，我们编写错误信息时会在智能体情境中注入修复指令。</p>
-<p>在以人为本的工作流程中，这些规则可能会让人感到迂腐或束缚。有了智能体，它们就成了倍增器：一旦编码，它们就能立即应用于所有地方。</p>
-<p>同时，我们还明确指出了哪些地方需要限制，哪些地方不需要限制。这类似于领导一个大型工程平台组织：在中央层面强制执行边界，在本地层面允许自主权。你非常重视界限、正确性和可重复性。在这些边界内，你允许团队或智能体在解决方案的表达方式上拥有很大的自由。</p>
-<p>生成的代码不总是符合人类的风格偏好，这也没关系。只要输出是正确的、可维护的，并且对未来的智能体运行而言清晰易读，就可以算作达标。</p>
-<p>人类的品味会不断反馈到系统中。审查评论、重构的 Pull Request 和面向用户的 Bug 会被记录为文档更新，或直接编码到工具中。当文档不够完善时，我们会将规则转化为代码</p>
-<p>吞吐量改变了合并的理念<br>随着 Codex 的吞吐量增加，许多传统的工程规范变得不再有效。</p>
-<p>该代码仓库在运行过程中尽量减少阻塞合并门。Pull Request 的生命周期很短。测试偶发失败通常通过后续重跑来解决，而不是无限期地阻碍进展。在一个智能体吞吐量远超人类注意力的系统中，纠错成本低，而等待成本高。</p>
+    <blockquote>
+<p><strong>📌 原文信息</strong></p>
+<ul>
+<li>原文标题：<a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">Engineering for an Agent-First World with Codex</a></li>
+<li>原文作者：Ryan Lopopolo，OpenAI 技术人员</li>
+<li>发布时间：2026 年 2 月 11 日</li>
+<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
+</blockquote>
+<hr>
+<p><strong>过去五个月，我们团队做了一件事：构建并交付了一款软件产品的内部 Beta 版，其中没有一行代码是人工编写的。</strong></p>
+<p>这不是噱头。这款产品有内部日常活跃用户，也有外部 Alpha 测试者。它经历了交付、部署、故障和修复的完整生命周期。与众不同的是，每一行代码——从应用逻辑、测试、CI 配置、文档、可观测性到内部工具——全都是由 Codex 写的。</p>
+<p>据估计，我们只用了手工编写代码所需时间的大约 <strong>1/10</strong>。</p>
+<span id="more"></span>
+
+<h2 id="从一个空的-Git-仓库开始"><a href="#从一个空的-Git-仓库开始" class="headerlink" title="从一个空的 Git 仓库开始"></a>从一个空的 Git 仓库开始</h2><p>第一次提交发生在 2025 年 8 月下旬。</p>
+<p>初始架构——包括仓库结构、CI 配置、格式化规则、包管理器设置和应用框架——是在一小套现有模板的指导下，由 Codex CLI 使用 GPT-5 生成的。就连指导智能体如何在仓库中工作的初始 <code>AGENTS.md</code> 文件本身，也是由 Codex 写的。</p>
+<p>系统里没有预存任何人工编写的代码。从一开始，仓库就由智能体塑造。</p>
+<p>五个月后，这个仓库已经有了约<strong>一百万行代码</strong>，涵盖应用逻辑、基础设施、工具、文档到内部开发者工具。在那段时间里，大约有 1,500 个 Pull Request 被打开和合并，而推动 Codex 的只是一个三人工程师团队。</p>
+<p>这相当于平均每位工程师每天处理 <strong>3.5 个 PR</strong> 的吞吐量。更有意思的是，随着团队扩大到七人，吞吐量还在<strong>增加</strong>。</p>
+<p>这不是为了输出而输出——产品已在数百名内测用户那里投入使用，其中有每天都在用的重度用户。</p>
+<p>整个开发过程中，人类从未直接贡献过任何代码。这成了团队的核心理念：<strong>不手动写代码</strong>。</p>
+<h2 id="工程师的角色变了"><a href="#工程师的角色变了" class="headerlink" title="工程师的角色变了"></a>工程师的角色变了</h2><p>因为没有人工编码，<strong>工程师的工作重心转向了系统、架构和杠杆作用</strong>。</p>
+<p>早期进展比预期慢——不是因为 Codex 能力不够，而是环境规范不够清晰。智能体缺乏实现高级目标所需的工具、抽象层和内部结构，无法取得进展。工程团队的主要任务变成了：<strong>帮助智能体完成有用的工作</strong>。</p>
+<p>实践中，这意味着深度优先的工作方式：把大目标拆解成更小的构建模块（设计、代码、评审、测试等），提示智能体去构建这些模块，再用它们解锁更复杂的任务。</p>
+<p>当事情进展不顺时，解决方案几乎从来不是”再努力一点”。因为取得进展的唯一方式是让 Codex 来完成工作，人类工程师总是在追问：<strong>“究竟还需要什么能力？我们怎么让这个能力对智能体来说既清晰可读又可强制执行？”</strong></p>
+<p>人类几乎完全通过提示与系统交互：描述任务，运行智能体，让它打开一个 Pull Request。为了推动 PR 完成，会指示 Codex 在本地审核自身的更改，请求额外的智能体审查，对反馈做出响应，循环往复，直到所有审核人员满意为止——这实际上是一个 <a target="_blank" rel="noopener" href="https://ghuntley.com/loop/">Ralph Wiggum 循环</a>。</p>
+<h2 id="让应用对智能体可读"><a href="#让应用对智能体可读" class="headerlink" title="让应用对智能体可读"></a>让应用对智能体可读</h2><p>随着代码吞吐量增加，瓶颈变成了人工 QA 能力。由于人类的时间和注意力是固定的限制因素，团队一直在努力让应用的 UI、日志和指标对 Codex 直接可读，从而为智能体增加更多能力。</p>
+<p><strong>让 Codex 能驱动应用</strong>：让应用可以根据 git worktree 启动，Codex 可以为每次更改启动并驱动一个实例。接入 Chrome DevTools 协议，创建了处理 DOM 快照、截图和导航的技能。这让 Codex 能够复现错误、验证修复，并直接推理 UI 的行为。</p>
+<p><strong>完整的可观测性栈</strong>：日志、指标和追踪记录通过本地可观测性堆栈展示给 Codex，对任何给定的工作树来说，该堆栈都是临时的。Codex 可以用 LogQL 查询日志，用 PromQL 查询指标。有了这些上下文，像”确保服务启动在 800ms 内完成”或”这四个关键用户旅程中的任何跨度都不得超过两秒”这样的提示就变得可行了。</p>
+<p>我们经常看到单次 Codex 运行在单个任务上持续工作超过<strong>六个小时</strong>（通常是在人类睡眠时间）。</p>
+<h2 id="把代码仓库变成记录系统"><a href="#把代码仓库变成记录系统" class="headerlink" title="把代码仓库变成记录系统"></a>把代码仓库变成记录系统</h2><p>上下文管理是让智能体在大型复杂任务中有效工作的最大挑战之一。我们学到的最早经验教训很简单：</p>
+<blockquote>
+<p><strong>给 Codex 的是一张地图，而不是一本 1,000 页的说明书。</strong></p>
+</blockquote>
+<p>我们试过”一个大型 AGENTS.md”的方案。可想而知，失败了。原因有三：</p>
+<ul>
+<li><strong>上下文是稀缺资源</strong>：一个巨大的指令文件会挤掉任务、代码和相关文档，智能体要么错过关键约束，要么开始针对错误的约束优化</li>
+<li><strong>过多的指导反而无效</strong>：当一切都”重要”时，一切都不重要了，智能体最终会在本地进行模式匹配，而不是有意识地导航</li>
+<li><strong>它会立即腐烂</strong>：庞杂的手册会变成陈旧规则的坟场，智能体无法判断哪些信息仍然有效</li>
+</ul>
+<p>所以我们不再把 <code>AGENTS.md</code> 视为百科全书，而是把它视为<strong>内容目录</strong>。</p>
+<p>仓库的知识库位于一个结构化的 <code>docs/</code> 目录中，作为记录系统使用。一份简短的 <code>AGENTS.md</code>（约 100 行）被注入到上下文中，主要用作地图，指向其他地方更深层次的真实信息来源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">AGENTS.md</span><br><span class="line">ARCHITECTURE.md</span><br><span class="line">docs/</span><br><span class="line">├── design-docs/</span><br><span class="line">│   ├── index.md</span><br><span class="line">│   ├── core-beliefs.md</span><br><span class="line">│   └── ...</span><br><span class="line">├── exec-plans/</span><br><span class="line">│   ├── active/</span><br><span class="line">│   ├── completed/</span><br><span class="line">│   └── tech-debt-tracker.md</span><br><span class="line">├── generated/</span><br><span class="line">│   └── db-schema.md</span><br><span class="line">├── product-specs/</span><br><span class="line">│   ├── index.md</span><br><span class="line">│   └── ...</span><br><span class="line">└── references/</span><br><span class="line">    ├── design-system-reference-llms.txt</span><br><span class="line">    └── ...</span><br></pre></td></tr></table></figure>
+
+<p>这实现了<strong>渐进式披露</strong>：智能体从一个小而稳定的切入点开始，被指导下一步该去哪里查看，而不是一开始就被淹没。</p>
+<p>我们严格执行这一点。专职的 linter 和 CI 作业会验证知识库的更新状况、是否已交叉链接且结构正确。一个定期运行的”doc-gardening”智能体会扫描那些不再反映真实代码行为的过时文档，并发起修复用的 Pull Request。</p>
+<h2 id="目标是智能体的可读性"><a href="#目标是智能体的可读性" class="headerlink" title="目标是智能体的可读性"></a>目标是智能体的可读性</h2><p>随着代码库发展，我们首先针对 Codex 的<strong>可读性</strong>进行优化。就像团队会努力提升代码对新入职工程师的可导航性一样，我们的目标是让智能体能够<strong>直接从仓库推理出完整的业务领域</strong>。</p>
+<p>从智能体的角度来看，它在运行时无法在上下文中访问的任何内容都是不存在的。存储在 Google Docs、聊天记录或人们头脑中的知识都无法被系统访问。<strong>仓库本地的、已版本化的工件（代码、Markdown、模式、可执行计划）就是它所能看到的全部。</strong></p>
+<p>这个框架明确了很多取舍。我们倾向于选择那些可以完全内化于仓库推理的依赖项和抽象。对智能体来说，通常被称为”枯燥”的技术，由于其可组合性、API 稳定性和在训练集里的表现，往往更容易建立模型。</p>
+<h2 id="规范架构与”品味”"><a href="#规范架构与”品味”" class="headerlink" title="规范架构与”品味”"></a>规范架构与”品味”</h2><p>仅靠文档本身，没法保持完全由智能体生成的代码库的连贯性。</p>
+<p>我们通过<strong>强制执行不变量</strong>，而非对实施过程进行微观管理，让智能体能够快速交付，而且不会削弱基础。</p>
+<p>例如，我们要求 Codex 在边界处解析数据形状，但不规定具体实现方式（模型似乎偏好 Zod，但我们没有指定特定库）。</p>
+<p>智能体在具有<strong>严格边界和可预测结构</strong>的环境中最为高效，所以我们围绕一个严格的架构模型构建了应用。每个业务域都划分为一组固定的层，依赖方向经过严格验证，仅允许有限的一组边。这些约束通过自定义 linter（当然是由 Codex 生成的！）和结构测试机械地强制执行。</p>
+<p>规则是：在每个业务领域内，代码只能”向前”依赖于一组固定的层（Types → Config → Repo → Service → Runtime → UI）。横切关注点（认证、连接器、遥测、功能标志）通过一个单一的显式接口进入：Providers。其他任何内容都不被允许，并将通过自动化方式强制执行。</p>
+<blockquote>
+<p>这种架构通常要等到你拥有数百名工程师时才会推迟。对于编码智能体来说，这是一个<strong>早期的先决条件</strong>：有了约束，速度才不会下降，架构才不会漂移。</p>
+</blockquote>
+<p>人类的品味会不断反馈到系统中。审查评论、重构的 PR 和面向用户的 Bug 会被记录为文档更新，或直接编码到工具中。当文档不够完善时，我们会将规则转化为代码。</p>
+<h2 id="吞吐量改变了合并的理念"><a href="#吞吐量改变了合并的理念" class="headerlink" title="吞吐量改变了合并的理念"></a>吞吐量改变了合并的理念</h2><p>随着 Codex 的吞吐量增加，很多传统的工程规范变得不再有效。</p>
+<p>这个仓库在运行过程中尽量减少阻塞合并门。PR 的生命周期很短。测试偶发失败通常通过后续重跑来解决，而不是无限期地阻碍进展。</p>
+<p>在一个智能体吞吐量远超人类注意力的系统中，<strong>纠错成本低，而等待成本高</strong>。</p>
 <p>在低吞吐量环境中，这样做是不负责任的。而在这里，这通常是正确的选择。</p>
-<p>“智能体生成”实际上意味着什么<br>当我们说代码库是由 Codex 智能体生成的，我们指的是整个代码库。</p>
-<p>智能体的产出包括：</p>
-<p>产品代码与测试<br>CI 配置和发布工具<br>内部开发者工具<br>文档和设计历史<br>评估框架<br>审阅评论和回复<br>管理代码仓库本身的脚本<br>生产仪表板定义文件<br>人类始终参与其中，但工作的抽象层次与过去不同。我们优先处理工作，将用户反馈转化为验收标准，并对结果进行验证。当智能体遇到困难时，我们将其视为一个信号：识别缺失的内容 — 工具、指导与约束、文档 — 并将其反馈到代码仓库中，始终由 Codex 自己编写修复。</p>
-<p>智能体可以直接使用我们的标准开发工具。他们会拉取审查反馈、在行内回复、推送更新，并且经常压缩并合并他们自己的 Pull Request（合并请求）。</p>
-<p>不断提高的自主水平<br>随着越来越多的开发环节被直接编码到系统中 — 包括测试、验证、审查、反馈处理和恢复 — 该代码仓库最近跨过了一个重要门槛，使 Codex 能够端到端地驱动一个新功能。</p>
+<h2 id="“智能体生成”意味着什么"><a href="#“智能体生成”意味着什么" class="headerlink" title="“智能体生成”意味着什么"></a>“智能体生成”意味着什么</h2><p>当我们说代码库是由 Codex 智能体生成的，我们指的是整个代码库：</p>
+<ul>
+<li>产品代码与测试</li>
+<li>CI 配置和发布工具</li>
+<li>内部开发者工具</li>
+<li>文档和设计历史</li>
+<li>评估框架</li>
+<li>审阅评论和回复</li>
+<li>管理代码仓库本身的脚本</li>
+<li>生产仪表板定义文件</li>
+</ul>
+<p>人类始终参与其中，但工作的抽象层次与过去不同。我们优先处理工作，将用户反馈转化为验收标准，并对结果进行验证。当智能体遇到困难时，我们将其视为一个信号：识别缺失的内容——工具、指导与约束、文档——并将其反馈到仓库中，始终由 Codex 自己编写修复。</p>
+<h2 id="不断提高的自主水平"><a href="#不断提高的自主水平" class="headerlink" title="不断提高的自主水平"></a>不断提高的自主水平</h2><p>随着越来越多的开发环节被直接编码到系统中，这个仓库最近跨过了一个重要门槛，使 Codex 能够端到端地驱动一个新功能。</p>
 <p>给定一个提示，智能体现在可以：</p>
-<p>验证代码库的当前状态<br>重现已报告的漏洞<br>录制一个演示故障的视频<br>实施修复措施<br>通过运行应用程序来验证修复<br>录制第二个视频，演示解决方案<br>打开 Pull Request<br>回应智能体和人类反馈<br>检测并修复构建故障<br>仅在需要判断时才交由人工处理<br>合并更改<br>此行为在很大程度上取决于此代码仓库的具体结构和工具，不应在没有类似投入的情况下假定它可以泛化 — 至少目前还不行。</p>
-<p>熵与垃圾收集<br>完全自主的智能体也引入了新的问题。Codex 会复现代码仓库中已存在的模式 — 甚至包括那些不均衡或不够理想的模式。随着时间的推移，这不可避免地导致漂移。</p>
-<p>最初，人类是手动处理这个问题的。我们的团队过去每周五（占一周的20%）都要花时间清理“AI 残渣”。不出所料，那并不具备可扩展性。</p>
-<p>相反，我们开始将我们称为“黄金原则”的内容直接编码到代码仓库中，并建立了一个循环清理流程。这些原则是带有主观意见的机械规则，旨在保持代码库的可读性和一致性，以便将来运行智能体。例如：(1) 我们更倾向于使用共享的实用程序包，而不是手工编写的辅助工具，以便将不变式集中管理；(2) 我们不会使用“YOLO 式”探测数据 — 我们会验证边界，或依赖类型化的 SDK，这样智能体就不会意外地基于猜测的结构进行构建。我们会定期运行一组后台 Codex 任务，扫描偏差、更新质量等级，并发起有针对性的重构 Pull Request。其中大多数都可以在一分钟内完成审查并自动合并。</p>
-<p>其功能类似于垃圾回收。技术债务就像一笔高息贷款：不断地以小额贷款的方式偿还债务，总比让债务不断累积，再痛苦地一次解决要好得多。人类的品味一旦被捕捉，就会持续应用于每一行代码。这也使我们能够每天发现并解决不良模式，而不是让它们在代码库中传播数天或数周。</p>
-<p>我们仍在学习的内容<br>到目前为止，这一策略在 OpenAI 的内部发布和采纳过程中表现良好。为真实用户打造真实产品，帮助我们将投资锚定在现实中，并引导我们实现长期的可维护性。</p>
-<p>我们尚不清楚的是，在一个完全由智能体生成的系统中，架构连贯性会如何随着时间的推移而演变。我们仍在学习人类的判断力在哪些方面能发挥最大作用，以及如何对这种判断力进行编码，使其发挥更大作用。我们也不知道，随着时间的推移，模型的功能不断增强，这一系统将如何演变。</p>
-<p>显而易见的是：构建软件仍然需要纪律，但纪律更多地体现在支撑结构上，而不是代码上。保持代码库一致性的工具、抽象和反馈回路变得越发重要。</p>
-<p>我们当前最棘手的挑战集中在设计环境、反馈回路和控制系统方面，帮助智能体实现我们的目标：大规模构建和维护复杂、可靠的软件。</p>
-<p>随着像 Codex 这样的智能体在软件生命周期中占据越来越大的比重，这些问题将变得更加重要。我们希望通过分享一些早期的经验教训，帮助你理清投入精力的方向，以便你可以直接开始构建。</p>
+<ol>
+<li>验证代码库的当前状态</li>
+<li>复现已报告的漏洞</li>
+<li>录制一个演示故障的视频</li>
+<li>实施修复措施</li>
+<li>通过运行应用程序来验证修复</li>
+<li>录制第二个视频，演示解决方案</li>
+<li>打开 Pull Request</li>
+<li>回应智能体和人类反馈</li>
+<li>检测并修复构建故障</li>
+<li>仅在需要判断时才交由人工处理</li>
+<li>合并更改</li>
+</ol>
+<p>这个行为在很大程度上取决于这个仓库的具体结构和工具，不应在没有类似投入的情况下假定它可以泛化——至少目前还不行。</p>
+<h2 id="熵与垃圾收集"><a href="#熵与垃圾收集" class="headerlink" title="熵与垃圾收集"></a>熵与垃圾收集</h2><p>完全自主的智能体也引入了新的问题。</p>
+<p>Codex 会复现仓库中已存在的模式——甚至包括那些不均衡或不够理想的模式。随着时间推移，这不可避免地导致漂移。</p>
+<p>最初，人类是手动处理这个问题的。团队过去每周五（占一周的 20%）都要花时间清理”AI 残渣”。不出所料，那并不具备可扩展性。</p>
+<p>相反，我们开始将”黄金原则”直接编码到仓库中，并建立了一个循环清理流程。例如：</p>
+<ul>
+<li>我们更倾向于使用共享的实用程序包，而不是手工编写的辅助工具，以便将不变式集中管理</li>
+<li>我们不会使用”YOLO 式”探测数据——我们会验证边界，或依赖类型化的 SDK</li>
+</ul>
+<p>我们会定期运行一组后台 Codex 任务，扫描偏差、更新质量等级，并发起有针对性的重构 PR。其中大多数都可以在一分钟内完成审查并自动合并。</p>
+<blockquote>
+<p>其功能类似于垃圾回收。技术债务就像一笔高息贷款：不断地以小额贷款的方式偿还债务，总比让债务不断累积、再痛苦地一次解决要好得多。</p>
+</blockquote>
+<h2 id="我们仍在学习的内容"><a href="#我们仍在学习的内容" class="headerlink" title="我们仍在学习的内容"></a>我们仍在学习的内容</h2><p>到目前为止，这一策略在 OpenAI 的内部发布和采纳过程中表现良好。为真实用户打造真实产品，帮助我们将投资锚定在现实中，并引导我们实现长期的可维护性。</p>
+<p>我们尚不清楚的是，在一个完全由智能体生成的系统中，架构连贯性会如何随着时间的推移而演变。我们仍在学习人类的判断力在哪些方面能发挥最大作用，以及如何对这种判断力进行编码，使其发挥更大作用。</p>
+<p>显而易见的是：<strong>构建软件仍然需要纪律，但纪律更多地体现在支撑结构上，而不是代码上。</strong> 保持代码库一致性的工具、抽象和反馈回路变得越发重要。</p>
+<hr>
+<h2 id="延伸阅读：Harness-Engineering-系列"><a href="#延伸阅读：Harness-Engineering-系列" class="headerlink" title="延伸阅读：Harness Engineering 系列"></a>延伸阅读：Harness Engineering 系列</h2><p>这篇文章是 OpenAI 的实战案例。如果你想系统学习 Harness Engineering，可以看看这个系列：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇：入门导读 —— 当 AI 开始”自己干活”，工程师该做什么？</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/01.html">第 1 篇：Harness 的六大核心组件</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/02.html">第 2 篇：Build &amp; Verify 模式详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/03.html">第 3 篇：上下文工程实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/04.html">第 4 篇：多智能体架构设计</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/05.html">第 5 篇：推理三明治与计算量分配</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/06.html">第 6 篇：Harness 的未来与演进趋势</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -482,7 +592,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/harness/openai.html" title="" target="_blank">https://www.qborfy.com/ailearn/harness/openai.html</a>
+          <a href="https://www.qborfy.com/ailearn/harness/openai.html" title="在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译）" target="_blank">https://www.qborfy.com/ailearn/harness/openai.html</a>
         </li>
         
         <li>
@@ -499,6 +609,37 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenAI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -564,18 +705,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/harness/00.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ailearn/harness/anthropic-building-agents.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？
+          构建高效 AI 智能体 —— Anthropic 工程团队实战指南（译）
         
       </div>
     </a>
   
   
-    <a href="/ailearn/harness/anthropic.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/ailearn/harness/langchain.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -594,6 +735,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E7%A9%BA%E7%9A%84-Git-%E4%BB%93%E5%BA%93%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">从一个空的 Git 仓库开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%A7%92%E8%89%B2%E5%8F%98%E4%BA%86"><span class="toc-number">2.</span> <span class="toc-text">工程师的角色变了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A9%E5%BA%94%E7%94%A8%E5%AF%B9%E6%99%BA%E8%83%BD%E4%BD%93%E5%8F%AF%E8%AF%BB"><span class="toc-number">3.</span> <span class="toc-text">让应用对智能体可读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%8F%98%E6%88%90%E8%AE%B0%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">把代码仓库变成记录系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%98%AF%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">目标是智能体的可读性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E8%8C%83%E6%9E%B6%E6%9E%84%E4%B8%8E%E2%80%9D%E5%93%81%E5%91%B3%E2%80%9D"><span class="toc-number">6.</span> <span class="toc-text">规范架构与”品味”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F%E6%94%B9%E5%8F%98%E4%BA%86%E5%90%88%E5%B9%B6%E7%9A%84%E7%90%86%E5%BF%B5"><span class="toc-number">7.</span> <span class="toc-text">吞吐量改变了合并的理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E6%99%BA%E8%83%BD%E4%BD%93%E7%94%9F%E6%88%90%E2%80%9D%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88"><span class="toc-number">8.</span> <span class="toc-text">“智能体生成”意味着什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E6%96%AD%E6%8F%90%E9%AB%98%E7%9A%84%E8%87%AA%E4%B8%BB%E6%B0%B4%E5%B9%B3"><span class="toc-number">9.</span> <span class="toc-text">不断提高的自主水平</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%B5%E4%B8%8E%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86"><span class="toc-number">10.</span> <span class="toc-text">熵与垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E4%BB%8D%E5%9C%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">11.</span> <span class="toc-text">我们仍在学习的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB%EF%BC%9AHarness-Engineering-%E7%B3%BB%E5%88%97"><span class="toc-number">12.</span> <span class="toc-text">延伸阅读：Harness Engineering 系列</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -620,7 +774,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Sat Mar 28 2026 09:58:32 GMT+0800',
+  	id: 'Sat Apr 11 2026 10:30:00 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })
@@ -885,6 +1039,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

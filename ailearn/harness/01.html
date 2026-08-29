@@ -8,20 +8,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | Qborfy知识库</title>
+  <title>AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="同样的模型，为什么有人用得飞起，有人用得一塌糊涂？ 答案不在模型，在 Harness。">
+  <meta name="description" content="Harness六大核心组件详解：系统提示词、工具集、中间件、上下文管理、执行流程、验证层。包含组件优先级排序、反面案例对比、设计检查清单。来自LangChain&#x2F;OpenAI&#x2F;Anthropic实战经验。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解">
+<meta property="og:title" content="AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/harness/01.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="同样的模型，为什么有人用得飞起，有人用得一塌糊涂？ 答案不在模型，在 Harness。">
+<meta property="og:description" content="Harness六大核心组件详解：系统提示词、工具集、中间件、上下文管理、执行流程、验证层。包含组件优先级排序、反面案例对比、设计检查清单。来自LangChain&#x2F;OpenAI&#x2F;Anthropic实战经验。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/01/main_title.png">
+<meta property="og:image" content="https://www.qborfy.com/assets/img/ailearn/harness/01/components_relationship.png">
 <meta property="article:published_time" content="2026-03-28T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-28T02:43:59.032Z">
+<meta property="article:modified_time" content="2026-04-28T14:37:04.623Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -369,7 +370,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解
+      AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南
       
     </h1>
   
@@ -396,7 +397,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.9k字</span>
+      <span class="post-count">4.1k字</span>
     </span>
   </span>
 
@@ -405,7 +406,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -416,7 +417,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><strong>同样的模型，为什么有人用得飞起，有人用得一塌糊涂？</strong></p>
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📘 <strong>入门</strong>。本篇建立 Harness 的完整认知框架，适合所有读者。<br><strong>🎯 核心收获</strong>：六大组件速查表 + 组件优先级排序 + 设计检查清单 + 反面案例</p>
+</blockquote>
+<p><strong>同样的模型，为什么有人用得飞起，有人用得一塌糊涂？</strong></p>
 <p>答案不在模型，在 Harness。</p>
 <span id="more"></span>
 
@@ -433,7 +437,80 @@
 <p>“The goal of a harness is to mold the inherently spiky intelligence of a model for tasks we care about.”<br>Harness 的目标，是把模型天生不稳定的智能，塑造成我们需要的形态。</p>
 </blockquote>
 <hr>
-<h2 id="六个核心组件"><a href="#六个核心组件" class="headerlink" title="六个核心组件"></a>六个核心组件</h2><p>一个完整的 Harness，通常包含六个维度的设计。我们逐一拆解。</p>
+<h2 id="六个核心组件"><a href="#六个核心组件" class="headerlink" title="六个核心组件"></a>六个核心组件</h2><p>一个完整的 Harness，通常包含六个维度的设计。但在深入每个组件之前，先给你一个<strong>全局视角</strong>——不是所有组件都同等重要。</p>
+<h3 id="🏆-组件优先级矩阵"><a href="#🏆-组件优先级矩阵" class="headerlink" title="🏆 组件优先级矩阵"></a>🏆 组件优先级矩阵</h3><p>根据 LangChain、OpenAI、Anthropic 三方的实践经验，六个组件的<strong>投入产出比</strong>差异很大：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>组件</th>
+<th>投入成本</th>
+<th>效果提升</th>
+<th>投入产出比</th>
+<th>新手建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🥇 <strong>P0 必做</strong></td>
+<td>系统提示词</td>
+<td>低</td>
+<td>高</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td><strong>第一件要做的事</strong></td>
+</tr>
+<tr>
+<td>🥇 <strong>P0 必做</strong></td>
+<td>验证层</td>
+<td>中</td>
+<td>极高</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td><strong>第二件要做的事</strong></td>
+</tr>
+<tr>
+<td>🥈 <strong>P1 重要</strong></td>
+<td>工具集</td>
+<td>中</td>
+<td>高</td>
+<td>⭐⭐⭐⭐</td>
+<td>精选工具，不在多</td>
+</tr>
+<tr>
+<td>🥈 <strong>P1 重要</strong></td>
+<td>执行流程</td>
+<td>低</td>
+<td>中高</td>
+<td>⭐⭐⭐⭐</td>
+<td>复杂任务必须做</td>
+</tr>
+<tr>
+<td>🥉 <strong>P2 进阶</strong></td>
+<td>中间件</td>
+<td>中高</td>
+<td>中</td>
+<td>⭐⭐⭐</td>
+<td>找到失败模式后再加</td>
+</tr>
+<tr>
+<td>🥉 <strong>P2 进阶</strong></td>
+<td>上下文管理</td>
+<td>高</td>
+<td>中高</td>
+<td>⭐⭐⭐</td>
+<td>复杂/长期任务才需要</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>新手策略</strong>：先做好 P0（系统提示词 + 验证层），效果就能提升 50%+。不要一上来就追求”六边形战士”。</p>
+</blockquote>
+<hr>
+<h3 id="⚠️-反面案例：糟糕的-Harness-长什么样？"><a href="#⚠️-反面案例：糟糕的-Harness-长什么样？" class="headerlink" title="⚠️ 反面案例：糟糕的 Harness 长什么样？"></a>⚠️ 反面案例：糟糕的 Harness 长什么样？</h3><p>在讲正面设计之前，先看一个<strong>反面教材</strong>。以下是一个典型的”没有 Harness”的 AI Agent：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph bad[&quot;❌ 糟糕的 Harness（大多数人的默认配置）&quot;]</span><br><span class="line">        A1[&quot;系统提示词：&#x27;你是一个编程助手&#x27;（仅此一句）&quot;]</span><br><span class="line">        B1[&quot;工具集：给了一堆不相关的工具&quot;]</span><br><span class="line">        C1[&quot;中间件：没有任何钩子&quot;]</span><br><span class="line">        D1[&quot;上下文：把整个代码库塞进去&quot;]</span><br><span class="line">        E1[&quot;执行流程：给任务 → 等 → 拿结果&quot;]</span><br><span class="line">        F1[&quot;验证层：AI 自己说&#x27;完成了&#x27;就信&quot;]</span><br><span class="line">    end</span><br><span class="line">    bad --&gt; RESULT1[&quot;📉 结果：52.8% 得分率\nAI 写完就交 / 反复改同一个Bug / 偏离目标&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>对比一个<strong>经过设计的 Harness</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph good[&quot;✅ 好的 Harness（本篇要学的）&quot;]</span><br><span class="line">        A2[&quot;系统提示词：明确四阶段工作流 + 行为规范&quot;]</span><br><span class="line">        B2[&quot;工具集：精选5-8个与任务高度对齐的工具&quot;]</span><br><span class="line">        C2[&quot;中间件：退出前强制验证 + 死循环检测&quot;]</span><br><span class="line">        D2[&quot;上下文：100行地图文档 + 按需加载&quot;]</span><br><span class="line">        E2[&quot;执行流程：Sprint迭代 + 检查点验证&quot;]</span><br><span class="line">        F2[&quot;验证层：独立评估者 + 运行真实测试&quot;]</span><br><span class="line">    end</span><br><span class="line">    good --&gt; RESULT2[&quot;📈 结果：66.5% 得分率 (+13.7%)\nAI 自测自验 / 快速纠偏 / 目标一致&quot;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键差距</strong>：不是模型变了，而是<strong>工作框架</strong>变了。下面我们逐个拆解怎么做到的。</p>
+<hr>
 <h3 id="1-系统提示词（System-Prompt）"><a href="#1-系统提示词（System-Prompt）" class="headerlink" title="1. 系统提示词（System Prompt）"></a>1. 系统提示词（System Prompt）</h3><p>系统提示词是 Harness 里最直接的部分，也是最容易被低估的部分。</p>
 <p>很多人以为系统提示词就是”告诉 AI 你是谁”，但在 Harness Engineering 里，系统提示词承担的是更重要的角色：<strong>给 AI 建立工作框架</strong>。</p>
 <p>LangChain 在实验中发现，AI 最常见的失败模式之一，是”写完代码，自己看了一眼觉得没问题，就停了”——没有测试，没有验证，直接交差。</p>
@@ -510,6 +587,7 @@
 <p><strong>自我验证</strong>：通过系统提示词和中间件，强制 AI 在提交结果前运行测试、对照任务要求检查。LangChain 的实验证明，这个方法有效，但需要明确的指导——AI 不会自发地进入”构建-验证”循环。</p>
 <p><strong>外部评估</strong>：用一个独立的 AI 实例来评估另一个 AI 的工作。Anthropic 的工程师发现，让同一个 AI 评估自己的工作，它会倾向于给出正面评价。但如果换一个独立的 AI 来评估，并且明确告诉它”要挑剔”，评估质量会大幅提升。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[生成者 AI 产出结果] --&gt; B[评估者 AI\n独立实例，被告知要挑层]</span><br><span class="line">    B --&gt; C[详细的评估报告 + 具体的改进建议]</span><br><span class="line">    C --&gt; D[生成者 AI 根据反馈改进]</span><br><span class="line">    D --&gt; A</span><br></pre></td></tr></table></figure>
+
 <p><strong>设计要点</strong>：</p>
 <ul>
 <li>不要依赖 AI 的自我感觉，要有可执行的验证步骤（运行测试、点击 UI）</li>
@@ -518,8 +596,9 @@
 </ul>
 <hr>
 <h2 id="六个组件的关系"><a href="#六个组件的关系" class="headerlink" title="六个组件的关系"></a>六个组件的关系</h2><p>这六个组件不是孤立的，它们相互配合，共同构成一个完整的 Harness：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[系统提示词] --&gt; |&quot;\u5b9a义工作框架和行为规范&quot;| M[🤖 AI 模型]</span><br><span class="line">    B[工具集] --&gt; |&quot;\u63d0供执行能力&quot;| M</span><br><span class="line">    C[中间件] --&gt; |&quot;\u5728关键节点拦截和纠偏&quot;| M</span><br><span class="line">    D[上下文管理] --&gt; |&quot;\u63a7制 AI 的视野&quot;| M</span><br><span class="line">    E[执行流程] --&gt; |&quot;\u8bbe计任务的节奏和步骤&quot;| M</span><br><span class="line">    F[验证层] --&gt; |&quot;\u786e保结果真正符合要求&quot;| M</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    SP[&quot;🗒️ 系统提示词\n定义工作框架 &amp; 行为规范&quot;]</span><br><span class="line">    CTX[&quot;📚 上下文管理\n控制 AI 的信息视野&quot;]</span><br><span class="line">    EF[&quot;🔄 执行流程\n规划 → 构建 → 验证 → 修复&quot;]</span><br><span class="line">    TOOLS[&quot;🔧 工具集\n提供执行能力&quot;]</span><br><span class="line">    MW[&quot;🪝 中间件\n关键节点拦截 &amp; 纠偏&quot;]</span><br><span class="line">    VL[&quot;✅ 验证层\n确保结果真正符合要求&quot;]</span><br><span class="line"></span><br><span class="line">    SP --&gt;|&quot;规定工作流程节奏&quot;| EF</span><br><span class="line">    CTX --&gt;|&quot;提供信息视野&quot;| EF</span><br><span class="line">    TOOLS --&gt;|&quot;支撑每阶段执行&quot;| EF</span><br><span class="line">    EF --&gt;|&quot;产出结果&quot;| VL</span><br><span class="line">    VL --&gt;|&quot;反馈问题，触发修复&quot;| EF</span><br><span class="line">    MW --&gt;|&quot;退出前强制验证&quot;| VL</span><br><span class="line">    MW --&gt;|&quot;死循环检测，注入纠偏提示&quot;| EF</span><br></pre></td></tr></table></figure>
 
+<p><img src="/assets/img/ailearn/harness/01/components_relationship.png" alt="六个核心组件的关系"></p>
 <p>设计 Harness 的核心思路是：<strong>先找到 AI 在你的任务上最常见的失败模式，然后针对每个失败模式，在对应的组件上做设计</strong>。</p>
 <p>这不是一次性的工作，而是一个持续迭代的过程。LangChain 的做法是用 Trace 分析来找失败模式，然后针对性地改 Harness，再跑实验，再分析——循环往复。</p>
 <hr>
@@ -532,6 +611,43 @@
 <li>上下文管理控制视野</li>
 <li>执行流程设计节奏</li>
 <li>验证层确保质量</li>
+</ul>
+<h3 id="✅-组件设计检查清单"><a href="#✅-组件设计检查清单" class="headerlink" title="✅ 组件设计检查清单"></a>✅ 组件设计检查清单</h3><p>在开始设计你的 Harness 之前，用这个清单快速自查：</p>
+<h4 id="系统提示词检查清单"><a href="#系统提示词检查清单" class="headerlink" title="系统提示词检查清单"></a>系统提示词检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> 是否定义了清晰的工作流程（而非仅角色描述）？</li>
+<li><input disabled="" type="checkbox"> 每个阶段是否有具体的行为要求（而非”做好就行”）？</li>
+<li><input disabled="" type="checkbox"> 是否针对已知失败模式设置了防护指令？</li>
+<li><input disabled="" type="checkbox"> 提示词是否在 <strong>50-500 行</strong>之间（太短无效，太长 AI 记不住）？</li>
+</ul>
+<h4 id="工具集检查清单"><a href="#工具集检查清单" class="headerlink" title="工具集检查清单"></a>工具集检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> 每个工具是否与任务目标<strong>直接相关</strong>？</li>
+<li><input disabled="" type="checkbox"> 工具数量是否控制在 <strong>5-15 个</strong>之间？</li>
+<li><input disabled="" type="checkbox"> 工具的错误信息是否对 AI <strong>友好可解析</strong>？</li>
+<li><input disabled="" type="checkbox"> 是否包含至少一个<strong>环境感知</strong>工具？</li>
+</ul>
+<h4 id="中间件检查清单"><a href="#中间件检查清单" class="headerlink" title="中间件检查清单"></a>中间件检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> 每个中间件是否对应一个<strong>已知的失败模式</strong>？</li>
+<li><input disabled="" type="checkbox"> 中间件数量是否 ≤ <strong>5 个</strong>？（太多会拖慢执行）</li>
+<li><input disabled="" type="checkbox"> 是否有退出前的<strong>强制验证钩子</strong>？</li>
+<li><input disabled="" type="checkbox"> 是否有<strong>死循环检测</strong>机制？</li>
+</ul>
+<h4 id="上下文管理检查清单"><a href="#上下文管理检查清单" class="headerlink" title="上下文管理检查清单"></a>上下文管理检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> AI 需要的信息是否都在它能<strong>访问的地方</strong>？</li>
+<li><input disabled="" type="checkbox"> 是否有一份 ≤100 行的<strong>地图文档</strong>（AGENTS.md）？</li>
+<li><input disabled="" type="checkbox"> 是否监控<strong>上下文使用量</strong>并在接近上限时处理？</li>
+<li><input disabled="" type="checkbox"> 对于长时间任务，是否有<strong>上下文重置/交接</strong>机制？</li>
+</ul>
+<h4 id="执行流程检查清单"><a href="#执行流程检查清单" class="headerlink" title="执行流程检查清单"></a>执行流程检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> 复杂任务是否被<strong>分阶段拆解</strong>？</li>
+<li><input disabled="" type="checkbox"> 每个阶段是否有明确的<strong>输入和输出</strong>？</li>
+<li><input disabled="" type="checkbox"> 关键节点是否设置了<strong>检查点</strong>？</li>
+<li><input disabled="" type="checkbox"> 推理预算是否按阶段<strong>差异化分配</strong>？</li>
+</ul>
+<h4 id="验证层检查清单"><a href="#验证层检查清单" class="headerlink" title="验证层检查清单"></a>验证层检查清单</h4><ul>
+<li><input disabled="" type="checkbox"> 是否有<strong>可执行的验证步骤</strong>（运行测试/点击 UI）？</li>
+<li><input disabled="" type="checkbox"> 验证标准是否对照<strong>任务要求</strong>而非代码自身？</li>
+<li><input disabled="" type="checkbox"> 对于关键任务，是否有<strong>独立评估者</strong>？</li>
+<li><input disabled="" type="checkbox"> 评估标准是否<strong>可量化</strong>（有明确通过/失败条件）？</li>
 </ul>
 <p>下一篇，我们重点讲”让 AI 学会自我验证”——这是 Harness Engineering 里最有价值、也最容易落地的一个实践。</p>
 <hr>
@@ -594,7 +710,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/harness/01.html" title="AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解" target="_blank">https://www.qborfy.com/ailearn/harness/01.html</a>
+          <a href="https://www.qborfy.com/ailearn/harness/01.html" title="AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南" target="_blank">https://www.qborfy.com/ailearn/harness/01.html</a>
         </li>
         
         <li>
@@ -703,14 +819,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AI Agent Harness Engineering（2）—— 让 AI 学会&#34;自我验证&#34;
+          AI Agent Harness Engineering（2）—— 让 AI 学会&#34;自我验证&#34; | Build &amp; Verify 模式完整指南
         
       </div>
     </a>
   
   
-    <a href="/ailearn/harness/langchain.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/ailearn/harness/00.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？| 完整教程指南</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -737,7 +853,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E2%80%9D%E9%A9%AC%E5%85%B7%E2%80%9D%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">从”马具”说起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E4%B8%AA%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">六个核心组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88System-Prompt%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">1. 系统提示词（System Prompt）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B7%A5%E5%85%B7%E9%9B%86%EF%BC%88Tools%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2. 工具集（Tools）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%88Middleware%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">3. 中间件（Middleware）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%EF%BC%88Context-Management%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">4. 上下文管理（Context Management）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%EF%BC%88Execution-Flow%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">5. 执行流程（Execution Flow）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%AA%8C%E8%AF%81%E5%B1%82%EF%BC%88Verification%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">6. 验证层（Verification）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E4%B8%AA%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.</span> <span class="toc-text">六个组件的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E2%80%9D%E9%A9%AC%E5%85%B7%E2%80%9D%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">从”马具”说起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E4%B8%AA%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">六个核心组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8F%86-%E7%BB%84%E4%BB%B6%E4%BC%98%E5%85%88%E7%BA%A7%E7%9F%A9%E9%98%B5"><span class="toc-number">2.1.</span> <span class="toc-text">🏆 组件优先级矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-%E5%8F%8D%E9%9D%A2%E6%A1%88%E4%BE%8B%EF%BC%9A%E7%B3%9F%E7%B3%95%E7%9A%84-Harness-%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">⚠️ 反面案例：糟糕的 Harness 长什么样？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88System-Prompt%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">1. 系统提示词（System Prompt）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B7%A5%E5%85%B7%E9%9B%86%EF%BC%88Tools%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">2. 工具集（Tools）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%88Middleware%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">3. 中间件（Middleware）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%EF%BC%88Context-Management%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">4. 上下文管理（Context Management）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%EF%BC%88Execution-Flow%EF%BC%89"><span class="toc-number">2.7.</span> <span class="toc-text">5. 执行流程（Execution Flow）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%AA%8C%E8%AF%81%E5%B1%82%EF%BC%88Verification%EF%BC%89"><span class="toc-number">2.8.</span> <span class="toc-text">6. 验证层（Verification）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E4%B8%AA%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.</span> <span class="toc-text">六个组件的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.</span> <span class="toc-text">✅ 组件设计检查清单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">系统提示词检查清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E9%9B%86%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.2.</span> <span class="toc-text">工具集检查清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.3.</span> <span class="toc-text">中间件检查清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.4.</span> <span class="toc-text">上下文管理检查清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.5.</span> <span class="toc-text">执行流程检查清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%B1%82%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">4.1.6.</span> <span class="toc-text">验证层检查清单</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1033,6 +1149,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>

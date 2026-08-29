@@ -8,20 +8,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>Qborfy知识库</title>
+  <title>用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译） | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Improving Deep Agents with harness engineering8 min readFeb 17, 2026TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0. We only changed the harness. Here’s our approach to harness">
+  <meta name="description" content="LangChain 团队如何通过 Harness Engineering 将编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到 66.5%？Trace 分析方法论、自我验证循环、循环检测中间件，全部实战干货。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qborfy知识库">
+<meta property="og:title" content="用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/harness/langchain.html">
 <meta property="og:site_name" content="Qborfy知识库">
-<meta property="og:description" content="Improving Deep Agents with harness engineering8 min readFeb 17, 2026TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0. We only changed the harness. Here’s our approach to harness">
+<meta property="og:description" content="LangChain 团队如何通过 Harness Engineering 将编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到 66.5%？Trace 分析方法论、自我验证循环、循环检测中间件，全部实战干货。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-28T02:03:24.251Z">
-<meta property="article:modified_time" content="2026-03-28T02:03:25.685Z">
+<meta property="article:published_time" content="2026-04-11T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T15:04:28.616Z">
 <meta property="article:author" content="Qborfy">
+<meta property="article:tag" content="学习总结">
+<meta property="article:tag" content="AI学习">
+<meta property="article:tag" content="Harness Engineering">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="翻译">
+<meta property="article:tag" content="LangChain">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Qborfy知识库" type="application/atom+xml">
@@ -359,45 +365,167 @@
 <article id="post-ailearn/harness/langchain" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 class="article-title" itemprop="name">
+      用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）
+      
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/ailearn/harness/langchain.html" class="archive-article-date">
+        <time datetime="2026-04-11T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Improving Deep Agents with harness engineering<br>8 min read<br>Feb 17, 2026<br>TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0. We only changed the harness. Here’s our approach to harness engineering (teaser: self-verification &amp; tracing help a lot).</p>
-<p>The Goal of Harness Engineering<br>The goal of a harness is to mold the inherently spiky intelligence of a model for tasks we care about. Harness Engineering is about systems, you’re building tooling around the model to optimize goals like task performance, token efficiency, latency, etc. Design decisions include the system prompt, tool choice, and execution flow.</p>
-<p>But how should you change the harness to improve your agent?</p>
-<p>At LangChain, we use Traces to understand agent failure modes at scale. Models today are largely black-boxes, their inner mechanisms are hard to interpret. But we can see their inputs and outputs in text space which we then use in our improvement loops.</p>
-<p>We used a simple recipe to iteratively improve deepagents-cli (our coding agent) 13.7 points from 52.8 to 66.5 on Terminal Bench 2.0. We only tweaked the harness and kept the model fixed, gpt-5.2-codex.</p>
-<p>Experiment Setup &amp; The Knobs on a Harness<br>We used Terminal Bench 2.0, a now standard benchmark to evaluate agentic coding. It has 89 tasks across domains like machine learning, debugging, and biology. We use Harbor to orchestrate the runs. It spins up sandboxes (Daytona), interacts with our agent loop, and runs verification + scoring.</p>
-<p>Every agent action is stored in LangSmith. It also includes metrics like latency, token counts, and costs.</p>
-<p>The Knobs we can Turn<br>An agent harness has a lot of knobs: system prompts, tools, hooks/middleware, skills, sub-agent delegation, memory systems, and more. We deliberately compress the optimization space and focus on three: System Prompt, Tools, and Middleware (our term for hooks around model and tool calls).</p>
-<p>We start with a default prompt and standard tools+middleware. This scores 52.8% with GPT-5.2-Codex. A solid score, just outside the Top 30 of the leaderboard today, but room to grow.</p>
-<p>The Trace Analyzer Skill<br>We wanted trace analysis to be repeatable so we made it into an Agent Skill. This serves as our recipe to analyze errors across runs and make improvements to the harness. The flow is:</p>
-<p>Fetch experiment traces from LangSmith<br>Spawn parallel error analysis agents → main agent synthesizes findings + suggestions<br>Aggregate feedback and make targeted changes to the harness.<br>This works similarly to boosting which focuses on mistakes from previous runs. A human can be pretty helpful in Step 3 (though not required) to verify and discuss proposed changes. Changes that overfit to a task are bad for generalization and can lead to regressions in other Tasks.</p>
-<p>Automated trace analysis saves hours of time and made it easy to quickly try experiments. We’ll be publishing this skill soon, we’re currently testing it for prompt optimization generally.</p>
-<p>What Actually Improved Agent Performance<br>Automated Trace analysis allowed us to debug where agents were going wrong. Issues included reasoning errors, not following task instructions, missing testing and verification, running out of time, etc. We go into these improvements in more details in the sections below.</p>
-<p>Build &amp; Self-Verify<br>Today’s models are exceptional self-improvement machines.</p>
-<p>Self-verification allows agents to self-improve via feedback within a run. However, they don’t have a natural tendency to enter this build-verify loop.</p>
-<p>The most common failure pattern was that the agent wrote a solution, re-read its own code, confirmed it looks ok, and stopped. Testing is a key part of autonomous agentic coding. It helps test for overall correctness and simultaneously gives agents signal to hill-climb against.</p>
-<p>We added guidance to the system prompt on how to approach problem solving.</p>
-<p>Planning &amp; Discovery: Read the task, scan the codebase, and build an initial plan based on the task specification and how to verify the solution.<br>Build: Implement the plan with verification in mind. Build tests, if they don’t exist and test both happy paths and edge cases.<br>Verify: Run tests, read the full output, compare against what was asked (not against your own code).<br>Fix: Analyze any errors, revisit the original spec, and fix issues.<br>We really focus on testing because it powers the changes in every iteration. We found that alongside prompting, deterministic context injection helps agents verify their work. We use a PreCompletionChecklistMiddleware that intercepts the agent before it exits and reminds it to run a verification pass against the Task spec. This is similar to a Ralph Wiggum Loop where a hook forces the agent to continue executing on exit, we use this for verification.</p>
-<p>Giving Agents Context about their Environment<br>Part of harness engineering is building a good delivery mechanism for context engineering. Terminal Bench tasks come with directory structures, built-in tooling, and strict timeouts.</p>
-<p>Directory Context &amp; Tooling: A LocalContextMiddleware runs on agent start to map the cwd and other parent+children directories. We run bash commands to find tools like Python installations. Context discovery and search are error prone, so injecting context reduces this error surface and helps onboard the agent into its environment.<br>Teaching Agents to Write Testable Code: Agents don’t know how their code needs to be testable. We add prompting say their work will be measured against programatic tests, similar to when committing code. For example, Task specs that mention file paths should be followed exactly so the solutions works in an automated scoring step. Prompting that stresses edge-cases helps the agent avoid only checking “happy path” cases. Forcing models to conform to testing standards is a powerful strategy to avoid “slop buildup” over time.<br>Time Budgeting: We inject time budget warnings to nudge the agent to finish work and shift to verification. Agents are famously bad at time estimation so this heuristic helps in this environment. Real world coding usually doesn’t have strict time limits, but without adding any knowledge of constraints, agents won’t work within time bounds.<br>The more that agents know about their environment, constraints, and evaluation criteria, the better they can autonomously self-direct their work.</p>
-<p>The purpose of the harness engineer: prepare and deliver context so agents can autonomously complete work.</p>
-<p>Encouraging Agents to Step Back &amp; Reconsider Plans<br>Agents can be myopic once they’ve decided on a plan which results in “doom loops” that make small variations to the same broken approach (10+ times in some traces).</p>
-<p>We use a LoopDetectionMiddleware that tracks per-file edit counts via tool call hooks. It adds context like “…consider reconsidering your approach” after N edits to the same file. This can help agents recover from doom loops, though the model can continue down the same path if it thinks it’s correct.</p>
-<p>Important note. This is a design heuristic that engineers around today’s perceived model issues. As models improve, these guardrails will likely be unnecessary, but today helps agents execute correctly and autonomously.</p>
-<p>Choosing How Much Compute to Spend on Reasoning<br>Reasoning models can run autonomously for hours so we have to decide how much compute to spend on every subtask. You can use the max reasoning budget on every task, but most work can benefit from optimizing reasoning compute spend.</p>
-<p>Terminal Bench timeout limits create a tradeoff. More reasoning helps agents evaluate each step, but can burn over 2x more tokens/time. gpt-5.2-codex has 4 reasoning modes, low, medium, high, and xhigh.</p>
-<p>We found that reasoning helps with planning to fully understand the problem, some Terminal Bench tasks are very difficult. A good plan helps get to a working solution more quickly.</p>
-<p>Later stage verification also benefits from more reasoning to catch mistakes and get a solution submitted. As a heuristic, we choose a xhigh-high-xhigh “reasoning sandwich” as a baseline.</p>
-<p>Spending more reasoning compute on planning and verification<br>Running only at xhigh scored poorly at 53.9% due to agent timeouts compared to 63.6% at high. There weren’t large differences in trial runs across reasoning budget splits so we stuck with our approach which pushed the score to 66.5%.</p>
-<p>The natural approach for models is Adaptive Reasoning, seen with Claude and Gemini models where the model decides how much compute to spend on reasoning.</p>
-<p>In a multi-model harness, balancing reasoning budgets could play out as using a large model for planning and handing off to a smaller model for implementation.</p>
-<p>Practical Takeaways for Building Agent Harnesses<br>The design space of agents is big. Here are some general principles from our experiments and building deepagents overall.</p>
-<p>Context Engineering on Behalf of Agents. Context assembly is still difficult for agents today, especially in unseen environments. Onboarding models with context like directory structures, available tools, coding best practices, and problem solving strategies helps reduce the error surface for poor search and avoidable errors in planning.<br>Help agents self-verify their work. Models are biased towards their first plausible solution. Prompt them aggressively to verify their work by running tests and refining solutions. This is especially important in autonomous coding systems that don’t have humans in the loop.<br>Tracing as a feedback signal. Traces allow agents to self-evaluate and debug themselves. It’s important to debug tooling and reasoning together (ex: models go down wrong paths because they lack a tool or instructions how to do something).<br>Detect and fix bad patterns in the short term. Models today aren’t perfect. The job of the harness designer is to design around today’s shortcomings while planning for smarter models in the future. Blind retries and not verifying work are good examples. These guardrails will almost surely dissolve over time, but to build robust agent applications today, they’re useful tools to experiment with.<br>Tailor Harnesses to Models. The Codex and Claude prompting guides show that models require different prompting. A test run with Claude Opus 4.6 scored 59.6% with an earlier harness version, competitive but worse than Codex because we didn’t run the same Improvement Loop with Claude. Many principles generalize like good context preparation and a focus on verification, but running a few rounds of harness iterations for your task helps maximize agent performance across tasks.<br>There’s more open research to do in harness design. Interesting avenues include multi-model systems (Codex, Gemini, and Claude together), memory primitives for continual learning so agents can autonomously improve on tasks, and measuring harness changes across models.</p>
-<p>For the outer loop of improving agents, we’re looking at methods like RLMs to more efficiently mine traces. We’ll be continuing work to improve the harness and openly share our research.</p>
-<p>We created a dataset of our Traces to share with the community.</p>
-<p>Deep Agents is open source. Python and Javascript.</p>
-<p>To more hill climbing and open research.</p>
+    <blockquote>
+<p><strong>📌 原文信息</strong></p>
+<ul>
+<li>原文标题：<a target="_blank" rel="noopener" href="https://blog.langchain.com/improving-deep-agents-with-harness-engineering/">Improving Deep Agents with Harness Engineering</a></li>
+<li>原文作者：LangChain 团队</li>
+<li>发布时间：2026 年 2 月 17 日</li>
+<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
+</blockquote>
+<hr>
+<p><strong>一句话结论：LangChain 的编程智能体在 Terminal Bench 2.0 上从第 30 名冲进了前 5 名。他们只改了 Harness，没换模型。</strong></p>
+<p>这件事值得细说。</p>
+<span id="more"></span>
+
+<h2 id="Harness-Engineering-的目标是什么"><a href="#Harness-Engineering-的目标是什么" class="headerlink" title="Harness Engineering 的目标是什么"></a>Harness Engineering 的目标是什么</h2><p>模型本身的智能是”尖刺型”的——在某些任务上表现惊艳，在另一些任务上却莫名其妙地翻车。Harness Engineering 要做的，就是把这种不稳定的智能”驯服”，让它在你关心的任务上稳定发挥。</p>
+<p>具体来说，Harness 是围绕模型搭建的一套系统工具，包括：系统提示词、工具选择、执行流程。优化目标可以是任务完成率、Token 效率、响应延迟……你想优化什么，就往哪个方向调。</p>
+<p>那问题来了：<strong>怎么知道该往哪个方向调？</strong></p>
+<p>LangChain 的答案是：<strong>看 Trace。</strong></p>
+<h2 id="实验设置：调哪些旋钮"><a href="#实验设置：调哪些旋钮" class="headerlink" title="实验设置：调哪些旋钮"></a>实验设置：调哪些旋钮</h2><p>测试基准用的是 <a target="_blank" rel="noopener" href="https://www.tbench.ai/leaderboard/terminal-bench/2.0">Terminal Bench 2.0</a>，这是目前评估编程智能体的主流 Benchmark，包含 89 个任务，覆盖机器学习、调试、生物信息学等多个领域。</p>
+<p>模型固定用 <code>gpt-5.2-codex</code>，全程不换。</p>
+<p>Harness 上可以调的旋钮很多：系统提示词、工具集、钩子/中间件、技能、子智能体委托、记忆系统……LangChain 团队刻意收窄了优化范围，只聚焦三个：</p>
+<ol>
+<li><strong>系统提示词（System Prompt）</strong></li>
+<li><strong>工具集（Tools）</strong></li>
+<li><strong>中间件（Middleware）</strong>——他们对”中间件”的定义是：包裹在模型调用和工具调用前后的钩子逻辑</li>
+</ol>
+<p>起点是默认配置，得分 52.8%，排名第 30 名开外。</p>
+<h2 id="Trace-分析器：让改进可重复"><a href="#Trace-分析器：让改进可重复" class="headerlink" title="Trace 分析器：让改进可重复"></a>Trace 分析器：让改进可重复</h2><p>LangChain 把 Trace 分析做成了一个可复用的”智能体技能”（Agent Skill）。这个技能的工作流程是：</p>
+<ol>
+<li>从 LangSmith 拉取实验 Trace 数据</li>
+<li>并行启动多个错误分析智能体 → 主智能体汇总发现和改进建议</li>
+<li>聚合反馈，对 Harness 做针对性修改</li>
+</ol>
+<p>这个思路有点像机器学习里的 <strong>Boosting</strong>——每一轮都重点关注上一轮犯错的地方，集中火力攻克薄弱环节。</p>
+<p>人类工程师可以参与第三步（验证和讨论改进方案），但不是必须的。需要注意的是：如果改动过度拟合某个特定任务，可能会在其他任务上出现退步，这是需要警惕的。</p>
+<p>自动化 Trace 分析节省了大量手工排查时间，让快速迭代实验成为可能。</p>
+<h2 id="真正提升性能的是什么"><a href="#真正提升性能的是什么" class="headerlink" title="真正提升性能的是什么"></a>真正提升性能的是什么</h2><h3 id="1-构建-自我验证循环"><a href="#1-构建-自我验证循环" class="headerlink" title="1. 构建 + 自我验证循环"></a>1. 构建 + 自我验证循环</h3><p>今天的模型是很好的”自我改进机器”——但它们不会自发进入”构建-验证”循环。</p>
+<p>最常见的失败模式是：智能体写完代码，回头看了一眼，觉得”看起来没问题”，然后就停了。没有测试，没有验证，直接交卷。</p>
+<p>LangChain 在系统提示词里加入了明确的问题解决流程：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>做什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>规划 &amp; 探索</strong></td>
+<td>读任务、扫代码库、制定初始计划，包括如何验证解决方案</td>
+</tr>
+<tr>
+<td><strong>构建</strong></td>
+<td>带着验证意识实现方案，写测试，覆盖正常路径和边界情况</td>
+</tr>
+<tr>
+<td><strong>验证</strong></td>
+<td>跑测试，读完整输出，对照任务要求（不是对照自己的代码）检查</td>
+</tr>
+<tr>
+<td><strong>修复</strong></td>
+<td>分析错误，回看原始规格，修复问题</td>
+</tr>
+</tbody></table>
+<p>除了提示词，他们还加了一个 <code>PreCompletionChecklistMiddleware</code>——在智能体准备退出之前拦截它，强制让它跑一遍验证。这类似于 <a target="_blank" rel="noopener" href="https://ghuntley.com/loop/">Ralph Wiggum Loop</a>：用钩子强制智能体继续执行，而不是直接结束。</p>
+<h3 id="2-给智能体提供环境上下文"><a href="#2-给智能体提供环境上下文" class="headerlink" title="2. 给智能体提供环境上下文"></a>2. 给智能体提供环境上下文</h3><p>Harness Engineering 的一个核心职责，就是<strong>替智能体做好上下文准备工作</strong>。</p>
+<p>Terminal Bench 的任务有目录结构、内置工具和严格的超时限制。LangChain 的做法：</p>
+<p><strong>目录上下文 &amp; 工具发现</strong>：用 <code>LocalContextMiddleware</code> 在智能体启动时自动扫描当前目录和父子目录，用 bash 命令找到 Python 等工具的安装位置。上下文发现本身容易出错，提前注入可以减少这类错误，帮助智能体快速”入职”。</p>
+<p><strong>教智能体写可测试的代码</strong>：智能体不知道自己的代码会被程序化测试评分。加入提示词，告诉它”你的工作会被自动化测试检验”，类似于提交代码前的 CI 流程。强调边界情况，避免只测”happy path”。</p>
+<p><strong>时间预算提醒</strong>：注入时间预算警告，提示智能体在时间快到时转向验证阶段。智能体天生不擅长时间估算，这个启发式规则在有严格超时的环境里很有用。</p>
+<blockquote>
+<p><strong>核心原则</strong>：智能体对自己的环境、约束和评估标准了解得越多，就越能自主地完成工作。Harness 工程师的职责，就是准备和传递上下文，让智能体能够自主完成任务。</p>
+</blockquote>
+<h3 id="3-鼓励智能体退一步、重新考虑"><a href="#3-鼓励智能体退一步、重新考虑" class="headerlink" title="3. 鼓励智能体退一步、重新考虑"></a>3. 鼓励智能体退一步、重新考虑</h3><p>智能体一旦确定了方案，就容易陷入”死循环”——对同一个破方案反复做小修小补，有时候能在 Trace 里看到同一个文件被改了 10 次以上。</p>
+<p>LangChain 用了一个 <code>LoopDetectionMiddleware</code>，通过工具调用钩子追踪每个文件的编辑次数。当同一个文件被编辑超过 N 次，就注入提示：”……考虑重新审视你的方案”。</p>
+<p>这是一个针对当前模型局限性的设计启发式规则。随着模型能力提升，这类护栏可能会变得不必要——但在今天，它确实有用。</p>
+<h3 id="4-合理分配推理计算量"><a href="#4-合理分配推理计算量" class="headerlink" title="4. 合理分配推理计算量"></a>4. 合理分配推理计算量</h3><p>推理模型可以自主运行数小时，所以必须决定在每个子任务上花多少计算量。</p>
+<p><code>gpt-5.2-codex</code> 有四个推理模式：<code>low</code>、<code>medium</code>、<code>high</code>、<code>xhigh</code>。</p>
+<p>LangChain 发现：</p>
+<ul>
+<li>全程用 <code>xhigh</code> 反而得分低（53.9%），因为超时太多</li>
+<li>全程用 <code>high</code> 得分 63.6%</li>
+<li>最终选择了 <strong>“推理三明治”</strong>：<code>xhigh-high-xhigh</code></li>
+</ul>
+<p>逻辑是：<strong>规划阶段</strong>需要深度推理来充分理解问题；<strong>实现阶段</strong>用中等推理保持效率；<strong>验证阶段</strong>再用高推理来捕捉错误、确保提交质量。</p>
+<p>这个策略把得分推到了 <strong>66.5%</strong>。</p>
+<p>未来的自然演进方向是”自适应推理”（Adaptive Reasoning），让模型自己决定在每一步花多少推理计算量——Claude 和 Gemini 已经在往这个方向走了。</p>
+<h2 id="实践总结：构建-Agent-Harness-的五条原则"><a href="#实践总结：构建-Agent-Harness-的五条原则" class="headerlink" title="实践总结：构建 Agent Harness 的五条原则"></a>实践总结：构建 Agent Harness 的五条原则</h2><p>LangChain 从这次实验中提炼出了五条可复用的原则：</p>
+<p><strong>① 替智能体做好上下文工程</strong><br>智能体在陌生环境里的上下文组装能力还很弱。提前注入目录结构、可用工具、编码最佳实践和问题解决策略，能大幅减少可避免的错误。</p>
+<p><strong>② 帮智能体自我验证</strong><br>模型天生偏向第一个”看起来合理”的解决方案。要积极地提示它跑测试、精炼方案。在没有人类介入的自主编程系统里，这一点尤其重要。</p>
+<p><strong>③ 把 Trace 当作反馈信号</strong><br>Trace 让智能体能够自我评估和调试。调试工具和推理要放在一起看——很多时候，智能体走错路是因为缺少某个工具，或者没有相关操作的指导。</p>
+<p><strong>④ 短期内检测并修复坏模式</strong><br>今天的模型不完美。Harness 设计者的工作，是围绕当前模型的短板设计护栏，同时为更强的模型做好准备。盲目重试、不验证工作成果——这些坏模式现在需要护栏，未来可能就不需要了。</p>
+<p><strong>⑤ 针对不同模型定制 Harness</strong><br>Codex 和 Claude 的提示词指南都表明，不同模型需要不同的提示策略。用 Claude Opus 4.6 跑同一个 Harness 得了 59.6%，比 Codex 低——不是因为 Claude 不行，而是没有针对 Claude 跑同样的改进循环。很多原则是通用的（好的上下文准备、重视验证），但针对具体任务跑几轮 Harness 迭代，能让性能最大化。</p>
+<h2 id="开放资源"><a href="#开放资源" class="headerlink" title="开放资源"></a>开放资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://smith.langchain.com/public/29393299-8f31-48bb-a949-5a1f5968a744/d?tab=2">Trace 数据集</a>（已公开）</li>
+<li>Deep Agents 开源代码：<a target="_blank" rel="noopener" href="https://github.com/langchain-ai/deepagents">Python 版</a> | <a target="_blank" rel="noopener" href="https://github.com/langchain-ai/deepagentsjs">JavaScript 版</a></li>
+</ul>
+<hr>
+<h2 id="延伸阅读：Harness-Engineering-系列"><a href="#延伸阅读：Harness-Engineering-系列" class="headerlink" title="延伸阅读：Harness Engineering 系列"></a>延伸阅读：Harness Engineering 系列</h2><p>这篇文章是 LangChain 的实战案例。如果你想系统学习 Harness Engineering，可以看看这个系列：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇：入门导读 —— 当 AI 开始”自己干活”，工程师该做什么？</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/01.html">第 1 篇：Harness 的六大核心组件</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/02.html">第 2 篇：Build &amp; Verify 模式详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/03.html">第 3 篇：上下文工程实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/04.html">第 4 篇：多智能体架构设计</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/05.html">第 5 篇：推理三明治与计算量分配</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/06.html">第 6 篇：Harness 的未来与演进趋势</a></li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
@@ -454,7 +582,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/harness/langchain.html" title="" target="_blank">https://www.qborfy.com/ailearn/harness/langchain.html</a>
+          <a href="https://www.qborfy.com/ailearn/harness/langchain.html" title="用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）" target="_blank">https://www.qborfy.com/ailearn/harness/langchain.html</a>
         </li>
         
         <li>
@@ -471,6 +599,37 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LangChain</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -536,18 +695,18 @@
 
 <nav id="article-nav">
   
-    <a href="/ailearn/harness/01.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/ailearn/harness/openai.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解
+          在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译）
         
       </div>
     </a>
   
   
-    <a href="/ailearn/harness/00.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？</div>
+    <a href="/ailearn/daily/32.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5分钟AI，每天搞懂一个知识点(32) - Prompt Tuning 提示微调</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -566,6 +725,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Harness-Engineering-%E7%9A%84%E7%9B%AE%E6%A0%87%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">Harness Engineering 的目标是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE%EF%BC%9A%E8%B0%83%E5%93%AA%E4%BA%9B%E6%97%8B%E9%92%AE"><span class="toc-number">2.</span> <span class="toc-text">实验设置：调哪些旋钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trace-%E5%88%86%E6%9E%90%E5%99%A8%EF%BC%9A%E8%AE%A9%E6%94%B9%E8%BF%9B%E5%8F%AF%E9%87%8D%E5%A4%8D"><span class="toc-number">3.</span> <span class="toc-text">Trace 分析器：让改进可重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E6%AD%A3%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.</span> <span class="toc-text">真正提升性能的是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9E%84%E5%BB%BA-%E8%87%AA%E6%88%91%E9%AA%8C%E8%AF%81%E5%BE%AA%E7%8E%AF"><span class="toc-number">4.1.</span> <span class="toc-text">1. 构建 + 自我验证循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%99%E6%99%BA%E8%83%BD%E4%BD%93%E6%8F%90%E4%BE%9B%E7%8E%AF%E5%A2%83%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">4.2.</span> <span class="toc-text">2. 给智能体提供环境上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%BC%93%E5%8A%B1%E6%99%BA%E8%83%BD%E4%BD%93%E9%80%80%E4%B8%80%E6%AD%A5%E3%80%81%E9%87%8D%E6%96%B0%E8%80%83%E8%99%91"><span class="toc-number">4.3.</span> <span class="toc-text">3. 鼓励智能体退一步、重新考虑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%90%88%E7%90%86%E5%88%86%E9%85%8D%E6%8E%A8%E7%90%86%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="toc-number">4.4.</span> <span class="toc-text">4. 合理分配推理计算量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E6%80%BB%E7%BB%93%EF%BC%9A%E6%9E%84%E5%BB%BA-Agent-Harness-%E7%9A%84%E4%BA%94%E6%9D%A1%E5%8E%9F%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">实践总结：构建 Agent Harness 的五条原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E8%B5%84%E6%BA%90"><span class="toc-number">6.</span> <span class="toc-text">开放资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB%EF%BC%9AHarness-Engineering-%E7%B3%BB%E5%88%97"><span class="toc-number">7.</span> <span class="toc-text">延伸阅读：Harness Engineering 系列</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -592,7 +764,7 @@ if(true){
   	repo: 'qiubohong.github.io',
   	owner: 'qiubohong',
   	admin: ['qiubohong'],
-  	id: 'Sat Mar 28 2026 10:03:24 GMT+0800',
+  	id: 'Sat Apr 11 2026 10:00:00 GMT+0800',
   	distractionFreeMode: 'true',
     proxy: 'https://qborfy.com/proxy',
 })
@@ -857,6 +1029,178 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Trace Analysis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教程系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">产研效能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI治理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ontology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">教育硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">思维导图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DeepSeek Harness</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AgentEval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Graph Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内容团队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">研发流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">业务流程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电商</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">reading_time 18 分钟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Anthropic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LangChain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenAI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Agent Loop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识图谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Palantir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动手实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前沿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">中小企业落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Claude Code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Google ADK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">桌面开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
             
             <div class="clearfix"></div>
