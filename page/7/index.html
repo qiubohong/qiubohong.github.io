@@ -361,6 +361,1256 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第01讲-AI认知与生态全景/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-01-讲：AI-认知与生态全景（优化版）"><a href="#DESIGN-md-—-第-01-讲：AI-认知与生态全景（优化版）" class="headerlink" title="DESIGN.md — 第 01 讲：AI 认知与生态全景（优化版）"></a>DESIGN.md — 第 01 讲：AI 认知与生态全景（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 1 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰 #5B6B7A</li>
+</ul>
+</li>
+<li>封面 / 深色页用渐变 <code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 或纯深蓝 #16263F。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code>。</li>
+<li>半透明：深色块内嵌 <code>rgba(255,255,255,0.06)</code> 卡、<code>rgba(220,231,245,0.15)</code> 边框；装饰圆 <code>opacity 0.12</code>。</li>
+<li>Hero 页（P1/P5/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">深色巨数页标题</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">68px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字（P2/P5）</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">20px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-16px</td>
+<td align="left">regular</td>
+<td align="left">1.7</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」（≤2 中文字体家族）。</li>
+<li>巨型数据必须 bold + 与正文不同字重（68px vs 15px）。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/深色收官页 40%。</li>
+<li>卡片填充率 ≥85%，卡片正文 ≥80 字（高 ≥320px 卡）。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图）。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
+<li>本讲以「数字 + 卡片 + 图标 + CodeBlock」为主视觉，不引入外部配图；术语墙、格局、Q/K/V 均用 Box/Text/FAIcon/CodeBlock 组合还原。</li>
+<li>图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">色彩分配</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">主60+辅20+强15</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_llm.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左右对比+巨数</td>
+<td align="left">130</td>
+<td align="left">22%</td>
+<td align="left">主40+辅30+强10</td>
+<td align="left">1750亿/1.8万亿/284B 巨数</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_terms.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">10 词卡 2×5</td>
+<td align="left">140</td>
+<td align="left">18%</td>
+<td align="left">主45+辅30</td>
+<td align="left">术语卡带一句解释</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_transformer.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">非对称双栏</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">左比喻+右 Q/K/V 选学标</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_token.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">深色巨数冷知识</td>
+<td align="left">100</td>
+<td align="left">35%</td>
+<td align="left">主55+强15</td>
+<td align="left">40%~100% 巨数锚点</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_embedding.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">上释义+下三应用卡</td>
+<td align="left">120</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三应用卡+基石条</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_models.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">主卡+四配角卡</td>
+<td align="left">130</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30+强8</td>
+<td align="left">V4-Flash 领衔开源</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_frameworks.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">6 框架卡</td>
+<td align="left">120</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">LangChain 起步</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_api.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左平台清单+右价格锚点</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30+强8</td>
+<td align="left">DeepSeek $0.14 锚点</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_action.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左行动清单+右自测</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三步清单+自测 3 题</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_qkv.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">深色收官+公式</td>
+<td align="left">100</td>
+<td align="left">35%</td>
+<td align="left">主55+强15</td>
+<td align="left">Q/K/V 三步+softmax 公式</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P1(封面)→P2(左右对比)→P3(2×5词卡)→P4(非对称双栏)→P5(深色巨数)→P6(上释下卡)→P7(主卡+配角)→P8(6卡)→P9(左清右锚)→P10(左行动右自测)→P11(深色收官) ✅</li>
+<li>非对称版式 ≥ 40% ✅</li>
+<li>对称版式 P3/P7/P8 三页，均非相邻 ✅</li>
+<li>Hero 3 页 = 27%，互不相邻 ✅</li>
+<li>连续 valley ≤5：P6-P10 五连 → P7 格局卡视觉加重，可接受 ✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC01%E8%AE%B2-AI%E8%AE%A4%E7%9F%A5%E4%B8%8E%E7%94%9F%E6%80%81%E5%85%A8%E6%99%AF/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第01讲-AI认知与生态全景/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-01-讲：AI-认知与生态全景（优化版）"><a href="#STORY-md-—-第-01-讲：AI-认知与生态全景（优化版）" class="headerlink" title="STORY.md — 第 01 讲：AI 认知与生态全景（优化版）"></a>STORY.md — 第 01 讲：AI 认知与生态全景（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 1 讲）。</li>
+<li><strong>核心目标</strong>：在 40 分钟内把 AI 的「术语、模型、框架、平台」四件事一次性扫清，让观众建立认知地图，课后能跑通一次模型对话。</li>
+<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 选学收官），Hero 页配额 3 页（27%）。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙 + 青）。</li>
+<li><strong>内容边界</strong>：讲清「是什么 + 怎么选 + 从哪开始」，不深入任何框架源码；Q/K/V 数学原理降级为选学页。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 3 章：<ul>
+<li>第 1 章「认知地基」（P2 LLM / P3 术语 / P4 Transformer / P5 Token / P6 Embedding）→ 扉页 P2</li>
+<li>第 2 章「生态地图」（P7 模型格局 / P8 框架 / P9 API 平台）→ 扉页 P7</li>
+<li>第 3 章「动手与选学」（P10 本周行动 / P11 选学 Q/K/V）→ 扉页 P10</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P5 Token（深色冷知识巨数页）、P11 选学收官（3 页，27%，符合 20-30%）；P1→P5 间隔 P2-P4，P5→P11 间隔 P6-P10。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 peak → P6 valley → P7 valley → P8 valley → P9 valley → P10 valley → P11 peak。P2（左右巨数对比）、P7（格局总览）视觉重量大，P5 冷知识用深色巨数打破连续 valley。</li>
+<li><strong>非对称版式</strong>：P2（左右对比）、P4（左比喻+右 Q/K/V）、P9（平台卡+价格锚点）、P10（左行动+右自测）——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P3（10 词卡 2×5）、P7（格局卡）、P8（6 框架卡）用对称，控制节奏。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：AI 认知与生态全景｜术语·模型·框架一次扫清</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_llm.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左右对比+巨数</td>
+<td align="left">1750亿/1.8万亿/284B</td>
+<td align="left">anchor</td>
+<td align="left">字数130/留白22%</td>
+<td align="left">禁止单列堆数据</td>
+<td align="left">LLM：参数量越大能力越强，但 2026 有新变量（MoE 反超）</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_terms.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">10 词卡 2×5</td>
+<td align="left">10 术语卡</td>
+<td align="left">evidence</td>
+<td align="left">字数140/留白18%</td>
+<td align="left">禁止术语堆成一段</td>
+<td align="left">核心术语一网打尽：10 词卡带一句解释</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_transformer.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">非对称双栏</td>
+<td align="left">比喻层+Q/K/V 标注</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止公式先行</td>
+<td align="left">Transformer：答题时圈重点的注意力机制（Q/K/V 选学）</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_token.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色巨数冷知识</td>
+<td align="left">40%~100%</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白35%</td>
+<td align="left">禁止浅底数据页</td>
+<td align="left">Token：AI 世界的计费货币，中文更贵</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_embedding.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上释义+下三应用卡</td>
+<td align="left">三应用卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白22%</td>
+<td align="left">禁止三卡无锚点</td>
+<td align="left">Embedding：文字变向量，机器才懂意思相近</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_models.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">主卡+四配角卡</td>
+<td align="left">模型格局卡</td>
+<td align="left">anchor</td>
+<td align="left">字数130/留白22%</td>
+<td align="left">禁止六模型等宽平铺</td>
+<td align="left">主流模型格局 2026-08：V4-Flash 领衔开源</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_frameworks.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">6 框架卡</td>
+<td align="left">6 框架卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白20%</td>
+<td align="left">禁止框架罗列无定位</td>
+<td align="left">开发框架：从 LangChain 开始，按场景选型</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_api.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左平台清单+右价格锚点</td>
+<td align="left">DeepSeek $0.14</td>
+<td align="left">anchor</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止平台堆价格</td>
+<td align="left">API 平台：一行 Key 接入，价格锚点 DeepSeek</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_action.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左行动清单+右自测</td>
+<td align="left">三步清单</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止行动与自测混排</td>
+<td align="left">本周行动：跑通一次模型对话 + 自测 3 题</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_qkv.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色收官+公式</td>
+<td align="left">Q/K/V 三步</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白35%</td>
+<td align="left">禁止数学推导堆满</td>
+<td align="left">选学：Q/K/V 到底在算什么（可跳过）</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P2：GPT-3 1750 亿 → GPT-4 1.8 万亿 → 参数量暴涨但边际递减；DeepSeek V4-Flash 284B 总参/13B 激活 → MoE 让小参数反超大参数。</li>
+<li>P5：中文 Token 税 40%~100% → 同样语义，中文比英文消耗更多 Token，更贵。</li>
+<li>P7：DeepSeek V4-Flash（开源旗舰）/ GPT-5 / Claude Opus 5 / Qwen / GLM / 豆包 → 2026-08 主流格局。</li>
+<li>P9：DeepSeek API $0.14 / 百万 input → 接入成本极低，一行 Key 即可开始。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC01%E8%AE%B2-AI%E8%AE%A4%E7%9F%A5%E4%B8%8E%E7%94%9F%E6%80%81%E5%85%A8%E6%99%AF/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-00-讲：开场与学习路线全景图（优化版）"><a href="#DESIGN-md-—-第-00-讲：开场与学习路线全景图（优化版）" class="headerlink" title="DESIGN.md — 第 00 讲：开场与学习路线全景图（优化版）"></a>DESIGN.md — 第 00 讲：开场与学习路线全景图（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 0 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰 #5B6B7A</li>
+</ul>
+</li>
+<li>封面 / 章节过渡 / 收官页用深色渐变 <code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code>，省略 C 区或改用浅色页脚字。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面、章节过渡与收官。</li>
+<li>半透明：深色块内嵌 <code>rgba(255,255,255,0.06)</code> 卡、<code>rgba(220,231,245,0.15)</code> 边框；装饰圆 <code>opacity 0.12</code>。</li>
+<li>Hero 页（P1/P3/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">章节过渡</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">68px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字（P2）</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.3</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">20px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">15-16px</td>
+<td align="left">regular</td>
+<td align="left">1.7</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」（≤2 中文字体家族）。</li>
+<li>巨型数据必须 bold + 与正文不同字重（68px vs 15px）。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/收官页 40%。</li>
+<li>卡片填充率 ≥85%，卡片正文 ≥80 字（高 ≥320px 卡）。</li>
+<li>卡片尾部元素用 <code>marginTop:&#39;auto&#39;</code> 锚定底部。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图）。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
+<li>本讲以「数字 + 卡片 + 图标」为主视觉，不引入外部配图；术语墙、路线、里程碑均用 Box/Text/FAIcon 组合还原。</li>
+<li>图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">色彩分配</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">主60+辅20+强15</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_must_learn.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">顶部标题+三巨数+底部类比条</td>
+<td align="left">120</td>
+<td align="left">22%</td>
+<td align="left">主40+辅30+强10</td>
+<td align="left">92%/200万+/1亿+ 巨数锚点</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_roadmap.slide</td>
+<td align="left">section</td>
+<td align="left">hero</td>
+<td align="left">深色过渡+N卡横排+箭头</td>
+<td align="left">100</td>
+<td align="left">30%</td>
+<td align="left">主55+辅20+强10</td>
+<td align="left">四阶段卡+箭头爬坡</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_prerequisite.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">非对称双栏 45:55</td>
+<td align="left">140</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">左角色对比+右术语墙</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_entry.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">上三模型卡+下方能力条</td>
+<td align="left">130</td>
+<td align="left">22%</td>
+<td align="left">主45+辅30</td>
+<td align="left">三模型徽标+Token/框架</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_advanced.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右三块</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">开源/部署/安全三块</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_expert.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">2×3 卡片</td>
+<td align="left">130</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">六能力卡，Embedding 起头</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_career.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三条路线递进+箭头</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30+强8</td>
+<td align="left">三角色递进箭头</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_method.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">三列方法论</td>
+<td align="left">120</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">比喻/实验/冷知识三步</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_nine_tricks.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">3×3 九招</td>
+<td align="left">90</td>
+<td align="left">18%</td>
+<td align="left">主45+辅30</td>
+<td align="left">九格短句心法</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_series.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">深色收官居中</td>
+<td align="left">90</td>
+<td align="left">38%</td>
+<td align="left">主60+强15</td>
+<td align="left">M1/M2/M3 里程碑</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P1(封面)→P2(标题+巨数)→P3(深色过渡)→P4(非对称双栏)→P5(上卡下条)→P6(左文右块)→P7(2×3)→P8(路线递进)→P9(三列)→P10(3×3)→P11(收官) ✅</li>
+<li>非对称版式 ≥ 40% ✅</li>
+<li>对称版式 P3/P7/P10 三页，均非相邻 ✅</li>
+<li>Hero 3 页 = 27%，互不相邻 ✅</li>
+<li>连续 valley ≤4：P4-P10 七连 → 其中 P7(2×3)、P10(3×3) 视觉加重，可接受 ✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC00%E8%AE%B2-%E5%BC%80%E5%9C%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%85%A8%E6%99%AF%E5%9B%BE/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第00讲-开场与学习路线全景图/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-00-讲：开场与学习路线全景图（优化版）"><a href="#STORY-md-—-第-00-讲：开场与学习路线全景图（优化版）" class="headerlink" title="STORY.md — 第 00 讲：开场与学习路线全景图（优化版）"></a>STORY.md — 第 00 讲：开场与学习路线全景图（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 0 讲「开场白」）。</li>
+<li><strong>核心目标</strong>：让观众在 20 分钟内建立三件事——「AI 不是新语言而是新行业」的认知、「四阶段爬坡」的学习地图、「先用好 AI 再谈精通」的实用心法，从而愿意跟完整个系列。</li>
+<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 收官），Hero 页配额 3 页（27%）。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙 + 青）。</li>
+<li><strong>内容边界</strong>：只讲「为什么学」「学什么路线」「怎么学」，不展开任何具体技术细节；术语只做「扫盲清单」，不深究原理。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 3 章：<ul>
+<li>第 1 章「为什么现在学」（P2 学 AI 是必修课）→ 扉页 P2</li>
+<li>第 2 章「学什么：四阶段路线」（P3 学习路线 / P4 前置 / P5 入门 / P6 进阶 / P7 高级）→ 扉页 P3</li>
+<li>第 3 章「怎么学 + 学完去哪」（P8 三条路线 / P9 学习方法 / P10 九招心法）→ 扉页 P8</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P3 学习路线（深色章节过渡）、P11 收官（3 页，27%，符合 20-30%）；P1→P3 间隔 P2（1 个 supporting），P3→P11 间隔 P4-P10。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 peak → P4 valley → P5 valley → P6 valley → P7 valley → P8 valley → P9 valley → P10 valley → P11 peak。P2 用「三巨数锚点」做视觉加重的 supporting，P7（2×3 卡片）与 P10（3×3 九招）视觉密度高，避免连续 valley 单调。</li>
+<li><strong>非对称版式</strong>：P2（顶部标题+三巨数+底部类比条）、P4（左角色对比+右术语墙）、P6（左文字+右三块）、P9（三列方法论）——非对称占比 ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：P3（N卡片横排）、P7（2×3 卡）、P10（3×3 九招）用对称，控制在可接受范围。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览</td>
+<td align="left">封面：AI 从零开始｜不是新语言，而是新行业</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_must_learn.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">顶部标题+三巨数+底部类比条</td>
+<td align="left">巨数 92%/200万+/1亿+</td>
+<td align="left">anchor</td>
+<td align="left">字数120/留白22%</td>
+<td align="left">禁止等宽三卡无主次</td>
+<td align="left">必修课：马车→汽车、马夫→程序员，三大数据锚点</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_roadmap.slide</td>
+<td align="left">section</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色章节过渡+N卡横排+箭头</td>
+<td align="left">四阶段卡+箭头</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白30%</td>
+<td align="left">禁止四卡装饰化</td>
+<td align="left">学习路线：前置→入门→进阶→高级四阶段爬坡</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_prerequisite.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">非对称双栏 45:55</td>
+<td align="left">术语墙 10 词</td>
+<td align="left">evidence</td>
+<td align="left">字数140/留白20%</td>
+<td align="left">禁止术语堆成一段</td>
+<td align="left">前置：先定位角色（AI vs ML 工程师）再扫清 10 术语</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_entry.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">上三模型卡+下方能力条</td>
+<td align="left">三模型徽标</td>
+<td align="left">evidence</td>
+<td align="left">字数130/留白22%</td>
+<td align="left">禁止模型参数堆砌</td>
+<td align="left">入门：会调用、会提问、会用框架</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_advanced.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右三块</td>
+<td align="left">图标锚点</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止三块等宽无层次</td>
+<td align="left">进阶：开源模型 + 本地部署 + AI 安全</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_expert.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">2×3 卡片</td>
+<td align="left">6 能力卡</td>
+<td align="left">evidence</td>
+<td align="left">字数130/留白20%</td>
+<td align="left">禁止六卡同色无重点</td>
+<td align="left">高级：Embedding/向量库/RAG/Agent/多模态/微调</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_career.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三条路线递进+箭头</td>
+<td align="left">三角色卡+箭头</td>
+<td align="left">anchor</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止三卡平铺</td>
+<td align="left">学完去哪：Prompt 工程师→Agent 工程师→AI 专家</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_method.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">三列方法论</td>
+<td align="left">三步卡</td>
+<td align="left">evidence</td>
+<td align="left">字数120/留白25%</td>
+<td align="left">禁止长篇说教</td>
+<td align="left">学习方法：比喻先行 + 动手实验 + 冷知识收尾</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_nine_tricks.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">3×3 九招</td>
+<td align="left">九格卡</td>
+<td align="left">evidence</td>
+<td align="left">字数90/留白18%</td>
+<td align="left">禁止九格塞长句</td>
+<td align="left">先用好 AI：九招心法 3×3</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_series.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">深色收官居中</td>
+<td align="left">里程碑 M1/M2/M3</td>
+<td align="left">anchor</td>
+<td align="left">字数90/留白38%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">系列预告：10 场正片 + 3 里程碑</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P2：92% 500强 / 200万+ 开发者 / 1亿+ 周活 → 三个大数字锚点，说明 AI 已是主流基建而非尝鲜玩具。</li>
+<li>P2：马车→汽车、马夫→程序员 → 行业类比，说明「被淘汰的不是马夫，而是不会开车的人」。</li>
+<li>P5：GPT-5 / Claude Opus 5 / DeepSeek V4-Flash → 入门只需会调三个预训练模型。</li>
+<li>P11：M1（会用）→ M2（会调）→ M3（会造）→ 三个里程碑串联 10 场正片。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC00%E8%AE%B2-%E5%BC%80%E5%9C%BA%E4%B8%8E%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%85%A8%E6%99%AF%E5%9B%BE/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/graph/7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/graph/7.html" target="_blank">
+      AI Graph工程（07）—— 业务流程实战：客服、审批、内容生产，三个场景的 Graph 工程改造
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/graph/7.html" class="archive-article-date">
+        <time datetime="2026-08-25T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>🎁 读完这篇你会得到什么</strong>：三个业务场景的完整 Graph 工程改造方案——客服分流、多级审批、内容生产，每个场景都有图设计、核心代码和落地数据。</p>
+</blockquote>
+<p>上一篇讲了研发流程的 Graph 工程化。</p>
+<p>这篇换到业务侧。</p>
+<p>研发流程的改造，受益的是工程师团队。业务流程的改造，影响的是整个公司——客服、运营、审批、内容，这些流程每天都在跑，每天都在消耗人力。</p>
+<p>不过在讲具体场景之前，有一个坑必须先说清楚。</p>
+    
+    <a class="article-more-a" href="/ailearn/graph/7.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">业务流程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/graph/7.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/graph/10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -967,590 +2217,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/07.html" target="_blank">
-      DeepSeek Harness 工程实践（07）—— 研发场景落地：CI 集成、代码审查与测试分析
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/07.html" class="archive-article-date">
-        <time datetime="2026-08-22T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是系列的第一个”落地篇”，从框架学习转向实际应用。需要你已经理解 dsh 的基本用法（第 02-06 篇）。本篇的代码可以直接拿去改用。<br><strong>🎁 读完你会得到</strong>：三个可以直接落地的研发场景方案：CI/CD 集成、PR 代码审查机器人、测试失败智能分析。</p>
-</blockquote>
-<p>前六篇讲了很多框架知识——插件、工具、架构、多 Agent。</p>
-<p>但说实话，学框架不是目的，用起来才是。</p>
-<p>这篇开始，我们进入落地阶段。研发团队最高频的三个痛点：代码审查靠人工效率低、CI 跑失败不知道哪里出了问题、技术债越堆越多没人管——这篇一个一个解决。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/07.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/07.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/06.html" target="_blank">
-      DeepSeek Harness 工程实践（06）—— 多 Agent 协作：子代理、工作流与 Teams
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/06.html" class="archive-article-date">
-        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇接着第 05 篇，需要你已经理解 dsh 的基本架构和插件机制。多 Agent 是 dsh 的进阶能力，适合任务复杂度超出单 Agent 处理范围的场景。<br><strong>🎁 读完你会得到</strong>：理解 dsh 子代理的调度机制、工作流的串并行设计、Teams 的配置方式，以及 <code>agent.ctx</code> 作用域隔离和 <code>ctx.goals</code> 目标管理的实际用法。</p>
-</blockquote>
-<p>你让 Agent 帮你做一个完整的代码审查——检查风格、找安全漏洞、评估性能，最后出一份综合报告。</p>
-<p>单个 Agent 能做，但做得不够好。它的注意力会分散，风格审查做到一半开始想安全问题，安全问题没查完又跳去看性能。最后给你一份什么都提了、什么都没说透的报告。</p>
-<p>这种场景，就是多 Agent 的用武之地。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/06.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/06.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/graph/4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/graph/4.html" target="_blank">
-      AI Graph工程（04）—— 让可控性拉满：人机协同（HITL）与断点调试在 Graph 工程中的落地
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/graph/4.html" class="archive-article-date">
-        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚怎么在图里插入人工审批节点，怎么用 <code>update_state</code> 动态修改 State，以及 Time Travel 和 Langfuse 在实际调试中怎么用。</p>
-</blockquote>
-<p>上一篇讲了 State 的设计和记忆架构。</p>
-<p>图能跑起来了，但生产环境里还有一个绕不开的问题：<strong>谁来监督 Agent？</strong></p>
-<p>Agent 自己跑到底，在很多场景里是不可接受的。金融操作、内容发布、代码部署——这些关键节点必须有人确认。不是不信任 Agent，而是这类决策的错误成本太高，一旦出错，代价远超”多等几秒让人看一眼”的成本。</p>
-<p>这就是 Human-in-the-Loop（HITL）要解决的问题。</p>
-    
-    <a class="article-more-a" href="/ailearn/graph/4.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/graph/4.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/05.html" target="_blank">
-      DeepSeek Harness 工程实践（05）—— 架构深度解析：一条消息进来，dsh 内部发生了什么
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/05.html" class="archive-article-date">
-        <time datetime="2026-08-21T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是架构深度篇，适合已经能写插件和工具、想搞清楚 dsh 内部运转逻辑的开发者。理解这些机制，能帮你更准确地选择扩展点、排查问题。<br><strong>🎁 读完你会得到</strong>：理解 dsh 的轮次流程、三类事件的区别和用法、会话日志的核心不变量，以及 Seam 机制为什么让 dsh 如此灵活。</p>
-</blockquote>
-<p>你发出一条指令，Agent 开始工作——读文件、改代码、跑测试。</p>
-<p>这中间 dsh 内部到底发生了什么？</p>
-<p>前几篇我们学了怎么写插件、怎么注册工具。但如果你不清楚 dsh 内部的运转逻辑，遇到问题就只能靠猜。这篇把盖子掀开，从头到尾走一遍。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/05.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/04.html" target="_blank">
-      DeepSeek Harness 工程实践（04）—— 工具开发实战：给 Agent 装上你自己的工具
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/04.html" class="archive-article-date">
-        <time datetime="2026-08-21T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇接着第 03 篇，需要你已经能写出基本的 dsh 插件。工具开发是插件开发的核心，也是让 Agent 真正”有用”的关键一步。<br><strong>🎁 读完你会得到</strong>：能写出一个完整的 dsh 工具，理解 Tool DSL 的每个字段是干什么的，以及工具执行流水线怎么用来做安全控制。</p>
-</blockquote>
-<p>上一篇写了一个会话日志记录器，它能监听事件、打日志，但它不能给 Agent 增加新能力。</p>
-<p>Agent 的能力来自<strong>工具</strong>。工具是 Agent 和外部世界交互的唯一接口——读文件、跑命令、查数据库、调 API，全都是通过工具完成的。</p>
-<p>这篇专门讲工具开发。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/04.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/04.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2059,6 +2728,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
               </li>
             
             <div class="clearfix"></div>

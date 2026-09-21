@@ -361,6 +361,794 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/loop/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/06.html" target="_blank">
+      AI Agent Loop 工程实践（06）—— 选型指南：三种方案，5 分钟决策
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/06.html" class="archive-article-date">
+        <time datetime="2026-07-29T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>综合</strong>，适合读完前五篇、准备动手做项目的开发者。<br><strong>🎁 核心收获</strong>：一张选型决策树 + 五个真实场景示范 + 一份上线前设计清单，帮你在 5 分钟内决定用哪种方案。</p>
+</blockquote>
+<p>读完前五篇，你大概知道了三件事：</p>
+<p>Agent Loop 是什么、怎么实现、会遇到哪些坑。</p>
+<p>但知道归知道，真正要动手做一个项目的时候，还是会卡在同一个问题上——</p>
+<p><strong>我到底该用哪种方案？</strong></p>
+<p>这篇就是来解决这个问题的。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/11.html" target="_blank">
+      中小企业落地Ontology（03）—— 最小可行构建与避坑方案
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/11.html" class="archive-article-date">
+        <time datetime="2026-07-24T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇是动手实战篇。前面把概念和方案都铺好了，这里直接写代码。小白看个热闹——知道本体长什么样；开发者照着抄就能跑；专家看我踩的坑有没有共鸣。建议配合第 05 篇一起读。<br><strong>🎁 核心收获</strong>：一份直接可用的 Turtle 本体 + SPARQL 查询示例，以及一个中小企业落地时最容易栽进去的坑清单。</p>
+</blockquote>
+<p>前面两篇，一篇讲场景、一篇讲方案。这一篇不废话，直接上手。我把一个中小企业最容易落地的”客服+产品”最小本体写出来，你复制就能跑（用任何支持 RDF 的工具，比如 Apache Jena 的 <code>arq</code>，或者在线 SPARQL 编辑器）。</p>
+<h2 id="先想清楚：这个小本体管什么"><a href="#先想清楚：这个小本体管什么" class="headerlink" title="先想清楚：这个小本体管什么"></a>先想清楚：这个小本体管什么</h2><p>回到第 09 篇的场景一。我们管三样东西：<strong>产品套餐</strong>、<strong>它包含的功能节点</strong>、<strong>它的保修条款</strong>。再加一条时间约束（呼应第 02 篇）——套餐的规则可能变，变了旧规则要作废。</p>
+<p>实体就三个：<code>套餐</code>、<code>节点</code>、<code>保修条款</code>。关系：<code>contains</code>（套餐含节点）、<code>not_contains</code>（套餐不含节点）、<code>has_warranty</code>（套餐适用哪个保修）、<code>valid_during</code>（条款在哪段时间有效）。属性：<code>name</code>、<code>effective_date</code>。</p>
+<h2 id="用-Turtle-把它写出来"><a href="#用-Turtle-把它写出来" class="headerlink" title="用 Turtle 把它写出来"></a>用 Turtle 把它写出来</h2><p>Turtle 是 RDF 最接地气的写法（第 05 篇讲过），读起来像”主语 谓语 宾语”。下面这份就是我们的 MVP 本体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@prefix : &lt;http://example.com/sme-ontology/&gt; .</span><br><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .</span><br><span class="line"></span><br><span class="line"># ===== 实体定义 =====</span><br><span class="line">:套餐A a :套餐 ;</span><br><span class="line">    :name &quot;基础套餐A&quot; ;</span><br><span class="line">    :contains :国内节点 ;</span><br><span class="line">    :not_contains :海外节点 ;</span><br><span class="line">    :has_warranty :保修条款V2 ;</span><br><span class="line">    :effective_date &quot;2026-04-01&quot;^^xsd:date .</span><br><span class="line"></span><br><span class="line">:套餐B a :套餐 ;</span><br><span class="line">    :name &quot;进阶套餐B&quot; ;</span><br><span class="line">    :contains :国内节点, :海外节点 ;</span><br><span class="line">    :has_warranty :保修条款V2 ;</span><br><span class="line">    :effective_date &quot;2026-04-01&quot;^^xsd:date .</span><br><span class="line"></span><br><span class="line">:国内节点 a :节点 ;</span><br><span class="line">    :name &quot;国内节点&quot; .</span><br><span class="line"></span><br><span class="line">:海外节点 a :节点 ;</span><br><span class="line">    :name &quot;海外节点&quot; .</span><br><span class="line"></span><br><span class="line">:保修条款V2 a :保修条款 ;</span><br><span class="line">    :name &quot;2026版保修条款&quot; ;</span><br><span class="line">    :valid_during &quot;2026-04-01&quot;^^xsd:date .</span><br><span class="line"></span><br><span class="line"># ===== 一条作废的旧规则（演示时间约束）=====</span><br><span class="line">:套餐A_old a :套餐 ;</span><br><span class="line">    :name &quot;基础套餐A（2026版前）&quot; ;</span><br><span class="line">    :contains :国内节点, :海外节点 ;</span><br><span class="line">    :has_warranty :保修条款V1 .</span><br><span class="line"></span><br><span class="line">:保修条款V1 a :保修条款 ;</span><br><span class="line">    :name &quot;2025版保修条款&quot; ;</span><br><span class="line">    :valid_during &quot;2025-01-01&quot;^^xsd:date .</span><br></pre></td></tr></table></figure>
+
+<p>看着不少，其实就干了一件事：把”套餐 A 含国内不含海外、适用 V2 保修、4 月 1 日生效”这个业务事实，用机器能读的方式写死了。第 09 篇里那个让 LLM 不再乱答的”说明书”，落地就是这几行。</p>
+<h2 id="用-SPARQL-查它——多跳就在这"><a href="#用-SPARQL-查它——多跳就在这" class="headerlink" title="用 SPARQL 查它——多跳就在这"></a>用 SPARQL 查它——多跳就在这</h2><p>本体建好，关键是怎么问。第 05 篇说过，SPARQL 的精髓是多跳查询。我们问一个客服真实会遇到的问题：”<strong>套餐 A 现在到底含不含海外节点？</strong>“</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PREFIX : &lt;http://example.com/sme-ontology/&gt;</span><br><span class="line">PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</span><br><span class="line"></span><br><span class="line">SELECT ?pkg ?node ?contains WHERE &#123;</span><br><span class="line">  ?pkg a :套餐 ;</span><br><span class="line">       :name &quot;基础套餐A&quot; ;</span><br><span class="line">       ?rel ?node .</span><br><span class="line">  ?node a :节点 .</span><br><span class="line">  FILTER(?rel = :contains || ?rel = :not_contains)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这条查出来会告诉你：套餐 A <code>contains</code> 国内节点、<code>not_contains</code> 海外节点。LLM 拿到这个结果再去组织语言，就不会把”不含”说成”含”——这就是第 07 篇说的”连接主义理解 + 符号主义约束”在最小尺度上的样子。</p>
+<p>再加一条更有意思的：问”<strong>2026 年 4 月之后生效的套餐，都适用哪个保修？</strong>“这就需要沿 <code>has_warranty</code> 跳到保修实体，再看它的 <code>valid_during</code>。这种两跳、三跳的查询，正是普通 RAG（只能做向量相似度召回）做不到、而本体图谱天然擅长的。</p>
+<h2 id="接-LLM-的那一层，别省"><a href="#接-LLM-的那一层，别省" class="headerlink" title="接 LLM 的那一层，别省"></a>接 LLM 的那一层，别省</h2><p>代码层面，本体和 LLM 怎么接？最小做法：把 SPARQL 查询结果拼进给 LLM 的 Prompt 里当上下文。比如用户问”套餐 A 含海外吗”，你的程序先跑上面的查询，把结果塞进提示词：”根据系统记录：套餐 A 不包含海外节点。请基于此回答用户。”LLM 这时就是个会说话的嘴，事实的边界由本体卡死。</p>
+<p>这比纯 RAG 稳在哪？RAG 是从文档里”找相似的句子”，找回来可能是篇过时的宣传稿；本体查询是”查确定的关系”，答案是结构化的真或假。小公司用这个组合（本体查事实 + LLM 管表达），性价比极高。</p>
+<h2 id="中小企业真实踩坑清单"><a href="#中小企业真实踩坑清单" class="headerlink" title="中小企业真实踩坑清单"></a>中小企业真实踩坑清单</h2><p>代码给你了，最后把我见过的、中小企业在落地本体时最容易栽的坑列一遍。这些坑，文档里不会写，都是真金白银换来的：</p>
+<p><strong>坑一：实体定义得太细，三个月没人维护。</strong> 有人一口气定义了”客户细分维度””渠道归因模型”等十几个花哨实体，结果业务一变，没人更新，图谱立刻过期。MVP 阶段，实体数控制在”一只手数得过来”。</p>
+<p><strong>坑二：把图数据库当主数据库用。</strong> 订单流水、用户行为全往 Neo4j 里塞，三个月后写入变慢、查询变卡。记住：本体管语义和关系，原始数据待在原处，本体只存”引用”和”摘要”。</p>
+<p><strong>坑三：时间约束上线第一天就漏了。</strong> 第 02 篇讲的时间感知，很多人觉得”以后再加”。结果套餐规则一改，新旧答案同时存在于图谱里，LLM 随机抽一个，错得更隐蔽。新实体一进图谱，就带上 <code>effective_date</code>，这习惯从第一天养成。</p>
+<p><strong>坑四：权限后置。</strong> 第 06 篇强调的权限，小公司常想”内部用不用那么严”。等哪天实习生用 Agent 查到了财务数据，才想起来补。本体里的对象从建模时就标好”谁能看”，比事后打补丁省事十倍。</p>
+<p><strong>坑五：业务老手不参与建模。</strong> 这是最致命的。工程师自己拍脑袋定义的”地区层级””产品分类”，往往跟业务实际对不上，上线后销售根本不认。阶段一那张白板（第 10 篇讲的），得有业务的人拍板。</p>
+<p><strong>坑六：追求”完美本体”迟迟不上线。</strong> 有人非要把全公司知识建模完才肯接 LLM，半年过去还在画实体图。本体是活的，先上线一个能用的，让它跟着业务长，比憋一个大招现实得多。</p>
+<p>走到这篇，从”本体是什么”到”中小企业怎么真落地”，这条线就算接上了。你手里现在有：三个场景（09）、一份方案（10）、一套能跑的代码和一份避坑清单（11）。剩下的，就是挑你们公司最疼的那个场景，花几天把业务知识写下来——这事没有想象中难，难的从来都是”开始写”那一下。</p>
+<hr>
+<h2 id="📝-小结"><a href="#📝-小结" class="headerlink" title="📝 小结"></a>📝 小结</h2><ul>
+<li>MVP 本体三实体：套餐、节点、保修条款；四关系：contains / not_contains / has_warranty / valid_during</li>
+<li>Turtle 把业务事实写死，LLM 不再乱答——最小尺度的”符号约束连接主义”</li>
+<li>SPARQL 多跳查询（如”套餐A含不含海外”）是普通 RAG 做不到的，本体天然擅长</li>
+<li>LLM 接入层：先查图、再把结果拼进 Prompt，让模型只管”说人话”</li>
+<li>六个真实坑：实体过细、图当主库、漏时间约束、权限后置、业务不参与、追求完美不出手</li>
+</ul>
+<hr>
+<blockquote>
+<p>📚 <strong>系列导航</strong></p>
+<ul>
+<li>第 01 篇：Ontology：被低估的 AI Agent 核心基础设施</li>
+<li>第 02 篇：时间感知 Agent 实战：用知识图谱让 AI 记住”什么时候什么是真的”</li>
+<li>第 03 篇：Palantir 模式：本体如何成为企业 AI 的决策中枢</li>
+<li>第 04 篇：Microsoft Fabric：企业语义层的工程实践</li>
+<li>第 05 篇：Ontology 动手构建：OWL/RDF/SPARQL 实战指南</li>
+<li>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</li>
+<li>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</li>
+<li>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</li>
+<li>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</li>
+<li>第 10 篇：项目落地方案：中小企业用轻量栈搭本体</li>
+<li><strong>第 11 篇：落地实战：一个最小可行本体的构建与避坑</strong> ⬅️ 你在这里</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>📖 <strong>本系列参考资料</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/ontology-optional-until-your-ai-has-scale-bojan-ciric-lutve">Ontology is Optional Until Your AI Has To Scale — LinkedIn</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective AI Agents — Anthropic Engineering</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents">Temporal Agents with Knowledge Graphs — OpenAI Cookbook</a></li>
+</ul>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">中小企业落地</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/11.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/10.html" target="_blank">
+      中小企业落地Ontology（02）—— 用轻量栈搭本体项目落地方案
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/10.html" class="archive-article-date">
+        <time datetime="2026-07-23T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇是落地方案篇，偏”怎么做项目”。业务负责人看前两段就能拿去立项，开发者往后看能直接照着搭。不需要 Palantir 预算，一台云服务器就能起步。<br><strong>🎁 核心收获</strong>：你会拿到一张选型对比表、一张四阶段路线图，以及一个 50 人公司大概要花多少人和多少钱的实打实估算。</p>
+</blockquote>
+<p>上篇聊了三个场景，你可能已经有点心动：客服、销售、库存，听着都能用。但心动到立项之间，还隔着一堆很现实的问题——用什么技术？找谁做？花多少钱？做多久？</p>
+<p>这篇就把这些”脏活”摊开讲。先说结论：<strong>对一个几十人的公司，一个能跑起来的轻量本体项目，1 个懂点数据的工程师 + 1 个业务老手，2 到 4 周就能出第一个可用版本，云成本一个月几百块</strong>。没那么吓人。</p>
+<h2 id="第一步：选型，别一上来就想买平台"><a href="#第一步：选型，别一上来就想买平台" class="headerlink" title="第一步：选型，别一上来就想买平台"></a>第一步：选型，别一上来就想买平台</h2><p>中小企业落地本体，技术栈大体三条路，我把它们的真实差别摆出来：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>代表</th>
+<th>上手成本</th>
+<th>适合阶段</th>
+<th>中小企业友好度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>重型平台</td>
+<td>Palantir Foundry、Microsoft Fabric</td>
+<td>高（商务+实施周期长、按席位/用量计费）</td>
+<td>跨系统、要决策写回的大企业</td>
+<td>⭐ 基本不友好</td>
+</tr>
+<tr>
+<td>图数据库自建</td>
+<td>Neo4j / NebulaGraph + LLM</td>
+<td>中（要自己建模和接 LLM）</td>
+<td>有专属工程师、想自主可控</td>
+<td>⭐⭐⭐⭐ 很友好</td>
+</tr>
+<tr>
+<td>轻量文件图谱</td>
+<td>CSV/JSON + RAG + 简单图查询</td>
+<td>低（几乎零基础设施）</td>
+<td>验证想法、场景简单</td>
+<td>⭐⭐⭐ 友好但天花板低</td>
+</tr>
+</tbody></table>
+<p>我的建议很直接：<strong>从小往大走</strong>。先用”轻量文件图谱”验证逻辑通不通——比如把产品规则丢进一份结构化文件，接个 RAG 看客服幻觉有没有降下来。验证有效了，再考虑上 Neo4j，把关系建模做得更扎实、支持多跳查询（呼应第 05 篇的 SPARQL 多跳）。等到你真的要”跨十几个系统、还要自动执行决策”了，那时候再谈重型平台也不迟。</p>
+<p>这里有个坑得提前说：很多人一看”图数据库”就觉得非 Neo4j 不可。其实对大多数中小企业，前半年的数据量，PostgreSQL 加一个递归查询也能顶住，甚至 Excel 转成的图文件都够用。技术选型的铁律是——<strong>够用到下一步就行，别为想象中的规模提前买单</strong>。</p>
+<h2 id="第二步：四阶段路线图，照着走"><a href="#第二步：四阶段路线图，照着走" class="headerlink" title="第二步：四阶段路线图，照着走"></a>第二步：四阶段路线图，照着走</h2><p>不管选哪条技术路，项目推进的节奏是通用的。我画了张四阶段的图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;阶段一\n知识盘点\n(3-5天)&quot;] --&gt; B[&quot;阶段二\n轻量建模\n(1-2周)&quot;]</span><br><span class="line">    B --&gt; C[&quot;阶段三\n接入 LLM\n(1-2周)&quot;]</span><br><span class="line">    C --&gt; D[&quot;阶段四\n验证迭代\n(持续)&quot;]</span><br><span class="line">    </span><br><span class="line">    A1[&quot;· 拉着业务老手\n· 列出核心实体\n· 找出分散数据源&quot;] -.-&gt; A</span><br><span class="line">    B1[&quot;· 定义实体/关系/属性\n· 画最小图谱\n· 先覆盖1个场景&quot;] -.-&gt; B</span><br><span class="line">    C1[&quot;· RAG或图查询接LLM\n· 回答前先查图\n· 加时间/权限约束&quot;] -.-&gt; C</span><br><span class="line">    D1[&quot;· 真实工单回流\n· 错哪补哪\n· 逐步扩场景&quot;] -.-&gt; D</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+
+<p><strong>阶段一，知识盘点（3-5 天）</strong>。这步最容易被跳过，但最值钱。你拉着业务老手（客服主管、销售头、仓库负责人），问一个问题：”你们每天做的判断，靠的是哪些’只有你知道’的信息？”把这些信息列出来——产品哪些能卖、地区怎么归、库存谁说了算——这就是你本体的第一批实体和关系。注意，这步不写代码，纯聊天+白板。</p>
+<p><strong>阶段二，轻量建模（1-2 周）</strong>。把盘出来的东西落成结构。先只覆盖一个场景（比如客服），定义清楚”套餐””节点””保修”这几个实体和它们的关系，画一张最小图谱。别贪多，先把一条线跑通。</p>
+<p><strong>阶段三，接入 LLM（1-2 周）</strong>。把图谱接到模型上。要么走 RAG（把图谱内容当检索源），要么走图查询（像第 05 篇那样用 SPARQL 多跳）。关键是”LLM 回答前先查图”这个机制——别忘了把第 02 篇的时间约束、第 06 篇的权限约束也带上，别等出事才补。</p>
+<p><strong>阶段四，验证迭代（持续）</strong>。把真客户问题、真实工单往里灌，看它答错在哪，错哪补哪。这步没有终点，本体是活的东西，业务变它就变。</p>
+<h2 id="第三步：人和钱，实话实说"><a href="#第三步：人和钱，实话实说" class="headerlink" title="第三步：人和钱，实话实说"></a>第三步：人和钱，实话实说</h2><p>很多老板卡在”这得招多少人”。按我上面的节奏，最小配置是这样：</p>
+<ul>
+<li><strong>1 个工程师</strong>：懂 SQL、会点 Python、能折腾 LLM API 就行，不要求图数据库专家。前半段用文件图谱，他一个人能扛。</li>
+<li><strong>1 个业务老手（兼职）</strong>：就是阶段一白板会议里那个人，不用全职，每周给半天梳理业务规则。</li>
+<li><strong>外部算力</strong>：LLM 调用按量计费，中小企月调用量通常几百块；图数据库如果上 Neo4j，一台 4G 内存的云服务器够跑，月费几十到一百出头。</li>
+</ul>
+<p>算总账：一个 4 周出 MVP 的项目，人力约等于”1 个工程师一个月 + 业务老手 1/4 个月”，云成本可忽略。这跟”买套企业平台、养个实施团队”根本不是一回事。说白了，中小企业落地本体最大的成本不是钱，是<strong>你愿不愿意花那几天，把业务知识从老员工脑子里掏出来写下来</strong>——这恰恰是前面所有篇反复说的”显式化”。</p>
+<h2 id="第四步：风险控制，别让项目死在这几件事上"><a href="#第四步：风险控制，别让项目死在这几件事上" class="headerlink" title="第四步：风险控制，别让项目死在这几件事上"></a>第四步：风险控制，别让项目死在这几件事上</h2><p>落到工程，有几个真实会害死项目的地方，提前讲：</p>
+<p><strong>别想一口气建模全公司</strong>。一上来就定义 200 个实体，工程师懵了，业务也凑不齐数据。永远从”一个场景、十几二十个实体”开始，跑通再加。</p>
+<p><strong>别让业务老手中途撤</strong>。本体建模依赖他们对业务的判断，这人一走，项目就悬空。阶段一的结论务必留文档。</p>
+<p><strong>别把图谱当万能存储</strong>。本体管的是”关系和语义”，原始交易数据该待在数据库里待在数据库里。把订单流水全塞进图里，图谱会先膨胀后崩溃（第 08 篇讲的”图谱膨胀”坑，小公司一样踩）。</p>
+<p><strong>先有查询，再有写回</strong>。中小企业第一版只做”查”（客服问答、线索聚合），别急着做”自动执行”（自动改库存、自动发采购单）。写回一旦出错，锅比幻觉大得多。</p>
+<p>把这四步按顺序走，你手里的就不是 PPT 上的概念，而是一个真能减少客服瞎答、让销售对齐口径、把库存对上账的本体系统。下一篇，我们直接上手——给你一个最小可行本体的真实代码，从建模到查询跑一遍。</p>
+<hr>
+<h2 id="📝-小结"><a href="#📝-小结" class="headerlink" title="📝 小结"></a>📝 小结</h2><ul>
+<li>选型三路：重型平台（大企业）/ Neo4j 自建（自主可控）/ 文件图谱（验证用），中小企业从轻往重走</li>
+<li>四阶段路线图：知识盘点 → 轻量建模 → 接入 LLM → 验证迭代，前两段不写代码</li>
+<li>人力真相：1 工程师 + 1 业务老手（兼职），4 周出 MVP，云成本月几百块</li>
+<li>最大成本不是钱，是把隐性业务知识写下来的那几天</li>
+<li>四个雷：别全量建模、别撤业务老手、别拿图当主存储、先查后写回</li>
+</ul>
+<hr>
+<blockquote>
+<p>📚 <strong>系列导航</strong></p>
+<ul>
+<li>第 01 篇：Ontology：被低估的 AI Agent 核心基础设施</li>
+<li>第 02 篇：时间感知 Agent 实战：用知识图谱让 AI 记住”什么时候什么是真的”</li>
+<li>第 03 篇：Palantir 模式：本体如何成为企业 AI 的决策中枢</li>
+<li>第 04 篇：Microsoft Fabric：企业语义层的工程实践</li>
+<li>第 05 篇：Ontology 动手构建：OWL/RDF/SPARQL 实战指南</li>
+<li>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</li>
+<li>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</li>
+<li>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</li>
+<li>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</li>
+<li><strong>第 10 篇：项目落地方案：中小企业用轻量栈搭本体</strong> ⬅️ 你在这里</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>📖 <strong>本系列参考资料</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/ontology-optional-until-your-ai-has-scale-bojan-ciric-lutve">Ontology is Optional Until Your AI Has To Scale — LinkedIn</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective AI Agents — Anthropic Engineering</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents">Temporal Agents with Knowledge Graphs — OpenAI Cookbook</a></li>
+</ul>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">中小企业落地</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/10.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/loop/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/loop/05.html" target="_blank">
+      AI Agent Loop 工程实践（05）—— 当一个 Agent 不够用：多 Agent 协作的编排之道
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/loop/05.html" class="archive-article-date">
+        <time datetime="2026-07-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过单 Agent Loop、想处理更复杂任务的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将理解多 Agent 架构的设计逻辑，以及什么时候该上多 Agent、什么时候一个就够。</p>
+</blockquote>
+<p>你让 Agent 把一个老项目从 JavaScript 迁移到 TypeScript。</p>
+<p>它开始干了。读文件、改代码、跑测试……跑了 30 轮，改了一半，上下文快满了。你让它继续，它开始忘事。你加了上下文压缩，它把之前的架构决策压没了，后面改的代码和前面对不上。</p>
+<p>加大 Token 窗口？治标不治本。下次遇到更大的项目还是一样。</p>
+<p>这时候你会想：要不上多个 Agent？</p>
+<p>但多 Agent 不是”多几个 Agent 就行了”。它有自己的架构问题，而且坑比单 Agent 多得多。</p>
+    
+    <a class="article-more-a" href="/ailearn/loop/05.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/05.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/09.html" target="_blank">
+      中小企业的落地Ontology（01）—— ：不建大平台，也能用上 Ontology
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/09.html" class="archive-article-date">
+        <time datetime="2026-07-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇是续篇，讲”落地场景”。前面 01-08 篇把概念和平台铺开了，这篇开始往”中小企业真能用”上靠。不管你是老板、业务负责人还是写代码的，都能顺着读——前面偏直觉，往后越挖越实。<br><strong>🎁 核心收获</strong>：你会看到三个中小企业就能上手的实际场景，明白本体到底解决什么具体问题，以及它跟 Palantir 那种重平台的区别在哪。</p>
+</blockquote>
+<p>前面八篇，我们从”本体是什么”一路聊到 Palantir、微软、OWL、神经符号。聊到这你心里大概有个疑问：<strong>这些听着都是大厂玩的，我一个几十号人、系统才五六个的小公司，跟我有什么关系？</strong></p>
+<p>这个疑问特别正常，而且它本身就是个误区。本体这东西，不是非得买一套几百万的平台才算用上。它本质上是一种”把业务知识说清楚”的纪律——这纪律，小公司一样缺，而且缺得更疼。</p>
+<h2 id="先破一个误区：本体-≠-重平台"><a href="#先破一个误区：本体-≠-重平台" class="headerlink" title="先破一个误区：本体 ≠ 重平台"></a>先破一个误区：本体 ≠ 重平台</h2><p>很多人一听 Ontology，脑子里立刻浮现 Palantir 那种指挥中心大屏、成百上千个对象的复杂图谱。于是下结论：这是大厂玩具，我们玩不起。</p>
+<p>其实不是。你回头看第 01 篇那个比喻——本体就是”AI 的业务说明书”。一个 50 人的公司，业务说明书不需要写 500 页，写 20 页可能就够了。问题是，哪怕只写 20 页，你今天有吗？</p>
+<p>我见过太多中小企业的真实情况：客户信息散在销售的个人微信里，产品规格藏在某个 Excel 的第三个 sheet，退换货规则只有客服主管脑子里有。AI 一接进来，照样”乱说话”——而且因为公司小、没人专门治理数据，乱得更彻底。</p>
+<p>所以中小企不是”用不起本体”，是”更需要一个轻量的本体”。下面三个场景，都是几十人规模的公司能落地的真事。</p>
+<h2 id="场景一：智能客服不再”幻觉式”答非所问"><a href="#场景一：智能客服不再”幻觉式”答非所问" class="headerlink" title="场景一：智能客服不再”幻觉式”答非所问"></a>场景一：智能客服不再”幻觉式”答非所问</h2><p>先说最直觉的。你开个网店或者做 SaaS，客服每天被问爆：这个型号支不支持某个功能？保修期怎么算？老客户续费有什么政策？</p>
+<p>你接个 LLM 当客服助手，没本体之前它会干嘛？它根据训练数据”编”。问”你们 A 套餐包不包含海外节点”，它可能非常自信地答”包含”——其实你三个月前就改成不含了，官网上也没写清楚。这种错误，一个大客户发现一次，信任就没了。</p>
+<p>本体在这里干的事很具体：把你的<strong>产品目录、套餐规则、保修条款、退换政策</strong>定义成一组带关系的对象。比如”套餐 A”这个对象，属性里写死”含国内节点：是 / 含海外节点：否 / 生效时间：2026-04-01”，它和”节点”是 <code>contains</code> 关系，和”套餐 B”是 <code>upgrade_from</code> 关系。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;套餐 A&quot;] --&gt;|&quot;contains&quot;| B[&quot;国内节点&quot;]</span><br><span class="line">    A --&gt;|&quot;not_contains&quot;| C[&quot;海外节点&quot;]</span><br><span class="line">    A --&gt;|&quot;upgrade_from&quot;| D[&quot;套餐 B&quot;]</span><br><span class="line">    A --&gt;|&quot;has_warranty&quot;| E[&quot;保修条款 v2&quot;]</span><br><span class="line">    E --&gt;|&quot;valid_during&quot;| F[&quot;2026-04-01 ~ 至今&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#3d1a1a,stroke:#f85149,color:#c9d1d9</span><br><span class="line">    style F fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+
+<p>落到工程上，这一步不复杂。你不用上 Palantir，把产品规则整理成一份结构化文件（哪怕是 CSV 转成的图），再用 RAG 或者第 05 篇讲的轻量知识图谱接上 LLM，让它在回答前先查这张图。效果立竿见影：明确”否”的事，它不会再编成”是”。</p>
+<p>再往深想一层，这其实就是第 02 篇”时间感知”和第 07 篇”神经符号”的微型版——你用结构化约束，把 LLM 的”统计性猜测”圈在了确定性的业务事实里。小公司不需要完整的神经符号架构，但只要开始”用显式知识约束 LLM 输出”，你就已经在用本体了。</p>
+<h2 id="场景二：销售线索不再”各说各话”"><a href="#场景二：销售线索不再”各说各话”" class="headerlink" title="场景二：销售线索不再”各说各话”"></a>场景二：销售线索不再”各说各话”</h2><p>第二个场景，销售团队。一个 30 人的公司，销售线索从哪来？官网表单、抖音投放、展会名片、老客户转介绍。问题是，这些线索进了系统，字段乱七八糟：有人填”北京”，有人填”北京市”，有人填”京”。销售主管想看”华北区这个月高意向线索有多少”，系统查不出来，因为”北京”和”华北”之间没有任何关系被定义。</p>
+<p>本体在这里的价值是<strong>统一语义 + 建立层级</strong>。你定义”地区”是一个实体类型，下面挂”华北区”，华北区下面挂”北京、天津、河北”。再定义”线索”有”来源渠道””意向等级””所属地区”这些属性，而且”所属地区”必须引用你定义好的地区实体，不能随便填自由文本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;线索 #1024&quot;] --&gt;|&quot;source&quot;| B[&quot;抖音投放&quot;]</span><br><span class="line">    A --&gt;|&quot;region&quot;| C[&quot;北京&quot;]</span><br><span class="line">    A --&gt;|&quot;intent_level&quot;| D[&quot;高&quot;]</span><br><span class="line">    C --&gt;|&quot;belongs_to&quot;| E[&quot;华北区&quot;]</span><br><span class="line">    E --&gt;|&quot;belongs_to&quot;| F[&quot;大区体系&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+
+<p>这事儿听着简单，做和不做差很远。做了，销售主管问”华北区高意向线索”，系统沿着 <code>belongs_to</code> 一路往上聚合，北京、天津、河北的线索全算进来，一句自然语言就能查（呼应第 04 篇的 NL2Ontology）。没做，只能靠人工在 Excel 里筛选，还经常因为”京”和”北京”对不上而漏数。</p>
+<p>从机制上说，这就是第 05 篇讲的”实体-关系-属性”最朴素的应用，没有 OWL 推理那么重，但基数约束（一个线索只能属于一个地区）和层级关系（地区属于大区）已经把数据治理的架子搭起来了。小公司最划算的投入，往往就是这种”先把关系说清楚”的轻量本体。</p>
+<h2 id="场景三：库存和采购终于”对得上账”"><a href="#场景三：库存和采购终于”对得上账”" class="headerlink" title="场景三：库存和采购终于”对得上账”"></a>场景三：库存和采购终于”对得上账”</h2><p>第三个场景，稍微往运营侧走。很多做电商 or 零售的中小企业，库存在一个系统（或者干脆是仓库的 Excel），采购在另一个表，销售在第三个。结果经常是：销售那边显示有货能接单，仓库说没货，采购说”我上周不是下单了吗”——三方各一本账。</p>
+<p>本体的解法，是把”商品、库存、采购单、供应商”定义成互相关联的对象。商品有 SKU，库存按 SKU 记录数量和仓库位置，采购单关联 SKU 和供应商，还带”预计到货时间”。当一个 Agent 接到”客户要 100 件，能不能接”的问题，它不再瞎猜，而是沿图查：当前库存够不够 → 不够的话在途采购单啥时候到 → 供应商历史交期稳不稳定。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;客户订单: 100件&quot;] --&gt;|&quot;asks&quot;| B[&quot;商品 SKU-X&quot;]</span><br><span class="line">    B --&gt;|&quot;stock_at&quot;| C[&quot;仓库A: 60件&quot;]</span><br><span class="line">    B --&gt;|&quot;on_purchase_order&quot;| D[&quot;采购单 #88&quot;]</span><br><span class="line">    D --&gt;|&quot;eta&quot;| E[&quot;2026-08-25&quot;]</span><br><span class="line">    D --&gt;|&quot;from&quot;| F[&quot;供应商 Y&quot;]</span><br><span class="line">    F --&gt;|&quot;lead_time_avg&quot;| G[&quot;7天&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#3d1a1a,stroke:#f85149,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+
+<p>这场景其实踩中了第 03 篇 Palantir 讲的核心——“数据分散在多个系统，谁也说不清全局状态”。Palantir 用重本体+行动层解决，中小企业用轻量图谱+只读查询也能解决大半。区别不在于”用没用本体”，在于”要不要把决策直接写回各系统执行”。小公司通常还到不了那一步，能先把账对清楚，价值就已经回来了。</p>
+<h2 id="三个场景的共同点：你早就该有，只是一直没写下来"><a href="#三个场景的共同点：你早就该有，只是一直没写下来" class="headerlink" title="三个场景的共同点：你早就该有，只是一直没写下来"></a>三个场景的共同点：你早就该有，只是一直没写下来</h2><p>把上面三个场景放一起看，你会发现它们解决的是同一个老问题：<strong>公司里那些”大家都知道但没人写下来”的业务知识，终于被显式地表达出来了</strong>。</p>
+<p>产品规则、地区层级、库存采购关系——这些知识在老板脑子里、在老员工微信里、在某个莫名其妙的 Excel 里。本体做的，就是把这些” tacit knowledge（隐性知识）”变成” explicit（显式）”。这恰恰是第 01 篇 Gruber 定义里”显式表述”四个字的小企业版。</p>
+<p>而且你注意到了吗，这三个场景都没有用到 Palantir 那种重平台，也不需要 OWL 全套推理。它们用的是同一套思路：定义实体、关系、属性，用图把分散的数据连起来，让 LLM 在回答前先查这张图。这就是中小企业落地本体的正确姿势——<strong>轻量起步，先解决”对账”和”不幻觉”，再考虑”决策写回”</strong>。</p>
+<p>下一篇我们不讲场景了，讲怎么把这些场景真的落成一个项目：用什么栈、分几步、花多少人力。你会看到，对一个几十人的公司，这件事远比想象中便宜。</p>
+<hr>
+<h2 id="📝-小结"><a href="#📝-小结" class="headerlink" title="📝 小结"></a>📝 小结</h2><ul>
+<li>误区：本体 ≠ 重平台；小公司不是用不起，是更需要轻量版本</li>
+<li>场景一（客服）：把产品/套餐/保修定义为带关系的对象，LLM 回答前先查图，消灭”编答案”</li>
+<li>场景二（销售）：统一地区语义、建立层级，自然语言就能聚合”华北区高意向线索”</li>
+<li>场景三（库存采购）：商品-库存-采购单-供应商互相关联，Agent 能沿图判断”这单接不接”</li>
+<li>共同点：把隐性业务知识显式化，用图连起分散数据，让 LLM 先查后答</li>
+<li>与大厂区别：小公司重在”对账+不幻觉”，暂不需要”决策写回执行”那一层</li>
+</ul>
+<hr>
+<blockquote>
+<p>📚 <strong>系列导航</strong></p>
+<ul>
+<li>第 01 篇：Ontology：被低估的 AI Agent 核心基础设施</li>
+<li>第 02 篇：时间感知 Agent 实战：用知识图谱让 AI 记住”什么时候什么是真的”</li>
+<li>第 03 篇：Palantir 模式：本体如何成为企业 AI 的决策中枢</li>
+<li>第 04 篇：Microsoft Fabric：企业语义层的工程实践</li>
+<li>第 05 篇：Ontology 动手构建：OWL/RDF/SPARQL 实战指南</li>
+<li>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</li>
+<li>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</li>
+<li>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</li>
+<li><strong>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</strong> ⬅️ 你在这里</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>📖 <strong>本系列参考资料</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/ontology-optional-until-your-ai-has-scale-bojan-ciric-lutve">Ontology is Optional Until Your AI Has To Scale — LinkedIn</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective AI Agents — Anthropic Engineering</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents">Temporal Agents with Knowledge Graphs — OpenAI Cookbook</a></li>
+</ul>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">中小企业落地</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/09.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/ontology/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -965,602 +1753,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ontology/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ontology/05.html" target="_blank">
-      AI Agent 本体论工程（05）—— 动手构建 Ontology：OWL/RDF/SPARQL 实战
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ontology/05.html" class="archive-article-date">
-        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>动手实战</strong>，适合想亲手建一套本体的开发者。需要一点点 XML/图查询的直觉，跟着敲就行。<br><strong>🎁 核心收获</strong>：你会用 RDF 三元组描述业务、用 OWL 定义类和约束、用 SPARQL 查出多跳关系，并知道这些开源标准和前面 Palantir/微软的平台是什么关系。</p>
-</blockquote>
-<p>前两篇看了 Palantir 的重、微软的轻。这章说点实在的——不依赖任何大平台，用开源标准自己搭一个本体。</p>
-<p>为什么要会这个？因为平台再好，你总得知道它底下那层”本体”到底长啥样。不然平台给你个黑盒，你连怎么定义”客户”都搞不定，只能被平台牵着走。</p>
-<p>其实这套东西的祖宗，比 AI 火起来早得多。</p>
-    
-    <a class="article-more-a" href="/ailearn/ontology/05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动手实践</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ontology/05.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ontology/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ontology/08.html" target="_blank">
-      AI Agent 本体论工程（08）—— 从 Demo 到生产：规模化 Agent 的 Ontology 设计决策
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ontology/08.html" class="archive-article-date">
-        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>终章收口</strong>，适合要做技术选型或架构决策的开发者和技术负责人。不需要前面篇的代码基础，但读过前面会更有共鸣。<br><strong>🎁 核心收获</strong>：你会拿到一个”什么时候该上 Ontology”的判断框架，以及从 Demo 到生产真实会踩的坑和绕法。</p>
-</blockquote>
-<p>七篇写下来，概念、平台、工具链、前沿都过了。最后这篇，我们聊最落地的问题：你手头这个项目，到底要不要上 Ontology？</p>
-<p>这个问题我见过太多人答错。要么一上来就建重本体，把自己累死在建模上；要么 Demo 跑得欢，一上生产就崩，才发现没有语义层根本兜不住。</p>
-    
-    <a class="article-more-a" href="/ailearn/ontology/08.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">终章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ontology/08.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ontology/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ontology/01.html" target="_blank">
-      AI Agent 本体论工程（01）—— Ontology：被低估的 AI Agent 核心基础设施
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ontology/01.html" class="archive-article-date">
-        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇是入门导读，不管你是刚听说 Agent 这个词，还是已经天天在生产里调 API，都能往下读。前面偏直觉，往后越挖越深，跟不上也别急，后面几篇会反复回到这些概念。<br><strong>🎁 核心收获</strong>：读完你会明白 Ontology 到底是什么，以及为什么它往往是 Agent 从”能用”到”好用”过不去的那道坎。</p>
-</blockquote>
-<p>你搭了一个 AI Agent，能回答问题，能调工具，演示效果不错。</p>
-<p>然后你把它接进公司系统——它开始乱说话了。</p>
-<p>“客户”这个词，CRM 里叫 <code>customer</code>，ERP 里叫 <code>client</code>，财务系统里叫 <code>account</code>。Agent 不知道这三个是同一个东西，于是它给你查了三份互相矛盾的数据，然后自信地给出了一个错误答案。</p>
-<p>这不是模型的问题，是<strong>语义的问题</strong>。</p>
-<p>解决这个问题的答案，叫 Ontology。</p>
-    
-    <a class="article-more-a" href="/ailearn/ontology/01.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ontology/01.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ontology/from/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ontology/from/1.html" target="_blank">
-      【译】时间感知 Agent 与知识图谱（OpenAI Cookbook）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ontology/from/1.html" class="archive-article-date">
-        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://developers.openai.com/cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents">Temporal Agents with Knowledge Graphs — OpenAI Cookbook</a><br><strong>✍️ 原文作者</strong>：Danny Wigg、Shikhar Kwatra（OpenAI），Alex Heald、Douglas Adams、Rishabh Sagar<br><strong>📅 发布时间</strong>：2025 年 7 月 22 日</p>
-</blockquote>
-<p>这是一篇极具含金量的 OpenAI 官方实战教程，深入讲解了如何构建<strong>时间感知知识图谱</strong>，并在其上进行<strong>多跳检索推理</strong>。如果你正在构建需要处理”某个时间点上什么是真实的”这类问题的 AI 系统，这篇文章不容错过。</p>
-    
-    <a class="article-more-a" href="/ailearn/ontology/from/1.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识图谱</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ontology/from/1.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ontology/from/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ontology/from/3.html" target="_blank">
-      【译】将 Agent 连接到决策：Palantir 本体论驱动的 AI 架构
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ontology/from/3.html" class="archive-article-date">
-        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://blog.palantir.com/connecting-agents-to-decisions-277dee8ddb40">Connecting Agents to Decisions — Palantir Blog</a><br><strong>✍️ 原文作者</strong>：Palantir 工程团队<br><strong>📅 发布时间</strong>：2026 年 4 月 28 日</p>
-</blockquote>
-<p>在所有将”本体（Ontology）”与”AI Agent”结合的公司中，Palantir 是做得最深、商业化最成功的。这篇文章揭示了他们的核心架构哲学：<strong>本体不只是数据模型，而是企业决策的完整表示</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/ontology/from/3.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Palantir</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ontology/from/3.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2069,6 +2264,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
               </li>
             
             <div class="clearfix"></div>

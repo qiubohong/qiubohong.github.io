@@ -361,6 +361,587 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/deepseek-harness/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/deepseek-harness/07.html" target="_blank">
+      DeepSeek Harness 工程实践（07）—— 研发场景落地：CI 集成、代码审查与测试分析
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/deepseek-harness/07.html" class="archive-article-date">
+        <time datetime="2026-08-22T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇是系列的第一个”落地篇”，从框架学习转向实际应用。需要你已经理解 dsh 的基本用法（第 02-06 篇）。本篇的代码可以直接拿去改用。<br><strong>🎁 读完你会得到</strong>：三个可以直接落地的研发场景方案：CI/CD 集成、PR 代码审查机器人、测试失败智能分析。</p>
+</blockquote>
+<p>前六篇讲了很多框架知识——插件、工具、架构、多 Agent。</p>
+<p>但说实话，学框架不是目的，用起来才是。</p>
+<p>这篇开始，我们进入落地阶段。研发团队最高频的三个痛点：代码审查靠人工效率低、CI 跑失败不知道哪里出了问题、技术债越堆越多没人管——这篇一个一个解决。</p>
+    
+    <a class="article-more-a" href="/ailearn/deepseek-harness/07.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/deepseek-harness/07.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/deepseek-harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/deepseek-harness/06.html" target="_blank">
+      DeepSeek Harness 工程实践（06）—— 多 Agent 协作：子代理、工作流与 Teams
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/deepseek-harness/06.html" class="archive-article-date">
+        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇接着第 05 篇，需要你已经理解 dsh 的基本架构和插件机制。多 Agent 是 dsh 的进阶能力，适合任务复杂度超出单 Agent 处理范围的场景。<br><strong>🎁 读完你会得到</strong>：理解 dsh 子代理的调度机制、工作流的串并行设计、Teams 的配置方式，以及 <code>agent.ctx</code> 作用域隔离和 <code>ctx.goals</code> 目标管理的实际用法。</p>
+</blockquote>
+<p>你让 Agent 帮你做一个完整的代码审查——检查风格、找安全漏洞、评估性能，最后出一份综合报告。</p>
+<p>单个 Agent 能做，但做得不够好。它的注意力会分散，风格审查做到一半开始想安全问题，安全问题没查完又跳去看性能。最后给你一份什么都提了、什么都没说透的报告。</p>
+<p>这种场景，就是多 Agent 的用武之地。</p>
+    
+    <a class="article-more-a" href="/ailearn/deepseek-harness/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/deepseek-harness/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/graph/4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/graph/4.html" target="_blank">
+      AI Graph工程（04）—— 让可控性拉满：人机协同（HITL）与断点调试在 Graph 工程中的落地
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/graph/4.html" class="archive-article-date">
+        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚怎么在图里插入人工审批节点，怎么用 <code>update_state</code> 动态修改 State，以及 Time Travel 和 Langfuse 在实际调试中怎么用。</p>
+</blockquote>
+<p>上一篇讲了 State 的设计和记忆架构。</p>
+<p>图能跑起来了，但生产环境里还有一个绕不开的问题：<strong>谁来监督 Agent？</strong></p>
+<p>Agent 自己跑到底，在很多场景里是不可接受的。金融操作、内容发布、代码部署——这些关键节点必须有人确认。不是不信任 Agent，而是这类决策的错误成本太高，一旦出错，代价远超”多等几秒让人看一眼”的成本。</p>
+<p>这就是 Human-in-the-Loop（HITL）要解决的问题。</p>
+    
+    <a class="article-more-a" href="/ailearn/graph/4.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/graph/4.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/deepseek-harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/deepseek-harness/05.html" target="_blank">
+      DeepSeek Harness 工程实践（05）—— 架构深度解析：一条消息进来，dsh 内部发生了什么
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/deepseek-harness/05.html" class="archive-article-date">
+        <time datetime="2026-08-21T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇是架构深度篇，适合已经能写插件和工具、想搞清楚 dsh 内部运转逻辑的开发者。理解这些机制，能帮你更准确地选择扩展点、排查问题。<br><strong>🎁 读完你会得到</strong>：理解 dsh 的轮次流程、三类事件的区别和用法、会话日志的核心不变量，以及 Seam 机制为什么让 dsh 如此灵活。</p>
+</blockquote>
+<p>你发出一条指令，Agent 开始工作——读文件、改代码、跑测试。</p>
+<p>这中间 dsh 内部到底发生了什么？</p>
+<p>前几篇我们学了怎么写插件、怎么注册工具。但如果你不清楚 dsh 内部的运转逻辑，遇到问题就只能靠猜。这篇把盖子掀开，从头到尾走一遍。</p>
+    
+    <a class="article-more-a" href="/ailearn/deepseek-harness/05.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/deepseek-harness/05.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/deepseek-harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/deepseek-harness/04.html" target="_blank">
+      DeepSeek Harness 工程实践（04）—— 工具开发实战：给 Agent 装上你自己的工具
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/deepseek-harness/04.html" class="archive-article-date">
+        <time datetime="2026-08-21T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列说明</strong>：本篇接着第 03 篇，需要你已经能写出基本的 dsh 插件。工具开发是插件开发的核心，也是让 Agent 真正”有用”的关键一步。<br><strong>🎁 读完你会得到</strong>：能写出一个完整的 dsh 工具，理解 Tool DSL 的每个字段是干什么的，以及工具执行流水线怎么用来做安全控制。</p>
+</blockquote>
+<p>上一篇写了一个会话日志记录器，它能监听事件、打日志，但它不能给 Agent 增加新能力。</p>
+<p>Agent 的能力来自<strong>工具</strong>。工具是 Agent 和外部世界交互的唯一接口——读文件、跑命令、查数据库、调 API，全都是通过工具完成的。</p>
+<p>这篇专门讲工具开发。</p>
+    
+    <a class="article-more-a" href="/ailearn/deepseek-harness/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/deepseek-harness/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/deepseek-harness/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -952,604 +1533,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/electron/from/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/electron/from/3.html" target="_blank">
-      【译】Electron 高级特性：多线程、离屏渲染、原生模块（Electron 官方文档）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/electron/from/3.html" class="archive-article-date">
-        <time datetime="2026-08-20T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/multithreading">Multithreading</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/offscreen-rendering">Offscreen Rendering</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/native-file-drag-drop">Native File Drag &amp; Drop</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/online-offline-events">Online/Offline Event Detection</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules">Using Native Node Modules</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/native-code-and-electron">Native Code and Electron</a></li>
-</ul>
-<p><strong>✍️ 原文作者</strong>：Electron 官方文档团队</p>
-</blockquote>
-<p>这篇文章覆盖 Electron 的几个高级特性，都是在实际项目中会遇到的真实需求。</p>
-    
-    <a class="article-more-a" href="/study/electron/from/3.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">桌面开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/electron/from/3.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/12.html" target="_blank">
-      DeepSeek Harness 工程实践（12）—— 中小企业实战：销售流程自动化
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/12.html" class="archive-article-date">
-        <time datetime="2026-08-20T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是中小企业实战系列第三篇，也是收官篇。解决销售团队最头疼的重复性事务：报价、跟进记录、周报。<br><strong>🎁 读完你会得到</strong>：报价单生成工具 + 跟进提醒插件 + 周报自动生成 + 一套可以直接用的销售 Agent 配置。</p>
-</blockquote>
-<p>销售团队有个普遍的抱怨：每天真正用来”卖东西”的时间，可能只有 30%。剩下的时间在填报价单、写跟进记录、整理周报、回复重复问题。</p>
-<p>这些事情不是不重要，但它们不需要人来做。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/12.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/12.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/electron/from/2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/electron/from/2.html" target="_blank">
-      【译】Electron 安全与性能深度指南（Electron 官方文档）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/electron/from/2.html" class="archive-article-date">
-        <time datetime="2026-08-20T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/security">Security — Electron Docs</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/performance">Performance — Electron Docs</a></li>
-</ul>
-<p><strong>✍️ 原文作者</strong>：Electron 官方文档团队</p>
-</blockquote>
-<p>Electron 给了你比浏览器大得多的权限——JavaScript 可以访问文件系统、用户 shell、原生 API。权力越大，责任越大。这篇文章把安全和性能两个话题放在一起，因为它们的底层逻辑是一样的：<strong>最小权限原则</strong>。</p>
-    
-    <a class="article-more-a" href="/study/electron/from/2.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">桌面开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/electron/from/2.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/11.html" target="_blank">
-      DeepSeek Harness 工程实践（11）—— 中小企业实战：内部知识库问答 Agent
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/11.html" class="archive-article-date">
-        <time datetime="2026-08-20T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是中小企业实战系列第二篇，解决”公司文档堆了一堆，但没人用”的问题。从文档解析到向量检索到多轮问答，一套完整方案。<br><strong>🎁 读完你会得到</strong>：文档解析插件 + 向量检索工具 + 权限隔离方案 + 一个能问”我们公司的报销流程是什么”的 Agent。</p>
-</blockquote>
-<p>公司文档的命运通常是这样的：写的时候认真写，放到共享盘之后就再也没人看了。</p>
-<p>新员工入职，找不到操作手册，只能问老员工。老员工也记不清，翻了半天找到一个 2021 年的版本，不知道还算不算数。</p>
-<p>这个问题，用 RAG（检索增强生成）+ dsh 可以很干净地解决。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/11.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/11.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/electron/from/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/electron/from/1.html" target="_blank">
-      【译】Electron 进程模型深度解析：IPC、隔离与沙盒（Electron 官方文档）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/electron/from/1.html" class="archive-article-date">
-        <time datetime="2026-08-20T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/process-model">Process Model</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/context-isolation">Context Isolation</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/ipc">Inter-Process Communication</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/sandbox">Process Sandboxing</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/message-ports">MessagePorts in Electron</a></li>
-</ul>
-<p><strong>✍️ 原文作者</strong>：Electron 官方文档团队</p>
-</blockquote>
-<p>Electron 的进程模型是整个框架的基石。搞清楚这套机制，你才能真正理解为什么代码要这样写，安全边界在哪里，以及怎么在不同进程之间高效通信。</p>
-    
-    <a class="article-more-a" href="/study/electron/from/1.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">桌面开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/electron/from/1.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2058,6 +2044,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
               </li>
             
             <div class="clearfix"></div>

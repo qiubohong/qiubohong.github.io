@@ -361,6 +361,601 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/ontology/from/8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/from/8.html" target="_blank">
+      【整理】Microsoft Fabric 本体（Ontology）：企业语义层的工程实践
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/from/8.html" class="archive-article-date">
+        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源一</strong>：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview">What Is Ontology (Preview)? — Microsoft Fabric IQ</a><br><strong>📖 原文来源二</strong>：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1781507">学习人工智能 AI 需要哪些最基础的知识 — 腾讯云开发者社区</a><br><strong>📅 发布时间</strong>：2026 年 4 月（Microsoft）/ 2021 年（腾讯云）</p>
+</blockquote>
+<p>本文整合了两个视角：<strong>Microsoft Fabric 的企业本体工程实践</strong>（自上而下的产品视角）和<strong>腾讯云对 AI 知识基础的梳理</strong>（自下而上的学术视角）。两者共同揭示了本体论在 AI 工程中的完整图景。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/from/8.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Microsoft</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/from/8.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/08.html" target="_blank">
+      AI Agent 评测工程实践（08）—— 多 Agent 系统怎么评测？这是目前最难的问题
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/08.html" class="archive-article-date">
+        <time datetime="2026-07-18T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶挑战篇</strong>，适合正在构建或评测多 Agent 系统的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你会理解多 Agent 评测的核心难题是什么，微软 AgentEval 怎么用 AI 来评测 AI，以及怎么在实际项目里落地多 Agent 评测。</p>
+</blockquote>
+<p>七篇讲下来，单个 Agent 的评测体系算是搭完了。</p>
+<p>但现实是，越来越多的系统不是一个 Agent 在跑，而是一群 Agent 在协作。</p>
+<p>一个 Agent 负责搜索，一个负责分析，一个负责生成报告，还有一个负责审核。</p>
+<p>这时候评测就变了。</p>
+    
+    <a class="article-more-a" href="/ailearn/eval/08.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AgentEval</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/eval/08.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/07.html" target="_blank">
+      AI Agent 评测工程实践（07）—— Agent 上线后怎么持续评测？生产监控的完整方案
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/07.html" class="archive-article-date">
+        <time datetime="2026-07-17T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>生产实践篇</strong>，适合 Agent 已经上线或即将上线的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你会知道为什么离线评测不够用，怎么用 OTel 追踪生产流量，以及怎么把真实用户的失败用例自动加入测试集，形成真正的评测闭环。</p>
+</blockquote>
+<p>前六篇把离线评测的完整链路跑通了。</p>
+<p>数据集建好了，指标选好了，质量门控设好了，每次 PR 都会自动跑评测。</p>
+<p>然后 Agent 上线了。</p>
+<p>上线第三天，你收到一条用户反馈：</p>
+<blockquote>
+<p>“我问了一个很简单的问题，Agent 给了一个完全不相关的答案。”</p>
+</blockquote>
+<p>你去翻评测记录，所有指标都是绿的。</p>
+<p>这就是离线评测的边界。</p>
+    
+    <a class="article-more-a" href="/ailearn/eval/07.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AgentEval</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/eval/07.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/06.html" target="_blank">
+      AI Agent 评测工程实践（06）—— 评测结果怎么用？从分数到代码改进的完整链路
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/06.html" class="archive-article-date">
+        <time datetime="2026-07-17T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>工程实践篇</strong>，适合已经跑通评测、想把评测结果真正用起来的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你会知道怎么从评测分数里找到真正的问题，怎么设计质量门控，以及为什么 Anthropic 的工程师说”阅读记录”是评测里最重要的事。</p>
+</blockquote>
+<p>前五篇把评测的基础设施搭起来了。</p>
+<p>工具选好了（DeepEval），指标定好了（工具正确性、忠实度、目标完成度），数据集也建起来了。</p>
+<p>然后你跑了一次评测，终端输出了一堆分数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ToolCorrectnessMetric:     0.72  ✗ FAILED</span><br><span class="line">FaithfulnessMetric:        0.85  ✓ PASSED</span><br><span class="line">AgentGoalCompletionMetric: 0.61  ✗ FAILED</span><br></pre></td></tr></table></figure>
+
+<p>然后呢？</p>
+<p>这是很多团队卡住的地方。分数有了，但不知道该怎么用。</p>
+    
+    <a class="article-more-a" href="/ailearn/eval/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AgentEval</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/eval/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/05.html" target="_blank">
+      AI Agent 评测工程实践（05）—— 测试用例从哪来？评测数据集的三种构建方式
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/05.html" class="archive-article-date">
+        <time datetime="2026-07-17T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>数据工程篇</strong>，适合已经跑通基础评测、想扩大测试覆盖面的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你会掌握三种构建评测数据集的方法，以及为什么”忠实度”是 Agent 评测里最容易被忽视、也最容易出问题的指标。</p>
+</blockquote>
+<p>上一篇结尾留了一个问题：</p>
+<p><strong>测试用例从哪来？</strong></p>
+<p>手写 20 个测试用例，能覆盖的场景太有限了。真实用户的输入千变万化，你不可能提前想到所有情况。</p>
+<p>更麻烦的是，Agent 最容易出问题的地方，往往不是你能预想到的那些”正常场景”，而是边缘情况——工具返回空结果、用户问了一个模糊的问题、多轮对话中途改变了需求。</p>
+<p>这篇讲三种构建评测数据集的方法，以及一个我觉得被严重低估的指标。</p>
+    
+    <a class="article-more-a" href="/ailearn/eval/05.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AgentEval</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/eval/05.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/eval/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1261,588 +1856,9 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/04.html" target="_blank">
-      AI Agent Loop 工程实践（04）—— 你的 Agent 为什么跑着跑着就&#34;失忆&#34;了？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/04.html" class="archive-article-date">
-        <time datetime="2026-07-15T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过 Agent Loop、遇到过”失忆”问题的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 Agent 失忆的根本原因，以及三种上下文管理策略的适用场景和工程权衡。</p>
-</blockquote>
-<p>你让 Agent 重构一个大项目，它跑得挺好，到第 12 步突然开始重复第 3 步做过的事。</p>
-<p>你问它”你刚才改了哪些文件”，它说”我还没有修改任何文件”。</p>
-<p>明明改了一堆，它说没改。</p>
-<p>这不是 Bug，这是 Token 窗口的物理限制在作怪。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/04.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/04.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/03.html" target="_blank">
-      AI Agent Loop 工程实践（03）—— 一条消息在 Agent 内部经历了什么？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/03.html" class="archive-article-date">
-        <time datetime="2026-07-08T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过简单 Agent Loop、想理解成熟框架内部机制的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 SDK 级 Agent Loop 的消息处理流程，以及 Hooks 机制如何让你不侵入核心逻辑就能控制一切。</p>
-</blockquote>
-<p>你每次给 Claude/ChatGPT 发一条消息，从按下回车到看到回复，背后其实经历了十几个步骤。</p>
-<p>为什么有时 Agent 会连续调用好几个工具才回复你？为什么有时会突然”顿一下”再继续？</p>
-<p>上一篇我们写了 50 行的最简 Loop。但真正生产级的 Agent Loop——比如 Claude Code 的 Agent SDK——内部要复杂得多。这篇带你进入 Agent 的”心脏”看看。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/03.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/03.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/02.html" target="_blank">
-      AI Agent Loop 工程实践（02）—— 50 行代码实现一个能跑的 Agent Loop
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/02.html" class="archive-article-date">
-        <time datetime="2026-07-04T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门实战</strong>，适合想动手写代码的开发者。需要一点 Python 基础。<br><strong>🎁 核心收获</strong>：读完本篇你将能够自己跑通一个带工具调用的 Agent Loop，并理解终止策略的设计逻辑。</p>
-</blockquote>
-<p>别被那些框架吓到。</p>
-<p>LangChain、AutoGen、CrewAI……这些框架确实强大，但它们解决的核心问题其实特别简单——让 Agent 持续跑下去。</p>
-<p>Agent Loop 的核心逻辑，50 行代码就能写清楚。这篇结束后，你手上会有一个真正能跑的 Agent Loop。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/02.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/02.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/01.html" target="_blank">
-      AI Agent Loop 工程实践（01）—— Agent Loop：被你忽视的 AI 应用核心引擎
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/01.html" class="archive-article-date">
-        <time datetime="2026-07-01T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门导读</strong>，适合所有对 AI Agent 感兴趣的读者。无需前置知识。<br><strong>🎁 核心收获</strong>：读完本篇你将能够理解 Agent Loop 的本质，并知道三种主流实现方案分别适合什么场景。</p>
-</blockquote>
-<p>你让 AI 帮你重构一段代码，它改了第一处就停了。你再催它，它从头开始分析。你又催，它又改了一处，又停了。</p>
-<p>为什么有的 Agent 能一口气完成复杂任务，有的只能”一问一答”？</p>
-<p>差别不在模型，在于 Loop。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/01.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/01.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/from/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/from/02.html" target="_blank">
-      【译】Agent Loop —— AI 驱动的软件开发框架
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/from/02.html" class="archive-article-date">
-        <time datetime="2026-06-15T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://github.com/Saik0s/agent-loop">Saik0s/agent-loop - GitHub</a><br><strong>项目标签</strong>：automation · orchestration · software-development · ai-agents · claude-ai · agentic-engineering</p>
-</blockquote>
-<h1 id="Agent-Loop-🚀-——-AI-驱动的软件开发"><a href="#Agent-Loop-🚀-——-AI-驱动的软件开发" class="headerlink" title="Agent Loop 🚀 —— AI 驱动的软件开发"></a>Agent Loop 🚀 —— AI 驱动的软件开发</h1><p>Agent Loop 是一个 AI 驱动的软件开发框架。它使用一组由编排者（Orchestrator）管理的专家 AI Agent 团队，处理从规划、架构到编码、测试和部署的各类任务。你通过简单的命令来引导整个流程。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/from/02.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开源项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/from/02.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/15/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/15/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2351,6 +2367,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
               </li>
             
             <div class="clearfix"></div>
