@@ -361,169 +361,45 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第07讲-Agent运行机制Loop/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/jev/from/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/jev/from/04.html" target="_blank">
+      【译】人工智能与杰文斯悖论：效率提高，GPU 需求会下降吗？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/jev/from/04.html" class="archive-article-date">
+        <time datetime="2026-09-20T02:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-07-讲：Agent-运行机制-Agent-Loop（优化版）"><a href="#STORY-md-—-第-07-讲：Agent-运行机制-Agent-Loop（优化版）" class="headerlink" title="STORY.md — 第 07 讲：Agent 运行机制 Agent Loop（优化版）"></a>STORY.md — 第 07 讲：Agent 运行机制 Agent Loop（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 7 讲）。</li>
-<li><strong>核心目标</strong>：让观众真正看懂「Agent 是怎么跑起来的」，记住「接收指令 → 思考 → 执行 → 观察 → 判断」四步循环这一心智锚点，课后能独立写出 50 行最简 Loop。</li>
-<li><strong>PPT 长度</strong>：9 页（封面 + 7 内容 + 结尾），Hero 页配额 2-3 页。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
-<li><strong>内容边界</strong>：必讲四步循环、三种流派、最简 Loop 实现、消息生命周期、上下文失忆、持久规则、可观测性；不讲具体框架源码、不展开评测与安全（留给第 8 讲）；禁碰训练细节。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 3 章：<ul>
-<li>第 1 章「循环本质」（P2 心跳引擎 / P3 三种流派 / P4 最简 Loop）→ 扉页 P2</li>
-<li>第 2 章「消息与记忆」（P5 消息生命周期 / P6 上下文失忆 / P7 持久规则与会话恢复）→ 扉页 P5</li>
-<li>第 3 章「看见与控制」（P8 可观测性 / P9 总结与练习）→ 扉页 P8</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P9 结尾页（2 页，22%，符合 20-30%）；P4 为核心代码页，视觉加重但不计入 Hero（深色代码块为主视觉）。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 peak → P5 valley → P6 valley → P7 valley → P8 valley → P9 peak。P4 以 CodeBlock 大图制造第二个峰，P2-P3 与 P5-P8 两段 valley 各被打断一次。</li>
-<li><strong>非对称版式</strong>：P2 左标题+右内容、P4 左文+右代码、P6 左标题+右内容、P7 左文+右卡、P8 左标题+右内容 —— 非对称占比 5/9 = 56% ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：P3（决策树三卡）、P5（上大图下卡）用对称，全篇对称 ≤ 2 页。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">visual_role</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">atmosphere</td>
-<td align="left">字数30/留白40%</td>
-<td align="left">禁止四卡预览；禁止标题小字</td>
-<td align="left">封面：Agent Loop——Agent 是怎么跑起来的</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_heartbeat.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">四步循环横条</td>
-<td align="left">anchor</td>
-<td align="left">字数170/留白20%</td>
-<td align="left">禁止等宽四卡装饰化</td>
-<td align="left">心跳引擎：接收指令→思考→执行→观察→判断，一步不停转下去</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_three_flavors.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">决策树三卡</td>
-<td align="left">三卡对比</td>
-<td align="left">evidence</td>
-<td align="left">字数160/留白25%</td>
-<td align="left">禁止罗列框架细节</td>
-<td align="left">三种流派：确定性循环可预测 / SDK Loop 灵活 / 多 Agent 复杂</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_minimal_loop.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">peak</td>
-<td align="left">左文+右代码</td>
-<td align="left">CodeBlock</td>
-<td align="left">anchor</td>
-<td align="left">字数140/图1/留白20%</td>
-<td align="left">禁止代码塞进小卡</td>
-<td align="left">50 行实现最简 Loop：骨架 + 终止策略 + 工具注册表</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_message_lifecycle.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上大图+下方卡片</td>
-<td align="left">消息流图示</td>
-<td align="left">anchor</td>
-<td align="left">字数150/留白20%</td>
-<td align="left">禁止术语堆砌</td>
-<td align="left">消息生命周期：Tool Use/Tool Result 交替、并行调用、Hooks 拦截</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_context_amnesia.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">三板斧卡片</td>
-<td align="left">evidence</td>
-<td align="left">字数170/留白20%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">Token 窗口物理限制 + 三板斧：滑动窗口 / 压缩 / 外部记忆</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_persistent_rules.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左文+右卡</td>
-<td align="left">CLAUDE.md 深卡</td>
-<td align="left">evidence</td>
-<td align="left">字数160/留白20%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">持久规则与会话恢复：CLAUDE.md / 断点恢复 / PreCompact Hook</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_observability.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">五消息类型卡</td>
-<td align="left">evidence</td>
-<td align="left">字数170/留白20%</td>
-<td align="left">禁止表格堆砌</td>
-<td align="left">可观测性：五种消息类型、ResultMessage 停止原因、effort 控成本</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">居中金句</td>
-<td align="left">装饰圆</td>
-<td align="left">anchor</td>
-<td align="left">字数80/留白40%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">总结：先跑通再上框架，避免过度设计 + 练习 + 自测</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P6：Token 窗口物理上限 → 上下文不是无限记忆，会被「挤掉」——所以需要主动管理记忆。</li>
-<li>P8：effort 参数 → 思考强度可调，直接映射为 token 成本——成本意识从读日志开始。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/10989062">Artificial Intelligence and the Jevons Paradox — IEEE Micro</a><br><strong>✍️ 原文作者</strong>：Shane Greenstein<br><strong>📅 发布时间</strong>：2025 年 5 月 6 日</p>
+</blockquote>
+<p>“模型和 GPU 都变高效了，算力需求是不是就该降下来？”这篇文章给出的答案是：别这么快下结论。它借 19 世纪的煤炭故事解释，效率与总需求并不是简单的反比关系。</p>
+    
+    <a class="article-more-a" href="/ailearn/jev/from/04.html#more">more >></a>
+    
     
     
 
@@ -533,11 +409,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JEV</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI 基础设施</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC07%E8%AE%B2-Agent%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6Loop/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/jev/from/04.html">展开全文 >></a>
     </p>
     
 
@@ -572,342 +475,45 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/jev/from/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/jev/from/03.html" target="_blank">
+      【译】AI Jev Playground：把上下文变成可比较的决策
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/jev/from/03.html" class="archive-article-date">
+        <time datetime="2026-09-20T02:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="DESIGN-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）"><a href="#DESIGN-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）" class="headerlink" title="DESIGN.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）"></a>DESIGN.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
-<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
-<li>三区母版（内容页固定）：<ul>
-<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
-<li>B · 内容区：120–660px（可用 540px）</li>
-<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 6 讲」+ 右侧页码 <code>NN / 14</code>，14px 灰</li>
-</ul>
-</li>
-<li>封面 / 结尾页自定义版式，省略 C 区。</li>
-</ul>
-<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
-<thead>
-<tr>
-<th align="left">角色</th>
-<th align="left">hex</th>
-<th align="left">面积</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">主色</td>
-<td align="left"><code>#16263F</code> 深海军蓝</td>
-<td align="left">≤60%</td>
-<td align="left">封面/深色块/标题</td>
-</tr>
-<tr>
-<td align="left">辅色</td>
-<td align="left"><code>#DCE7F5</code> 冰蓝</td>
-<td align="left">≤30%</td>
-<td align="left">卡片底/浅色块</td>
-</tr>
-<tr>
-<td align="left">强调色</td>
-<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
-<td align="left">≤10%</td>
-<td align="left">巨型数字/CTA/焦点</td>
-</tr>
-<tr>
-<td align="left">亮点青</td>
-<td align="left"><code>#22D3EE</code></td>
-<td align="left">≤8%</td>
-<td align="left">AI 亮点/代码/装饰</td>
-</tr>
-<tr>
-<td align="left">中性</td>
-<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
-<td align="left">剩余</td>
-<td align="left">正文/次要/页面底</td>
-</tr>
-</tbody></table>
-<ul>
-<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
-<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
-<li>Hero 页（P1/P8/P14）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
-</ul>
-<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
-<thead>
-<tr>
-<th align="left">层级</th>
-<th align="left">字号</th>
-<th align="left">字重</th>
-<th align="left">行高</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">封面主标题</td>
-<td align="left">52px</td>
-<td align="left">bold</td>
-<td align="left">1.25</td>
-<td align="left">仅封面</td>
-</tr>
-<tr>
-<td align="left">巨型数据</td>
-<td align="left">64px</td>
-<td align="left">bold</td>
-<td align="left">1.0</td>
-<td align="left">锚点数字</td>
-</tr>
-<tr>
-<td align="left">页面主标题</td>
-<td align="left">34px</td>
-<td align="left">bold</td>
-<td align="left">1.3</td>
-<td align="left">A 区固定</td>
-</tr>
-<tr>
-<td align="left">卡片小标题</td>
-<td align="left">19-22px</td>
-<td align="left">bold</td>
-<td align="left">1.4</td>
-<td align="left">卡片头</td>
-</tr>
-<tr>
-<td align="left">正文</td>
-<td align="left">15-17px</td>
-<td align="left">regular</td>
-<td align="left">1.6-1.9</td>
-<td align="left">段落</td>
-</tr>
-<tr>
-<td align="left">代码</td>
-<td align="left">13-15px</td>
-<td align="left">regular</td>
-<td align="left">1.8</td>
-<td align="left">JetBrains Mono</td>
-</tr>
-<tr>
-<td align="left">脚注/页码</td>
-<td align="left">14px</td>
-<td align="left">regular</td>
-<td align="left">1.4</td>
-<td align="left">C 区</td>
-</tr>
-</tbody></table>
-<ul>
-<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
-</ul>
-<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
-<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
-<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
-<li>代码页以 CodeBlock 为主视觉；代码单行 ≤ 60 字符（防水平溢出）。</li>
-</ul>
-<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
-<thead>
-<tr>
-<th align="left">等级</th>
-<th align="left">用途</th>
-<th align="left">最小尺寸</th>
-<th align="left">接入</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">L1</td>
-<td align="left">主视觉</td>
-<td align="left">B 区 ≥40%</td>
-<td align="left">CodeBlock / 时序条 / 流程条</td>
-</tr>
-<tr>
-<td align="left">L2</td>
-<td align="left">支撑图</td>
-<td align="left">≥280×180</td>
-<td align="left">段落旁</td>
-</tr>
-<tr>
-<td align="left">L3</td>
-<td align="left">角标</td>
-<td align="left">≤64×64</td>
-<td align="left">C 区左侧固定</td>
-</tr>
-</tbody></table>
-<ul>
-<li>架构/流程/时序用 Box+Text 还原；命令与代码用 CodeBlock 还原。</li>
-<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
-</ul>
-<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">类型</th>
-<th align="left">角色</th>
-<th align="left">版式</th>
-<th align="left">L1</th>
-<th align="left">字数</th>
-<th align="left">留白%</th>
-<th align="left">关键约束</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">30</td>
-<td align="left">40%</td>
-<td align="left">深色底+大标题+青强调</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_what_is_agent.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左标题+右内容</td>
-<td align="left">五大局限卡</td>
-<td align="left">150</td>
-<td align="left">20%</td>
-<td align="left">五局限右栏</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_collab_modes.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三模式演进</td>
-<td align="left">演进卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">箭头串联</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_reasoning_cot.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">思维链流程卡</td>
-<td align="left">流程卡</td>
-<td align="left">150</td>
-<td align="left">22%</td>
-<td align="left">CoT/ReAct 等</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_memory.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三类记忆横排</td>
-<td align="left">记忆卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">感觉/短期/长期</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_tools.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左工具+右支持表</td>
-<td align="left">支持表</td>
-<td align="left">150</td>
-<td align="left">22%</td>
-<td align="left">原生支持表</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_function_calling.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">时序图</td>
-<td align="left">时序条</td>
-<td align="left">140</td>
-<td align="left">25%</td>
-<td align="left">两次调用</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_agent_demo.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">120</td>
-<td align="left">30%</td>
-<td align="left">四步实战</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_agent_types.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">类型对比</td>
-<td align="left">对比卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">scratchpad</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_why_langgraph.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左右对照</td>
-<td align="left">对比卡</td>
-<td align="left">150</td>
-<td align="left">22%</td>
-<td align="left">Chain vs Graph</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_langgraph_elements.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三要素横排</td>
-<td align="left">要素卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">State/Node/Edge</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">12_plan_execute.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">计划流程</td>
-<td align="left">流程条</td>
-<td align="left">140</td>
-<td align="left">25%</td>
-<td align="left">Plan/Execute/Replan</td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">13_persistence.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三要点横排</td>
-<td align="left">要点卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">checkpointer 等</td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">14_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">80</td>
-<td align="left">40%</td>
-<td align="left">深色收尾+练习自测</td>
-</tr>
-</tbody></table>
-<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
-<li>相邻页版式不重复：P2(左标题右内容)→P3(演进)→P4(流程卡)→P5(三卡)→P6(左工具右表)→P7(时序图)→P8(代码Hero)→P9(对比)→P10(左右对照)→P11(三卡)→P12(流程条)→P13(三卡)→P14(居中) ✅</li>
-<li>P11/P13 均为三卡，中间隔 P12（流程条）打断，可接受。</li>
-<li>Hero 3 页 = 21%，互不相邻 ✅</li>
-<li>连续 valley ≤7：P2-P7 六连 → P8 peak 打断，P9-P13 五连 → P14 peak ✅</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://iajev.com/">AI Jev — Structured Decisions, Playground &amp; API</a><br><strong>✍️ 原文作者</strong>：iajev 团队<br><strong>📅 访问日期</strong>：2026 年 9 月 20 日</p>
+</blockquote>
+<p>iajev 把 Jev 做成了一个可以直接上手的 Playground。它展示的不是聊天窗口，而是一张决策表：给出上下文、写下问题、列出候选答案，然后看模型如何分配概率。</p>
+    
+    <a class="article-more-a" href="/ailearn/jev/from/03.html#more">more >></a>
+    
     
     
 
@@ -917,11 +523,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JEV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph/DESIGN.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/jev/from/03.html">展开全文 >></a>
     </p>
     
 
@@ -956,222 +589,45 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/jev/from/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/jev/from/02.html" target="_blank">
+      【译】TypeSafe AI：决策，而不是字符串
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/jev/from/02.html" class="archive-article-date">
+        <time datetime="2026-09-20T02:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）"><a href="#STORY-md-—-第-06-讲：Agent-智能体与-LangGraph-工作流（优化版）" class="headerlink" title="STORY.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）"></a>STORY.md — 第 06 讲：Agent 智能体与 LangGraph 工作流（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：已会编排与 RAG、想让 AI「从回答变成做事」的开发者（系列课程第 6 讲）。</li>
-<li><strong>核心目标</strong>：让观众相信「Agent = 大脑 + 手 + 记忆」，记住「LLM 作推理引擎 + 工具执行 + 反馈闭环」这一心智锚点，课后能写出「Function Calling Agent」并理解 LangGraph 状态机。</li>
-<li><strong>PPT 长度</strong>：14 页（封面 + 12 内容 + 结尾），Hero 页配额 3 页。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、代码可信（延续系列视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
-<li><strong>内容边界</strong>：必讲 Agent 定位、协同模式、思维链、记忆/工具/规划三能力、Function Calling、LangGraph 三要素与实战、持久化；不讲强化学习训练细节；Manus 仅作案例引入。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 4 章：<ul>
-<li>第 1 章「认识 Agent」（P2 定位 / P3 协同模式 / P4 思维链）→ 扉页 P2</li>
-<li>第 2 章「三大能力」（P5 记忆 / P6 工具 / P7 Function Calling）→ 扉页 P5</li>
-<li>第 3 章「实战与对比」（P8 龙虎榜 Agent / P9 类型对比）→ 扉页 P8</li>
-<li>第 4 章「LangGraph 工作流」（P10 为什么 / P11 三要素 / P12 计划执行反思 / P13 持久化 / P14 总结）→ 扉页 P10</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P8 实战①（代码主视觉）、P14 结尾页（3 页，21%）；任意两 Hero 间隔 ≥1 Supporting。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 valley → P8 peak → P9 valley → P10 valley → P11 valley → P12 valley → P13 valley → P14 peak。连续 valley 过长，靠 P8 代码 Hero、P14 收官打破；P4 思维链用流程卡增加节奏。</li>
-<li><strong>非对称版式</strong>：P2 左标题右内容、P3 三模式演进、P7 时序图、P8 左代码右说明、P10 左右对照、P12 计划流程——非对称占比 ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：P5（三类记忆）、P6（工具+支持表）、P9（类型对比）、P11（三要素）用对称，全篇对称 ≤ 4 页。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">字数30/留白40%</td>
-<td align="left">禁止四卡预览</td>
-<td align="left">封面：Agent 让 AI 从回答变成做事（Manus 案例引入）</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_what_is_agent.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">五大局限卡</td>
-<td align="left">字数150/留白20%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">Agent 是什么：LLM 推理引擎 + 行动 + 反馈闭环</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_collab_modes.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三模式演进</td>
-<td align="left">演进卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止堆名词</td>
-<td align="left">Embedding→Copilot→Agent 三种协同模式</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_reasoning_cot.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">思维链流程卡</td>
-<td align="left">流程卡</td>
-<td align="left">字数150/留白22%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">CoT/思维树/ReAct/Reflexion/Hindsight 激发推理</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_memory.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三类记忆横排</td>
-<td align="left">记忆卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽四卡</td>
-<td align="left">感觉/短期/长期记忆，Embedding 是记忆载体</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_tools.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左工具+右支持表</td>
-<td align="left">支持表</td>
-<td align="left">字数150/留白22%</td>
-<td align="left">禁止表格堆砌</td>
-<td align="left">Function Call/Plugin/模型内嵌，主流模型原生支持</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_function_calling.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">时序图</td>
-<td align="left">时序条</td>
-<td align="left">字数140/留白25%</td>
-<td align="left">禁止贴大段代码</td>
-<td align="left">Function Calling 原理：两次调用闭环</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_agent_demo.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数120/留白30%</td>
-<td align="left">禁止代码超 12 行</td>
-<td align="left">实战①：龙虎榜查询 Agent 四步</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_agent_types.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">类型对比</td>
-<td align="left">对比卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">Tool Calling/ReAct/Structured Chat + agent_scratchpad</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_why_langgraph.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左右对照</td>
-<td align="left">对比卡</td>
-<td align="left">字数150/留白22%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">线性 Chain 的局限 vs LangGraph 图工作流</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_langgraph_elements.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三要素横排</td>
-<td align="left">要素卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止堆名词</td>
-<td align="left">State/Node/Edge 三要素 + HelloWorld</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">12_plan_execute.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">计划流程</td>
-<td align="left">流程条</td>
-<td align="left">字数140/留白25%</td>
-<td align="left">禁止贴大段代码</td>
-<td align="left">计划-执行-反思：Plan→Execute→Replan</td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">13_persistence.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三要点横排</td>
-<td align="left">要点卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">checkpointer/thread_id/recursion_limit</td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">14_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">字数80/留白40%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">Agent = 大脑 + 手 + 记忆 + 练习 + 自测</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P2：LLM 五大局限——无记忆 / 无工具 / 无规划 / 会幻觉 / 不会验证，Agent 用「行动 + 反馈」逐一补位。</li>
-<li>P6：GPT-5 / Claude Opus 5 / DeepSeek V4-Flash / Qwen 均原生支持 Function Call。</li>
-<li>P7：Function Calling 是「两次调用」——第一次 LLM 返回结构化 JSON 参数，第二次把执行结果回传生成最终答案。</li>
-<li>P11：State（共享状态）/ Node（处理节点）/ Edge（连接与条件路由）三要素，循环靠「边」上的条件判断。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://typesafe.ai/">TypeSafe AI 官方主页</a><br><strong>✍️ 原文作者</strong>：TypeSafe AI 团队<br><strong>📅 访问日期</strong>：2026 年 9 月 20 日</p>
+</blockquote>
+<p>TypeSafe 的主页把它的产品主张压缩得很短：不要让 AI 先写一段人读的文字，再把文字塞回程序；让 AI 直接给软件一个可用的决策。</p>
+    
+    <a class="article-more-a" href="/ailearn/jev/from/02.html#more">more >></a>
+    
     
     
 
@@ -1181,11 +637,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JEV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC06%E8%AE%B2-Agent%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8ELangGraph/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/jev/from/02.html">展开全文 >></a>
     </p>
     
 
@@ -1220,186 +703,45 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/jev/from/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/jev/from/01.html" target="_blank">
+      【译】System One Models 与 Jev：让软件直接使用 AI 决策
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/jev/from/01.html" class="archive-article-date">
+        <time datetime="2026-09-20T02:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-05-讲：RAG-检索增强生成（优化版）"><a href="#STORY-md-—-第-05-讲：RAG-检索增强生成（优化版）" class="headerlink" title="STORY.md — 第 05 讲：RAG 检索增强生成（优化版）"></a>STORY.md — 第 05 讲：RAG 检索增强生成（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：已会用 LangChain 编排、想给模型「外挂知识」的开发者（系列课程第 5 讲）。</li>
-<li><strong>核心目标</strong>：让观众相信「RAG 让模型学会先查资料再回答」，记住「加载→分割→向量化→检索→生成」这条流水线，课后能做出「上传文档 → 问答」的 demo，并知道工业级的进阶方向。</li>
-<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 结尾），Hero 页配额 2-3 页。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、工程可信（延续系列视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
-<li><strong>内容边界</strong>：必讲 RAG 动机、原理流程、Embedding、向量库、检索进阶、两个实战、响应注意点、工业级架构；不讲训练/微调细节（第 2 讲已讲）；工业级架构页不讲代码。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 4 章：<ul>
-<li>第 1 章「为什么需要 RAG」（P2 动机与对比）→ 扉页 P2</li>
-<li>第 2 章「原理与组件」（P3 全流程 / P4 Embedding / P5 向量库）→ 扉页 P3</li>
-<li>第 3 章「检索进阶与实战」（P6 三件套 / P7 实战① / P8 实战②）→ 扉页 P6</li>
-<li>第 4 章「优化与落地」（P9 响应注意点 / P10 工业级架构 / P11 总结）→ 扉页 P9</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P7 实战①（代码主视觉）、P11 结尾页（3 页，27%）；任意两 Hero 间隔 ≥1 Supporting。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 peak → P8 valley → P9 valley → P10 valley → P11 peak。连续 valley 过长，靠 P7 代码 Hero、P11 收官打破；P3 用流程长条增加节奏。</li>
-<li><strong>非对称版式</strong>：P2 左右对照、P3 流程长条、P7 左代码右说明、P8 左代码右说明、P10 架构图——非对称占比 ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：P5（四库卡）、P9（三注意卡）用对称，全篇对称 ≤ 2 页。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">字数30/留白40%</td>
-<td align="left">禁止四卡预览</td>
-<td align="left">封面：RAG 让模型学会查资料再回答</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_why_rag.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左右对照</td>
-<td align="left">对比卡</td>
-<td align="left">字数150/留白20%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">知识有截止日期+幻觉；RAG vs 微调对比</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_rag_pipeline.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">流程长条</td>
-<td align="left">流程条</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">加载→分割→向量化→存储→检索→生成 全流程</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_embedding.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">选型卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止表格堆砌</td>
-<td align="left">Embedding 嵌入模型：高维→低维向量，中英选型</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_vector_db.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">四库卡横排</td>
-<td align="left">库卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽四卡装饰化</td>
-<td align="left">向量数据库：Chroma/Pinecone/FAISS/Qdrant + KNN/ANN</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_retrieval_advanced.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三件套横排</td>
-<td align="left">三件套卡</td>
-<td align="left">字数150/留白22%</td>
-<td align="left">禁止堆名词</td>
-<td align="left">Query/Reranker/Rewrite 检索进阶三件套</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_streamlit_demo.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数120/留白30%</td>
-<td align="left">禁止代码超 12 行</td>
-<td align="left">实战①：Streamlit 问答机器人全链路</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_agent_retrieval.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止无代码纯文字</td>
-<td align="left">实战②：Agent 化检索，查不到就说不查不到</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_response_notes.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三注意卡横排</td>
-<td align="left">注意卡</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">响应模型注意点：上下文融合/幻觉抑制/逻辑连贯</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_industrial_arch.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">架构图</td>
-<td align="left">SVG 架构</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止贴代码</td>
-<td align="left">进阶工业级架构：LangGraph+CopilotKit+NestJS+React+Chroma</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">字数80/留白40%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">demo 到工业级三级跳 + 练习 + 自测</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P2：模型知识有截止日期（训练数据停在某时刻）+ 幻觉（一本正经编造）——RAG 用外部知识库补齐。</li>
-<li>P4：text2vec（中文）/ bge-m3（多语言）/ bge-small（轻量）——中英选型要点。</li>
-<li>P5：KNN 精确但慢 / ANN 近似但快；召回率衡量检索「找得全不全」。</li>
-<li>P10：LangGraph（工作流）+ CopilotKit（前端 Agent UI）+ NestJS（后端）+ React（前端）+ Chroma（向量库）容器化。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Introducing System One Models &amp; Jev — TypeSafe AI</a><br><strong>✍️ 原文作者</strong>：Diogo Almeida（TypeSafe 创始人）<br><strong>📅 发布时间</strong>：2026 年 9 月 15 日</p>
+</blockquote>
+<p>这篇发布文的核心不是宣布一个更会聊天的模型，而是提出另一种分工：把那些软件需要快速完成、结果又必须受约束的判断，从生成式 LLM 中拆出来，交给 Jev 这样的决策模型。</p>
+    
+    <a class="article-more-a" href="/ailearn/jev/from/01.html#more">more >></a>
+    
     
     
 
@@ -1409,11 +751,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JEV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/jev/from/01.html">展开全文 >></a>
     </p>
     
 
@@ -1448,309 +817,49 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-finlearn/study/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/finlearn/study/00.html" target="_blank">
+      A股投资进阶课（00）——从看股票到看懂市场：课程介绍与学习地图
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/finlearn/study/00.html" class="archive-article-date">
+        <time datetime="2026-09-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="DESIGN-md-—-第-05-讲：RAG-检索增强生成（优化版）"><a href="#DESIGN-md-—-第-05-讲：RAG-检索增强生成（优化版）" class="headerlink" title="DESIGN.md — 第 05 讲：RAG 检索增强生成（优化版）"></a>DESIGN.md — 第 05 讲：RAG 检索增强生成（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
-<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
-<li>三区母版（内容页固定）：<ul>
-<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
-<li>B · 内容区：120–660px（可用 540px）</li>
-<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 5 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰</li>
-</ul>
-</li>
-<li>封面 / 结尾页自定义版式，省略 C 区。</li>
-</ul>
-<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
-<thead>
-<tr>
-<th align="left">角色</th>
-<th align="left">hex</th>
-<th align="left">面积</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">主色</td>
-<td align="left"><code>#16263F</code> 深海军蓝</td>
-<td align="left">≤60%</td>
-<td align="left">封面/深色块/标题</td>
-</tr>
-<tr>
-<td align="left">辅色</td>
-<td align="left"><code>#DCE7F5</code> 冰蓝</td>
-<td align="left">≤30%</td>
-<td align="left">卡片底/浅色块</td>
-</tr>
-<tr>
-<td align="left">强调色</td>
-<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
-<td align="left">≤10%</td>
-<td align="left">巨型数字/CTA/焦点</td>
-</tr>
-<tr>
-<td align="left">亮点青</td>
-<td align="left"><code>#22D3EE</code></td>
-<td align="left">≤8%</td>
-<td align="left">AI 亮点/代码/装饰</td>
-</tr>
-<tr>
-<td align="left">中性</td>
-<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
-<td align="left">剩余</td>
-<td align="left">正文/次要/页面底</td>
-</tr>
-</tbody></table>
-<ul>
-<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
-<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
-<li>Hero 页（P1/P7/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
-</ul>
-<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
-<thead>
-<tr>
-<th align="left">层级</th>
-<th align="left">字号</th>
-<th align="left">字重</th>
-<th align="left">行高</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">封面主标题</td>
-<td align="left">52px</td>
-<td align="left">bold</td>
-<td align="left">1.25</td>
-<td align="left">仅封面</td>
-</tr>
-<tr>
-<td align="left">巨型数据</td>
-<td align="left">64px</td>
-<td align="left">bold</td>
-<td align="left">1.0</td>
-<td align="left">锚点数字</td>
-</tr>
-<tr>
-<td align="left">页面主标题</td>
-<td align="left">34px</td>
-<td align="left">bold</td>
-<td align="left">1.3</td>
-<td align="left">A 区固定</td>
-</tr>
-<tr>
-<td align="left">卡片小标题</td>
-<td align="left">19-22px</td>
-<td align="left">bold</td>
-<td align="left">1.4</td>
-<td align="left">卡片头</td>
-</tr>
-<tr>
-<td align="left">正文</td>
-<td align="left">15-17px</td>
-<td align="left">regular</td>
-<td align="left">1.6-1.9</td>
-<td align="left">段落</td>
-</tr>
-<tr>
-<td align="left">代码</td>
-<td align="left">13-15px</td>
-<td align="left">regular</td>
-<td align="left">1.8</td>
-<td align="left">JetBrains Mono</td>
-</tr>
-<tr>
-<td align="left">脚注/页码</td>
-<td align="left">14px</td>
-<td align="left">regular</td>
-<td align="left">1.4</td>
-<td align="left">C 区</td>
-</tr>
-</tbody></table>
-<ul>
-<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
-</ul>
-<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
-<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
-<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
-<li>代码页以 CodeBlock 为主视觉。</li>
-</ul>
-<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
-<thead>
-<tr>
-<th align="left">等级</th>
-<th align="left">用途</th>
-<th align="left">最小尺寸</th>
-<th align="left">接入</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">L1</td>
-<td align="left">主视觉</td>
-<td align="left">B 区 ≥40%</td>
-<td align="left">CodeBlock / SVG 架构图 / 流程长条</td>
-</tr>
-<tr>
-<td align="left">L2</td>
-<td align="left">支撑图</td>
-<td align="left">≥280×180</td>
-<td align="left">段落旁</td>
-</tr>
-<tr>
-<td align="left">L3</td>
-<td align="left">角标</td>
-<td align="left">≤64×64</td>
-<td align="left">C 区左侧固定</td>
-</tr>
-</tbody></table>
-<ul>
-<li>架构/流程用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原。</li>
-<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
-</ul>
-<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">类型</th>
-<th align="left">角色</th>
-<th align="left">版式</th>
-<th align="left">L1</th>
-<th align="left">字数</th>
-<th align="left">留白%</th>
-<th align="left">关键约束</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">30</td>
-<td align="left">40%</td>
-<td align="left">深色底+大标题+青强调</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_why_rag.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左右对照</td>
-<td align="left">对比卡</td>
-<td align="left">150</td>
-<td align="left">20%</td>
-<td align="left">RAG vs 微调</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_rag_pipeline.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">流程长条</td>
-<td align="left">流程条</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">六步流水线</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_embedding.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左标题+右内容</td>
-<td align="left">选型卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">中英选型</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_vector_db.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">四库卡横排</td>
-<td align="left">库卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">KNN/ANN/召回率</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_retrieval_advanced.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三件套横排</td>
-<td align="left">三件套卡</td>
-<td align="left">150</td>
-<td align="left">22%</td>
-<td align="left">Query/Reranker/Rewrite</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_streamlit_demo.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">120</td>
-<td align="left">30%</td>
-<td align="left">全链路代码</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_agent_retrieval.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">create_retriever_tool</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_response_notes.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三注意卡横排</td>
-<td align="left">注意卡</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">融合/抑制/连贯</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_industrial_arch.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">架构图</td>
-<td align="left">SVG 架构</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">五组件容器化</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">80</td>
-<td align="left">40%</td>
-<td align="left">深色收尾+练习自测</td>
-</tr>
-</tbody></table>
-<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
-<li>相邻页版式不重复：P2(左右对照)→P3(流程条)→P4(左标题右内容)→P5(四卡)→P6(三件套)→P7(代码Hero)→P8(代码)→P9(三卡)→P10(架构图)→P11(居中) ✅</li>
-<li>P7/P8 均为「左代码右说明」相邻，但主题不同（Streamlit demo vs Agent 检索），且 P7 为 Hero、P8 为 Supporting，视觉重量差异明显，可接受。</li>
-<li>Hero 3 页 = 27%，互不相邻 ✅</li>
-<li>连续 valley ≤5：P2-P6 五连 → P7 peak 打断，P8-P10 三连 → P11 peak ✅</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列说明</strong>：这是一套面向真实市场的研究课。默认你已经见过 K 线、PE、成交量这些词，但还没有把它们连成一套能反复使用的判断框架。</p>
+<p><strong>🎁 学完后的目标</strong>：面对一家 A 股公司，你能在 1～3 小时内完成第一轮研究：知道该看什么、哪些结论还缺证据、什么信息会推翻原来的判断。</p>
+<p><strong>⚠️ 重要提示</strong>：课程只讨论研究方法与风险管理，不构成任何证券投资建议。市场有风险，决策和损益都应由投资者自行承担。</p>
+</blockquote>
+<p>你可能见过这种场面：一家公司利润增长，股价却跌了；一只低 PE 股票看着便宜，一年过去还在原地；某个行业突然走强，新闻里全是利好，追进去却赶上高开低走。</p>
+<p>问题往往不在于少学了一个指标，而在于只看到了股票，没有看到它身后的市场、行业和预期。</p>
+<p>这套课不打算教你用某个信号预测明天涨还是跌。它更关心另一件事：<strong>市场为什么愿意用现在的价格，给一家公司的未来定价？</strong></p>
+    
+    <a class="article-more-a" href="/finlearn/study/00.html#more">more >></a>
+    
     
     
 
@@ -1760,11 +869,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">金融学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">A股投资</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">股票研究</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC05%E8%AE%B2-RAG%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90/DESIGN.html">展开全文 >></a>
+      <a class="article-more-a" href="/finlearn/study/00.html">展开全文 >></a>
     </p>
     
 
@@ -1799,221 +935,52 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/07.html" target="_blank">
+      AI Native 研发流程（07）—— 生产闭环：线上数据怎么反馈回研发流程
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/07.html" class="archive-article-date">
+        <time datetime="2026-09-18T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-04-讲：LangChain-与工作流编排（优化版）"><a href="#STORY-md-—-第-04-讲：LangChain-与工作流编排（优化版）" class="headerlink" title="STORY.md — 第 04 讲：LangChain 与工作流编排（优化版）"></a>STORY.md — 第 04 讲：LangChain 与工作流编排（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：有编程基础、已会跑通本地/云大模型的开发者（系列课程第 4 讲）。</li>
-<li><strong>核心目标</strong>：让观众相信「LangChain 把 LLM 应用开发从手工拼接变成搭积木」，记住「Chain 是一条可复用的调用流水线」这一心智锚点，课后能写出「5 行跑通对话 → LCEL 链式编排 → LangServe 一键部署」的完整闭环。</li>
-<li><strong>PPT 长度</strong>：14 页（封面 + 12 内容 + 结尾），Hero 页配额 3 页。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、代码可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
-<li><strong>内容边界</strong>：必讲裸调痛点、LangChain 定位、核心概念、LCEL、LangServe、LangSmith、参数速查；不讲 RAG/Agent 深层实现（留给第 5/6 讲）；禁贴过长源码（每页代码 ≤ 12 行）。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 4 章：<ul>
-<li>第 1 章「为什么需要框架」（P2 裸调痛点）→ 扉页 P2</li>
-<li>第 2 章「认识 LangChain」（P3 定位 / P4 概念墙 / P5 框架结构 / P6 第一次调用）→ 扉页 P3</li>
-<li>第 3 章「Prompt 与示例」（P7 PromptTemplate / P8 FewShot）→ 扉页 P7</li>
-<li>第 4 章「编排 · 部署 · 监控」（P9 LCEL 原理 / P10 LCEL 实战 / P11 LangServe / P12 LangSmith / P13 参数卡 / P14 总结）→ 扉页 P9</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P6 第一次调用（代码实战）、P14 结尾页（3 页，21%）；任意两 Hero 之间间隔 ≥1 Supporting。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 peak → P7 valley → P8 valley → P9 valley → P10 valley → P11 valley → P12 valley → P13 valley → P14 peak。连续 valley 过长，靠 P4 概念墙（章节 transition 深色）与 P6 Hero、P14 Hero 打破。</li>
-<li><strong>非对称版式</strong>：P2 左标题+右内容、P5 分层图、P6 左代码+右说明、P7 上下分栏、P10 左代码+右说明、P13 参数卡矩阵——非对称占比 ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：P4（概念墙）、P8（左右对照）、P12（三卡）用对称，全篇对称 ≤ 3 页。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">字数30/留白40%</td>
-<td align="left">禁止四卡预览</td>
-<td align="left">封面：LangChain 框架让 LLM 应用开发变简单</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_bare_llm_pain.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">痛点卡组</td>
-<td align="left">字数150/留白20%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">裸调大模型四大痛点：无记忆/token 限制/无法验证/多步低效</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_what_is_langchain.slide</td>
-<td align="left">section</td>
-<td align="left">transition</td>
-<td align="left">valley</td>
-<td align="left">左大字+右要点</td>
-<td align="left">定位卡</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">LangChain 是什么：LLM 应用开发框架，简化开发+标准化工具链</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_core_concepts.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">概念墙横排</td>
-<td align="left">概念卡 5×2</td>
-<td align="left">字数160/留白15%</td>
-<td align="left">禁止超 10 概念</td>
-<td align="left">10 大必知概念：LLM/Prompt/Chain/LCEL/RAG/Agent/Memory/OutputParser/Vectorstore/Embedding</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_framework_layers.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">分层架构图</td>
-<td align="left">SVG 分层</td>
-<td align="left">字数140/留白25%</td>
-<td align="left">禁止扁平罗列</td>
-<td align="left">框架七层结构：Core→LangChain→Integrations→Community→LangGraph/LangServe/LangSmith</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_first_call.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数120/留白30%</td>
-<td align="left">禁止代码塞满全页</td>
-<td align="left">5 行代码跑通对话：prompt → llm → StrOutputParser 链</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_prompt_template.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上下分栏</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数140/留白20%</td>
-<td align="left">禁止无代码纯文字</td>
-<td align="left">ChatPromptTemplate 消息角色 system/human/ai + MessagesPlaceholder</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_fewshot.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左右对照</td>
-<td align="left">示例选择卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">FewShot：示例集=微型知识库，SemanticSimilarityExampleSelector 语义选择</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_lcel_principle.slide</td>
-<td align="left">section</td>
-<td align="left">transition</td>
-<td align="left">valley</td>
-<td align="left">左大字+右方法家族</td>
-<td align="left">方法卡</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">LCEL 原理：Runnable Interface，stream/invoke/batch + async 家族</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_lcel_practice.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止代码超 12 行</td>
-<td align="left">流式输出/异步/JsonOutputParser/astream_events</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_langserve.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止无命令纯文字</td>
-<td align="left">langchain-cli 脚手架 + add_routes 一键 RESTful + Swagger</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">12_langsmith.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三卡横排</td>
-<td align="left">监控卡</td>
-<td align="left">字数130/留白25%</td>
-<td align="left">禁止表格堆砌</td>
-<td align="left">LangSmith 链路可视化 / set_verbose / set_debug</td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">13_params_cheatsheet.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">参数卡矩阵</td>
-<td align="left">参数卡</td>
-<td align="left">字数140/留白22%</td>
-<td align="left">禁止等宽四卡</td>
-<td align="left">temperature/top_p/top_k/max_tokens，「一次只动一个旋钮」</td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">14_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">字数80/留白40%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">调用→编排→部署→监控 完整闭环 + 练习 + 自测</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P13：temperature 0~2（越低越确定）/ top_p 核采样 / top_k 词表截断 / max_tokens 输出上限——「一次只动一个旋钮」是调参第一原则。</li>
-<li>P6：prompt → llm → StrOutputParser 用 <code>|</code> 管道连接，输出即纯字符串，5 行以内完成。</li>
-<li>P11：<code>langchain app new</code> 脚手架 + <code>add_routes(app, chain, path=&quot;/chain&quot;)</code> + 自动生成 Swagger 文档页。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>企业实践篇</strong>，适合已经接触 CI/CD 和监控、想把 Agent 接进生产反馈流程的读者。不要求有 SRE 背景。<br><strong>🎁 核心收获</strong>：读完本篇你将知道 Dashboard 为什么不等于反馈闭环，理解 Control Band、SRE Agent 和 Production Evidence 的分工，并能设计一条从线上异常回到新 <code>intent.md</code> 的安全路径。</p>
+</blockquote>
+<p>登录失败限制终于发布了。</p>
+<p>Canary 跑了半小时，错误率正常，登录 P95 也没变。Release Manager 点下全量发布，大家松了口气。</p>
+<p>一个小时后，OAuth 成功率开始缓慢下降。不是突然归零，只是从 98.7% 掉到 97.9%，接着又滑到 97.2%。Dashboard 上确实有这条线，可没人一直盯着。</p>
+<p>第 05 篇的测试和 Eval 都过了，第 06 篇的审批也没少。问题还是进了生产。</p>
+<p>这并不说明前面的验证白做了。测试环境只能证明我们预先想到的事，生产环境还会回答另一类问题：</p>
+<blockquote>
+<p><strong>真实用户、真实流量和真实依赖一起出现时，它到底工作得怎么样？</strong></p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/07.html#more">more >></a>
+    
     
     
 
@@ -2023,11 +990,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI Native SDLC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/07.html">展开全文 >></a>
     </p>
     
 
@@ -2062,351 +1056,52 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/06.html" target="_blank">
+      AI Native 研发流程（06）—— 治理与边界：Agent 能做什么，不能做什么
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/06.html" class="archive-article-date">
+        <time datetime="2026-09-15T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="DESIGN-md-—-第-04-讲：LangChain-与工作流编排（优化版）"><a href="#DESIGN-md-—-第-04-讲：LangChain-与工作流编排（优化版）" class="headerlink" title="DESIGN.md — 第 04 讲：LangChain 与工作流编排（优化版）"></a>DESIGN.md — 第 04 讲：LangChain 与工作流编排（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
-<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
-<li>三区母版（内容页固定）：<ul>
-<li>A · 标题块：0–120px，主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
-<li>B · 内容区：120–660px（可用 540px）</li>
-<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 4 讲」+ 右侧页码 <code>NN / 14</code>，14px 灰</li>
-</ul>
-</li>
-<li>封面 / 结尾页自定义版式，省略 C 区。</li>
-</ul>
-<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
-<thead>
-<tr>
-<th align="left">角色</th>
-<th align="left">hex</th>
-<th align="left">面积</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">主色</td>
-<td align="left"><code>#16263F</code> 深海军蓝</td>
-<td align="left">≤60%</td>
-<td align="left">封面/深色块/标题</td>
-</tr>
-<tr>
-<td align="left">辅色</td>
-<td align="left"><code>#DCE7F5</code> 冰蓝</td>
-<td align="left">≤30%</td>
-<td align="left">卡片底/浅色块</td>
-</tr>
-<tr>
-<td align="left">强调色</td>
-<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
-<td align="left">≤10%</td>
-<td align="left">巨型数字/CTA/焦点</td>
-</tr>
-<tr>
-<td align="left">亮点青</td>
-<td align="left"><code>#22D3EE</code></td>
-<td align="left">≤8%</td>
-<td align="left">AI 亮点/代码/装饰</td>
-</tr>
-<tr>
-<td align="left">中性</td>
-<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
-<td align="left">剩余</td>
-<td align="left">正文/次要/页面底</td>
-</tr>
-</tbody></table>
-<ul>
-<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与深色卡头。</li>
-<li>半透明：深色卡 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
-<li>Hero 页（P1/P6/P14）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
-</ul>
-<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
-<thead>
-<tr>
-<th align="left">层级</th>
-<th align="left">字号</th>
-<th align="left">字重</th>
-<th align="left">行高</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">封面主标题</td>
-<td align="left">52px</td>
-<td align="left">bold</td>
-<td align="left">1.25</td>
-<td align="left">仅封面</td>
-</tr>
-<tr>
-<td align="left">章节大字</td>
-<td align="left">44px</td>
-<td align="left">bold</td>
-<td align="left">1.2</td>
-<td align="left">章节过渡（P3/P9）</td>
-</tr>
-<tr>
-<td align="left">巨型数据</td>
-<td align="left">64px</td>
-<td align="left">bold</td>
-<td align="left">1.0</td>
-<td align="left">锚点数字</td>
-</tr>
-<tr>
-<td align="left">页面主标题</td>
-<td align="left">34px</td>
-<td align="left">bold</td>
-<td align="left">1.3</td>
-<td align="left">A 区固定</td>
-</tr>
-<tr>
-<td align="left">卡片小标题</td>
-<td align="left">19-22px</td>
-<td align="left">bold</td>
-<td align="left">1.4</td>
-<td align="left">卡片头</td>
-</tr>
-<tr>
-<td align="left">正文</td>
-<td align="left">15-17px</td>
-<td align="left">regular</td>
-<td align="left">1.6-1.9</td>
-<td align="left">段落</td>
-</tr>
-<tr>
-<td align="left">代码</td>
-<td align="left">13-15px</td>
-<td align="left">regular</td>
-<td align="left">1.8</td>
-<td align="left">JetBrains Mono</td>
-</tr>
-<tr>
-<td align="left">脚注/页码</td>
-<td align="left">14px</td>
-<td align="left">regular</td>
-<td align="left">1.4</td>
-<td align="left">C 区</td>
-</tr>
-</tbody></table>
-<ul>
-<li>字体：中文「思源黑体」、代码「JetBrains Mono」（≤2 字体家族）。</li>
-<li>巨型数据必须 bold + 与正文不同字重。</li>
-</ul>
-<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
-<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
-<li>卡片填充率 ≥85%，卡片正文 ≥100 字（高 ≥380px 卡）。</li>
-<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图 / CodeBlock）。</li>
-<li>代码页以 CodeBlock 为主视觉，深色代码块即锚点。</li>
-</ul>
-<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><table>
-<thead>
-<tr>
-<th align="left">等级</th>
-<th align="left">用途</th>
-<th align="left">最小尺寸</th>
-<th align="left">接入</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">L1</td>
-<td align="left">主视觉</td>
-<td align="left">B 区 ≥40%</td>
-<td align="left">CodeBlock / SVG 分层图</td>
-</tr>
-<tr>
-<td align="left">L2</td>
-<td align="left">支撑图</td>
-<td align="left">≥280×180</td>
-<td align="left">段落旁</td>
-</tr>
-<tr>
-<td align="left">L3</td>
-<td align="left">角标</td>
-<td align="left">≤64×64</td>
-<td align="left">C 区左侧固定</td>
-</tr>
-</tbody></table>
-<ul>
-<li>架构/流程/分层用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原（不引用真实截图）。</li>
-<li>风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。</li>
-</ul>
-<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">类型</th>
-<th align="left">角色</th>
-<th align="left">版式</th>
-<th align="left">L1</th>
-<th align="left">字数</th>
-<th align="left">留白%</th>
-<th align="left">关键约束</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">30</td>
-<td align="left">40%</td>
-<td align="left">深色底+大标题+青强调</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_bare_llm_pain.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左标题+右内容</td>
-<td align="left">痛点卡组</td>
-<td align="left">150</td>
-<td align="left">20%</td>
-<td align="left">右栏四痛点卡</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_what_is_langchain.slide</td>
-<td align="left">section</td>
-<td align="left">transition</td>
-<td align="left">左大字+右要点</td>
-<td align="left">定位卡</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">深色章节页</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_core_concepts.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">概念墙 5×2</td>
-<td align="left">概念卡</td>
-<td align="left">160</td>
-<td align="left">15%</td>
-<td align="left">10 概念两行五列</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_framework_layers.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">分层架构图</td>
-<td align="left">SVG 分层</td>
-<td align="left">140</td>
-<td align="left">25%</td>
-<td align="left">七层堆叠</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_first_call.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">120</td>
-<td align="left">30%</td>
-<td align="left">5 行代码为主视觉</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_prompt_template.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">上下分栏</td>
-<td align="left">CodeBlock</td>
-<td align="left">140</td>
-<td align="left">20%</td>
-<td align="left">消息角色+占位符</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_fewshot.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左右对照</td>
-<td align="left">示例选择卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">语义选择器</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_lcel_principle.slide</td>
-<td align="left">section</td>
-<td align="left">transition</td>
-<td align="left">左大字+右方法</td>
-<td align="left">方法卡</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">深色章节页</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_lcel_practice.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">流式/异步/Json</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_langserve.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左代码+右说明</td>
-<td align="left">CodeBlock</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">脚手架+路由</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">12_langsmith.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三卡横排</td>
-<td align="left">监控卡</td>
-<td align="left">130</td>
-<td align="left">25%</td>
-<td align="left">可视化+日志</td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">13_params_cheatsheet.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">参数卡矩阵</td>
-<td align="left">参数卡</td>
-<td align="left">140</td>
-<td align="left">22%</td>
-<td align="left">四旋钮速查</td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">14_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">居中金句</td>
-<td align="left">—</td>
-<td align="left">80</td>
-<td align="left">40%</td>
-<td align="left">深色收尾+练习自测</td>
-</tr>
-</tbody></table>
-<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
-<li>相邻页版式不重复：P2(左标题右内容)→P3(章节)→P4(概念墙)→P5(分层图)→P6(代码Hero)→P7(上下分栏)→P8(左右对照)→P9(章节)→P10(代码)→P11(代码)→P12(三卡)→P13(参数卡)→P14(居中) ✅</li>
-<li>P10/P11 均为「左代码右说明」相邻，但内容主题不同（LCEL 实战 vs LangServe 部署），且 P9 章节页打断，可接受。</li>
-<li>Hero 3 页 = 21%，互不相邻 ✅</li>
-<li>连续 valley ≤5：P7-P13 七连 → P14 peak 打断（P9 章节 transition 加重节奏）✅</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>企业实践篇</strong>，适合已经让 Agent 参与研发、开始担心权限和责任边界的读者。不需要安全或 IAM 背景。<br><strong>🎁 核心收获</strong>：读完本篇你将理解为什么 Agent 不能直接继承人的权限，知道如何用 <code>Allow / Ask / Block</code> 设计分级门禁，并能为团队画出第一版 Agent 权限矩阵。</p>
+</blockquote>
+<p>上一篇，我们终于拿到了完整 Evidence：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spec 满足</span><br><span class="line">测试通过</span><br><span class="line">OAuth 没有被误伤</span><br><span class="line">安全扫描通过</span><br><span class="line">没有越界修改</span><br></pre></td></tr></table></figure>
+
+<p>接下来是不是该让 Agent 自己合并、自己发布？</p>
+<p>先别急。</p>
+<p>测试通过，只能说明这次任务做对了。它没有回答另一个问题：<strong>Agent 凭什么有权做下一步？</strong></p>
+<p>如果 Agent 用的是你的管理员 Token，那么审计记录里只会显示“邱柏宏部署了生产环境”。至于到底是你点的、Agent 点的，还是一段藏在网页里的提示词骗它点的，系统根本分不出来。</p>
+<p>这就是治理要解决的问题。</p>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/06.html#more">more >></a>
+    
     
     
 
@@ -2416,11 +1111,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI Native SDLC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC04%E8%AE%B2-LangChain%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/DESIGN.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/06.html">展开全文 >></a>
     </p>
     
 
@@ -2455,283 +1177,52 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/05.html" target="_blank">
+      AI Native 研发流程（05）—— 持续验证：从 Test 到 Eval 到 Evidence
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/05.html" class="archive-article-date">
+        <time datetime="2026-09-12T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="DESIGN-md-—-第-03-讲：Prompt-提示语工程（优化版）"><a href="#DESIGN-md-—-第-03-讲：Prompt-提示语工程（优化版）" class="headerlink" title="DESIGN.md — 第 03 讲：Prompt 提示语工程（优化版）"></a>DESIGN.md — 第 03 讲：Prompt 提示语工程（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
-<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
-<li>三区母版（内容页固定）：<ul>
-<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙</li>
-<li>B · 内容区：120–660px（可用 540px）</li>
-<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 3 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰 #5B6B7A</li>
-</ul>
-</li>
-<li>封面 / 深色页用渐变 <code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 或纯深蓝 #16263F。</li>
-</ul>
-<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
-<thead>
-<tr>
-<th align="left">角色</th>
-<th align="left">hex</th>
-<th align="left">面积</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">主色</td>
-<td align="left"><code>#16263F</code> 深海军蓝</td>
-<td align="left">≤60%</td>
-<td align="left">封面/深色块/标题</td>
-</tr>
-<tr>
-<td align="left">辅色</td>
-<td align="left"><code>#DCE7F5</code> 冰蓝</td>
-<td align="left">≤30%</td>
-<td align="left">卡片底/浅色块</td>
-</tr>
-<tr>
-<td align="left">强调色</td>
-<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
-<td align="left">≤10%</td>
-<td align="left">巨型数字/CTA/焦点</td>
-</tr>
-<tr>
-<td align="left">亮点青</td>
-<td align="left"><code>#22D3EE</code></td>
-<td align="left">≤8%</td>
-<td align="left">AI 亮点/装饰</td>
-</tr>
-<tr>
-<td align="left">中性</td>
-<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
-<td align="left">剩余</td>
-<td align="left">正文/次要/页面底</td>
-</tr>
-</tbody></table>
-<ul>
-<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code>。</li>
-<li>半透明：深色块内嵌 <code>rgba(255,255,255,0.06)</code> 卡、<code>rgba(220,231,245,0.15)</code> 边框；装饰圆 <code>opacity 0.12</code>。</li>
-<li>Hero 页（P1/P8/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
-</ul>
-<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
-<thead>
-<tr>
-<th align="left">层级</th>
-<th align="left">字号</th>
-<th align="left">字重</th>
-<th align="left">行高</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">封面主标题</td>
-<td align="left">52px</td>
-<td align="left">bold</td>
-<td align="left">1.2</td>
-<td align="left">仅封面</td>
-</tr>
-<tr>
-<td align="left">章节大字</td>
-<td align="left">44px</td>
-<td align="left">bold</td>
-<td align="left">1.2</td>
-<td align="left">深色巨数页标题</td>
-</tr>
-<tr>
-<td align="left">巨型数据</td>
-<td align="left">64px</td>
-<td align="left">bold</td>
-<td align="left">1.0</td>
-<td align="left">锚点数字（P8）</td>
-</tr>
-<tr>
-<td align="left">页面主标题</td>
-<td align="left">34px</td>
-<td align="left">bold</td>
-<td align="left">1.3</td>
-<td align="left">A 区固定</td>
-</tr>
-<tr>
-<td align="left">卡片小标题</td>
-<td align="left">20px</td>
-<td align="left">bold</td>
-<td align="left">1.4</td>
-<td align="left">卡片头</td>
-</tr>
-<tr>
-<td align="left">正文</td>
-<td align="left">15-16px</td>
-<td align="left">regular</td>
-<td align="left">1.7</td>
-<td align="left">段落</td>
-</tr>
-<tr>
-<td align="left">脚注/页码</td>
-<td align="left">14px</td>
-<td align="left">regular</td>
-<td align="left">1.4</td>
-<td align="left">C 区</td>
-</tr>
-</tbody></table>
-<ul>
-<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」（≤2 中文字体家族）。</li>
-<li>巨型数据必须 bold + 与正文不同字重（64px vs 15px）。</li>
-</ul>
-<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
-<li>常规页留白 ≤30%；封面/收官页 40%。</li>
-<li>卡片填充率 ≥85%，卡片正文 ≥80 字（高 ≥320px 卡）。</li>
-<li>每页 ≥1 视觉锚点（≥44px 元素或 ≥40% B 区图）。</li>
-</ul>
-<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
-<li>本讲以「正反例卡片 + 五要素 + CodeBlock + 巨数」为主视觉，不引入外部配图；SQL、Prompt 结构用 CodeBlock 还原。</li>
-<li>图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。</li>
-</ul>
-<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">类型</th>
-<th align="left">角色</th>
-<th align="left">版式</th>
-<th align="left">字数</th>
-<th align="left">留白%</th>
-<th align="left">色彩分配</th>
-<th align="left">关键约束</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">30</td>
-<td align="left">40%</td>
-<td align="left">主60+辅20+强15</td>
-<td align="left">深色底+大标题+青强调</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_five_elements.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">五要素卡横排</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">主45+辅30</td>
-<td align="left">五要素编号卡</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_role.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左角色+右正反例</td>
-<td align="left">130</td>
-<td align="left">22%</td>
-<td align="left">主45+辅30</td>
-<td align="left">三角色+正反例</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_context.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左背景+右误区</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">主45+辅30</td>
-<td align="left">两大误区卡</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_instruction.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">上标题+下正反例三卡</td>
-<td align="left">130</td>
-<td align="left">22%</td>
-<td align="left">主45+辅30</td>
-<td align="left">三大正反例</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_example.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">三卡并列</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">主45+辅30</td>
-<td align="left">三场景卡</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_format.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">四格式卡</td>
-<td align="left">110</td>
-<td align="left">22%</td>
-<td align="left">主45+辅30</td>
-<td align="left">四格式卡</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_four_rules.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">深色巨数</td>
-<td align="left">100</td>
-<td align="left">35%</td>
-<td align="left">主55+强15</td>
-<td align="left">30%→90% 巨数锚点</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_sql.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">左结构+右 CodeBlock</td>
-<td align="left">130</td>
-<td align="left">20%</td>
-<td align="left">主45+辅30</td>
-<td align="left">SQL 代码块</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_anti_hallucination.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">上原则+下三技巧</td>
-<td align="left">120</td>
-<td align="left">25%</td>
-<td align="left">主45+辅30</td>
-<td align="left">三技巧卡</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">深色收官居中</td>
-<td align="left">100</td>
-<td align="left">38%</td>
-<td align="left">主60+强15</td>
-<td align="left">五要素回顾+自测 3 题</td>
-</tr>
-</tbody></table>
-<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
-<li>相邻页版式不重复：P1(封面)→P2(五卡)→P3(左角色右例)→P4(左背景右误区)→P5(正反例三卡)→P6(三卡)→P7(四格式卡)→P8(深色巨数)→P9(左结构右代码)→P10(上原则下技巧)→P11(深色收官) ✅</li>
-<li>非对称版式 ≥ 40% ✅</li>
-<li>对称版式 P2/P5/P6/P7 四页，均非相邻 ✅</li>
-<li>Hero 3 页 = 27%，互不相邻 ✅</li>
-<li>连续 valley ≤6：P2-P7 六连 → P2(五卡总览)、P5(正反例) 视觉加重，可接受 ✅</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>核心实践篇</strong>，适合已经会写测试、但想弄清楚“怎么证明 Agent 没有做错事”的读者。不需要 Eval 平台经验。<br><strong>🎁 核心收获</strong>：读完本篇你将能够区分 Test、Eval 和 Evidence，设计一套针对 Agent 变更的验证矩阵，并知道怎样把分散的测试结果变成可追溯的发布依据。</p>
+</blockquote>
+<p>Agent 做完了登录失败限制。</p>
+<p>128 个测试全部通过，CI 绿得很漂亮，PR 也挑不出明显问题。</p>
+<p>到了测试环境，麻烦才露出来：密码连续输错 5 次后，OAuth 登录居然也被锁了。</p>
+<p>看着意外，其实很常见。现有测试只证明了“新功能能工作”，没人检查它有没有碰坏原本不该动的东西。</p>
+<p>上一篇聊的是怎么让 Agent 把活干完。现在得多问一句：</p>
+<blockquote>
+<p><strong>它真的做对了吗？拿什么证明？</strong></p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/05.html#more">more >></a>
+    
     
     
 
@@ -2741,11 +1232,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI Native SDLC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B/DESIGN.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/05.html">展开全文 >></a>
     </p>
     
 
@@ -2780,197 +1298,48 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第03讲-Prompt提示语工程/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/04.html" target="_blank">
+      AI Native 研发流程（04）—— Agent 运行时：一个任务怎么被 Agent 完整执行
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/04.html" class="archive-article-date">
+        <time datetime="2026-09-10T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-03-讲：Prompt-提示语工程（优化版）"><a href="#STORY-md-—-第-03-讲：Prompt-提示语工程（优化版）" class="headerlink" title="STORY.md — 第 03 讲：Prompt 提示语工程（优化版）"></a>STORY.md — 第 03 讲：Prompt 提示语工程（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 3 讲）。</li>
-<li><strong>核心目标</strong>：让观众掌握「五要素 Prompt 骨架」（角色/上下文/指令/范例/输出格式），把下指令成功率从 30% 拉到 90%+，课后能独立写出一个 SQL 生成器。</li>
-<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 收官），Hero 页配额 3 页（27%）。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙 + 青）。</li>
-<li><strong>内容边界</strong>：讲「怎么写好 Prompt」与「为什么这样写」，不展开微调、不深入 Agent 编排；每个要素用「正反例对比」落地。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 3 章：<ul>
-<li>第 1 章「骨架总览」（P2 五要素总览）→ 扉页 P2</li>
-<li>第 2 章「五要素逐个拆」（P3 角色 / P4 上下文 / P5 指令 / P6 范例 / P7 输出格式）→ 扉页 P3</li>
-<li>第 3 章「实战与心法」（P8 四要素 / P9 SQL 实战 / P10 降幻觉 / P11 总结）→ 扉页 P8</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P8 下指令四要素（深色巨数页）、P11 总结收官（3 页，27%，符合 20-30%）；P1→P8 间隔 P2-P7，P8→P11 间隔 P9-P10。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 valley → P7 valley → P8 peak → P9 valley → P10 valley → P11 peak。P2（五要素总览卡）与 P9（SQL 实战）视觉重量大，P8 用 30%→90% 巨数打破连续 valley。</li>
-<li><strong>非对称版式</strong>：P3（左角色+右正反例）、P4（左背景+右误区）、P9（左 Prompt 结构+右 SQL 输出）——非对称占比 ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：P2（五要素卡）、P5（正反例对比）、P6（三卡）、P7（四格式卡）用对称，控制节奏。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">visual_role</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">装饰圆</td>
-<td align="left">atmosphere</td>
-<td align="left">字数30/留白40%</td>
-<td align="left">禁止四卡预览</td>
-<td align="left">封面：Prompt 提示语工程｜让 AI 一次就懂</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_five_elements.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">五要素卡横排</td>
-<td align="left">五要素卡</td>
-<td align="left">anchor</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止五卡无编号</td>
-<td align="left">Prompt 是工作说明书：角色/上下文/指令/范例/输出格式</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_role.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左角色+右正反例</td>
-<td align="left">三角色+正反例</td>
-<td align="left">evidence</td>
-<td align="left">字数130/留白22%</td>
-<td align="left">禁止角色空谈无例</td>
-<td align="left">要素①角色：专业型/创意型/中介型 + 正反例</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_context.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左背景+右误区</td>
-<td align="left">两误区卡</td>
-<td align="left">evidence</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止背景堆成一段</td>
-<td align="left">要素②上下文：单次背景+多轮延续 + 两大误区</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_instruction.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上标题+下正反例三卡</td>
-<td align="left">正反例对比</td>
-<td align="left">evidence</td>
-<td align="left">字数130/留白22%</td>
-<td align="left">禁止反例缺失</td>
-<td align="left">要素③指令：动词先行+结果导向 + 三大正反例</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_example.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">三卡并列</td>
-<td align="left">三场景卡</td>
-<td align="left">evidence</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止三卡无场景</td>
-<td align="left">要素④范例：风格迁移/复杂格式/语义校准</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_format.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">四格式卡</td>
-<td align="left">四格式卡</td>
-<td align="left">evidence</td>
-<td align="left">字数110/留白22%</td>
-<td align="left">禁止格式只列名词</td>
-<td align="left">要素⑤输出格式：表格/代码块/对话体/列表</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_four_rules.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">深色巨数</td>
-<td align="left">30%→90%</td>
-<td align="left">anchor</td>
-<td align="left">字数100/留白35%</td>
-<td align="left">禁止浅底数据页</td>
-<td align="left">下指令四要素：做什么/材料/格式/发到哪</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_sql.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左结构+右 CodeBlock</td>
-<td align="left">SQL 输出</td>
-<td align="left">anchor</td>
-<td align="left">字数130/留白20%</td>
-<td align="left">禁止代码塞小卡</td>
-<td align="left">实战：五要素构建 SQL 生成器</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_anti_hallucination.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上原则+下三技巧</td>
-<td align="left">三技巧卡</td>
-<td align="left">evidence</td>
-<td align="left">字数120/留白25%</td>
-<td align="left">禁止技巧堆砌</td>
-<td align="left">降低 AI 幻觉：让模型不知道就说不知道</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">深色收官居中</td>
-<td align="left">五要素回顾</td>
-<td align="left">anchor</td>
-<td align="left">字数100/留白38%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">总结：五要素是骨架，练习才内化 + 自测 3 题</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P8：成功率 30% → 90%+ → 用对四要素，同一模型的效果天差地别。</li>
-<li>P2：五要素（角色/上下文/指令/范例/输出格式）→ 一套可复用的 Prompt 骨架。</li>
-<li>P9：SQL 生成器完整 Prompt 结构 + 输入输出示例 → 五要素落地的标准范本。</li>
-<li>P10：幻觉 = 模型「一本正经地胡说」→ 用「不知道就说不知道」约束，把风险降到最低。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>核心实践篇</strong>，适合已经能让 Agent 改几个文件、但还没把握让它独立跑完一个工程任务的读者。用过 Claude Code / Cursor / Codex 会更有体感。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 Harness 不是另一套 Prompt，而是 Agent 的工作现场；知道一个 Task 怎么在运行时里被执行完，以及什么时候该拆多 Agent、什么时候不该拆。</p>
+</blockquote>
+<p>Task 写清楚了，上下文也装好了。Agent 很快改完 <code>AuthService.ts</code>，乍看没什么问题。</p>
+<p>然后，就没有然后了。测试没跑，PR 没提，OAuth 回归也得你自己记着。真跑出错误，它还会停在原地，等你再催一句。</p>
+<p>问题不在写代码，而在它只能写到这里。后面的活，没有一个能接着跑下去的现场。</p>
+<p>OpenAI 把这个现场叫做 <strong>Harness</strong>。说白了，就是把工具、反馈和边界都接好，让 Agent 不只会交一段代码，而是能把任务做完。</p>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/04.html#more">more >></a>
+    
     
     
 
@@ -2980,11 +1349,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI Native SDLC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC03%E8%AE%B2-Prompt%E6%8F%90%E7%A4%BA%E8%AF%AD%E5%B7%A5%E7%A8%8B/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/04.html">展开全文 >></a>
     </p>
     
 
@@ -3019,210 +1415,48 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ppt-projects/AI从零开始-第02讲-环境准备与本地大模型部署/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/03.html" target="_blank">
+      AI Native 研发流程（03）—— 上下文工程：让 Agent 真正理解你的代码库
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/03.html" class="archive-article-date">
+        <time datetime="2026-09-07T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="STORY-md-—-第-02-讲：环境准备与本地大模型部署（优化版）"><a href="#STORY-md-—-第-02-讲：环境准备与本地大模型部署（优化版）" class="headerlink" title="STORY.md — 第 02 讲：环境准备与本地大模型部署（优化版）"></a>STORY.md — 第 02 讲：环境准备与本地大模型部署（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
-<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 2 讲）。</li>
-<li><strong>核心目标</strong>：让观众相信「本地大模型人人可部署」，记住「Ollama 像 Docker 一样简单」这一心智锚点，课后动手完成「装环境 → 拉模型 → 对话」三步。</li>
-<li><strong>PPT 长度</strong>：12 页（封面 + 10 内容 + 结尾），Hero 页配额 2-3 页。</li>
-<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
-<li><strong>内容边界</strong>：必讲 Python 环境、DeepSeek V4-Flash、Ollama 部署、Dify；不讲训练模型、不讲微调；禁碰硬件配置罗列过细（给最低要求即可）。</li>
-</ul>
-<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
-<li><strong>分章</strong>：全篇 4 章，目录页声明 4 个章节：<ul>
-<li>第 1 章「为什么本地」（P2 为什么需要本地模型）→ 扉页 P2</li>
-<li>第 2 章「环境准备」（P3 环境四件套 / P4 安装 Python / P5 安装深度学习库）→ 扉页 P3</li>
-<li>第 3 章「部署 V4-Flash」（P6 认识 V4-Flash / P7 模型演进 / P8 硬件要求 / P9 Ollama / P10 启动验证 / P11 Dify）→ 扉页 P6</li>
-<li>第 4 章「选择与练习」（P12 本地 vs 云 + 动手练习）→ 扉页 P12</li>
-</ul>
-</li>
-<li><strong>Hero 页</strong>：P1 封面、P6 V4-Flash 数据页、P12 结尾页（3 页，25%，符合 20-30%）；任意两 Hero 之间间隔 ≥1 Supporting。</li>
-<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 valley → P5 valley → P6 peak → P7 valley → P8 valley → P9 valley → P10 valley → P11 valley → P12 peak。连续 valley 过多，在 P5→P6 之间靠 Hero 打破；P3 设计为章节 transition 增加节奏。</li>
-<li><strong>非对称版式</strong>：P2 左标题+右内容、P4 非对称双栏、P5 上大图+下方卡片、P6 巨型数字+洞察、P8 左大图+右侧文字、P9 非对称双栏、P10 左标题+右内容、P11 上下分栏 —— 非对称占比 8/12 = 67% ≥ 40%。</li>
-<li><strong>对称版式预算</strong>：仅 P3（N卡片横排）与 P7（时间轴）用对称，全篇对称 ≤ 2 页。</li>
-</ul>
-<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
-<thead>
-<tr>
-<th align="left">#</th>
-<th align="left">文件</th>
-<th align="left">type</th>
-<th align="left">role</th>
-<th align="left">rhythm</th>
-<th align="left">layout</th>
-<th align="left">visual</th>
-<th align="left">visual_role</th>
-<th align="left">density</th>
-<th align="left">anti_pattern</th>
-<th align="left">description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">01</td>
-<td align="left">01_cover.slide</td>
-<td align="left">cover</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">全幅渐变+骑线标题</td>
-<td align="left">L1: deepseek_abstract.png</td>
-<td align="left">atmosphere</td>
-<td align="left">字数30/图1/留白40%</td>
-<td align="left">禁止四卡预览；禁止标题小字</td>
-<td align="left">封面：本地大模型部署，人人可做——本讲从零装环境到跑起自己的 AI</td>
-</tr>
-<tr>
-<td align="left">02</td>
-<td align="left">02_why_local.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">L1: local_vs_cloud.png</td>
-<td align="left">anchor</td>
-<td align="left">字数180/图1/留白20%</td>
-<td align="left">禁止等宽三卡</td>
-<td align="left">免费可控隐私三大理由 + 云 API 成本对比——本地不是替代云，而是多一种选择</td>
-</tr>
-<tr>
-<td align="left">03</td>
-<td align="left">03_env_stack.slide</td>
-<td align="left">section</td>
-<td align="left">transition</td>
-<td align="left">valley</td>
-<td align="left">N卡片横排</td>
-<td align="left">L3 角标</td>
-<td align="left">evidence</td>
-<td align="left">字数120/图0/留白25%</td>
-<td align="left">禁止等宽四卡装饰化</td>
-<td align="left">环境四件套：Python→PyTorch→HF→LangChain，一条链路串起学习主线</td>
-</tr>
-<tr>
-<td align="left">04</td>
-<td align="left">04_install_python.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">非对称双栏 60:40</td>
-<td align="left">L1: anaconda_badge.png</td>
-<td align="left">evidence</td>
-<td align="left">字数160/图1/留白25%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">官网直装 vs Anaconda——推荐 Anaconda 统一管理环境</td>
-</tr>
-<tr>
-<td align="left">05</td>
-<td align="left">05_install_libs.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上大图+下方卡片</td>
-<td align="left">L2: pip_commands.png</td>
-<td align="left">evidence</td>
-<td align="left">字数140/图1/留白20%</td>
-<td align="left">禁止代码塞进小卡</td>
-<td align="left">PyTorch/Transformers/LangChain 三条命令 + 验证方式</td>
-</tr>
-<tr>
-<td align="left">06</td>
-<td align="left">06_deepseek_v4.slide</td>
-<td align="left">content</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">巨型数字+洞察</td>
-<td align="left">Chart(规格对比表)</td>
-<td align="left">anchor</td>
-<td align="left">字数120/图1/留白35%</td>
-<td align="left">禁止数据装进等宽卡</td>
-<td align="left">284B/13B MoE、1M 上下文、$0.14/M——小参数反超大参数的 2026 开源旗舰</td>
-</tr>
-<tr>
-<td align="left">07</td>
-<td align="left">07_evolution.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">时间轴</td>
-<td align="left">Diagram(时间轴)</td>
-<td align="left">evidence</td>
-<td align="left">字数140/图1/留白20%</td>
-<td align="left">禁止横排三卡</td>
-<td align="left">R1→V3→V4-Flash 演进 + 知识蒸馏=老师教学生</td>
-</tr>
-<tr>
-<td align="left">08</td>
-<td align="left">08_hardware.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左大图+右侧文字</td>
-<td align="left">L1: gpu_memory.png</td>
-<td align="left">anchor</td>
-<td align="left">字数150/图1/留白25%</td>
-<td align="left">禁止表格堆砌</td>
-<td align="left">4bit 量化 24GB 显存可跑；入门最低配置；双轨策略</td>
-</tr>
-<tr>
-<td align="left">09</td>
-<td align="left">09_ollama.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">非对称双栏</td>
-<td align="left">L2: ollama_terminal.png</td>
-<td align="left">evidence</td>
-<td align="left">字数150/图1/留白20%</td>
-<td align="left">禁止命令文字化</td>
-<td align="left">Ollama 类 Docker 的体验：一条命令拉模型、一条命令跑模型</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">10_run_verify.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">左标题+右内容</td>
-<td align="left">L2: curl_demo.png</td>
-<td align="left">evidence</td>
-<td align="left">字数130/图1/留白20%</td>
-<td align="left">禁止超长单行命令</td>
-<td align="left">ollama serve → run → curl 验证 API——三步跑通本地模型</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">11_dify.slide</td>
-<td align="left">content</td>
-<td align="left">supporting</td>
-<td align="left">valley</td>
-<td align="left">上下分栏</td>
-<td align="left">L1: dify_chat.png</td>
-<td align="left">anchor</td>
-<td align="left">字数130/图1/留白25%</td>
-<td align="left">禁止上下等分</td>
-<td align="left">局域网开放 + Dify 可视化对话，告别命令行</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">12_summary.slide</td>
-<td align="left">ending</td>
-<td align="left">hero</td>
-<td align="left">peak</td>
-<td align="left">居中金句</td>
-<td align="left">L3 角标</td>
-<td align="left">anchor</td>
-<td align="left">字数80/图0/留白40%</td>
-<td align="left">禁止小字列表</td>
-<td align="left">双轨策略 + 动手练习三步 + 自测 3 题——本讲完即可独立部署</td>
-</tr>
-</tbody></table>
-<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
-<li>P6：284B 总参/13B 激活 → 小参数反超大参数，说明 2026 竞争从「更大」转向「更聪明」——选型不必追最大模型。</li>
-<li>P6：$0.14/百万 input → 云 API 成本已低到可当「水电」用——本地与云双轨完全可行。</li>
-<li>P8：4bit 量化 24GB 显存 → 消费级显卡门槛大降——本地部署不是服务器专属。</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>核心实践篇</strong>，适合已经在用 AI 写代码、想搞清楚”Agent 为什么总改错地方”的读者。有大型仓库经验会更有体感，但不是必须。<br><strong>🎁 核心收获</strong>：读完本篇你将理解 Context Engineering 和 RAG 的本质差别，知道 Code Graph 解决了什么、解决不了什么，以及怎么从一份短地图文件开始，把 Agent 的找代码成本压下来。</p>
+</blockquote>
+<p>你对 Agent 说：“加一个微信扫码登录。”</p>
+<p>需求只有一句话，Agent 接下来却很忙。它先 <code>grep login</code>，读完 <code>auth.ts</code> 又去搜 <code>user.service.ts</code>。兜了几十轮，才勉强摸清认证体系，真正写代码反而没花多少时间。</p>
+<p>小仓库里，这点浪费不算什么。代码涨到 100 万行，情况就变了：Token 大把花在找路上，还不一定找对。</p>
+<p>上一篇已经把 Task 写清楚了。可 Agent 进了仓库，连该改哪里都拿不准，Plan 写得再漂亮也落不了地。</p>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/03.html#more">more >></a>
+    
     
     
 
@@ -3232,11 +1466,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI Native SDLC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC02%E8%AE%B2-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/STORY.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/03.html">展开全文 >></a>
     </p>
     
 
@@ -3268,7 +1529,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -3697,6 +1958,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

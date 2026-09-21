@@ -20,7 +20,7 @@
 <meta property="og:description" content="理论学完了，该落地了。本篇聚焦研发团队最高频的三个场景：把 dsh 接入 CI&#x2F;CD 流水线、搭一个真正有用的 PR 代码审查机器人、让 Agent 自动分析测试失败原因。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-20T12:47:32.932Z">
+<meta property="article:modified_time" content="2026-09-18T11:02:29.785Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -468,7 +468,7 @@
 <hr>
 <h2 id="场景一：把-dsh-接入-GitHub-Actions"><a href="#场景一：把-dsh-接入-GitHub-Actions" class="headerlink" title="场景一：把 dsh 接入 GitHub Actions"></a>场景一：把 dsh 接入 GitHub Actions</h2><p>最直接的 CI 集成方式——在 PR 触发时，自动跑 dsh 做代码审查，把结果评论到 PR 上。</p>
 <p>先看整体流程：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[开发者提交 PR] --&gt; B[GitHub Actions 触发]</span><br><span class="line">    B --&gt; C[dsh headless 运行]</span><br><span class="line">    C --&gt; D[读取 PR 改动的文件]</span><br><span class="line">    D --&gt; E[Agent 分析代码]</span><br><span class="line">    E --&gt; F[生成审查报告]</span><br><span class="line">    F --&gt; G[评论到 PR]</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br><span class="line">    style G fill:#4a1a1a,stroke:#f0883e,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    A[开发者提交 PR] --&gt; B[GitHub Actions 触发]</span><br><span class="line">    B --&gt; C[dsh headless 运行]</span><br><span class="line">    C --&gt; D[读取 PR 改动的文件]</span><br><span class="line">    D --&gt; E[Agent 分析代码]</span><br><span class="line">    E --&gt; F[生成审查报告]</span><br><span class="line">    F --&gt; G[评论到 PR]</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br><span class="line">    style G fill:#4a1a1a,stroke:#f0883e,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p><strong>GitHub Actions 配置：</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .github/workflows/ai-code-review.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">AI</span> <span class="string">Code</span> <span class="string">Review</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">types:</span> [<span class="string">opened</span>, <span class="string">synchronize</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">ai-review:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">permissions:</span></span><br><span class="line">      <span class="attr">pull-requests:</span> <span class="string">write</span>  <span class="comment"># 需要写 PR 评论的权限</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">code</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">fetch-depth:</span> <span class="number">0</span>  <span class="comment"># 需要完整历史来获取 diff</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;20&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Get</span> <span class="string">changed</span> <span class="string">files</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">changed-files</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 获取这次 PR 改动的文件列表</span></span><br><span class="line"><span class="string">          git diff --name-only origin/$&#123;&#123; github.base_ref &#125;&#125;...HEAD \</span></span><br><span class="line"><span class="string">            | grep -E &#x27;\.(ts|tsx|js|jsx|py)$&#x27; \</span></span><br><span class="line"><span class="string">            &gt; changed_files.txt</span></span><br><span class="line"><span class="string">          echo &quot;files=$(cat changed_files.txt | tr &#x27;\n&#x27; &#x27;,&#x27;)&quot; &gt;&gt; $GITHUB_OUTPUT</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Run</span> <span class="string">AI</span> <span class="string">Code</span> <span class="string">Review</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">DEEPSEEK_API_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.DEEPSEEK_API_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 生成审查任务描述</span></span><br><span class="line"><span class="string">          cat &gt; review_task.txt &lt;&lt; &#x27;EOF&#x27;</span></span><br><span class="line"><span class="string">          请对以下改动的文件进行代码审查，重点关注：</span></span><br><span class="line"><span class="string">          1. 潜在的 Bug 和逻辑错误</span></span><br><span class="line"><span class="string">          2. 安全漏洞（SQL 注入、XSS、权限控制等）</span></span><br><span class="line"><span class="string">          3. 性能问题</span></span><br><span class="line"><span class="string">          4. 代码可读性和可维护性</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">          <span class="string">改动的文件：</span></span><br><span class="line">          <span class="string">$(cat</span> <span class="string">changed_files.txt)</span></span><br><span class="line"></span><br><span class="line">          <span class="string">请对每个文件给出具体的改进建议，格式为</span> <span class="string">Markdown。</span></span><br><span class="line">          <span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">          <span class="comment"># 运行 dsh headless</span></span><br><span class="line">          <span class="string">npx</span> <span class="string">@deepseek-ai/dsh</span> <span class="string">headless</span> <span class="string">\</span></span><br><span class="line">            <span class="string">--workspace</span> <span class="string">.</span> <span class="string">\</span></span><br><span class="line">            <span class="string">--task-file</span> <span class="string">review_task.txt</span> <span class="string">\</span></span><br><span class="line">            <span class="string">--output</span> <span class="string">review_result.md</span> <span class="string">\</span></span><br><span class="line">            <span class="string">--profile</span> <span class="string">headless</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Post</span> <span class="string">review</span> <span class="string">comment</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/github-script@v7</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            const fs = require(&#x27;fs&#x27;);</span></span><br><span class="line"><span class="string">            const review = fs.readFileSync(&#x27;review_result.md&#x27;, &#x27;utf8&#x27;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">            <span class="string">await</span> <span class="string">github.rest.issues.createComment(&#123;</span></span><br><span class="line">              <span class="attr">owner:</span> <span class="string">context.repo.owner,</span></span><br><span class="line">              <span class="attr">repo:</span> <span class="string">context.repo.repo,</span></span><br><span class="line">              <span class="attr">issue_number:</span> <span class="string">context.issue.number,</span></span><br><span class="line">              <span class="attr">body:</span> <span class="string">`##</span> <span class="string">🤖</span> <span class="string">AI</span> <span class="string">代码审查报告\n\n$&#123;review&#125;\n\n---\n*由</span> <span class="string">DeepSeek</span> <span class="string">Harness</span> <span class="string">自动生成*`</span></span><br><span class="line">            <span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
@@ -1216,6 +1216,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

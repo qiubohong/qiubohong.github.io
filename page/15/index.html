@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/loop/from/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/06.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(6) —— 安全使用指南
+	  <a class="article-title" href="/ailearn/loop/from/01.html" target="_blank">
+      【译】Agent Loop 的工作原理 —— Claude Code Agent SDK 文档
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/openclaw/06.html" class="archive-article-date">
-        <time datetime="2026-03-17T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-17</time>
+<a href="/ailearn/loop/from/01.html" class="archive-article-date">
+        <time datetime="2026-06-15T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
 </a>
 
   
@@ -394,18 +394,13 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/agent-sdk/agent-loop">How the agent loop works - Claude Code Docs</a></p>
 </blockquote>
-<p>技能装好了，龙虾能做的事情越来越多。但随之而来的，是一个很多人没想到的问题：</p>
-<blockquote>
-<p>📌 <strong>第一次看到这个系列？</strong> 龙虾 = OpenClaw，一个能帮你自动完成各种任务的 AI 助手。它可以帮你整理文件、发飞书消息、搜索网页……前几篇文章教了怎么安装和使用，这篇讲怎么<strong>安全地</strong>使用它。</p>
-</blockquote>
-<blockquote>
-<p>“龙虾能访问我的文件、我的飞书、我的浏览器……它会不会做一些我不想让它做的事？”</p>
-</blockquote>
-<p>这个担心非常合理。<strong>能力越大，风险越大。</strong> 这篇文章就来解决这个问题：怎么安全地使用龙虾，保护好你的数据和隐私，同时避开新手最容易踩的坑。</p>
+<p>了解消息生命周期、工具执行、上下文窗口以及驱动 SDK Agent 运行的架构。</p>
+<p>Agent SDK 让你可以在自己的应用中嵌入 Claude Code 的自主 Agent 循环。SDK 是一个独立的包，让你能以编程方式控制工具、权限、费用限制和输出。使用它不需要安装 Claude Code CLI。</p>
+<p>当你启动一个 Agent 时，SDK 会运行与 Claude Code 相同的<a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/how-claude-code-works#the-agentic-loop">执行循环</a>：Claude 评估你的提示词，调用工具执行操作，接收结果，然后重复这个过程，直到任务完成。本文将解释这个循环内部发生了什么，帮助你更有效地构建、调试和优化 Agent。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/06.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/loop/from/01.html#more">more >></a>
     
     
     
@@ -429,7 +424,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Claude Code</a>
         		</li>
       		
 		</ul>
@@ -439,7 +442,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/06.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/loop/from/01.html">展开全文 >></a>
     </p>
     
 
@@ -474,7 +477,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/security/OpenClaw极简安全实践指南v2.8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/loop/from/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -482,8 +485,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html" target="_blank">
-      OpenClaw 极简安全实践指南 v2.8
+	  <a class="article-title" href="/ailearn/loop/from/00.html" target="_blank">
+      【译】Loop 模板工作流 Agent —— Google ADK 文档
       
     </a>
   
@@ -493,8 +496,8 @@
 
   
   
-<a href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html" class="archive-article-date">
-        <time datetime="2026-03-17T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-17</time>
+<a href="/ailearn/loop/from/00.html" class="archive-article-date">
+        <time datetime="2026-06-15T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-15</time>
 </a>
 
   
@@ -506,13 +509,275 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="OpenClaw-极简安全实践指南-v2-8"><a href="#OpenClaw-极简安全实践指南-v2-8" class="headerlink" title="OpenClaw 极简安全实践指南 v2.8"></a>OpenClaw 极简安全实践指南 v2.8</h1><blockquote>
-<p><strong>适用场景</strong>：OpenClaw 拥有目标机器 Root 权限，安装各种 Skill/MCP/Script/Tool 等，追求能力最大化。<br><strong>核心原则</strong>：日常零摩擦，高危必确认，每晚有巡检（显性化汇报），<strong>拥抱零信任（Zero Trust）</strong>。<br><strong>路径约定</strong>：本文用 <code>$OC</code> 指代 OpenClaw 状态目录，即 <code>$&#123;OPENCLAW_STATE_DIR:-$HOME/.openclaw&#125;</code>。</p>
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://adk.dev/agents/workflow-agents/loop-agents/">Loop workflow - Agent Development Kit (ADK)</a><br><strong>支持版本</strong>：Python v0.1.0 / TypeScript v0.2.0 / Go v0.1.0 / Java v0.2.0</p>
+</blockquote>
+<p><strong><em>LoopAgent</em></strong> 类是一种<a target="_blank" rel="noopener" href="https://adk.dev/agents/workflow-agents/">模板工作流</a> Agent，它会在循环中执行子 Agent，直到达到指定的迭代次数或满足终止条件为止。当你的工作流涉及重复操作或迭代精化时（比如反复修改代码或文档），就可以使用 <strong><em>LoopAgent</em></strong>。</p>
+<p>与其他模板工作流一样，<strong><em>LoopAgent</em></strong> 对象的执行不受 AI 模型控制，其子 Agent 的执行顺序是确定性的。循环内的子 Agent 可以使用也可以不使用 AI 模型，但这些子 Agent 的整体执行最终由你定义的 <strong><em>LoopAgent</em></strong> 对象来管理。</p>
+<blockquote>
+<p><strong>替代方案：基于图的工作流</strong></p>
+<p>从 ADK 2.0 开始，模板工作流已被更灵活的工作流结构所取代，包括<a target="_blank" rel="noopener" href="https://adk.dev/workflows/graphs/">基于图的工作流</a>和<a target="_blank" rel="noopener" href="https://adk.dev/workflows/dynamic/">动态工作流</a>。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/loop/from/00.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Google ADK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/loop/from/00.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/eval/from/5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/eval/from/5.html" target="_blank">
+      使用 Agent-EvalKit 系统化评估 AI 智能体
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/eval/from/5.html" class="archive-article-date">
+        <time datetime="2026-06-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-06-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="使用-Agent-EvalKit-系统化评估-AI-智能体"><a href="#使用-Agent-EvalKit-系统化评估-AI-智能体" class="headerlink" title="使用 Agent-EvalKit 系统化评估 AI 智能体"></a>使用 Agent-EvalKit 系统化评估 AI 智能体</h1><blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/">Evaluate AI agents systematically with Agent-EvalKit</a><br>作者：Ishan Singh, Haibo Ding, Kang Zhou, Sangmin Woo<br>发布日期：2026 年 6 月 11 日<br>分类：Amazon Bedrock, 人工智能, Strands Agents, 技术实践</p>
 </blockquote>
 <hr>
-    
-    <a class="article-more-a" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html#more">more >></a>
-    
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>构建 AI 智能体的团队通常像评估其他软件一样评估它们：检查输出是否符合预期。但自主选择工具并跨多个来源顺序执行操作的智能体，会产生仅靠输出级别测试无法完全表征的行为。</p>
+<p>一个智能体可能在工具返回空结果时产生幻觉、捏造事实，却仍然提供结构良好、可操作的响应。它也可能在跳过可靠流程所需的验证步骤的情况下得出正确结论。由于这些失败隐藏在最终响应的表面之下，捕获它们需要追踪智能体完整执行路径的评估：智能体调用了哪些工具、这些工具返回了什么数据，以及响应是否忠实地反映了这些数据。</p>
+<p>弥合这一差距需要大多数智能体团队没有人力从头构建的基础设施：带有基准结果的测试用例、用于捕获工具调用和中间状态的可观测性工具，以及在表面准确性之外评估忠实度和工具使用情况的指标。</p>
+<hr>
+<h2 id="Agent-EvalKit-简介"><a href="#Agent-EvalKit-简介" class="headerlink" title="Agent-EvalKit 简介"></a>Agent-EvalKit 简介</h2><p><strong>Agent-EvalKit</strong> 是一个开源工具包（Apache 2.0 许可），通过与 AI 编码助手（包括 Claude Code、Kiro CLI 和 Kilo Code）集成，使这种评估基础设施变得可用。它将整个工作流程引入您的开发环境，而不是将评估视为独立的部署后工作。</p>
+<p>您用自然语言描述评估目标，工具包处理每个阶段——从读取智能体的源代码和生成有针对性的测试用例，到运行评估并生成包含改进建议的报告，这些建议引用了代码库中的具体位置。</p>
+<hr>
+<h2 id="智能体评估的要求"><a href="#智能体评估的要求" class="headerlink" title="智能体评估的要求"></a>智能体评估的要求</h2><p>除了基础设施本身，选择测量什么同样具有挑战性。智能体质量跨越没有单一指标能够捕获的多个维度：</p>
+<ul>
+<li><strong>忠实度（Faithfulness）</strong>：响应是否基于工具实际返回的内容</li>
+<li><strong>工具参数准确性（Tool Parameter Accuracy）</strong>：智能体是否以正确的输入调用了正确的工具</li>
+<li><strong>响应质量（Response Quality）</strong>：最终输出是否连贯且对提问者有用</li>
+</ul>
+<p>响应可能读起来很好，却悄悄地在空工具结果上产生幻觉；智能体可能通过一系列错误的工具调用得出合理的答案。因此每个维度都必须单独检查，而不是从相邻维度推断。</p>
+<p>没有单一的评估器风格能很好地处理所有三个维度：</p>
+<ul>
+<li><strong>基于代码的评估器</strong>：提供快速、可复现的结果，但会惩罚有效的方法变体</li>
+<li><strong>LLM 作为评判者的评估器</strong>：以额外推理和精心提示设计为代价提供细致评估</li>
+</ul>
+<p>最有效的评估策略结合了两种方法。将评估分数转化为具体代码变更是许多工作最终停滞的地方，这就是为什么评估工作流程需要以具体的代码级建议而非数字仪表板结束。</p>
+<hr>
+<h2 id="Agent-EvalKit-的工作原理"><a href="#Agent-EvalKit-的工作原理" class="headerlink" title="Agent-EvalKit 的工作原理"></a>Agent-EvalKit 的工作原理</h2><p>Agent-EvalKit 通过您现有的 AI 编码助手工作，而不是作为独立的评估平台运行。您的助手（无论是 Claude Code、Kiro CLI 还是 Kilo Code）通过在评估过程的每个阶段应用其读取代码和推理智能体行为的能力，成为评估引擎。</p>
+<p>您通过斜杠命令（如 <code>/evalkit.plan</code> 和 <code>/evalkit.data</code>）驱动此工作流程，附加自然语言指导，告诉助手哪些质量维度对您的智能体最重要。</p>
+<h3 id="六个评估阶段"><a href="#六个评估阶段" class="headerlink" title="六个评估阶段"></a>六个评估阶段</h3><p>工具包将工作组织为六个阶段，每个阶段在 <code>eval/</code> 目录中生成供下一阶段使用的产物：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>计划</strong></td>
+<td><code>/evalkit.plan</code></td>
+<td>读取智能体代码，了解其工具和框架，生成评估计划，将每个指标与具体评估方法配对</td>
+</tr>
+<tr>
+<td><strong>数据</strong></td>
+<td><code>/evalkit.data</code></td>
+<td>生成基于评估计划的测试用例，每个用例都有针对特定行为和失败模式的输入和预期结果</td>
+</tr>
+<tr>
+<td><strong>追踪</strong></td>
+<td><code>/evalkit.trace</code></td>
+<td>通过添加 OpenTelemetry 兼容的追踪使完整执行路径可见。支持 Strands、LangGraph 和 CrewAI 等框架</td>
+</tr>
+<tr>
+<td><strong>运行智能体</strong></td>
+<td><code>/evalkit.run_agent</code></td>
+<td>针对每个测试用例执行智能体，为每次运行生成结构化追踪文件，捕获工具调用、模型响应和中间状态的完整历史</td>
+</tr>
+<tr>
+<td><strong>评估</strong></td>
+<td><code>/evalkit.eval</code></td>
+<td>将计划中的指标实现为可执行评估代码，针对收集的追踪运行，并保存结构化结果</td>
+</tr>
+<tr>
+<td><strong>报告</strong></td>
+<td><code>/evalkit.report</code></td>
+<td>分析测试用例的模式，生成引用智能体代码中具体位置的优先建议，每个建议包含预期影响</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="演示研究：评估旅行研究智能体"><a href="#演示研究：评估旅行研究智能体" class="headerlink" title="演示研究：评估旅行研究智能体"></a>演示研究：评估旅行研究智能体</h2><h3 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h3><p>在开发使用 Strands Agents SDK 和 Amazon Bedrock 构建的旅行研究智能体期间，我们注意到智能体有时在响应中提供可疑的精确数字。该智能体使用网络搜索、航班信息、气候数据、货币转换和预算计算工具帮助用户规划旅行，但我们无法确定精确度问题有多普遍或哪些查询会触发它。</p>
+<h3 id="评估过程"><a href="#评估过程" class="headerlink" title="评估过程"></a>评估过程</h3><p>Agent-EvalKit 分析了智能体的代码，并在计划阶段围绕三个指标设计了重点评估：</p>
+<ol>
+<li><strong>忠实度（Faithfulness）</strong>：响应是否基于工具实际返回的数据</li>
+<li><strong>工具参数准确性（Tool Parameter Accuracy）</strong>：智能体是否以正确的输入调用工具</li>
+<li><strong>响应质量（Response Quality）</strong>：输出是否连贯且有用</li>
+</ol>
+<p>数据阶段生成了 100 个多轮测试会话，涵盖目的地研究、季节时机、行程构建、比较问题和预算计算，后续阶段在捕获详细执行追踪的同时运行每个会话。</p>
+<h3 id="评估结果"><a href="#评估结果" class="headerlink" title="评估结果"></a>评估结果</h3><p>结果揭示了质量和可靠性之间的明显分歧：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>响应质量</strong></td>
+<td>83.9%</td>
+<td>智能体提供了清晰、可操作的旅行建议</td>
+</tr>
+<tr>
+<td><strong>工具参数准确性</strong></td>
+<td>64.5%</td>
+<td>智能体通常选择了正确的工具，但有时传递了不精确的参数</td>
+</tr>
+<tr>
+<td><strong>忠实度</strong></td>
+<td><strong>32.3%</strong></td>
+<td>⚠️ 严重问题：智能体在工具返回空或不完整结果时捏造汇率、温度和景点详情</td>
+</tr>
+</tbody></table>
+<h3 id="根因分析"><a href="#根因分析" class="headerlink" title="根因分析"></a>根因分析</h3><p>报告将幻觉防护措施确定为最高优先级修复，建议：</p>
+<ul>
+<li>在系统提示中添加指令，当工具返回空结果时进行披露</li>
+<li>改进所有代码路径中的工具错误处理</li>
+</ul>
+<p><strong>在运行 Agent-EvalKit 之前</strong>，我们知道智能体有时看起来不可靠。<strong>之后</strong>，我们知道根本原因是空工具输出触发了幻觉，并有具体的代码变更来解决它。</p>
+<hr>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><ul>
+<li>启用了基础模型的活跃 AWS 账户（在 Amazon Bedrock 控制台中确认）</li>
+<li>Python 3.11 或更高版本和 Git</li>
+<li><code>uv</code> 包管理器（macOS/Linux 安装：<code>curl -LsSf https://astral.sh/uv/install.sh | sh</code>）</li>
+<li>已安装并配置的支持 AI 编码助手（Claude Code、Kiro CLI 或 Kilo Code）</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 uv 安装工具包</span></span><br><span class="line">uv tool install evalkit --from git+https://github.com/awslabs/Agent-EvalKit.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化评估项目</span></span><br><span class="line">evalkit init my-agent-evaluation</span><br><span class="line"><span class="built_in">cd</span> my-agent-evaluation</span><br><span class="line"><span class="built_in">cp</span> -r /path/to/your/agent .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 AI 助手</span></span><br><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行评估"><a href="#运行评估" class="headerlink" title="运行评估"></a>运行评估</h3><p><strong>快速引导模式</strong>（推荐新手）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/evalkit.quick 评估 ./my_agent 的响应质量和工具准确性</span><br></pre></td></tr></table></figure>
+
+<p><strong>分阶段精细控制</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/evalkit.plan 评估 ./my_agent 的响应质量和工具准确性</span><br><span class="line">/evalkit.data</span><br><span class="line">/evalkit.trace</span><br><span class="line">/evalkit.run_agent</span><br><span class="line">/evalkit.eval</span><br><span class="line">/evalkit.report</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol>
+<li><p><strong>从窄范围开始</strong>：聚焦于 2-3 个针对智能体最关键质量维度的指标，在后续评估中扩大范围</p>
+</li>
+<li><p><strong>用领域知识引导</strong>：在每个阶段描述您观察到的具体输入、边缘情况和失败模式。指令越有针对性，生成的测试用例、指标和建议就越相关</p>
+</li>
+<li><p><strong>执行前审查测试用例</strong>：数据阶段从评估计划中综合用例，但您对真实用户行为的理解是不可替代的</p>
+</li>
+<li><p><strong>每次重大变更后评估</strong>：尽早发现回归并衡量每次改进的影响</p>
+</li>
+<li><p><strong>逐步处理建议</strong>：从报告中影响最大的项目开始，实施修复，重新评估以确认改进，然后继续下一个发现</p>
+</li>
+<li><p><strong>在生产中持续监控</strong>：使用 Amazon Bedrock AgentCore Observability 从真实流量中捕获追踪，并使用 AgentCore Evaluation 对这些追踪运行质量指标</p>
+</li>
+<li><p><strong>保持评估者与人类专家一致</strong>：定期将 LLM 作为评判者的分数与领域专家或人工注释者的判断进行比较</p>
+</li>
+</ol>
+<hr>
+<h2 id="CI-CD-集成"><a href="#CI-CD-集成" class="headerlink" title="CI/CD 集成"></a>CI/CD 集成</h2><p>对于准备自动化的团队，Agent-EvalKit 可以集成到 CI/CD 流水线中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码变更 → 触发评估 → 质量门控（检查指标阈值和回归）→ 失败路由回评估报告中的标记项目</span><br></pre></td></tr></table></figure>
+
+<p>一旦流水线就位，每轮测试都会重用上一轮的测试用例和工具，因此随着项目成熟，运行新评估的成本会下降。</p>
+<hr>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Agent-EvalKit 通过将每个步骤（从评估设计到指标计算和报告）委托给您已经使用的同一 AI 助手，为 AI 智能体评估提供了系统化的形式。</p>
+<p>模糊的质量担忧变成了结构化的证据体：测试用例、执行追踪、指标分数和优先建议，所有这些都与代码中的具体位置相关联。</p>
+<hr>
+<p><em>开源地址：<a target="_blank" rel="noopener" href="https://github.com/awslabs/Agent-EvalKit">https://github.com/awslabs/Agent-EvalKit</a></em><br><em>许可证：Apache 2.0</em></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -522,30 +787,11 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/security/OpenClaw%E6%9E%81%E7%AE%80%E5%AE%89%E5%85%A8%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97v2.8.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/eval/from/5.html">展开全文 >></a>
     </p>
     
 
@@ -580,7 +826,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -588,8 +834,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/05.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(5) —— 装上技能包
+	  <a class="article-title" href="/ailearn/llm/08.html" target="_blank">
+      LLM API 参数详解（8）—— LLM 网关与聚合架构：模型一多，你迟早需要这一层 | 收官篇
       
     </a>
   
@@ -599,8 +845,8 @@
 
   
   
-<a href="/ailearn/openclaw/05.html" class="archive-article-date">
-        <time datetime="2026-03-10T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-10</time>
+<a href="/ailearn/llm/08.html" class="archive-article-date">
+        <time datetime="2026-04-24T03:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-24</time>
 </a>
 
   
@@ -613,16 +859,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📘 <strong>总结篇</strong>。这一篇不再讨论单个参数怎么调，而是开始处理多模型系统真正会失控的地方：接入、路由、成本、权限和稳定性。<br><strong>🎯 核心收获</strong>：什么时候该上 LLM 网关 + 主流方案怎么选 + LiteLLM 落地骨架 + 路由、预算、审计与高可用设计的关键判断</p>
 </blockquote>
-<p>学会下指令之后，你可能会发现一个问题：</p>
-<blockquote>
-<p>“我让龙虾帮我查一下飞书日历，它说’我没有访问飞书的能力’……”</p>
-</blockquote>
-<p>这很正常。<strong>刚装好的龙虾，就像一部刚买来的新手机——系统是有了，但 App 还没装。</strong></p>
-<p>这篇文章就来解决这个问题：给龙虾装上”技能包”（Skills），让它从一个只会聊天的助手，变成真正能帮你干活的全能助手。</p>
+<p><strong>前面七篇，我们一直在研究“怎么把一次调用做好”；到了这一篇，问题变成了：当调用越来越多、模型越来越杂时，怎么把整个系统管住。</strong></p>
+<p>一开始，很多团队都会直接在业务代码里接模型。OpenAI 一套 SDK，Anthropic 一套 SDK，DeepSeek 再来一套。项目小的时候，这么做没什么问题，甚至是最快的办法。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/05.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/08.html#more">more >></a>
     
     
     
@@ -646,7 +888,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -656,7 +906,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/05.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/08.html">展开全文 >></a>
     </p>
     
 
@@ -691,7 +941,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -699,8 +949,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/04.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(4) —— 学会下指令
+	  <a class="article-title" href="/ailearn/llm/07.html" target="_blank">
+      LLM API 参数详解（7）—— 流式响应与性能优化：先让用户看到，再让系统扛住 | 完整指南
       
     </a>
   
@@ -710,8 +960,8 @@
 
   
   
-<a href="/ailearn/openclaw/04.html" class="archive-article-date">
-        <time datetime="2026-03-09T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/llm/07.html" class="archive-article-date">
+        <time datetime="2026-04-24T03:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-24</time>
 </a>
 
   
@@ -724,15 +974,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正碰到线上系统的问题：不是模型会不会答，而是用户要不要等、系统扛不扛得住、成本能不能压住。<br><strong>🎯 核心收获</strong>：什么时候该开 <code>stream</code> + chunk 如何解析 + 超时与重试如何分层处理 + 并发、Batch API、缓存与监控怎么组合起来用</p>
 </blockquote>
-<p>龙虾装好了，大模型也配好了，但很多人第一次用的时候都会遇到同一个问题：</p>
-<blockquote>
-<p>“我发了消息，但龙虾好像没听懂我的意思……”</p>
-</blockquote>
-<p>这篇文章就来解决这个问题：<strong>怎么给龙虾下指令，让它真正听懂你、帮你把事情做完。</strong></p>
+<p><strong>很多人做 LLM 应用，最先盯的是回答质量；真到上线，最先挨打的往往却是等待时间。</strong></p>
+<p>模型答得再好，如果用户要盯着转圈 12 秒，体验一样会崩。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/04.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/07.html#more">more >></a>
     
     
     
@@ -756,7 +1003,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -766,7 +1021,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/04.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/07.html">展开全文 >></a>
     </p>
     
 
@@ -801,7 +1056,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -809,8 +1064,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/03.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(3) —— 安装龙虾
+	  <a class="article-title" href="/ailearn/llm/06.html" target="_blank">
+      LLM API 参数详解（6）—— 多模态参数与结构化输出：别只会“看图说话” | 完整指南
       
     </a>
   
@@ -820,8 +1075,8 @@
 
   
   
-<a href="/ailearn/openclaw/03.html" class="archive-article-date">
-        <time datetime="2026-03-09T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/llm/06.html" class="archive-article-date">
+        <time datetime="2026-04-23T10:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
 </a>
 
   
@@ -834,11 +1089,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入真正的产品化问题：模型不只是接收文本，还要理解图片、生成图片、输出能直接被系统消费的数据。<br><strong>🎯 核心收获</strong>：多模态输入的主流格式差异 + 文生图参数取舍 + <code>response_format</code> 与 <code>json_schema</code> 的边界 + 生产环境中的降级策略</p>
 </blockquote>
-<p>前两篇我们搞清楚了 OpenClaw 是什么、怎么白嫖大模型。这一篇，我们终于要<strong>把龙虾装到你的电脑上</strong>，让它真正开始帮你干活！</p>
+<p><strong>很多人以为，多模态就是“给模型塞一张图”，结构化输出就是“让它吐 JSON”。</strong></p>
+<p>话不能算错，但真要上线，这两个能力远没有看上去那么省心。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/03.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/06.html#more">more >></a>
     
     
     
@@ -862,7 +1118,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -872,7 +1136,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/03.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/06.html">展开全文 >></a>
     </p>
     
 
@@ -907,7 +1171,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -915,8 +1179,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/02.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(2) —— 白嫖大模型
+	  <a class="article-title" href="/ailearn/llm/05.html" target="_blank">
+      LLM API 参数详解（5）—— Function Calling 与工具调用：模型什么时候该“动手”？| 完整指南
       
     </a>
   
@@ -926,8 +1190,8 @@
 
   
   
-<a href="/ailearn/openclaw/02.html" class="archive-article-date">
-        <time datetime="2026-03-09T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/llm/05.html" class="archive-article-date">
+        <time datetime="2026-04-23T08:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
 </a>
 
   
@@ -940,12 +1204,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正进入 Agent 能力的核心：模型不只是回答问题，而是要学会借助外部能力把事做完。<br><strong>🎯 核心收获</strong>：Function Calling 三大参数的真实作用 + 一次完整工具调用的运行链路 + 多工具协作模式 + 常见工程坑位与选型判断</p>
 </blockquote>
-<p>上一篇我们搞清楚了 OpenClaw 是什么。这一篇解决一个很多人卡住的问题：<strong>龙虾需要一个”大脑”（大模型）才能思考，这个大脑要花钱吗？</strong></p>
-<p>答案是：<strong>完全不用花钱。</strong> 国内有好几家大模型平台提供免费额度，注册就能用，足够日常使用。</p>
+<p><strong>很多人第一次接 Function Calling，都会有个错觉：这不就是让模型吐一段 JSON 吗？</strong></p>
+<p>表面上看，确实像。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/02.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/05.html#more">more >></a>
     
     
     
@@ -969,7 +1233,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -979,7 +1251,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/02.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/05.html">展开全文 >></a>
     </p>
     
 
@@ -1014,7 +1286,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1022,8 +1294,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/01.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(1) —— 认识龙虾
+	  <a class="article-title" href="/ailearn/llm/04.html" target="_blank">
+      LLM API 参数详解（4）—— 思维链与推理控制参数：推理模型到底该怎么用？| 完整指南
       
     </a>
   
@@ -1033,8 +1305,8 @@
 
   
   
-<a href="/ailearn/openclaw/01.html" class="archive-article-date">
-        <time datetime="2026-03-09T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/llm/04.html" class="archive-article-date">
+        <time datetime="2026-04-23T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
 </a>
 
   
@@ -1047,15 +1319,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入推理模型的参数世界，重点不再是“会不会生成”，而是“愿意花多少算力去想”。<br><strong>🎯 核心收获</strong>：推理模型和非推理模型的本质差异 + 四家主流平台推理参数对比 + 一套更实用的选型与控费思路</p>
 </blockquote>
-<p>今天我们来认识 <strong>OpenClaw（龙虾 AI）</strong>。</p>
-<blockquote>
-<p><strong>OpenClaw</strong> 是一款<strong>开源的个人 AI 助手</strong>，能够通过 QQ、飞书、微信等你每天都在用的聊天工具<strong>远程操控本地电脑</strong>，自主完成邮件处理、文档整理、日程管理等复杂任务，是真正意义上的”<strong>7×24 小时 AI 数字员工</strong>“。</p>
-</blockquote>
-<p>如果你用过 DeepSeek 或豆包，你会发现它们都是”问答型”的——你问一句，它答一句，然后你自己去执行。OpenClaw 不一样，它是”行动型”的——你说目标，它自己拆解、执行、反馈，真正帮你把事情做完。</p>
+<p><strong>为什么有些问题，用普通模型一下就答了，但一换到推理模型，参数逻辑像突然变了一套？</strong></p>
+<p>因为它确实变了。</p>
     
-    <a class="article-more-a" href="/ailearn/openclaw/01.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/04.html#more">more >></a>
     
     
     
@@ -1079,7 +1348,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -1089,7 +1366,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/01.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/04.html">展开全文 >></a>
     </p>
     
 
@@ -1124,7 +1401,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/openclaw/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1132,8 +1409,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/openclaw/00.html" target="_blank">
-      普通人也能用好 OpenClaw（龙虾）(0) —— 系列介绍
+	  <a class="article-title" href="/ailearn/llm/03.html" target="_blank">
+      LLM API 参数详解（3）—— 采样参数调优最佳实践：代码、对话、问答、写作怎么配？| 完整指南
       
     </a>
   
@@ -1143,113 +1420,8 @@
 
   
   
-<a href="/ailearn/openclaw/00.html" class="archive-article-date">
-        <time datetime="2026-03-09T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>你听说过”龙虾 AI”吗？它正在悄悄改变那些”会用”的人的工作方式。</strong></p>
-<p>2026 年初，一款叫 OpenClaw 的 AI 工具突然火遍全网（开源地址：<a target="_blank" rel="noopener" href="https://github.com/OpenClaw-AI/OpenClaw">github.com/OpenClaw-AI/OpenClaw</a>），因为图标是一只红色龙虾，大家都亲切地叫它”龙虾 AI”。它上线短短几天，全球超过 24 万开发者收藏了它，打破了 GitHub 有史以来最快增长记录，甚至登上了全国两会的讨论议题。</p>
-<p>但你可能也发现了：身边很多人都在说”龙虾很厉害”，却没几个人真的用起来了。</p>
-    
-    <a class="article-more-a" href="/ailearn/openclaw/00.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OpenClaw</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openclaw/00.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/daily/22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/22.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(22) - Claude Code
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/22.html" class="archive-article-date">
-        <time datetime="2026-03-09T06:21:33.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-09</time>
+<a href="/ailearn/llm/03.html" class="archive-article-date">
+        <time datetime="2026-04-23T08:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
 </a>
 
   
@@ -1262,15 +1434,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正进入“怎么把参数调顺手”的实战阶段。<br><strong>🎯 核心收获</strong>：四大采样参数的组合逻辑 + 四类典型场景推荐配置 + 一套能直接落地的调参顺序</p>
 </blockquote>
-<p>今天我们来学习 <strong>Claude Code</strong>。</p>
-<blockquote>
-<p><strong>Claude Code</strong> 是 Anthropic 推出的<strong>面向开发者的 AI 编程 Agent</strong>，它以<strong>命令行工具</strong>的形式运行在开发者的本地终端，能够<strong>读写文件、执行命令、调用工具、自主完成复杂编程任务</strong>，是真正意义上的”AI 程序员”。</p>
-</blockquote>
-<p>对比普通的 AI 代码补全工具，Claude Code 就像从”代码建议者”升级为”自主执行者”——它不只是给你写几行代码，而是能够理解整个项目、制定计划、逐步执行，直到任务完成。</p>
+<p><strong>为什么同一个模型，有的人一出手就稳，有的人怎么调都觉得别扭？</strong></p>
+<p>很多时候，差的不是模型，而是采样参数没配对。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/22.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/03.html#more">more >></a>
     
     
     
@@ -1290,7 +1459,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
         		</li>
       		
 		</ul>
@@ -1300,7 +1481,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/22.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/03.html">展开全文 >></a>
     </p>
     
 
@@ -1335,7 +1516,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/use/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/llm/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1343,8 +1524,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/use/06.html" target="_blank">
-      普通人也能用好 AI 的必备九个技能(6) —— 让 AI 当你的&#34;镜子&#34;
+	  <a class="article-title" href="/ailearn/llm/02.html" target="_blank">
+      LLM API 参数详解（2）—— 主流平台 API 参数横向对比：OpenAI、Claude、Gemini、DeepSeek、Kimi、MiniMax、Yi | 完整指南
       
     </a>
   
@@ -1354,8 +1535,8 @@
 
   
   
-<a href="/ailearn/use/06.html" class="archive-article-date">
-        <time datetime="2026-03-03T07:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-03</time>
+<a href="/ailearn/llm/02.html" class="archive-article-date">
+        <time datetime="2026-04-23T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
 </a>
 
   
@@ -1367,9 +1548,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="技能六：让-AI-当你的”镜子”——高手都喜欢听-AI-唱反调"><a href="#技能六：让-AI-当你的”镜子”——高手都喜欢听-AI-唱反调" class="headerlink" title="技能六：让 AI 当你的”镜子”——高手都喜欢听 AI 唱反调"></a>技能六：让 AI 当你的”镜子”——高手都喜欢听 AI 唱反调</h1>
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入工程选型视角。<br><strong>🎯 核心收获</strong>：7 家平台参数差异速查表 + 跨平台迁移避坑点 + 适配层框架选型建议</p>
+</blockquote>
+<p><strong>为什么很多人明明都走“OpenAI 兼容接口”，一迁移平台还是到处踩坑？</strong></p>
+<p>问题往往不在 SDK，而在参数。</p>
     
-    <a class="article-more-a" href="/ailearn/use/06.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/llm/02.html#more">more >></a>
     
     
     
@@ -1391,6 +1576,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1399,7 +1596,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/use/06.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/llm/02.html">展开全文 >></a>
     </p>
     
 
@@ -1431,7 +1628,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/16/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/16/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1860,6 +2057,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

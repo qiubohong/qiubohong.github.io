@@ -20,7 +20,7 @@
 <meta property="og:description" content="系列终章。什么时候该上 Ontology？单 Agent 不需要，跨系统规模化必须。本篇给出选型决策树、规模化分水岭，以及从 Demo 到生产的真实坑和工程建议。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-07-21T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-20T02:03:43.498Z">
+<meta property="article:modified_time" content="2026-09-07T12:02:16.286Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -396,7 +396,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.2k字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -432,42 +432,45 @@
 <p>前半句：单 Agent、单数据源、单业务场景？别上本体。一个好 Prompt + 精心设计的 RAG，足够你跑通 Demo。过早上本体，是过度工程，建模成本会拖死你。</p>
 <p>后半句：一旦你的 Agent 要跨多个数据源、涉及复杂多步骤工具链、要保证企业合规、要多个 Agent 协同——本体不是”可选项”，是<strong>唯一能让系统不崩的选择</strong>。</p>
 <hr>
-<h2 id="从个人小工具到规模化，怎么判断"><a href="#从个人小工具到规模化，怎么判断" class="headerlink" title="从个人小工具到规模化，怎么判断"></a>从个人小工具到规模化，怎么判断</h2><p>这节我按你所处的阶段一层层讲，你可以直接跳到和自己匹配的层级，但建议通读——因为这里有个常被误读的认知冲突，值得在终章点破。</p>
+<h2 id="从个人小工具到规模化，怎么判断"><a href="#从个人小工具到规模化，怎么判断" class="headerlink" title="从个人小工具到规模化，怎么判断"></a>从个人小工具到规模化，怎么判断</h2><p>不同阶段的人，答案不一样。你可以直接跳到和自己情况对得上的那段，但我建议顺着读——有个地方很多人理解反了，放在这里说清楚。</p>
 <p>如果你只是刚学做 Agent，想搞个帮自己整理笔记的小助手，那先别管本体，把 RAG 调好、Prompt 写清楚，能用就行。本体是给”要管全公司数据、要接几十个系统”那种大场面准备的，你现在硬上反而把自己绕晕。</p>
 <p>稍微往前走一步，到了要上生产的开发者这一层，决策就得看这张图了——核心分水岭就一个：<strong>你的复杂度到没到”跨系统”</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;你的 Agent 要规模化吗?&quot;] --&gt;|&quot;单数据源单场景&quot;| B[&quot;不上本体\n好 Prompt + RAG 够了&quot;]</span><br><span class="line">    A --&gt;|&quot;跨多数据源&quot;| C&#123;要确定性推理?&#125;</span><br><span class="line">    C --&gt;|&quot;否, 模糊检索即可&quot;| D[&quot;轻量知识图谱\n+ RAG&quot;]</span><br><span class="line">    C --&gt;|&quot;是, 要可控可审计&quot;| E&#123;要写回/执行行动?&#125;</span><br><span class="line">    E --&gt;|&quot;否, 只读查询&quot;| F[&quot;语义层\n如微软 Fabric&quot;]</span><br><span class="line">    E --&gt;|&quot;是, 要操作企业&quot;| G[&quot;完整企业本体\n如 Palantir&quot;]</span><br><span class="line">    A --&gt;|&quot;多 Agent 协同&quot;| G</span><br><span class="line">    </span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style G fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;你的 Agent 要规模化吗?&quot;] --&gt;|&quot;单数据源单场景&quot;| B[&quot;不上本体\n好 Prompt + RAG 够了&quot;]</span><br><span class="line">    A --&gt;|&quot;跨多数据源&quot;| C&#123;要确定性推理?&#125;</span><br><span class="line">    C --&gt;|&quot;否, 模糊检索即可&quot;| D[&quot;轻量知识图谱\n+ RAG&quot;]</span><br><span class="line">    C --&gt;|&quot;是, 要可控可审计&quot;| E&#123;要写回/执行行动?&#125;</span><br><span class="line">    E --&gt;|&quot;否, 只读查询&quot;| F[&quot;语义层\n如微软 Fabric&quot;]</span><br><span class="line">    E --&gt;|&quot;是, 要操作企业&quot;| G[&quot;完整企业本体\n如 Palantir&quot;]</span><br><span class="line">    A --&gt;|&quot;多 Agent 协同&quot;| G</span><br><span class="line"></span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style G fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p>没到跨系统，轻量方案就够；到了，本体才值得真金白银地投入。</p>
 <p>再深一层，有个认知冲突得说清。Anthropic 在《Building Effective AI Agents》里说：早期用<strong>精细的上下文工程</strong>就能顶一阵，不一定非要正式本体，但从 Demo 走到工业级，必须建立<strong>控制循环（control loop）</strong>。而 OpenAI 在知识图谱那篇，则是直接从本体/图谱入手，把时间、推理都建模进去。两条路看着相反，其实说的是同一件事的两头：Anthropic 讲”怎么轻量起步不翻车”，OpenAI 展示”规模化之后图层长什么样”。你现在该站哪头，取决于你在决策树的哪一层——在底下就用上下文工程，往上爬就迟早上本体。</p>
 <hr>
 <h2 id="从-Demo-到生产，真实会踩的坑"><a href="#从-Demo-到生产，真实会踩的坑" class="headerlink" title="从 Demo 到生产，真实会踩的坑"></a>从 Demo 到生产，真实会踩的坑</h2><p>这几条不是我编的，是前面几篇素材里反复出现的工程教训，汇总给你：</p>
-<p><strong>坑一：图谱越跑越肥（来自第02篇）</strong><br>时间感知图谱每个三元组带时间戳，数据量爆炸。不治理，检索就慢死。对策：给每条边算相关性分数（时效性 × 可信度 × 查询频率），低分的自动归档或稀疏化。</p>
-<p><strong>坑二：摄取管道串行瓶颈（来自第02篇）</strong><br>“文档→分块→提取→解析”线性跑，吞吐上不去。改成按阶段分队列、配独立工作池的异步架构，加背压机制才稳。</p>
-<p><strong>坑三：输出验证不能省（来自第02篇）</strong><br>时间字段统一 ISO-8601，实体类型锁进受控词表，再加一层轻量模型做健全性检查。结构化日志带可追踪 ID，数据漂移能提前报警。</p>
-<p><strong>坑四：权限边界必须前置（来自第03、06篇）</strong><br>别等 Agent 接完数据才想安全。Palantir 的做法是第一步就绑本体，权限边界前置到架构层。你自己的系统做不到这么重，至少把”Agent 能碰什么”显式列出来，而不是散落在代码 if 里。</p>
-<p><strong>坑五：Agent 输出要落回本体（来自第06篇）</strong><br>Palantir 的 Agent 函数不返回值，得写回本体对象。这个思路值得借鉴——让 Agent 的产出变成”系统里可追溯的状态变更”，而不是一段飘在对话里的文本。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;Demo: 好 Prompt + RAG&quot;] --&gt; B[&quot;轻量: 上下文工程\n+ 知识图谱&quot;]</span><br><span class="line">    B --&gt; C[&quot;生产: 控制循环\n+ 语义层/本体&quot;]</span><br><span class="line">    C --&gt; D[&quot;规模化: 企业本体\n+ 工具链 + 神经符号&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<p><strong>坑一：图谱越跑越肥（来自第 02 篇）</strong><br>时间感知图谱每个三元组带时间戳，数据量爆炸。不治理，检索就慢死。对策：给每条边算相关性分数（时效性 × 可信度 × 查询频率），低分的自动归档或稀疏化。</p>
+<p><strong>坑二：摄取管道串行瓶颈（来自第 02 篇）</strong><br>“文档 → 分块 → 提取 → 解析”线性跑，吞吐上不去。改成按阶段分队列、配独立工作池的异步架构，加背压机制才稳。</p>
+<p><strong>坑三：输出验证不能省（来自第 02 篇）</strong><br>时间字段统一 ISO-8601，实体类型锁进受控词表，再加一层轻量模型做健全性检查。结构化日志带可追踪 ID，数据漂移能提前报警。</p>
+<p><strong>坑四：权限边界必须前置（来自第 03、06 篇）</strong><br>别等 Agent 接完数据才想安全。Palantir 的做法是第一步就绑本体，权限边界前置到架构层。你自己的系统做不到这么重，至少把”Agent 能碰什么”显式列出来，而不是散落在代码 if 里。</p>
+<p><strong>坑五：Agent 输出要落回本体（来自第 06 篇）</strong><br>Palantir 的 Agent 函数不返回值，得写回本体对象。这个思路值得借鉴——让 Agent 的产出变成”系统里可追溯的状态变更”，而不是一段飘在对话里的文本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;Demo: 好 Prompt + RAG&quot;] --&gt; B[&quot;轻量: 上下文工程\n+ 知识图谱&quot;]</span><br><span class="line">    B --&gt; C[&quot;生产: 控制循环\n+ 语义层/本体&quot;]</span><br><span class="line">    C --&gt; D[&quot;规模化: 企业本体\n+ 工具链 + 神经符号&quot;]</span><br><span class="line"></span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="给不同角色的一句话建议"><a href="#给不同角色的一句话建议" class="headerlink" title="给不同角色的一句话建议"></a>给不同角色的一句话建议</h2><ul>
 <li><strong>你在做个人项目 / 内部小工具</strong>：别上本体，把 RAG 和 Prompt 调好，先跑起来。</li>
 <li><strong>你在做企业级 Agent，遇到数据歧义/权限问题</strong>：先上语义层（微软 Fabric 思路）或轻量图谱，别一上来就 Palantir 全套。</li>
-<li><strong>你要用 Palantir/Microsoft 平台</strong>：直接学它们的本体 SDK/MCP，底层结构本篇第05篇已经帮你打底了。</li>
+<li><strong>你要用 Palantir/Microsoft 平台</strong>：直接学它们的本体 SDK/MCP，底层结构本篇第 05 篇已经帮你打底了。</li>
 <li><strong>你在做技术选型/架构决策</strong>：回到那句话——“until your AI has to scale”，看你的复杂度到没到跨系统那条线。</li>
 </ul>
 <hr>
-<h2 id="系列收尾：八篇你收获了什么"><a href="#系列收尾：八篇你收获了什么" class="headerlink" title="系列收尾：八篇你收获了什么"></a>系列收尾：八篇你收获了什么</h2><p>回看这趟旅程：</p>
+<h2 id="系列收尾：十一篇你收获了什么"><a href="#系列收尾：十一篇你收获了什么" class="headerlink" title="系列收尾：十一篇你收获了什么"></a>系列收尾：十一篇你收获了什么</h2><p>回看这趟旅程：</p>
 <ul>
-<li><strong>第01篇</strong>：Ontology 是 Agent 的语义地基，解决数据歧义、推理能力、权限安全</li>
-<li><strong>第02篇</strong>：知识图谱给 Agent 记”会过期的事实”，多跳推理是它的杀手锏</li>
-<li><strong>第03篇</strong>：Palantir 把本体做成企业决策中枢，四要素架构 + 场景沙盒</li>
-<li><strong>第04篇</strong>：微软用语义层 + NL2Ontology 把本体做轻，让你用自然语言问数据</li>
-<li><strong>第05篇</strong>：OWL/RDF/SPARQL 动手建本体，理解平台底层的”对象-属性-链接-推理”</li>
-<li><strong>第06篇</strong>：OSDK + Ontology MCP 让 Agent 安全用上本体，本体绑定即权限边界</li>
-<li><strong>第07篇</strong>：UI 本体说明本体边界很宽，神经符号 AI 是 LLM + 本体的融合终点</li>
-<li><strong>第08篇（本篇）</strong>：规模化分水岭 + 选型决策树 + 从 Demo 到生产的真实坑</li>
+<li><strong>第 01 篇</strong>：Ontology 是 Agent 的语义地基，解决数据歧义、推理能力、权限安全</li>
+<li><strong>第 02 篇</strong>：知识图谱给 Agent 记”会过期的事实”，多跳推理是它的杀手锏</li>
+<li><strong>第 03 篇</strong>：Palantir 把本体做成企业决策中枢，四要素架构 + 场景沙盒</li>
+<li><strong>第 04 篇</strong>：微软用语义层 + NL2Ontology 把本体做轻，让你用自然语言问数据</li>
+<li><strong>第 05 篇</strong>：OWL/RDF/SPARQL 动手建本体，理解平台底层的”对象-属性-链接-推理”</li>
+<li><strong>第 06 篇</strong>：OSDK + Ontology MCP 让 Agent 安全用上本体，本体绑定即权限边界</li>
+<li><strong>第 07 篇</strong>：UI 本体说明本体边界很宽，神经符号 AI 是 LLM + 本体的融合终点</li>
+<li><strong>第 08 篇（本篇）</strong>：规模化分水岭 + 选型决策树 + 从 Demo 到生产的真实坑</li>
+<li><strong>第 09 篇</strong>：中小企业三个落地场景（客服/销售/库存），轻量本体解决”幻觉”和”对账”</li>
+<li><strong>第 10 篇</strong>：选型对比 + 四阶段路线图 + 人力成本实话实说，1 工程师 4 周出 MVP</li>
+<li><strong>第 11 篇</strong>：最小可行本体代码实战（Turtle + SPARQL），附中小企业六大踩坑清单</li>
 </ul>
-<p>八篇下来，你应该建立了一种直觉：<strong>本体不是某个公司的私货，是 Agent 从”玩具”走向”生产系统”时，绕不开的那层语义基础设施</strong>。它什么时候该出现，取决于你的复杂度，而不是你的热情。</p>
+<p>十一篇下来，你应该建立了一种直觉：<strong>本体不是某个公司的私货，是 Agent 从”玩具”走向”生产系统”时，绕不开的那层语义基础设施</strong>。它什么时候该出现，取决于你的复杂度，而不是你的热情。</p>
 <hr>
 <h2 id="📝-小结"><a href="#📝-小结" class="headerlink" title="📝 小结"></a>📝 小结</h2><ul>
 <li>判断标准：Ontology is optional until your AI has to scale——单场景别上，跨系统必须上</li>
@@ -488,6 +491,9 @@
 <li>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</li>
 <li>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</li>
 <li><strong>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</strong> ⬅️ 你在这里</li>
+<li>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</li>
+<li>第 10 篇：项目落地方案：中小企业用轻量栈搭本体</li>
+<li>第 11 篇：落地实战：一个最小可行本体的构建与避坑</li>
 </ul>
 </blockquote>
 <hr>
@@ -706,7 +712,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%88%A4%E6%96%AD%E6%A0%87%E5%87%86%EF%BC%8C%E5%85%88%E8%AE%B0%E7%89%A2"><span class="toc-number">1.</span> <span class="toc-text">一个判断标准，先记牢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%B8%AA%E4%BA%BA%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%88%B0%E8%A7%84%E6%A8%A1%E5%8C%96%EF%BC%8C%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD"><span class="toc-number">2.</span> <span class="toc-text">从个人小工具到规模化，怎么判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-Demo-%E5%88%B0%E7%94%9F%E4%BA%A7%EF%BC%8C%E7%9C%9F%E5%AE%9E%E4%BC%9A%E8%B8%A9%E7%9A%84%E5%9D%91"><span class="toc-number">3.</span> <span class="toc-text">从 Demo 到生产，真实会踩的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E4%B8%8D%E5%90%8C%E8%A7%92%E8%89%B2%E7%9A%84%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.</span> <span class="toc-text">给不同角色的一句话建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E5%88%97%E6%94%B6%E5%B0%BE%EF%BC%9A%E5%85%AB%E7%AF%87%E4%BD%A0%E6%94%B6%E8%8E%B7%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">5.</span> <span class="toc-text">系列收尾：八篇你收获了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-%E5%B0%8F%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">📝 小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%88%A4%E6%96%AD%E6%A0%87%E5%87%86%EF%BC%8C%E5%85%88%E8%AE%B0%E7%89%A2"><span class="toc-number">1.</span> <span class="toc-text">一个判断标准，先记牢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%B8%AA%E4%BA%BA%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%88%B0%E8%A7%84%E6%A8%A1%E5%8C%96%EF%BC%8C%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD"><span class="toc-number">2.</span> <span class="toc-text">从个人小工具到规模化，怎么判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-Demo-%E5%88%B0%E7%94%9F%E4%BA%A7%EF%BC%8C%E7%9C%9F%E5%AE%9E%E4%BC%9A%E8%B8%A9%E7%9A%84%E5%9D%91"><span class="toc-number">3.</span> <span class="toc-text">从 Demo 到生产，真实会踩的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E4%B8%8D%E5%90%8C%E8%A7%92%E8%89%B2%E7%9A%84%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.</span> <span class="toc-text">给不同角色的一句话建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E5%88%97%E6%94%B6%E5%B0%BE%EF%BC%9A%E5%8D%81%E4%B8%80%E7%AF%87%E4%BD%A0%E6%94%B6%E8%8E%B7%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">5.</span> <span class="toc-text">系列收尾：十一篇你收获了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-%E5%B0%8F%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">📝 小结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1174,6 +1180,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

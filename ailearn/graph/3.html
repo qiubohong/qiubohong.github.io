@@ -8,19 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.qborfy.com">
-  <title>AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph | Qborfy知识库</title>
+  <title>AI Graph工程（03）—— State状态管理方案 | Qborfy知识库</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="State 设计是 Graph 工程里最容易被忽视、也最容易出问题的环节。本篇从一个真实的状态污染案例出发，讲清楚 Reducer 机制、短期与长期记忆的架构选择，以及 Checkpointing 断点续跑的工程实践。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph">
+<meta property="og:title" content="AI Graph工程（03）—— State状态管理方案">
 <meta property="og:url" content="https://www.qborfy.com/ailearn/graph/3.html">
 <meta property="og:site_name" content="Qborfy知识库">
 <meta property="og:description" content="State 设计是 Graph 工程里最容易被忽视、也最容易出问题的环节。本篇从一个真实的状态污染案例出发，讲清楚 Reducer 机制、短期与长期记忆的架构选择，以及 Checkpointing 断点续跑的工程实践。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-21T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-25T02:48:15.489Z">
+<meta property="article:modified_time" content="2026-08-28T06:43:27.160Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -368,7 +368,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph
+      AI Graph工程（03）—— State状态管理方案
       
     </h1>
   
@@ -607,7 +607,7 @@
 <li>第 00 篇：从 while 循环到组织架构图，Agent 进化的下一步</li>
 <li>第 01 篇：从「单兵独斗」到「军团作战」：为什么你的 Agent 越来越失控？</li>
 <li>第 02 篇：解剖 LangGraph 与 AutoGen：选框架之前，先搞懂这三个概念</li>
-<li><strong>第 03 篇：State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph</strong> ⬅️ 你在这里</li>
+<li><strong>第 03 篇：State状态管理方案</strong> ⬅️ 你在这里</li>
 <li>第 04 篇：让可控性拉满：人机协同（HITL）与断点调试在 Graph 工程中的落地</li>
 <li>第 05 篇：实战演练：从零构建企业级”研报自动协作生成”复杂图</li>
 <li>第 06 篇：Graph 工程在研发流程中的应用：从需求到上线的全链路实战</li>
@@ -670,7 +670,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://www.qborfy.com/ailearn/graph/3.html" title="AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph" target="_blank">https://www.qborfy.com/ailearn/graph/3.html</a>
+          <a href="https://www.qborfy.com/ailearn/graph/3.html" title="AI Graph工程（03）—— State状态管理方案" target="_blank">https://www.qborfy.com/ailearn/graph/3.html</a>
         </li>
         
         <li>
@@ -1285,6 +1285,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

@@ -20,7 +20,7 @@
 <meta property="og:description" content="别光看文档，动手跑一遍才算真的懂。本篇手把手带你完成 dsh 的安装、API Key 配置、工作区选择，发出第一条指令，看 Agent 真正动起来。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-20T12:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-20T07:22:10.169Z">
+<meta property="article:modified_time" content="2026-09-08T13:59:42.946Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -449,7 +449,7 @@
 <p>工作区就是 Agent 的”操作范围”。它能读哪些文件、改哪些代码、跑哪些命令，都限定在这个目录里。</p>
 <p>点击界面上的<strong>选择工作区</strong>，把你想让 Agent 操作的项目目录加进去，然后选中它。</p>
 <p>选中之前，会话输入框是灰色的，没法发消息。这不是 bug，是设计——没有工作区，Agent 不知道该在哪里干活。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[启动 dsh] --&gt; B[配置 API Key]</span><br><span class="line">    B --&gt; C[选择工作区]</span><br><span class="line">    C --&gt; D[发第一条指令]</span><br><span class="line">    D --&gt; E[Agent 开始工作]</span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    A[启动 dsh] --&gt; B[配置 API Key]</span><br><span class="line">    B --&gt; C[选择工作区]</span><br><span class="line">    C --&gt; D[发第一条指令]</span><br><span class="line">    D --&gt; E[Agent 开始工作]</span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="发第一条指令，看-Agent-动起来"><a href="#发第一条指令，看-Agent-动起来" class="headerlink" title="发第一条指令，看 Agent 动起来"></a>发第一条指令，看 Agent 动起来</h2><p>工作区选好了，可以发消息了。</p>
@@ -708,7 +708,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph
+          AI Graph工程（03）—— State状态管理方案
         
       </div>
     </a>
@@ -1210,6 +1210,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

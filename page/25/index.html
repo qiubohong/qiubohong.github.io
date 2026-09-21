@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230226" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240604" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230226.html" target="_blank">
-      Typescript基础：如何更好的生成Typescript声明文件.d.ts
+	  <a class="article-title" href="/today_2024/20240604.html" target="_blank">
+      如何优化chrome web页面开了很久卡顿
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/today/20230226.html" class="archive-article-date">
-        <time datetime="2023-03-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-30</time>
+<a href="/today_2024/20240604.html" class="archive-article-date">
+        <time datetime="2024-05-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-30</time>
 </a>
 
   
@@ -393,19 +393,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Typescript已经被前端广泛使用，如果你的项目还没有使用，建议赶紧使用起来，真的会对你的项目有足够的提升：</p>
-<ul>
-<li>让你的每个变量都有变量声明</li>
-<li>让你的每个方法找到其源头</li>
-<li>让你能提前使用一些超前的JavaScript语法，如：注解(装饰器)<code>@controller</code> 等语法糖</li>
+    <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><h1 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h1><h2 id="利用chrome性能解析工具"><a href="#利用chrome性能解析工具" class="headerlink" title="利用chrome性能解析工具"></a>利用chrome性能解析工具</h2><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/LuckyWinty/blog/blob/master/markdown/Q%26A/Chrome%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%88%86%E6%9E%90.md">Chorme 浏览器中的垃圾回收和内存泄漏</a></li>
 </ul>
-<p>但是使用的过程也会带来一些痛苦，比如你要做一个js lib库，如果用<code>Typescript</code> 开发确实可以帮助其他者快速使用，但是如果你没有注意Typescript的声明文件规范，很容易出现以下使用情况：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会直接从src目录去寻找</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib/src/client.d.ts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 而我们所期待的使用是</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>所以我们需要学习一下，如何更好的生成我们的Typescript声明文件。</p>
-    
-    <a class="article-more-a" href="/today/20230226.html#more">more >></a>
-    
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -434,7 +425,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230226.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240604.html">展开全文 >></a>
     </p>
     
 
@@ -469,7 +460,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230225" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240523" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -477,8 +468,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230225.html" target="_blank">
-      MonoRepo实战：pnpm+nx搭建MonoRepo项目
+	  <a class="article-title" href="/today_2024/20240523.html" target="_blank">
+      Vue2老项目优化打包逻辑
       
     </a>
   
@@ -488,8 +479,8 @@
 
   
   
-<a href="/today/20230225.html" class="archive-article-date">
-        <time datetime="2023-03-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+<a href="/today_2024/20240523.html" class="archive-article-date">
+        <time datetime="2024-05-23T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-23</time>
 </a>
 
   
@@ -501,21 +492,15 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="MonoRepo实战：pnpm-nx搭建MonoRepo项目"><a href="#MonoRepo实战：pnpm-nx搭建MonoRepo项目" class="headerlink" title="MonoRepo实战：pnpm+nx搭建MonoRepo项目"></a>MonoRepo实战：pnpm+nx搭建MonoRepo项目</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前有写过几篇关于monorepo的文章，具体如下：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230107.html">从npm版本依赖到Monorepo大仓项目</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230119.html">从lerna到初步了解和使用Nx(一)</a></li>
-<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230219.html">从pnpm工具了解整个npm包核心管理原理</a></li>
-</ul>
-<p>再次复习一下<code>MonoRepo</code>的概念：</p>
-<blockquote>
-<p>Monorepo是包含多个不同项目的单一存储库，且不同项目之间具有明确定义的关系。</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>之前大多数是理论知识，能让我们知道<code>pnpm</code> 和<code>nx</code> 是什么，但是具体要到项目实战就有点懵，不知道从而下手，下面我们就一步步开始搭建<code>pnpm</code>+<code>nx</code>的Monorepo仓库。</p>
-<p>PS：这里将会从已有项目中去开始踩坑，这里用的是之前做一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit.git">node-gptcommit</a>命令行工具+一个chrome插件，将两个项目放到一个Monorepo仓库去管理。 </p>
-    
-    <a class="article-more-a" href="/today/20230225.html#more">more >></a>
-    
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于最近接手一个老的Vue2项目，其打包编译速度，每次发布都需要等待30分钟以上，实在受不了，故此在互联网上收集了</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/JZevin/article/details/108478555">使用可视化的Vue项目管理器Vue UI </a></li>
+<li><a target="_blank" rel="noopener" href="https://tiven.cn/p/edae9a97/">Vue 打包优化之 externals 抽离公共的第三方库</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -544,7 +529,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230225.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240523.html">展开全文 >></a>
     </p>
     
 
@@ -579,7 +564,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today_2024/20240429" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -587,8 +572,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230224.html" target="_blank">
-      从开发chrome插件到插件系统设计
+	  <a class="article-title" href="/today_2024/20240429.html" target="_blank">
+      VSCode远程连接服务器开发
       
     </a>
   
@@ -598,8 +583,8 @@
 
   
   
-<a href="/today/20230224.html" class="archive-article-date">
-        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
+<a href="/today_2024/20240429.html" class="archive-article-date">
+        <time datetime="2024-04-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-29</time>
 </a>
 
   
@@ -611,20 +596,66 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
-<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>VScode是前端开发最受欢迎的IDE工具之一， 里面的插件市场十分丰富，插件有个插件叫<a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/remote/ssh">Remote - SSH</a>，其主要功能介绍如下：</p>
+<blockquote>
+<p>Visual Studio Code 远程 - SSH 扩展允许你在任何远程计算机、虚拟机或具有正在运行的 SSH 服务器的容器上打开远程文件夹，并充分利用 VS Code 的功能集。连接到服务器后，您可以与远程文件系统上任何位置的文件和文件夹进行交互。</p>
+</blockquote>
+<p>因此，我们可以直接连接远程服务器去做很多事情：</p>
 <ul>
-<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
+<li>搭建云端个人开发机， 从而使得所有无论更换本地环境，都不会影响个人开发进度</li>
+<li>更加友好的可视化文件管理，包括一些简单的文件编辑等等</li>
+<li>使用SSH登录，能更好更安全的避免密码泄漏</li>
 </ul>
-<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
-<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
+<p>下面还是以【如何搭建个人远程开发机】作为案例去学习</p>
+<h1 id="如何搭建个人远程开发机"><a href="#如何搭建个人远程开发机" class="headerlink" title="如何搭建个人远程开发机"></a>如何搭建个人远程开发机</h1><h2 id="步骤一-安装-Remote-SSH插件"><a href="#步骤一-安装-Remote-SSH插件" class="headerlink" title="步骤一 安装 Remote-SSH插件"></a>步骤一 安装 Remote-SSH插件</h2><p>在VSCode的插件市场中，查询【Remote-SSH】，然后进行安装，具体如下图：</p>
+<p><img src="/assets/img/20240429-1.png" alt=""></p>
+<h2 id="步骤二-配置远程服务器"><a href="#步骤二-配置远程服务器" class="headerlink" title="步骤二 配置远程服务器"></a>步骤二 配置远程服务器</h2><ol>
+<li><p>打开SSH配置界面，具体如下图：<br><img src="/assets/img/20240429-2.png" alt=""><br><img src="/assets/img/20240429-3.png" alt=""><br><img src="/assets/img/20240429-4.png" alt=""></p>
+</li>
+<li><p>编辑SSH配置文件<code>~/.ssh/config</code>，路径和上述文件路径保持一致，具体代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## Host 远程连接名称</span><br><span class="line">## HostName 主机IP</span><br><span class="line">## User 连接帐号</span><br><span class="line">## Port 连接SSH端口</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Host self_remote_host</span><br><span class="line">    HostName 10.11.67.18</span><br><span class="line">    User root</span><br><span class="line">    Port 22</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>完成步骤一，基本上就可以连接远端服务器，不过每次都要输入密码有点麻烦，所以可以通过SSH密钥认证去解决，具体如下步骤</p>
+<h2 id="步骤二-本地生成SSH密钥，进行免密登录"><a href="#步骤二-本地生成SSH密钥，进行免密登录" class="headerlink" title="步骤二 本地生成SSH密钥，进行免密登录"></a>步骤二 本地生成SSH密钥，进行免密登录</h2><p>不同操作系统，执行命令不太一样，具体如下。</p>
+<ol>
+<li>Mac | Linux操作系统<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认会在相应路径下（~/.ssh/）生成id_rsa和id_rsa.pub两个文件，如下面代码所示</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <ul>
-<li>Chrome插件开发，如何快速开发一个插件</li>
-<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
+<li><code>id_rsa</code> SSH私钥文件，用来解密公钥，一般存在本地使用</li>
+<li><code>id_rsa.pub</code> SSH公钥文件，用来传输信息的时候加密用， 一般存在远端服务器</li>
 </ul>
-    
-    <a class="article-more-a" href="/today/20230224.html#more">more >></a>
-    
+<ol start="2">
+<li>Windows操作系统<br>安装Git Bash，执行如下命令即可：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认会在相应路径下（C:\Users\yourname\.ssh）生成id_rsa和id_rsa.pub两个文件，如下面代码所示</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+接下来就是将公钥<code>id_rsa.pub</code>复制到远端服务器上<code>~/.ssh/</code>目录下即可</li>
+</ol>
+<ol start="3">
+<li>将公钥<code>id_rsa.pub</code>添加到远端服务器中可信任文件中<code>authorized_keys</code>，具体命令如下：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>验证登录：<code>ssh &lt;user&gt;:10.1.1.1</code></p>
+<ol start="4">
+<li>配置VSCode SSH config文件，具体如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## Host 远程连接名称</span><br><span class="line">## HostName 主机IP</span><br><span class="line">## User 连接帐号</span><br><span class="line">## Port 连接SSH端口</span><br><span class="line">## IdentityFile 认证登录的SSH密钥文件</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Host self_remote_host</span><br><span class="line">    HostName 10.11.67.18</span><br><span class="line">    User root</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="SSH免密码登录原理"><a href="#SSH免密码登录原理" class="headerlink" title="SSH免密码登录原理"></a>SSH免密码登录原理</h1><ul>
+<li>SSH远端服务会发送【公钥(remote)】信息</li>
+<li>本地SSH客户端会验证远端传输来的【公钥(remote)】和 本地【公钥(local)】对比是否一致，如果一致，发送【随机字符串（challenge）】给到远端服务器</li>
+<li>远端服务器接受到随机字符串（challenge）信息后，继续用【公钥(remote)】加密传输信息-随机字符串（challenge）给回到客户端</li>
+<li>本地SSH客户端用本地【私钥(local)】去解密【公钥(remote)】加密传输信息-随机字符串（challenge），如果与之前一致，则建立连接</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2175073">使用VS Code插件远程连接Linux服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/brf-test/p/16036703.html">Windows下生成SSH密钥</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -653,7 +684,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230224.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240429.html">展开全文 >></a>
     </p>
     
 
@@ -688,7 +719,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230223" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ai-learn00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -696,8 +727,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230223.html" target="_blank">
-      不要再使用轮询了，请用SSE服务端推送完成页面实时更新
+	  <a class="article-title" href="/ailearn/ai-learn00.html" target="_blank">
+      00篇 AI从零开始 - 前准备知识
       
     </a>
   
@@ -707,8 +738,8 @@
 
   
   
-<a href="/today/20230223.html" class="archive-article-date">
-        <time datetime="2023-03-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-17</time>
+<a href="/ailearn/ai-learn00.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
 </a>
 
   
@@ -720,15 +751,409 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近开发一个页面碰到一个需求，需要对部分数据需要实时更新状态，面对这样子的场景，我们通常有以下几个方案：</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="为什么要学习AI知识"><a href="#为什么要学习AI知识" class="headerlink" title="为什么要学习AI知识"></a>为什么要学习AI知识</h1><p>去年年中总结写过一篇文章 <a target="_blank" rel="noopener" href="https://qborfy.com/study/2023-middle.html">《2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)》</a>，AI发展是必不可缺的，如同马车和汽车的更新迭代一样，作为互联网的程序员，我们有点类似之前的马夫，现在有新的工具，我们也需要跟上时代的脚步，学习AI知识，可以让我们在互联网裁员浪潮中继续前进。</p>
+    
+    <a class="article-more-a" href="/ailearn/ai-learn00.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ai-learn00.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/cursor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/cursor.html" target="_blank">
+      AI技术应用 - Cursor使用全解
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/cursor.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/cursor.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/cline" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/cline.html" target="_blank">
+      AI技术应用 - Cursor使用全解
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/cline.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/cline.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/mcp-learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/mcp-learn.html" target="_blank">
+      AI技术学习 - MCP学习与应用
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/mcp-learn.html" class="archive-article-date">
+        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近 AI生成code越来越火热，代表应用是<code>Cursor</code>， 其中很多开发也分享其利用<code>Cursor</code>去实现零编码生成 web应用等，具体场景如下：</p>
 <ul>
-<li>轮询，利用setTimeout定时轮询</li>
-<li>WebSocket，利用长链接保持与服务通讯</li>
-<li>SSE，服务端推送机制</li>
+<li></li>
 </ul>
+<p>也成为了大家关注的热点，其中有一个热点是 MCP协议</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27327515233">一文看懂：MCP(大模型上下文协议)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-servers/blob/main/README-zh.md">awesome-mcp-servers</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
-    <a class="article-more-a" href="/today/20230223.html#more">more >></a>
     
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/mcp-learn.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today_2024/20240305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today_2024/20240305.html" target="_blank">
+      一次性学完RabbitMQ
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today_2024/20240305.html" class="archive-article-date">
+        <time datetime="2024-03-05T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><h1 id="为什么选RabbitMQ"><a href="#为什么选RabbitMQ" class="headerlink" title="为什么选RabbitMQ"></a>为什么选RabbitMQ</h1><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
     
 
@@ -757,7 +1182,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230223.html">展开全文 >></a>
+      <a class="article-more-a" href="/today_2024/20240305.html">展开全文 >></a>
     </p>
     
 
@@ -792,7 +1217,7 @@
     height:800px
   }
   </style>
-<article id="post-share/nodejs-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-study/2023-end" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -800,8 +1225,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/share/nodejs-module.html" target="_blank">
-      Node冷门知识点—— node.js支持import语法
+	  <a class="article-title" href="/study/2023-end.html" target="_blank">
+      2023年度总结——发现自己的今年高光时刻
       
     </a>
   
@@ -811,8 +1236,8 @@
 
   
   
-<a href="/share/nodejs-module.html" class="archive-article-date">
-        <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
+<a href="/study/2023-end.html" class="archive-article-date">
+        <time datetime="2023-12-31T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-31</time>
 </a>
 
   
@@ -824,115 +1249,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
-<ul>
-<li>CommonJS， Node.js提出的规范</li>
-<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
-<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
-</ul>
-<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;loadsh&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;loadsh&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
-<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>时光匆匆，2023年即将结束，新的一年即将到来，每个人都会有自己的年度总结，因此对于我个人而言，2023 年是一个很重要的转折点，不在于物质上有多大的变化，而是在于思维上，在于精神上的转变，不再有过去那种懵懵懂懂，浑浑噩噩的过日子的感觉，上次这种感觉还是在小学 5 年级的一个夜晚，突然懂事的开窍，觉得学习很重要，要好好读书的醒悟。因此接下来这一篇年度总结的灵感来源于：罗振宇老师的【2024年跨年演讲】主题 ——  是什么让我眼前一亮。</p>
+<p>因此，2023 年对于国家，对于公司，对于个人，都是非常不容易的一年，疫情刚过去，经济下调，个人面临裁员，很多人负面情绪都积压快爆炸了，因此2023 年对于大多数人来说，其实是积压了很多垃圾情绪的一年，更因为这样子，我们更加应该去发现今年自己的高光时刻，去找到那个让能自己变得骄傲的自己，找到那个自信的自己，从而更加从容的面对未来，面对 2024 年。</p>
+<p>温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。</p>
     
-    <a class="article-more-a" href="/share/nodejs-module.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/nodejs-module.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/book-million" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/book-million.html" target="_blank">
-      《百万富翁快车道》，我们应该如何快速转到一百万呢？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/book-million.html" class="archive-article-date">
-        <time datetime="2023-03-14T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="百万富翁快车道"><a href="#百万富翁快车道" class="headerlink" title="百万富翁快车道"></a>百万富翁快车道</h1><p>讲述的作者从失业游民到百万富翁的经历的一些过程，可以帮人开阔一些思维模式，从人行道、慢车道、快车道的方式去讲述一个人如何转到一百万。</p>
-<p>如果想要快速赚到一百万，这里没有教你实际的方案，但是告诉你一些思维模式，所以我这边简单通过思维导图去进行汇总。</p>
-    
-    <a class="article-more-a" href="/study/book-million.html#more">more >></a>
+    <a class="article-more-a" href="/study/2023-end.html#more">more >></a>
     
     
     
@@ -958,7 +1282,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/study/book-million.html">展开全文 >></a>
+      <a class="article-more-a" href="/study/2023-end.html">展开全文 >></a>
     </p>
     
 
@@ -993,7 +1317,7 @@
     height:800px
   }
   </style>
-<article id="post-ideas/20230312" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/openai-dev-20231106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1001,8 +1325,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ideas/20230312.html" target="_blank">
-      GPT-4都来了，我们还需要刷算法题和背八股文吗？
+	  <a class="article-title" href="/ailearn/openai-dev-20231106.html" target="_blank">
+      AI春晚之 2023年openAI 开发者大会
       
     </a>
   
@@ -1012,8 +1336,8 @@
 
   
   
-<a href="/ideas/20230312.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
+<a href="/ailearn/openai-dev-20231106.html" class="archive-article-date">
+        <time datetime="2023-11-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-08</time>
 </a>
 
   
@@ -1025,126 +1349,22 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="2023年的面试寒冬"><a href="#2023年的面试寒冬" class="headerlink" title="2023年的面试寒冬"></a>2023年的面试寒冬</h1><p>从去年到今年各个大厂都在不断裁员，导致今年IT互联网行情很差，很多朋友都缺乏面试机会或者面试不通过。</p>
-<p>程序员一旦要开始面试，很多朋友都开始循环以下几个步骤：</p>
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>2023-11-06，openAI公司在美国旧金山举办第一届开发者大会，大会内容总结如下：</p>
 <ul>
-<li>刷算法题，如：LeetCode各种困难程度的题目</li>
-<li>背诵各种八股文，如：浏览器请求一个URL的完整过程</li>
-<li>复习各种冷门知识，如：Promise.race(谁先返回就获取谁的结果，后面直接不处理)或Promise.allSettled(结果为Iterator对象，实现next())</li>
+<li>回顾过去一年发展</li>
+<li>推出新产品<ul>
+<li>GPT4 Turbo</li>
+<li>GPTs， GPT Store（GPT商店）</li>
+<li>GPT Builder GPT应用构建工具</li>
+<li>Assistants API 助手API </li>
 </ul>
-<p>也许以往这种复习模式还算不错，因为目前大多数面试流程基本上都是会问上述问题，而面试官问这些问题的最终目的是什么：</p>
-<ul>
-<li>算法题，主要考的是逻辑思维能力</li>
-<li>八股文，主要考的是基础知识是否足够扎实，知识深度是否足够</li>
-<li>冷门知识，主要考的是知识广度，你除了目前使用知识点外还能拥有其他知识面</li>
-</ul>
-<p>后续一些项目经验讲述，主要目的在于测试你是否真的参与到项目中，但是这个往往都是容易被忽略的点，这个放到后面再讲。</p>
-<p>当下最火的IT技术，ChatGPT智能机器人出来后，它不像普通搜索引擎一样，需要去大量的结果去找到自己的答案。而是直接将答案提供给到你，让你可以更加快速实现功能。</p>
-<p>如果ChatGPT普及开来，那么面试是否还需要考算法题和八股文吗？</p>
-<p>或者换个问题，<strong>当AI技术可以代替绝大部分基础开发工作的时候，面对这种技术变更，作为普通开发者，我们应该如何做技术成长规划呢？</strong></p>
-    
-    <a class="article-more-a" href="/ideas/20230312.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230312.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230221" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230221.html" target="_blank">
-      可以从ChatGPT学到什么（二）—— 利用AI自动生成git commit信息
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230221.html" class="archive-article-date">
-        <time datetime="2023-03-12T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>自从上一次写完<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230216.html">可以从ChatGPT学到什么(一)</a>，简单对ChatGPT有一定了解后，其背后的技术原理是基于OpenAI GPT-3协议去实现的智能对话的。</p>
-<p>再加上我看到国外有很多相关基于GPT开发的开源应用，因此萌生了自己动手搞一个，加上之前自己翻译了一篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/translate/use-gpt3-auto-git-commit.html">有了GPT-3，再也不用手写commit message</a>，他是基于Rust语言写，想着直接对着他照搬一个到Node.js版本，通过这种小项目实践，我们可以学习到：</p>
-<ul>
-<li>OpenAI提供了哪些模型算法</li>
-<li>不同模型算法分别可以应用到哪些场景</li>
-<li>真正调用OpenAI需要注意哪些事项</li>
+</li>
 </ul>
     
-    <a class="article-more-a" href="/today/20230221.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/openai-dev-20231106.html#more">more >></a>
     
     
     
@@ -1164,7 +1384,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI系列</a>
         		</li>
       		
 		</ul>
@@ -1174,207 +1394,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230221.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230222.html" target="_blank">
-      30分钟搞懂Rollup+Typescript构建工程
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230222.html" class="archive-article-date">
-        <time datetime="2023-03-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在研究一个ngptcommit命令行工具，然后想通过<code>Rollup</code>+<code>Typescript</code>去编译的时候，发现对<code>Rollup</code>和<code>Typescript</code>的编译配置有点陌生，所以希望通过本文能够对其有个系统的认知。</p>
-<p>本文主要是项目编译基础知识，明白其为什么要这么配置，同时能够将项目完整跑起来。</p>
-<p>参考项目地址为:<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>。</p>
-    
-    <a class="article-more-a" href="/today/20230222.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230222.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/node-modules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/node-modules.html" target="_blank">
-      Node冷门知识点——require(&#39;node:path&#39;)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/node-modules.html" class="archive-article-date">
-        <time datetime="2023-03-09T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天在看Vite的源码时候，发现有个用法很神奇，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path, &#123; resolve &#125; <span class="keyword">from</span> <span class="string">&#x27;node:path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&#x27;node:url&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; readFileSync &#125; <span class="keyword">from</span> <span class="string">&#x27;node:fs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; version &#125; = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(</span><br><span class="line">  <span class="title function_">readFileSync</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;../../package.json&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)).<span class="title function_">toString</span>(),</span><br><span class="line">)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>源码地址在:<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/blob/main/packages/vite/src/node/cli.ts">vite/src/node/cli.ts</a></p>
-<p>因此想要研究一下为什么要用<code>node:path</code>，而不是直接应用 <code>import path from &#39;path&#39;</code>呢？下面就来好好分析一下。</p>
-    
-    <a class="article-more-a" href="/share/node-modules.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/node-modules.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/openai-dev-20231106.html">展开全文 >></a>
     </p>
     
 
@@ -1406,7 +1426,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/24/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/26/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/24/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/26/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1835,6 +1855,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

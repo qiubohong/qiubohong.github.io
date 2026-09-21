@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230208" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ideas/20230809" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230208.html" target="_blank">
-      css变量了解到项目落地
+	  <a class="article-title" href="/ideas/20230809.html" target="_blank">
+      工具收集
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/today/20230208.html" class="archive-article-date">
-        <time datetime="2023-02-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
+<a href="/ideas/20230809.html" class="archive-article-date">
+        <time datetime="2023-04-08T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
 </a>
 
   
@@ -393,989 +393,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
-<p><img src="/assets/img/20230208-1.png" alt=""></p>
-<p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
-<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt=""></p>
+    <p>主要定期收集各种好玩的工具或者库，避免回头忘记。</p>
     
-    <a class="article-more-a" href="/today/20230208.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230208.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-lowcode/sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/lowcode/sandbox.html" target="_blank">
-      低代码系列——js沙箱设计
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/lowcode/sandbox.html" class="archive-article-date">
-        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
-<p>这里为什么会一开始介绍js沙箱设计呢？</p>
-<p>因为低代码平台，会运行用户本身自己编写的业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
-<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
-<ul>
-<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
-<li>插入，沙箱允许插入平台的内置对象</li>
-<li>容错，沙箱内代码即使有错误，也不影响整个平台执行</li>
-</ul>
-    
-    <a class="article-more-a" href="/lowcode/sandbox.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/sandbox.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230131.html" target="_blank">
-      hexo网站提高SEO优化方法
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230131.html" class="archive-article-date">
-        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
-<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
-<li>提交站点到搜索引擎(百度和谷歌)</li>
-<li>hexo针对搜索的优化</li>
-</ul>
-<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
-<li><p>添加hexo插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>_config.yml</code>配置</p>
-</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/today/20230131.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230131.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/face-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/face-test.html" target="_blank">
-      前端面试题目收集(持续更新)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/face-test.html" class="archive-article-date">
-        <time datetime="2023-01-30T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>主要以下几方面去收集？</p>
-<ul>
-<li>八股文，主要针对理论基础知识</li>
-<li>框架类，主要针对React/Vue等</li>
-<li>编程题，主要针对各种常用方法进行手动编写</li>
-<li>算法题，主要是各类算法题进行汇总</li>
-</ul>
-    
-    <a class="article-more-a" href="/study/face-test.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/face-test.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230129.html" target="_blank">
-      从null、undefined、NaN的区别了解JS的原型链
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230129.html" class="archive-article-date">
-        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
-<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
-<p>我们先简单认识三者：</p>
-<ul>
-<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
-<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
-<li><code>NaN</code> 是一个表示非数字的值</li>
-</ul>
-<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
-<ul>
-<li>数据类型 <code>typeof</code></li>
-<li><code>===</code> 判断</li>
-<li>原型 <code>prototype</code></li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230128.html" target="_blank">
-      :has伪类的到来延伸到其他伪元素和伪类的区别
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230128.html" class="archive-article-date">
-        <time datetime="2023-01-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近从网上看到一个有趣的CSS应用，就是纯用CSS也能是父子树展示，具体效果如下：</p>
-<ul class="tree">
-  <li>
-    <details open>
-      <summary style="display: list-item;">目录节点1</summary>
-      <ul >
-        <li>
-          <details>
-            <summary style="display: list-item;">节点1</summary>
-            <ul>
-              <li>子节点1-1</li>
-              <li>子节点1-2</li>
-            </ul>
-          </details>
-        </li>
-        <li>
-          <details>
-            <summary style="display: list-item;">节点2</summary>
-            <ul>
-              <li>子节点2-1</li>
-              <li>子节点2-2</li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </details>
-  </li>
-</ul>
-
-<p>然后里面关联到一篇新闻，就是<code>:has</code>伪元素的出现会给CSS带来极大的变动，这是为什么，不就是一个CSS伪元素吗？因此去了解一下，才发现这个伪元素确实不一样，主要有以下几点：</p>
-<ul>
-<li>可以选择父级元素， <code>a:has(&gt; img)</code>，包含<code>img元素</code>的<code>a元素</code></li>
-<li>可以选择兄弟元素， <code>h1:has(+ p)</code>，后面为<code>p元素</code>的<code>h1元素</code></li>
-</ul>
-<p>为什么有了它之后，CSS会有大变动，因为以往我们的样式都是直接选择 元素 或者 子元素 或者 后面的元素，如果要选择父元素或前面的元素只能通过命名规范去确定，比如上述两个例子：</p>
-<ul>
-<li><code>a:has(&gt; img)</code>，我们只能通过<code>a.has-img</code>类似样式去命名</li>
-<li><code>h1:has(+ p)</code>，只能通过<code>h1.next-p</code>类似样式去命名</li>
-</ul>
-<p>大概清楚它能带来的变化，接下来我们来详细了解一下它。</p>
-    
-    <a class="article-more-a" href="/today/20230128.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230128.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230124" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230124.html" target="_blank">
-      从0开始学习FlexBox布局
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230124.html" class="archive-article-date">
-        <time datetime="2023-01-24T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前研究过一篇<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230111.html">《移动端适配总结》</a>，里面主要通过布局不变，改变布局组件元素的大小去适应移动端。但是这种方式对于PC端或者Pad等大屏幕并不适合，所以从想找找看是否有新的方案能否满足跨端自适应布局方式。</p>
-<p>目前同时解决PC端和移动端的响应式布局的解决方案以下几种：</p>
-<ul>
-<li>通过<code>@media</code>媒体查询去设置不同尺寸的样式</li>
-<li>通过<code>Flexbox</code> <code>Grid</code>等现代化布局去做响应式布局</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230124.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230124.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/hexo-search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/hexo-search.html" target="_blank">
-      hexo Yilia主题支持搜索功能
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/hexo-search.html" class="archive-article-date">
-        <time datetime="2023-01-22T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>当hexo的文章越来越多，依靠标题和tag去搜索有点不够用，因此需要支持搜索功能，hexo查询主要依赖本地索引文件生成，具体步骤如下：</p>
-<ul>
-<li>安装插件: <code>npm install --save hexo-generator-search</code></li>
-<li>根目录下的_config.yml中添加如下配置即可</li>
-</ul>
-    
-    <a class="article-more-a" href="/share/hexo-search.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/share/hexo-search.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-today/20230122" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/today/20230122.html" target="_blank">
-      从nest.js中了解IoC和DI的实现
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/today/20230122.html" class="archive-article-date">
-        <time datetime="2023-01-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从上一篇<a target="_blank" rel="noopener" href="https://qborfy.com/today/20220110.html">《从egg.js转到nest.js》</a>，想对其再深入了解一下，尤其比较好奇Typescript是如何实现<code>IoC</code>和<code>DI</code>，因为在Java的是通过的反射(Spring IoC实现原理)去创建对应的类。因此下文将详细讲解Nest.js中IoC和DI的实现原理。</p>
-<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>在了解实现原理之前有几个知识概念，需要了解一下：</p>
-<ul>
-<li>IoC和DI</li>
-<li>JavaScript的Reflect</li>
-<li>TypeScript的装饰器</li>
-</ul>
-    
-    <a class="article-more-a" href="/today/20230122.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230122.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/20230120" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/20230120.html" target="_blank">
-      有趣的工具收集
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/20230120.html" class="archive-article-date">
-        <time datetime="2023-01-20T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Deprank-js重要性排名"><a href="#Deprank-js重要性排名" class="headerlink" title="Deprank js重要性排名"></a>Deprank js重要性排名</h1><p>一个 JS 工具，按照重要性对本项目的所有脚本进行排序。原理是计算依赖关系，被依赖最多的脚本最重要。</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://github.com/codemix/deprank">Deprank</a></p>
-<p>例子如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">| Filename               | Lines | Dependents | PageRank |</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">| fixtures/core.js       | 3     | 1          | 0.284098 |</span><br><span class="line">| fixtures/utils.js      | 4     | 3          | 0.268437 |</span><br><span class="line">| fixtures/user/user.js  | 4     | 1          | 0.132253 |</span><br><span class="line">| fixtures/todo.js       | 6     | 1          | 0.089796 |</span><br><span class="line">| fixtures/user/index.js | 1     | 1          | 0.089796 |</span><br><span class="line">| fixtures/concepts.js   | 4     | 1          | 0.079694 |</span><br><span class="line">| fixtures/index.js      | 4     | 0          | 0.055926 |</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/ideas/20230120.html#more">more >></a>
+    <a class="article-more-a" href="/ideas/20230809.html#more">more >></a>
     
     
     
@@ -1401,7 +421,942 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/20230120.html">展开全文 >></a>
+      <a class="article-more-a" href="/ideas/20230809.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ideas/20230621" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ideas/20230621.html" target="_blank">
+      工具收集
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ideas/20230621.html" class="archive-article-date">
+        <time datetime="2023-04-08T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Bark语音生成引擎"><a href="#Bark语音生成引擎" class="headerlink" title="Bark语音生成引擎"></a><a target="_blank" rel="noopener" href="https://github.com/suno-ai/bark">Bark语音生成引擎</a></h1><p>一个语音生成引擎，效果不错，可以在朗读的同时，发出大笑、叹息和哭泣，还可以生成音乐。</p>
+<p>地址： <a target="_blank" rel="noopener" href="https://github.com/suno-ai/bark">https://github.com/suno-ai/bark</a></p>
+<h1 id="STDF-移动端组件库"><a href="#STDF-移动端组件库" class="headerlink" title="STDF 移动端组件库"></a><a target="_blank" rel="noopener" href="https://stdf.design/#/">STDF 移动端组件库</a></h1><p>基于 Svelte 与 Tailwind 的移动页面组件库。</p>
+<p>地址： <a target="_blank" rel="noopener" href="https://github.com/dufu1991/stdf">https://github.com/dufu1991/stdf</a></p>
+<h1 id="MockingBird-AI合成语音"><a href="#MockingBird-AI合成语音" class="headerlink" title="MockingBird AI合成语音"></a><a target="_blank" rel="noopener" href="https://github.com/babysor/MockingBird">MockingBird AI合成语音</a></h1><p>给出语音，合成属于自己的语音包</p>
+<p>地址： <a target="_blank" rel="noopener" href="https://github.com/babysor/MockingBird">https://github.com/babysor/MockingBird</a></p>
+<p>适用教程： <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eHRHfYeoZ3g">https://www.youtube.com/watch?v=eHRHfYeoZ3g</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ideas/20230621.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230227.html" target="_blank">
+      如何用vite+vue-next快速开发chrome插件
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230227.html" class="archive-article-date">
+        <time datetime="2023-04-06T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前写过一篇文章<a target="_blank" rel="noopener" href="https://qborfy.com/today/20230224.html">《从开发chrome插件到插件系统设计》</a>，主要讲述了如何开发一个chrome插件和chrome插件设计，感兴趣的同学可以再去看看。</p>
+<p>目前主流web应用都是基于Vue、React等现代框架去开发，Chrome插件本身而言其实也是一个web应用，看它的组成部分<code>popup.html</code> + <code>contentscript</code> + <code>background.js</code> ，只需要在开发的时候调整一下构建脚本基本上就可以利用Vue、React等现代框架去开发了。</p>
+<p>接下来，我们就一步步开始实战。</p>
+    
+    <a class="article-more-a" href="/today/20230227.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230227.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-study/2023-read-plan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/study/2023-read-plan.html" target="_blank">
+      2023年读书计划
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/study/2023-read-plan.html" class="archive-article-date">
+        <time datetime="2023-04-03T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="2023年读书计划"><a href="#2023年读书计划" class="headerlink" title="2023年读书计划"></a>2023年读书计划</h1><p>今年给自己的制定的计划，主要读书目标有以下几类：</p>
+<ul>
+<li>给自己的创业带来理论帮助</li>
+<li>给自己的职业带来成长</li>
+<li>给自己的更加开阔的视野</li>
+<li>解答一些人生疑惑</li>
+<li>提高自己的做事效率</li>
+<li>提高自己的表达能力或演讲能力</li>
+<li>搭建自己的股市交易系统
+    
+    <a class="article-more-a" href="/study/2023-read-plan.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/study/2023-read-plan.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230226" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230226.html" target="_blank">
+      Typescript基础：如何更好的生成Typescript声明文件.d.ts
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230226.html" class="archive-article-date">
+        <time datetime="2023-03-30T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Typescript已经被前端广泛使用，如果你的项目还没有使用，建议赶紧使用起来，真的会对你的项目有足够的提升：</p>
+<ul>
+<li>让你的每个变量都有变量声明</li>
+<li>让你的每个方法找到其源头</li>
+<li>让你能提前使用一些超前的JavaScript语法，如：注解(装饰器)<code>@controller</code> 等语法糖</li>
+</ul>
+<p>但是使用的过程也会带来一些痛苦，比如你要做一个js lib库，如果用<code>Typescript</code> 开发确实可以帮助其他者快速使用，但是如果你没有注意Typescript的声明文件规范，很容易出现以下使用情况：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会直接从src目录去寻找</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib/src/client.d.ts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 而我们所期待的使用是</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">IClient</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;xxx-lib&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>所以我们需要学习一下，如何更好的生成我们的Typescript声明文件。</p>
+    
+    <a class="article-more-a" href="/today/20230226.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230226.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230225" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230225.html" target="_blank">
+      MonoRepo实战：pnpm+nx搭建MonoRepo项目
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230225.html" class="archive-article-date">
+        <time datetime="2023-03-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="MonoRepo实战：pnpm-nx搭建MonoRepo项目"><a href="#MonoRepo实战：pnpm-nx搭建MonoRepo项目" class="headerlink" title="MonoRepo实战：pnpm+nx搭建MonoRepo项目"></a>MonoRepo实战：pnpm+nx搭建MonoRepo项目</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前有写过几篇关于monorepo的文章，具体如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230107.html">从npm版本依赖到Monorepo大仓项目</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230119.html">从lerna到初步了解和使用Nx(一)</a></li>
+<li><a target="_blank" rel="noopener" href="https://qborfy.com/today/20230219.html">从pnpm工具了解整个npm包核心管理原理</a></li>
+</ul>
+<p>再次复习一下<code>MonoRepo</code>的概念：</p>
+<blockquote>
+<p>Monorepo是包含多个不同项目的单一存储库，且不同项目之间具有明确定义的关系。</p>
+</blockquote>
+<p>之前大多数是理论知识，能让我们知道<code>pnpm</code> 和<code>nx</code> 是什么，但是具体要到项目实战就有点懵，不知道从而下手，下面我们就一步步开始搭建<code>pnpm</code>+<code>nx</code>的Monorepo仓库。</p>
+<p>PS：这里将会从已有项目中去开始踩坑，这里用的是之前做一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit.git">node-gptcommit</a>命令行工具+一个chrome插件，将两个项目放到一个Monorepo仓库去管理。 </p>
+    
+    <a class="article-more-a" href="/today/20230225.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230225.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230224" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230224.html" target="_blank">
+      从开发chrome插件到插件系统设计
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230224.html" class="archive-article-date">
+        <time datetime="2023-03-22T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近ChatGPT的技术概念很火热，我开发了一个<a target="_blank" rel="noopener" href="https://github.com/qiubohong/node-gptcommit">node-gptcommit</a>开源项目，主要利用GPT用来自动生成git commit的信息。</p>
+<p>但是通过命令行工具来生成preview感觉有点不太友好，因此在想有没有另外一种可能将其变得更加好用，然后想到一个场景：</p>
+<ul>
+<li>在合mr的时候，以及代码review，很多git commit 文件，需要一一个看</li>
+</ul>
+<p>在这个时刻，自动生成commit信息就显得很有用，因此我的方案就是将<code>node-gptcommit</code>做成chrome插件，然后帮助MR的开发者能够快速了解此次MR的所有内容。</p>
+<p>当然仅仅是开发一个chrome插件大家上网随便搜一下就知道怎么开发，因此为了本文更加有干货，需要更加深入的知识，所以本文分为两部分：</p>
+<ul>
+<li>Chrome插件开发，如何快速开发一个插件</li>
+<li>Chrome插件架构设计，了解Chrome插件背后的架构设计，以及前端插件架构体系</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230224.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230224.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230223" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230223.html" target="_blank">
+      不要再使用轮询了，请用SSE服务端推送完成页面实时更新
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230223.html" class="archive-article-date">
+        <time datetime="2023-03-17T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近开发一个页面碰到一个需求，需要对部分数据需要实时更新状态，面对这样子的场景，我们通常有以下几个方案：</p>
+<ul>
+<li>轮询，利用setTimeout定时轮询</li>
+<li>WebSocket，利用长链接保持与服务通讯</li>
+<li>SSE，服务端推送机制</li>
+</ul>
+    
+    <a class="article-more-a" href="/today/20230223.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230223.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-share/nodejs-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/share/nodejs-module.html" target="_blank">
+      Node冷门知识点—— node.js支持import语法
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/share/nodejs-module.html" class="archive-article-date">
+        <time datetime="2023-03-16T11:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="js模块化"><a href="#js模块化" class="headerlink" title="js模块化"></a>js模块化</h1><p>前端主流模块化规范，目前有以下几种：</p>
+<ul>
+<li>CommonJS， Node.js提出的规范</li>
+<li>ECMAScript Module，ESM，由ECMAScript组织提出的JavaScript标准规范</li>
+<li>已淘汰的有：CMD、AMD等，再就综合体UMD（支持各种规范的集合体）</li>
+</ul>
+<p>因此，主流有两种规范<code>CommonJS</code>和<code>ESM</code>两种规范，但是由于Node.js不支持<code>ESM</code>规范，导致很多时候我们的项目里面并存两种规范的代码，从而出现下面这种情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在node端执行构建的时候</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;loadsh&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在浏览器端实现的时候</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;loadsh&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样子开发就很容易出现痛点，往往我们的解决方案就是通过各种构建工具去解决，如：<code>webpack</code> <code>vite</code>，尤其是我们在写项目中写node.js编译脚本，经常需要切换。</p>
+<p>但是从Node.js V14+版本后，它开始支持ESM规范啦，你可以直接在Node.js中使用<code>import</code> <code>export</code>等语法了，终于等到这一天😭。</p>
+    
+    <a class="article-more-a" href="/share/nodejs-module.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/share/nodejs-module.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-study/book-million" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/study/book-million.html" target="_blank">
+      《百万富翁快车道》，我们应该如何快速转到一百万呢？
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/study/book-million.html" class="archive-article-date">
+        <time datetime="2023-03-14T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="百万富翁快车道"><a href="#百万富翁快车道" class="headerlink" title="百万富翁快车道"></a>百万富翁快车道</h1><p>讲述的作者从失业游民到百万富翁的经历的一些过程，可以帮人开阔一些思维模式，从人行道、慢车道、快车道的方式去讲述一个人如何转到一百万。</p>
+<p>如果想要快速赚到一百万，这里没有教你实际的方案，但是告诉你一些思维模式，所以我这边简单通过思维导图去进行汇总。</p>
+    
+    <a class="article-more-a" href="/study/book-million.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/study/book-million.html">展开全文 >></a>
     </p>
     
 
@@ -1433,7 +1388,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/27/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/29/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/27/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/29/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1862,6 +1817,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

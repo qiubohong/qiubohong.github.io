@@ -20,7 +20,7 @@
 <meta property="og:description" content="Agent 能读文件、跑命令、访问网络——没有边界就是定时炸弹。本篇从三层安全机制讲起，到沙箱配置、审批策略设计、审计日志实战，给你一套生产环境可用的 Agent 安全方案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T10:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-21T12:36:53.545Z">
+<meta property="article:modified_time" content="2026-09-20T02:19:19.709Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -434,7 +434,7 @@
 <hr>
 <h2 id="第一层：沙箱——把-Agent-关在笼子里"><a href="#第一层：沙箱——把-Agent-关在笼子里" class="headerlink" title="第一层：沙箱——把 Agent 关在笼子里"></a>第一层：沙箱——把 Agent 关在笼子里</h2><p>沙箱是最外层的防线。它的核心思想很简单：<strong>Agent 的所有进程操作，都经过一个”守门人”</strong>。</p>
 <p>在 dsh 里，这个守门人是 <code>ctx.sandbox</code> 后端。所有 Bash 命令、PTY 终端、文件系统访问，在真正执行之前都要经过沙箱的包装。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[Agent 要跑 Bash 命令] --&gt; B[ctx.sandbox 后端]</span><br><span class="line">    B --&gt; C&#123;沙箱策略检查&#125;</span><br><span class="line">    C --&gt;|允许| D[在隔离环境中执行]</span><br><span class="line">    C --&gt;|拒绝| E[返回拒绝信息给 Agent]</span><br><span class="line">    D --&gt; F[结果返回]</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#4a1a1a,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    A[Agent 要跑 Bash 命令] --&gt; B[ctx.sandbox 后端]</span><br><span class="line">    B --&gt; C&#123;沙箱策略检查&#125;</span><br><span class="line">    C --&gt;|允许| D[在隔离环境中执行]</span><br><span class="line">    C --&gt;|拒绝| E[返回拒绝信息给 Agent]</span><br><span class="line">    D --&gt; F[结果返回]</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#4a1a1a,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p>默认情况下，dsh 使用本地沙箱——Agent 在你的本机上跑，有完整的文件系统访问权限。这对开发环境够用，但生产环境不行。</p>
 <p>生产环境的正确做法是把沙箱指向一个<strong>远程隔离环境</strong>：</p>
@@ -1230,6 +1230,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

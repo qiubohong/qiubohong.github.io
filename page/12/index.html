@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/llm/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ontology/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/llm/07.html" target="_blank">
-      LLM API 参数详解（7）—— 流式响应与性能优化：先让用户看到，再让系统扛住 | 完整指南
+	  <a class="article-title" href="/ailearn/ontology/02.html" target="_blank">
+      AI Agent 本体论工程（02）—— 时间感知知识图谱：让 Agent 记住&#34;什么时候什么是真的&#34;
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/llm/07.html" class="archive-article-date">
-        <time datetime="2026-04-24T03:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-24</time>
+<a href="/ailearn/ontology/02.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
 </a>
 
   
@@ -394,12 +394,14 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正碰到线上系统的问题：不是模型会不会答，而是用户要不要等、系统扛不扛得住、成本能不能压住。<br><strong>🎯 核心收获</strong>：什么时候该开 <code>stream</code> + chunk 如何解析 + 超时与重试如何分层处理 + 并发、Batch API、缓存与监控怎么组合起来用</p>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>实战入门</strong>，需要一点点 Python 基础。看不懂代码没关系，先把”为什么需要时间”这件事想明白，代码部分可以跳。<br><strong>🎁 核心收获</strong>：你会理解传统知识图谱最大的坑在哪，以及 OpenAI 是怎么用”带时间戳的三元组 + 失效 Agent”补上这个坑的。</p>
 </blockquote>
-<p><strong>很多人做 LLM 应用，最先盯的是回答质量；真到上线，最先挨打的往往却是等待时间。</strong></p>
-<p>模型答得再好，如果用户要盯着转圈 12 秒，体验一样会崩。</p>
+<p>上篇我们聊了 Ontology 是什么——它是业务的语义地基。</p>
+<p>但地基要是建在流沙上，房子照样塌。</p>
+<p>什么意思？你给 Agent 喂了一张知识图谱，图谱上写着”苏姿丰是 AMD 的 CEO”。三个月后她卸任了，图谱没更新。Agent 还是拿着旧数据给别人出报告，还特别自信。</p>
+<p>这不是 Agent 笨，是人类忘了告诉它：<strong>事实是会过期的。</strong></p>
     
-    <a class="article-more-a" href="/ailearn/llm/07.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/ontology/02.html#more">more >></a>
     
     
     
@@ -420,831 +422,502 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/07.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/06.html" target="_blank">
-      LLM API 参数详解（6）—— 多模态参数与结构化输出：别只会“看图说话” | 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/06.html" class="archive-article-date">
-        <time datetime="2026-04-23T10:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入真正的产品化问题：模型不只是接收文本，还要理解图片、生成图片、输出能直接被系统消费的数据。<br><strong>🎯 核心收获</strong>：多模态输入的主流格式差异 + 文生图参数取舍 + <code>response_format</code> 与 <code>json_schema</code> 的边界 + 生产环境中的降级策略</p>
-</blockquote>
-<p><strong>很多人以为，多模态就是“给模型塞一张图”，结构化输出就是“让它吐 JSON”。</strong></p>
-<p>话不能算错，但真要上线，这两个能力远没有看上去那么省心。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/06.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/06.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/05.html" target="_blank">
-      LLM API 参数详解（5）—— Function Calling 与工具调用：模型什么时候该“动手”？| 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/05.html" class="archive-article-date">
-        <time datetime="2026-04-23T08:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正进入 Agent 能力的核心：模型不只是回答问题，而是要学会借助外部能力把事做完。<br><strong>🎯 核心收获</strong>：Function Calling 三大参数的真实作用 + 一次完整工具调用的运行链路 + 多工具协作模式 + 常见工程坑位与选型判断</p>
-</blockquote>
-<p><strong>很多人第一次接 Function Calling，都会有个错觉：这不就是让模型吐一段 JSON 吗？</strong></p>
-<p>表面上看，确实像。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/05.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/04.html" target="_blank">
-      LLM API 参数详解（4）—— 思维链与推理控制参数：推理模型到底该怎么用？| 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/04.html" class="archive-article-date">
-        <time datetime="2026-04-23T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入推理模型的参数世界，重点不再是“会不会生成”，而是“愿意花多少算力去想”。<br><strong>🎯 核心收获</strong>：推理模型和非推理模型的本质差异 + 四家主流平台推理参数对比 + 一套更实用的选型与控费思路</p>
-</blockquote>
-<p><strong>为什么有些问题，用普通模型一下就答了，但一换到推理模型，参数逻辑像突然变了一套？</strong></p>
-<p>因为它确实变了。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/04.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/04.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/03.html" target="_blank">
-      LLM API 参数详解（3）—— 采样参数调优最佳实践：代码、对话、问答、写作怎么配？| 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/03.html" class="archive-article-date">
-        <time datetime="2026-04-23T08:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正进入“怎么把参数调顺手”的实战阶段。<br><strong>🎯 核心收获</strong>：四大采样参数的组合逻辑 + 四类典型场景推荐配置 + 一套能直接落地的调参顺序</p>
-</blockquote>
-<p><strong>为什么同一个模型，有的人一出手就稳，有的人怎么调都觉得别扭？</strong></p>
-<p>很多时候，差的不是模型，而是采样参数没配对。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/03.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/03.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/02.html" target="_blank">
-      LLM API 参数详解（2）—— 主流平台 API 参数横向对比：OpenAI、Claude、Gemini、DeepSeek、Kimi、MiniMax、Yi | 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/02.html" class="archive-article-date">
-        <time datetime="2026-04-23T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始进入工程选型视角。<br><strong>🎯 核心收获</strong>：7 家平台参数差异速查表 + 跨平台迁移避坑点 + 适配层框架选型建议</p>
-</blockquote>
-<p><strong>为什么很多人明明都走“OpenAI 兼容接口”，一迁移平台还是到处踩坑？</strong></p>
-<p>问题往往不在 SDK，而在参数。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/02.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/02.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/llm/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/llm/01.html" target="_blank">
-      LLM API 参数详解（1）—— Temperature、Top-P、Max Tokens 等核心参数深度解析 | 完整指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/llm/01.html" class="archive-article-date">
-        <time datetime="2026-04-23T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 篇章难度</strong>：📗 <strong>入门</strong>。这是系列的第一篇，从最基础的参数讲起，不需要任何前置知识。<br><strong>🎯 核心收获</strong>：8 类参数的全局分类 + temperature / top_p / top_k / max_tokens / penalty / stop / stream 的作用与取值逻辑 + 一套能直接上手的参数认知框架</p>
-</blockquote>
-<p><strong>很多人第一次接 LLM API，都以为这件事很简单：选个模型，塞一段 Prompt，等它吐结果。</strong></p>
-<p>真开始做项目之后你很快就会发现，事情没那么轻松。</p>
-    
-    <a class="article-more-a" href="/ailearn/llm/01.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/llm/01.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/anthropic-harness-design" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/anthropic-harness-design.html" target="_blank">
-      长时任务 Harness 设计 —— GAN 启发的三智能体架构实践（译）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/anthropic-harness-design.html" class="archive-article-date">
-        <time datetime="2026-04-11T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📌 原文信息</strong></p>
-<ul>
-<li>原文标题：<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a></li>
-<li>原文作者：Prithvi Rajasekaran，Anthropic Labs 团队成员</li>
-<li>发布时间：2026 年 3 月 24 日</li>
-<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
-</blockquote>
-<hr>
-<p><strong>一句话结论：把 GAN 的思路搬进 AI 工程——用一个专门的评估器来”对抗”生成器，能让 Claude 在前端设计和全栈开发上都突破单智能体的性能天花板。</strong></p>
-<p>过去几个月，我一直在研究两个相互关联的问题：让 Claude 产出高质量的前端设计，以及让它在没有人工干预的情况下构建完整的应用程序。</p>
-<p>这项工作起源于我们早期在<a target="_blank" rel="noopener" href="https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md">前端设计技能</a>和<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">长时运行编程智能体 Harness</a> 上的努力——通过提示词工程和 Harness 设计，我们能够将 Claude 的性能大幅提升，但两者最终都遇到了瓶颈。</p>
-<p>为了突破，我从<strong>生成对抗网络（GAN）</strong>中获得灵感，设计了一个包含<strong>生成器</strong>和<strong>评估器</strong>智能体的多智能体结构。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/anthropic-harness-design.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识图谱</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/02.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/03.html" target="_blank">
+      AI Agent 本体论工程（03）—— Palantir 模式：本体怎么成了企业 AI 的决策中枢
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/03.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>架构解析</strong>，适合想搞懂企业级 Agent 怎么落地的开发者和技术决策者。不写代码，但会拆得很细。<br><strong>🎁 核心收获</strong>：你会明白 Palantir 那句”本体是决策的表示，不是数据的表示”到底什么意思，以及它凭什么敢把本体放到架构正中央。</p>
+</blockquote>
+<p>上篇我们聊了时间。这篇聊一个更”重”的话题——企业。</p>
+<p>个人玩 Agent，喂点笔记、连个 API，高兴就好。企业不一样。企业里一个 Agent 如果乱动数据，后果不是”回答错了”，是”把三个 ERP 系统的库存改错了，生产线停摆”。</p>
+<p>所以企业级 Agent 的核心矛盾从来不是”聪不聪明”，是”可不可控”。</p>
+<p>Palantir 给出的答案，是把 Ontology 放到整个架构的正中央。这事他们做了十几年，比”AI Agent”这个词火起来早得多。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/03.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Palantir</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/03.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/04.html" target="_blank">
+      AI Agent 本体论工程（04）—— Microsoft Fabric：企业语义层到底怎么落地
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/04.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>产品架构解析</strong>，适合正在选型企业数据平台的开发者和技术决策者。和上篇 Palantir 对照着看，收获最大。<br><strong>🎁 核心收获</strong>：你会搞懂微软说的”语义层”到底是什么，NL2Ontology 怎么把一句人话变成查数据的 SQL/图查询，以及它和 Palantir 重在哪里不同。</p>
+</blockquote>
+<p>上篇 Palantir 那套，坦白说，重。你得先有它的平台、先建本体、再绑数据、再调 Agent。不是谁都玩得起的。</p>
+<p>微软在 Fabric 里也做了本体，但路子完全反过来——它不让你先建平台，而是先把你 OneLake 里散落的数据，用一层语义”罩”上去，然后让你直接用自然语言问问题。</p>
+<p>这章我们看看，这条路”轻”在哪，又”薄”在哪。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Microsoft</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/06.html" target="_blank">
+      AI Agent 本体论工程（06）—— Ontology 工具链：OSDK + MCP 实战指南
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/06.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>工具链实战</strong>，适合要把 Agent 接到企业系统的开发者。会贴一点 TypeScript 片段，看不懂语法看注释也行。<br><strong>🎁 核心收获</strong>：你会明白为什么 Palantir 建 Agent 第一步是”绑本体”，OSDK 和 Ontology MCP 分别解决什么问题，以及作用域权限怎么让你不用管密钥。</p>
+</blockquote>
+<p>上篇我们把本体从零搭出来了。但本体躺在文件里没用，得让 Agent 能读、能写、能在它上面推理。</p>
+<p>这章讲工具链。核心就两样：Palantir 的 <strong>OSDK</strong>（本体 SDK）和 <strong>Ontology MCP</strong>（本体模型上下文协议）。一个给开发者写代码用，一个给任何支持 MCP 的 Agent（比如 Claude、GPT）用。</p>
+<p>不过在聊工具之前，得先说一个反直觉的设计——Palantir 建 Agent，<strong>第一步不是写逻辑，是绑本体</strong>。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Palantir</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动手实践</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/07.html" target="_blank">
+      AI Agent 本体论工程（07）—— UI 本体与神经符号 AI：从计算机使用到前沿方向
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/07.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>视野拓展</strong>，适合想看清 Ontology 和 Agent 前沿往哪走的人。不写代码，但会颠覆你对”什么是本体”的想象。<br><strong>🎁 核心收获</strong>：你会意识到计算机屏幕本身就是一种本体，以及为什么”LLM + 本体”的符号-连接融合被公认为最有希望的下一条路。</p>
+</blockquote>
+<p>前六篇，我们说了企业数据本体、知识图谱、平台、工具链。这章换个口味——聊个看起来不相关、其实骨子里一脉相承的事：让 AI 操作电脑。</p>
+<p>Anthropic 训练 Claude 用计算机时，有个细节特别戳我：模型得<strong>计算像素</strong>，才能把鼠标移到正确位置点击。这听着像小事，但背后藏着一个深刻的洞察——<strong>计算机屏幕，本身就是一种本体</strong>。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/07.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1252,7 +925,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前沿</a>
         		</li>
       		
 		</ul>
@@ -1262,7 +935,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/anthropic-harness-design.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ontology/07.html">展开全文 >></a>
     </p>
     
 
@@ -1297,7 +970,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/harness/anthropic-building-agents" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ontology/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1305,8 +978,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/harness/anthropic-building-agents.html" target="_blank">
-      构建高效 AI 智能体 —— Anthropic 工程团队实战指南（译）
+	  <a class="article-title" href="/ailearn/ontology/05.html" target="_blank">
+      AI Agent 本体论工程（05）—— 动手构建 Ontology：OWL/RDF/SPARQL 实战
       
     </a>
   
@@ -1316,8 +989,8 @@
 
   
   
-<a href="/ailearn/harness/anthropic-building-agents.html" class="archive-article-date">
-        <time datetime="2026-04-11T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
+<a href="/ailearn/ontology/05.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
 </a>
 
   
@@ -1330,22 +1003,13 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p><strong>📌 原文信息</strong></p>
-<ul>
-<li>原文标题：<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a></li>
-<li>原文作者：Erik Schluntz &amp; Barry Zhang，Anthropic 工程团队</li>
-<li>发布时间：2024 年 12 月 19 日</li>
-<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
-</ul>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>动手实战</strong>，适合想亲手建一套本体的开发者。需要一点点 XML/图查询的直觉，跟着敲就行。<br><strong>🎁 核心收获</strong>：你会用 RDF 三元组描述业务、用 OWL 定义类和约束、用 SPARQL 查出多跳关系，并知道这些开源标准和前面 Palantir/微软的平台是什么关系。</p>
 </blockquote>
-<blockquote>
-<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
-</blockquote>
-<hr>
-<p><strong>一句话结论：最成功的智能体实现，用的不是复杂框架或专门库，而是简单、可组合的模式。</strong></p>
-<p>过去一年，Anthropic 与数十个团队合作，帮助他们在各行各业构建 LLM 智能体。这个规律反复出现。这篇文章分享我们从客户合作和自己构建智能体中学到的东西，给开发者提供构建高效智能体的实践建议。</p>
+<p>前两篇看了 Palantir 的重、微软的轻。这章说点实在的——不依赖任何大平台，用开源标准自己搭一个本体。</p>
+<p>为什么要会这个？因为平台再好，你总得知道它底下那层”本体”到底长啥样。不然平台给你个黑盒，你连怎么定义”客户”都搞不定，只能被平台牵着走。</p>
+<p>其实这套东西的祖宗，比 AI 火起来早得多。</p>
     
-    <a class="article-more-a" href="/ailearn/harness/anthropic-building-agents.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/ontology/05.html#more">more >></a>
     
     
     
@@ -1369,19 +1033,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Anthropic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动手实践</a>
         		</li>
       		
 		</ul>
@@ -1391,7 +1055,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/anthropic-building-agents.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ontology/05.html">展开全文 >></a>
     </p>
     
 
@@ -1426,7 +1090,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/harness/openai" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/ontology/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1434,8 +1098,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/harness/openai.html" target="_blank">
-      在智能体优先的世界里用 Codex 做工程 —— OpenAI 百万行代码实践（译）
+	  <a class="article-title" href="/ailearn/ontology/08.html" target="_blank">
+      AI Agent 本体论工程（08）—— 从 Demo 到生产：规模化 Agent 的 Ontology 设计决策
       
     </a>
   
@@ -1445,8 +1109,8 @@
 
   
   
-<a href="/ailearn/harness/openai.html" class="archive-article-date">
-        <time datetime="2026-04-11T02:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
+<a href="/ailearn/ontology/08.html" class="archive-article-date">
+        <time datetime="2026-07-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-21</time>
 </a>
 
   
@@ -1459,23 +1123,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p><strong>📌 原文信息</strong></p>
-<ul>
-<li>原文标题：<a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">Engineering for an Agent-First World with Codex</a></li>
-<li>原文作者：Ryan Lopopolo，OpenAI 技术人员</li>
-<li>发布时间：2026 年 2 月 11 日</li>
-<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
-</ul>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>终章收口</strong>，适合要做技术选型或架构决策的开发者和技术负责人。不需要前面篇的代码基础，但读过前面会更有共鸣。<br><strong>🎁 核心收获</strong>：你会拿到一个”什么时候该上 Ontology”的判断框架，以及从 Demo 到生产真实会踩的坑和绕法。</p>
 </blockquote>
-<blockquote>
-<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
-</blockquote>
-<hr>
-<p><strong>过去五个月，我们团队做了一件事：构建并交付了一款软件产品的内部 Beta 版，其中没有一行代码是人工编写的。</strong></p>
-<p>这不是噱头。这款产品有内部日常活跃用户，也有外部 Alpha 测试者。它经历了交付、部署、故障和修复的完整生命周期。与众不同的是，每一行代码——从应用逻辑、测试、CI 配置、文档、可观测性到内部工具——全都是由 Codex 写的。</p>
-<p>据估计，我们只用了手工编写代码所需时间的大约 <strong>1/10</strong>。</p>
+<p>七篇写下来，概念、平台、工具链、前沿都过了。最后这篇，我们聊最落地的问题：你手头这个项目，到底要不要上 Ontology？</p>
+<p>这个问题我见过太多人答错。要么一上来就建重本体，把自己累死在建模上；要么 Demo 跑得欢，一上生产就崩，才发现没有语义层根本兜不住。</p>
     
-    <a class="article-more-a" href="/ailearn/harness/openai.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/ontology/08.html#more">more >></a>
     
     
     
@@ -1499,19 +1152,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenAI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">终章</a>
         		</li>
       		
 		</ul>
@@ -1521,7 +1174,361 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/openai.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ontology/08.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/01.html" target="_blank">
+      AI Agent 本体论工程（01）—— Ontology：被低估的 AI Agent 核心基础设施
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/01.html" class="archive-article-date">
+        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇是入门导读，不管你是刚听说 Agent 这个词，还是已经天天在生产里调 API，都能往下读。前面偏直觉，往后越挖越深，跟不上也别急，后面几篇会反复回到这些概念。<br><strong>🎁 核心收获</strong>：读完你会明白 Ontology 到底是什么，以及为什么它往往是 Agent 从”能用”到”好用”过不去的那道坎。</p>
+</blockquote>
+<p>你搭了一个 AI Agent，能回答问题，能调工具，演示效果不错。</p>
+<p>然后你把它接进公司系统——它开始乱说话了。</p>
+<p>“客户”这个词，CRM 里叫 <code>customer</code>，ERP 里叫 <code>client</code>，财务系统里叫 <code>account</code>。Agent 不知道这三个是同一个东西，于是它给你查了三份互相矛盾的数据，然后自信地给出了一个错误答案。</p>
+<p>这不是模型的问题，是<strong>语义的问题</strong>。</p>
+<p>解决这个问题的答案，叫 Ontology。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/01.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/01.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/from/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/from/1.html" target="_blank">
+      【译】时间感知 Agent 与知识图谱（OpenAI Cookbook）
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/from/1.html" class="archive-article-date">
+        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://developers.openai.com/cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents">Temporal Agents with Knowledge Graphs — OpenAI Cookbook</a><br><strong>✍️ 原文作者</strong>：Danny Wigg、Shikhar Kwatra（OpenAI），Alex Heald、Douglas Adams、Rishabh Sagar<br><strong>📅 发布时间</strong>：2025 年 7 月 22 日</p>
+</blockquote>
+<p>这是一篇极具含金量的 OpenAI 官方实战教程，深入讲解了如何构建<strong>时间感知知识图谱</strong>，并在其上进行<strong>多跳检索推理</strong>。如果你正在构建需要处理”某个时间点上什么是真实的”这类问题的 AI 系统，这篇文章不容错过。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/from/1.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识图谱</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/from/1.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ontology/from/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ontology/from/3.html" target="_blank">
+      【译】将 Agent 连接到决策：Palantir 本体论驱动的 AI 架构
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ontology/from/3.html" class="archive-article-date">
+        <time datetime="2026-07-20T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://blog.palantir.com/connecting-agents-to-decisions-277dee8ddb40">Connecting Agents to Decisions — Palantir Blog</a><br><strong>✍️ 原文作者</strong>：Palantir 工程团队<br><strong>📅 发布时间</strong>：2026 年 4 月 28 日</p>
+</blockquote>
+<p>在所有将”本体（Ontology）”与”AI Agent”结合的公司中，Palantir 是做得最深、商业化最成功的。这篇文章揭示了他们的核心架构哲学：<strong>本体不只是数据模型，而是企业决策的完整表示</strong>。</p>
+    
+    <a class="article-more-a" href="/ailearn/ontology/from/3.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ontology</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Palantir</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ontology/from/3.html">展开全文 >></a>
     </p>
     
 
@@ -1553,7 +1560,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1982,6 +1989,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

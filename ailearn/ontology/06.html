@@ -20,7 +20,7 @@
 <meta property="og:description" content="本体建好了，Agent 怎么用？本篇拆解 Palantir 的 OSDK（类型安全数据访问）和 Ontology MCP（标准协议接入），以及为什么本体绑定是 Agent 权限边界的第一步。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-07-21T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-20T02:03:08.919Z">
+<meta property="article:modified_time" content="2026-09-07T12:02:16.284Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -435,7 +435,7 @@
 </ul>
 <p>换句话说，本体绑定就是 Agent 的<strong>权限边界</strong>。你不是给 Agent 一个能访问全公司的 API Key，而是把它”关”进本体授权范围内的一小块空间。</p>
 <p>这设计妙在哪？传统 Agent 直接连数据库，权限散在各个系统里，谁改了什么难以审计。Palantir 把权限收拢到本体层——Agent 能碰什么，本体说了算，而且每一步操作都过本体的安全框架，天然有完整溯源。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;传统 Agent 架构&quot;] --&gt; B[&quot;Agent 直连数据库\n权限分散\n难审计&quot;]</span><br><span class="line">    C[&quot;Foundry Agent 架构&quot;] --&gt; D[&quot;Agent 经本体访问\n权限集中\n完整溯源&quot;]</span><br><span class="line">    D --&gt; E[&quot;本体绑定\n= 权限边界&quot;]</span><br><span class="line">    E --&gt; F[&quot;OSDK\n类型安全访问&quot;]</span><br><span class="line">    E --&gt; G[&quot;Ontology MCP\n工具调用&quot;]</span><br><span class="line">    E --&gt; H[&quot;作用域权限\n最小权限&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#3d1a1a,stroke:#f85149,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;传统 Agent 架构&quot;] --&gt; B[&quot;Agent 直连数据库\n权限分散\n难审计&quot;]</span><br><span class="line">    C[&quot;Foundry Agent 架构&quot;] --&gt; D[&quot;Agent 经本体访问\n权限集中\n完整溯源&quot;]</span><br><span class="line">    D --&gt; E[&quot;本体绑定\n= 权限边界&quot;]</span><br><span class="line">    E --&gt; F[&quot;OSDK\n类型安全访问&quot;]</span><br><span class="line">    E --&gt; G[&quot;Ontology MCP\n工具调用&quot;]</span><br><span class="line">    E --&gt; H[&quot;作用域权限\n最小权限&quot;]</span><br><span class="line"></span><br><span class="line">    style A fill:#3d1a1a,stroke:#f85149,color:#c9d1d9</span><br><span class="line">    style C fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style D fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="从门禁卡到工具工厂"><a href="#从门禁卡到工具工厂" class="headerlink" title="从门禁卡到工具工厂"></a>从门禁卡到工具工厂</h2><p>还是老习惯，一层层往下讲，你停在哪层都行，但最底下那层，才是这套工具链真正有意思的地方。</p>
@@ -444,21 +444,21 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getOntologySdkClient &#125; <span class="keyword">from</span> <span class="string">&quot;@palantir/agent-templates-bundle&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; $ontologyRid &#125; <span class="keyword">from</span> <span class="string">&quot;@ontology/sdk&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = <span class="keyword">await</span> <span class="title function_">getOntologySdkClient</span>($ontologyRid);</span><br><span class="line"><span class="comment">// 之后 client.objects... 都有类型提示</span></span><br></pre></td></tr></table></figure>
 
 <p>关键是它基于<strong>作用域权限</strong>——你不用提供客户端 ID、密钥、Foundry Token，Agent 跑在什么身份下，权限就由本体绑定决定，凭证管理这块最头疼的事直接没了。<strong>Ontology MCP（OMCP）</strong>把本体的对象、属性、链接、行动全部暴露成标准 MCP 工具，任何支持 MCP 协议的 Agent（Claude、GPT 等）都能接进来读对象、查数据、执行预定义行动。它妙在”外部 Agent 受和原生 Agent 一样的安全控制”——你不用为外部 AI 开特殊后门，所有访问都过本体统一安全框架，企业本体因此可以安全地暴露给任何合规的 Agent 生态。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;本体工具工厂&quot;] --&gt; B[&quot;数据查询工具&quot;]</span><br><span class="line">    A --&gt; C[&quot;模型调用工具&quot;]</span><br><span class="line">    A --&gt; D[&quot;行动执行工具&quot;]</span><br><span class="line">    B --&gt; E[&quot;统一安全框架&quot;]</span><br><span class="line">    C --&gt; E</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F[&quot;OSDK\n开发者代码&quot;]</span><br><span class="line">    E --&gt; G[&quot;Ontology MCP\n外部 Agent&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;本体工具工厂&quot;] --&gt; B[&quot;数据查询工具&quot;]</span><br><span class="line">    A --&gt; C[&quot;模型调用工具&quot;]</span><br><span class="line">    A --&gt; D[&quot;行动执行工具&quot;]</span><br><span class="line">    B --&gt; E[&quot;统一安全框架&quot;]</span><br><span class="line">    C --&gt; E</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F[&quot;OSDK\n开发者代码&quot;]</span><br><span class="line">    E --&gt; G[&quot;Ontology MCP\n外部 Agent&quot;]</span><br><span class="line"></span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style E fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p>再往深想，Palantir 把本体叫做”工具工厂（Tool Factory）”，这个提法值得停下来品味。你的构建者（开发者、分析师、数据工程师）都能在本体上定义工具——查任何数据类型、调任何模型、执行任何行动，全部在统一安全框架下治理。这意味着一个深刻的架构转变：工具不再是 Agent 框架硬编码的能力，而是<strong>从本体动态生成</strong>的，本体里多一个对象类型，Agent 就自动多一类可操作的工具。专业知识被编码成可复用工具，从”个人脑子里的东西”变成”组织共享的基础设施”。这和 Anthropic 提的 MCP 开放标准一脉相承——MCP 让任何模型能安全接外部工具，Ontology MCP 则是把这个能力落到了企业本体的粒度上。</p>
 <hr>
 <h2 id="一个最小的-Agent-示例"><a href="#一个最小的-Agent-示例" class="headerlink" title="一个最小的 Agent 示例"></a>一个最小的 Agent 示例</h2><p>把 OMCP 配置作为 MCP 服务器传给模型，Agent 就获得了访问本体的能力，同时受安全框架约束：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">runAgent</span>(<span class="params"><span class="attr">args</span>: <span class="title class_">AgentArgs</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> omcpConfig = <span class="keyword">await</span> <span class="title function_">getOntologyMcpConfiguration</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> iter = <span class="title function_">query</span>(&#123;</span><br><span class="line">    <span class="attr">prompt</span>: <span class="string">&quot;找出受供应商 X 中断影响的所有订单，并估算损失&quot;</span>,</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="attr">mcpServers</span>: &#123;</span><br><span class="line">        [<span class="string">&quot;ontology_mcp&quot;</span>]: omcpConfig,  <span class="comment">// 本体作为工具源注入</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 消费响应流...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">runAgent</span>(<span class="params"><span class="attr">args</span>: <span class="title class_">AgentArgs</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> omcpConfig = <span class="keyword">await</span> <span class="title function_">getOntologyMcpConfiguration</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> iter = <span class="title function_">query</span>(&#123;</span><br><span class="line">    <span class="attr">prompt</span>: <span class="string">&quot;找出受供应商 X 中断影响的所有订单，并估算损失&quot;</span>,</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="attr">mcpServers</span>: &#123;</span><br><span class="line">        [<span class="string">&quot;ontology_mcp&quot;</span>]: omcpConfig, <span class="comment">// 本体作为工具源注入</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 消费响应流...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>注意那行 <code>mcpServers: &#123; ontology_mcp: omcpConfig &#125;</code>。Agent 不需要知道底层数据库长啥样，它只知道”我有一套叫 ontology_mcp 的工具可以用”，而这套工具的能力边界，由本体绑定框死。</p>
 <p>发布时给仓库打标签（如 <code>1.0.0</code>），Foundry 会把它注册成异步函数。运行时推荐通过 Automate 的函数效果调用，或者 Workshop 低代码界面、OSDK 程序化调用。</p>
 <p>有个坑得提醒：<strong>Agent 函数不返回值</strong>。它得把结果写回本体对象（Ontology Objects）来输出。这又回到上篇说的——Palantir 的本体是”操作型”的，Agent 的输出也是写回本体，而不是 return 个字符串。</p>
 <hr>
 <h2 id="和前面几篇怎么接"><a href="#和前面几篇怎么接" class="headerlink" title="和前面几篇怎么接"></a>和前面几篇怎么接</h2><ul>
-<li>第05篇我们手搓了 OWL 本体，那是”模型”层面</li>
+<li>第 05 篇我们手搓了 OWL 本体，那是”模型”层面</li>
 <li>这篇的 OSDK/MCP，是让 Agent “用上”模型的<strong>接口</strong>层面</li>
-<li>第03篇 Palantir 的四要素架构，这里落到了具体工具：OSDK 负责数据/逻辑的类型安全访问，MCP 负责把行动暴露成工具</li>
+<li>第 03 篇 Palantir 的四要素架构，这里落到了具体工具：OSDK 负责数据/逻辑的类型安全访问，MCP 负责把行动暴露成工具</li>
 </ul>
 <p>一句话串起来：<strong>本体是语义地基（05），OSDK/MCP 是地基上的接口（06），Palantir 用四要素把接口组织成决策中枢（03）</strong>。</p>
 <hr>
@@ -483,6 +483,9 @@
 <li><strong>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</strong> ⬅️ 你在这里</li>
 <li>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</li>
 <li>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</li>
+<li>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</li>
+<li>第 10 篇：项目落地方案：中小企业用轻量栈搭本体</li>
+<li>第 11 篇：落地实战：一个最小可行本体的构建与避坑</li>
 </ul>
 </blockquote>
 <hr>
@@ -1174,6 +1177,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

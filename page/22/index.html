@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/cursor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/cursor.html" target="_blank">
-      AI技术应用 - Cursor使用全解
+	  <a class="article-title" href="/ailearn/daily/09.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(9) - 循环网络 RNN
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/cursor.html" class="archive-article-date">
-        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+<a href="/ailearn/daily/09.html" class="archive-article-date">
+        <time datetime="2025-08-07T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-07</time>
 </a>
 
   
@@ -393,7 +393,127 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>循环网络 RNN</strong></p>
+<blockquote>
+<p>一句话核心: 循环网络 RNN = 带记忆功能的神经网络​​，通过循环连接保留历史信息，专为处理序列数据（文本、语音、时间序列）而生</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/09.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/09.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ai-learn11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ai-learn11.html" target="_blank">
+      11篇 AI从零开始 - Langgraph开发(2)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ai-learn11.html" class="archive-article-date">
+        <time datetime="2025-07-11T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<h1 id="工作流是什么"><a href="#工作流是什么" class="headerlink" title="工作流是什么"></a>工作流是什么</h1><p>前面我们对LangGraph知识有一个基础入门，如果要完成一个真正的Agent工作流应用开发，还是远远不够的。</p>
+<p>一个复杂且完整的Agent工作流应用，需要完成以下几个方面：</p>
+<ol>
+<li>确定工作流目标，如：规划未来的旅游行程</li>
+<li>按照目标规划和拆分任务清单，如：预定酒店、饮食推荐、景点参观时间等等</li>
+<li>单执行任务（包含异常中断且重试机制），如：预定酒店</li>
+<li>更新任务状态给工作流，如：预定酒店成功或失败</li>
+<li>对任务清单状态进行重新思考或规划，如：预定酒店失败后需要重试其他渠道</li>
+<li>对任务状态反馈给到用户，如：给用户酒店预定失败，是否选择其他渠道预定</li>
+</ol>
+    
+    <a class="article-more-a" href="/ailearn/ai-learn11.html#more">more >></a>
+    
     
     
 
@@ -422,7 +542,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/cursor.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ai-learn11.html">展开全文 >></a>
     </p>
     
 
@@ -457,7 +577,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/cline" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -465,8 +585,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/cline.html" target="_blank">
-      AI技术应用 - Cursor使用全解
+	  <a class="article-title" href="/ailearn/daily/08.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(8) - 损失函数
       
     </a>
   
@@ -476,8 +596,8 @@
 
   
   
-<a href="/ailearn/cline.html" class="archive-article-date">
-        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+<a href="/ailearn/daily/08.html" class="archive-article-date">
+        <time datetime="2025-07-03T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-03</time>
 </a>
 
   
@@ -489,7 +609,549 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>损失函数</strong></p>
+<blockquote>
+<p>一句话核心：损失函数 = 用来衡量模型预测值与真实值之间差异的函数，是优化算法的目标</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/08.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/08.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/07.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(6) - 激活函数​
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/07.html" class="archive-article-date">
+        <time datetime="2025-07-02T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>激活函数​</strong></p>
+<blockquote>
+<p>一句话核心：激活函数(Rectification Function): 在神经网络模型里，如何把“激活的神经元的特征”通过函数把特征保留并映射出来， 通常<code>f(x) = wx + b</code>中 <code>f</code>就是激活函数。</p>
+</blockquote>
+<p>也简单理解成神经网络的 <strong>“智能开关”</strong>​。</p>
+    
+    <a class="article-more-a" href="/ailearn/daily/07.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/07.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/05.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(5) - 深度学习
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/05.html" class="archive-article-date">
+        <time datetime="2025-06-30T09:09:51.704Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>深度学习</strong></p>
+<blockquote>
+<p>一句话理解：让计算机像人类大脑一样，通过堆叠多层的‘神经元网络’，从原始数据中自动学习由简单到复杂的多层次特征表达，最终实现智能决策。</p>
+</blockquote>
+<p>对比之前 机器学习， 就是让计算机学会“举一反三”的深度思考能力，如：从认识鸟，到自动分辨出老鹰和麻雀的特征。</p>
+    
+    <a class="article-more-a" href="/ailearn/daily/05.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/05.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/04.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(4) - 神经网络
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/04.html" class="archive-article-date">
+        <time datetime="2025-06-29T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>神经网络算法</strong></p>
+<blockquote>
+<p>一句话核心：“神经网络 = 模拟人脑的计算网络，通过层层传递数据自动学习规律，​​输入→加工→输出​​是它的核心工作流”</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/06.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(6) - 卷积网络CNN
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/06.html" class="archive-article-date">
+        <time datetime="2025-06-29T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>卷积网络CNN</strong></p>
+<blockquote>
+<p>一句话核心：CNN = 模拟人类视觉系统，用<code>局部感知+参数共享</code>机制高效处理​​图像、视频、医学影像​​等网格数据</p>
+</blockquote>
+<p>简单理解就是将图片数据降低复杂度，在拆分成一个个小块（局部特征），结合统一的参数规划，最终完成图像识别。</p>
+    
+    <a class="article-more-a" href="/ailearn/daily/06.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/daily/06.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ai-learn10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/ai-learn10.html" target="_blank">
+      10篇 AI从零开始 - Langgraph开发(1)
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/ai-learn10.html" class="archive-article-date">
+        <time datetime="2025-06-27T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>前面我们学了LangChain的使用和Agent开发，Langchain是一个线性工作流，如果想要在实际开发复杂的Agent，那么实现非常麻烦，比如可能会遇上一以下一些问题：</p>
+<ul>
+<li>当调用某个工具方法出现错误或不是所需要的结果，需要循环调用工具方法直到返回需要的结果</li>
+<li>当需要一次任务中，需要保存不同工作节点的状态</li>
+<li>当需要调用不同LLM模型时候</li>
+<li>当链路中断，需要从上一个工作节点继续执行</li>
+<li>……</li>
+</ul>
+<p>为了解决这些问题，LangChain抽象出一个高级框架: <code>LangGraph</code>，接下来就开始学习LangGraph的开发。</p>
+    
+    <a class="article-more-a" href="/ailearn/ai-learn10.html#more">more >></a>
+    
     
     
 
@@ -518,7 +1180,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/cline.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/ai-learn10.html">展开全文 >></a>
     </p>
     
 
@@ -553,7 +1215,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/mcp-learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -561,8 +1223,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/mcp-learn.html" target="_blank">
-      AI技术学习 - MCP学习与应用
+	  <a class="article-title" href="/ailearn/daily/02.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(2) - 无监督学习
       
     </a>
   
@@ -572,8 +1234,8 @@
 
   
   
-<a href="/ailearn/mcp-learn.html" class="archive-article-date">
-        <time datetime="2024-04-06T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-06</time>
+<a href="/ailearn/daily/02.html" class="archive-article-date">
+        <time datetime="2025-06-26T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-26</time>
 </a>
 
   
@@ -585,16 +1247,16 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近 AI生成code越来越火热，代表应用是<code>Cursor</code>， 其中很多开发也分享其利用<code>Cursor</code>去实现零编码生成 web应用等，具体场景如下：</p>
-<ul>
-<li></li>
-</ul>
-<p>也成为了大家关注的热点，其中有一个热点是 MCP协议</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27327515233">一文看懂：MCP(大模型上下文协议)</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-servers/blob/main/README-zh.md">awesome-mcp-servers</a></li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    <blockquote>
+<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+</blockquote>
+<p>今天我们来学习 <strong>无监督学习</strong></p>
+<blockquote>
+<p>一句话核心：让AI在「没有标准答案」的数据中自己发现规律——像人类探索未知世界！</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/daily/02.html#more">more >></a>
+    
     
     
 
@@ -613,7 +1275,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
         		</li>
       		
 		</ul>
@@ -623,7 +1285,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/mcp-learn.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/02.html">展开全文 >></a>
     </p>
     
 
@@ -658,7 +1320,7 @@
     height:800px
   }
   </style>
-<article id="post-today_2024/20240305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -666,8 +1328,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today_2024/20240305.html" target="_blank">
-      一次性学完RabbitMQ
+	  <a class="article-title" href="/ailearn/daily/03.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(3) - 强化学习
       
     </a>
   
@@ -677,8 +1339,8 @@
 
   
   
-<a href="/today_2024/20240305.html" class="archive-article-date">
-        <time datetime="2024-03-05T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-05</time>
+<a href="/ailearn/daily/03.html" class="archive-article-date">
+        <time datetime="2025-06-26T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-06-26</time>
 </a>
 
   
@@ -693,110 +1355,12 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><h1 id="为什么选RabbitMQ"><a href="#为什么选RabbitMQ" class="headerlink" title="为什么选RabbitMQ"></a>为什么选RabbitMQ</h1><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/today_2024/20240305.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/2023-end" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/2023-end.html" target="_blank">
-      2023年度总结——发现自己的今年高光时刻
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/2023-end.html" class="archive-article-date">
-        <time datetime="2023-12-31T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p>今天我们来学习 <strong>强化学习</strong></p>
+<blockquote>
+<p>一句话核心：AI在试错中成长，像小孩学走路，通过奖励/惩罚信号找到最优行为策略</p>
 </blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>时光匆匆，2023年即将结束，新的一年即将到来，每个人都会有自己的年度总结，因此对于我个人而言，2023 年是一个很重要的转折点，不在于物质上有多大的变化，而是在于思维上，在于精神上的转变，不再有过去那种懵懵懂懂，浑浑噩噩的过日子的感觉，上次这种感觉还是在小学 5 年级的一个夜晚，突然懂事的开窍，觉得学习很重要，要好好读书的醒悟。因此接下来这一篇年度总结的灵感来源于：罗振宇老师的【2024年跨年演讲】主题 ——  是什么让我眼前一亮。</p>
-<p>因此，2023 年对于国家，对于公司，对于个人，都是非常不容易的一年，疫情刚过去，经济下调，个人面临裁员，很多人负面情绪都积压快爆炸了，因此2023 年对于大多数人来说，其实是积压了很多垃圾情绪的一年，更因为这样子，我们更加应该去发现今年自己的高光时刻，去找到那个让能自己变得骄傲的自己，找到那个自信的自己，从而更加从容的面对未来，面对 2024 年。</p>
-<p>温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。</p>
     
-    <a class="article-more-a" href="/study/2023-end.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/03.html#more">more >></a>
     
     
     
@@ -814,117 +1378,9 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/2023-end.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/openai-dev-20231106" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/openai-dev-20231106.html" target="_blank">
-      AI春晚之 2023年openAI 开发者大会
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/openai-dev-20231106.html" class="archive-article-date">
-        <time datetime="2023-11-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>2023-11-06，openAI公司在美国旧金山举办第一届开发者大会，大会内容总结如下：</p>
-<ul>
-<li>回顾过去一年发展</li>
-<li>推出新产品<ul>
-<li>GPT4 Turbo</li>
-<li>GPTs， GPT Store（GPT商店）</li>
-<li>GPT Builder GPT应用构建工具</li>
-<li>Assistants API 助手API </li>
-</ul>
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/ailearn/openai-dev-20231106.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI系列</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
         		</li>
       		
 		</ul>
@@ -934,432 +1390,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/openai-dev-20231106.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/2023-middle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/2023-middle.html" target="_blank">
-      2023年中总结之如何在互联网裁员浪潮继续前(gou)进(zhu)
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/2023-middle.html" class="archive-article-date">
-        <time datetime="2023-09-07T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>从去年疫情还没解封开始，陆陆续续就传来各种裁员新闻，虽然去年没有波及到我，但是基本上身边的朋友多多少少都几个被牵扯到了，因此我这边很焦虑，从2023年1月1日起，开始重新踏起起点，不断学习，不断更新个人博客，这一篇算是对我今年半年的总结以及复盘。</p>
-<p>温馨提示：本文文字居多，且内容主要偏向于个人总结，如果觉得对自己有用的，请耐心观看。</p>
-    
-    <a class="article-more-a" href="/study/2023-middle.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/study/2023-middle.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/all-info" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/all-info.html" target="_blank">
-      AI信息收集篇
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/all-info.html" class="archive-article-date">
-        <time datetime="2023-09-06T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h2 id="引言：收藏夹越来越长，真正用过的有几个？"><a href="#引言：收藏夹越来越长，真正用过的有几个？" class="headerlink" title="引言：收藏夹越来越长，真正用过的有几个？"></a>引言：收藏夹越来越长，真正用过的有几个？</h2><p>刷 GitHub 趋势榜的时候，总忍不住点 Star——这个有意思，那个也收藏一下。结果收藏夹越来越长，真正用起来的却没几个。后来我换了个思路：与其贪多，不如按用途分好类，每个工具搞清楚”能干啥””比同类好在哪”，需要的时候直接拿。</p>
-<p>这篇文章就是我整理的 15 个 AI 工具速查手册，按用途分成四类，每个工具给你三个关键信息：<strong>是什么、为什么推荐、什么时候用</strong>。不算面面俱到，但至少能帮你快速判断”这个我需不需要”。</p>
-    
-    <a class="article-more-a" href="/ailearn/all-info.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/all-info.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-lowcode/async-component-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/lowcode/async-component-2.html" target="_blank">
-      低代码平台加载远端组件解决方案(2)——项目实战
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/lowcode/async-component-2.html" class="archive-article-date">
-        <time datetime="2023-09-04T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>前阵子搞了一下如何在Vue项目中加载远程的组件，文章为<a target="_blank" rel="noopener" href="https://qborfy.com/lowcode/async-component.html">【低代码平台加载远端组件解决方案(1)——defineAsyncComponent】</a>，遗留一些问题，就是如何在项目中实际应用，因为所有的问题都来源自实际项目，所以本文会继续把这个坑填完。</p>
-<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>涉及到项目实战了，解决方案是需要通过<code>wepack</code>或<code>vite</code>构建工具将资源进行打包，然后通过解析文件，进行模拟封装成可以加载的 js函数即可，下面我们以 vite为构建工具进行编译组件文件<code>async/Async.vue</code></p>
-    
-    <a class="article-more-a" href="/lowcode/async-component-2.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component-2.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-lowcode/async-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/lowcode/async-component.html" target="_blank">
-      低代码平台加载远端组件解决方案(1)——defineAsyncComponent
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/lowcode/async-component.html" class="archive-article-date">
-        <time datetime="2023-08-29T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在做低代码平台项目中遇到一个很容易遇到的问题，具体描述如下：</p>
-<ul>
-<li>问题描述：低代码平台依赖的组件库，如果将一个组件库进行融合打包到平台项目中的就会导致平台在渲染页面的时候需要加载完整的组件库，从而导致页面加载了一些大部分页面不需要的组件文件</li>
-<li>希望方案：页面使用到哪些组件就去动态加载组件</li>
-<li>解决方案：<ul>
-<li>Vue的异步加载组件，<code>Suspense</code>和<code>defineAsyncComponent</code></li>
-<li>React的异步加载组件， <code>Suspense</code>和<code>import()</code></li>
-</ul>
-</li>
-</ul>
-<p>由于低代码项目本身使用的 Vue3 框架，而且 Vue和  React的异步加载组件方案其实差异不多，所以下面以 Vue为主进行介绍。</p>
-    
-    <a class="article-more-a" href="/lowcode/async-component.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/lowcode/async-component.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/03.html">展开全文 >></a>
     </p>
     
 
@@ -1391,7 +1422,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/21/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/23/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/21/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/23/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1820,6 +1851,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

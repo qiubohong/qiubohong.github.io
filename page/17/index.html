@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/daily/20.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(20) - 自我注意力机制
+	  <a class="article-title" href="/ailearn/daily/27.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(27) - Orchestrator-Workers
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/ailearn/daily/20.html" class="archive-article-date">
-        <time datetime="2026-02-21T11:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-21</time>
+<a href="/ailearn/daily/27.html" class="archive-article-date">
+        <time datetime="2026-03-28T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -396,13 +396,17 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>今天我们来学习 <strong>自我注意力机制（Self-Attention）</strong></p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Orchestrator-Workers（编排器-工作者）</strong></p>
 <blockquote>
-<p>一句话核心: Self-Attention = 让序列中的每个元素自动计算与其他所有元素的关联度，动态分配注意力权重，从而捕捉全局依赖关系</p>
+<p>一句话核心：<strong>Orchestrator-Workers</strong> 就像一个项目经理带团队——Orchestrator（编排器）负责整体规划和任务分配，多个 Workers（工作者）并行处理各自的部分，最后 Orchestrator 整合所有结果。</p>
 </blockquote>
-<p>通俗的理解就是，在一句话中，每个词都会”环顾四周”，看看其他词对理解自己有多重要。比如”银行”这个词，如果旁边是”河流”，它指的是河岸；如果旁边是”存款”，它指的是金融机构。自我注意力机制就是让模型自动学会这种”看上下文”的能力。</p>
+<p>说实话，这个模式太像我们程序员的工作日常了。你有没有经历过这样的场景：</p>
+<p>项目来了，技术负责人先分析需求，然后把任务拆成前端、后端、数据库几个模块，分给不同的开发同学。大家各自写代码，开发过程中遇到问题再同步给负责人。等所有模块都完成后，负责人把代码合并、跑通联调，最后交付。</p>
+<p>这就是 Orchestrator-Workers 的核心思想：<strong>一个”大脑”负责统筹协调，多个”执行者”并行工作</strong>。</p>
+<p>它和前面讲的 Pure Parallelization（纯并行）有什么区别？纯并行是拆了就跑，各自独立。而 Orchestrator-Workers 强调<strong>中心化的协调和动态调度</strong>——Orchestrator 不仅分配任务，还监控进度、处理依赖、整合结果，甚至根据中间结果动态调整后续任务。</p>
+<p>它的核心价值在于<strong>处理复杂依赖关系、支持动态任务调度</strong>——适合那些任务之间有千丝万缕联系，需要灵活变通的场景。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/20.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/27.html#more">more >></a>
     
     
     
@@ -432,7 +436,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/20.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/27.html">展开全文 >></a>
     </p>
     
 
@@ -467,7 +471,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/daily/26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -475,8 +479,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/daily/19.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(19) - Fine-tuning 模型微调
+	  <a class="article-title" href="/ailearn/daily/26.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(26) - Parallelization
       
     </a>
   
@@ -486,8 +490,8 @@
 
   
   
-<a href="/ailearn/daily/19.html" class="archive-article-date">
-        <time datetime="2026-02-19T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-19</time>
+<a href="/ailearn/daily/26.html" class="archive-article-date">
+        <time datetime="2026-03-28T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -502,15 +506,16 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>今天我们来学习 <strong>Fine-tuning（模型微调）</strong></p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Parallelization（并行化）</strong></p>
 <blockquote>
-<p>一句话核心: <strong>Fine-tuning</strong> 是在预训练模型的基础上，使用特定领域的数据进行二次训练，让模型更好地适应特定任务的技术。</p>
+<p>一句话核心：<strong>Parallelization</strong> 就是”分而治之，并行处理”——把一个复杂任务拆成多个独立的子任务，让每个子任务并行跑在不同的 AI 实例上，最后把结果汇总整合，大幅提升效率和准确率。</p>
 </blockquote>
-<p>通俗地讲，如果把预训练模型比作一个”通才”大学生，那么 Fine-tuning 就像是让这个学生去某个公司实习，通过实际工作场景的训练，让他成为这个领域的”专才”。</p>
-<p>需要注意的是，Fine-tuning 不是从零开始训练模型，而是在已有模型的基础上进行”微调”。就像你不需要重新学习语言，只需要学习某个行业的专业术语和工作方式。</p>
-<p>它的核心价值在于<strong>让通用模型适应特定场景</strong>：包括提高特定任务的准确率、学习特定领域知识、适应特定的输出格式、降低推理成本等。通过 Fine-tuning，我们可以用较小的成本获得接近专用模型的效果。</p>
+<p>说实话，这招我太熟悉了。作为程序员，咱天天都在用这个思路：写代码时用多线程加速、处理大文件时 MapReduce、微服务架构里的并行调用…现在 AI 时代，同样的套路依然好用。</p>
+<p>你想啊，以前让 AI 处理一个复杂的任务，比如”分析这份用户反馈并给出产品改进建议”，可能是让一个 AI 实例从头读到尾，慢慢悠悠地分析。但如果用户反馈特别多呢？AI 可能会看花了眼，或者干脆超时罢工。</p>
+<p>Parallelization 的思路特别简单：<strong>把大任务切成小任务，多个 AI 实例同时开工，最后汇总结果</strong>。就像餐厅的后厨，一个厨师做一桌年夜饭太慢，但五个厨师分工合作，有人做冷盘、有人炒菜、有人煲汤，最后一整合，效率立马起飞。</p>
+<p>它的核心价值在于<strong>缩短响应时间、提高结果质量</strong>——既快又好。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/19.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/26.html#more">more >></a>
     
     
     
@@ -540,7 +545,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/19.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/26.html">展开全文 >></a>
     </p>
     
 
@@ -575,7 +580,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -583,8 +588,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/daily/18.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(18) - RAG 检索增强生成
+	  <a class="article-title" href="/ailearn/harness/06.html" target="_blank">
+      AI Agent Harness Engineering（6）—— 未来展望：Harness 会消失吗？| AI时代工程师转型指南
       
     </a>
   
@@ -594,8 +599,8 @@
 
   
   
-<a href="/ailearn/daily/18.html" class="archive-article-date">
-        <time datetime="2026-02-18T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-18</time>
+<a href="/ailearn/harness/06.html" class="archive-article-date">
+        <time datetime="2026-03-28T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -608,225 +613,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📘 <strong>总结篇</strong>。面向所有读者，侧重趋势判断和行动建议。<br><strong>🎯 核心收获</strong>：四大预测时间线 + 过渡方案 + 行动准备清单 + 技能路线图</p>
 </blockquote>
-<p>今天我们来学习 <strong>RAG（Retrieval-Augmented Generation）检索增强生成</strong></p>
-<blockquote>
-<p>一句话核心: <strong>RAG</strong> 是一种让大模型能够”查资料再回答”的技术，通过检索外部知识库来增强生成内容的准确性和时效性。</p>
-</blockquote>
-<p>通俗地讲，如果把大模型比作一个学生，传统模型就像”闭卷考试”——只能凭借训练时记住的知识回答问题。而 RAG 就像”开卷考试”——遇到问题时，可以先翻书查资料，然后基于查到的内容给出更准确的答案。</p>
-<p>需要注意的是，RAG 并不是让模型”记住”新知识，而是在回答问题时动态地从外部知识库中检索相关信息，然后将这些信息作为上下文提供给模型。</p>
-<p>它的核心价值在于<strong>解决大模型的知识局限性</strong>：包括知识过时、缺乏专业领域知识、容易产生幻觉（编造不存在的信息）等问题。通过 RAG，我们可以让模型访问最新的、专业的、私有的知识，而无需重新训练模型。</p>
+<p><strong>随着模型越来越强，Harness 还有存在的必要吗？</strong></p>
+<p>这是一个很多人都在问的问题。答案比你想象的更有意思。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/18.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/18.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/daily/17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/17.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(17) - AI Agent
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/17.html" class="archive-article-date">
-        <time datetime="2026-01-09T11:48:22.557Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>今天我们来学习 <strong>AI Agent</strong>。</p>
-<blockquote>
-<p><strong>AI Agent</strong>是能够<strong>自主感知环境、制定目标、采取行动</strong>的智能系统，它不仅仅是回答问题，而是能够<strong>主动完成任务</strong>的”数字助手”。</p>
-</blockquote>
-<p>对比之前的AI模型，AI Agent就像从”答题机器”升级为”会思考的执行者”，能够理解复杂指令、分解任务、使用工具，最终达成目标。</p>
-    
-    <a class="article-more-a" href="/ailearn/daily/17.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/17.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn14.html" target="_blank">
-      CodeBuddy结合Spec-Kit AI编程工程化指南
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn14.html" class="archive-article-date">
-        <time datetime="2026-01-09T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>CodeBuddy 是腾讯面向开发者的基于 AI 大模型，提供代码生成补全、技术问答、智能代码评审、单测生成等能力，结合 Spec Kit（规范套件） 与 AI 能力，旨在通过“规范驱动+智能辅助”的模式，帮助团队统一代码风格、规避常见错误、提升开发效率。本指南将详细介绍从环境准备到日常开发的全流程操作，涵盖规范定义、AI 辅助编码、自动化检查与修复等核心场景。</p>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn14.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/harness/06.html#more">more >></a>
     
     
     
@@ -848,6 +640,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">未来展望</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -856,7 +660,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn14.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/harness/06.html">展开全文 >></a>
     </p>
     
 
@@ -891,7 +695,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/ai-learn15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -899,8 +703,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/ai-learn15.html" target="_blank">
-      VibeCoding Speckit开发优化：融合魔鬼式评审
+	  <a class="article-title" href="/ailearn/harness/05.html" target="_blank">
+      AI Agent Harness Engineering（5）—— 用 Trace 分析驱动持续迭代 | Trace Analysis 完整指南
       
     </a>
   
@@ -910,8 +714,8 @@
 
   
   
-<a href="/ailearn/ai-learn15.html" class="archive-article-date">
-        <time datetime="2026-01-09T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-09</time>
+<a href="/ailearn/harness/05.html" class="archive-article-date">
+        <time datetime="2026-03-28T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
 </a>
 
   
@@ -924,17 +728,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
+<p><strong>📖 篇章难度</strong>：📙 <strong>高级</strong>。涉及数据分析思维和系统设计。<br><strong>🎯 核心收获</strong>：工具选型对比表 + Trace Analyzer Skill 完整代码 + 失败模式速查 + 实验框架模板</p>
 </blockquote>
-<blockquote>
-<p><strong>案例验证</strong>：全文以”用户登录失败锁定功能”为实战案例，演示 <code>Spec-Kit + 评审驱动开发</code>的完整流程。</p>
-</blockquote>
-<h2 id="引言：流程有了，质量呢？"><a href="#引言：流程有了，质量呢？" class="headerlink" title="引言：流程有了，质量呢？"></a>引言：流程有了，质量呢？</h2><p>你有没有过这样的经历——需求明明写清楚了，AI 也照着生成了代码，跑起来一看，缺了边界处理，漏了异常场景，最后还得自己擦屁股？</p>
-<p>这事儿我遇到不止一次。GitHub 的 spec-kit 确实给出了清晰的 AI 驱动工作流：<code>/speckit.specify</code> → <code>/speckit.plan</code> → <code>/speckit.tasks</code> → <code>/speckit.implement</code>，一步一步把想法变成代码。流程看着很美，但问题是——流程本身不等于质量。每一步都可能藏着坑：需求没想清楚、技术方案有硬伤、任务拆漏了关键场景……</p>
-<p>所以我琢磨出一个办法：在 spec-kit 的每个环节里，加一道<strong>魔鬼式评审</strong>。不是走形式的”review 一下”，而是 AI 主动提问、给出建议选项、按建议修复，反复循环直到没有问题。</p>
-<p>这篇文章就拿”用户登录失败锁定”这个功能当靶子，把六步流程走一遍，每一步都给出可以直接复制的提示词。你照着来，至少能少踩一半的坑。</p>
+<p><strong>你怎么知道 AI 在哪里出了问题？</strong></p>
+<p>靠感觉不够，靠猜测更不够。LangChain 的答案是：<strong>看 Trace</strong>。</p>
     
-    <a class="article-more-a" href="/ailearn/ai-learn15.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/harness/05.html#more">more >></a>
     
     
     
@@ -956,6 +755,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Trace Analysis</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -964,7 +775,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn15.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/harness/05.html">展开全文 >></a>
     </p>
     
 
@@ -999,7 +810,7 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/daily/16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1007,8 +818,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ailearn/daily/16.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(16) - Agent Skill
+	  <a class="article-title" href="/ailearn/harness/04.html" target="_blank">
+      AI Agent Harness Engineering（4）—— 多智能体协作：规划者、生成者、评估者 | Multi-Agent 架构实战指南
       
     </a>
   
@@ -1018,8 +829,588 @@
 
   
   
-<a href="/ailearn/daily/16.html" class="archive-article-date">
-        <time datetime="2026-01-07T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-07</time>
+<a href="/ailearn/harness/04.html" class="archive-article-date">
+        <time datetime="2026-03-28T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📙 <strong>高级</strong>。涉及架构设计决策和多 Agent 编排，建议有分布式系统或复杂项目经验。<br><strong>🎯 核心收获</strong>：成本决策框架 + Sprint 合约模板 + 角色通信协议 + 适用场景判断标准</p>
+</blockquote>
+<p><strong>一个 AI 做不好的事，三个 AI 分工合作，往往能做得很好。</strong></p>
+<p>这不是玄学，这是 Anthropic 工程师在实践中验证过的结论。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/04.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Multi-Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">reading_time 18 分钟</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/harness/04.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/harness/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/harness/03.html" target="_blank">
+      AI Agent Harness Engineering（3）—— 上下文工程：给 AI 一张地图
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/harness/03.html" class="archive-article-date">
+        <time datetime="2026-03-28T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。涉及信息架构设计思维和代码实现。<br><strong>🎯 核心收获</strong>：AGENTS.md 可用模板 + LocalContextMiddleware 完整实现 + 交接文档模板 + 三大原则速查</p>
+</blockquote>
+<p><strong>AI 看不到的东西，对它来说就不存在。</strong></p>
+<p>这句话听起来像废话，但它背后藏着一个很多人忽视的问题：你以为 AI 知道的事情，它其实不知道。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/03.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Context Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">[object Object]</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/harness/03.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/harness/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/harness/02.html" target="_blank">
+      AI Agent Harness Engineering（2）—— 让 AI 学会&#34;自我验证&#34; | Build &amp; Verify 模式完整指南
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/harness/02.html" class="archive-article-date">
+        <time datetime="2026-03-28T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。本篇包含可运行的代码模板，建议有基础编程经验。<br><strong>🎯 核心收获</strong>：系统提示词模板 + Python 中间件完整代码 + 量化效果数据 + 常见误区避坑</p>
+</blockquote>
+<p><strong>AI 写完代码，自己看了一眼觉得没问题，就交差了。这是 AI Agent 最常见的失败模式之一。</strong></p>
+<p>LangChain 在分析了大量 Agent 运行 Trace 之后，发现了一个规律：最常见的失败，不是 AI 不会写代码，而是 AI 写完代码之后，<strong>没有去验证它是否真的能跑</strong>。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/02.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Build & Verify</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/harness/02.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/harness/01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/harness/01.html" target="_blank">
+      AI Agent Harness Engineering（1）—— Harness 是什么？六个核心组件拆解 | 完整指南
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/harness/01.html" class="archive-article-date">
+        <time datetime="2026-03-28T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📘 <strong>入门</strong>。本篇建立 Harness 的完整认知框架，适合所有读者。<br><strong>🎯 核心收获</strong>：六大组件速查表 + 组件优先级排序 + 设计检查清单 + 反面案例</p>
+</blockquote>
+<p><strong>同样的模型，为什么有人用得飞起，有人用得一塌糊涂？</strong></p>
+<p>答案不在模型，在 Harness。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/01.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/harness/01.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/harness/00" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/harness/00.html" target="_blank">
+      AI Agent Harness Engineering（0）—— 当 AI 开始&#34;自己干活&#34;，工程师该做什么？| 完整教程指南
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/harness/00.html" class="archive-article-date">
+        <time datetime="2026-03-28T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 系列难度说明</strong>：本篇为<strong>入门导读</strong>，适合所有对 AI Agent 感兴趣的读者。无需前置知识。</p>
+</blockquote>
+<p><strong>你有没有想过，当 AI 真的能自己写代码、自己测试、自己修 Bug，工程师的价值在哪里？</strong></p>
+<p>2025 年下半年，一件事悄悄发生了——OpenAI 内部有个三人团队，用 Codex 智能体在五个月内写出了一百万行代码，没有一行是人工敲的。LangChain 的团队用同样的方式，把他们的编程智能体在 Terminal Bench 2.0 上的得分从 52.8% 提升到了 66.5%，而且全程没有换模型，只改了”外壳”。</p>
+<p>这个”外壳”，就是 <strong>Harness</strong>。</p>
+    
+    <a class="article-more-a" href="/ailearn/harness/00.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/harness/00.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/daily/25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/daily/25.html" target="_blank">
+      5分钟AI，每天搞懂一个知识点(25) - Plan-and-Solve
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/daily/25.html" class="archive-article-date">
+        <time datetime="2026-03-27T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-27</time>
 </a>
 
   
@@ -1034,13 +1425,16 @@
     <blockquote>
 <p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
 </blockquote>
-<p>今天我们来学习 <strong>Agent Skill</strong></p>
+<p>今天我们来学习 <strong>AI Agent 的设计模式 —— Plan-and-Solve（计划与执行）</strong></p>
 <blockquote>
-<p><strong>Agent Skill</strong> 是一个<strong>可复用的知识包</strong>，它是 Anthropic 在 Claude 在内部使用的规范，由于其具备实用性，因此扩展成大部分 AI 代码 Agent 通用标准，它主要是基于文件系统的可重用资源，为 Claude 提供特定领域的专业知识：工作流程、上下文和最佳实践，可将通用代理转变为专家。与提示词（针对一次性任务的对话级指令）不同的地方是 Skill 按需加载模式，无需在多个对话中重复提供相同的指导。当 AI Agent 识别到你的任务与某个 Skill 描述相匹配时，它会自动<strong>按需加载</strong>并运用该 Skill 中的知识来帮助你，而无需你每次都重新解释整个工作流程。</p>
+<p>一句话核心：<strong>Plan-and-Solve</strong> 就是”先想清楚再做”——让 AI 把复杂任务拆解成一步步可执行的计划，然后按部就班地执行，不再像无头苍蝇一样乱撞。</p>
 </blockquote>
-<p><strong>通俗来讲</strong>，Skill 就像为 Agent 准备的一份份专门的<strong>“工作说明书”或“操作手册”</strong>。例如，你可以创建一个“代码审查”Skill，里面写明了团队审查代码的标准流程、注意事项和常用话术。之后，你只需对 AI Agent 说“请审查这段代码”，它就会自动调用这份说明书，像一位受过专门训练的专家一样为你服务。</p>
+<p>说实话，这招特别对我们程序员的胃口。你想啊，我们接到一个大需求，第一反应是什么？肯定是先拆需求、列任务清单、排优先级对吧？Plan-and-Solve 就是让 AI 也按这个套路来工作。</p>
+<p>之前学 ReAct 的时候，AI 是”边想边做”，走一步看一步。这种方式对付简单问题还行，但遇到复杂任务就容易跑偏——做着做着忘了最初的目标，或者在某个子任务里死循环出不来。</p>
+<p>Plan-and-Solve 的思路完全不同：它让 AI <strong>先停下来好好规划</strong>，把整个任务的路线图画清楚，然后再开工。就像盖房子要先有设计图纸，打仗要先有作战计划。</p>
+<p>它的核心价值在于<strong>把复杂问题化整为零，提高任务完成的成功率和效率</strong>。</p>
     
-    <a class="article-more-a" href="/ailearn/daily/16.html#more">more >></a>
+    <a class="article-more-a" href="/ailearn/daily/25.html#more">more >></a>
     
     
     
@@ -1070,331 +1464,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/16.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn-road1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn-road1.html" target="_blank">
-      AI从零开始 - AI学习路线图(1) AI应用开发工程师
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn-road1.html" class="archive-article-date">
-        <time datetime="2025-12-31T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<blockquote>
-<p>本文参考 <a target="_blank" rel="noopener" href="https://roadmap.sh/">roadmap.sh</a> <a target="_blank" rel="noopener" href="https://roadmap.sh/ai-engineer">AI Engineer(AI应用开发工程师)RoadMap</a>整理，如有侵权，请联系删除。</p>
-</blockquote>
-<p>学习一门技能最重要的是<strong>目标</strong>和<strong>路线</strong>：</p>
-<ul>
-<li>有了目标，才能知道自己所学可以用到哪里</li>
-<li>有了路线，才能知道自己该学什么，怎么学</li>
-</ul>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn-road1.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn-road1.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/ai-learn-road0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/ai-learn-road0.html" target="_blank">
-      AI从零开始 - AI学习路线图(1) 2025年AI应用开发最佳学习路线
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/ai-learn-road0.html" class="archive-article-date">
-        <time datetime="2025-12-31T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<blockquote>
-<p>本文参考 <a target="_blank" rel="noopener" href="https://roadmap.sh/">roadmap.sh</a> <a target="_blank" rel="noopener" href="https://roadmap.sh/ai-engineer">AI Engineer(AI应用开发工程师)RoadMap</a>整理，如有侵权，请联系删除。</p>
-</blockquote>
-<p>学习一门技能最重要的是<strong>目标</strong>和<strong>路线</strong>：</p>
-<ul>
-<li>有了目标，才能知道自己所学可以用到哪里</li>
-<li>有了路线，才能知道自己该学什么，怎么学</li>
-</ul>
-    
-    <a class="article-more-a" href="/ailearn/ai-learn-road0.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/ai-learn-road0.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/daily/15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/daily/15.html" target="_blank">
-      5分钟AI，每天搞懂一个知识点(15) -MCP协议
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/daily/15.html" class="archive-article-date">
-        <time datetime="2025-12-17T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>做一个有温度和有干货的技术分享作者 —— <a target="_blank" rel="noopener" href="https://qborfy.com">Qborfy</a></p>
-</blockquote>
-<p>今天我们来学习 <strong>模型上下文协议（MCP）</strong></p>
-<blockquote>
-<p><strong>MCP（Model Context Protocol，模型上下文协议）</strong> 是由 Anthropic 公司推出的开源协议，旨在为大型语言模型与外部数据源、工具之间建立<strong>安全、标准化、双向</strong>的连接通道。</p>
-</blockquote>
-<p>通俗地说，MCP 如同 AI 世界的“USB-C 接口”。它定义了一套通用标准，使得任何支持 MCP 的 AI 应用（如 Claude Desktop、Cursor IDE）都能通过统一的“插口”，即插即用地连接各种外部工具（如数据库、API、本地文件），而无需为每个工具单独开发适配器。其核心价值在于解决了 AI 应用与外部资源交互时的碎片化集成问题，实现了生态的标准化和去中心化。</p>
-    
-    <a class="article-more-a" href="/ailearn/daily/15.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">5分钟AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/daily/15.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/daily/25.html">展开全文 >></a>
     </p>
     
 
@@ -1426,7 +1496,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/16/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/18/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/16/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/18/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1855,6 +1925,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

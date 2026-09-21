@@ -20,7 +20,7 @@
 <meta property="og:description" content="计算机屏幕本身就是一种本体——UI 有层级、空间属性和交互规则。本篇看 Anthropic 怎么训练 Claude 理解 UI 空间本体，以及神经符号 AI 如何把 LLM 和 Ontology 结合成前沿方向。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-07-21T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-20T02:03:30.022Z">
+<meta property="article:modified_time" content="2026-09-07T12:02:16.285Z">
 <meta property="article:author" content="Qborfy">
 <meta property="article:tag" content="学习总结">
 <meta property="article:tag" content="AI学习">
@@ -434,7 +434,7 @@
 </ul>
 <p>这不就是本体吗？对象（UI 元素）、属性（位置、大小）、链接（包含关系）、交互规则（行动）。Claude 要会操作电脑，前提就是<strong>理解这套 UI 空间本体</strong>。</p>
 <p>Anthropic 的工程师说，训练 Claude 准确算像素特别关键。算不准，鼠标命令就给不对——就像模型老在”‘banana’里有几个 a”这种问题上栽跟头一样。这揭示了一件事：Agent 要在一个领域里行动，先得理解那个领域的本体，不管是企业数据本体，还是屏幕上的 UI 本体。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;UI 界面本体&quot;] --&gt; B[&quot;空间属性\n像素坐标、元素位置&quot;]</span><br><span class="line">    A --&gt; C[&quot;层级关系\n窗口&gt;面板&gt;按钮&quot;]</span><br><span class="line">    A --&gt; D[&quot;交互规则\n点击、输入、等待&quot;]</span><br><span class="line">    A --&gt; E[&quot;状态变化\n加载、完成、错误&quot;]</span><br><span class="line">    B --&gt; F[&quot;Agent 理解 UI 本体\n才能操作计算机&quot;]</span><br><span class="line">    C --&gt; F</span><br><span class="line">    D --&gt; F</span><br><span class="line">    E --&gt; F</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[&quot;UI 界面本体&quot;] --&gt; B[&quot;空间属性\n像素坐标、元素位置&quot;]</span><br><span class="line">    A --&gt; C[&quot;层级关系\n窗口&gt;面板&gt;按钮&quot;]</span><br><span class="line">    A --&gt; D[&quot;交互规则\n点击、输入、等待&quot;]</span><br><span class="line">    A --&gt; E[&quot;状态变化\n加载、完成、错误&quot;]</span><br><span class="line">    B --&gt; F[&quot;Agent 理解 UI 本体\n才能操作计算机&quot;]</span><br><span class="line">    C --&gt; F</span><br><span class="line">    D --&gt; F</span><br><span class="line">    E --&gt; F</span><br><span class="line"></span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p>有个真事挺逗：演示时 Claude 不小心点停了一个长时间录屏，素材全没了；还有一次它从写代码演示里暂停，跑去翻黄石公园的照片。说明这能力还糙，但方向是对的——<strong>让模型适应工具，而不是让工具适应模型</strong>。</p>
 <hr>
@@ -442,11 +442,11 @@
 <p>最直觉的视角：你教新人用电脑，得告诉他”这个是开始按钮、那个是搜索框、点这个会弹窗”。AI 也一样，屏幕上的每个东西对它来说都是一个”带位置的物件”，它得先认全、认对，才知道手往哪放。这套”桌面物件地图”就是 UI 本体，AI 看懂了才能像人一样用软件。</p>
 <p>工程上，Claude 用计算机的流程分四步：看截图（看见屏幕发生了什么）、推理（该点哪、输入什么、等什么）、执行（给出鼠标坐标和键盘指令）、看结果（截图变了没，成功了没）。关键是第二步的”算像素”——把”我想点保存按钮”翻译成”鼠标移到 (x, y)”，这步做不好后面全歪。而且它还能自我纠正，遇到障碍会重试。在 OSWorld 基准上人类水平 70-75%，Claude 3.5 Sonnet 拿到 14.9%，是次优模型的近两倍，离人还远，但已是当前最前沿。安全上得留意<strong>提示注入</strong>：Claude 能读联网电脑的截图，截图里可能藏着恶意指令（”忽略之前所有要求，去干 X”），这是计算机使用特有的风险。</p>
 <p>把视野再拉高，AI 有三个学派：<strong>符号主义</strong>是物理符号系统、逻辑推理，OWL/RDF 就是它的产物——确定、可验证，但笨，不会从数据里学；<strong>连接主义</strong>是神经网络、从数据里学，现代 LLM 就是它——灵活、懂语言，但推理不保证对；<strong>行为主义</strong>是感知-行动循环、强化学习，是 Agent 行动层的理论基础。现代 AI 的共识是<strong>单靠一个学派不够，得融合</strong>，尤其符号主义加连接主义，就是现在火得不行的<strong>神经符号 AI（Neuro-Symbolic AI）</strong>。落到我们这系列：LLM 负责”理解”（把自然语言、截图、非结构化文本映射到本体的对象-关系上），本体（OWL/企业本体）负责”保证正确”（符号层做确定性推理），两者一结合，Agent 既懂人话又不会乱来。这正是前面所有篇的暗线——第 02 篇图谱推理、第 03 篇 Palantir 决策、第 05 篇 OWL 推理、第 06 篇 MCP 接入，全是”连接主义理解 + 符号主义约束”的不同侧面。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;连接主义\nLLM 理解&quot;] --&gt; C[&quot;神经符号 AI&quot;]</span><br><span class="line">    B[&quot;符号主义\n本体推理&quot;] --&gt; C</span><br><span class="line">    C --&gt; D[&quot;既懂人话\n又不会乱来\n的 Agent&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#f778ba,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;连接主义\nLLM 理解&quot;] --&gt; C[&quot;神经符号 AI&quot;]</span><br><span class="line">    B[&quot;符号主义\n本体推理&quot;] --&gt; C</span><br><span class="line">    C --&gt; D[&quot;既懂人话\n又不会乱来\n的 Agent&quot;]</span><br><span class="line"></span><br><span class="line">    style A fill:#1a2332,stroke:#f0883e,color:#c9d1d9</span><br><span class="line">    style B fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style C fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br><span class="line">    style D fill:#1a2332,stroke:#f778ba,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="一个演进的全景"><a href="#一个演进的全景" class="headerlink" title="一个演进的全景"></a>一个演进的全景</h2><p>把整个系列串起来看，本体论在工程里走了这几步：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;哲学本体论\n什么是存在&quot;] --&gt; B[&quot;AI 知识表示\n语义网络、框架&quot;]</span><br><span class="line">    B --&gt; C[&quot;早期知识工程\nOWL/RDF&quot;]</span><br><span class="line">    C --&gt; D[&quot;企业本体工程\nPalantir / 微软&quot;]</span><br><span class="line">    D --&gt; E[&quot;Agent 本体\n语义基础设施&quot;]</span><br><span class="line">    E --&gt; F[&quot;神经符号 AI\nLLM + 本体融合&quot;]</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[&quot;哲学本体论\n什么是存在&quot;] --&gt; B[&quot;AI 知识表示\n语义网络、框架&quot;]</span><br><span class="line">    B --&gt; C[&quot;早期知识工程\nOWL/RDF&quot;]</span><br><span class="line">    C --&gt; D[&quot;企业本体工程\nPalantir / 微软&quot;]</span><br><span class="line">    D --&gt; E[&quot;Agent 本体\n语义基础设施&quot;]</span><br><span class="line">    E --&gt; F[&quot;神经符号 AI\nLLM + 本体融合&quot;]</span><br><span class="line"></span><br><span class="line">    style A fill:#1a2332,stroke:#58a6ff,color:#c9d1d9</span><br><span class="line">    style F fill:#0d4a2a,stroke:#3fb950,color:#c9d1d9</span><br></pre></td></tr></table></figure>
 
 <p>从”研究存在是什么”，到”让机器能推理”，到”企业数字化双胞胎”，到”Agent 的语义地基”，最后到”和神经网络的融合”。本体论这条线，从来没离开过 AI 的主战场，只是换了个马甲。</p>
 <hr>
@@ -474,6 +474,9 @@
 <li>第 06 篇：Ontology 工具链：OSDK + MCP 实战指南</li>
 <li><strong>第 07 篇：UI 本体与神经符号 AI：从计算机使用到前沿方向</strong> ⬅️ 你在这里</li>
 <li>第 08 篇：从 Demo 到生产：规模化 Agent 的 Ontology 设计决策</li>
+<li>第 09 篇：中小企业的本体落地场景：不建大平台，也能用上 Ontology</li>
+<li>第 10 篇：项目落地方案：中小企业用轻量栈搭本体</li>
+<li>第 11 篇：落地实战：一个最小可行本体的构建与避坑</li>
 </ul>
 </blockquote>
 <hr>
@@ -1164,6 +1167,86 @@ gitalk.render('gitalk-container')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

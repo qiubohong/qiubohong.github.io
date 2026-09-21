@@ -361,7 +361,7 @@
     height:800px
   }
   </style>
-<article id="post-today/20230103" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230305" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,8 +369,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/today/20230103.html" target="_blank">
-      【引导页】功能实现原理分析
+	  <a class="article-title" href="/today/20230305.html" target="_blank">
+      性能优化我们到底能做些什么东西
       
     </a>
   
@@ -380,8 +380,8 @@
 
   
   
-<a href="/today/20230103.html" class="archive-article-date">
-        <time datetime="2023-01-03T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
+<a href="/today/20230305.html" class="archive-article-date">
+        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
 </a>
 
   
@@ -393,15 +393,348 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>什么是引导页，就是引导用户对一些新功能使用说明UI展示。</p>
-<p>遇到这种需求，一般的想法是：</p>
-<ul>
-<li>有没有办法可以快速实现</li>
-<li>有时间对其背后原理研究一番</li>
-</ul>
-<h2 id="快速接入"><a href="#快速接入" class="headerlink" title="快速接入"></a>快速接入</h2><p>按照常用框架<code>Vue</code> <code>React</code> <code>原生js</code>进行分类，罗列一些开源比较好的框架使用。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZfIWKRbF3Yq7sNFG2TsQFw">性能优化经验分享</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
-    <a class="article-more-a" href="/today/20230103.html#more">more >></a>
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230305.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230304" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230304.html" target="_blank">
+      中秋佳节到了，来一起开发一个千里共婵娟XR小程序
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230304.html" class="archive-article-date">
+        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>掘金最近上了一个活动，用来庆祝中秋佳节，想薅羊毛获取奖品，因此突发奇想顺便给自己的技术领域扩展一下，之前对VR、AR技术感兴趣，干脆趁这这个机会去尝试开发一个XR小程序。</p>
+<p>涉及知识点：</p>
+<ol>
+<li>小程序XR-Frame框架</li>
+<li>小程序云函数</li>
+<li>天气 API</li>
+<li>地理位置 API</li>
+</ol>
+<h1 id="方案设计"><a href="#方案设计" class="headerlink" title="方案设计"></a>方案设计</h1><h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><ul>
+<li>目标用户：对AR技术感兴趣的开发同学</li>
+<li>作用：利用AR给大家营造一种中秋气氛感觉</li>
+</ul>
+<p>整体功能设计如下：</p>
+<ol>
+<li>通过小程序进来后，获取当前位置坐标，转换成具体的地址，然后获取天气</li>
+<li>打开摄像头进行【千里共婵娟】，需要将手机对着月亮的位置，然后才出现3D月亮模型</li>
+<li>看到月亮后，可以点击月亮 查看一共有多少人与你一起赏月</li>
+<li>分享给家人或朋友，会在屏幕下面出现一排人与你一起赏月</li>
+<li>彩蛋，不同手势，会触发不同场景，比如：比心，会掉下很多爱心， 比6，会掉下很多666表情</li>
+</ol>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
+<li>核心功能：利用小程序<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">XR-FRAME框架</a>实现3d月亮展示</li>
+<li>开发框架直接用原生微信小程序开发即可，一共就3个页面</li>
+<li>后台数据保存直接用云函数即可，主要保存访问用户数据量</li>
+</ol>
+<h1 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h1><p>小程序原生开发基础知识，我这里就不详细说了，主要讲</p>
+<h2 id="XR-Frame学习"><a href="#XR-Frame学习" class="headerlink" title="XR-Frame学习"></a>XR-Frame学习</h2><p>是什么？ 官方介绍如下：</p>
+<blockquote>
+<p>xr-frame是一套小程序官方提供的XR/3D应用解决方案，基于混合方案实现，性能逼近原生、效果好、易用、强扩展、渐进式、遵循小程序开发标准。</p>
+</blockquote>
+<h2 id="云函数使用"><a href="#云函数使用" class="headerlink" title="云函数使用"></a>云函数使用</h2><h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="摄像头显示月亮"><a href="#摄像头显示月亮" class="headerlink" title="摄像头显示月亮"></a>摄像头显示月亮</h2><h2 id="调用云函数存储用户数据"><a href="#调用云函数存储用户数据" class="headerlink" title="调用云函数存储用户数据"></a>调用云函数存储用户数据</h2><h2 id="结合GitHub-Action持续集成交付"><a href="#结合GitHub-Action持续集成交付" class="headerlink" title="结合GitHub Action持续集成交付"></a>结合GitHub Action持续集成交付</h2><p>所有源码均以上传到Github</p>
+<h1 id="体验版"><a href="#体验版" class="headerlink" title="体验版"></a>体验版</h1><p>这里放个小程序二维码图片，大家感兴趣可以扫一下体验一版本。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/xr-frame/">小程序XR-FRAME指南</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230304.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230319" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230319.html" target="_blank">
+      如何实现HTTP2.0
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230319.html" class="archive-article-date">
+        <time datetime="2023-02-11T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://lowin.li/2022/06/27/pan-dian-kai-yuan-copilot/">盘点开源“Copilot”，do it yourself</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/gel1234/article/details/127050405">如何搭建免费的GitHub Copilot？</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230319.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-today/20230209" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/today/20230209.html" target="_blank">
+      前端安全-JS原型链污染是怎么回事
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/today/20230209.html" class="archive-article-date">
+        <time datetime="2023-02-09T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>面试题经常会提到一个问题，就是前端安全问题哪些，我们基本上都回答上来以下几个：</p>
+<ul>
+<li>XSS脚本攻击，利用网站漏洞，注入非法脚本</li>
+<li>CSRF跨站请求伪造，攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求</li>
+<li>运营商劫持，一般是经过某些运营商DNS网关后，在外层套入iframe，然后实现页面劫持</li>
+</ul>
+<p>但是在前端安全中，还有一个问题就是 ：<code>JS原型链污染</code>， 那么是原型链污染怎么回事，请看下面详细介绍。</p>
+<blockquote>
+<p>这里插入一条新闻，新出一个很邪恶的js库叫<a target="_blank" rel="noopener" href="https://github.com/wll8/lodash-utils">Evil.js</a>，名字还取得很lodash，其中主要就是利用原型prototype进行重写项目中常用的方法，如：</p>
+<ul>
+<li>Array.map 有5%概率会丢失最后一个元素，</li>
+<li>当数组长度可以被7整除时，Array.includes 永远返回false。</li>
+</ul>
+</blockquote>
+<p>所以学会如何防御项目内被攻击，了解更多JS原型安全知识很重要，起码周末不用调试半天问题，才发现项目中代码被恶意写入。</p>
+    
+    <a class="article-more-a" href="/today/20230209.html#more">more >></a>
     
     
     
@@ -431,7 +764,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/today/20230103.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230209.html">展开全文 >></a>
     </p>
     
 
@@ -466,7 +799,7 @@
     height:800px
   }
   </style>
-<article id="post-share/page-notwork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230208" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -474,8 +807,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/share/page-notwork.html" target="_blank">
-      浏览器页面卡住定位分析
+	  <a class="article-title" href="/today/20230208.html" target="_blank">
+      css变量了解到项目落地
       
     </a>
   
@@ -485,8 +818,8 @@
 
   
   
-<a href="/share/page-notwork.html" class="archive-article-date">
-        <time datetime="2022-12-26T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-26</time>
+<a href="/today/20230208.html" class="archive-article-date">
+        <time datetime="2023-02-08T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
 </a>
 
   
@@ -498,10 +831,115 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>有童鞋在xxx系统页面反馈，遇到在弹出框后整个页面卡住无法使用的情况，属于必现问题。因此需要跟踪定位问题。</p>
-<h1 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h1><p>一般在浏览器遇到这种问题，基本上都某段逻辑进入死循环导致浏览器内核处理不过来导致的页面卡住动，这个时候需要使用Chrome开发调试工具进行跟踪定位的。</p>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在打开一些网站的，查看其CSS样式的时候，发现如下图：</p>
+<p><img src="/assets/img/20230208-1.png" alt=""></p>
+<p>所以就很好奇，原来现在CSS样式变量已经可以正式投入生产使用了，所以希望能够做个简单了解。</p>
+<p>浏览器的兼容性：<br><img src="/assets/img/20230208-2.png" alt=""></p>
     
-    <a class="article-more-a" href="/share/page-notwork.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230208.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/today/20230208.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-lowcode/sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/lowcode/sandbox.html" target="_blank">
+      低代码系列——js沙箱设计
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/lowcode/sandbox.html" class="archive-article-date">
+        <time datetime="2023-02-01T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于自己参与过低代码平台开发，所以希望能把我自己开发低代码中遇到的问题或者一些设计思路进行总结汇总，这是开始写的第一篇，也是比较基础的一篇，关于低代码平台的介绍会放在介绍篇章，这篇就不做过多介绍。</p>
+<p>这里为什么会一开始介绍js沙箱设计呢？</p>
+<p>因为低代码平台，会运行用户本身自己编写的业务逻辑代码，这里就需要平台去运行用户写的js代码，但是js代码保存到数据库是一个字符串，那么平台应该怎么运行呢？</p>
+<p>答案是js沙箱，那么如何设计一个沙箱呢？按照低代码平台的需要特性，主要以下几方面：</p>
+<ul>
+<li>隔离，隔离是为了保证当前执行代码不影响整个平台的代码</li>
+<li>插入，沙箱允许插入平台的内置对象</li>
+<li>容错，沙箱内代码即使有错误，也不影响整个平台执行</li>
+</ul>
+    
+    <a class="article-more-a" href="/lowcode/sandbox.html#more">more >></a>
     
     
     
@@ -519,6 +957,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">低代码</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -527,7 +973,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/share/page-notwork.html">展开全文 >></a>
+      <a class="article-more-a" href="/lowcode/sandbox.html">展开全文 >></a>
     </p>
     
 
@@ -562,7 +1008,7 @@
     height:800px
   }
   </style>
-<article id="post-share/tomcat-nowork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -570,8 +1016,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/share/tomcat-nowork.html" target="_blank">
-      java tomcat服务无缘无故挂掉分析和解决方案
+	  <a class="article-title" href="/today/20230131.html" target="_blank">
+      hexo网站提高SEO优化方法
       
     </a>
   
@@ -581,8 +1027,8 @@
 
   
   
-<a href="/share/tomcat-nowork.html" class="archive-article-date">
-        <time datetime="2022-12-17T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-17</time>
+<a href="/today/20230131.html" class="archive-article-date">
+        <time datetime="2023-01-31T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
 </a>
 
   
@@ -594,16 +1040,23 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近有同事反应有时候xxx系统有时候会时不时出现服务异常提示，一上机器，发现xxx服务进程不在，重启服务后又恢复了，所以这边就需要去跟进问题。</p>
-<h1 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h1><p>java tomcat服务挂掉原因，主要怀疑方向有这几个：</p>
-<ol>
-<li>服务器被人重启，导致服务没有起来</li>
-<li>错误异常导致程序挂掉</li>
-<li>服务器占用内存过高，Linux强制退出程序</li>
-<li>其他原因<br>下面就开始逐一排查</li>
+    <h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><ul>
+<li>添加站点地图 <code>sitemap.xml</code>文件和搜索机器人文件<code>robots.txt</code></li>
+<li>提交站点到搜索引擎(百度和谷歌)</li>
+<li>hexo针对搜索的优化</li>
+</ul>
+<h2 id="添加站点地图"><a href="#添加站点地图" class="headerlink" title="添加站点地图"></a>添加站点地图</h2><h3 id="添加站点地图-sitemap-xml"><a href="#添加站点地图-sitemap-xml" class="headerlink" title="添加站点地图 sitemap.xml"></a>添加站点地图 <code>sitemap.xml</code></h3><ol>
+<li><p>添加hexo插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>_config.yml</code>配置</p>
+</li>
 </ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索机器人文件robots-txt"><a href="#搜索机器人文件robots-txt" class="headerlink" title="搜索机器人文件robots.txt"></a>搜索机器人文件<code>robots.txt</code></h3><p>在source目录下新建<code>robots.txt</code>文件，文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/ </span><br><span class="line">Allow: /resources/ </span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://hoxis.github.io/sitemap.xml</span><br><span class="line">Sitemap: https://hoxis.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/share/tomcat-nowork.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230131.html#more">more >></a>
     
     
     
@@ -619,7 +1072,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
         		</li>
       		
 		</ul>
@@ -629,7 +1082,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/share/tomcat-nowork.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230131.html">展开全文 >></a>
     </p>
     
 
@@ -664,7 +1117,7 @@
     height:800px
   }
   </style>
-<article id="post-study/react-test1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-study/face-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -672,8 +1125,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/study/react-test1.html" target="_blank">
-      React与Jest的单元测试(1)
+	  <a class="article-title" href="/study/face-test.html" target="_blank">
+      前端面试题目收集(持续更新)
       
     </a>
   
@@ -683,8 +1136,8 @@
 
   
   
-<a href="/study/react-test1.html" class="archive-article-date">
-        <time datetime="2019-09-25T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+<a href="/study/face-test.html" class="archive-article-date">
+        <time datetime="2023-01-30T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
 </a>
 
   
@@ -696,10 +1149,15 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h1><p>如果你听说过“测试驱动开发”（TDD：Test-Driven Development），单元测试就不陌生。</p>
-<p>单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。</p>
+    <p>主要以下几方面去收集？</p>
+<ul>
+<li>八股文，主要针对理论基础知识</li>
+<li>框架类，主要针对React/Vue等</li>
+<li>编程题，主要针对各种常用方法进行手动编写</li>
+<li>算法题，主要是各类算法题进行汇总</li>
+</ul>
     
-    <a class="article-more-a" href="/study/react-test1.html#more">more >></a>
+    <a class="article-more-a" href="/study/face-test.html#more">more >></a>
     
     
     
@@ -725,7 +1183,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/study/react-test1.html">展开全文 >></a>
+      <a class="article-more-a" href="/study/face-test.html">展开全文 >></a>
     </p>
     
 
@@ -760,7 +1218,7 @@
     height:800px
   }
   </style>
-<article id="post-wx/20190924" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230129" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -768,8 +1226,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wx/20190924.html" target="_blank">
-      周二技术周刊 20190924期
+	  <a class="article-title" href="/today/20230129.html" target="_blank">
+      从null、undefined、NaN的区别了解JS的原型链
       
     </a>
   
@@ -779,8 +1237,8 @@
 
   
   
-<a href="/wx/20190924.html" class="archive-article-date">
-        <time datetime="2019-09-24T11:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
+<a href="/today/20230129.html" class="archive-article-date">
+        <time datetime="2023-01-29T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
 </a>
 
   
@@ -792,400 +1250,22 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="http://ww1.sinaimg.cn/large/68c990d9gy1g7au94i5grj21pe14x7wi.jpg" alt="好看的图片"></p>
-<h1 id="一、技术知识"><a href="#一、技术知识" class="headerlink" title="一、技术知识"></a>一、技术知识</h1><h2 id="《降低软件复杂性一般原则和方法》"><a href="#《降低软件复杂性一般原则和方法》" class="headerlink" title="《降低软件复杂性一般原则和方法》"></a>《降低软件复杂性一般原则和方法》</h2><p>简介：</p>
-<p>本篇文章是围绕着“降低复杂性”这个主题展开的，很多重要的结论来源于John Ousterhout的著作《A Philosophy of Software Design》，作者觉得很有共鸣，就做了一些相关话题的延伸、补充了一些实例。虽说是”一般原则“，也不意味着是绝对的真理，整理出来，只是为了引发大家对软件设计的思考。</p>
-    
-    <a class="article-more-a" href="/wx/20190924.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">周二技术周刊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wx/20190924.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-wx/20230815" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wx/20230815.html" target="_blank">
-      qborfy周刊 20230815期
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wx/20230815.html" class="archive-article-date">
-        <time datetime="2019-09-24T11:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7220270978521333797?utm_source=gold_browser_extension#heading-11">https://juejin.cn/post/7220270978521333797?utm_source=gold_browser_extension#heading-11</a><br>意外惊喜！浏览器缓存优化方案，让页面加载速度飙升48.5%！</p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7266844831606734900?utm_source=gold_browser_extension">https://juejin.cn/post/7266844831606734900?utm_source=gold_browser_extension</a><br>中型前端应用，就别折腾什么微前端、DDD、六边形架构了</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">qborfy周刊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wx/20230815.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ideas/list" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ideas/list.html" target="_blank">
-      奇思妙想录
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ideas/list.html" class="archive-article-date">
-        <time datetime="2019-09-03T13:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="2019-09-03"><a href="#2019-09-03" class="headerlink" title="2019-09-03"></a>2019-09-03</h1><h2 id="一个智能识别语音和输出的白板软件引擎"><a href="#一个智能识别语音和输出的白板软件引擎" class="headerlink" title="一个智能识别语音和输出的白板软件引擎"></a>一个智能识别语音和输出的白板软件引擎</h2><p>功能描述：</p>
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>由于在面试经常会遇到问题null，undefined，NaN之间的区别，因此想要深入且系统了解一下这些代表空之间的区别，以及它们底层的原理——原型链，同时还要搞明白<code>__proto__</code>和<code>prototype</code>分别是什么。</p>
+<p>为了更好系统的理解null，undefined，NaN之间的区别和关系，我们需要从Javascript语言设计底层去理解，为什么一个空值需要设计这么多个。为什么不能像Java，一个null就可以满足？</p>
+<p>我们先简单认识三者：</p>
 <ul>
-<li>通过人脸标识用户信息，得到当前输出用户</li>
-<li>通过语音识别输出用户所描述内容</li>
-<li>通过语义归类总结内容</li>
-<li>通过流程图或思维导图输出最终白板任务图</li>
+<li><code>undefined</code> 表示原始值undefined。它是一个 JavaScript 的 原始数据类型 </li>
+<li><code>null</code> 特指对象的值未设置。它是 JavaScript 基本类型 之一。</li>
+<li><code>NaN</code> 是一个表示非数字的值</li>
+</ul>
+<p>接下来主要从以下两个点去认识null，undefined，NaN之间的区别和关系：</p>
+<ul>
+<li>数据类型 <code>typeof</code></li>
+<li><code>===</code> 判断</li>
+<li>原型 <code>prototype</code></li>
 </ul>
     
-    <a class="article-more-a" href="/ideas/list.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">奇思妙想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ideas/list.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-wx/20190731" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wx/20190731.html" target="_blank">
-      周二技术周刊 20190731期
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wx/20190731.html" class="archive-article-date">
-        <time datetime="2019-07-31T13:03:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://pic.qqtn.com/up/2018-6/2018661629543719.jpg" alt="好看的图片"></p>
-<h1 id="一、技术知识"><a href="#一、技术知识" class="headerlink" title="一、技术知识"></a>一、技术知识</h1><h2 id="1-1-蚂蚁金服前端框架和工程化实践"><a href="#1-1-蚂蚁金服前端框架和工程化实践" class="headerlink" title="1.1 蚂蚁金服前端框架和工程化实践"></a>1.1 蚂蚁金服前端框架和工程化实践</h2><p>作者：<a target="_blank" rel="noopener" href="https://github.com/sorrycc">阿里-云谦</a><br>简介：<br>讲述阿里Umi 和 Bigfish框架的发展历史，已经作者技术团队在里面做的哪些事情。</p>
-    
-    <a class="article-more-a" href="/wx/20190731.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">周二技术周刊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wx/20190731.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-share/ios12-array-reverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/share/ios12-array-reverse.html" target="_blank">
-      ios12 array.reverse问题
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/share/ios12-array-reverse.html" class="archive-article-date">
-        <time datetime="2018-08-19T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>iOS12发布之后，在测试中发现一个关于Array.reverse的问题，代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;</span><br><span class="line">    &lt;title&gt;iOS 12 Safari bugs&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.addEventListener(&quot;load&quot;, function ()</span><br><span class="line">    &#123;</span><br><span class="line">        let arr = [1, 2, 3, 4, 5];</span><br><span class="line">        alert(arr.join());</span><br><span class="line"></span><br><span class="line">        document.querySelector(&quot;button&quot;).addEventListener(&quot;click&quot;, function ()</span><br><span class="line">        &#123;</span><br><span class="line">            arr.reverse();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button&gt;Array.reverse()&lt;/button&gt;</span><br><span class="line">    &lt;p style=&quot;color:red;&quot;&gt;test: click button and refresh page, code:&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>问题描述：第一次进入刷新alert:<code>1,2,3,4</code>，第二次刷新就一直为alert<code>4,3,2,1</code>。</p>
-<h1 id="demo演示"><a href="#demo演示" class="headerlink" title="demo演示"></a>demo演示</h1><p><a target="_blank" rel="noopener" href="https://fanmingfei.github.io/array-reverse-ios12/origin.html">未修复的demo</a><br><a target="_blank" rel="noopener" href="https://fanmingfei.github.io/array-reverse-ios12/fixed.html">已修复的demo</a></p>
-    
-    <a class="article-more-a" href="/share/ios12-array-reverse.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230129.html#more">more >></a>
     
     
     
@@ -1203,6 +1283,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1211,7 +1295,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/share/ios12-array-reverse.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230129.html">展开全文 >></a>
     </p>
     
 
@@ -1246,7 +1330,7 @@
     height:800px
   }
   </style>
-<article id="post-share/iOS11-fastclick-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-today/20230128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1254,8 +1338,8 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/share/iOS11-fastclick-js.html" target="_blank">
-      iOS11.3 fastclick.js相关bug
+	  <a class="article-title" href="/today/20230128.html" target="_blank">
+      :has伪类的到来延伸到其他伪元素和伪类的区别
       
     </a>
   
@@ -1265,8 +1349,8 @@
 
   
   
-<a href="/share/iOS11-fastclick-js.html" class="archive-article-date">
-        <time datetime="2018-08-04T13:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-04</time>
+<a href="/today/20230128.html" class="archive-article-date">
+        <time datetime="2023-01-28T10:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-28</time>
 </a>
 
   
@@ -1278,14 +1362,48 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>最近遇到奇异的bug,在ios 11.3移动端页面 input输入框第一次触摸可以弹起键盘，后续再触摸需要很难弹起键盘，或者需要在输入框停一会才能弹起键盘。</p>
-<h2 id="bug复现条件："><a href="#bug复现条件：" class="headerlink" title="bug复现条件："></a>bug复现条件：</h2><p>一、ios 11.3中app的webview为 UI WebView<br>二、在项目中使用了FastClick.js，页面包括输入框.</p>
-<h2 id="发现源头问题："><a href="#发现源头问题：" class="headerlink" title="发现源头问题："></a>发现源头问题：</h2><p>在碰到问题脑子第一想法这不就是click延迟300ms的现象吗？所以就想到是不是FastClick.js导致，注释掉后发现bug现象消失了，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">define</span>([<span class="string">&#x27;zepto&#x27;</span>], <span class="keyword">function</span> (<span class="params">$</span>) &#123;</span><br><span class="line"> <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"> <span class="comment">// FastClick.attach(document.body);</span></span><br><span class="line"> ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近从网上看到一个有趣的CSS应用，就是纯用CSS也能是父子树展示，具体效果如下：</p>
+<ul class="tree">
+  <li>
+    <details open>
+      <summary style="display: list-item;">目录节点1</summary>
+      <ul >
+        <li>
+          <details>
+            <summary style="display: list-item;">节点1</summary>
+            <ul>
+              <li>子节点1-1</li>
+              <li>子节点1-2</li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary style="display: list-item;">节点2</summary>
+            <ul>
+              <li>子节点2-1</li>
+              <li>子节点2-2</li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </details>
+  </li>
+</ul>
 
-<p>但是这是为什么呢？我们一起看看为什么要加上FastClick，这个库解决了什么问题？</p>
+<p>然后里面关联到一篇新闻，就是<code>:has</code>伪元素的出现会给CSS带来极大的变动，这是为什么，不就是一个CSS伪元素吗？因此去了解一下，才发现这个伪元素确实不一样，主要有以下几点：</p>
+<ul>
+<li>可以选择父级元素， <code>a:has(&gt; img)</code>，包含<code>img元素</code>的<code>a元素</code></li>
+<li>可以选择兄弟元素， <code>h1:has(+ p)</code>，后面为<code>p元素</code>的<code>h1元素</code></li>
+</ul>
+<p>为什么有了它之后，CSS会有大变动，因为以往我们的样式都是直接选择 元素 或者 子元素 或者 后面的元素，如果要选择父元素或前面的元素只能通过命名规范去确定，比如上述两个例子：</p>
+<ul>
+<li><code>a:has(&gt; img)</code>，我们只能通过<code>a.has-img</code>类似样式去命名</li>
+<li><code>h1:has(+ p)</code>，只能通过<code>h1.next-p</code>类似样式去命名</li>
+</ul>
+<p>大概清楚它能带来的变化，接下来我们来详细了解一下它。</p>
     
-    <a class="article-more-a" href="/share/iOS11-fastclick-js.html#more">more >></a>
+    <a class="article-more-a" href="/today/20230128.html#more">more >></a>
     
     
     
@@ -1303,6 +1421,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日更新</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1311,7 +1433,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/share/iOS11-fastclick-js.html">展开全文 >></a>
+      <a class="article-more-a" href="/today/20230128.html">展开全文 >></a>
     </p>
     
 
@@ -1343,7 +1465,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1772,6 +1894,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>

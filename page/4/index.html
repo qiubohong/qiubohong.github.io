@@ -361,1099 +361,1134 @@
     height:800px
   }
   </style>
-<article id="post-ailearn/deepseek-harness/08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-ailearn/aisdlc/from/summary/2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/08.html" target="_blank">
-      DeepSeek Harness 工程实践（08）—— 安全与权限：让 Agent 在可控边界内工作
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/08.html" class="archive-article-date">
-        <time datetime="2026-08-22T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是安全专题篇，适合准备把 dsh 用到生产环境的开发者。安全不是可选项，是必选项。<br><strong>🎁 读完你会得到</strong>：理解 dsh 三层安全机制的工作原理，能配置沙箱和审批策略，能写审计日志插件，以及一份生产环境安全配置清单。</p>
+    <p>可以。我这次不是简单罗列 AI Coding 产品，而是把公开资料按 <strong>“研发流程重构”</strong> 来做横向研究。时间基准为 <strong>2026-08-31</strong>，重点看各家是否已经从 <strong>AI 辅助编码 → Coding Agent → Agentic SDLC → AI-Native Engineering</strong>。</p>
+<p>先给结论：</p>
+<blockquote>
+<p><strong>2026 年业界已经基本形成一个共识：AI Coding 本身已经不是核心问题，真正的瓶颈正在转移到 Spec、Context、Planning、Validation、Review、Governance、CI/CD 和 Production Feedback。</strong></p>
 </blockquote>
-<p>有个朋友跟我说，他们公司搭了一个内部 Agent，让它帮开发者做代码重构。</p>
-<p>跑了两周，有一天 Agent 在重构过程中判断某个”废弃的测试文件”可以删掉，就删了。问题是那个文件不是废弃的，是一个关键的集成测试。删掉之后，CI 一直在跑，但实际上有一个核心功能的测试已经消失了。</p>
-<p>这个问题发现的时候，已经过了三周。</p>
-<p>Agent 能干活，但得管住它。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/08.html#more">more >></a>
-    
-    
-    
+<p>Anthropic、OpenAI、Microsoft/GitHub、AWS 已经非常明确地在做这件事；Google 更强调 Agent + Cloud Operations；字节/阿里/腾讯则正在快速向“端到端研发 Agent”推进。(<a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook?utm_source=chatgpt.com">Claude Academy</a>)</p>
+<hr>
+<h1 id="一、先建立一个全球-AI-Native-SDLC-全景图"><a href="#一、先建立一个全球-AI-Native-SDLC-全景图" class="headerlink" title="一、先建立一个全球 AI Native SDLC 全景图"></a>一、先建立一个全球 AI Native SDLC 全景图</h1><p>传统研发：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line"> ↓</span><br><span class="line">PRD</span><br><span class="line"> ↓</span><br><span class="line">设计</span><br><span class="line"> ↓</span><br><span class="line">开发</span><br><span class="line"> ↓</span><br><span class="line">测试</span><br><span class="line"> ↓</span><br><span class="line">Code Review</span><br><span class="line"> ↓</span><br><span class="line">CI/CD</span><br><span class="line"> ↓</span><br><span class="line">发布</span><br><span class="line"> ↓</span><br><span class="line">运维</span><br></pre></td></tr></table></figure>
 
-    
+<p>AI Coding 时代：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line"> ↓</span><br><span class="line">👨‍💻 Developer</span><br><span class="line"> ↓</span><br><span class="line">🤖 Coding Assistant</span><br><span class="line"> ↓</span><br><span class="line">代码</span><br><span class="line"> ↓</span><br><span class="line">测试</span><br><span class="line"> ↓</span><br><span class="line">PR</span><br></pre></td></tr></table></figure>
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>现在正在进入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  ┌──────────────┐</span><br><span class="line">  │    Intent    │</span><br><span class="line">  └──────┬───────┘</span><br><span class="line">         ↓</span><br><span class="line">  Requirements</span><br><span class="line">         ↓</span><br><span class="line">      Design</span><br><span class="line">         ↓</span><br><span class="line">       Plan</span><br><span class="line">         ↓</span><br><span class="line">  Agentic Build</span><br><span class="line">         ↓</span><br><span class="line">   Test / Eval</span><br><span class="line">         ↓</span><br><span class="line">AI Review / Security</span><br><span class="line">         ↓</span><br><span class="line">       CI/CD</span><br><span class="line">         ↓</span><br><span class="line">     Deploy</span><br><span class="line">         ↓</span><br><span class="line"> Observability</span><br><span class="line">         ↓</span><br><span class="line"> Production Data</span><br><span class="line">         │</span><br><span class="line">         └───────────────┐</span><br><span class="line">                         ↓</span><br><span class="line">                    New Intent</span><br></pre></td></tr></table></figure>
 
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/08.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/07.html" target="_blank">
-      DeepSeek Harness 工程实践（07）—— 研发场景落地：CI 集成、代码审查与测试分析
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/07.html" class="archive-article-date">
-        <time datetime="2026-08-22T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是系列的第一个”落地篇”，从框架学习转向实际应用。需要你已经理解 dsh 的基本用法（第 02-06 篇）。本篇的代码可以直接拿去改用。<br><strong>🎁 读完你会得到</strong>：三个可以直接落地的研发场景方案：CI/CD 集成、PR 代码审查机器人、测试失败智能分析。</p>
+<p>这里真正发生了 <strong>5 个根本变化</strong>：</p>
+<ol>
+<li><strong>Prompt → Intent / Spec</strong></li>
+<li><strong>Developer → Agent Supervisor</strong></li>
+<li><strong>Code → Artifact + Evidence</strong></li>
+<li><strong>CI → Continuous Evaluation</strong></li>
+<li><strong>SDLC Pipeline → Autonomous Feedback Loop</strong></li>
+</ol>
+<hr>
+<h1 id="二、全球厂商定位图"><a href="#二、全球厂商定位图" class="headerlink" title="二、全球厂商定位图"></a>二、全球厂商定位图</h1><p>如果把现在各家的方案放到一张图里：</p>
+<table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>核心路线</th>
+<th>当前最突出能力</th>
+<th>AI Native 程度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Anthropic</strong></td>
+<td>AI-Native SDLC</td>
+<td>SDLC 方法论 + Claude Code</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td>Agent-first / Harness</td>
+<td>Codex + Harness Engineering</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Microsoft/GitHub</strong></td>
+<td>Agentic GitHub</td>
+<td>Issue → Agent → PR → Review → CI</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>AWS</strong></td>
+<td>Spec-driven Engineering</td>
+<td>Kiro + DevOps Agent</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Google</strong></td>
+<td>Agentic Cloud / Coding</td>
+<td>Jules + Gemini + Cloud Assist</td>
+<td>⭐⭐⭐⭐½</td>
+</tr>
+<tr>
+<td><strong>ByteDance/TRAE</strong></td>
+<td>Autonomous Coding</td>
+<td>SOLO / Context Engineer</td>
+<td>⭐⭐⭐⭐½</td>
+</tr>
+<tr>
+<td><strong>Alibaba</strong></td>
+<td>AI Programmer → Agent</td>
+<td>Qoder/Lingma + Enterprise R&amp;D</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Tencent</strong></td>
+<td>AI4SE</td>
+<td>CodeBuddy + 产设研 + 安全</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Uber</strong></td>
+<td>Agentic Organization</td>
+<td>Agentic Pods</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Meta</strong></td>
+<td>AI-native Organization</td>
+<td>Agent + Pod transformation</td>
+<td>⭐⭐⭐½</td>
+</tr>
+</tbody></table>
+<p>这里需要特别说明：</p>
+<p><strong>“AI Native 程度”不是模型能力评分，而是它们对整个软件研发系统重构的程度。</strong></p>
+<hr>
+<h1 id="三、Anthropic：最完整的-AI-Native-SDLC-方法论"><a href="#三、Anthropic：最完整的-AI-Native-SDLC-方法论" class="headerlink" title="三、Anthropic：最完整的 AI-Native SDLC 方法论"></a>三、Anthropic：最完整的 AI-Native SDLC 方法论</h1><p>这是我认为目前<strong>最值得作为企业 AI 研发平台设计蓝本</strong>的一家。</p>
+<p><img src="https://images.openai.com/static-rsc-4/wO5J4aS47ZgURcPLutYjM6IWQI5_-i_M3PeaLUaI9lphSklt6QTJjaxTV_k8g2EaGeRunCCE8sWiRyG556aSb7EKGSYkh9mh3Q11tp8LBU4UEeq6mg1Hqyw1NNBftbBXx6ljI2LTnh5GqRCRFHJp0H1L2haK2At1LAj8Vtc_xszTenE6Paj-hshe7l_ePogS?purpose=fullsize" alt="Image"></p>
+<p><img src="https://images.openai.com/static-rsc-4/SugYmkcf-2RUDuWVomy8w9EuwNYalr2KRp-x22k5Xm7YMPuwzRrBeDrbrV45vv9VvVPqrB9mE6VvpOJFR6DE5YIpn_1sFHTvB2yIZIaiZtucKFXDQI79HbpKyyudM2pKXDVwcnLxujwJGoX2QgoYpjoRn2pyYIcjpryPDdjUUeMHI-UZhsYGjBoBU2YbyH3v?purpose=fullsize" alt="Image"></p>
+<p><img src="https://images.openai.com/static-rsc-4/mEanX9gekGi1gUHfHZreiNaePNG6Qgk2zy04M5gCKLZ3dnOIc0yn8kt-9Bum29MUgOKO4rcHJO6BHmtu3eiiz9gr00cmcqzxie3o21N0eu04EDfFvMSQLxzhPCLvKQZiJ8O9d2orr6wcgiu88GNbL-APU4lYKVlFgsX8TNtz8DI2deZBgQ0zHlzFYauJ80jy?purpose=fullsize" alt="Image"></p>
+<p><img src="https://images.openai.com/static-rsc-4/AVIevVV-QVg7wfpZ3G0WM_65IIjuB1VBtcqiTY6dOI4O0EYMGQYLy_frqd-J-RIU3z4A4ufW6C6nGaoil1VXfmtgh6-7CbLemL9MtiYkuKaNKHV8ldIkUkRgIsoH2P3ZHSaoorzGVlwYAb7dOyVejZS2riy13KuVSAvhBcXWwmB39Z8E27NpuYUer8s1Qjqo?purpose=fullsize" alt="Image"></p>
+<p><img src="https://images.openai.com/static-rsc-4/k3PUOnVeAVca99JiOwZyOte6fwAbuMhw7Ihna5_9dSCF0FBZcdIpDhzQJaZAsxoP_ZoypTmtowXwDAvz8UVPp4tjMkHj_KHfnSdu9rEjFY64kic-3Sis-uRi8q6Gn1GnGKscdxUfqCm4bma84FC4IVmPJB7A8bOeGC8EMntafXebaoIcRlfhrtawTxUS9agT?purpose=fullsize" alt="Image"></p>
+<p>Anthropic 在 2026 年 8 月正式发布了：</p>
+<p><a target="_blank" rel="noopener" href="https://claude.com/blog/the-ai-native-sdlc-playbook?utm_source=chatgpt.com">Anthropic — The AI-Native SDLC Playbook</a></p>
+<p>它明确提出：</p>
+<blockquote>
+<p><strong>Code is no longer the bottleneck.</strong></p>
 </blockquote>
-<p>前六篇讲了很多框架知识——插件、工具、架构、多 Agent。</p>
-<p>但说实话，学框架不是目的，用起来才是。</p>
-<p>这篇开始，我们进入落地阶段。研发团队最高频的三个痛点：代码审查靠人工效率低、CI 跑失败不知道哪里出了问题、技术债越堆越多没人管——这篇一个一个解决。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/07.html#more">more >></a>
-    
-    
-    
+<p>传统 SDLC 是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Plan</span><br><span class="line"> ↓</span><br><span class="line">Design</span><br><span class="line"> ↓</span><br><span class="line">Build</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Deploy</span><br><span class="line"> ↓</span><br><span class="line">Maintain</span><br></pre></td></tr></table></figure>
 
-    
+<p>AI Native SDLC 则是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  Plan</span><br><span class="line">    ↓</span><br><span class="line"> Design</span><br><span class="line">    ↓</span><br><span class="line">  Build</span><br><span class="line">    ↓</span><br><span class="line">Test/Eval</span><br><span class="line">    ↓</span><br><span class="line"> Deploy</span><br><span class="line">    ↓</span><br><span class="line">Maintain</span><br><span class="line">    │</span><br><span class="line">    └──────→ Plan</span><br></pre></td></tr></table></figure>
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>而且人类站在 loop 外部：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">           HUMAN</span><br><span class="line">             │</span><br><span class="line">             ↓</span><br><span class="line">┌─────────────────────────┐</span><br><span class="line">│       AI SDLC Loop      │</span><br><span class="line">│                         │</span><br><span class="line">│ Plan → Design → Build   │</span><br><span class="line">│ ↑                  ↓    │</span><br><span class="line">│ Maintain ← Deploy ← Test│</span><br><span class="line">└─────────────────────────┘</span><br></pre></td></tr></table></figure>
 
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/07.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/06.html" target="_blank">
-      DeepSeek Harness 工程实践（06）—— 多 Agent 协作：子代理、工作流与 Teams
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/06.html" class="archive-article-date">
-        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇接着第 05 篇，需要你已经理解 dsh 的基本架构和插件机制。多 Agent 是 dsh 的进阶能力，适合任务复杂度超出单 Agent 处理范围的场景。<br><strong>🎁 读完你会得到</strong>：理解 dsh 子代理的调度机制、工作流的串并行设计、Teams 的配置方式，以及 <code>agent.ctx</code> 作用域隔离和 <code>ctx.goals</code> 目标管理的实际用法。</p>
-</blockquote>
-<p>你让 Agent 帮你做一个完整的代码审查——检查风格、找安全漏洞、评估性能，最后出一份综合报告。</p>
-<p>单个 Agent 能做，但做得不够好。它的注意力会分散，风格审查做到一半开始想安全问题，安全问题没查完又跳去看性能。最后给你一份什么都提了、什么都没说透的报告。</p>
-<p>这种场景，就是多 Agent 的用武之地。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/06.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/06.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/graph/4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/graph/4.html" target="_blank">
-      AI Graph工程（04）—— 让可控性拉满：人机协同（HITL）与断点调试在 Graph 工程中的落地
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/graph/4.html" class="archive-article-date">
-        <time datetime="2026-08-22T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚怎么在图里插入人工审批节点，怎么用 <code>update_state</code> 动态修改 State，以及 Time Travel 和 Langfuse 在实际调试中怎么用。</p>
-</blockquote>
-<p>上一篇讲了 State 的设计和记忆架构。</p>
-<p>图能跑起来了，但生产环境里还有一个绕不开的问题：<strong>谁来监督 Agent？</strong></p>
-<p>Agent 自己跑到底，在很多场景里是不可接受的。金融操作、内容发布、代码部署——这些关键节点必须有人确认。不是不信任 Agent，而是这类决策的错误成本太高，一旦出错，代价远超”多等几秒让人看一眼”的成本。</p>
-<p>这就是 Human-in-the-Loop（HITL）要解决的问题。</p>
-    
-    <a class="article-more-a" href="/ailearn/graph/4.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/graph/4.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/05.html" target="_blank">
-      DeepSeek Harness 工程实践（05）—— 架构深度解析：一条消息进来，dsh 内部发生了什么
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/05.html" class="archive-article-date">
-        <time datetime="2026-08-21T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是架构深度篇，适合已经能写插件和工具、想搞清楚 dsh 内部运转逻辑的开发者。理解这些机制，能帮你更准确地选择扩展点、排查问题。<br><strong>🎁 读完你会得到</strong>：理解 dsh 的轮次流程、三类事件的区别和用法、会话日志的核心不变量，以及 Seam 机制为什么让 dsh 如此灵活。</p>
-</blockquote>
-<p>你发出一条指令，Agent 开始工作——读文件、改代码、跑测试。</p>
-<p>这中间 dsh 内部到底发生了什么？</p>
-<p>前几篇我们学了怎么写插件、怎么注册工具。但如果你不清楚 dsh 内部的运转逻辑，遇到问题就只能靠猜。这篇把盖子掀开，从头到尾走一遍。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/05.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/05.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/04.html" target="_blank">
-      DeepSeek Harness 工程实践（04）—— 工具开发实战：给 Agent 装上你自己的工具
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/04.html" class="archive-article-date">
-        <time datetime="2026-08-21T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇接着第 03 篇，需要你已经能写出基本的 dsh 插件。工具开发是插件开发的核心，也是让 Agent 真正”有用”的关键一步。<br><strong>🎁 读完你会得到</strong>：能写出一个完整的 dsh 工具，理解 Tool DSL 的每个字段是干什么的，以及工具执行流水线怎么用来做安全控制。</p>
-</blockquote>
-<p>上一篇写了一个会话日志记录器，它能监听事件、打日志，但它不能给 Agent 增加新能力。</p>
-<p>Agent 的能力来自<strong>工具</strong>。工具是 Agent 和外部世界交互的唯一接口——读文件、跑命令、查数据库、调 API，全都是通过工具完成的。</p>
-<p>这篇专门讲工具开发。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/04.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/04.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/03.html" target="_blank">
-      DeepSeek Harness 工程实践（03）—— 插件开发入门：从 Hello World 到真正有用的插件
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/03.html" class="archive-article-date">
-        <time datetime="2026-08-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是插件开发的起点。需要你已经跑通了第 02 篇的环境，并且用源码方式安装了 dsh（npx 方式无法加载本地插件）。有 TypeScript 基础更好，但不是必须的。<br><strong>🎁 读完你会得到</strong>：能写出一个真正加载进 dsh 的插件，理解 ctx 是什么、插件的三种形态怎么选，以及为什么 dsh 的插件卸载不会留下垃圾。</p>
-</blockquote>
-<p>上一篇跑起来了 dsh，用的是它的默认能力。</p>
-<p>但 dsh 的设计哲学是”一切皆插件”——你现在用的那些能力，文件读写、Shell 执行、Web UI，全都是插件。这意味着你也可以写插件，给 Agent 加上你自己的能力。</p>
-<p>这篇从最简单的开始，一步步搞清楚插件是怎么运转的。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/03.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/03.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/graph/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/graph/3.html" target="_blank">
-      AI Graph工程（03）—— State 是整张图的血液：搞懂状态流转，才算真的会用 LangGraph
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/graph/3.html" class="archive-article-date">
-        <time datetime="2026-08-21T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>🎁 读完这篇你会得到什么</strong>：彻底搞清楚 State 在图里是怎么流动的，Reducer 机制解决了什么问题，以及短期记忆、长期记忆、Checkpointing 三者各自在什么场景下用。</p>
-</blockquote>
-<p>上一篇讲了 LangGraph 和 AutoGen 的选型。</p>
-<p>很多人选完框架，开始搭图，跑起来之后发现一个奇怪的问题：并行的三个搜索节点，最后 State 里只剩一个节点的结果。或者图跑了 20 轮，State 里堆了一堆没用的历史数据，内存开始吃紧。再或者，用户关了浏览器回来，图从头开始跑，之前的进度全没了。</p>
-<p>这些问题都指向同一个地方——<strong>State 的设计</strong>。</p>
-    
-    <a class="article-more-a" href="/ailearn/graph/3.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/graph/3.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/deepseek-harness/02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/deepseek-harness/02.html" target="_blank">
-      DeepSeek Harness 工程实践（02）—— 10 分钟跑起来：从安装到第一个任务
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/deepseek-harness/02.html" class="archive-article-date">
-        <time datetime="2026-08-20T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列说明</strong>：本篇是动手实操篇，跟着做就行，不需要提前了解任何背景知识。需要准备：Node.js 18+、一个 DeepSeek API Key（没有的话文章里有申请入口）。<br><strong>🎁 读完你会得到</strong>：一个真正跑起来的 dsh 实例，以及对 Web UI 各个功能区的基本认知。</p>
-</blockquote>
-<p>上一篇说了一堆 dsh 的设计哲学，这篇不说了，直接动手。</p>
-<p>文档看再多，不如自己跑一遍。10 分钟，让 Agent 真正动起来。</p>
-    
-    <a class="article-more-a" href="/ailearn/deepseek-harness/02.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DeepSeek Harness</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/deepseek-harness/02.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-study/electron/from/5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/study/electron/from/5.html" target="_blank">
-      【译】Electron 调试与测试完整指南（Electron 官方文档）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/study/electron/from/5.html" class="archive-article-date">
-        <time datetime="2026-08-20T04:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 原文来源</strong>：</p>
+<p>Anthropic 最重要的 12 个 Play 包括：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/automated-testing">Automated Testing</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/debugging-main-process">Debugging the Main Process</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/debugging-vscode">Debugging in VSCode</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/repl">REPL</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/devtools-extension">DevTools Extension</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/application-debugging">Application Debugging</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/testing-on-headless-ci">Testing on Headless CI</a></li>
+<li><code>intent.md</code></li>
+<li>Requirements &amp; Design</li>
+<li>Plan Mode</li>
+<li><code>CLAUDE.md</code></li>
+<li>Skills</li>
+<li>Subagents</li>
+<li>Feedback Loop</li>
+<li>Continuous Evals</li>
+<li>AI PR Review</li>
+<li>Hooks</li>
+<li>CI/CD</li>
+<li>Production → Intent Feedback</li>
 </ul>
-<p><strong>✍️ 原文作者</strong>：Electron 官方文档团队</p>
+<p>(<a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook?utm_source=chatgpt.com">Claude Academy</a>)</p>
+<h3 id="Anthropic-最重要的创新"><a href="#Anthropic-最重要的创新" class="headerlink" title="Anthropic 最重要的创新"></a>Anthropic 最重要的创新</h3><p>我认为不是 Claude Code。</p>
+<p>而是：</p>
+<blockquote>
+<p><strong>把研发过程中的“知识”和“控制”变成 Git 中的 Machine-readable Artifact。</strong></p>
 </blockquote>
-<p>调试 Electron 应用比调试普通网页复杂一些——你有两个进程，渲染进程的 DevTools 你熟悉，但主进程怎么调试？自动化测试怎么跑？CI 上没有显示器怎么办？这篇文章一次性解答。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">intent.md</span><br><span class="line">spec.md</span><br><span class="line">plan.md</span><br><span class="line">CLAUDE.md</span><br><span class="line">skills/</span><br><span class="line">evals/</span><br><span class="line">hooks/</span><br></pre></td></tr></table></figure>
+
+<p>这已经开始接近：</p>
+<blockquote>
+<p><strong>R&amp;D Knowledge as Code</strong></p>
+</blockquote>
+<p>这是非常重要的方向。</p>
+<hr>
+<h1 id="四、OpenAI：从-Coding-Agent-走向-Harness-Engineering"><a href="#四、OpenAI：从-Coding-Agent-走向-Harness-Engineering" class="headerlink" title="四、OpenAI：从 Coding Agent 走向 Harness Engineering"></a>四、OpenAI：从 Coding Agent 走向 Harness Engineering</h1><p>OpenAI 的路线和 Anthropic 有明显区别。</p>
+<p>Anthropic 更强调：</p>
+<blockquote>
+<p><strong>SDLC Process</strong></p>
+</blockquote>
+<p>OpenAI 更强调：</p>
+<blockquote>
+<p><strong>Agent Runtime / Harness</strong></p>
+</blockquote>
+<p>OpenAI 官方文章：</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">OpenAI — Harness engineering: leveraging Codex in an agent-first world</a></p>
+<p>公开实验甚至描述了：</p>
+<blockquote>
+<p>内部产品实验中 0 行人工编写代码。</p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/?utm_source=chatgpt.com">OpenAI</a>)</p>
+<p>OpenAI 的核心架构可以抽象成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    Codex Agent</span><br><span class="line">        │</span><br><span class="line">┌───────▼────────┐</span><br><span class="line">│     Harness    │</span><br><span class="line">├────────────────┤</span><br><span class="line">│ Context        │</span><br><span class="line">│ Tools          │</span><br><span class="line">│ Memory         │</span><br><span class="line">│ Execution      │</span><br><span class="line">│ Validation     │</span><br><span class="line">│ Permissions    │</span><br><span class="line">│ Feedback       │</span><br><span class="line">└───────┬────────┘</span><br><span class="line">        ↓</span><br><span class="line"> Software System</span><br></pre></td></tr></table></figure>
+
+<p>OpenAI 还专门公开了 Codex Agent Loop：</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/index/unrolling-the-codex-agent-loop/">Unrolling the Codex agent loop</a></p>
+<p>它把 Agent 核心抽象成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">User</span><br><span class="line"> ↓</span><br><span class="line">Model</span><br><span class="line"> ↓</span><br><span class="line">Tool</span><br><span class="line"> ↓</span><br><span class="line">Environment</span><br><span class="line"> ↓</span><br><span class="line">Observation</span><br><span class="line"> ↓</span><br><span class="line">Model</span><br><span class="line"> ↓</span><br><span class="line">Tool</span><br><span class="line"> ↓</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>(<a target="_blank" rel="noopener" href="https://openai.com/index/unrolling-the-codex-agent-loop/?utm_source=chatgpt.com">OpenAI</a>)</p>
+<h3 id="OpenAI-的关键思想"><a href="#OpenAI-的关键思想" class="headerlink" title="OpenAI 的关键思想"></a>OpenAI 的关键思想</h3><p>不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LLM + Prompt</span><br></pre></td></tr></table></figure>
+
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LLM</span><br><span class="line">+</span><br><span class="line">Harness</span><br><span class="line">+</span><br><span class="line">Environment</span><br><span class="line">+</span><br><span class="line">Tools</span><br><span class="line">+</span><br><span class="line">Feedback</span><br><span class="line">+</span><br><span class="line">Constraints</span><br></pre></td></tr></table></figure>
+
+<p>这对你之前研究的 <strong>Code Graph / MCP / Agent Router / CI / Eval</strong> 非常重要。</p>
+<hr>
+<h1 id="五、Microsoft-GitHub：最接近“企业研发平台”"><a href="#五、Microsoft-GitHub：最接近“企业研发平台”" class="headerlink" title="五、Microsoft / GitHub：最接近“企业研发平台”"></a>五、Microsoft / GitHub：最接近“企业研发平台”</h1><p>GitHub 的方向非常值得企业研发效能平台参考。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/features/copilot/agents">GitHub Copilot Coding Agent</a></p>
+<p>现在已经形成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Issue</span><br><span class="line"> ↓</span><br><span class="line">Copilot Agent</span><br><span class="line"> ↓</span><br><span class="line">Plan</span><br><span class="line"> ↓</span><br><span class="line">Code</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Self Review</span><br><span class="line"> ↓</span><br><span class="line">Security Scan</span><br><span class="line"> ↓</span><br><span class="line">PR</span><br><span class="line"> ↓</span><br><span class="line">Human Review</span><br><span class="line"> ↓</span><br><span class="line">Merge</span><br></pre></td></tr></table></figure>
+
+<p>GitHub 官方已经明确支持：</p>
+<ul>
+<li>Model Selection</li>
+<li>Self Review</li>
+<li>Security Scanning</li>
+<li>Custom Agents</li>
+<li>CLI Handoff</li>
+<li>Planning</li>
+<li>Semantic Code Search</li>
+<li>Parallel Agents</li>
+</ul>
+<p>(<a target="_blank" rel="noopener" href="https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-coding-agent/?utm_source=chatgpt.com">The GitHub Blog</a>)</p>
+<p>更关键的是 GitHub 已经把 Agent 从 IDE 拉到了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GitHub Issue</span><br><span class="line">       ↓</span><br><span class="line">GitHub Agent</span><br><span class="line">       ↓</span><br><span class="line">GitHub PR</span><br><span class="line">       ↓</span><br><span class="line">GitHub Actions</span><br><span class="line">       ↓</span><br><span class="line">GitHub Review</span><br><span class="line">       ↓</span><br><span class="line">GitHub Merge</span><br></pre></td></tr></table></figure>
+
+<p>甚至已经出现：</p>
+<blockquote>
+<p><strong>GitHub Agentic Workflows</strong></p>
+</blockquote>
+<p>可以直接用自然语言定义 GitHub Actions，让 Coding Agent 在 Repository 中执行任务。(<a target="_blank" rel="noopener" href="https://docs.github.com/en/copilot/concepts/agents/about-github-agentic-workflows?utm_source=chatgpt.com">GitHub Docs</a>)</p>
+<p>GitHub 还提供：</p>
+<blockquote>
+<p>Copilot CLI + <code>/fleet</code> parallel subagents</p>
+</blockquote>
+<p>让多个 Agent 并行处理任务，并从 <code>/plan</code> 一直走到 merged code。(<a target="_blank" rel="noopener" href="https://github.com/features/copilot/cli?utm_source=chatgpt.com">GitHub</a>)</p>
+<h3 id="GitHub-的最大优势"><a href="#GitHub-的最大优势" class="headerlink" title="GitHub 的最大优势"></a>GitHub 的最大优势</h3><p>不是模型。</p>
+<p>而是：</p>
+<blockquote>
+<p><strong>它天然拥有 Software Development 的 System of Record。</strong></p>
+</blockquote>
+<p>也就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Issue</span><br><span class="line">PR</span><br><span class="line">Commit</span><br><span class="line">Review</span><br><span class="line">CI</span><br><span class="line">Security</span><br><span class="line">Deploy</span><br><span class="line">Repository</span><br></pre></td></tr></table></figure>
+
+<p>全部在一个平台里。</p>
+<p>所以 GitHub 很可能成为：</p>
+<blockquote>
+<p><strong>Agentic SDLC Control Plane</strong></p>
+</blockquote>
+<hr>
+<h1 id="六、AWS：Spec-Driven-Development-Production-Loop"><a href="#六、AWS：Spec-Driven-Development-Production-Loop" class="headerlink" title="六、AWS：Spec-Driven Development + Production Loop"></a>六、AWS：Spec-Driven Development + Production Loop</h1><p>AWS 现在的路线非常清晰：</p>
+<blockquote>
+<p><strong>Kiro + AWS DevOps Agent</strong></p>
+</blockquote>
+<p>Kiro：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Requirement</span><br><span class="line"> ↓</span><br><span class="line">Spec</span><br><span class="line"> ↓</span><br><span class="line">Design</span><br><span class="line"> ↓</span><br><span class="line">Tasks</span><br><span class="line"> ↓</span><br><span class="line">Code</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br></pre></td></tr></table></figure>
+
+<p>AWS 官方称其为：</p>
+<blockquote>
+<p>Spec-driven development</p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/devops/ai-driven-software-delivery-with-kiro-aws-devops-agent-and-bluebox-by-dynatrace/?utm_source=chatgpt.com">Amazon Web Services, Inc.</a>)</p>
+<p>而 AWS DevOps Agent：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Production Incident</span><br><span class="line"> ↓</span><br><span class="line">Investigate</span><br><span class="line"> ↓</span><br><span class="line">Root Cause</span><br><span class="line"> ↓</span><br><span class="line">Recommend Mitigation</span><br><span class="line"> ↓</span><br><span class="line">Release</span><br></pre></td></tr></table></figure>
+
+<p>于是 AWS 已经形成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">                Kiro</span><br><span class="line">                 │</span><br><span class="line">Requirement → Spec → Code</span><br><span class="line">                 │</span><br><span class="line">                 ↓</span><br><span class="line">                CI/CD</span><br><span class="line">                 │</span><br><span class="line">                 ↓</span><br><span class="line">             Production</span><br><span class="line">                 │</span><br><span class="line">                 ↓</span><br><span class="line">         AWS DevOps Agent</span><br><span class="line">                 │</span><br><span class="line">                 ↓</span><br><span class="line">             Feedback</span><br></pre></td></tr></table></figure>
+
+<p>这其实非常接近 Anthropic 的：</p>
+<blockquote>
+<p><strong>Closing the Loop</strong></p>
+</blockquote>
+<p>AWS 最新的工程文章甚至明确把：</p>
+<blockquote>
+<p>Kiro + AWS DevOps Agent + Production Observability</p>
+</blockquote>
+<p>串成完整的软件交付闭环。(<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/devops/ai-driven-software-delivery-with-kiro-aws-devops-agent-and-bluebox-by-dynatrace/?utm_source=chatgpt.com">Amazon Web Services, Inc.</a>)</p>
+<hr>
+<h1 id="七、Google：Coding-Agent-Cloud-Agent"><a href="#七、Google：Coding-Agent-Cloud-Agent" class="headerlink" title="七、Google：Coding Agent + Cloud Agent"></a>七、Google：Coding Agent + Cloud Agent</h1><p>Google 的路线和 AWS 有一点类似，但更加偏：</p>
+<blockquote>
+<p><strong>Software Engineering + Cloud Operations</strong></p>
+</blockquote>
+<p>Google 的：</p>
+<h3 id="Jules"><a href="#Jules" class="headerlink" title="Jules"></a>Jules</h3><p>是异步 Coding Agent：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Issue</span><br><span class="line"> ↓</span><br><span class="line">Jules</span><br><span class="line"> ↓</span><br><span class="line">Read Repo</span><br><span class="line"> ↓</span><br><span class="line">Modify</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">PR</span><br></pre></td></tr></table></figure>
+
+<p>(<a target="_blank" rel="noopener" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/?utm_source=chatgpt.com">Google 博客</a>)</p>
+<p>Google 甚至已经推出 Jules API，用于把 Agent 嵌入整个 SDLC。(<a target="_blank" rel="noopener" href="https://developers.googleblog.com/en/level-up-your-dev-game-the-jules-api-is-here/?utm_source=chatgpt.com">Google Developers Blog</a>)</p>
+<p>但 Google 更有意思的是：</p>
+<h3 id="Gemini-Cloud-Assist"><a href="#Gemini-Cloud-Assist" class="headerlink" title="Gemini Cloud Assist"></a>Gemini Cloud Assist</h3><p>它开始处理：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Application</span><br><span class="line"> ↓</span><br><span class="line">Infrastructure</span><br><span class="line"> ↓</span><br><span class="line">Deployment</span><br><span class="line"> ↓</span><br><span class="line">Monitoring</span><br><span class="line"> ↓</span><br><span class="line">Troubleshooting</span><br><span class="line"> ↓</span><br><span class="line">Optimization</span><br></pre></td></tr></table></figure>
+
+<p>Google 官方称其为：</p>
+<blockquote>
+<p>proactive, intelligent experience</p>
+</blockquote>
+<p>并采用 multi-agent 架构处理应用从部署到运营的生命周期。(<a target="_blank" rel="noopener" href="https://cloud.google.com/blog/products/application-development/gemini-cloud-assist-at-next26?utm_source=chatgpt.com">Google Cloud</a>)</p>
+<p>所以 Google 的方向更像：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">             Gemini</span><br><span class="line">                │</span><br><span class="line">      ┌─────────┴─────────┐</span><br><span class="line">      ↓                   ↓</span><br><span class="line">Software Agent       Cloud Agent</span><br><span class="line">      │                   │</span><br><span class="line">      ↓                   ↓</span><br><span class="line">   Coding              Deploy</span><br><span class="line">   Testing              Ops</span><br><span class="line">   PR                   RCA</span><br><span class="line">                         Cost</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="八、ByteDance-TRAE：Context-Engineer"><a href="#八、ByteDance-TRAE：Context-Engineer" class="headerlink" title="八、ByteDance / TRAE：Context Engineer"></a>八、ByteDance / TRAE：Context Engineer</h1><p>国内非常值得重点研究的是：</p>
+<p><strong>TRAE SOLO。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.trae.ai/blog/product_solo">TRAE SOLO</a></p>
+<p>它很早就不把自己定义为：</p>
+<blockquote>
+<p>Coding Assistant</p>
+</blockquote>
+<p>而是：</p>
+<blockquote>
+<p><strong>Context Engineer</strong></p>
+</blockquote>
+<p>其目标是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Think</span><br><span class="line"> ↓</span><br><span class="line">Plan</span><br><span class="line"> ↓</span><br><span class="line">Build</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Ship</span><br></pre></td></tr></table></figure>
+
+<p>也就是端到端交付完整 Feature。(<a target="_blank" rel="noopener" href="https://www.trae.ai/blog/product_solo?utm_source=chatgpt.com">Trae</a>)</p>
+<p>现在 TRAE 官方已经把 SOLO 描述为：</p>
+<blockquote>
+<p>fully autonomous coding agent</p>
+</blockquote>
+<p>从需求理解、代码生成、测试一直到结果验证。(<a target="_blank" rel="noopener" href="https://www.trae.ai/?utm_source=chatgpt.com">Trae</a>)</p>
+<p>尤其值得注意的是：</p>
+<h3 id="Context-Engineering"><a href="#Context-Engineering" class="headerlink" title="Context Engineering"></a>Context Engineering</h3><p>它的思路不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Prompt → Model</span><br></pre></td></tr></table></figure>
+
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">User Intent</span><br><span class="line"> ↓</span><br><span class="line">Context Retrieval</span><br><span class="line"> ↓</span><br><span class="line">Repository Understanding</span><br><span class="line"> ↓</span><br><span class="line">Tools</span><br><span class="line"> ↓</span><br><span class="line">Agent</span><br><span class="line"> ↓</span><br><span class="line">Execution</span><br></pre></td></tr></table></figure>
+
+<p>这和 OpenAI 的 Harness、Anthropic 的 CLAUDE.md / Skills、GitHub 的 semantic search，本质上正在趋同。</p>
+<hr>
+<h1 id="九、Alibaba：从-Tongyi-Lingma-→-Qoder"><a href="#九、Alibaba：从-Tongyi-Lingma-→-Qoder" class="headerlink" title="九、Alibaba：从 Tongyi Lingma → Qoder"></a>九、Alibaba：从 Tongyi Lingma → Qoder</h1><p>阿里路线经历了明显演进：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AI Code Completion</span><br><span class="line">       ↓</span><br><span class="line">AI Programmer</span><br><span class="line">       ↓</span><br><span class="line">Agent</span><br><span class="line">       ↓</span><br><span class="line">Qoder</span><br></pre></td></tr></table></figure>
+
+<p>一个需要特别注意的最新变化：</p>
+<blockquote>
+<p><strong>Tongyi Lingma 已于 2026-05-20 更名为 Qoder CN。</strong></p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://www.alibabacloud.com/help/en/lingma/introduction-of-lingma?utm_source=chatgpt.com">阿里云</a>)</p>
+<p>Qoder CN 已经包含：</p>
+<ul>
+<li>IDE</li>
+<li>JetBrains Plugin</li>
+<li>VS Code Plugin</li>
+<li>Multi-file Editing</li>
+<li>Programming Agents</li>
+<li>Task Planning</li>
+<li>Expert Collaboration</li>
+</ul>
+<p>(<a target="_blank" rel="noopener" href="https://www.alibabacloud.com/help/en/lingma/qoder-cn/product-overview/what-is-xx?utm_source=chatgpt.com">阿里云</a>)</p>
+<p>阿里过去的“AI Programmer”也已经明显不是简单补全工具，而是：</p>
+<blockquote>
+<p>Agent + Repository Context + Task Execution</p>
+</blockquote>
+<p>阿里公开资料还显示，通义灵码 AI Programmer 已经积累了超过 <strong>30 亿行代码生成</strong>。(<a target="_blank" rel="noopener" href="https://www.alibabacloud.com/blog/alibaba-unveils-cutting-edge-ai-coding-model-qwen3-coder_602399?utm_source=chatgpt.com">阿里云</a>)</p>
+<hr>
+<h1 id="十、Tencent：AI4SE-研发协同"><a href="#十、Tencent：AI4SE-研发协同" class="headerlink" title="十、Tencent：AI4SE 研发协同"></a>十、Tencent：AI4SE 研发协同</h1><p>腾讯的方向非常有中国特色：</p>
+<blockquote>
+<p><strong>AI4SE</strong></p>
+</blockquote>
+<p>也就是：</p>
+<blockquote>
+<p>AI for Software Engineering</p>
+</blockquote>
+<p>腾讯 CodeBuddy 已经开始从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Coding Assistant</span><br></pre></td></tr></table></figure>
+
+<p>升级成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line"> ↓</span><br><span class="line">设计</span><br><span class="line"> ↓</span><br><span class="line">开发</span><br><span class="line"> ↓</span><br><span class="line">测试</span><br><span class="line"> ↓</span><br><span class="line">安全</span><br><span class="line"> ↓</span><br><span class="line">代码评审</span><br><span class="line"> ↓</span><br><span class="line">发布</span><br></pre></td></tr></table></figure>
+
+<p>腾讯官方资料明确提出：</p>
+<blockquote>
+<p><strong>CodeBuddy AI4SE 研效协同方案</strong></p>
+</blockquote>
+<p>覆盖软件生命周期，并结合：</p>
+<ul>
+<li>代码生成</li>
+<li>架构分析</li>
+<li>安全智能体</li>
+<li>单测</li>
+<li>Code Review</li>
+<li>企业研发流程</li>
+</ul>
+<p>(<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2649154?utm_source=chatgpt.com">腾讯云</a>)</p>
+<p>CodeBuddy CLI 甚至直接提出：</p>
+<blockquote>
+<p><strong>开发-运维全流程自动化</strong></p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2637905?utm_source=chatgpt.com">腾讯云</a>)</p>
+<p>腾讯 2025 年公开企业实践还给出了：</p>
+<ul>
+<li>编码时长缩短 40%</li>
+<li>AI 代码生成占比 &gt;43%</li>
+</ul>
+<p>(<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2555275?utm_source=chatgpt.com">腾讯云</a>)</p>
+<p>所以腾讯更偏：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AI Coding</span><br><span class="line"> +</span><br><span class="line">AI4SE</span><br><span class="line"> +</span><br><span class="line">DevOps</span><br><span class="line"> +</span><br><span class="line">Enterprise Governance</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十一、Uber：最值得研究的是“组织结构”"><a href="#十一、Uber：最值得研究的是“组织结构”" class="headerlink" title="十一、Uber：最值得研究的是“组织结构”"></a>十一、Uber：最值得研究的是“组织结构”</h1><p>Uber 不只是研究 Coding Agent。</p>
+<p>它在研究：</p>
+<blockquote>
+<p><strong>Agentic Organization</strong></p>
+</blockquote>
+<p>Uber CTO 推动：</p>
+<blockquote>
+<p>Agentic Pods</p>
+</blockquote>
+<p>将 AI 能力强的工程师嵌入 Finance、Legal、HR 等业务团队，直接重新设计工作流程。(<a target="_blank" rel="noopener" href="https://www.businessinsider.com/uber-cto-bets-on-agentic-pods-make-ai-more-efficient-2026-7?utm_source=chatgpt.com">Business Insider</a>)</p>
+<p>这实际上意味着：</p>
+<p>传统：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Business Team</span><br><span class="line">      ↓</span><br><span class="line">Requirement</span><br><span class="line">      ↓</span><br><span class="line">IT</span><br><span class="line">      ↓</span><br><span class="line">Developer</span><br><span class="line">      ↓</span><br><span class="line">Software</span><br></pre></td></tr></table></figure>
+
+<p>变成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Business Pod</span><br><span class="line">     │</span><br><span class="line">     ├── Human</span><br><span class="line">     ├── AI Agent</span><br><span class="line">     ├── Domain Context</span><br><span class="line">     └── Tools</span><br></pre></td></tr></table></figure>
+
+<p>这是非常重要的变化。</p>
+<p>因为未来研发团队可能不是：</p>
+<blockquote>
+<p>10 Developers</p>
+</blockquote>
+<p>而是：</p>
+<blockquote>
+<p>3 Engineers + 20 Agents</p>
+</blockquote>
+<hr>
+<h1 id="十二、Meta：一个非常重要的“反面案例”"><a href="#十二、Meta：一个非常重要的“反面案例”" class="headerlink" title="十二、Meta：一个非常重要的“反面案例”"></a>十二、Meta：一个非常重要的“反面案例”</h1><p>Meta 值得研究，不是因为它成功了。</p>
+<p>恰恰是因为它暴露了：</p>
+<blockquote>
+<p><strong>AI Native Organization 最大的风险。</strong></p>
+</blockquote>
+<p>Meta 2026 年推动 Project OT，希望通过 AI-native pods 大幅压缩组织规模。</p>
+<p>目标甚至包括：</p>
+<blockquote>
+<p>某些团队减少最多 60%。</p>
+</blockquote>
+<p>但后来由于：</p>
+<ul>
+<li>AI 生产力未达到预期</li>
+<li>Reliability</li>
+<li>Security</li>
+<li>Employee resistance</li>
+<li>Productivity metrics</li>
+<li>技术故障</li>
+</ul>
+<p>最终缩减了计划。(<a target="_blank" rel="noopener" href="https://www.reuters.com/investigations/mark-zuckerberg-had-bold-plan-replace-meta-staff-with-ai-heres-how-it-imploded-2026-08-26/?utm_source=chatgpt.com">Reuters</a>)</p>
+<p>这说明一个非常重要的问题：</p>
+<blockquote>
+<p><strong>Agent 能力提升 ≠ 组织生产力自动提升。</strong></p>
+</blockquote>
+<p>也就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AI Capability ↑</span><br><span class="line">        ≠</span><br><span class="line">Engineering Productivity ↑</span><br></pre></td></tr></table></figure>
+
+<p>真正需要优化的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">AI</span><br><span class="line">+</span><br><span class="line">Process</span><br><span class="line">+</span><br><span class="line">Context</span><br><span class="line">+</span><br><span class="line">Architecture</span><br><span class="line">+</span><br><span class="line">Quality</span><br><span class="line">+</span><br><span class="line">Governance</span><br><span class="line">+</span><br><span class="line">Organization</span><br></pre></td></tr></table></figure>
+
+<p>这和 Google DORA 的研究也形成呼应：AI 使用率提升并不会自动转化成系统级交付性能提升。Google 引述的 DORA 研究甚至观察到 AI adoption 与 delivery throughput、stability 存在反直觉关系。(<a target="_blank" rel="noopener" href="https://cloud.google.com/blog/topics/developers-practitioners/read-doras-latest-research-on-software-excellence?utm_source=chatgpt.com">Google Cloud</a>)</p>
+<hr>
+<h1 id="十三、全球方案真正的共同点"><a href="#十三、全球方案真正的共同点" class="headerlink" title="十三、全球方案真正的共同点"></a>十三、全球方案真正的共同点</h1><p>把这些公司全部抽象掉以后，会发现高度一致。</p>
+<h2 id="传统"><a href="#传统" class="headerlink" title="传统"></a>传统</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">Document</span><br><span class="line"> ↓</span><br><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">Code</span><br><span class="line"> ↓</span><br><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">Deploy</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="AI-Assisted"><a href="#AI-Assisted" class="headerlink" title="AI Assisted"></a>AI Assisted</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">AI</span><br><span class="line"> ↓</span><br><span class="line">Human</span><br><span class="line"> ↓</span><br><span class="line">AI</span><br><span class="line"> ↓</span><br><span class="line">Human</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Agentic-SDLC"><a href="#Agentic-SDLC" class="headerlink" title="Agentic SDLC"></a>Agentic SDLC</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Human Intent</span><br><span class="line">      ↓</span><br><span class="line">     Agent</span><br><span class="line">      ↓</span><br><span class="line">     Agent</span><br><span class="line">      ↓</span><br><span class="line">    Agent</span><br><span class="line">      ↓</span><br><span class="line">   Automated Eval</span><br><span class="line">      ↓</span><br><span class="line">   Human Gate</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="AI-Native-SDLC"><a href="#AI-Native-SDLC" class="headerlink" title="AI Native SDLC"></a>AI Native SDLC</h2><p>最终变成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">         Human</span><br><span class="line">           │</span><br><span class="line">        Intent</span><br><span class="line">           │</span><br><span class="line">           ↓</span><br><span class="line">      ┌─────────┐</span><br><span class="line">      │ Context │</span><br><span class="line">      └────┬────┘</span><br><span class="line">           ↓</span><br><span class="line">      ┌─────────┐</span><br><span class="line">      │ Agents  │</span><br><span class="line">      └────┬────┘</span><br><span class="line">           ↓</span><br><span class="line">┌─────────────────────┐</span><br><span class="line">│ Execution / Tools   │</span><br><span class="line">└──────────┬──────────┘</span><br><span class="line">           ↓</span><br><span class="line">    Code / Artifact</span><br><span class="line">           ↓</span><br><span class="line">     Eval / Evidence</span><br><span class="line">           ↓</span><br><span class="line">┌─────────────────────┐</span><br><span class="line">│ Policy / Governance │</span><br><span class="line">└──────────┬──────────┘</span><br><span class="line">           ↓</span><br><span class="line">          CI</span><br><span class="line">           ↓</span><br><span class="line">        Deploy</span><br><span class="line">           ↓</span><br><span class="line">     Production</span><br><span class="line">           ↓</span><br><span class="line">      Feedback</span><br><span class="line">           │</span><br><span class="line">           └──────→ Intent</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十四、我认为最重要的变化：Artifact-正在改变"><a href="#十四、我认为最重要的变化：Artifact-正在改变" class="headerlink" title="十四、我认为最重要的变化：Artifact 正在改变"></a>十四、我认为最重要的变化：Artifact 正在改变</h1><p>这是这次调研里我认为<strong>最值得你关注的部分</strong>。</p>
+<p>传统研发 Artifact：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PRD</span><br><span class="line">Design</span><br><span class="line">Code</span><br><span class="line">Test Report</span><br><span class="line">PR</span><br><span class="line">Release</span><br></pre></td></tr></table></figure>
+
+<p>AI Native：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">intent.md</span><br><span class="line">      ↓</span><br><span class="line">requirements.md</span><br><span class="line">      ↓</span><br><span class="line">spec.md</span><br><span class="line">      ↓</span><br><span class="line">plan.md</span><br><span class="line">      ↓</span><br><span class="line">implementation</span><br><span class="line">      ↓</span><br><span class="line">eval evidence</span><br><span class="line">      ↓</span><br><span class="line">review evidence</span><br><span class="line">      ↓</span><br><span class="line">security evidence</span><br><span class="line">      ↓</span><br><span class="line">release evidence</span><br><span class="line">      ↓</span><br><span class="line">production feedback</span><br></pre></td></tr></table></figure>
+
+<p>Anthropic 已经明确把 <code>intent.md</code>、<code>spec.md</code>、<code>plan.md</code> 等作为 Agent 间自动触发的 Artifact。(<a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction?utm_source=chatgpt.com">Claude Academy</a>)</p>
+<p>Microsoft 也明确提出：</p>
+<blockquote>
+<p><strong>Spec-First AI-Native Engineering</strong></p>
+</blockquote>
+<p>其核心是：</p>
+<blockquote>
+<p>Structured Specs = Human + AI 的共同 Source of Truth。</p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://developer.microsoft.com/blog/spec-driven-development-ai-native-engineering/?utm_source=chatgpt.com">Microsoft Developer</a>)</p>
+<p>AWS 则采用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Requirements</span><br><span class="line"> ↓</span><br><span class="line">Design</span><br><span class="line"> ↓</span><br><span class="line">Tasks</span><br></pre></td></tr></table></figure>
+
+<p>的 Spec-driven workflow。(<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/industries/from-spec-to-production-a-three-week-drug-discovery-agent-using-kiro/?utm_source=chatgpt.com">Amazon Web Services, Inc.</a>)</p>
+<p>所以：</p>
+<blockquote>
+<p><strong>Spec 很可能正在成为 AI Native SDLC 的“中间语言”。</strong></p>
+</blockquote>
+<hr>
+<h1 id="十五、Context-正在成为新的“代码基础设施”"><a href="#十五、Context-正在成为新的“代码基础设施”" class="headerlink" title="十五、Context 正在成为新的“代码基础设施”"></a>十五、Context 正在成为新的“代码基础设施”</h1><p>另一个高度一致的趋势：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Claude</span><br><span class="line"> → CLAUDE.md</span><br><span class="line"> → Skills</span><br><span class="line"></span><br><span class="line">OpenAI</span><br><span class="line"> → Harness</span><br><span class="line"> → Context</span><br><span class="line"></span><br><span class="line">GitHub</span><br><span class="line"> → Semantic Code Search</span><br><span class="line"> → Custom Agents</span><br><span class="line"></span><br><span class="line">AWS</span><br><span class="line"> → Steering</span><br><span class="line"> → Specs</span><br><span class="line"> → MCP</span><br><span class="line"></span><br><span class="line">TRAE</span><br><span class="line"> → Context Engineering</span><br><span class="line"></span><br><span class="line">Alibaba</span><br><span class="line"> → Repository Context</span><br><span class="line"></span><br><span class="line">Tencent</span><br><span class="line"> → Enterprise Knowledge</span><br></pre></td></tr></table></figure>
+
+<p>这意味着：</p>
+<p>传统研发的核心资产：</p>
+<blockquote>
+<p><strong>Code</strong></p>
+</blockquote>
+<p>正在逐渐变成：</p>
+<blockquote>
+<p><strong>Code + Context + Specification + Knowledge</strong></p>
+</blockquote>
+<p>而这正好对应你之前一直研究的：</p>
+<p><strong>Code Graph。</strong></p>
+<hr>
+<h1 id="十六、Code-Graph-在这个体系中的位置"><a href="#十六、Code-Graph-在这个体系中的位置" class="headerlink" title="十六、Code Graph 在这个体系中的位置"></a>十六、Code Graph 在这个体系中的位置</h1><p>如果把你之前的 Code Graph 方案放进现在全球 AI Native SDLC，可以看到它不是一个独立工具。</p>
+<p>它实际上应该成为：</p>
+<blockquote>
+<p><strong>Agent Context Infrastructure</strong></p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">                  Agent</span><br><span class="line">                    │</span><br><span class="line">           ┌────────┴────────┐</span><br><span class="line">           │ Context Engine  │</span><br><span class="line">           └────────┬────────┘</span><br><span class="line">                    │</span><br><span class="line">     ┌──────────────┼──────────────┐</span><br><span class="line">     ↓              ↓              ↓</span><br><span class="line">Code Graph       Git History      Docs</span><br><span class="line">     ↓              ↓              ↓</span><br><span class="line">Dependency       Change         Business</span><br><span class="line">Architecture     Context        Knowledge</span><br><span class="line">     └──────────────┼──────────────┘</span><br><span class="line">                    ↓</span><br><span class="line">               Agent Context</span><br></pre></td></tr></table></figure>
+
+<p>这比单纯：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vector DB</span><br><span class="line">+</span><br><span class="line">RAG</span><br></pre></td></tr></table></figure>
+
+<p>高级很多。</p>
+<hr>
+<h1 id="十七、AI-Native-SDLC-最终可以抽象成-7-层"><a href="#十七、AI-Native-SDLC-最终可以抽象成-7-层" class="headerlink" title="十七、AI Native SDLC 最终可以抽象成 7 层"></a>十七、AI Native SDLC 最终可以抽象成 7 层</h1><p>结合全球方案，我建议把未来企业 AI 研发平台定义成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────────────────────────────┐</span><br><span class="line">│ 7. Organization / Governance         │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 6. Production Feedback               │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 5. CI / Eval / Security              │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 4. Agent Orchestration               │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 3. Context Engineering               │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 2. Spec / Artifact                   │</span><br><span class="line">├──────────────────────────────────────┤</span><br><span class="line">│ 1. Source / Code / Infrastructure    │</span><br><span class="line">└──────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<h3 id="Layer-1"><a href="#Layer-1" class="headerlink" title="Layer 1"></a>Layer 1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Git</span><br><span class="line">Code</span><br><span class="line">Monorepo</span><br><span class="line">CI</span><br><span class="line">Cloud</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-2"><a href="#Layer-2" class="headerlink" title="Layer 2"></a>Layer 2</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent</span><br><span class="line">Requirement</span><br><span class="line">Spec</span><br><span class="line">Plan</span><br><span class="line">Task</span><br><span class="line">Evidence</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-3"><a href="#Layer-3" class="headerlink" title="Layer 3"></a>Layer 3</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Code Graph</span><br><span class="line">Knowledge Graph</span><br><span class="line">RAG</span><br><span class="line">Memory</span><br><span class="line">Repository Context</span><br><span class="line">Business Context</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-4"><a href="#Layer-4" class="headerlink" title="Layer 4"></a>Layer 4</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Planner</span><br><span class="line">Coder</span><br><span class="line">Reviewer</span><br><span class="line">Tester</span><br><span class="line">Debugger</span><br><span class="line">Security Agent</span><br><span class="line">SRE Agent</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-5"><a href="#Layer-5" class="headerlink" title="Layer 5"></a>Layer 5</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Unit Test</span><br><span class="line">E2E</span><br><span class="line">Eval</span><br><span class="line">Security</span><br><span class="line">Quality</span><br><span class="line">Policy</span><br><span class="line">CI</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-6"><a href="#Layer-6" class="headerlink" title="Layer 6"></a>Layer 6</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Observability</span><br><span class="line">Metrics</span><br><span class="line">Logs</span><br><span class="line">Tracing</span><br><span class="line">Incidents</span><br><span class="line">User Feedback</span><br></pre></td></tr></table></figure>
+
+<h3 id="Layer-7"><a href="#Layer-7" class="headerlink" title="Layer 7"></a>Layer 7</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Human Approval</span><br><span class="line">Risk</span><br><span class="line">Compliance</span><br><span class="line">Cost</span><br><span class="line">Agent Permission</span><br><span class="line">Organization</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十八、全球厂商的真正差异"><a href="#十八、全球厂商的真正差异" class="headerlink" title="十八、全球厂商的真正差异"></a>十八、全球厂商的真正差异</h1><p>最后可以非常清晰地看到：</p>
+<table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>最核心的思想</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Anthropic</strong></td>
+<td><strong>重构 SDLC</strong></td>
+</tr>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td><strong>构建 Agent Harness</strong></td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td><strong>Agent 化 GitHub Workflow</strong></td>
+</tr>
+<tr>
+<td><strong>AWS</strong></td>
+<td><strong>Spec → Code → Production</strong></td>
+</tr>
+<tr>
+<td><strong>Google</strong></td>
+<td><strong>Agent + Cloud Lifecycle</strong></td>
+</tr>
+<tr>
+<td><strong>ByteDance</strong></td>
+<td><strong>Context Engineering + Autonomous Coding</strong></td>
+</tr>
+<tr>
+<td><strong>Alibaba</strong></td>
+<td><strong>AI Programmer → Agent Platform</strong></td>
+</tr>
+<tr>
+<td><strong>Tencent</strong></td>
+<td><strong>AI4SE + Enterprise R&amp;D</strong></td>
+</tr>
+<tr>
+<td><strong>Uber</strong></td>
+<td><strong>Agentic Organization</strong></td>
+</tr>
+<tr>
+<td><strong>Meta</strong></td>
+<td><strong>AI-native Organization 的风险验证</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="十九、我的判断：下一阶段不是-AI-Coding，而是-AI-Engineering"><a href="#十九、我的判断：下一阶段不是-AI-Coding，而是-AI-Engineering" class="headerlink" title="十九、我的判断：下一阶段不是 AI Coding，而是 AI Engineering"></a>十九、我的判断：下一阶段不是 AI Coding，而是 AI Engineering</h1><p>我会把行业演进定义成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">2023</span><br><span class="line">AI Assistant</span><br><span class="line">     ↓</span><br><span class="line">2024</span><br><span class="line">AI Coding</span><br><span class="line">     ↓</span><br><span class="line">2025</span><br><span class="line">Coding Agent</span><br><span class="line">     ↓</span><br><span class="line">2026</span><br><span class="line">Agentic SDLC</span><br><span class="line">     ↓</span><br><span class="line">2027</span><br><span class="line">AI-Native Engineering</span><br><span class="line">     ↓</span><br><span class="line">2028+</span><br><span class="line">Autonomous Engineering</span><br></pre></td></tr></table></figure>
+
+<p>其中真正的分水岭是：</p>
+<h3 id="AI-Coding"><a href="#AI-Coding" class="headerlink" title="AI Coding"></a>AI Coding</h3><blockquote>
+<p>“帮我写代码。”</p>
+</blockquote>
+<h3 id="Coding-Agent"><a href="#Coding-Agent" class="headerlink" title="Coding Agent"></a>Coding Agent</h3><blockquote>
+<p>“帮我完成这个 Issue。”</p>
+</blockquote>
+<h3 id="Agentic-SDLC-1"><a href="#Agentic-SDLC-1" class="headerlink" title="Agentic SDLC"></a>Agentic SDLC</h3><blockquote>
+<p>“帮我完成整个研发流程。”</p>
+</blockquote>
+<h3 id="AI-Native-Engineering"><a href="#AI-Native-Engineering" class="headerlink" title="AI-Native Engineering"></a>AI-Native Engineering</h3><blockquote>
+<p>“研发系统本身就是围绕 Agent 设计的。”</p>
+</blockquote>
+<h3 id="Autonomous-Engineering"><a href="#Autonomous-Engineering" class="headerlink" title="Autonomous Engineering"></a>Autonomous Engineering</h3><blockquote>
+<p>“系统自己发现问题、规划、开发、验证、发布和修复。”</p>
+</blockquote>
+<hr>
+<h1 id="二十、结合你目前的方向，我建议最终方案这样定位"><a href="#二十、结合你目前的方向，我建议最终方案这样定位" class="headerlink" title="二十、结合你目前的方向，我建议最终方案这样定位"></a>二十、结合你目前的方向，我建议最终方案这样定位</h1><p>你之前一直在研究：</p>
+<ul>
+<li>AI Agent</li>
+<li>Code Graph</li>
+<li>Spec</li>
+<li>AI Code Quality</li>
+<li>DevOps</li>
+<li>CI/CD</li>
+<li>Monorepo</li>
+<li>R&amp;D Efficiency Platform</li>
+<li>ReqStudio</li>
+<li>Harness</li>
+<li>MCP</li>
+</ul>
+<p>其实已经可以把它们统一起来。</p>
+<p>我会把你要做的平台重新定义成：</p>
+<blockquote>
+<p><strong>AI-Native R&amp;D Engineering Platform</strong></p>
+</blockquote>
+<p>而不是：</p>
+<blockquote>
+<p>AI Coding Platform</p>
+</blockquote>
+<p>整体架构：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">           Human</span><br><span class="line">             │</span><br><span class="line">             ↓</span><br><span class="line">      ┌─────────────┐</span><br><span class="line">      │   Intent    │</span><br><span class="line">      └──────┬──────┘</span><br><span class="line">             ↓</span><br><span class="line">      ┌─────────────┐</span><br><span class="line">      │ Spec Engine │</span><br><span class="line">      └──────┬──────┘</span><br><span class="line">             ↓</span><br><span class="line">┌────────────────────────┐</span><br><span class="line">│    Context Engine      │</span><br><span class="line">│                        │</span><br><span class="line">│ Code Graph             │</span><br><span class="line">│ Knowledge Graph        │</span><br><span class="line">│ Repo Context           │</span><br><span class="line">│ Business Context       │</span><br><span class="line">│ Memory                 │</span><br><span class="line">└───────────┬────────────┘</span><br><span class="line">            ↓</span><br><span class="line">┌────────────────────────┐</span><br><span class="line">│    Agent Platform      │</span><br><span class="line">│                        │</span><br><span class="line">│ Planner                │</span><br><span class="line">│ Coder                 │</span><br><span class="line">│ Reviewer              │</span><br><span class="line">│ Tester                │</span><br><span class="line">│ Security              │</span><br><span class="line">│ SRE                   │</span><br><span class="line">└───────────┬────────────┘</span><br><span class="line">            ↓</span><br><span class="line">      Implementation</span><br><span class="line">            ↓</span><br><span class="line">┌────────────────────────┐</span><br><span class="line">│ Evaluation / CI        │</span><br><span class="line">│                        │</span><br><span class="line">│ Unit / E2E             │</span><br><span class="line">│ AI Eval                │</span><br><span class="line">│ Security               │</span><br><span class="line">│ Quality                │</span><br><span class="line">└───────────┬────────────┘</span><br><span class="line">            ↓</span><br><span class="line">         Deploy</span><br><span class="line">            ↓</span><br><span class="line">     Production</span><br><span class="line">            ↓</span><br><span class="line">┌────────────────────────┐</span><br><span class="line">│ Observability          │</span><br><span class="line">│ Logs / Metrics / Trace │</span><br><span class="line">│ Incident / Feedback    │</span><br><span class="line">└───────────┬────────────┘</span><br><span class="line">            │</span><br><span class="line">            └──────────────→ Intent</span><br></pre></td></tr></table></figure>
+
+<p>这套模型基本可以把这次调研看到的 <strong>Anthropic + OpenAI + GitHub + AWS + Google + TRAE + Qoder + CodeBuddy</strong> 全部统一起来。</p>
+<hr>
+<h2 id="最值得你继续深挖的-6-个问题"><a href="#最值得你继续深挖的-6-个问题" class="headerlink" title="最值得你继续深挖的 6 个问题"></a>最值得你继续深挖的 6 个问题</h2><p>如果继续做下一轮，我建议不要再停留在厂商产品比较，而是直接进入<strong>架构级研究</strong>：</p>
+<ol>
+<li><strong>Anthropic 的 12 Plays vs OpenAI Harness vs GitHub Agentic Workflow vs AWS Kiro</strong><br>→ 逐步骤拆解到底有什么不同。</li>
+<li><strong>AI Native SDLC 的标准 Artifact Schema</strong><br>→ <code>intent/spec/plan/task/eval/evidence</code> 应该如何设计。</li>
+<li><strong>Code Graph 到底应该放在哪一层</strong><br>→ 如何成为 Agent Context Engine，而不是另一个知识库。</li>
+<li><strong>Agent Team / Subagent 如何映射 SDLC</strong><br>→ Planner / Coder / Reviewer / Tester / Security / SRE 如何协作。</li>
+<li><strong>AI Code Quality 如何从“测试”升级为“Evidence + Eval”</strong><br>→ 这会直接影响你之前关注的 AI 代码质量问题。</li>
+<li><strong>最终落地企业级 AI Native R&amp;D Platform 的完整技术架构</strong><br>→ 包括 <strong>Spec、Code Graph、Agent Runtime/Harness、MCP、CI/CD、Eval、Governance、Observability、权限和数据模型</strong>。</li>
+</ol>
+<p>其中 <strong>第 6 项实际上已经可以形成一份完整的《AI Native SDLC / AI研发效能平台 v1.0 技术架构设计》</strong>。结合你之前的 Code Graph、90 Workspace Monorepo、CI 和 Agent 研发方向，做出来会比单独参考 Claude Code 或某一个 Coding Agent 更有价值。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     
-    <a class="article-more-a" href="/study/electron/from/5.html#more">more >></a>
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/aisdlc/from/summary/2.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/aisdlc/from/summary/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>可以。我按你给的 <strong>Anthropic《The AI-Native SDLC Playbook》</strong> 这个标准来找，重点筛选的是：</p>
+<ul>
+<li><strong>AI Native / Agentic SDLC</strong></li>
+<li>AI 如何重构传统研发流程，而不只是“AI 写代码”</li>
+<li>Plan → Design → Build → Test → Review → Deploy → Maintain</li>
+<li>Agent / Subagent / Evals / CI/CD / Governance</li>
+<li>企业级研发效能与组织模式</li>
+<li>最好有具体落地方法，而不是泛泛而谈</li>
+</ul>
+<p>目前比较值得研究的资料，我建议分成 <strong>“一线厂商实践 → 工程方法论 → 学术/前沿研究 → 可落地开源实现”</strong> 四层。</p>
+<hr>
+<h1 id="一、最值得优先看的：AI-Native-SDLC"><a href="#一、最值得优先看的：AI-Native-SDLC" class="headerlink" title="一、最值得优先看的：AI-Native SDLC"></a>一、最值得优先看的：AI-Native SDLC</h1><h3 id="1-Anthropic：The-AI-Native-SDLC-Playbook-⭐⭐⭐⭐⭐"><a href="#1-Anthropic：The-AI-Native-SDLC-Playbook-⭐⭐⭐⭐⭐" class="headerlink" title="1. Anthropic：The AI-Native SDLC Playbook ⭐⭐⭐⭐⭐"></a>1. Anthropic：The AI-Native SDLC Playbook ⭐⭐⭐⭐⭐</h3><p>这就是你给出的文章，也是目前非常值得作为<strong>AI研发流程重构基准方案</strong>的一篇。</p>
+<p><a target="_blank" rel="noopener" href="https://claude.com/blog/the-ai-native-sdlc-playbook?utm_source=chatgpt.com">Anthropic — The AI-Native SDLC Playbook</a></p>
+<p>它最大的价值不是介绍 Claude Code，而是提出一个核心判断：</p>
+<blockquote>
+<p><strong>Code is no longer the bottleneck.</strong></p>
+</blockquote>
+<p>传统 SDLC：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Plan</span><br><span class="line">  ↓</span><br><span class="line">Design</span><br><span class="line">  ↓</span><br><span class="line">Build</span><br><span class="line">  ↓</span><br><span class="line">Test</span><br><span class="line">  ↓</span><br><span class="line">Deploy</span><br><span class="line">  ↓</span><br><span class="line">Maintain</span><br></pre></td></tr></table></figure>
+
+<p>AI Native SDLC：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐</span><br><span class="line">│    Intent    │</span><br><span class="line">└──────┬───────┘</span><br><span class="line">       ↓</span><br><span class="line">Requirements</span><br><span class="line">       ↓</span><br><span class="line">    Design</span><br><span class="line">       ↓</span><br><span class="line">    Build</span><br><span class="line">       ↓</span><br><span class="line"> Test / Eval</span><br><span class="line">       ↓</span><br><span class="line">PR / Review</span><br><span class="line">       ↓</span><br><span class="line">   Deploy</span><br><span class="line">       ↓</span><br><span class="line">  Monitor</span><br><span class="line">       ↓</span><br><span class="line"> New Intent</span><br><span class="line">       └──────────↺</span><br></pre></td></tr></table></figure>
+
+<p>Anthropic 实际提出的是：</p>
+<p><strong>把 SDLC 从 Linear Pipeline 变成 Agent-driven Continuous Loop。</strong></p>
+<p>尤其值得关注：</p>
+<ul>
+<li><code>intent.md</code></li>
+<li><code>CLAUDE.md</code></li>
+<li>Skills</li>
+<li>Plan Mode</li>
+<li>Subagents</li>
+<li>Feedback Loop</li>
+<li>Continuous Evals</li>
+<li>AI PR Review</li>
+<li>Hooks</li>
+<li>CI/CD</li>
+<li>Production Feedback Loop</li>
+</ul>
+<p>官方课程进一步把这些拆成了 12 个 Play。(<a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction?utm_source=chatgpt.com" title="Introduction · The AI-Native SDLC Playbook · Claude Academy">Claude Academy</a>)</p>
+<p><a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook?utm_source=chatgpt.com">Anthropic — AI-Native SDLC Playbook Course</a></p>
+<p><strong>如果你后面要设计自己的 AI 研发流程，我认为这篇应该作为第一参考架构。</strong></p>
+<hr>
+<h1 id="二、Microsoft-GitHub-方向：Agentic-Software-Engineering"><a href="#二、Microsoft-GitHub-方向：Agentic-Software-Engineering" class="headerlink" title="二、Microsoft / GitHub 方向：Agentic Software Engineering"></a>二、Microsoft / GitHub 方向：Agentic Software Engineering</h1><p>这条路线和 Anthropic 非常接近，但重点更加偏向：</p>
+<blockquote>
+<p><strong>Developer → AI Agent → Repository → CI/CD</strong></p>
+</blockquote>
+<p>建议重点研究 GitHub Copilot / Coding Agent / Agentic Development 相关内容。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/copilot?utm_source=chatgpt.com">GitHub Copilot 官方文档</a></p>
+<p>特别值得关注的是现在的 Coding Agent 模式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Issue</span><br><span class="line"> ↓</span><br><span class="line">Coding Agent</span><br><span class="line"> ↓</span><br><span class="line">Repository Context</span><br><span class="line"> ↓</span><br><span class="line">Implement</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Commit</span><br><span class="line"> ↓</span><br><span class="line">Pull Request</span><br><span class="line"> ↓</span><br><span class="line">AI Review</span><br><span class="line"> ↓</span><br><span class="line">Human Review</span><br><span class="line"> ↓</span><br><span class="line">CI</span><br><span class="line"> ↓</span><br><span class="line">Merge</span><br></pre></td></tr></table></figure>
+
+<p>这和传统：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jira</span><br><span class="line"> ↓</span><br><span class="line">Developer</span><br><span class="line"> ↓</span><br><span class="line">IDE</span><br><span class="line"> ↓</span><br><span class="line">Commit</span><br><span class="line"> ↓</span><br><span class="line">PR</span><br></pre></td></tr></table></figure>
+
+<p>已经是明显不同的研发模型。</p>
+<p><strong>核心变化是：Issue 开始成为 Agent 的输入，而不是人的输入。</strong></p>
+<hr>
+<h1 id="三、OpenAI：Harness-Agentic-Engineering"><a href="#三、OpenAI：Harness-Agentic-Engineering" class="headerlink" title="三、OpenAI：Harness / Agentic Engineering"></a>三、OpenAI：Harness / Agentic Engineering</h1><p>如果你关注的是<strong>AI研发流程下一阶段</strong>，OpenAI 最近出现的方向尤其值得看。</p>
+<p>一个很重要的概念是：</p>
+<blockquote>
+<p><strong>Harness Engineering</strong></p>
+</blockquote>
+<p>它解决的问题不是“模型能不能写代码”，而是：</p>
+<blockquote>
+<p><strong>如何给 Agent 提供一个能够长期、可靠、自主执行的软件工程环境。</strong></p>
+</blockquote>
+<p>相关讨论最近明显增多。WSJ 对企业 Harness 的解释也比较到位：Harness 本质上是在模型和真实业务环境之间增加一层控制系统，让模型拥有 memory、workflow context、business data 和 tool execution，同时承担治理和控制职责。(<a target="_blank" rel="noopener" href="https://www.wsj.com/cio-journal/introducing-the-ai-model-harness-a638c65b?utm_source=chatgpt.com" title="Introducing the AI Model &#39;Harness&#39;">The Wall Street Journal</a>)</p>
+<p>这其实和你之前研究的：</p>
+<ul>
+<li>Code Graph</li>
+<li>Agent</li>
+<li>MCP</li>
+<li>Tool Router</li>
+<li>Repo Context</li>
+<li>RAG</li>
+<li>CI</li>
+<li>Eval</li>
+</ul>
+<p>可以直接串起来。</p>
+<p>我会把它抽象成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">             AI Agent</span><br><span class="line">                │</span><br><span class="line">         ┌──────▼──────┐</span><br><span class="line">         │    Harness  │</span><br><span class="line">         ├─────────────┤</span><br><span class="line">         │ Context     │</span><br><span class="line">         │ Code Graph  │</span><br><span class="line">         │ Memory      │</span><br><span class="line">         │ Tools       │</span><br><span class="line">         │ Policy      │</span><br><span class="line">         │ Eval        │</span><br><span class="line">         │ Guardrails  │</span><br><span class="line">         └──────┬──────┘</span><br><span class="line">                │</span><br><span class="line">   ┌────────────┼─────────────┐</span><br><span class="line">   ↓            ↓             ↓</span><br><span class="line">Git Repo       CI/CD        Production</span><br></pre></td></tr></table></figure>
+
+<p>这个方向其实比单纯研究“AI Coding”更值得关注。</p>
+<hr>
+<h1 id="四、GitHub：AI-Native-SDLC-开源实现-⭐⭐⭐⭐"><a href="#四、GitHub：AI-Native-SDLC-开源实现-⭐⭐⭐⭐" class="headerlink" title="四、GitHub：AI Native SDLC 开源实现 ⭐⭐⭐⭐"></a>四、GitHub：AI Native SDLC 开源实现 ⭐⭐⭐⭐</h1><p>有一个非常直接的开源实现：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bashebr/ai-native-sdlc?utm_source=chatgpt.com">GitHub — ai-native-sdlc</a></p>
+<p>它直接把 Anthropic 的 AI-Native SDLC Playbook 实现成 Codex / Claude Code 的 workflow。</p>
+<p>项目描述就是：</p>
+<blockquote>
+<p>planning → design → build → test → deploy → maintain</p>
+</blockquote>
+<p>并且保留：</p>
+<blockquote>
+<p>human approval gates at every handoff</p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://github.com/bashebr/ai-native-sdlc?utm_source=chatgpt.com" title="GitHub - bashebr/ai-native-sdlc: AI-native SDLC workflow as a reusable Codex and Claude Code skill and plugin · GitHub">GitHub</a>)</p>
+<p>这个项目非常适合你拿来研究：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Anthropic 方法论</span><br><span class="line">       ↓</span><br><span class="line">Workflow</span><br><span class="line">       ↓</span><br><span class="line">Agent Skill</span><br><span class="line">       ↓</span><br><span class="line">实际 Repository</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，它比单纯阅读文章更接近“怎么落地”。</p>
+<hr>
+<h1 id="五、AI-Native-SDLC-学术方向"><a href="#五、AI-Native-SDLC-学术方向" class="headerlink" title="五、AI Native SDLC 学术方向"></a>五、AI Native SDLC 学术方向</h1><p>如果你想把方案做到比较体系化，我建议再看两篇。</p>
+<h3 id="5-Reshaping-the-SDLC-for-Data-and-AI-Centric-Systems"><a href="#5-Reshaping-the-SDLC-for-Data-and-AI-Centric-Systems" class="headerlink" title="5. Reshaping the SDLC for Data- and AI-Centric Systems"></a>5. Reshaping the SDLC for Data- and AI-Centric Systems</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.17824?utm_source=chatgpt.com">Reshaping the SDLC for Data- and AI-Centric Systems</a></p>
+<p>这篇比较有价值的地方是，它认为传统 SDLC 的基本假设已经发生变化：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Traditional Software</span><br><span class="line"></span><br><span class="line">Behavior ≈ Code</span><br></pre></td></tr></table></figure>
+
+<p>而 AI System：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Behavior = Code</span><br><span class="line">         + Data</span><br><span class="line">         + Model</span><br><span class="line">         + Configuration</span><br><span class="line">         + Runtime Environment</span><br></pre></td></tr></table></figure>
+
+<p>因此 SDLC 需要从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Code-centric</span><br></pre></td></tr></table></figure>
+
+<p>转向：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AI/Data-centric</span><br></pre></td></tr></table></figure>
+
+<p>论文提出了五层生命周期：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Artifact</span><br><span class="line">   ↓</span><br><span class="line">Contract</span><br><span class="line">   ↓</span><br><span class="line">Gate</span><br><span class="line">   ↓</span><br><span class="line">Control</span><br><span class="line">   ↓</span><br><span class="line">Governance</span><br></pre></td></tr></table></figure>
+
+<p>这个模型非常适合企业研发平台。</p>
+<p>(<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.17824?utm_source=chatgpt.com" title="Reshaping the SDLC for Data- and AI-Centric Systems">arXiv</a>)</p>
+<hr>
+<h1 id="六、AI-Native-Large-Scale-Software-Engineering"><a href="#六、AI-Native-Large-Scale-Software-Engineering" class="headerlink" title="六、AI-Native Large-Scale Software Engineering"></a>六、AI-Native Large-Scale Software Engineering</h1><p>另外一篇非常值得看：</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.07317?utm_source=chatgpt.com">Towards Assurance Closure in AI-Native Large-Scale Agile Software Development</a></p>
+<p>它关注一个非常重要的问题：</p>
+<blockquote>
+<p><strong>Agent 越来越强以后，谁来证明 Agent 做出来的东西是对的？</strong></p>
+</blockquote>
+<p>也就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">AI Coding</span><br><span class="line">     ↓</span><br><span class="line">AI Agent</span><br><span class="line">     ↓</span><br><span class="line">Agent Autonomous Engineering</span><br><span class="line">     ↓</span><br><span class="line">？？？</span><br><span class="line">     ↓</span><br><span class="line">Assurance</span><br></pre></td></tr></table></figure>
+
+<p>论文提出：</p>
+<blockquote>
+<p><strong>Assurance Closure</strong></p>
+</blockquote>
+<p>简单说：</p>
+<p>Agent 不只是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">写代码</span><br></pre></td></tr></table></figure>
+
+<p>而应该能够形成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Requirement</span><br><span class="line">    ↓</span><br><span class="line">Implementation</span><br><span class="line">    ↓</span><br><span class="line">Evidence</span><br><span class="line">    ↓</span><br><span class="line">Evaluation</span><br><span class="line">    ↓</span><br><span class="line">Verification</span><br><span class="line">    ↓</span><br><span class="line">Confidence</span><br><span class="line">    ↓</span><br><span class="line">Authority</span><br></pre></td></tr></table></figure>
+
+<p>然后根据可信度决定 Agent 可以拥有多大的自动化权限。</p>
+<p>这个方向和你之前研究的 <strong>AI Code Quality / Agent Evaluation / CI</strong> 是高度相关的。(<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.07317?utm_source=chatgpt.com" title="Towards Assurance Closure in AI-Native Large-Scale Agile Software Development">arXiv</a>)</p>
+<hr>
+<h1 id="七、一个非常重要的现实案例：Uber-Agentic-Pods"><a href="#七、一个非常重要的现实案例：Uber-Agentic-Pods" class="headerlink" title="七、一个非常重要的现实案例：Uber Agentic Pods"></a>七、一个非常重要的现实案例：Uber Agentic Pods</h1><p>如果你不只关心研发流程，还关心：</p>
+<blockquote>
+<p><strong>AI 时代研发组织应该怎么变化？</strong></p>
+</blockquote>
+<p>Uber 最近的实践值得研究。</p>
+<p>Uber 在内部推动：</p>
+<blockquote>
+<p><strong>Agentic Pods</strong></p>
+</blockquote>
+<p>让 AI 工程师进入 Finance、Marketing、Legal、HR 等团队，观察真实工作流，然后直接构建 Agent。</p>
+<p>例如报道中一个财务规划任务：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">15 hours</span><br><span class="line">   ↓</span><br><span class="line">30 minutes</span><br></pre></td></tr></table></figure>
+
+<p>报告生成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 days</span><br><span class="line"> ↓</span><br><span class="line">10 minutes</span><br></pre></td></tr></table></figure>
+
+<p>营销质量检查：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 weeks</span><br><span class="line"> ↓</span><br><span class="line">&lt; 1 hour</span><br></pre></td></tr></table></figure>
+
+<p>更重要的不是数字，而是它强调：</p>
+<blockquote>
+<p><strong>真正的效率提升不是让原来的流程更快，而是重新设计整个 Workflow。</strong></p>
+</blockquote>
+<p>(<a target="_blank" rel="noopener" href="https://www.businessinsider.com/uber-turns-best-ai-engineers-loose-pods-business-2026-8?utm_source=chatgpt.com" title="After starting the tokenmaxxing panic, Uber&#39;s CTO is back with a very different AI story">Business Insider</a>)</p>
+<p>这和 AI-Native SDLC 的理念是一致的。</p>
+<hr>
+<h1 id="八、Cisco：Agent-管理正在变成新的工程能力"><a href="#八、Cisco：Agent-管理正在变成新的工程能力" class="headerlink" title="八、Cisco：Agent 管理正在变成新的工程能力"></a>八、Cisco：Agent 管理正在变成新的工程能力</h1><p>Cisco 现在已经出现一个很有意思的模式：</p>
+<blockquote>
+<p>一个 Engineering Manager / Director 管理 10+ AI Agents。</p>
+</blockquote>
+<p>工程师的工作开始从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Writing Code</span><br></pre></td></tr></table></figure>
+
+<p>转变为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Architecture</span><br><span class="line">+</span><br><span class="line">Workflow Design</span><br><span class="line">+</span><br><span class="line">Agent Orchestration</span><br><span class="line">+</span><br><span class="line">Review</span><br><span class="line">+</span><br><span class="line">Security</span><br><span class="line">+</span><br><span class="line">Quality</span><br></pre></td></tr></table></figure>
+
+<p>甚至出现：</p>
+<blockquote>
+<p><strong>Loop Engineering</strong></p>
+</blockquote>
+<p>即让 Agent 持续运行：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Understand</span><br><span class="line"> ↓</span><br><span class="line">Implement</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Fix</span><br><span class="line"> ↓</span><br><span class="line">Review</span><br><span class="line"> ↓</span><br><span class="line">Repeat</span><br></pre></td></tr></table></figure>
+
+<p>直到满足预设条件。(<a target="_blank" rel="noopener" href="https://www.businessinsider.com/cisco-director-engineering-ai-agents-faster-work-2026-8?utm_source=chatgpt.com" title="I manage 10+ agents at Cisco. It doesn&#39;t mean longer hours, but the work can feel more intense.">Business Insider</a>)</p>
+<p>这个方向其实就是：</p>
+<blockquote>
+<p><strong>从 Copilot → Coding Agent → Autonomous Engineering Loop</strong></p>
+</blockquote>
+<hr>
+<h1 id="九、一个很重要的共识：AI-Coding-≠-AI-Native-R-amp-D"><a href="#九、一个很重要的共识：AI-Coding-≠-AI-Native-R-amp-D" class="headerlink" title="九、一个很重要的共识：AI Coding ≠ AI-Native R&amp;D"></a>九、一个很重要的共识：AI Coding ≠ AI-Native R&amp;D</h1><p>现在业界其实正在出现非常明显的分层：</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>模式</th>
+<th>核心</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L1</td>
+<td>AI Assistant</td>
+<td>AI 帮人写代码</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>AI Coding</td>
+<td>AI 大量生成代码</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>Coding Agent</td>
+<td>AI 自己完成一个任务</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>Agentic SDLC</td>
+<td>Agent 贯穿研发流程</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>AI-Native SDLC</td>
+<td><strong>重新设计整个研发流程</strong></td>
+</tr>
+<tr>
+<td>L6</td>
+<td>Autonomous Engineering</td>
+<td><strong>Agent 自主运行研发闭环</strong></td>
+</tr>
+</tbody></table>
+<p>目前大量企业还停留在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L1 / L2</span><br></pre></td></tr></table></figure>
+
+<p>真正值得研究的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L4 → L5 → L6</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十、把目前这些方案放在一起"><a href="#十、把目前这些方案放在一起" class="headerlink" title="十、把目前这些方案放在一起"></a>十、把目前这些方案放在一起</h1><p>我建议你不要只研究 Claude。</p>
+<p>可以形成下面这张“AI研发范式地图”：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">                    AI-Native R&amp;D</span><br><span class="line">                         │</span><br><span class="line">     ┌───────────────────┼───────────────────┐</span><br><span class="line">     │                   │                   │</span><br><span class="line">     ▼                   ▼                   ▼</span><br><span class="line">AI-Native SDLC      Agentic Coding      AI Organization</span><br><span class="line">Anthropic           GitHub/OpenAI       Uber/Cisco</span><br><span class="line">     │                   │                   │</span><br><span class="line">     ▼                   ▼                   ▼</span><br><span class="line">Plan/Design/Build    Coding Agent       Agentic Pod</span><br><span class="line">Test/Deploy          Subagent           Agent Team</span><br><span class="line">Maintain             PR/CI              Workflow redesign</span><br><span class="line">     │                   │                   │</span><br><span class="line">     └───────────────────┼───────────────────┘</span><br><span class="line">                         ▼</span><br><span class="line">                  Harness Engineering</span><br><span class="line">                         │</span><br><span class="line">     ┌───────────────────┼───────────────────┐</span><br><span class="line">     ▼                   ▼                   ▼</span><br><span class="line"> Context             Tool/Agent            Governance</span><br><span class="line"> Code Graph          MCP/Tools              Policy</span><br><span class="line"> Memory              Workflow              Eval</span><br><span class="line"> Knowledge           Execution             Security</span><br><span class="line">                         │</span><br><span class="line">                         ▼</span><br><span class="line">                  Autonomous Engineering</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十一、结合你现在做的方向，我尤其建议关注这-5-个主题"><a href="#十一、结合你现在做的方向，我尤其建议关注这-5-个主题" class="headerlink" title="十一、结合你现在做的方向，我尤其建议关注这 5 个主题"></a>十一、结合你现在做的方向，我尤其建议关注这 5 个主题</h1><p>结合你之前一直在研究的 <strong>AI研发 DevOps、Code Graph、Agent、Spec、AI代码质量、CI/CD、Monorepo</strong>，我认为真正值得深入的不是再找一堆“AI Coding 工具介绍”，而是这五个方向：</p>
+<h3 id="①-AI-Native-SDLC"><a href="#①-AI-Native-SDLC" class="headerlink" title="① AI-Native SDLC"></a>① AI-Native SDLC</h3><p>核心问题：</p>
+<blockquote>
+<p><strong>传统 SDLC 怎么重新设计？</strong></p>
+</blockquote>
+<p>重点研究：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent</span><br><span class="line"> → Spec</span><br><span class="line"> → Plan</span><br><span class="line"> → Agent</span><br><span class="line"> → Code</span><br><span class="line"> → Eval</span><br><span class="line"> → Review</span><br><span class="line"> → CI</span><br><span class="line"> → Deploy</span><br><span class="line"> → Production Feedback</span><br></pre></td></tr></table></figure>
+
+<p>Anthropic 是目前最完整的参考。</p>
+<hr>
+<h3 id="②-Agentic-Engineering"><a href="#②-Agentic-Engineering" class="headerlink" title="② Agentic Engineering"></a>② Agentic Engineering</h3><p>核心问题：</p>
+<blockquote>
+<p><strong>如何让 Agent 不只是写一个函数，而是完成一个完整 Engineering Task？</strong></p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Issue</span><br><span class="line"> ↓</span><br><span class="line">Understand Repo</span><br><span class="line"> ↓</span><br><span class="line">Code Graph</span><br><span class="line"> ↓</span><br><span class="line">Plan</span><br><span class="line"> ↓</span><br><span class="line">Implementation</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Debug</span><br><span class="line"> ↓</span><br><span class="line">PR</span><br><span class="line"> ↓</span><br><span class="line">Review</span><br><span class="line"> ↓</span><br><span class="line">Merge</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="③-Harness-Engineering"><a href="#③-Harness-Engineering" class="headerlink" title="③ Harness Engineering"></a>③ Harness Engineering</h3><p>核心问题：</p>
+<blockquote>
+<p><strong>Agent 为什么能够可靠地工作？</strong></p>
+</blockquote>
+<p>这里会涉及：</p>
+<ul>
+<li>Context</li>
+<li>Code Graph</li>
+<li>Memory</li>
+<li>Tools</li>
+<li>MCP</li>
+<li>Skills</li>
+<li>Hooks</li>
+<li>Policy</li>
+<li>Sandbox</li>
+<li>Eval</li>
+<li>Observability</li>
+</ul>
+<p>我认为这是未来 AI Coding Infrastructure 最重要的方向之一。</p>
+<hr>
+<h3 id="④-Continuous-Evaluation"><a href="#④-Continuous-Evaluation" class="headerlink" title="④ Continuous Evaluation"></a>④ Continuous Evaluation</h3><p>传统：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Developer</span><br><span class="line"> ↓</span><br><span class="line">Code Review</span><br><span class="line"> ↓</span><br><span class="line">QA</span><br></pre></td></tr></table></figure>
+
+<p>AI Native：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Agent</span><br><span class="line"> ↓</span><br><span class="line">Automated Eval</span><br><span class="line"> ↓</span><br><span class="line">Agent Review</span><br><span class="line"> ↓</span><br><span class="line">Security Scan</span><br><span class="line"> ↓</span><br><span class="line">Test</span><br><span class="line"> ↓</span><br><span class="line">Human Review</span><br></pre></td></tr></table></figure>
+
+<p>也就是说：</p>
+<blockquote>
+<p><strong>Review 正在从 Human Review 转向 Human + Agent + Eval。</strong></p>
+</blockquote>
+<hr>
+<h3 id="⑤-Closed-loop-Engineering"><a href="#⑤-Closed-loop-Engineering" class="headerlink" title="⑤ Closed-loop Engineering"></a>⑤ Closed-loop Engineering</h3><p>最终目标不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需求 → 代码 → 发布</span><br></pre></td></tr></table></figure>
+
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────┐</span><br><span class="line">│    Intent     │</span><br><span class="line">└───────┬───────┘</span><br><span class="line">        ↓</span><br><span class="line">     Design</span><br><span class="line">        ↓</span><br><span class="line">     Build</span><br><span class="line">        ↓</span><br><span class="line">   Test / Eval</span><br><span class="line">        ↓</span><br><span class="line">      PR</span><br><span class="line">        ↓</span><br><span class="line">      CI</span><br><span class="line">        ↓</span><br><span class="line">    Deploy</span><br><span class="line">        ↓</span><br><span class="line">   Production</span><br><span class="line">        ↓</span><br><span class="line">Observability</span><br><span class="line">        ↓</span><br><span class="line">   Feedback</span><br><span class="line">        │</span><br><span class="line">        └────────→ New Intent</span><br></pre></td></tr></table></figure>
+
+<p>这其实才是我认为 <strong>AI-Native R&amp;D Platform</strong> 最终应该实现的形态。</p>
+<hr>
+<h2 id="我建议你重点收藏的资料"><a href="#我建议你重点收藏的资料" class="headerlink" title="我建议你重点收藏的资料"></a>我建议你重点收藏的资料</h2><p>按优先级排序：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>资料</th>
+<th>价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://claude.com/blog/the-ai-native-sdlc-playbook?utm_source=chatgpt.com">Anthropic AI-Native SDLC Playbook</a></td>
+<td><strong>目前最完整的 AI SDLC 方法论</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://academy.claude.com/courses/ai-native-sdlc-playbook?utm_source=chatgpt.com">Claude Academy AI-Native SDLC</a></td>
+<td><strong>具体 Play / 落地方法</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/bashebr/ai-native-sdlc?utm_source=chatgpt.com">GitHub AI-Native SDLC</a></td>
+<td><strong>直接看如何工程化实现</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://www.wsj.com/cio-journal/introducing-the-ai-model-harness-a638c65b?utm_source=chatgpt.com">Harness Engineering 相关讨论</a></td>
+<td><strong>下一代 Agent 工程基础设施</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.17824?utm_source=chatgpt.com">Reshaping the SDLC for Data- and AI-Centric Systems</a></td>
+<td><strong>AI/Data 驱动 SDLC 理论框架</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.07317?utm_source=chatgpt.com">Towards Assurance Closure</a></td>
+<td><strong>AI Agent 质量与可信工程</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td><a target="_blank" rel="noopener" href="https://docs.github.com/en/copilot?utm_source=chatgpt.com">GitHub Copilot</a></td>
+<td><strong>Coding Agent / PR / CI 实践</strong></td>
+</tr>
+</tbody></table>
+<p><strong>如果你的目标是进一步做一套“AI研发流程优化/AI Native R&amp;D Platform”的完整方案，我建议下一步不要继续泛搜。</strong></p>
+<p>我可以进一步帮你做一次更系统的 <strong>“AI Native SDLC 全球方案调研”</strong>，重点对比 <strong>Anthropic、OpenAI、Google、Microsoft/GitHub、Amazon、Meta、Uber、国内字节/阿里/腾讯等</strong>，整理成：</p>
+<blockquote>
+<p><strong>传统 SDLC → AI-Assisted SDLC → Agentic SDLC → AI-Native SDLC → Autonomous Engineering</strong></p>
+</blockquote>
+<p>并进一步输出一套<strong>可以直接落地到企业研发平台的流程、Agent 架构、Artifact、Gate、Eval、Code Graph、CI/CD 和度量指标体系</strong>。这会比单纯收集文章更适合你现在的研发效能平台方向。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/aisdlc/from/summary/1.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/aisdlc/from/0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/from/0.html" target="_blank">
+      【译】AI 原生 SDLC 实战手册：如何用 AI 逐步改造软件开发生命周期
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/from/0.html" class="archive-article-date">
+        <time datetime="2026-08-31T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://claude.com/blog/the-ai-native-sdlc-playbook">The AI-Native SDLC playbook</a><br><strong>✍️ 原文作者</strong>：Louis Claxton（Anthropic）<br><strong>📅 发布时间</strong>：2026-08-21</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/from/0.html#more">more >></a>
     
     
     
@@ -1470,6 +1505,14 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1477,19 +1520,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">桌面开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SDLC</a>
         		</li>
       		
 		</ul>
@@ -1499,7 +1530,1406 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/study/electron/from/5.html">展开全文 >></a>
+      <a class="article-more-a" href="/ailearn/aisdlc/from/0.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/aisdlc/from/2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/from/2.html" target="_blank">
+      【译】迈向 AI 原生大规模敏捷软件开发中的保证闭环（arXiv 论文）
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/from/2.html" class="archive-article-date">
+        <time datetime="2026-08-31T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/html/2608.07317v1">Towards Assurance Closure in AI-Native Large-Scale Agile Software Development</a><br><strong>✍️ 原文作者</strong>：Ricardo Britto（Ericsson 爱立信 / 瑞典布莱金厄理工学院）<br><strong>📅 发布时间</strong>：2026-08-07（arXiv:2608.07317v1 [cs.SE]）</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/from/2.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI 原生开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">智能体</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件保证</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/aisdlc/from/2.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/aisdlc/from/1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/aisdlc/from/1.html" target="_blank">
+      【译】重塑 SDLC：面向数据与 AI 中心系统的软件开发生命周期（arXiv 论文）
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/aisdlc/from/1.html" class="archive-article-date">
+        <time datetime="2026-08-31T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 原文来源</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/html/2608.17824v1">Reshaping the SDLC for Data- and AI-Centric Systems</a><br><strong>✍️ 原文作者</strong>：Mamdouh Alenezi（SDAIA Academy / 沙特数据与人工智能管理局）<br><strong>📅 发布时间</strong>：2026-08-18（arXiv:2608.17824v1 [cs.SE]）</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/ailearn/aisdlc/from/1.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SDLC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MLOps</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据工程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/aisdlc/from/1.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ainews/20260828" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ainews/20260828.html" target="_blank">
+      9月三地AI补贴窗口全开：北京21天、杭州到月底、深圳到11月，我劝你先别急着填表
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ainews/20260828.html" class="archive-article-date">
+        <time datetime="2026-08-28T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 这篇写给谁</strong>：手上有中小生意、听说”AI有补贴”、正在犹豫要不要去申请的人。不需要懂政策术语，我把三份官方原文啃完了，把门槛翻译成人话。<br><strong>🎁 读完你会知道</strong>：这三个补贴你到底够不够格，比”最高能领多少钱”更重要的是”你的钱到底花没花对方向”。</p>
+</blockquote>
+<p>上周有个开小吃店的朋友在群里问我：”政府发的AI补贴，我能领吗？”</p>
+<p>我说等我查查。查完三份官方文件，我的第一反应是——大概率不能。</p>
+<p>不是补贴是假的，是这轮补贴压根不是冲着”用了AI就发钱”设计的。它盯的是几个很具体的动作：租了多少张GPU、买了什么类型的解决方案、买没买语料数据。你要是开奶茶店、做贸易、跑零售，这三个动作你可能一个都没做过。</p>
+    
+    <a class="article-more-a" href="/ainews/20260828.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI落地</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中小企业</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI补贴</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">政策解读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">结果验收</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ainews/20260828.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/graph/8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/graph/8.html" target="_blank">
+      AI Graph工程（08）—— 中小企业落地 Graph 工程：别被大厂方案吓跑
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/graph/8.html" class="archive-article-date">
+        <time datetime="2026-08-26T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>🎁 读完这篇你会得到什么</strong>：一套专门为中小企业设计的 Graph 工程落地路径——怎么选场景、怎么控成本、怎么用开源工具快速跑起来，以及哪些坑是中小企业特别容易踩的。</p>
+</blockquote>
+<p>前面几篇讲了 Graph 工程的概念、框架选型、状态管理、HITL、实战案例……</p>
+<p>读完之后，很多中小企业的朋友会有一个感受：<strong>这些东西看起来很厉害，但好像不是我们能玩的。</strong></p>
+<p>这个感受我理解。前面几篇的例子，动不动就是”并行搜索 5 个信息源”、”企业级研报生成系统”、”全链路研发流水线”——听起来都是大厂才有的规模。</p>
+<p>但实际上，Graph 工程的核心思想——把复杂任务拆成专注的节点、让状态在节点间流动——这件事和团队规模没关系。一个 5 人团队，完全可以用 Graph 工程解决真实的业务问题，而且成本可能比你想象的低得多。</p>
+    
+    <a class="article-more-a" href="/ailearn/graph/8.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Graph Engineering</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">企业落地</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/graph/8.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/STORY" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="STORY-md-—-第-10-讲：行业前沿与趋势（优化版）"><a href="#STORY-md-—-第-10-讲：行业前沿与趋势（优化版）" class="headerlink" title="STORY.md — 第 10 讲：行业前沿与趋势（优化版）"></a>STORY.md — 第 10 讲：行业前沿与趋势（优化版）</h1><h2 id="①-用户意图对齐"><a href="#①-用户意图对齐" class="headerlink" title="① 用户意图对齐"></a>① 用户意图对齐</h2><ul>
+<li><strong>目标受众</strong>：有编程基础、AI 零基础的开发者（技术分享 / 系列课程第 10 讲，收官讲）。</li>
+<li><strong>核心目标</strong>：让观众看清「我们正站在哪一步」——从历史、格局、技术趋势到生态，建立对 AI 行业全景的坐标系，并回顾串联整个系列。</li>
+<li><strong>PPT 长度</strong>：11 页（封面 + 9 内容 + 系列收官），Hero 页配额 2-3 页。</li>
+<li><strong>视觉调性</strong>：深蓝理性、科技感、数据可信（延续系列既有视觉：深海军蓝 + 冰蓝 + 琥珀橙）。</li>
+<li><strong>内容边界</strong>：必讲 OpenAI DevDay、DeepSeek 演进、2026 三足鼎立、推理模型、Ontology、多模态与结构化输出、国产算力、AI 安全、未来展望；不讲具体模型微调、不展开量化技术细节；禁碰未经证实的传闻。</li>
+</ul>
+<h2 id="②-构建页面布局骨架"><a href="#②-构建页面布局骨架" class="headerlink" title="② 构建页面布局骨架"></a>② 构建页面布局骨架</h2><ul>
+<li><strong>分章</strong>：全篇 4 章：<ul>
+<li>第 1 章「从哪里来」（P2 DevDay 2023 / P3 DeepSeek 演进）→ 扉页 P2</li>
+<li>第 2 章「现在到哪了」（P4 三足鼎立 / P5 推理模型时代）→ 扉页 P4</li>
+<li>第 3 章「技术趋势」（P6 Ontology / P7 多模态与结构化输出 / P8 国产算力 / P9 AI 安全）→ 扉页 P6</li>
+<li>第 4 章「往哪去」（P10 未来展望 / P11 系列收官）→ 扉页 P10</li>
+</ul>
+</li>
+<li><strong>Hero 页</strong>：P1 封面、P4 三足鼎立对比页、P11 收官页（3 页，27%，符合 20-30%）。</li>
+<li><strong>rhythm 曲线</strong>：P1 peak → P2 valley → P3 valley → P4 peak → P5 valley → P6 valley → P7 valley → P8 valley → P9 valley → P10 valley → P11 peak。中段 valley 偏长，靠 P3 时间轴与 P4 对比峰、P11 收官制造节奏。</li>
+<li><strong>非对称版式</strong>：P2 左标题右内容、P3 时间轴、P4 三卡对比、P5 左标题右内容、P6 左标题右内容、P7 左文右场景、P8 左标题右内容、P9 左标题右内容、P10 左文右卡 —— 非对称占比 9/11 = 82% ≥ 40%。</li>
+<li><strong>对称版式预算</strong>：仅 P11（居中金句）用对称，全篇对称 ≤ 2 页。</li>
+</ul>
+<h2 id="③-构建页面大纲"><a href="#③-构建页面大纲" class="headerlink" title="③ 构建页面大纲"></a>③ 构建页面大纲</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">type</th>
+<th align="left">role</th>
+<th align="left">rhythm</th>
+<th align="left">layout</th>
+<th align="left">visual</th>
+<th align="left">visual_role</th>
+<th align="left">density</th>
+<th align="left">anti_pattern</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">atmosphere</td>
+<td align="left">字数30/留白40%</td>
+<td align="left">禁止四卡预览；禁止标题小字</td>
+<td align="left">封面：我们正站在哪一步</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_devday.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">DevDay 三卡</td>
+<td align="left">evidence</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">GPT-4 Turbo / GPTs / Assistants API → 三年后被 Agent 演进</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_deepseek.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">时间轴</td>
+<td align="left">演进时间轴</td>
+<td align="left">anchor</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止横排三卡</td>
+<td align="left">R1 → V3 → V4-Flash 演进 + DeepSWE 数据</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_tripod.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">三卡对比</td>
+<td align="left">三巨头对比</td>
+<td align="left">anchor</td>
+<td align="left">字数160/留白30%</td>
+<td align="left">禁止数据堆砌</td>
+<td align="left">GPT-5 / Opus 5 / V4-Flash 三足鼎立</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_reasoning.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">思考强度卡</td>
+<td align="left">evidence</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">推理模型：先想再说 + effort 可调 + 成本</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_ontology.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">三元组卡</td>
+<td align="left">evidence</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止术语堆砌</td>
+<td align="left">Ontology 语义地基：三元组 + 权限边界</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_multimodal.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左文+右场景</td>
+<td align="left">发票识别场景</td>
+<td align="left">evidence</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止上下等分</td>
+<td align="left">多模态入端 + json_schema 出端</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_chip.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">昇腾 NPU 卡</td>
+<td align="left">evidence</td>
+<td align="left">字数150/留白20%</td>
+<td align="left">禁止表格堆砌</td>
+<td align="left">昇腾 NPU + Triton 脱离 CUDA + 国产生态</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_safety.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左标题+右内容</td>
+<td align="left">安全三卡</td>
+<td align="left">evidence</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止等宽三卡</td>
+<td align="left">注入/隐私/偏见 + Moderation + 数据不出门</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_future.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">valley</td>
+<td align="left">左文+右卡</td>
+<td align="left">Harness 上移卡</td>
+<td align="left">anchor</td>
+<td align="left">字数160/留白20%</td>
+<td align="left">禁止罗列空话</td>
+<td align="left">Harness 上移 + 工程师角色转变 + 多智能体</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_finale.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">peak</td>
+<td align="left">居中金句</td>
+<td align="left">知识地图 M1-M3</td>
+<td align="left">anchor</td>
+<td align="left">字数100/留白40%</td>
+<td align="left">禁止小字列表</td>
+<td align="left">系列收官：M1 基础 / M2 应用 / M3 工程化串联</td>
+</tr>
+</tbody></table>
+<h2 id="数据必须落点"><a href="#数据必须落点" class="headerlink" title="数据必须落点"></a>数据必须落点</h2><ul>
+<li>P3：V4-Flash 284B/13B、1M 上下文、DeepSWE 54.4（+640%）→ 开源模型以「小参数 + 高效率」追平闭源。</li>
+<li>P4：GPT-5 400K / Opus 5 1M / V4-Flash $0.14 → 三巨头在「上下文 × 成本 × 开源」三个维度各自卡位。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC10%E8%AE%B2-%E8%A1%8C%E4%B8%9A%E5%89%8D%E6%B2%BF%E4%B8%8E%E8%B6%8B%E5%8A%BF/STORY.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-10-讲：行业前沿与趋势（优化版）"><a href="#DESIGN-md-—-第-10-讲：行业前沿与趋势（优化版）" class="headerlink" title="DESIGN.md — 第 10 讲：行业前沿与趋势（优化版）"></a>DESIGN.md — 第 10 讲：行业前沿与趋势（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙 letterSpacing 2</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 10 讲」+ 右侧页码 <code>NN / 11</code>，14px 灰 #5B6B7A</li>
+</ul>
+</li>
+<li>封面 / 收官页自定义版式，省略 C 区（深色渐变）。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与收官。</li>
+<li>卡片白底圆角 12px，boxShadow <code>0 2px 12px rgba(22,38,63,0.06)</code>。</li>
+<li>深色卡头 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
+<li>Hero 页（P1/P4/P11）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.25</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">章节过渡</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.35</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">20px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">16px</td>
+<td align="left">regular</td>
+<td align="left">1.7</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」。</li>
+<li>数据/型号用等宽字体标注，不引用真实截图。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/收官页 40%。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素、时间轴或对比卡）。</li>
+<li>卡片尾部元素用 <code>marginTop:&#39;auto&#39;</code> 锚定底部。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
+<li>时间轴 / 对比 / 架构用 Box + Text + FAIcon 组合实现，禁用 Diagram（Kroki 不稳定）。</li>
+<li>型号/命令用等宽字体，不引用真实截图。</li>
+<li>禁 emoji，用 FAIcon（fill 必填），图标尺寸统一 24-32px。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">L1</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">色彩分配</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">主60+辅20+强15</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_devday.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">DevDay 三卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">GPT-4 Turbo / GPTs / Assistants</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_deepseek.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">时间轴</td>
+<td align="left">演进时间轴</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">R1 → V3 → V4-Flash + DeepSWE</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_tripod.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">三卡对比</td>
+<td align="left">三巨头对比</td>
+<td align="left">160</td>
+<td align="left">30%</td>
+<td align="left">主50+强15</td>
+<td align="left">GPT-5 / Opus 5 / V4-Flash 三足鼎立</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_reasoning.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">思考强度卡</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">先想再说 + effort 可调</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_ontology.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">三元组卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">三元组 + 权限边界</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_multimodal.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左文+右场景</td>
+<td align="left">发票识别场景</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">多模态入端 + json_schema 出端</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_chip.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">昇腾 NPU 卡</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">昇腾 + Triton 脱离 CUDA</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_safety.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">安全三卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">注入/隐私/偏见 + Moderation</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_future.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左文+右卡</td>
+<td align="left">Harness 上移卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">Harness 上移 + 角色转变</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_finale.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">居中金句</td>
+<td align="left">知识地图 M1-M3</td>
+<td align="left">100</td>
+<td align="left">40%</td>
+<td align="left">主60+强15</td>
+<td align="left">深色收官+练习+自测</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P2(左标题右内容)→P3(时间轴)→P4(三卡对比)→P5(左标题右内容)→P6(左标题右内容)→P7(左文右场景)→P8(左标题右内容)→P9(左标题右内容)→P10(左文右卡) ✅</li>
+<li>非对称版式 9/11 = 82% ≥ 40% ✅</li>
+<li>对称版式仅 P11 一页 ≤2 ✅</li>
+<li>Hero 3 页 = 27%，P1/P4/P11 互不相邻 ✅</li>
+<li>连续 valley：P2-P3 二连 → P4 peak 打断，P5-P10 六连 → P11 peak（可接受）✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC10%E8%AE%B2-%E8%A1%8C%E4%B8%9A%E5%89%8D%E6%B2%BF%E4%B8%8E%E8%B6%8B%E5%8A%BF/DESIGN.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
+<article id="post-ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/DESIGN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="DESIGN-md-—-第-09-讲：AI-编程与研发提效（优化版）"><a href="#DESIGN-md-—-第-09-讲：AI-编程与研发提效（优化版）" class="headerlink" title="DESIGN.md — 第 09 讲：AI 编程与研发提效（优化版）"></a>DESIGN.md — 第 09 讲：AI 编程与研发提效（优化版）</h1><h2 id="1-画布与全局母版"><a href="#1-画布与全局母版" class="headerlink" title="1. 画布与全局母版"></a>1. 画布与全局母版</h2><ul>
+<li>画布：1280 × 720（16:9），padding 上下 20px、左右 60px。</li>
+<li>三区母版（内容页固定）：<ul>
+<li>A · 标题块：0–120px，页面主标题 34px bold，左上 kicker 标签 14px 琥珀橙 letterSpacing 2</li>
+<li>B · 内容区：120–660px（可用 540px）</li>
+<li>C · 页脚条：660–720px，左侧「AI 从零开始 · 第 9 讲」+ 右侧页码 <code>NN / 12</code>，14px 灰 #5B6B7A</li>
+</ul>
+</li>
+<li>封面 / 结尾页自定义版式，省略 C 区（深色渐变）。</li>
+</ul>
+<h2 id="2-颜色系统"><a href="#2-颜色系统" class="headerlink" title="2. 颜色系统"></a>2. 颜色系统</h2><table>
+<thead>
+<tr>
+<th align="left">角色</th>
+<th align="left">hex</th>
+<th align="left">面积</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主色</td>
+<td align="left"><code>#16263F</code> 深海军蓝</td>
+<td align="left">≤60%</td>
+<td align="left">封面/深色块/标题</td>
+</tr>
+<tr>
+<td align="left">辅色</td>
+<td align="left"><code>#DCE7F5</code> 冰蓝</td>
+<td align="left">≤30%</td>
+<td align="left">卡片底/浅色块</td>
+</tr>
+<tr>
+<td align="left">强调色</td>
+<td align="left"><code>#FF9F1C</code> 琥珀橙</td>
+<td align="left">≤10%</td>
+<td align="left">巨型数字/CTA/焦点</td>
+</tr>
+<tr>
+<td align="left">亮点青</td>
+<td align="left"><code>#22D3EE</code></td>
+<td align="left">≤8%</td>
+<td align="left">AI 亮点/装饰</td>
+</tr>
+<tr>
+<td align="left">中性</td>
+<td align="left"><code>#1B2733</code> / <code>#5B6B7A</code> / <code>#F5F7FA</code></td>
+<td align="left">剩余</td>
+<td align="left">正文/次要/页面底</td>
+</tr>
+</tbody></table>
+<ul>
+<li>渐变：<code>linear-gradient(135deg, #16263F 0%, #1E3A5F 100%)</code> 用于封面与结尾。</li>
+<li>卡片白底圆角 12px，boxShadow <code>0 2px 12px rgba(22,38,63,0.06)</code>。</li>
+<li>深色卡头 <code>rgba(255,255,255,0.06)</code> + 边框 <code>rgba(220,231,245,0.15)</code>。</li>
+<li>Hero 页（P1/P2/P12）强调色占比 15-20%；Supporting 页强调色 ≤5%。</li>
+</ul>
+<h2 id="3-字体系统"><a href="#3-字体系统" class="headerlink" title="3. 字体系统"></a>3. 字体系统</h2><table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">字号</th>
+<th align="left">字重</th>
+<th align="left">行高</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">封面主标题</td>
+<td align="left">52px</td>
+<td align="left">bold</td>
+<td align="left">1.25</td>
+<td align="left">仅封面</td>
+</tr>
+<tr>
+<td align="left">章节大字</td>
+<td align="left">44px</td>
+<td align="left">bold</td>
+<td align="left">1.2</td>
+<td align="left">章节过渡</td>
+</tr>
+<tr>
+<td align="left">巨型数据</td>
+<td align="left">64px</td>
+<td align="left">bold</td>
+<td align="left">1.0</td>
+<td align="left">锚点数字</td>
+</tr>
+<tr>
+<td align="left">页面主标题</td>
+<td align="left">34px</td>
+<td align="left">bold</td>
+<td align="left">1.35</td>
+<td align="left">A 区固定</td>
+</tr>
+<tr>
+<td align="left">卡片小标题</td>
+<td align="left">20px</td>
+<td align="left">bold</td>
+<td align="left">1.4</td>
+<td align="left">卡片头</td>
+</tr>
+<tr>
+<td align="left">正文</td>
+<td align="left">16px</td>
+<td align="left">regular</td>
+<td align="left">1.7</td>
+<td align="left">段落</td>
+</tr>
+<tr>
+<td align="left">脚注/页码</td>
+<td align="left">14px</td>
+<td align="left">regular</td>
+<td align="left">1.4</td>
+<td align="left">C 区</td>
+</tr>
+</tbody></table>
+<ul>
+<li>字体：中文「思源黑体」、西文「Inter」，代码「JetBrains Mono」。</li>
+<li>命令/代码用 CodeBlock 或 JetBrains Mono 文本，不引用真实截图。</li>
+</ul>
+<h2 id="4-信息密度"><a href="#4-信息密度" class="headerlink" title="4. 信息密度"></a>4. 信息密度</h2><ul>
+<li>常规页留白 ≤30%；封面/结尾页 40%。</li>
+<li>每页 ≥1 视觉锚点（≥44px 元素、矩阵或 CodeBlock）。</li>
+<li>卡片尾部元素用 <code>marginTop:&#39;auto&#39;</code> 锚定底部。</li>
+</ul>
+<h2 id="5-配图系统"><a href="#5-配图系统" class="headerlink" title="5. 配图系统"></a>5. 配图系统</h2><ul>
+<li>流程图 / 架构 / 矩阵用 Box + Text + FAIcon 组合实现，禁用 Diagram（Kroki 不稳定）。</li>
+<li>命令用 CodeBlock / 等宽字体还原，不引用真实截图。</li>
+<li>禁 emoji，用 FAIcon（fill 必填），图标尺寸统一 24-32px。</li>
+</ul>
+<h2 id="6-页面映射表"><a href="#6-页面映射表" class="headerlink" title="6. 页面映射表"></a>6. 页面映射表</h2><table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">文件</th>
+<th align="left">类型</th>
+<th align="left">角色</th>
+<th align="left">版式</th>
+<th align="left">L1</th>
+<th align="left">字数</th>
+<th align="left">留白%</th>
+<th align="left">色彩分配</th>
+<th align="left">关键约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">01</td>
+<td align="left">01_cover.slide</td>
+<td align="left">cover</td>
+<td align="left">hero</td>
+<td align="left">全幅渐变+骑线标题</td>
+<td align="left">装饰圆</td>
+<td align="left">30</td>
+<td align="left">40%</td>
+<td align="left">主60+辅20+强15</td>
+<td align="left">深色底+大标题+青强调</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td align="left">02_spec_driven.slide</td>
+<td align="left">content</td>
+<td align="left">hero</td>
+<td align="left">左右对比</td>
+<td align="left">Spec 六要素</td>
+<td align="left">150</td>
+<td align="left">30%</td>
+<td align="left">主50+强15</td>
+<td align="left">传统 vs Spec 双栏 + 六要素</td>
+</tr>
+<tr>
+<td align="left">03</td>
+<td align="left">03_spec_kit.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左列表+右流程</td>
+<td align="left">八命令流程</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">左说明 + 右八命令流程卡</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">04_clarify_value.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左右对比</td>
+<td align="left">澄清价值卡</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">猜测返工 vs 结构化提问对比</td>
+</tr>
+<tr>
+<td align="left">05</td>
+<td align="left">05_scene_table.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">场景矩阵</td>
+<td align="left">四行矩阵</td>
+<td align="left">160</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">四场景 × 命令组合矩阵</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">06_review_driven.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左文+右循环</td>
+<td align="left">提问循环</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">提问→建议→修复→再提问</td>
+</tr>
+<tr>
+<td align="left">07</td>
+<td align="left">07_review_case.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左案例+右坏味道</td>
+<td align="left">登录锁定案例</td>
+<td align="left">170</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">spec 4 问 + code-review 坏味道</td>
+</tr>
+<tr>
+<td align="left">08</td>
+<td align="left">08_codegraph.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">调用关系图卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">7 场景 4 层知识图谱</td>
+</tr>
+<tr>
+<td align="left">09</td>
+<td align="left">09_mcp.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左架构+右卡</td>
+<td align="left">Host/Client/Server</td>
+<td align="left">150</td>
+<td align="left">20%</td>
+<td align="left">主45+辅30</td>
+<td align="left">USB-C 类比 + 是桥非手</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">10_gateway.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">左标题+右内容</td>
+<td align="left">网关能力卡</td>
+<td align="left">160</td>
+<td align="left">20%</td>
+<td align="left">主50+辅25</td>
+<td align="left">虚拟密钥/成本路由/预算审计</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11_tools.slide</td>
+<td align="left">content</td>
+<td align="left">supporting</td>
+<td align="left">四类工具墙</td>
+<td align="left">工具清单</td>
+<td align="left">160</td>
+<td align="left">25%</td>
+<td align="left">主45+辅30</td>
+<td align="left">四类工具各列代表</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">12_summary.slide</td>
+<td align="left">ending</td>
+<td align="left">hero</td>
+<td align="left">居中金句</td>
+<td align="left">装饰圆</td>
+<td align="left">90</td>
+<td align="left">40%</td>
+<td align="left">主60+强15</td>
+<td align="left">深色收官+练习+自测</td>
+</tr>
+</tbody></table>
+<h2 id="7-版式约束确认"><a href="#7-版式约束确认" class="headerlink" title="7. 版式约束确认"></a>7. 版式约束确认</h2><ul>
+<li>相邻页版式不重复：P2(左右对比)→P3(左列表右流程)→P4(左右对比)→P5(矩阵)→P6(左文右循环)→P7(左案例右坏味道)→P8(左标题右内容)→P9(左架构右卡)→P10(左标题右内容)→P11(工具墙) ✅</li>
+<li>非对称版式 8/12 = 67% ≥ 40% ✅</li>
+<li>对称版式仅 P5、P11、P12（信息型对称，非装饰化）✅</li>
+<li>Hero 3 页 = 25%，P1→P2 递进，P12 收官 ✅</li>
+<li>连续 valley：P3-P11 九连，靠 P7 案例与 P11 工具墙打断节奏（可接受）✅</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/ppt-projects/AI%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B-%E7%AC%AC09%E8%AE%B2-AI%E7%BC%96%E7%A8%8B%E4%B8%8E%E7%A0%94%E5%8F%91%E6%8F%90%E6%95%88/DESIGN.html">展开全文 >></a>
     </p>
     
 
@@ -1531,7 +2961,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1960,6 +3390,86 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI落地</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中小企业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI补贴</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">政策解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">结果验收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AI Native SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">金融学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">A股投资</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">股票研究</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SDLC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 原生开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">智能体</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件保证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MLOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据工程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JEV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 基础设施</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI 环境影响</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">强化学习</a>
               </li>
             
             <div class="clearfix"></div>
