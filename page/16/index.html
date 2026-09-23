@@ -361,6 +361,121 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/llm/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/llm/07.html" target="_blank">
+      LLM API 参数详解（7）—— 流式响应与性能优化：先让用户看到，再让系统扛住 | 完整指南
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/llm/07.html" class="archive-article-date">
+        <time datetime="2026-04-24T03:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>📖 篇章难度</strong>：📗 <strong>进阶</strong>。这一篇开始真正碰到线上系统的问题：不是模型会不会答，而是用户要不要等、系统扛不扛得住、成本能不能压住。<br><strong>🎯 核心收获</strong>：什么时候该开 <code>stream</code> + chunk 如何解析 + 超时与重试如何分层处理 + 并发、Batch API、缓存与监控怎么组合起来用</p>
+</blockquote>
+<p><strong>很多人做 LLM 应用，最先盯的是回答质量；真到上线，最先挨打的往往却是等待时间。</strong></p>
+<p>模型答得再好，如果用户要盯着转圈 12 秒，体验一样会崩。</p>
+    
+    <a class="article-more-a" href="/ailearn/llm/07.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/llm/07.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/llm/06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1436,135 +1551,6 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/harness/langchain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/harness/langchain.html" target="_blank">
-      用 Harness Engineering 提升深度智能体性能 —— LangChain 实战经验（译）
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/harness/langchain.html" class="archive-article-date">
-        <time datetime="2026-04-11T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📌 原文信息</strong></p>
-<ul>
-<li>原文标题：<a target="_blank" rel="noopener" href="https://blog.langchain.com/improving-deep-agents-with-harness-engineering/">Improving Deep Agents with Harness Engineering</a></li>
-<li>原文作者：LangChain 团队</li>
-<li>发布时间：2026 年 2 月 17 日</li>
-<li>本文为原文翻译，并结合中文读者习惯进行了适当优化。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><strong>📖 系列导读</strong>：本文是 <strong>Harness Engineering 系列</strong>的外部参考资料。如果你还没读过系列正文，建议先从 <a target="_blank" rel="noopener" href="https://qborfy.com/ailearn/harness/00.html">第 0 篇入门导读</a> 开始，再回来看这篇实战案例，效果会更好。</p>
-</blockquote>
-<hr>
-<p><strong>一句话结论：LangChain 的编程智能体在 Terminal Bench 2.0 上从第 30 名冲进了前 5 名。他们只改了 Harness，没换模型。</strong></p>
-<p>这件事值得细说。</p>
-    
-    <a class="article-more-a" href="/ailearn/harness/langchain.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Harness Engineering</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LangChain</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/harness/langchain.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/15/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/17/">Next &amp;raquo;</a>
@@ -2080,6 +2066,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">课程设计</a>
               </li>
             
             <div class="clearfix"></div>

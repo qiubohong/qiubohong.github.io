@@ -361,6 +361,121 @@
     height:800px
   }
   </style>
+<article id="post-ailearn/business/4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/ailearn/business/4.html" target="_blank">
+      教育硬件AI落地实战（四）：试点实验——用数据说话
+      
+    </a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/ailearn/business/4.html" class="archive-article-date">
+        <time datetime="2026-08-13T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>试点阶段最重要的一句话：<strong>用数据说话，而不是用感觉说话</strong>。没有对照组、没有控制变量、没有统计显著性，任何”AI让我们效率提升了X%”的说法都站不住脚。这个阶段的目标，是用6-8周的严格实验，给规模化推广提供可信的决策依据。</p>
+</blockquote>
+<p>试点阶段有个常见的坑：AI组的人都是主动报名的，对照组的人是被安排的。这样的实验结果，有多少是AI的功劳，有多少是”主动参与者本来就更积极”的功劳？说不清楚。</p>
+<p>所以实验设计比实验执行更重要。</p>
+    
+    <a class="article-more-a" href="/ailearn/business/4.html#more">more >></a>
+    
+    
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">产研效能</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">FDE</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教育硬件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/ailearn/business/4.html">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <style>
+  .article-entry blockquote.mindmap-md{
+    height:800px
+  }
+  </style>
 <article id="post-ailearn/business/3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1394,124 +1509,6 @@
 
 
   
-    <style>
-  .article-entry blockquote.mindmap-md{
-    height:800px
-  }
-  </style>
-<article id="post-ailearn/loop/07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/ailearn/loop/07.html" target="_blank">
-      AI Agent Loop 工程实践（07）—— Agent 跑起来之后，你怎么知道它在干什么？
-      
-    </a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/ailearn/loop/07.html" class="archive-article-date">
-        <time datetime="2026-08-05T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>📖 系列难度说明</strong>：本篇为<strong>进阶</strong>，适合已经跑通过 Agent Loop、准备把它用于生产的开发者。<br><strong>🎁 核心收获</strong>：读完本篇你将知道怎么读懂 Agent 的消息流、怎么判断它为什么停了、怎么用 <code>effort</code> 参数省钱，以及为什么持久性规则要放在 CLAUDE.md 而不是系统提示词里。</p>
-</blockquote>
-<p>Agent 跑起来了。</p>
-<p>你盯着终端，看到一堆输出滚过去，然后它停了。</p>
-<p>成功了？失败了？跑了多少钱？它到底干了什么？</p>
-<p>如果你只能靠 <code>print</code> 调试，那这个 Agent 离生产还差得远。</p>
-<p>这篇补上前六篇没讲清楚的东西——<strong>可观测性</strong>。不是那种”加个日志”的可观测性，而是真正理解 Agent 内部发生了什么的能力。</p>
-    
-    <a class="article-more-a" href="/ailearn/loop/07.html#more">more >></a>
-    
-    
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AI学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AI Agent</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">教程系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Agent Loop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/ailearn/loop/07.html">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
@@ -2027,6 +2024,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AI FinOps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">课程设计</a>
               </li>
             
             <div class="clearfix"></div>
