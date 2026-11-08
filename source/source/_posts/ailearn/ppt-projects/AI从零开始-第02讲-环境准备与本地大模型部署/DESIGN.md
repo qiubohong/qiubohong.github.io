@@ -53,8 +53,12 @@
 | L2 | 支撑图 | ≥280×180 | 段落旁 |
 | L3 | 角标 | ≤64×64 | C 区左侧固定 |
 
-- 配图获取：抽象科技氛围图（P1 背景）用 ImageGen 生成；架构/流程/时间轴/规格对比用 SVG/Chart/Diagram 组件；终端命令截图类用 CodeBlock 组件还原（不引用真实截图，避免版权与清晰度问题）。
+- 配图获取：抽象科技氛围图（P1 背景）与知识蒸馏概念插画（P7）用 ImageGen 生成；架构/流程/规格对比用 SVG/Chart/Diagram 组件；终端命令截图类用 CodeBlock 组件还原（不引用真实截图，避免版权与清晰度问题）。
 - 风格统一：深蓝科技风，几何抽象插画，避免摄影/3D 混用。
+
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/knowledge_distillation.png` | ImageGen；大型教师机器人向小型学生机器人传递发光知识水滴与光球，学生旁配置轻量芯片，1536×1024 | 大模型向小模型蒸馏能力并降低本地部署门槛，无文字、无 Logo，双机器人与芯片完整 | P07 右栏主图 | 已核对内容与比例 |
 
 ## 6. 页面映射表
 
@@ -66,7 +70,7 @@
 | 04 | 04_install_python.slide | content | supporting | 非对称双栏 60:40 | anaconda.svg | 160 | 25% | 主50+辅25 | 左直装右 Anaconda 深卡 |
 | 05 | 05_install_libs.slide | content | supporting | 上大图+下方卡片 | code_commands.svg | 140 | 20% | 主45+辅30 | CodeBlock 为主视觉 |
 | 06 | 06_deepseek_v4.slide | content | hero | 巨型数字+洞察 | spec_table.svg | 120 | 35% | 强调20爆发 | 284B/13B 双巨数锚点 |
-| 07 | 07_evolution.slide | content | supporting | 时间轴 | timeline.svg | 140 | 20% | 主50+辅25 | Diagram 时间轴+蒸馏卡 |
+| 07 | 07_evolution.slide | content | supporting | 非对称双栏图文 | knowledge_distillation.png | 140 | 20% | 主50+辅25 | 左模型演进+蒸馏卡，右师生机器人插画 |
 | 08 | 08_hardware.slide | content | supporting | 左大图+右侧文字 | gpu_chip.svg | 150 | 25% | 主45+辅30 | 左图右策略卡 |
 | 09 | 09_ollama.slide | content | supporting | 非对称双栏 | ollama_shell.svg | 150 | 20% | 主45+辅30 | CodeBlock 拉取命令 |
 | 10 | 10_run_verify.slide | content | supporting | 左标题+右内容 | curl_verify.svg | 130 | 20% | 主45+辅30 | CodeBlock 三步+curl |

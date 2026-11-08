@@ -249,3 +249,9 @@
 [2026-08-13 21:35:30.914] [INFO ] [pid=17625] [worker] shutdown received sig=SIGTERM
 [2026-08-13 21:35:31.000] [INFO ] [pid=17625] [worker] shutdown ok sig=SIGTERM ms=86
 [2026-08-13 21:35:31.116] [INFO ] [pid=18222] [stop] ok targetPid=17625 signal=SIGTERM ms=210
+=== boot pid=29358 ts=2026-11-08 19:12:46.606 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第08讲-Agent工程化-插图版.pptx --dsl-file slides/02_harness.slide --page-index 1 ===
+[2026-11-08 19:12:46.601] [INFO ] [pid=29358] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:12:46.652] [INFO ] [pid=29358] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-插图版.pptx
+=== boot pid=29669 ts=2026-11-08 19:12:49.206 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第08讲-Agent工程化-插图版.pptx --page-index 1 --out qa/02_harness.png ===
+[2026-11-08 19:12:49.193] [INFO ] [pid=29669] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:12:49.274] [INFO ] [pid=29669] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第08讲-Agent工程化/AI从零开始-第08讲-Agent工程化-插图版.pptx

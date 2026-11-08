@@ -299,3 +299,9 @@
 [2026-08-13 21:39:44.458] [INFO ] [pid=26957] [validate] --all mode: found 14 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/slides
 [2026-08-13 21:39:44.463] [INFO ] [pid=26957] [validate] batch start files=14 checkOverflow=true
 [2026-08-13 21:39:45.954] [INFO ] [pid=26957] [validate] batch done total=14 passed=14 failed=0 ms=1497
+=== boot pid=18115 ts=2026-11-08 19:07:48.805 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第06讲-Agent智能体与LangGraph-插图版.pptx --dsl-file slides/07_function_calling.slide --page-index 6 ===
+[2026-11-08 19:07:48.795] [INFO ] [pid=18115] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:07:48.867] [INFO ] [pid=18115] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-插图版.pptx
+=== boot pid=20993 ts=2026-11-08 19:09:00.043 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第06讲-Agent智能体与LangGraph-插图版.pptx --page-index 6 --out qa/07_function_calling.png ===
+[2026-11-08 19:09:00.030] [INFO ] [pid=20993] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:09:00.108] [INFO ] [pid=20993] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第06讲-Agent智能体与LangGraph/AI从零开始-第06讲-Agent智能体与LangGraph-插图版.pptx

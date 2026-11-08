@@ -7,39 +7,50 @@
   }}
 >
   <Box style={{ width: '100%', height: '100%' }}>
-    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 8 }}>FUNCTION CALLING</Text>
-    <Text style={{ fontSize: 34, color: '#16263F', fontWeight: 'bold', marginBottom: 24 }}>Function Calling 原理：两次调用的闭环</Text>
-    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 26 }} />
+    <Text style={{ fontSize: 14, color: '#FF9F1C', fontWeight: 'bold', letterSpacing: 2, marginBottom: 6 }}>FUNCTION CALLING</Text>
+    <Text style={{ fontSize: 32, color: '#16263F', fontWeight: 'bold', marginBottom: 12 }}>Function Calling 原理：两次调用的闭环</Text>
+    <Box style={{ width: 56, height: 4, background: '#22D3EE', marginBottom: 18 }} />
 
-    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0, flex: 1 }}>
-      {[
-        { t: '描述函数', d: '告诉模型有哪些工具\n每个工具的参数说明', c: '#22D3EE' },
-        { t: '返回 JSON 参数', d: '模型判断该调用谁\n输出结构化参数', c: '#2A9DB0' },
-        { t: '真实调用', d: '你的代码执行函数\n拿到真实结果', c: '#2E5E8A' },
-        { t: '回传生成答案', d: '结果喂回模型\n生成最终回复', c: '#FF9F1C' },
-      ].map((item, idx) => (
-        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-          <Box style={{ flex: 1, background: item.c, borderRadius: 12, padding: '26px 18px', alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center', marginBottom: 10 }}>{item.t}</Text>
-            <Text style={{ fontSize: 13, color: '#FFFFFF', opacity: 0.92, textAlign: 'center', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.d}</Text>
-          </Box>
-          {idx < 3 && (
-            <Box style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
-              <FAIcon name='arrow-right' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 28, flex: 1, marginBottom: 12 }}>
+      <Box style={{ flex: 6, justifyContent: 'center' }}>
+        {[
+          { n: '01', t: '描述函数', d: '告诉模型有哪些工具，以及每个工具的参数说明', c: '#22A9C0' },
+          { n: '02', t: '返回 JSON 参数', d: '模型判断该调用谁，输出结构化参数', c: '#2A9DB0' },
+          { n: '03', t: '真实调用', d: '你的代码执行函数，拿到真实结果', c: '#2E5E8A' },
+          { n: '04', t: '回传生成答案', d: '结果喂回模型，生成最终回复', c: '#E68A12' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, background: '#FFFFFF', borderLeft: `5px solid ${item.c}`, borderRadius: 12, padding: '13px 16px', marginBottom: 9, boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+            <Text style={{ width: 30, fontSize: 13, color: item.c, fontWeight: 'bold' }}>{item.n}</Text>
+            <Box style={{ flex: 1 }}>
+              <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 4 }}>{item.t}</Text>
+              <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.5 }}>{item.d}</Text>
             </Box>
-          )}
-        </Box>
-      ))}
-    </Box>
+          </Box>
+        ))}
 
-    <Box style={{ marginTop: 26, background: '#16263F', borderRadius: 14, padding: '20px 28px' }}>
-      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 16, marginBottom: 10 }}>
-        <FAIcon name='exchange-alt' style={{ fill: '#FF9F1C', width: 28, height: 28 }} />
-        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>核心是「两次调用」</Text>
+        <Box style={{ marginTop: 7, background: '#16263F', borderRadius: 14, padding: '16px 20px' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 7 }}>
+            <FAIcon name='exchange-alt' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>核心是「两次调用」</Text>
+          </Box>
+          <Text style={{ fontSize: 13, color: '#DCE7F5', lineHeight: 1.7 }}>
+            第一次：模型只「说要做什么」并给出 JSON 参数；第二次：把真实执行结果回传，模型再「组织语言回答」——<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>模型负责决策，代码负责干活</span>。
+          </Text>
+        </Box>
       </Box>
-      <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.8 }}>
-        第一次：模型只「说要做什么」并给出 JSON 参数；第二次：把真实执行结果回传，模型再「组织语言回答」——<span style={{ color: '#22D3EE', fontWeight: 'bold' }}>模型负责决策，代码负责干活</span>。
-      </Text>
+
+      <Box style={{ flex: 5, background: '#FFFFFF', borderRadius: 14, padding: 14, boxShadow: '0 2px 12px rgba(22,38,63,0.06)', justifyContent: 'center' }}>
+        <Image
+          src='assets/function_calling_request_response.png'
+          style={{ width: '100%', height: 340, objectFit: 'cover', borderRadius: 12, marginBottom: 16 }}
+        />
+        <Box style={{ background: '#EAF2FB', borderRadius: 12, padding: '16px 18px' }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>看图理解：下令、执行、回传</Text>
+          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.7 }}>
+            请求包与结果包沿双向路径流动；真实函数始终由代码执行。
+          </Text>
+        </Box>
+      </Box>
     </Box>
   </Box>
   <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>

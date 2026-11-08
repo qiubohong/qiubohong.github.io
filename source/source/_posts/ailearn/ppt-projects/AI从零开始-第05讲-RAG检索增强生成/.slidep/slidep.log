@@ -287,3 +287,9 @@
 [2026-08-13 21:36:39.690] [INFO ] [pid=21048] [validate] --all mode: found 11 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/slides
 [2026-08-13 21:36:39.692] [INFO ] [pid=21048] [validate] batch start files=11 checkOverflow=true
 [2026-08-13 21:36:40.947] [INFO ] [pid=21048] [validate] batch done total=11 passed=11 failed=0 ms=1258
+=== boot pid=17948 ts=2026-11-08 19:07:42.204 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第05讲-RAG检索增强生成-插图版.pptx --dsl-file slides/03_rag_pipeline.slide --page-index 2 ===
+[2026-11-08 19:07:42.194] [INFO ] [pid=17948] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:07:42.269] [INFO ] [pid=17948] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-插图版.pptx
+=== boot pid=20620 ts=2026-11-08 19:08:52.474 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第05讲-RAG检索增强生成-插图版.pptx --page-index 2 --out qa/03_rag_pipeline.png ===
+[2026-11-08 19:08:52.459] [INFO ] [pid=20620] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:08:52.514] [INFO ] [pid=20620] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第05讲-RAG检索增强生成/AI从零开始-第05讲-RAG检索增强生成-插图版.pptx

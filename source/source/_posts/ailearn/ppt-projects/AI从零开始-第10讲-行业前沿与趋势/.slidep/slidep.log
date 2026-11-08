@@ -269,3 +269,15 @@
 [2026-08-13 21:43:00.861] [INFO ] [pid=33101] [worker] shutdown received sig=SIGTERM
 [2026-08-13 21:43:00.956] [INFO ] [pid=33101] [worker] shutdown ok sig=SIGTERM ms=95
 [2026-08-13 21:43:01.063] [INFO ] [pid=33516] [stop] ok targetPid=33101 signal=SIGTERM ms=210
+=== boot pid=39810 ts=2026-11-08 19:17:25.843 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第10讲-行业前沿与趋势-插图版.pptx --dsl-file slides/06_ontology.slide --page-index 5 ===
+[2026-11-08 19:17:25.838] [INFO ] [pid=39810] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:17:25.884] [INFO ] [pid=39810] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-插图版.pptx
+=== boot pid=39946 ts=2026-11-08 19:17:29.074 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第10讲-行业前沿与趋势-插图版.pptx --page-index 5 --out qa/06_ontology.png ===
+[2026-11-08 19:17:29.067] [INFO ] [pid=39946] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:17:29.116] [INFO ] [pid=39946] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-插图版.pptx
+=== boot pid=42486 ts=2026-11-08 19:18:41.764 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第10讲-行业前沿与趋势-插图版.pptx --dsl-file slides/06_ontology.slide --page-index 5 ===
+[2026-11-08 19:18:41.760] [INFO ] [pid=42486] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:18:41.796] [INFO ] [pid=42486] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-插图版.pptx
+=== boot pid=42563 ts=2026-11-08 19:18:44.489 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第10讲-行业前沿与趋势-插图版.pptx --page-index 5 --out qa/06_ontology.png ===
+[2026-11-08 19:18:44.483] [INFO ] [pid=42563] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:18:44.544] [INFO ] [pid=42563] [slide-version] fileId=/Users/b version=2 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第10讲-行业前沿与趋势/AI从零开始-第10讲-行业前沿与趋势-插图版.pptx

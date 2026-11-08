@@ -54,6 +54,10 @@
 - 架构/流程/时序用 Box+Text 还原；命令与代码用 CodeBlock 还原。
 - 风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/function_calling_request_response.png` | ImageGen；1536×1024，high，opaque。Prompt 摘要：左侧 AI 机器人向右侧机械臂/齿轮设备发送发光请求包，上方青色去程、下方琥珀橙回程携带结果包，双向闭环，柔和等距扁平矢量，统一配色，无文字 | 模型下令、工具执行、结果回传路径清晰，双主体完整；无文字乱码、Logo、水印 | P07 右栏主图 | 已核对内容、比例与页面显示 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 关键约束 |
@@ -64,7 +68,7 @@
 | 04 | 04_reasoning_cot.slide | content | supporting | 思维链流程卡 | 流程卡 | 150 | 22% | CoT/ReAct 等 |
 | 05 | 05_memory.slide | content | supporting | 三类记忆横排 | 记忆卡 | 140 | 22% | 感觉/短期/长期 |
 | 06 | 06_tools.slide | content | supporting | 左工具+右支持表 | 支持表 | 150 | 22% | 原生支持表 |
-| 07 | 07_function_calling.slide | content | supporting | 时序图 | 时序条 | 140 | 25% | 两次调用 |
+| 07 | 07_function_calling.slide | content | supporting | 左四步时序+右概念插画 | 双向调用插画 | 140 | 25% | 保留四步与两次调用闭环 |
 | 08 | 08_agent_demo.slide | content | hero | 左代码+右说明 | CodeBlock | 120 | 30% | 四步实战 |
 | 09 | 09_agent_types.slide | content | supporting | 类型对比 | 对比卡 | 140 | 22% | scratchpad |
 | 10 | 10_why_langgraph.slide | content | supporting | 左右对照 | 对比卡 | 150 | 22% | Chain vs Graph |

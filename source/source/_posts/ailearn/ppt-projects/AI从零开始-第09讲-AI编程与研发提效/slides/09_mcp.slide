@@ -34,22 +34,28 @@
         ))}
       </Box>
 
-      <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
-        <Box style={{ background: '#16263F', borderRadius: 12, padding: '20px 24px' }}>
-          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <FAIcon name='usb' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
-            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>USB-C 类比</Text>
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+        <Box style={{ background: '#FFFFFF', borderRadius: 14, padding: 12, boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Image
+            src='assets/mcp_universal_connector.png'
+            style={{ width: '100%', height: 320, objectFit: 'cover', borderRadius: 10 }}
+          />
+        </Box>
+        <Box style={{ background: '#16263F', borderRadius: 12, padding: '14px 16px' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+            <FAIcon name='usb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>USB-C 类比</Text>
           </Box>
-          <Text style={{ fontSize: 14, color: '#DCE7F5', lineHeight: 1.8 }}>
+          <Text style={{ fontSize: 12, color: '#DCE7F5', lineHeight: 1.55 }}>
             一个接口连所有设备——MCP 一个协议连所有工具，不用每个工具都单独开发适配。
           </Text>
         </Box>
-        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '20px 24px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
-          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <FAIcon name='link' style={{ fill: '#22D3EE', width: 24, height: 24 }} />
-            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#16263F' }}>MCP 是桥，Skill 是手</Text>
+        <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: '14px 16px', boxShadow: '0 2px 12px rgba(22,38,63,0.06)' }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+            <FAIcon name='link' style={{ fill: '#22D3EE', width: 20, height: 20 }} />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#16263F' }}>MCP 是桥，Skill 是手</Text>
           </Box>
-          <Text style={{ fontSize: 14, color: '#5B6B7A', lineHeight: 1.8 }}>
+          <Text style={{ fontSize: 12, color: '#5B6B7A', lineHeight: 1.55 }}>
             MCP 只负责「连接」，具体怎么干活的「手」是 Skill——桥搭好了，手才有地方使劲。
           </Text>
         </Box>

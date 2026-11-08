@@ -51,6 +51,10 @@
 - 命令用 CodeBlock / 等宽字体还原，不引用真实截图。
 - 禁 emoji，用 FAIcon（fill 必填），图标尺寸统一 24-32px。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/mcp_universal_connector.png` | ImageGen；prompt 摘要：AI 机器人通过单个通用 USB-C 风格桥接器连接日历、数据库、文件和工具齿轮，以标准接口替代杂乱线缆；1536×1024，高质量 | MCP 统一连接多种工具与数据，无品牌、无文字，机器人和四类外设完整 | P09 右栏主图，下方保留 USB-C 类比与是桥非手 | 已核对内容、无文字乱码、连接关系与页面比例 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 色彩分配 | 关键约束 |
@@ -63,7 +67,7 @@
 | 06 | 06_review_driven.slide | content | supporting | 左文+右循环 | 提问循环 | 150 | 20% | 主45+辅30 | 提问→建议→修复→再提问 |
 | 07 | 07_review_case.slide | content | supporting | 左案例+右坏味道 | 登录锁定案例 | 170 | 20% | 主45+辅30 | spec 4 问 + code-review 坏味道 |
 | 08 | 08_codegraph.slide | content | supporting | 左标题+右内容 | 调用关系图卡 | 160 | 20% | 主50+辅25 | 7 场景 4 层知识图谱 |
-| 09 | 09_mcp.slide | content | supporting | 左架构+右卡 | Host/Client/Server | 150 | 20% | 主45+辅30 | USB-C 类比 + 是桥非手 |
+| 09 | 09_mcp.slide | content | supporting | 左架构+右统一接口插图与双卡 | Host/Client/Server | 150 | 20% | 主45+辅30 | USB-C 主图 + 类比与是桥非手核心结论 |
 | 10 | 10_gateway.slide | content | supporting | 左标题+右内容 | 网关能力卡 | 160 | 20% | 主50+辅25 | 虚拟密钥/成本路由/预算审计 |
 | 11 | 11_tools.slide | content | supporting | 四类工具墙 | 工具清单 | 160 | 25% | 主45+辅30 | 四类工具各列代表 |
 | 12 | 12_summary.slide | ending | hero | 居中金句 | 装饰圆 | 90 | 40% | 主60+强15 | 深色收官+练习+自测 |

@@ -57,13 +57,17 @@
 - 架构/流程/分层用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原（不引用真实截图）。
 - 风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/langchain_modular_assembly_line.png` | ImageGen；1536×1024，high，opaque。Prompt 摘要：大脑模型、提示词积木、工具齿轮、输出文档由传送带和发光连接器串成模块化 AI 装配线，横向柔和等距扁平矢量，统一深蓝/冰蓝/琥珀橙/青色，无文字 | 四类组件完整，左到右工作流清晰，体现 LangChain 标准化组装框架；无文字乱码、Logo、水印 | P03 右栏主图 | 已核对内容、比例与页面显示 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 关键约束 |
 | :- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 01 | 01_cover.slide | cover | hero | 全幅渐变+骑线标题 | 装饰圆 | 30 | 40% | 深色底+大标题+青强调 |
 | 02 | 02_bare_llm_pain.slide | content | supporting | 左标题+右内容 | 痛点卡组 | 150 | 20% | 右栏四痛点卡 |
-| 03 | 03_what_is_langchain.slide | section | transition | 左大字+右要点 | 定位卡 | 120 | 25% | 深色章节页 |
+| 03 | 03_what_is_langchain.slide | section | transition | 左要点+右概念插画 | 模块化装配线插画 | 120 | 25% | 深色章节页；保留三要点与 Spring 类比 |
 | 04 | 04_core_concepts.slide | content | supporting | 概念墙 5×2 | 概念卡 | 160 | 15% | 10 概念两行五列 |
 | 05 | 05_framework_layers.slide | content | supporting | 分层架构图 | SVG 分层 | 140 | 25% | 七层堆叠 |
 | 06 | 06_first_call.slide | content | hero | 左代码+右说明 | CodeBlock | 120 | 30% | 5 行代码为主视觉 |

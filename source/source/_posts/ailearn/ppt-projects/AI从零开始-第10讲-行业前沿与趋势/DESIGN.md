@@ -51,6 +51,10 @@
 - 型号/命令用等宽字体，不引用真实截图。
 - 禁 emoji，用 FAIcon（fill 必填），图标尺寸统一 24-32px。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/ontology_knowledge_city.png` | ImageGen；prompt 摘要：机器人把空白信息碎片整理为知识城市地图，人物、建筑、文档、订单通过有方向连线组成语义网络；1536×1024，高质量；重试 1 次消除疑似字符 | Ontology 统一业务实体、含义与关系，无文字、无数字、无 Logo，语义网络完整 | P06 右栏主图，下方保留三元组、权限边界与规模化结论 | 已核对内容、无文字乱码、关系连线与页面比例 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 色彩分配 | 关键约束 |
@@ -60,7 +64,7 @@
 | 03 | 03_deepseek.slide | content | supporting | 时间轴 | 演进时间轴 | 160 | 20% | 主45+辅30 | R1 → V3 → V4-Flash + DeepSWE |
 | 04 | 04_tripod.slide | content | hero | 三卡对比 | 三巨头对比 | 160 | 30% | 主50+强15 | GPT-5 / Opus 5 / V4-Flash 三足鼎立 |
 | 05 | 05_reasoning.slide | content | supporting | 左标题+右内容 | 思考强度卡 | 150 | 20% | 主50+辅25 | 先想再说 + effort 可调 |
-| 06 | 06_ontology.slide | content | supporting | 左标题+右内容 | 三元组卡 | 160 | 20% | 主50+辅25 | 三元组 + 权限边界 |
+| 06 | 06_ontology.slide | content | supporting | 左标题+右知识城市插图与三卡 | 语义网络插图 | 160 | 20% | 主50+辅25 | 三元组 + 权限边界 + 规模化结论 |
 | 07 | 07_multimodal.slide | content | supporting | 左文+右场景 | 发票识别场景 | 150 | 20% | 主45+辅30 | 多模态入端 + json_schema 出端 |
 | 08 | 08_chip.slide | content | supporting | 左标题+右内容 | 昇腾 NPU 卡 | 150 | 20% | 主50+辅25 | 昇腾 + Triton 脱离 CUDA |
 | 09 | 09_safety.slide | content | supporting | 左标题+右内容 | 安全三卡 | 160 | 20% | 主50+辅25 | 注入/隐私/偏见 + Moderation |

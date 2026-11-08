@@ -54,13 +54,17 @@
 - 架构/流程用 Box+Text 或 SVG 组件还原；命令与代码用 CodeBlock 还原。
 - 风格统一：深蓝科技风，几何抽象，避免摄影/3D 混用。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/rag_retriever_generator_robots.png` | ImageGen；1536×1024，high，opaque。Prompt 摘要：左侧机器人图书管理员从书架/文件库检索发光资料并递给右侧回答机器人，左检索右生成，柔和等距扁平矢量，统一深蓝/冰蓝/琥珀橙/青色，无文字 | 双机器人与资料传递完整，明确表现先查资料再回答；无文字乱码、Logo、水印 | P03 右栏主图 | 已核对内容、比例与页面显示 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 关键约束 |
 | :- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 01 | 01_cover.slide | cover | hero | 全幅渐变+骑线标题 | 装饰圆 | 30 | 40% | 深色底+大标题+青强调 |
 | 02 | 02_why_rag.slide | content | supporting | 左右对照 | 对比卡 | 150 | 20% | RAG vs 微调 |
-| 03 | 03_rag_pipeline.slide | content | supporting | 流程长条 | 流程条 | 130 | 25% | 六步流水线 |
+| 03 | 03_rag_pipeline.slide | content | supporting | 左六步网格+右概念插画 | 双机器人 RAG 插画 | 130 | 25% | 六步完整；保留 Retriever+Generator 双角色 |
 | 04 | 04_embedding.slide | content | supporting | 左标题+右内容 | 选型卡 | 140 | 22% | 中英选型 |
 | 05 | 05_vector_db.slide | content | supporting | 四库卡横排 | 库卡 | 140 | 22% | KNN/ANN/召回率 |
 | 06 | 06_retrieval_advanced.slide | content | supporting | 三件套横排 | 三件套卡 | 150 | 22% | Query/Reranker/Rewrite |

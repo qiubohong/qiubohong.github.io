@@ -46,8 +46,12 @@
 
 ## 5. 配图系统
 
-- 本讲以「正反例卡片 + 五要素 + CodeBlock + 巨数」为主视觉，不引入外部配图；SQL、Prompt 结构用 CodeBlock 还原。
+- 本讲以「正反例卡片 + 五要素 + CodeBlock + 巨数 + 概念插画」为主视觉；SQL、Prompt 结构用 CodeBlock 还原，角色设定加入三联职业场景主图。
 - 图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。
+
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/ai_role_playing.png` | ImageGen；同一友好 AI 机器人在三联场景中分别戴工程师安全帽、医生听诊器、作家贝雷帽工作，1536×1024 | 角色设定让 AI 切换职业视角，无文字、无 Logo，三个角色与道具完整 | P03 左栏主图 | 已核对内容与比例 |
 
 ## 6. 页面映射表
 
@@ -55,7 +59,7 @@
 | :- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 01 | 01_cover.slide | cover | hero | 全幅渐变+骑线标题 | 30 | 40% | 主60+辅20+强15 | 深色底+大标题+青强调 |
 | 02 | 02_five_elements.slide | content | supporting | 五要素卡横排 | 120 | 25% | 主45+辅30 | 五要素编号卡 |
-| 03 | 03_role.slide | content | supporting | 左角色+右正反例 | 130 | 22% | 主45+辅30 | 三角色+正反例 |
+| 03 | 03_role.slide | content | supporting | 非对称双栏图文 | 130 | 22% | 主45+辅30 | 左三联职业插画+右三角色与正反例 |
 | 04 | 04_context.slide | content | supporting | 左背景+右误区 | 120 | 25% | 主45+辅30 | 两大误区卡 |
 | 05 | 05_instruction.slide | content | supporting | 上标题+下正反例三卡 | 130 | 22% | 主45+辅30 | 三大正反例 |
 | 06 | 06_example.slide | content | supporting | 三卡并列 | 120 | 25% | 主45+辅30 | 三场景卡 |

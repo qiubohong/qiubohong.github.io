@@ -6,38 +6,39 @@
     fontFamily: '"思源黑体", sans-serif',
   }}
 >
-  <Box style={{ flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
-    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 14 }}>CHAPTER 02 · LEARNING ROADMAP</Text>
-    <Text style={{ fontSize: 44, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 40 }}>学习路线：四阶段爬坡</Text>
+  <Box style={{ width: '100%', height: '100%', flexDirection: 'column', paddingTop: 6 }}>
+    <Text style={{ fontSize: 14, color: '#22D3EE', fontWeight: 'bold', letterSpacing: 3, marginBottom: 10 }}>CHAPTER 02 · LEARNING ROADMAP</Text>
+    <Text style={{ fontSize: 40, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 22 }}>学习路线：四阶段爬坡</Text>
 
-    <Box style={{ flexDirection: 'row', alignItems: 'stretch', gap: 0 }}>
-      {[
-        { n: '01', t: '前置', d: '角色定位 + 术语扫盲', l: '第 1-2 讲' },
-        { n: '02', t: '入门', d: '会调用 · 会提问 · 会用框架', l: '第 3-5 讲' },
-        { n: '03', t: '进阶', d: '开源模型 · 本地部署 · 安全', l: '第 6-8 讲' },
-        { n: '04', t: '高级', d: 'RAG · Agent · 多模态', l: '第 9-10 讲' },
-      ].map((item, idx) => (
-        <Box key={idx} style={{ flexDirection: 'row', alignItems: 'stretch', flex: 1 }}>
-          <Box style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '26px 22px' }}>
-            <Text style={{ fontSize: 13, color: '#FF9F1C', fontWeight: 'bold', marginBottom: 10 }}>{item.n}</Text>
-            <Text style={{ fontSize: 24, color: '#FFFFFF', fontWeight: 'bold', marginBottom: 12 }}>{item.t}</Text>
-            <Text style={{ fontSize: 15, color: '#DCE7F5', lineHeight: 1.7, marginBottom: 10 }}>{item.d}</Text>
-            <Text style={{ fontSize: 13, color: '#8FA4B8' }}>{item.l}</Text>
+    <Box style={{ flex: 1, flexDirection: 'row', gap: 28, marginBottom: 42 }}>
+      <Box style={{ flex: 6, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+        {[
+          { n: '01', t: '前置', d: '角色定位 + 术语扫盲', l: '第 1-2 讲' },
+          { n: '02', t: '入门', d: '会调用 · 会提问 · 会用框架', l: '第 3-5 讲' },
+          { n: '03', t: '进阶', d: '开源模型 · 本地部署 · 安全', l: '第 6-8 讲' },
+          { n: '04', t: '高级', d: 'RAG · Agent · 多模态', l: '第 9-10 讲' },
+        ].map((item, idx) => (
+          <Box key={idx} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,231,245,0.15)', borderRadius: 12, padding: '14px 18px', flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ width: 38, fontSize: 18, color: '#FF9F1C', fontWeight: 'bold' }}>{item.n}</Text>
+            <Text style={{ width: 66, fontSize: 19, color: '#FFFFFF', fontWeight: 'bold' }}>{item.t}</Text>
+            <Text style={{ flex: 1, fontSize: 14, color: '#DCE7F5', lineHeight: 1.5 }}>{item.d}</Text>
+            <Text style={{ width: 78, fontSize: 12, color: '#8FA4B8', textAlign: 'right' }}>{item.l}</Text>
           </Box>
-          {idx < 3 && (
-            <Box style={{ width: 40, justifyContent: 'center', alignItems: 'center' }}>
-              <FAIcon name='chevron-right' style={{ fill: '#FF9F1C', width: 24, height: 24 }} />
-            </Box>
-          )}
+        ))}
+        <Box style={{ marginTop: 4, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+          <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 19, height: 19 }} />
+          <Text style={{ fontSize: 14, color: '#DCE7F5' }}>每爬一级，能力半径扩大一圈——先会用，再会调，最后会造</Text>
         </Box>
-      ))}
-    </Box>
+      </Box>
 
-    <Box style={{ marginTop: 36, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-      <FAIcon name='lightbulb' style={{ fill: '#FF9F1C', width: 20, height: 20 }} />
-      <Text style={{ fontSize: 16, color: '#DCE7F5' }}>
-        每爬一级，能力半径扩大一圈——先会用，再会调，最后会造
-      </Text>
+      <Box style={{ flex: 5, background: '#FFFFFF', borderRadius: 14, padding: 16, justifyContent: 'center', boxShadow: '0 2px 12px rgba(0,0,0,0.12)' }}>
+        <Image
+          src='assets/learning_roadmap_stages.png'
+          style={{ width: '100%', height: 350, objectFit: 'cover', borderRadius: 12, marginBottom: 16 }}
+        />
+        <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#16263F', marginBottom: 6 }}>从会提问，到会部署，再到会造应用</Text>
+        <Text style={{ fontSize: 13, color: '#5B6B7A', lineHeight: 1.6 }}>机器人导师陪你逐级上行；每一级都有明确能力与产出。</Text>
+      </Box>
     </Box>
   </Box>
   <Box style={{ position: 'absolute', bottom: 14, left: 60, right: 60, flexDirection: 'row', justifyContent: 'space-between' }}>

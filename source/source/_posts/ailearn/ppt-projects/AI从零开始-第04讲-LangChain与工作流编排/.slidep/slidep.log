@@ -275,3 +275,9 @@
 [2026-08-13 21:32:03.962] [INFO ] [pid=11346] [validate] --all mode: found 14 files in /Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/slides
 [2026-08-13 21:32:03.964] [INFO ] [pid=11346] [validate] batch start files=14 checkOverflow=true
 [2026-08-13 21:32:05.417] [INFO ] [pid=11346] [validate] batch done total=14 passed=14 failed=0 ms=1456
+=== boot pid=17647 ts=2026-11-08 19:07:36.250 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第04讲-LangChain与工作流编排-插图版.pptx --dsl-file slides/03_what_is_langchain.slide --page-index 2 ===
+[2026-11-08 19:07:36.235] [INFO ] [pid=17647] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:07:36.314] [INFO ] [pid=17647] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-插图版.pptx
+=== boot pid=20504 ts=2026-11-08 19:08:47.185 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第04讲-LangChain与工作流编排-插图版.pptx --page-index 2 --out qa/03_what_is_langchain.png ===
+[2026-11-08 19:08:47.179] [INFO ] [pid=20504] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:08:47.235] [INFO ] [pid=20504] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第04讲-LangChain与工作流编排/AI从零开始-第04讲-LangChain与工作流编排-插图版.pptx

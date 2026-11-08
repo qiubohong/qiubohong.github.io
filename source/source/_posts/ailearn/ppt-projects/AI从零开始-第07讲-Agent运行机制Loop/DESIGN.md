@@ -51,6 +51,10 @@
 - 代码用 CodeBlock 还原，不引用真实截图。
 - 禁 emoji，用 FAIcon（fill 必填），图标尺寸统一 24-32px。
 
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/context_memory_backpack.png` | ImageGen；prompt 摘要：机器人背着容量有限的记忆背包，旧消息卡从传送带掉落，重要信息压缩为发光胶囊并存入外部笔记本；1536×1024，高质量 | 上下文窗口截断、历史压缩与外部记忆，无文字、无 Logo，核心主体完整 | P06 右栏主图，下方保留三板斧 | 已核对内容、无文字乱码与页面比例 |
+
 ## 6. 页面映射表
 
 | # | 文件 | 类型 | 角色 | 版式 | L1 | 字数 | 留白% | 色彩分配 | 关键约束 |
@@ -60,7 +64,7 @@
 | 03 | 03_three_flavors.slide | content | supporting | 决策树三卡 | 三卡对比 | 160 | 25% | 主40+辅30 | 三卡 + 底部结论条 |
 | 04 | 04_minimal_loop.slide | content | supporting | 左文+右代码 | CodeBlock | 140 | 20% | 主45+辅30 | CodeBlock 主视觉 + 终止策略/工具卡 |
 | 05 | 05_message_lifecycle.slide | content | supporting | 上大图+下方卡片 | 消息流图示 | 150 | 20% | 主45+辅30 | 上消息交替图 + 下并行/Hooks 两卡 |
-| 06 | 06_context_amnesia.slide | content | supporting | 左标题+右内容 | 三板斧卡片 | 170 | 20% | 主50+辅25 | 左 Token 说明 + 右三板斧三卡 |
+| 06 | 06_context_amnesia.slide | content | supporting | 左标题+右概念插图与三卡 | 记忆背包插图 | 170 | 20% | 主50+辅25 | 左 Token 说明 + 右记忆管理插图，三板斧横排保留 |
 | 07 | 07_persistent_rules.slide | content | supporting | 左文+右卡 | CLAUDE.md 深卡 | 160 | 20% | 主45+辅30 | 左 CLAUDE.md 深卡 + 右断点/PreCompact 卡 |
 | 08 | 08_observability.slide | content | supporting | 左标题+右内容 | 五消息类型卡 | 170 | 20% | 主50+辅25 | 左 ResultMessage/effort + 右五类型卡 |
 | 09 | 09_summary.slide | ending | hero | 居中金句 | 装饰圆 | 80 | 40% | 主60+强15 | 深色收尾+练习+自测 |

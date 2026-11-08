@@ -281,3 +281,9 @@
 [2026-08-13 21:39:28.118] [INFO ] [pid=25924] [worker] shutdown received sig=SIGTERM
 [2026-08-13 21:39:28.217] [INFO ] [pid=25924] [worker] shutdown ok sig=SIGTERM ms=99
 [2026-08-13 21:39:28.323] [INFO ] [pid=26363] [stop] ok targetPid=25924 signal=SIGTERM ms=213
+=== boot pid=34552 ts=2026-11-08 19:15:05.291 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js upsert-dsl AI从零开始-第09讲-AI编程与研发提效-插图版.pptx --dsl-file slides/09_mcp.slide --page-index 8 ===
+[2026-11-08 19:15:05.286] [INFO ] [pid=34552] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:15:05.342] [INFO ] [pid=34552] [slide-version] fileId=/Users/b version=0 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-插图版.pptx
+=== boot pid=34863 ts=2026-11-08 19:15:11.191 cwd=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效 argv=/Users/borfyqiu/.workbuddy/binaries/node/versions/22.22.2-6/lib/node_modules/@tencent/slidep/dist/index.js screenshot AI从零开始-第09讲-AI编程与研发提效-插图版.pptx --page-index 8 --out qa/09_mcp.png ===
+[2026-11-08 19:15:11.185] [INFO ] [pid=34863] [server-url] baseUrl=http://127.0.0.1:39099 source=env
+[2026-11-08 19:15:11.233] [INFO ] [pid=34863] [slide-version] fileId=/Users/b version=1 filePath=/Users/borfyqiu/Desktop/study/self/qiubohong.github.io/source/source/_posts/ailearn/ppt-projects/AI从零开始-第09讲-AI编程与研发提效/AI从零开始-第09讲-AI编程与研发提效-插图版.pptx

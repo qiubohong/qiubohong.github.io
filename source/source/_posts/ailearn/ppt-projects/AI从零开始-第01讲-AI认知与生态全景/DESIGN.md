@@ -46,8 +46,12 @@
 
 ## 5. 配图系统
 
-- 本讲以「数字 + 卡片 + 图标 + CodeBlock」为主视觉，不引入外部配图；术语墙、格局、Q/K/V 均用 Box/Text/FAIcon/CodeBlock 组合还原。
+- 本讲以「数字 + 卡片 + 图标 + CodeBlock + 概念插画」为主视觉；术语墙、格局、Q/K/V 均用 Box/Text/FAIcon/CodeBlock 组合还原。
 - 图标统一使用 FAIcon（fill 必填），同一卡片组内尺寸统一。
+
+| 文件 | 生成方式 | 真实内容 | 使用页面 | 核对 |
+| :--- | :--- | :--- | :--- | :--- |
+| `assets/transformer_attention.png` | ImageGen；机器人阅读并用发光标记突出重点行，扁平科技插画，1536×1024 | 注意力 = 阅读时圈重点，无文字、无 Logo，主体完整 | P04 右栏主图 | 已核对内容与比例 |
 
 ## 6. 页面映射表
 
@@ -56,7 +60,7 @@
 | 01 | 01_cover.slide | cover | hero | 全幅渐变+骑线标题 | 30 | 40% | 主60+辅20+强15 | 深色底+大标题+青强调 |
 | 02 | 02_llm.slide | content | supporting | 左右对比+巨数 | 130 | 22% | 主40+辅30+强10 | 1750亿/1.8万亿/284B 巨数 |
 | 03 | 03_terms.slide | content | supporting | 10 词卡 2×5 | 140 | 18% | 主45+辅30 | 术语卡带一句解释 |
-| 04 | 04_transformer.slide | content | supporting | 非对称双栏 | 120 | 25% | 主45+辅30 | 左比喻+右 Q/K/V 选学标 |
+| 04 | 04_transformer.slide | content | supporting | 非对称双栏图文 | 100 | 25% | 主45+辅30 | 左比喻+右注意力概念插画，Q/K/V 移至 P11 |
 | 05 | 05_token.slide | content | hero | 深色巨数冷知识 | 100 | 35% | 主55+强15 | 40%~100% 巨数锚点 |
 | 06 | 06_embedding.slide | content | supporting | 上释义+下三应用卡 | 120 | 22% | 主45+辅30 | 三应用卡+基石条 |
 | 07 | 07_models.slide | content | supporting | 主卡+四配角卡 | 130 | 22% | 主45+辅30+强8 | V4-Flash 领衔开源 |
